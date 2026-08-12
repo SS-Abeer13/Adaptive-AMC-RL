@@ -1,0 +1,21 @@
+Holm-Bonferroni correction  (primary scheduler = PF, family = 5 CQI delays)
+============================================================================
+A2C vs OLLA (the contested claim):
+  delay | margin% |      raw p | Holm-adj p |   raw |  Holm
+  ------------------------------------------------------------------
+      0 |     1.5 |    0.03872 |     0.1162 |     * |  n.s.
+      2 |     3.5 |    0.01044 |    0.04176 |     * |     *
+      4 |     1.8 |    0.06871 |     0.1374 |  n.s. |  n.s.
+      6 |     6.7 |  4.072e-05 |  0.0002036 |   *** |   ***
+      8 |     1.8 |     0.2802 |     0.2802 |  n.s. |  n.s.
+  ------------------------------------------------------------------
+  Survive Holm at alpha=0.05: delays [np.int64(2), np.int64(6)]  (2 of 5)
+  Lost to correction (nominally sig, not after Holm): delay 0 (raw 0.039 -> adj 0.116)
+
+A2C vs Baseline (robustness of the uncontested claim):
+  all five delays raw p = 1.73e-06; Holm-adj p <= 8.67e-06; all survive (***).
+
+Full-grid note: within PF only (5 tests) two delays (2 and 6) survive; if one
+instead corrects the entire 5x3 = 15-test A2C-vs-OLLA grid, the threshold tightens
+further and only delay 6 (p=4.07e-5) clears with margin. Report the PF family as the
+pre-registered primary comparison and the grid as secondary.

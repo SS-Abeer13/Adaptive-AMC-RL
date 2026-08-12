@@ -1,0 +1,22 @@
+# Writing Tracker & Author Assignment Assets (excluded as requested)
+WRITER_WORKFLOW_AND_SECTION_ASSIGNMENTS.md
+Q1_Journal_Writeup_Tracker.xlsx
+Q1_Journal_Writeup_Tracker.csv
+Q1_Journal_Writeup_Tracker_By_Author.csv
+create_tracker_sheet.py
+
+# MATLAB temporary and crash files
+*.asv
+*.autosave
+*.mat.lock
+crash_dump_*.txt
+*.tmp
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini

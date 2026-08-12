@@ -1,0 +1,14 @@
+[21:14:46] Start DeepAC_Multi_GPU: simTime=100 ep=100 mode=throughput sched=pf
+[21:14:48] CUDA forward compatibility enabled
+[21:15:14] GPU active: NVIDIA GeForce RTX 5060 Ti CC=12.0 mem=14.3GB
+[21:19:23] ep 10/100 cellTp=2.24 nan=0 clips=620
+[21:23:01] ep 20/100 cellTp=7.72 nan=0 clips=1303
+[21:26:03] ep 30/100 cellTp=2.75 nan=0 clips=2049
+[21:29:05] ep 40/100 cellTp=1.19 nan=0 clips=2846
+[21:32:15] ep 50/100 cellTp=5.25 nan=0 clips=3573
+[21:36:06] ep 60/100 cellTp=5.57 nan=0 clips=4301
+[21:39:32] ep 70/100 cellTp=10.31 nan=0 clips=5021
+[21:43:30] ep 80/100 cellTp=6.04 nan=0 clips=5760
+[21:47:35] ep 90/100 cellTp=3.51 nan=0 clips=6523
+[21:51:52] ep 100/100 cellTp=4.77 nan=0 clips=7259
+[21:51:52] Done in 2175.0 s. NaN-skips=0, grad-clips=7259

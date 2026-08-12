@@ -1,0 +1,69 @@
+================================================================
+v7 RESULTS  N=10  hetero=0.00  burst_on=0(+9 dB, dwell 250/120)
+harq_on=1(max 3, comb 2.5 dB)  jakes=1  speed_switch=0  tier=B
+seeds=5  eval_traces=30  ep_tab=300  ep_deep=300  simTime=200
+BW=20 MHz  RB=100  sigma_meas=1.00 dB  actions=[-3 -2 -1 0 1 2 3]
+olla: target=0.10 step=0.50 warm_ttis=0  fixed=-2  class_tab=[-2 -2 -2;-2 -2 -2]
+base_seed=42  trace_seed_base=9000  saved 2026-07-21 18:48:06
+================================================================
+
+---- scheduler PF ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |    4.14 +/- 0.29 |    (ref) |    0.13 |  0.6353 |  0.804 |   NaN /  4.14
+  OLLA         |    4.48 +/- 0.32 |    +8.3% |    0.14 |  0.5605 |  0.808 |   NaN /  4.48
+  Fixed        |*   4.79 +/- 0.36 |   +15.7% |    0.18 |  0.3895 |  0.829 |   NaN /  4.79
+  FixedPU      |    4.68 +/- 0.35 |   +12.9% |    0.18 |  0.3983 |  0.828 |   NaN /  4.68
+  --------------------------------------------------------------------------------------
+  QL v7        |    3.53 +/- 0.21 |   -14.8% |    0.09 |  0.7005 |  0.799 |   NaN /  3.53
+  Tab AC v7    |    3.64 +/- 0.22 |   -12.2% |    0.11 |  0.6889 |  0.794 |   NaN /  3.64
+  Deep A2C v7  |    4.31 +/- 0.28 |    +4.0% |    0.15 |  0.5393 |  0.818 |   NaN /  4.31
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces):
+    A2C vs OLLA    p=0.01397 *
+    A2C vs Fixed   p=8.466e-06 ***
+    A2C vs FixedPU p=0.0001057 ***   <-- pre-registered win condition
+    A2C vs TabAC   p=1.734e-06 ***
+    A2C vs Baseline p=0.1204 (n.s.)
+
+---- scheduler RR ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |    4.45 +/- 0.38 |    (ref) |    0.11 |  0.5906 |  0.709 |   NaN /  4.45
+  OLLA         |    4.63 +/- 0.40 |    +4.1% |    0.12 |  0.5120 |  0.721 |   NaN /  4.63
+  Fixed        |    5.18 +/- 0.37 |   +16.4% |    0.15 |  0.3217 |  0.760 |   NaN /  5.18
+  FixedPU      |*   5.18 +/- 0.39 |   +16.4% |    0.15 |  0.3247 |  0.761 |   NaN /  5.18
+  --------------------------------------------------------------------------------------
+  QL v7        |    4.55 +/- 0.37 |    +2.3% |    0.11 |  0.5190 |  0.715 |   NaN /  4.55
+  Tab AC v7    |    4.50 +/- 0.35 |    +1.1% |    0.12 |  0.5045 |  0.720 |   NaN /  4.50
+  Deep A2C v7  |    4.85 +/- 0.38 |    +8.9% |    0.14 |  0.4092 |  0.739 |   NaN /  4.85
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces):
+    A2C vs OLLA    p=1.127e-05 ***
+    A2C vs Fixed   p=3.182e-06 ***
+    A2C vs FixedPU p=4.729e-06 ***   <-- pre-registered win condition
+    A2C vs TabAC   p=1.734e-06 ***
+    A2C vs Baseline p=2.127e-06 ***
+
+---- scheduler EQ ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |    5.19 +/- 0.39 |    (ref) |    0.16 |  0.4181 |  0.748 |   NaN /  5.19
+  OLLA         |    5.19 +/- 0.41 |    -0.1% |    0.16 |  0.2138 |  0.735 |   NaN /  5.19
+  Fixed        |    4.94 +/- 0.38 |    -4.9% |    0.15 |  0.1871 |  0.741 |   NaN /  4.94
+  FixedPU      |    4.93 +/- 0.38 |    -5.0% |    0.15 |  0.1879 |  0.741 |   NaN /  4.93
+  --------------------------------------------------------------------------------------
+  QL v7        |    4.99 +/- 0.38 |    -3.9% |    0.16 |  0.2443 |  0.741 |   NaN /  4.99
+  Tab AC v7    |    4.82 +/- 0.36 |    -7.3% |    0.15 |  0.2572 |  0.747 |   NaN /  4.82
+  Deep A2C v7  |*   5.25 +/- 0.39 |    +1.1% |    0.16 |  0.2686 |  0.750 |   NaN /  5.25
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces):
+    A2C vs OLLA    p=1.973e-05 ***
+    A2C vs Fixed   p=1.734e-06 ***
+    A2C vs FixedPU p=1.734e-06 ***   <-- pre-registered win condition
+    A2C vs TabAC   p=1.734e-06 ***
+    A2C vs Baseline p=0.0859 (n.s.)
+

@@ -1,0 +1,11 @@
+Case-2
+1) 5 users
+2) Random waypoint model
+3) Round Robin
+
+How to run?
+
+1st run 'Calculate_SINR_Final1' this file
+then run 'selectTBSFromSINR_final2'
+then run 'BLER_Calculation'
+and at last run 'Throughput_Calculation'

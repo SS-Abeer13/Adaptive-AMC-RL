@@ -1,0 +1,24 @@
+
+===== OLLA target-BLER sweep (PF, 30 traces, eval only) =====
+actions=[-5 -4 -3 -2 -1 0 1 2 3]  fixed=-3  class_tab=[-3 -3 -4;-3 -3 -3]
+
+  OLLA target=0.10 : Tp = 3.32 +/- 0.30 Mbps   BLER1 = 0.651
+  OLLA target=0.20 : Tp = 3.29 +/- 0.25 Mbps   BLER1 = 0.658
+  OLLA target=0.30 : Tp = 3.24 +/- 0.23 Mbps   BLER1 = 0.655
+  OLLA target=0.40 : Tp = 3.31 +/- 0.28 Mbps   BLER1 = 0.644
+  OLLA target=0.50 : Tp = 3.15 +/- 0.27 Mbps   BLER1 = 0.669
+
+  rand-action   : Tp = 3.02 +/- 0.28 Mbps   BLER1 = 0.721
+  const  -1     : Tp = 3.61 +/- 0.32 Mbps   BLER1 = 0.558
+  Deep A2C      : Tp = 3.74 +/- 0.34 Mbps   BLER1 = 0.427
+
+  Best OLLA target = 0.10 (Tp 3.32)
+  A2C vs BEST-OLLA  +12.9%  p=0.0006639
+  A2C vs const -1   +3.7%  p=0.1359
+  A2C vs rand       +24.1%  p=2.353e-06
+
+  READ: if |A2C vs BEST-OLLA| is small/n.s., the +12.8% headline
+        was a mis-specified OLLA target, not learned adaptivity.
+        If A2C vs const -1 is n.s., the policy is action-set centering.
+
+  Saved: Dataset\results_v7_olla_sweep.mat

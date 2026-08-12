@@ -1,0 +1,24 @@
+[20:22:31] Start DeepAC_v3: simTime=100 ep=200 mode=throughput sched=pf
+[20:22:31] CUDA forward compatibility enabled
+[20:22:34] GPU active: NVIDIA GeForce RTX 5060 Ti
+[20:24:19] ep 10/200 cellTp=2.15 nan=0 clips=795
+[20:25:10] ep 20/200 cellTp=7.07 nan=0 clips=1603
+[20:26:07] ep 30/200 cellTp=2.53 nan=0 clips=2380
+[20:26:57] ep 40/200 cellTp=1.37 nan=0 clips=3208
+[20:27:48] ep 50/200 cellTp=6.57 nan=0 clips=3944
+[20:28:52] ep 60/200 cellTp=5.55 nan=0 clips=4725
+[20:29:59] ep 70/200 cellTp=10.83 nan=0 clips=5469
+[20:31:08] ep 80/200 cellTp=6.60 nan=0 clips=6198
+[20:32:27] ep 90/200 cellTp=3.57 nan=0 clips=6938
+[20:33:54] ep 100/200 cellTp=4.48 nan=0 clips=7633
+[20:35:16] ep 110/200 cellTp=7.20 nan=0 clips=8441
+[20:36:50] ep 120/200 cellTp=4.48 nan=0 clips=9160
+[20:38:26] ep 130/200 cellTp=2.81 nan=0 clips=9889
+[20:39:48] ep 140/200 cellTp=1.59 nan=0 clips=10571
+[20:41:54] ep 150/200 cellTp=3.00 nan=0 clips=11308
+[20:43:46] ep 160/200 cellTp=3.85 nan=0 clips=12090
+[20:46:02] ep 170/200 cellTp=2.69 nan=0 clips=12801
+[20:48:21] ep 180/200 cellTp=3.93 nan=0 clips=13425
+[20:50:45] ep 190/200 cellTp=3.00 nan=0 clips=14082
+[20:53:01] ep 200/200 cellTp=5.54 nan=0 clips=14756
+[20:53:01] Done in 1825.0 s. NaN-skips=0, grad-clips=14756

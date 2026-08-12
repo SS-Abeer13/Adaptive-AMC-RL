@@ -1,0 +1,12 @@
+Deep A2C action usage  |  FINAL_results_v6_N10_d4_cameraready  |  N=10  delay=4  seeds=5  traces=30
+Action set = [-2 -1 0 1 2];  action 3 = 0 (== OLLA no-op)
+------------------------------------------------------------------------------
+  Sched  |    -2    -1    +0    +1    +2 |  action0%  deviate%
+------------------------------------------------------------------------------
+  PF     |  15.2  30.4  45.0   9.4   0.0 |    45.0     55.0
+  RR     |  12.1   9.3  41.2  37.4   0.0 |    41.2     58.8
+  EQ     |   0.0  17.7  27.5  54.7   0.0 |    27.5     72.5
+------------------------------------------------------------------------------
+Interpretation: a high action-0%% under a LOSING scheduler (RR@4, EQ@4) with a
+lower action-0%% under a WINNING one (PF, esp. delay 6) supports "real learned
+correction"; near-100%% everywhere would indicate a relabelled OLLA.

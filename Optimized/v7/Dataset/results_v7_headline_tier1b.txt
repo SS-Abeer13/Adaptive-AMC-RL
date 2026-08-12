@@ -1,0 +1,70 @@
+================================================================
+v7 RESULTS  N=10  hetero=1.00  burst_on=1(+9 dB, dwell 250/120)
+harq_on=1(max 3, comb 2.5 dB)  jakes=1  speed_switch=1  tier=B
+seeds=5  eval_traces=30  ep_tab=300  ep_deep=500  simTime=200
+BW=20 MHz  RB=100  sigma_meas=1.00 dB  actions=[-5 -4 -3 -2 -1 0 1 2 3]
+olla: target=0.10 step=0.50 warm_ttis=0  fixed=-3  class_tab=[-3 -3 -4;-3 -3 -3]
+train_sched_weights=[1 0 0]  bc_warm_eps=150  fixed_cands=[-4 -3 -2 -1 0 1 2]
+base_seed=42  trace_seed_base=9000  saved 2026-07-22 20:50:11
+================================================================
+
+---- scheduler PF ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |    3.10 +/- 0.25 |    (ref) |    0.09 |  0.6918 |  0.825 |  1.93 /  3.40
+  OLLA         |    3.29 +/- 0.27 |    +6.3% |    0.13 |  0.6402 |  0.845 |  2.13 /  3.98
+  Fixed        |*   3.77 +/- 0.35 |   +21.8% |    0.17 |  0.4441 |  0.884 |  2.24 /  4.48
+  FixedPU      |    3.73 +/- 0.34 |   +20.4% |    0.17 |  0.4427 |  0.881 |  2.36 /  4.43
+  --------------------------------------------------------------------------------------
+  QL v7        |    3.12 +/- 0.25 |    +0.9% |    0.10 |  0.6903 |  0.833 |  1.96 /  3.62
+  Tab AC v7    |    3.11 +/- 0.21 |    +0.4% |    0.10 |  0.6774 |  0.826 |  2.03 /  3.71
+  Deep A2C v7  |    3.71 +/- 0.32 |   +19.9% |    0.17 |  0.4386 |  0.879 |  2.18 /  4.30
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces), margin = A2C vs comparator:
+    A2C vs OLLA     +12.8%  p=0.0002831 *** [WIN ]
+    A2C vs Fixed     -1.6%  p=0.2623 (n.s.) [LOSS]
+    A2C vs FixedPU   -0.4%  p=0.813 (n.s.) [LOSS]   <-- pre-registered win condition
+    A2C vs TabAC    +19.4%  p=2.879e-06 *** [WIN ]
+    A2C vs Baseline  +19.9%  p=0.0001057 *** [WIN ]
+
+---- scheduler RR ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |    3.14 +/- 0.30 |    (ref) |    0.08 |  0.6134 |  0.769 |  1.72 /  3.64
+  OLLA         |    3.20 +/- 0.31 |    +1.9% |    0.09 |  0.5641 |  0.775 |  1.76 /  3.68
+  Fixed        |*   3.38 +/- 0.30 |    +7.7% |    0.13 |  0.4029 |  0.816 |  1.97 /  3.79
+  FixedPU      |    3.35 +/- 0.29 |    +6.9% |    0.13 |  0.3993 |  0.815 |  2.05 /  3.77
+  --------------------------------------------------------------------------------------
+  QL v7        |    3.19 +/- 0.30 |    +1.8% |    0.09 |  0.5664 |  0.777 |  1.75 /  3.57
+  Tab AC v7    |    3.18 +/- 0.30 |    +1.5% |    0.08 |  0.5674 |  0.777 |  1.77 /  3.55
+  Deep A2C v7  |    3.34 +/- 0.30 |    +6.6% |    0.13 |  0.3945 |  0.818 |  1.99 /  3.74
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces), margin = A2C vs comparator:
+    A2C vs OLLA      +4.6%  p=0.08972 (n.s.) [WIN ]
+    A2C vs Fixed     -1.0%  p=0.03327 * [LOSS]
+    A2C vs FixedPU   -0.3%  p=0.1589 (n.s.) [LOSS]   <-- pre-registered win condition
+    A2C vs TabAC     +5.0%  p=0.05984 (n.s.) [WIN ]
+    A2C vs Baseline   +6.6%  p=0.009842 ** [WIN ]
+
+---- scheduler EQ ----
+  Scheme       |   Cell Tp (Mbps) |  d vs BL |  EdgeTp |   BLER1 |   Jain | burst / calm Tp
+  --------------------------------------------------------------------------------------
+  Baseline     |*   3.51 +/- 0.30 |    (ref) |    0.16 |  0.4440 |  0.839 |  2.01 /  4.13
+  OLLA         |    3.20 +/- 0.29 |    -8.7% |    0.15 |  0.2850 |  0.822 |  1.95 /  3.77
+  Fixed        |    2.94 +/- 0.25 |   -16.1% |    0.14 |  0.2490 |  0.829 |  1.91 /  3.37
+  FixedPU      |    2.93 +/- 0.25 |   -16.5% |    0.14 |  0.2472 |  0.828 |  1.89 /  3.36
+  --------------------------------------------------------------------------------------
+  QL v7        |    3.20 +/- 0.28 |    -8.9% |    0.14 |  0.2842 |  0.823 |  1.94 /  3.76
+  Tab AC v7    |    3.20 +/- 0.28 |    -8.9% |    0.15 |  0.2847 |  0.822 |  1.95 /  3.76
+  Deep A2C v7  |    2.91 +/- 0.25 |   -17.1% |    0.14 |  0.2464 |  0.829 |  1.90 /  3.32
+  (CI: trace-level n=30; BLER1 = first-transmission BLER;
+   burst/calm = cell Tp during interference bursts vs calm)
+  Wilcoxon (paired, n=30 traces), margin = A2C vs comparator:
+    A2C vs OLLA      -9.2%  p=1.734e-06 *** [LOSS]
+    A2C vs Fixed     -1.2%  p=9.711e-05 *** [LOSS]
+    A2C vs FixedPU   -0.7%  p=0.003854 ** [LOSS]   <-- pre-registered win condition
+    A2C vs TabAC     -9.0%  p=1.734e-06 *** [LOSS]
+    A2C vs Baseline  -17.1%  p=1.734e-06 *** [LOSS]
+
