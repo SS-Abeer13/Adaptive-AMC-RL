@@ -1,0 +1,29 @@
+========================================================================
+RL-AMC v8 EVALUATION REPORT [FINAL_HEADLINE_O_GOODPUT]
+N=10 | BW=20 MHz | RB=100 | NoiseFloor=-92.0 dBm | Hetero=1.00 | Burst=+9 dB
+HARQ=1 | StateTier=O | Actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4] | Zero-BC (bc_warm_eps=0)
+Seeds=10 | Traces=100 | SimTime=200 | Saved: 2026-10-03 23:20:55
+========================================================================
+
+---- SCHEDULER: PF ----
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  3.52 +/- 0.16   | 0.611  |  0.14   | 0.859  | 2.23 / 4.00 Mbps
+  OLLA                 |  3.86 +/- 0.19   | 0.520  |  0.17   | 0.860  | 2.47 / 4.42 Mbps
+  Warm-OLLA            |  3.77 +/- 0.20   | 0.380  |  0.17   | 0.861  | 2.04 / 4.24 Mbps
+  Multi-OLLA           |  3.92 +/- 0.19   | 0.477  |  0.18   | 0.858  | 2.47 / 4.46 Mbps
+  Fixed                |  4.07 +/- 0.19   | 0.392  |  0.18   | 0.869  | 2.42 / 4.68 Mbps
+  Fixed-Online         |  4.02 +/- 0.19   | 0.377  |  0.17   | 0.865  | 2.43 / 4.64 Mbps
+  FixedPU (Oracle)     |  3.99 +/- 0.19   | 0.385  |  0.18   | 0.864  | 2.42 / 4.52 Mbps
+  Deep A2C v8          |  3.97 +/- 0.17   | 0.372  |  0.17   | 0.865  | 2.49 / 4.51 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (A2C vs. Comparators):
+  vs. Baseline           : Delta = +0.46 Mbps (+13.0%) | Wilcoxon p = 3.197e-13 (Holm 2.238e-12) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.11 Mbps ( +2.9%) | Wilcoxon p = 0.009062 (Holm 0.04531) | TOST p =  0.6178 [NON-EQUIVALENT]
+  vs. Warm-OLLA          : Delta = +0.20 Mbps ( +5.3%) | Wilcoxon p = 1.063e-07 (Holm 6.377e-07) | TOST p =  0.9982 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p =  0.1294 (Holm  0.2589) | TOST p =  0.1069 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -0.10 Mbps ( -2.4%) | Wilcoxon p = 0.009154 (Holm 0.04531) | TOST p =  0.4579 [NON-EQUIVALENT]
+  vs. Fixed-Online       : Delta = -0.05 Mbps ( -1.2%) | Wilcoxon p = 0.07718 (Holm  0.2315) | TOST p = 0.06299 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.01 Mbps ( -0.3%) | Wilcoxon p =  0.6774 (Holm  0.6774) | TOST p = 0.0009638 [EQUIVALENT]
+

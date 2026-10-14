@@ -1,0 +1,11 @@
+concern,alfa,bravo,charlie
+"Headline claim of recovering oracle baseline without tuning is contradicted by parity requiring oracle behavior cloning while uninitialized model trailed by 5.1%",True,True,True
+"Claimed throughput advantage over OLLA is a cold-start transient artifact; steady-state OLLA (Warm OLLA) defeats Deep A2C by 5.9% (p = 0.0003)",False,True,True
+"OLLA target-BLER sweep baseline is broken/saturated at ~65% BLER across all target settings due to unscaled step sizes",False,True,True
+"High random-seed instability (fresh seed flips parity to -4.4% loss, p = 0.006) and reliance on underpowered non-significant p-values (p = 0.06, N = 30) instead of formal equivalence testing",True,True,True
+"Complete omission of RL reward formulation, discount factor gamma, optimization hyperparameters, and tabular discretization scheme prevents replication",True,False,True
+"MDP formulation structurally handicaps dynamic adaptation via narrow OLLA-relative action bounds and freezing retransmission MCSs during HARQ chase combining",True,False,False
+"Primary comparator (FixedPU) possesses privileged oracle knowledge of discrete delay/velocity user classes, creating an unlevel baseline against online learners",False,True,False
+"Tier-A vs Tier-B state ablation fails to test environment adaptivity value due to expressive capacity limits of 2-layer feedforward MLPs in noisy, delayed POMDPs",False,False,True
+"Missing attribution of HARQ BLER trade-offs to prior wireless communications literature and omission of foundational RL-for-OLLA / feedback-tracking baselines",False,False,True
+"Incomplete specification of physical layer parameters (bandwidth, subcarrier spacing, RB grid, MCS table, exact BLER waterfall equations) prevents exact PHY replication",True,False,False

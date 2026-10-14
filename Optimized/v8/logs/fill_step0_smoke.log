@@ -1,0 +1,75 @@
+START 2026-10-03 20:19:21
+=== RL-AMC v8 Architecture Verification Smoke Test ===
+  [PASS] defaultEnv_v8 initialization & PHY constants verified.
+  [PASS] estimateBLER_v8 sigmoidal waterfalls verified at 10% anchor.
+  [PASS] CQI->MCS mapping meets 10% BLER at action 0 (max 0.100).
+  [PASS] Metric aggregation and Holm correction verified.
+  [PASS] txStep_v8 transmission physics & HARQ combining verified.
+  [PASS] MultiOLLA_v8 dual integrator dynamics verified.
+  [TEST] Running DeepA2C_Shared_v8 (2 episodes, autonomous training)...
+  Deep A2C v8 ep   2/2 | CellTp =  3.40 Mbps | Policy Entropy = 2.368 | entW = 0.005
+  [PASS] DeepA2C_Shared_v8 trained autonomously in 21.08 s (Final Tp = 3.40 Mbps).
+  [TEST] Evaluating evalPolicy_v8 across all comparators...
+    - Comparator baseline    : Mean CellTp =  4.17 Mbps
+    - Comparator olla        : Mean CellTp =  3.93 Mbps
+    - Comparator warm_olla   : Mean CellTp =  2.73 Mbps
+    - Comparator multi_olla  : Mean CellTp =  4.18 Mbps
+    - Comparator fixed       : Mean CellTp =  2.68 Mbps
+    - Comparator fixed_online: Mean CellTp =  2.68 Mbps
+    - Comparator fixed_class : Mean CellTp =  2.68 Mbps
+    - Comparator a2c_v8      : Mean CellTp =  1.12 Mbps
+  [PASS] All 8 comparator schemes evaluated successfully.
+
+=== ALL RL-AMC v8 ARCHITECTURE CHECKS PASSED SUCCESSFULLY ===
+SMOKE_OK 23.0 s
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=B
+  Seeds=1 | Traces=3 | Episodes=10 | SimTime=200 | Actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-03 20:19:45
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 2 calibration traces...
+  [calib] Best global fixed offset: -2
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0     0    -2
+     0    -2     0
+
+
+PHASE 1 -- Autonomous Training (1 seeds)
+  Seed 1/1 (20:19:45)...
+  Deep A2C v8 ep  10/10 | CellTp =  4.30 Mbps | Policy Entropy = 2.371 | entW = 0.005
+    [Deep A2C v8] Finished in     3.6 s | Final CellTp =  4.30 Mbps
+
+PHASE 2 -- Evaluation on 3 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  3.23 +/- 0.34   | 0.618  |  0.08   | 0.806  | 2.91 / 4.41 Mbps
+  OLLA                 |  3.38 +/- 0.18   | 0.540  |  0.11   | 0.838  | 3.17 / 5.07 Mbps
+  Warm-OLLA            |  2.91 +/- 0.72   | 0.462  |  0.11   | 0.866  | 2.42 / 3.92 Mbps
+  Multi-OLLA           |  3.21 +/- 0.34   | 0.513  |  0.12   | 0.867  | 3.05 / 2.83 Mbps
+  Fixed                |  3.12 +/- 0.46   | 0.480  |  0.08   | 0.841  | 2.66 / 6.71 Mbps
+  Fixed-Online         |  3.15 +/- 0.54   | 0.492  |  0.12   | 0.857  | 2.50 / 6.62 Mbps
+  FixedPU (Oracle)     |  3.45 +/- 0.31   | 0.518  |  0.13   | 0.865  | 2.96 / 7.31 Mbps
+  Deep A2C v8          |  2.90 +/- 0.53   | 0.524  |  0.10   | 0.818  | 2.37 / 3.64 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (A2C vs. Comparators):
+  vs. Baseline           : Delta = -0.32 Mbps (-10.0%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =    0.84 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -0.47 Mbps (-14.0%) | Wilcoxon p =    0.25 (Holm       1) | TOST p =  0.8524 [NON-EQUIVALENT]
+  vs. Warm-OLLA          : Delta = -0.00 Mbps ( -0.1%) | Wilcoxon p =       1 (Holm       1) | TOST p =  0.2176 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -0.30 Mbps ( -9.5%) | Wilcoxon p =    0.25 (Holm       1) | TOST p =  0.9111 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -0.22 Mbps ( -6.9%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =    0.77 [NON-EQUIVALENT]
+  vs. Fixed-Online       : Delta = -0.25 Mbps ( -7.9%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.7059 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.55 Mbps (-15.9%) | Wilcoxon p =    0.25 (Holm       1) | TOST p =  0.9446 [NON-EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v8\Dataset\results_v8_timing_probe.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v8\Dataset\results_v8_timing_probe.txt
+TIMING_OK 7.4 s
+END 2026-10-03 20:19:51

@@ -1,0 +1,44 @@
+
+### POINT pre_tierO  (2026-10-03 20:31:45)
+CONFIG|pre_tierO|n_eval=3|n_seeds=1|tier=O|episodes=2|olla_warm_ttis=0|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[1 0 0]
+CALIB|pre_tierO|fixed_offset=-1|class_tab=[-1 -1 -5;0 3 1]
+SCHEME|pre_tierO|Baseline|tp=6.9477|ci95=4.4324|bler1=0.3863|edge=0.0000|jain=0.4820|burst=2.5740|calm=8.2817
+SCHEME|pre_tierO|OLLA|tp=6.0040|ci95=4.7107|bler1=0.3676|edge=0.0000|jain=0.4238|burst=4.9620|calm=7.2868
+SCHEME|pre_tierO|Warm-OLLA|tp=4.4659|ci95=4.7116|bler1=0.3347|edge=0.0000|jain=0.3350|burst=4.8600|calm=5.4413
+SCHEME|pre_tierO|Multi-OLLA|tp=5.5395|ci95=2.8606|bler1=0.2248|edge=0.0000|jain=0.3917|burst=2.5740|calm=6.7550
+SCHEME|pre_tierO|Fixed|tp=5.5277|ci95=2.8831|bler1=0.2150|edge=0.0000|jain=0.4068|burst=2.5740|calm=6.7982
+SCHEME|pre_tierO|Fixed-Online|tp=4.5101|ci95=4.5334|bler1=0.4722|edge=0.0000|jain=0.2921|burst=0.9060|calm=6.3369
+SCHEME|pre_tierO|FixedPU (Oracle)|tp=4.7064|ci95=4.9902|bler1=0.3764|edge=0.0000|jain=0.3604|burst=4.9620|calm=5.7792
+SCHEME|pre_tierO|Deep A2C v8|tp=4.8960|ci95=1.3859|bler1=0.3404|edge=0.0000|jain=0.4588|burst=0.0000|calm=6.0827
+SEEDS|pre_tierO|a2c_seed_means=4.896|vsFixedPU_pct=4.03
+TRAIN|pre_tierO|final_train_tp_mean=3.0605|final_entropy_mean=2.3799|max_entropy=2.3979
+CMP|pre_tierO|A2C vs Baseline|diff=-2.0517|pct=-29.53|ci90pct=[-94.91 35.85]|wilcoxon=0.5|holm=1|tost2pct=0.828|tost010=0.832
+CMP|pre_tierO|A2C vs OLLA|diff=-1.1080|pct=-18.45|ci90pct=[-123.36 86.45]|wilcoxon=1|holm=1|tost2pct=0.654|tost010=0.657
+CMP|pre_tierO|A2C vs Warm-OLLA|diff=0.4301|pct=9.63|ci90pct=[-135.02 154.28]|wilcoxon=1|holm=1|tost2pct=0.554|tost010=0.552
+CMP|pre_tierO|A2C vs Multi-OLLA|diff=-0.6435|pct=-11.62|ci90pct=[-104.14 80.90]|wilcoxon=1|holm=1|tost2pct=0.605|tost010=0.607
+CMP|pre_tierO|A2C vs Fixed|diff=-0.6317|pct=-11.43|ci90pct=[-73.32 50.46]|wilcoxon=1|holm=1|tost2pct=0.65|tost010=0.653
+CMP|pre_tierO|A2C vs Fixed-Online|diff=0.3859|pct=8.56|ci90pct=[-130.68 147.79]|wilcoxon=1|holm=1|tost2pct=0.548|tost010=0.547
+CMP|pre_tierO|A2C vs FixedPU (Oracle)|diff=0.1896|pct=4.03|ci90pct=[-148.63 156.69]|wilcoxon=1|holm=1|tost2pct=0.514|tost010=0.513
+
+### ACTIONS pre_tierO (traces=1, seeds=1)
+ACT|pre_tierO|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+ACT|pre_tierO|a2c_pct=[17.33 7.4 0.53 15.47 1.2 29.93 2.93 20.4 4.73 0.07 0]
+ACT|pre_tierO|fixedpu_pct=[0 10 0 0 0 10 20 30 0 30 0]
+ACT|pre_tierO|agree_exact_pct=10.13|agree_within1_pct=27.00|mean_user_modal_share_pct=30.40|a2c_mean_offset=-1.918|fixedpu_mean_offset=0.600
+
+### SWEEP pre_tierO (traces=3)
+SWEEP|pre_tierO|olla|target=0.10|tp=3.5534|bler1=0.5603|a2c_vs_pct=37.78|wilcoxon=0.5
+SWEEP|pre_tierO|warm_olla|target=0.10|tp=2.9596|bler1=0.4119|a2c_vs_pct=65.43|wilcoxon=0.25
+SWEEPBEST|pre_tierO|best=olla@0.10|tp=3.5534|a2c_tp=4.8960|pct=37.78|wilcoxon=0.5|tost2pct=0.897
+PREFLIGHT_TIERO_OK
+
+### BCDIAG (seeds=1, bc_eps=2, rl_eps=2, traces=3)
+BC|class_tab=[-1 -1 -5;0 3 1]|fixed_offset=-1
+BC|clone_tp=3.7448|finetuned_tp=2.6661|fixedpu_tp=4.7064
+BC|clone_bler1=0.6334|finetuned_bler1=0.7000|fixedpu_bler1=0.3764
+BC|finetune_minus_clone=-1.0787|pct=-28.80|wilcoxon=0.5
+BC|clone_vs_fixedpu_pct=-20.43|wilcoxon=0.75
+BC|finetuned_vs_fixedpu_pct=-43.35|wilcoxon=0.5
+BC|entropy_end_BC=2.37|entropy_min_FT=2.376|entropy_end_FT=2.376|max=2.398
+BC|per_seed_ft_minus_clone_pct=-28.8
+PREFLIGHT_BC_OK

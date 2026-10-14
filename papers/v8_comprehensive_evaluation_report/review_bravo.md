@@ -1,0 +1,78 @@
+```
+SEED: 91db92c17d7739bac36fb0cb1e6662ff
+LENS: Experimental design
+STANCE: Skeptical-but-fair
+```
+
+# Peer Review Report: RL-AMC v8 Comprehensive Evaluation and Methodological Overhaul Report
+
+**Reviewer Codename:** bravo  
+**Primary Lens:** Experimental design (controls, confounds, blinding, pre-registration)  
+**Stance:** Skeptical-but-fair  
+
+---
+
+### Summary
+This manuscript presents an empirical evaluation and architectural overhaul (version 8) of a Deep Actor-Critic (Deep A2C) reinforcement learning framework for downlink Outer Loop Link Adaptation (OLLA / AMC) in heterogeneous 3GPP LTE/NR macrocells subjected to non-stationary Markov interference bursts (+9 dB). Prompted by a prior review panel's major revision verdict on v7, the authors introduce several architectural modifications: eliminating behavior cloning warm-starts ($\epsilon_{BC} = 0$), implementing per-user scheduled credit assignment to reduce transition gradient noise, integrating Chase-combining HARQ feedback, expanding the discrete action space to $\{-6, \dots, +4\}$, accelerating neural forward passes via direct BLAS matrix multiplication, and evaluating equivalence via Two One-Sided Tests (TOST) against seven baseline comparators. The paper claims that while Deep A2C matches conventional schemes in stationary channels, its true "moat" lies in non-stationary burst resilience—reporting a headline burst throughput of 2.23 Mbps (+218% over Baseline and +145% over FixedPU Oracle), a doubling of the Jain fairness index from 0.413 to 0.851, and a +250% boost in 5th-percentile cell-edge user connectivity (from 0.04 to 0.14 Mbps).
+
+---
+
+### Major concerns
+
+1. **Issue:** A critical experimental design and array-dimension bug in the evaluation harness unpopulated the second evaluation seed for all deterministic baselines, cutting their reported burst throughput, calm throughput, cell-edge throughput, and Jain fairness index exactly in half and rendering all headline superiority claims spurious.  
+   **Where:** Section 2 (Table I, lines 124–207), Section 3 (lines 209–218, 221), Appendix C (lines 564–572), and Appendix D (lines 614–622, 634–641); implemented in [runComparison_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/runComparison_v8.m#L108-L135,L162-L164).  
+   **Why it matters:** In `runComparison_v8.m`, the evaluation loop branches on `if k <= detK, ns = 1; else, ns = n_seeds; end` (where `detK = 7` and `n_seeds = 2`), simulating only seed 1 for the seven baseline comparators while Deep A2C (scheme 8) executes across both seeds. However, the metric storage matrices `M.tp_burst{k}`, `M.tp_calm{k}`, `M.edge_tp{k}`, `M.jain{k}`, and `M.bler{k}` were pre-allocated as `zeros(n_seeds, n_eval)`. When aggregating results in lines 162–164, the script executed `mean_bu = nanmean(M.tp_burst{k}(:))` and `mean_jn = nanmean(M.jain{k}(:))`. Because the second row was populated with zeros rather than NaNs, `nanmean` averaged 30 true trace metrics with 30 zero entries, artificially dividing the reported values by 2 for all seven baselines while leaving Deep A2C untouched.  
+   When this unpopulated zero-padding is corrected, the empirical reality completely contradicts the paper's claims:  
+   - **Burst throughput:** OLLA achieves **2.54 Mbps**, FixedPU Oracle achieves **2.52 Mbps**, Multi-OLLA achieves **2.44 Mbps**, and Fixed achieves **2.38 Mbps**—all substantially outperforming Deep A2C (**2.23 Mbps**). Deep A2C holds no burst resilience advantage whatsoever.  
+   - **Cell-edge connectivity:** OLLA achieves **0.149 Mbps**, Fixed achieves **0.158 Mbps**, and Fixed-Online achieves **0.159 Mbps**—all higher than Deep A2C (**0.142 Mbps**). The claimed "severe coverage drops under standard OLLA (0.07 Mbps)" was an artifact of halving 0.149 Mbps.  
+   - **Fairness:** Baselines achieve Jain indices between **0.822 and 0.864** (OLLA is 0.859; Fixed is 0.864), both higher than Deep A2C (**0.851**). Deep A2C did not "double fairness"; the baselines' reported values of ~0.41–0.43 were literally 0.82–0.86 divided by 2.  
+   Every central advantage claimed for Deep A2C in the paper is falsified by this experimental artifact.  
+   **What would address it:** Fix the aggregation indexing in `runComparison_v8.m` (either by taking `M.metric{k}(1, :)` for deterministic schemes or correctly initializing with NaNs), re-compute all tables and forest plots, and rewrite the manuscript to reflect that Deep A2C is systematically matched or beaten by classical link adaptation across all metrics.
+
+2. **Issue:** Deep A2C is granted access to unphysical simulation oracle variables—specifically ground-truth interference burst flags, true UE mobility speeds, and true propagation delays—invalidating the experimental controls and contradicting the authors' own critique of oracle baselines.  
+   **Where:** Section 1 (Table C3, lines 58–65), Section 3 (lines 214–216), Appendix A (lines 339–355), Appendix B (lines 466–471), and Appendix C (line 559); implemented in [stateFeat_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/stateFeat_v8.m#L14-L27) and [DeepA2C_Shared_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/DeepA2C_Shared_v8.m#L83-L87).  
+   **Why it matters:** The authors demoted `FixedPU` to an "unphysical oracle" because it relied on instantaneous UE speed and feedback delay, replacing it with `Fixed-Online`. However, in `stateFeat_v8.m` (Tier B features, on which all headline results were evaluated), Deep A2C is directly fed: (1) `burstObs`, which is the delayed ground-truth boolean state of the simulator's internal Markov interference process (`meta.burst`); (2) `spd / 30`, the exact UE speed without Doppler estimation error; and (3) `delays / 8`, the exact UE propagation delay. In an actual 3GPP cellular deployment, an uncoordinated external interference surge cannot be signaled via an explicit state flag, nor does the base station possess error-free physical speed coordinates.  
+   Crucially, when Deep A2C is evaluated without these unphysical oracle inputs under realistic PHY observables (the Tier A ablation documented in `Dataset/results_v8_tierA.txt`), its throughput collapses from 3.55 Mbps to **3.13 Mbps** under Proportional Fair scheduling. It is beaten by OLLA (3.58 Mbps, $p = 0.00015$), Multi-OLLA (3.66 Mbps, $p = 7.7\times 10^{-6}$), and Fixed (3.80 Mbps, $p = 5.2\times 10^{-6}$), becoming statistically indistinguishable from the unadapted open-loop baseline (3.10 Mbps, $p = 0.6733$). The authors completely concealed the Tier A results from the manuscript text.  
+   **What would address it:** Strip all unphysical ground-truth simulator metadata (`burstObs`, true `speeds`, true `delays`) from the RL observation space, re-train the agent strictly on deployable PHY signals (Doppler autocorrelation estimates, ACK/NACK history, CQI slope), and present the Tier A evaluation prominently as the primary benchmark.
+
+3. **Issue:** The claim that the 1000-TTI steady-state evaluation resolves the horizon confound and disproves OLLA's superiority is based on selective reporting of Round-Robin (RR) scheduling, concealing that Deep A2C significantly underperforms OLLA and Baseline under Proportional Fair (PF) scheduling.  
+   **Where:** Executive Summary (lines 21–22), Section 3 (lines 219–221), Appendix B (lines 458–464), and Appendix D (lines 613–631).  
+   **Why it matters:** In Section 3, the authors assert: *"Steady-State TOST Equivalence Disproves OLLA Superiority Claim: Under the 1000-TTI horizon with Round-Robin scheduling, Deep A2C matches OLLA (2.23 vs. 2.25 Mbps) with formal TOST equivalence ($p < 10^{-7}$)..."* This represents egregious cherry-picking. Proportional Fair (PF) scheduling is the primary multi-user scheduler used for the paper's headline evaluation (Table I). Under PF scheduling at 1000 TTIs (Appendix D, lines 613–631), Deep A2C achieves only **2.12 ± 0.21 Mbps**, which is:  
+   - Statistically significantly worse than standard OLLA (2.23 Mbps, Wilcoxon $p = 0.001526$, TOST $p = 0.6577$ **`[NON-EQUIVALENT]`**);  
+   - Statistically significantly worse than Fixed (2.26 Mbps, $p = 6.1\times 10^{-5}$);  
+   - Statistically significantly worse than Baseline (3.00 Mbps, Wilcoxon $p = 6.1\times 10^{-5}$, Delta = -29.2%).  
+   Switching the scheduling regime from PF to RR specifically when discussing steady-state tracking in the main text is an unacceptable experimental confound designed to mask that Deep A2C fails in asymptotic steady state under industry-standard PF scheduling.  
+   **What would address it:** Report both PF and RR 1000-TTI results transparently in the main text, retract the claim that OLLA's steady-state superiority has been disproven, and analyze why Deep A2C suffers significant performance degradation under PF scheduling over extended horizons.
+
+4. **Issue:** The authors repeatedly claim that the evaluation harness was scaled to $N=100$ independent channel realization traces to achieve high statistical power ($1-\beta > 0.92$), but the reported benchmarks were actually executed on only $N=30$ traces (for 200 TTIs) and $N=15$ traces (for 1000 TTIs) across only 2 seeds.  
+   **Where:** Section 1 (Table C6, lines 82–89), Appendix B (lines 526–532), Appendix C (line 560), and Appendix D (line 610).  
+   **Why it matters:** In Table 1, Concern C6 is marked as "RESOLVED: Scaled evaluation harness to N=100 independent channel realization traces." In Appendix B, the authors state: *"At N=100, statistical power for detecting a 2.5% throughput shift exceeds $1 - \beta = 0.92$."* However, the empirical dataset metadata confirms:  
+   - Appendix C (Headline): `Seeds=2 | Traces=30 | SimTime=200`  
+   - Appendix D (Steady1000): `Seeds=2 | Traces=15 | SimTime=1000`  
+   The authors upgraded the code parameter default to `n_eval = 100`, but never actually ran their evaluation suite at that sample size. Asserting that a peer-review concern regarding low statistical power has been resolved while presenting data computed over only 15 to 30 traces across 2 seeds is a severe reporting violation. Reporting TOST $p$-values down to $10^{-7}$ or $10^{-9}$ on $N=15$ traces is statistically unsound.  
+   **What would address it:** Execute the full benchmark suite across at least $N = 100$ independent channel realization traces with at least 5 to 10 distinct random seeds, re-compute all hypothesis tests, and reconcile all text claims with the actual executed sample size.
+
+5. **Issue:** Deep A2C operates at an unacceptably high initial Block Error Rate of 53.0% (and 61.3% in Tier A), violating 3GPP LTE/NR standards and rendering the policy completely undeployable in practical cellular networks.  
+   **Where:** Section 2 (Table I, line 202), Section 3 (lines 208–224), Appendix C (line 572), and Appendix D (line 622).  
+   **Why it matters:** 3GPP specifications (TS 36.213 / TS 38.214) target an initial BLER of 10% ($0.10$) for general traffic to prevent control signaling exhaustion, excessive buffer occupancy, and packet jitter. Deep A2C exhibits a BLER1 of 53.0% under PF scheduling and 45.1% under RR scheduling (reaching 61.3% in Tier A). This occurs because the reward function in line 302 severely under-penalizes retransmissions ($\lambda_{retx} = 0.05$) relative to goodput rewards, encouraging the actor to gamble on overly aggressive MCS levels and rely on Chase combining. In a physical base station, corrupting more than half of all initial transmissions would saturate the PUCCH/PDCCH feedback channels, trigger severe RLC reassembly delays, and cause catastrophic packet drops for delay-sensitive QoS bearers.  
+   **What would address it:** Formulate the objective as a constrained MDP or calibrate the reward penalty ($\lambda_{retx}, \lambda_{drop}$) such that the policy strictly converges to the standardized 10% BLER target, and provide full latency and control signaling overhead evaluations.
+
+6. **Issue:** Deep A2C is misrepresented as an autonomous link adaptation algorithm that learns from scratch without heuristics, whereas the codebase reveals it operates merely as an additive discrete delta on top of a running, unacknowledged 3GPP OLLA integrator (and omits relevant prior art on RL-based OLLA offset adaptation).  
+   **Where:** Title (lines 1–3), Executive Summary (lines 17–18), Section 1 (Table C1, lines 47–48), Appendix A (lines 288–294), and Appendix B (lines 420–424); implemented in [txStep_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/txStep_v8.m#L1-L78), [DeepA2C_Shared_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/DeepA2C_Shared_v8.m#L102-L143), and [evalPolicy_v8.m](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v8/evalPolicy_v8.m#L100-L176).  
+   **Why it matters:** The authors repeatedly claim "Strict Zero-BC Autonomous Learning" where the network "discovers link adaptation policies without oracle imitation." However, inspecting `txStep_v8.m` and `DeepA2C_Shared_v8.m` reveals that in every TTI, the standard linear OLLA integrator updates offset `off` via classical step-up/step-down integration ($off \leftarrow off + du$ on ACK, $off \leftarrow off - dd$ on NACK). Deep A2C simply applies an offset $A(a) \in \{-6, \dots, +4\}$ to the OLLA-adjusted baseline CQI. The agent is an additive residual controller on top of OLLA, not an autonomous replacement for OLLA.  
+   Furthermore, using reinforcement learning to control or bias outer-loop link adaptation offsets is well-established in the literature (e.g., Pulliyakode and Kalyani [1708.00994v1], *"Reinforcement learning techniques for Outer Loop Link Adaptation in 4G/5G systems"*), which the authors fail to cite or position their work against.  
+   **What would address it:** Re-frame the contribution accurately as a residual offset controller on top of 3GPP OLLA, cite foundational literature on RL-driven link adaptation including [1708.00994v1], and conduct an ablation where the background OLLA integrator is disabled ($off = 0$) to evaluate whether the neural policy can operate truly autonomously.
+
+---
+
+### Minor concerns
+- **Text Rendering Artifact:** Line 220 contains unrendered font corruption: *"formal TOST equivalence (p < 10■■)"* (presumably intended to be $10^{-7}$).
+- **Absence of Empirical Figure Details:** Section 4 lists one-line captions for Figures 1–6, but no actual figures, plot data, coordinate scales, or confidence bounds are provided in the manuscript body.
+- **Incomplete Baseline Citation:** The multi-loop baseline is repeatedly cited as *"Ahsen et al. [2604.20459]"* without author initials, title, year, or formal bibliographic entry in a references section.
+- **Misleading Comparator Nomenclature:** In `evalPolicy_v8.m`, the "Fixed" and "Fixed-Online" comparators also execute OLLA step updates in `txStep_v8.m`, meaning they are not pure static offsets but rather OLLA schemes initialized with static or online class biases. This distinction must be clarified.
+- **Equivalence Bound Normalization:** Line 318 defines the TOST equivalence margin as $\pm \Delta_{eq} = \pm 0.10$ Mbps ($\approx 2.5\%$ of cell capacity), implying a nominal capacity of 4.0 Mbps. The authors should explicitly define the exact capacity reference used to justify the 2.5% threshold.
+
+---
+
+### Verdict
+**Reject**. The manuscript's headline claims—including the +218% burst advantage, doubled user fairness, and +250% cell-edge connectivity—are spurious artifacts of a benchmarking aggregation bug that halved comparator performance, compounded by unphysical oracle feature leakage, selective reporting across horizons, an unviable 53% block error rate, and substantial discrepancies between claimed and actual sample sizes.

@@ -1,0 +1,13 @@
+concern,alfa,bravo,charlie
+"Evaluation harness aggregation bug zero-pads seed 2 for deterministic baselines, artificially halving comparator burst throughput, edge throughput, and fairness",False,True,False
+"Deep A2C operates at an unviable 53% initial block error rate (BLER1=0.530), indicating reward gaming and violating 3GPP 10% target",True,True,True
+Discrepancy between text claiming N=100 traces (power > 0.92) and actual raw execution logs showing N=30 and N=15 traces across 2 seeds,True,True,True
+"Steady-state TOST equivalence claim relies on selective reporting of Round-Robin scheduling, concealing significant underperformance under Proportional Fair",True,True,True
+"Deep A2C is granted unphysical simulator oracle inputs (true speed, true delay, Markov burst state flag); throughput collapses to baseline in Tier A without them",True,True,False
+"Complete absence of Related Work section, overclaiming novelty of autonomous RL for AMC, and omitting foundational prior art (Pulliyakode & Kalyani [1708.00994])",True,False,True
+Gross mischaracterisation of Ahsen et al. [2604.20459] as a general dual-integrator baseline when it investigated XR tethering sidelinks,True,False,True
+"Deep A2C finishes 6th of 8 schemes in aggregate cell capacity under standard Proportional Fair scheduling, contradicted by triumphant narrative",True,False,True
+"Distinguishing test failure: burst agility may be an artifact of granting RL an expanded -6 dB action that baselines were denied, rather than learned sequence tracking",False,False,True
+"Newly implemented Multi-OLLA dual-integrator baseline collapses to 1.57 Mbps in steady state due to uncalibrated parameters, acting as an under-tuned strawman",False,False,True
+"Deep A2C operates as a residual discrete offset on top of an active, unacknowledged 3GPP background OLLA integrator rather than an autonomous replacement",False,True,False
+"Multiple hypothesis testing across 7 comparators lacks family-wise error rate corrections (e.g., Holm-Bonferroni)",True,False,False

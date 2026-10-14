@@ -1,0 +1,61 @@
+# Peer Review: Project Briefing & Characterization Report: Reinforcement Learning-Based Adaptive Modulation and Coding (v7)
+
+**Reviewer Codename:** bravo  
+
+```
+SEED: 8b1e20d7f293d29acdb8e76710876bd8
+LENS: Experimental design (controls, confounds, blinding, pre-registration)
+STANCE: Skeptical-but-fair (default reviewer voice)
+```
+
+---
+
+### Summary
+
+This paper investigates whether deep reinforcement learning (Deep A2C) can learn a state-conditional link adaptation policy that outperforms oracle-calibrated, per-user-class constant offset rules in a mobile cellular downlink with HARQ Chase Combining, non-stationary Markov interference bursts, and Jakes-calibrated fading. Building on insights from a prior iteration (v6) where RL gains were identified as static setpoint shifts, the authors execute a 12-point pre-registered campaign across seven link adaptation schemes. The primary pre-registered hypothesis fails decisively (0 wins out of 9 evaluated points against the oracle baseline, with three statistically significant losses). Through post-hoc diagnostic iterations, an entropy-schedule fix, an information-ablation study, and an OLLA target-BLER sweep, the authors characterize the system to conclude that the optimal link-adaptation policy in this regime is effectively a constant scalar offset rather than a state-conditional policy. They attribute published RL-over-OLLA gains primarily to an aggressive, HARQ-subsidized operating setpoint rather than intelligent channel-state tracking.
+
+---
+
+### Major concerns
+
+1. **Issue:** Post-hoc methodological modifications and circular behavior-cloning initialization undermine the pre-registered confirmatory protocol and invalidate claims of parity.
+   - **Where:** Section 3 (lines 235–243), Section 4.1 (Table 1, lines 337–341), Section 5 (lines 374–380), Section 6 (Table 2, lines 392–423).
+   - **Why it matters:** The authors established a formal pre-registered win condition: Deep A2C must beat `FixedPU` on cell throughput under the proportional-fair (PF) scheduler ($p < 0.05$). The campaign yielded a complete failure of the primary hypothesis (0/9 wins, 3 statistically significant losses). Following this outcome, the study pivoted into post-hoc parameter adjustments applied exclusively to the headline point (+9 dB burst). Most critically, the variant claiming parity (`tier1b`, $-0.0\%$, $p = 0.813$) initialized the actor-critic network via behavior cloning (BC) directly from the comparator (`FixedPU`). Evaluating an agent initialized on the comparator's own policy and discovering that subsequent RL fine-tuning yields zero gain does not demonstrate that RL achieves parity; it demonstrates that fine-tuning failed to discover any policy adjustments. Meanwhile, the uninitialized variant (`tier1-nobc`) suffered a $-5.1\%$ throughput penalty ($p = 0.06$). Treating $p = 0.06$ as "near-parity" conflates a failure to reject the null due to limited sample size with evidence of equivalence.
+   - **What would address it:** The manuscript must strictly demarcate the pre-registered confirmatory findings from the post-hoc exploratory diagnostics. The authors should refrain from using `tier1b` to claim that RL matches the oracle, as that configuration suffers from circular data leakage. The un-cloned model (`tier1-nobc`) must be evaluated across all 12 campaign points rather than just the headline point. Furthermore, to legitimately claim performance parity, the authors must employ formal equivalence testing (e.g., Two One-Sided Tests, TOST) with a pre-specified equivalence boundary (e.g., $\pm 2\%$) rather than relying on a non-significant $p$-value ($p = 0.06$) from an underpowered Wilcoxon test.
+
+2. **Issue:** The reported throughput advantage of Deep A2C over OLLA appears to be an artifact of evaluating cold-start transient behavior rather than steady-state performance.
+   - **Where:** Section 4.1 (Table 1, lines 321–328, 339–341), Section 8 (lines 454–509), Section 11 (lines 591–597).
+   - **Why it matters:** In Table 1, when OLLA is evaluated with a 1000-TTI warm-up period ("Warm OLLA"), it achieves 3.77 Mbps—significantly outperforming Deep A2C (3.56 Mbps, a $-5.9\%$ deficit for A2C, $p = 0.0003$) and beating `FixedPU` (3.45 Mbps). The authors dismiss this result as a "deliberately handicapping warm-OLLA point" (line 339). However, in production cellular networks, outer loop link adaptation operates over continuous sessions spanning thousands or millions of TTIs. If OLLA achieves higher throughput than Deep A2C once its integration filter converges to steady state, then the headline claim that Deep A2C delivers a $+7\%$ to $+13\%$ gain over the industry standard is an artifact of short evaluation episodes dominated by cold-start initialization lag.
+   - **What would address it:** Present a systematic convergence analysis comparing the transient phase against the steady-state operating regime across varying trace durations (e.g., 500, 1000, 5000 TTIs). If OLLA systematically matches or outperforms Deep A2C in steady state, the authors must explicitly revise their narrative: the RL outer loop provides faster initial acquisition during transients rather than an asymptotic throughput improvement over converged OLLA.
+
+3. **Issue:** The OLLA target-BLER validation sweep reveals a severe control failure in the baseline, confounding the comparison between RL and classical link adaptation.
+   - **Where:** Section 8 (Table 3, lines 458–496, Figure 7).
+   - **Why it matters:** The authors sweep OLLA's target BLER parameter from 0.10 to 0.50 to test whether OLLA's performance gap can be closed by configuring a more aggressive setpoint under HARQ. Crucially, Table 3 shows that across all target settings ($10\%, 20\%, 30\%, 40\%, 50\%$), OLLA's achieved first-transmission BLER ($BLER_1$) remains completely unchanged between 0.644 and 0.669 ($64.4\%$ to $66.9\%$). An outer-loop controller configured for a $10\%$ error rate that actually operates at $65\%$ BLER is experiencing complete loop saturation or tracking breakdown. This indicates that OLLA's step sizes ($d_{up}, d_{down}$) are completely uncalibrated for the rapid non-stationary Markov interference transitions (+9 dB) and delayed feedback (2–8 TTIs). Benchmarking RL against an out-of-control, saturated baseline undermines the external validity of the comparison.
+   - **What would address it:** The authors must investigate why OLLA fails to track its commanded target BLER in this simulator. The step-size dynamics ($d_{up}, d_{down}$) must be properly dimensioned for the channel's fading rate and interference dwell times. Alternatively, the authors should benchmark against well-established adaptive outer-loop methods that handle non-stationary interference or multi-rate dynamics, such as multi-offset OLLA frameworks [2604.20459v2] or self-adaptive SINR tracking mechanisms [2510.05784v2].
+
+4. **Issue:** High sensitivity to random seeds introduces replication instability that is not addressed with rigorous multi-seed statistics in the diagnostic iterations.
+   - **Where:** Section 4.2 (lines 346–352), Section 6 (Table 2, lines 392–423), Section 11 (lines 611–616).
+   - **Why it matters:** Section 4.2 candidly documents that evaluating the headline configuration under a fresh random seed altered the result from near-parity ($-0.7\%$, $p = 0.517$) to a statistically significant loss for Deep A2C ($-4.4\%$, $p = 0.006$). Despite identifying seed instability as a critical concern, the subsequent Tier-1 iterations in Table 2 (`tier1`, `tier1b`, `tier1-nobc`) are presented without inter-seed standard deviations, confidence intervals, or confirmation of multi-seed replication. Given that inter-seed variation can swing performance by nearly $4\%$, reporting single-seed or aggregate point estimates for `tier1b` and `tier1-nobc` risks presenting seed-dependent anomalies as generalizable architectural improvements.
+   - **What would address it:** Re-run all diagnostic configurations (`tier1`, `tier1b`, `tier1-nobc`) across at least 10 independent random seeds covering both network initialization and environment trace generation. Report mean performance, inter-seed standard deviations, and bootstrap confidence intervals in Table 2 to demonstrate that the observed trends are robust to seed stochasticity.
+
+5. **Issue:** The primary comparator (`FixedPU`) is endowed with unrealistic oracle knowledge of user classification, creating an unlevel experimental baseline.
+   - **Where:** Section 2.2 (lines 184–189), Section 3 (lines 229–230, 238–243), Section 5 (lines 362–366).
+   - **Why it matters:** `FixedPU` partitions users into an idealized $2 \times 3$ grid of delay and velocity classes and applies pre-calibrated constant offsets per class. In physical cellular systems, UE velocity and feedback delay are not delivered as discrete, noise-free class labels. While `FixedPU` is tuned offline via an exhaustive grid search over held-out traces with perfect knowledge of class boundaries, the RL agent under Tier-A is deprived of speed and delay labels entirely. Under Tier-B, the agent receives instantaneous speed but must learn the non-linear relationship in the presence of noise and delayed interference bursts. Comparing a blind or partially informed online learner against an offline grid-searched oracle with partitioned class knowledge conflates policy capacity with privileged external information.
+   - **What would address it:** Include an online heuristic baseline that estimates user velocity and delay from channel measurements (e.g., Doppler estimators or autocorrelation-based speed estimation) to drive class-based offsets. Alternatively, evaluate `FixedPU` under noisy class assignments to establish how brittle the oracle baseline is to imperfect channel state classification.
+
+---
+
+### Minor concerns
+
+- **Table 1 notation:** The caption for Table 1 states "$N = 10$, 5 seeds, 30 held-out traces", but the text does not define what $N = 10$ refers to (presumably 10 active UEs per cell). This should be explicitly defined in Section 3.
+- **Truncated table header in Table 2:** The fourth column header is labeled `vs.` without stating the reference baseline (presumably `FixedPU`), and all entries in that column are placeholder dashes (`-`). Provide the explicit percentage margins and associated $p$-values.
+- **HARQ chase-combining formulation:** Equation (1) models Chase combining as $\text{SINR}_{eff} = \text{SINR}_{true} + n_{retx} \times 2.5\text{ dB}$. Maximal-ratio combining of identical packets in AWGN yields a linear sum of powers, meaning each doubling of transmissions adds $+3\text{ dB}$, rather than an additive linear dB increase per attempt. The linear dB approximation should be explicitly justified or calibrated against link-level simulator curves.
+- **Doppler correlation vs. AR(1) spectrum:** In Section 2.4, Equation (2) matches the lag-1 correlation of an AR(1) Gauss-Markov process to the Jakes zeroth-order Bessel function $J_0(2\pi f_d T_{tti})$. The authors should briefly clarify that an AR(1) process has an exponentially decaying autocorrelation, whereas the true Jakes model exhibits an oscillatory autocorrelation with a classic U-shaped Doppler power spectrum.
+- **OLLA-relative action coupling:** Section 2 states that "action 0 $\equiv$ OLLA exactly; every RL policy carries the identical OLLA inner loop". The mathematical relationship between the RL action output $a_t \in \{-5, \dots, 3\}$ and the internal OLLA offset $\Delta_{OLLA}(t)$ should be formalized as an explicit equation to clarify whether the RL policy outputs a delta added to the integrated OLLA offset or modulates the step size.
+
+---
+
+### Verdict
+
+**Major revision.** While the paper provides an exceptionally candid, rigorous, and valuable characterization of why RL fails to beat constant offsets in link adaptation, the central claims are undermined by critical experimental confounds—including circular behavior-cloning initialization in the parity benchmark, an out-of-control OLLA baseline operating at 65% BLER, a cold-start transient evaluation protocol where converged OLLA actually beats RL, and unresolved random-seed instability—which must be addressed before publication.
+</SYSTEM_MESSAGE>

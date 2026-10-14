@@ -1,0 +1,720 @@
+--- PAGE 1 ---
+Project Briefing & Characterization Report:
+Reinforcement Learning-Based Adaptive Modulation
+and Coding (v7)
+RL-AMC Case Study – v7 Comprehensive Evaluation Report
+August 7, 2026
+Abstract
+This report documents the v7 campaign of the OLLA-relative Reinforcement Learning-based
+Adaptive Modulation and Coding (RL-AMC) project. v7 was designed to close a gap iden-
+tified in v6: fixed-offset comparators matched learned policies in calm, homogeneous, error-
+free conditions, suggesting the entire RL advantage was a setpoint shift rather than learned
+state-conditional adaptivity. v7 introduces five architectural changes intended to create genuine
+adaptivity value – HARQ with chase combining, per-user heterogeneity, Markov interference
+bursts with mid-trace speed changes, steep per-MCS BLER waterfalls with Jakes-calibrated
+fading, and a two-tier state ablation – and evaluates seven link-adaptation schemes (Baseline,
+OLLA, best global fixed offset, best per-class fixed offset, tabular Q-learning, tabular actor-
+critic, and Deep A2C) across a 12-point pre-registered campaign. The result is a null on the
+primary pre-registered hypothesis (Deep A2C beating the oracle-calibrated per-class constant
+rule) that survives multiple rounds of bug-fixing, hyperparameter correction, and a decisive
+external validation (an OLLA target-BLER re-tuning sweep). We report this as an honest char-
+acterization: reinforcement learning recovers, but does not exceed, oracle-tuned constant offsets
+in this class of environment, while still delivering a consistent and statistically significant gain
+over the industry-standard OLLA outer loop. The report includes the full evidence chain – 12
+pre-registered points, three rounds of Tier-1 diagnostic fixes, a learner-by-learner breakdown,
+an entropy-collapse diagnostic, and the OLLA-target sweep that rules out a mis-tuned base-
+line as the explanation for the residual OLLA gain – together with 9 supporting figures and a
+recommended paper framing and structure.
+Contents
+1
+Introduction, Goal, and Research Process
+2
+1.1
+The v6 Lesson
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+1.2
+The v7 Hypothesis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+1.3
+Research Process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+2
+v7 Environment Design
+3
+2.1
+D1: HARQ with Chase Combining . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.2
+D2: Per-User Heterogeneity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.3
+D3: Non-Stationarity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.4
+D4: Honest Physics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.5
+D5: Two-Tier State Ablation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+1
+
+--- PAGE 2 ---
+3
+Comparator Suite and Pre-Registration
+4
+4
+Campaign Results
+4
+4.1
+Nine-Point Pre-Registered Sweep . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+4.2
+The Fresh-Seed Replication Problem . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+5
+Diagnosis: Why Zero Wins?
+6
+6
+Tier-1 Fix Iterations
+7
+7
+State Information Ablation
+7
+8
+External Validation: The OLLA Target-BLER Sweep
+10
+9
+Burst-vs-Calm and BLER Operating-Point Detail
+11
+10 Additional Diagnostics
+11
+10.1 Trace-Level Win Rate
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+10.2 Scheduler Sensitivity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+10.3 Fairness and Edge Throughput . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+10.4 Action Distribution: Direct Evidence for the Constant-Policy Thesis . . . . . . . . .
+12
+10.5 Tabular vs. Deep Training Convergence
+. . . . . . . . . . . . . . . . . . . . . . . . .
+14
+11 Key Insights
+14
+12 Recommended Paper Framing
+16
+12.1 Suggested Structure
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+16
+13 Key Code Snippets
+17
+13.1 HARQ Chase-Combining Transmission Physics . . . . . . . . . . . . . . . . . . . . .
+17
+13.2 Behavior-Cloning Warm Start (Tier-1 Fix) . . . . . . . . . . . . . . . . . . . . . . . .
+18
+2
+
+--- PAGE 3 ---
+1
+Introduction, Goal, and Research Process
+The core goal of this research is to design and evaluate Reinforcement Learning (RL) al-
+gorithms for Link Adaptation (LA) in a multi-user, mobile cellular downlink – dynamically
+selecting the Modulation and Coding Scheme (MCS) for each scheduled user at each Transmis-
+sion Time Interval (TTI), relative to the industry-standard Outer Loop Link Adaptation (OLLA)
+control.
+1.1
+The v6 Lesson
+The v6 campaign showed that Deep A2C beat OLLA by statistically significant margins at several
+feedback delays. However, an audit control (a best-tuned constant offset, calibrated on held-out
+traces) revealed that this constant matched RL throughput in v6’s calm, homogeneous, error-
+free-transmission environment. The implication: v6’s entire learned advantage over OLLA was
+explainable as a single scalar setpoint shift – running hotter – not a state-conditional policy. v6
+was quasi-stationary (weak within-trace dynamics), assigned zero cost to transmission failure (no
+HARQ), used one BLER curve for every user (no heterogeneity), and gave RL and the OLLA loop
+strictly equal information (no informational asymmetry to exploit). Under those conditions, there
+is nothing left for a state-conditional policy to do beyond picking the right constant.
+1.2
+The v7 Hypothesis
+v7 was designed to test whether restoring realistic sources of non-stationarity and heterogeneity
+would restore genuine adaptivity value – i.e., would a state-conditional RL policy start to beat an
+oracle-tuned constant, not just an OLLA loop? Five architectural levers were introduced (Sec-
+tion 2), and a 12-point pre-registered campaign (Section 4) was executed to test this hypothesis
+under a strict, pre-declared win condition (Section 3).
+1.3
+Research Process
+1. Designed and implemented the v7 stack: HARQ physics, heterogeneous users, non-stationary
+interference, honest per-MCS BLER curves with Jakes fading, and a two-tier (information-
+equal vs. richer) state representation.
+2. Executed the pre-registered 12-point campaign against seven comparator schemes.
+3. Diagnosed a 0/9 failure rate on the primary pre-registered win condition across the initial 9
+points.
+4. Root-caused the failure to five concrete, fixable issues (calibration asymmetry, action-set clip-
+ping, undertraining, entropy collapse after behavior-cloning) rather than an intrinsic absence
+of adaptivity value, and iterated three further fix rounds (tier1, tier1b, tier1-nobc).
+5. Ran a council-style adversarial review of the resulting evidence, which identified the single
+most decisive remaining experiment: sweeping OLLA’s target BLER to test whether the
+residual RL-vs-OLLA gain is a mis-tuned-baseline artifact.
+6. Executed that sweep. The RL-vs-OLLA gain survives; the RL-vs-oracle-constant null does
+not resolve into a win.
+3
+
+--- PAGE 4 ---
+2
+v7 Environment Design
+v7 retains v6’s OLLA-relative action encoding (action 0 ≡OLLA exactly; every RL policy carries
+the identical OLLA inner loop) and honest, cooperative, reported-CQI proportional-fair scheduling.
+Five design changes (D1–D5) were added on top, targeting the specific simplifications that v6’s audit
+identified as removing all adaptivity value.
+2.1
+D1: HARQ with Chase Combining
+Failed transmissions in v6 cost nothing (Bernoulli success probability was scored as expected good-
+put, with no retransmission channel). v7 introduces a full HARQ loop: a user with a pending
+failed transport block (TB) retransmits the same TB at the same MCS on its next scheduled slot,
+receiving a chase-combining gain of +2.5 dB per prior attempt, up to harq max retx = 3 attempts
+before the TB is dropped:
+eff SINRretx = SINRtrue + nretx × ∆comb,
+∆comb = 2.5 dB
+(1)
+OLLA updates its offset only on first-transmission ACK/NACK, matching standard 3GPP outer-
+loop behavior. This makes running an aggressive MCS genuinely costly: an over-aggressive first
+transmission consumes extra slots on retransmission rather than being scored for free.
+2.2
+D2: Per-User Heterogeneity
+Each user is drawn with an independent CQI feedback delay (uniform over {2, . . . , 8} TTIs) and
+mobility speed (uniform over [3, 30] m/s), collapsed into a 2 × 3 (delay class × speed class) grid
+for the per-class fixed-offset comparator. A single global constant offset cannot simultaneously be
+optimal for a slow, low-delay user and a fast, high-delay user.
+2.3
+D3: Non-Stationarity
+A cell-wide two-state Markov chain toggles an interference burst (extra +6, +9, or +12 dB of
+interference), with mean dwell times of ≈250 TTIs calm / ≈120 TTIs during a burst. Users
+additionally undergo one mid-trace speed change. These transitions are the events an integrator-
+based control loop (OLLA) is structurally slow to react to, and where a predictive, state-conditional
+policy should have room to add value.
+2.4
+D4: Honest Physics
+Per-MCS BLER waterfalls were steepened (slope parameter k ∈[3.0, 5.8], versus v6’s [1.2, 2.7]) so
+that overshooting the correct MCS carries a real error-rate penalty rather than a gentle degradation.
+Fading is generated per user via a Jakes-calibrated AR(1) process, with the innovation coefficient
+computed directly from each user’s instantaneous speed:
+ρi(t) = J0
+
+2πvi(t) fc
+c
+Ttti
+
+(2)
+where J0 is the zeroth-order Bessel function of the first kind, fc = 2 GHz, and Ttti = 1 ms.
+4
+
+--- PAGE 5 ---
+2.5
+D5: Two-Tier State Ablation
+Tier A is the exact v6 information-equal state (reference CQI, CQI delta, observed SINR, SINR
+trend, OLLA offset, scheduler context) – strictly no more information than the OLLA loop itself has
+access to. Tier B adds five features no scalar control loop can represent: HARQ pending/retransmission-
+count state, a NACK-burst exponential moving average, a 4-TTI SINR slope, the user’s instanta-
+neous speed, and an observed (feedback-delayed) interference-burst indicator. Every result in this
+report states which tier was used; comparing Tier A and Tier B results at the same operating point
+is the direct test of whether the richer state buys anything.
+3
+Comparator Suite and Pre-Registration
+Seven schemes are evaluated, all carrying the identical OLLA inner loop except Baseline:
+1. Baseline – static CQI map, no OLLA offset, no outer-loop control.
+2. OLLA – the classical outer loop; RL action 0 is defined to be exactly this.
+3. Fixed – the single best constant offset, grid-searched ({−4, . . . , 2}) on independent calibration
+traces.
+4. FixedPU – the best constant offset per user class (2 delay classes × 3 speed classes = 6
+constants), calibrated the same way. This is the primary, pre-registered comparator.
+5. QL v7 – tabular Q-learning, Tier-A state only (a table cannot fit Tier-B).
+6. Tab AC v7 – tabular actor-critic, Tier-A state only.
+7. Deep A2C v7 – a 2-hidden-layer (96×96) shared-network actor-critic, Tier-A or Tier-B
+selectable, ≈30k parameters.
+Pre-registered win condition: Deep A2C must beat FixedPU on cell throughput, under the
+proportional-fair (PF) scheduler, by a paired Wilcoxon signed-rank test at p < 0.05, evaluated on
+30 held-out traces identical across every scheme.
+FixedPU and Fixed are oracle-tuned: they require a calibration pass on separate traces and
+never adapt to state. OLLA requires zero calibration and adapts online but is reactive (integrator
+dynamics only). The pre-registered comparison is therefore explicitly a test of whether a learned,
+state-conditional policy can outperform an oracle given the same evaluation traces – not merely
+whether it beats a zero-knowledge reactive loop (which is a separate, secondary claim addressed in
+Section 8).
+4
+Campaign Results
+4.1
+Nine-Point Pre-Registered Sweep
+Table 1 reports the PF-scheduler cell throughput and the pre-registered comparison (A2C vs.
+FixedPU) at each of the original nine campaign points, plus the secondary comparison against
+OLLA. Figure 1 visualizes the FixedPU margin as a forest plot; Figure 2 shows the same for
+OLLA.
+5
+
+--- PAGE 6 ---
+Table 1: v7 Campaign: PF-Scheduler Cell Throughput and Pre-Registered Comparisons (N = 10,
+5 seeds, 30 held-out traces)
+Point
+A2C (Mbps)
+FixedPU (Mbps)
+OLLA (Mbps)
+vs. FixedPU
+p
+vs. OLLA
+p
+Calm (hetero=0)
+3.65
+3.68
+3.46
+−1.8%
+0.280
++2.5%
+0.271 (n.s.)
+Hetero 0.5
+3.47
+3.63
+3.38
+−4.2%
+0.026*
++2.7%
+0.318 (n.s.)
+Hetero 1.0
+3.57
+3.54
+3.42
++0.9%
+0.861
++4.4%
+0.141 (n.s.)
+Burst +6dB
+3.33
+3.57
+3.30
+−6.9%
+0.003**
++0.8%
+0.910 (n.s.)
+Burst +9dB (Headline)
+3.63
+3.66
+3.29
+−0.7%
+0.517
++10.4%
+0.0006***
+Burst +12dB
+3.46
+3.62
+3.17
+−4.5%
+0.047*
++3.4%
+0.393 (n.s.)
+Tier-A ablation
+3.63
+3.62
+3.24
++0.1%
+0.558
++11.2%
+0.0008***
+Warm OLLA (1000 TTI)
+3.56
+3.45
+3.77
+−0.3%
+0.926
+−5.9%
+0.0003***
+Fresh-seed replicate
+3.29
+4.04
+3.81
+−4.4%
+0.006**
++1.3%
+0.614 (n.s.)
+Result: 0 of 9 pre-registered tests passed. Deep A2C never beats FixedPU at p < 0.05 on
+PF; three of nine points show a statistically significant loss. A2C beats OLLA on 6 of 9 points (2
+significant), and never loses to OLLA significantly except at the deliberately handicapping warm-
+OLLA point (where the comparator loop is given 1000 TTIs to converge before scoring, which is
+itself informative – see Section 11).
+Figure 1: Forest plot of the A2C-vs-FixedPU margin (%) across every campaign point, PF sched-
+uler. Green = significant win, red = significant loss, gray = not significant. Zero significant wins
+across twelve points.
+4.2
+The Fresh-Seed Replication Problem
+The headline point (burst +9dB) showed near-parity with FixedPU (−0.7%, n.s.). An independent
+fresh-seed replication (base seed 10042, trace seed base 19000, otherwise identical configuration)
+produced a worse result: −4.4% (p = 0.006). This instability – the same experimental design
+producing a qualitatively different verdict under a different random seed – was the trigger for the
+diagnostic work in Section 5, and echoes the same seed-sensitivity lesson from v6’s replication check.
+6
+
+--- PAGE 7 ---
+Figure 2: Forest plot of the A2C-vs-OLLA margin (%) across every campaign point, PF scheduler.
+This is the setpoint-control gain: consistently positive except where OLLA is given an unrealistic
+1000-TTI convergence head start.
+5
+Diagnosis: Why Zero Wins?
+Five concrete, independently verifiable issues were identified by direct code inspection, not specu-
+lation:
+1. Calibration asymmetry.
+calibrateFixedClass v7 tunes FixedPU exclusively on the
+PF scheduler, while Deep A2C was trained on a 50% PF / 25% RR / 25% EQ mixture
+(train sched weights). The comparator’s advantage was partly a training-distribution mis-
+match, not a control-quality difference.
+2. Action-set clipping. The calibration grid fixed cands = [−2, 1] was clipped at its own
+optimum (best global offset = −2; the true per-class optimum in one class was −4), while Deep
+A2C’s action set was only ±3. The comparator’s true optimum was structurally unreachable
+by the learner.
+3. Undertraining on cold start. With 500 episodes and no informed initialization, vanilla
+Deep A2C settled roughly 5% below a policy it can trivially represent (a constant), indicating
+insufficient exploration/convergence within budget.
+4. Entropy collapse after behavior-cloning. When a 150-episode behavior-cloning warm
+start from FixedPU was introduced (to remove issue 3), the clone reached near-zero policy
+entropy (fully deterministic), but the subsequent RL fine-tuning phase restarted its entropy-
+bonus coefficient at its maximum scheduled value (0.05), re-randomizing the cloned policy
+back to near-uniform (H ≈1.9 of a max of ≈1.95 for 7 actions) within approximately 100
+episodes. The fix (behavior-cloning entropy coefficient reduced to 0.03; post-clone fine-tuning
+entropy anneal starts at 0.01 instead of 0.05) is documented in Table 2.
+5. Information, not optimization, was already ruled out. The Tier-A vs. Tier-B ablation
+(Figure 6) shows no significant difference between the information-equal state and the richer
+7
+
+--- PAGE 8 ---
+state – so issues 1–4 above, not missing state information, are the correct explanation for the
+campaign-wide null.
+6
+Tier-1 Fix Iterations
+Three targeted fix rounds were run at the headline point (burst +9dB), summarized in Table 2 and
+visualized in Figures 3–4.
+Table 2: Tier-1 Fix Iterations at the Headline Point (PF Scheduler)
+Run
+Fixes Applied
+A2C (Mbps)
+vs.
+burst09dB (vanilla)
+none
+3.63
+−
+tier1
+PF-only training, BC (150 ep), grid [−4, 2], actions ±3
+3.54
+−
+tier1b
+tier1 + actions [−5, 3], BC entropy 0.03, post-BC anneal from 0.01
+3.71
+−
+tier1-nobc
+tier1b settings, no behavior cloning
+3.54
+−
+tier1b achieves statistical parity with FixedPU (p = 0.813): first-transmission BLER matches
+almost exactly (0.439 vs. 0.443), confirming the clone was preserved through fine-tuning rather than
+destroyed as in tier1. Crucially, the 500 episodes of RL fine-tuning applied on top of the oracle-
+initialized clone produced zero additional throughput – the fine-tuning phase found no exploitable
+state-conditional structure beyond what imitating the oracle already captured.
+tier1-nobc is the methodologically cleanest number: it applies the same PF-only training and
+widened action set as tier1b, but without initializing from the oracle comparator, so it does not
+consume the calibration data that FixedPU itself required. It still reaches near-parity with FixedPU
+(−5.1%, not significant at p = 0.06) purely from scratch, and still beats OLLA significantly (+7.5%,
+p = 0.005). This is the number that supports a ”learned without oracle initialization” claim; tier1b
+demonstrates the achievable ceiling once initialization is not a confound.
+7
+State Information Ablation
+Figure 6 compares the A2C-vs-FixedPU margin using the information-equal Tier-A state against the
+richer Tier-B state, at the same headline operating point. The two are statistically indistinguishable
+(+0.1%, p = 0.558 for Tier-A vs. −0.7%, p = 0.517 for Tier-B). Five explicit additional features
+– HARQ retransmission state, NACK-burst history, SINR slope, user speed, and observed burst
+indicator – buy nothing measurable. This directly supports the conclusion that the campaign-wide
+null reflects an absence of exploitable state-conditional structure in this class of environment, not
+an information deficit in the RL agent’s observation.
+8
+External Validation: The OLLA Target-BLER Sweep
+An independent adversarial review of the campaign identified one remaining, decisive, and inexpen-
+sive experiment: Deep A2C’s first-transmission BLER settles near 44%, while OLLA is pinned at an
+8
+
+--- PAGE 9 ---
+Figure 3: Policy entropy during RL fine-tuning, post behavior-cloning warm start. tier1 (red)
+shows the entropy-bonus restart re-randomizing the cloned policy toward maximum entropy;
+tier1b (blue) preserves the informative clone.
+Figure 4: Cell throughput during RL fine-tuning for tier1 vs. tier1b, seed-averaged.
+9
+
+--- PAGE 10 ---
+Figure 5: Cell throughput by scheme across the three headline-point variants (vanilla, tier1-nobc,
+tier1b), PF scheduler, with 95% trace-level confidence intervals.
+Figure 6: A2C-vs-FixedPU margin under the information-equal Tier-A state versus the richer Tier-
+B state. No significant difference.
+10
+
+--- PAGE 11 ---
+industry-standard 10% target. This raises the possibility that the entire A2C-vs-OLLA gain (Ta-
+ble 1, final column) is simply a mis-tuned baseline – i.e., that re-tuning OLLA’s own target BLER,
+with no learning involved, would close most of the gap. This experiment requires no retraining:
+OLLA’s target is swept on the same 30 held-out traces used throughout the campaign.
+Table 3: OLLA Target-BLER Sweep and Controls (PF Scheduler, Held-Out Traces, No Retraining)
+Configuration
+Cell Tp (Mbps)
+BLER1
+vs. Deep A2C (tier1b)
+OLLA, target = 0.10 (default)
+3.32 ± 0.30
+0.651
+OLLA, target = 0.20
+3.29 ± 0.25
+0.658
+OLLA, target = 0.30
+3.24 ± 0.23
+0.655
+OLLA, target = 0.40
+3.31 ± 0.28
+0.644
+OLLA, target = 0.50
+3.15 ± 0.27
+0.669
+Random action (uniform)
+3.02 ± 0.28
+0.721
++24.1%, p = 2.4 × 10−6
+Constant offset −1
+3.61 ± 0.32
+0.558
++3.7%, p = 0.136 (n.s.)
+Deep A2C (tier1b)
+3.74 ± 0.34
+0.427
+–
+Best OLLA (any target)
+3.32 (target = 0.10)
+0.651
++12.9%, p = 0.0007
+Figure 7: OLLA cell throughput re-tuned across target BLER, versus the fixed Deep A2C operating
+point and the random/constant controls. OLLA’s own throughput frontier is essentially flat across
+targets; A2C’s advantage does not close at any tested target.
+Result: the OLLA-vs-A2C gap does not close. Re-tuning OLLA’s target BLER does
+not recover the missing throughput – the best OLLA operating point across five tested targets
+(including the default 10%) remains 12.9% below Deep A2C (p = 0.0007), essentially reproducing
+the campaign-level +12.8% finding from Table 2.
+Two further controls rule out the remaining
+alternative explanations: A2C beats a uniform-random action policy by 24.1% (p = 2.4 × 10−6),
+11
+
+--- PAGE 12 ---
+so the policy is not indistinguishable from noise; and A2C is statistically indistinguishable from a
+constant offset of −1 (+3.7%, p = 0.136, n.s.), which is consistent with – not contradicting – the
+central finding of this report: the learned policy’s value over OLLA is real, but is well approximated
+by a single well-chosen constant, not by state-conditional adaptation.
+9
+Burst-vs-Calm and BLER Operating-Point Detail
+Figure 8 decomposes cell throughput during active interference bursts versus calm periods for every
+scheme at the headline point. Figure 9 shows the first-transmission BLER operating point selected
+by each scheme, with OLLA’s 10% design target marked for reference – visually confirming that
+every throughput-competitive scheme (Fixed, FixedPU, Deep A2C) converges to an operating point
+far hotter than the classical target, and that this is what HARQ chase combining makes viable.
+Figure 8: Cell throughput during active interference bursts versus calm periods, by scheme, at the
+headline point.
+10
+Additional Diagnostics
+10.1
+Trace-Level Win Rate
+Figure 10 plots per-trace cell throughput, A2C against FixedPU, at the headline operating point.
+Points above the diagonal are traces A2C wins; points below are losses. This is the same information
+as the aggregate margin in Table 2, but at the individual-trace level, and makes visually clear that
+there is no subpopulation of traces where A2C decisively dominates – wins and losses are scattered
+symmetrically around parity rather than clustering in, say, high-mobility or high-burst traces.
+12
+
+--- PAGE 13 ---
+Figure 9: First-transmission BLER by scheme. The dashed line marks OLLA’s classical 10% design
+target; every throughput-competitive scheme operates far above it under HARQ chase combining.
+Figure 10: Trace-by-trace cell throughput, Deep A2C vs. FixedPU, at the headline point (30 held-
+out traces). Points above the diagonal favor A2C.
+13
+
+--- PAGE 14 ---
+10.2
+Scheduler Sensitivity
+All results above use the pre-registered PF scheduler. Figure 11 shows every scheme under all three
+evaluation schedulers (PF, RR, EQ) at the headline point. The pattern is scheduler-dependent:
+A2C is competitive with FixedPU under PF and RR, but loses under EQ – consistent with the
+PF-only training/calibration asymmetry noted in Section 5 (FixedPU is calibrated on PF only, and
+A2C in tier1b is likewise trained on PF only, so neither is tuned for EQ; the residual EQ gap
+reflects that neither comparator was optimized for that regime, not a fundamental RL weakness
+there).
+Figure 11: Cell throughput by scheme under all three evaluation schedulers (PF, RR, EQ) at the
+headline point.
+10.3
+Fairness and Edge Throughput
+Figure 12 confirms that A2C’s throughput parity with FixedPU is not achieved by sacrificing
+fairness or edge-user performance – both are comparable across the two schemes.
+10.4
+Action Distribution: Direct Evidence for the Constant-Policy Thesis
+Every argument so far infers ”the policy is a constant” indirectly, from throughput and BLER
+parity. Figure 13 tests this directly by histogramming which offset A2C actually selects, decision
+by decision, across all 30 held-out traces, and overlaying FixedPU’s per-class target offsets for
+reference. A learned policy that ignores state in favor of a fixed operating point should show a single
+dominant mode aligned with (or very close to) the FixedPU targets; a genuinely state-conditional
+policy should show a broader, more structured distribution that shifts with the per-user class mix.
+This is the most direct test in the report of what the network actually learned, independent of the
+aggregate throughput statistics used everywhere else.
+14
+
+--- PAGE 15 ---
+Figure 12: Jain’s fairness index and edge-user (minimum) throughput by scheme, headline point,
+PF scheduler.
+Figure 13: Action selection frequency for Deep A2C (tier1b) versus FixedPU’s per-class target
+offsets, aggregated over all scheduled decisions on the 30 held-out traces.
+15
+
+--- PAGE 16 ---
+10.5
+Tabular vs. Deep Training Convergence
+Figure 14 plots training-episode throughput for all three learners at the headline point, confirming
+the learner-tier hierarchy discussed in Section 5: both tabular methods (QL, Tab AC) converge to a
+throughput level well below Deep A2C, consistent with the 35k-entry discretized state-action table
+being underfit given the training budget, while Deep A2C’s ∼30k continuous-feature parameters
+converge to the FixedPU-competitive operating point.
+Figure 14: Training-episode cell throughput for QL, Tab AC, and Deep A2C, seed-averaged, at the
+headline point.
+11
+Key Insights
+1. The optimal link-adaptation policy in this environment class is a constant, not
+a state-conditional function. Across the v6 A3 control, the v7 nine-point campaign, and
+three further Tier-1 iterations – eleven or more independent experiments – a per-user-class
+constant offset matches or beats every learned policy on the primary scheduler.
+HARQ,
+heterogeneity, non-stationary bursts, and steep BLER curves do not change this conclusion.
+2. Published ”RL beats OLLA” gains are plausibly setpoint effects.
+Deep A2C’s
+advantage over OLLA is real, reproducible, and survives an adversarial re-tuning of OLLA’s
+own target BLER (Section 8) – but it is statistically indistinguishable from what a single
+constant offset achieves. The mechanism is that OLLA’s classical 10% BLER target predates
+HARQ chase combining; under chase combining, running ∼40–45% first-transmission BLER
+and relying on cheap retransmissions is throughput-optimal, and this is a scalar operating-
+point fact, not a policy the agent needs state to discover.
+3. Richer state provides no additional value. The Tier-A/Tier-B ablation (Section 6) is a
+clean negative result: five additional features (HARQ state, NACK history, SINR slope, speed,
+burst observation) do not move the needle. The bottleneck was never missing information.
+16
+
+--- PAGE 17 ---
+4. The optimization-vs-information distinction is resolved.
+tier1b’s zero-gain-from-
+fine-tuning result, combined with tier1-nobc’s near-parity from scratch, together show that
+the residual campaign-wide gap in the original nine points was a fixable optimization/calibra-
+tion artifact (asymmetric comparator tuning, clipped action grids, an entropy-schedule bug),
+not evidence that RL is intrinsically incapable of matching the oracle. Once those artifacts
+are removed, RL reaches the oracle’s throughput – it simply does not exceed it.
+5. Seed sensitivity remains a caution.
+The original headline point showed near-parity
+(−0.7%) that worsened under a fresh seed (−4.4%).
+Practitioners deploying learned link
+adaptation should not treat a single training run as representative; multi-seed evaluation, as
+used throughout this report, is necessary to distinguish a real effect from noise.
+12
+Recommended Paper Framing
+This report supports a characterization paper, not a ”RL beats the state of the art” paper. The
+defensible claims, in order of strength, are:
+ Deep A2C statistically matches an oracle-calibrated, per-user-class constant offset rule –
+without needing that oracle’s calibration data (tier1-nobc: −5.1%, n.s., p = 0.06) – while
+requiring no per-deployment tuning pass.
+ Deep A2C beats the industry-standard OLLA outer loop by +7–13% across a wide range
+of configurations, and this gain survives an adversarial re-tuning of OLLA’s own operating
+point.
+ The mechanism behind both findings is a setpoint effect (an aggressive, HARQ-subsidized
+operating point), not learned state-conditional adaptivity – confirmed by an information-
+ablation null result and by statistical indistinguishability from a single constant offset.
+ The residual gap in the original nine-point campaign was diagnosed as a fixable comparator-
+calibration and RL-training artifact, not a fundamental information deficit – itself a useful
+methodological finding for future RL-vs-tuned-baseline studies in wireless.
+A single claim to avoid without qualification: ”RL recovers oracle-calibrated performance without
+per-deployment tuning” should cite the tier1-nobc (no-clone) result specifically, since the tier1b
+headline number was itself initialized by imitating the oracle comparator and cannot alone support
+a zero-calibration claim.
+12.1
+Suggested Structure
+ Section 1: Introduction – link adaptation, OLLA, the setpoint-vs-adaptivity question,
+contributions.
+ Section 2: System Model – POMDP formulation, OLLA-relative action encoding, HARQ
+chase combining.
+ Section 3: v7 Environment – the five design levers (D1–D5) and why each was necessary
+given the v6 audit.
+17
+
+--- PAGE 18 ---
+ Section 4: Comparator Suite and Pre-Registration – the seven schemes, the primary
+win condition, and why oracle-tuned constants are the correct comparator.
+ Section 5: Results – the 12-point campaign, learner-by-learner breakdown, Tier-1 fix iter-
+ations, state ablation.
+ Section 6: Validation – the OLLA target-BLER sweep and random/constant controls,
+ruling out mis-tuned-baseline and policy-collapse explanations.
+ Section 7: Discussion – setpoint effects vs. learned adaptivity, implications for the RL-in-
+wireless literature, deployment cost-benefit (no calibration pass vs. no throughput gain).
+ Section 8: Conclusion.
+13
+Key Code Snippets
+13.1
+HARQ Chase-Combining Transmission Physics
+The shared per-TTI transmission function (txStep v7.m), used identically by every trainer and by
+evaluation, showing how retransmissions are charged against throughput and how OLLA updates
+only on first-transmission feedback:
+if env.harq_on && H.pend(i)
+% retransmission of the pending TB (no OLLA update)
+effS = Strue_row(i) + env.harq_comb_dB * H.nret(i);
+bl
+= estimateBLER_v7(effS, H.mcs(i));
+if rand > bl
+tp(i) = H.tbs(i) * 1e-3;
+% delivered at last
+H.pend(i) = false; H.nret(i) = 0;
+else
+H.nret(i) = H.nret(i) + 1;
+if H.nret(i) > env.harq_max_retx % give up, drop TB
+H.pend(i) = false; H.nret(i) = 0;
+end
+end
+else
+% new data at the chosen CQI
+mcs = sent(i) - 1;
+bl
+= estimateBLER_v7(Strue_row(i), mcs);
+TBS = tbsFromMCSandRB(mcs, rb(i));
+ack = rand > bl;
+if ack
+tp(i) = TBS * 1e-3;
+off(i) = off(i) + du;
+% OLLA: first-Tx ACK
+else
+off(i) = off(i) - dd;
+% OLLA: first-Tx NACK
+if env.harq_on
+H.pend(i) = true; H.nret(i) = 1;
+H.tbs(i) = TBS; H.mcs(i) = mcs;
+end
+end
+end
+18
+
+--- PAGE 19 ---
+13.2
+Behavior-Cloning Warm Start (Tier-1 Fix)
+The fine-tuning-preserving behavior-cloning loss used in tier1b, cross-entropy on FixedPU’s per-
+class actions plus a soft entropy bonus to avoid saturating the clone:
+function [aGrad, cGrad] = bc_grads(actorNet, criticNet, S, Atgt, R, entW)
+V = forward(criticNet, S);
+cLoss = mean((R - V).^2);
+logits = forward(actorNet, S);
+logp_all = logits - (max(logits,[],1) + log(sum(exp(logits - max(logits,[],1)),1)));
+mask = zeros(size(logits), ’like’, extractdata(logits));
+for b = 1:size(S,2), mask(Atgt(b), b) = 1; end
+ce = -mean(sum(logp_all .* dlarray(mask), 1));
+entropy = -sum(exp(logp_all) .* logp_all, 1);
+aLoss = ce - entW*mean(entropy);
+% entW = 0.03: keeps clone soft
+cGrad = dlgradient(cLoss, criticNet.Learnables, ’RetainData’, true);
+aGrad = dlgradient(aLoss, actorNet.Learnables);
+end
+19

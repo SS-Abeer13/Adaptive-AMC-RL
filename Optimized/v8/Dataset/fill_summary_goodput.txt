@@ -1,0 +1,133 @@
+STEP6 started 2026-10-03 23:48:24
+
+### POINT gp_O  (2026-10-03 23:48:30)
+CONFIG|gp_O|n_eval=100|n_seeds=10|tier=O|episodes=300|olla_warm_ttis=0|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[1 0 0]
+CALIB|gp_O|fixed_offset=-2|class_tab=[-2 -2 -2;-4 -2 -2]
+SCHEME|gp_O|Baseline|tp=3.5188|ci95=0.1612|bler1=0.6111|edge=0.1378|jain=0.8590|burst=2.2261|calm=4.0001
+SCHEME|gp_O|OLLA|tp=3.8629|ci95=0.1861|bler1=0.5196|edge=0.1693|jain=0.8602|burst=2.4685|calm=4.4196
+SCHEME|gp_O|Warm-OLLA|tp=3.7744|ci95=0.1998|bler1=0.3802|edge=0.1702|jain=0.8609|burst=2.0364|calm=4.2391
+SCHEME|gp_O|Multi-OLLA|tp=3.9236|ci95=0.1915|bler1=0.4771|edge=0.1767|jain=0.8577|burst=2.4721|calm=4.4598
+SCHEME|gp_O|Fixed|tp=4.0711|ci95=0.1862|bler1=0.3916|edge=0.1837|jain=0.8693|burst=2.4202|calm=4.6828
+SCHEME|gp_O|Fixed-Online|tp=4.0249|ci95=0.1866|bler1=0.3770|edge=0.1727|jain=0.8646|burst=2.4268|calm=4.6438
+SCHEME|gp_O|FixedPU (Oracle)|tp=3.9880|ci95=0.1852|bler1=0.3850|edge=0.1793|jain=0.8642|burst=2.4238|calm=4.5225
+SCHEME|gp_O|Deep A2C v8|tp=3.9748|ci95=0.1741|bler1=0.3724|edge=0.1743|jain=0.8648|burst=2.4881|calm=4.5140
+SEEDS|gp_O|a2c_seed_means=[4.0021 4.0543 3.9855 3.9281 3.9336 3.9797 3.9847 3.8995 4.0383 3.9421]|vsFixedPU_pct=[0.35 1.66 -0.06 -1.5 -1.36 -0.21 -0.08 -2.22 1.26 -1.15]
+TRAIN|gp_O|final_train_tp_mean=4.0875|final_entropy_mean=2.1680|max_entropy=2.3979
+CMP|gp_O|A2C vs Baseline|diff=0.4560|pct=12.96|ci90pct=[10.81 15.10]|wilcoxon=3.2e-13|holm=2.24e-12|tost2pct=1|tost010=1
+CMP|gp_O|A2C vs OLLA|diff=0.1119|pct=2.90|ci90pct=[1.19 4.60]|wilcoxon=0.00906|holm=0.0453|tost2pct=0.808|tost010=0.618
+CMP|gp_O|A2C vs Warm-OLLA|diff=0.2004|pct=5.31|ci90pct=[3.83 6.79]|wilcoxon=1.06e-07|holm=6.38e-07|tost2pct=1|tost010=0.998
+CMP|gp_O|A2C vs Multi-OLLA|diff=0.0512|pct=1.30|ci90pct=[-0.35 2.96]|wilcoxon=0.129|holm=0.259|tost2pct=0.243|tost010=0.107
+CMP|gp_O|A2C vs Fixed|diff=-0.0963|pct=-2.37|ci90pct=[-3.77 -0.96]|wilcoxon=0.00915|holm=0.0453|tost2pct=0.667|tost010=0.458
+CMP|gp_O|A2C vs Fixed-Online|diff=-0.0501|pct=-1.24|ci90pct=[-2.58 0.09]|wilcoxon=0.0772|holm=0.232|tost2pct=0.175|tost010=0.063
+CMP|gp_O|A2C vs FixedPU (Oracle)|diff=-0.0132|pct=-0.33|ci90pct=[-1.47 0.80]|wilcoxon=0.677|holm=0.677|tost2pct=0.00816|tost010=0.000964
+
+### ACTIONS gp_O (traces=30, seeds=10)
+ACT|gp_O|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+ACT|gp_O|a2c_pct=[0.75 2.41 13.29 27.76 26.66 19.93 8.96 0.18 0.06 0 0]
+ACT|gp_O|fixedpu_pct=[0 0 11.67 0 88.33 0 0 0 0 0 0]
+ACT|gp_O|agree_exact_pct=24.99|agree_within1_pct=70.67|mean_user_modal_share_pct=72.97|a2c_mean_offset=-2.260|fixedpu_mean_offset=-2.233
+
+### SWEEP gp_O (traces=100)
+SWEEP|gp_O|olla|target=0.10|tp=3.8373|bler1=0.5233|a2c_vs_pct=3.58|wilcoxon=0.00116
+SWEEP|gp_O|warm_olla|target=0.10|tp=3.7882|bler1=0.3772|a2c_vs_pct=4.93|wilcoxon=3.29e-06
+SWEEP|gp_O|olla|target=0.20|tp=3.7709|bler1=0.5416|a2c_vs_pct=5.41|wilcoxon=2.04e-05
+SWEEP|gp_O|warm_olla|target=0.20|tp=3.8476|bler1=0.3787|a2c_vs_pct=3.31|wilcoxon=0.000725
+SWEEP|gp_O|olla|target=0.30|tp=3.8495|bler1=0.5403|a2c_vs_pct=3.26|wilcoxon=0.00771
+SWEEP|gp_O|warm_olla|target=0.30|tp=3.8972|bler1=0.3961|a2c_vs_pct=1.99|wilcoxon=0.0319
+SWEEP|gp_O|olla|target=0.40|tp=3.8132|bler1=0.5530|a2c_vs_pct=4.24|wilcoxon=0.0018
+SWEEP|gp_O|warm_olla|target=0.40|tp=3.9104|bler1=0.4229|a2c_vs_pct=1.65|wilcoxon=0.0743
+SWEEP|gp_O|olla|target=0.50|tp=3.7589|bler1=0.5668|a2c_vs_pct=5.74|wilcoxon=2.97e-06
+SWEEP|gp_O|warm_olla|target=0.50|tp=3.9029|bler1=0.4670|a2c_vs_pct=1.84|wilcoxon=0.0439
+SWEEPBEST|gp_O|best=warm_olla@0.40|tp=3.9104|a2c_tp=3.9748|pct=1.65|wilcoxon=0.0743|tost2pct=0.368
+
+### SANITY gp_O
+LC|gp_O|first25=3.6040|last25=3.8946
+RAND|gp_O|rand_tp=3.5861|a2c_tp=3.9748|a2c_vs_rand_pct=10.84|wilcoxon=4.34e-13
+CONST|gp_O|offset=-6|tp=3.6487|bler1=0.2104
+CONST|gp_O|offset=-5|tp=3.7862|bler1=0.2419
+CONST|gp_O|offset=-4|tp=3.9302|bler1=0.2901
+CONST|gp_O|offset=-3|tp=4.0259|bler1=0.3267
+CONST|gp_O|offset=-2|tp=4.0842|bler1=0.3879
+CONST|gp_O|offset=-1|tp=3.9917|bler1=0.4570
+CONST|gp_O|offset=+0|tp=3.8370|bler1=0.5202
+CONST|gp_O|offset=+1|tp=3.5306|bler1=0.6120
+CONST|gp_O|offset=+2|tp=3.3793|bler1=0.6733
+CONST|gp_O|offset=+3|tp=3.1766|bler1=0.7390
+CONST|gp_O|offset=+4|tp=2.8619|bler1=0.7915
+
+### POINT gp_B  (2026-10-03 23:56:35)
+CONFIG|gp_B|n_eval=100|n_seeds=10|tier=B|episodes=300|olla_warm_ttis=0|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[1 0 0]
+CALIB|gp_B|fixed_offset=-2|class_tab=[-2 -2 -2;-4 -2 -2]
+SCHEME|gp_B|Baseline|tp=3.5188|ci95=0.1612|bler1=0.6111|edge=0.1378|jain=0.8590|burst=2.2261|calm=4.0001
+SCHEME|gp_B|OLLA|tp=3.8629|ci95=0.1861|bler1=0.5196|edge=0.1693|jain=0.8602|burst=2.4685|calm=4.4196
+SCHEME|gp_B|Warm-OLLA|tp=3.7744|ci95=0.1998|bler1=0.3802|edge=0.1702|jain=0.8609|burst=2.0364|calm=4.2391
+SCHEME|gp_B|Multi-OLLA|tp=3.9236|ci95=0.1915|bler1=0.4771|edge=0.1767|jain=0.8577|burst=2.4721|calm=4.4598
+SCHEME|gp_B|Fixed|tp=4.0711|ci95=0.1862|bler1=0.3916|edge=0.1837|jain=0.8693|burst=2.4202|calm=4.6828
+SCHEME|gp_B|Fixed-Online|tp=4.0249|ci95=0.1866|bler1=0.3770|edge=0.1727|jain=0.8646|burst=2.4268|calm=4.6438
+SCHEME|gp_B|FixedPU (Oracle)|tp=3.9880|ci95=0.1852|bler1=0.3850|edge=0.1793|jain=0.8642|burst=2.4238|calm=4.5225
+SCHEME|gp_B|Deep A2C v8|tp=3.9095|ci95=0.1709|bler1=0.4200|edge=0.1709|jain=0.8654|burst=2.4286|calm=4.4256
+SEEDS|gp_B|a2c_seed_means=[3.7152 3.7554 3.9549 4.0074 4.009 3.957 3.9669 3.9176 3.7562 4.0553]|vsFixedPU_pct=[-6.84 -5.83 -0.83 0.49 0.53 -0.78 -0.53 -1.77 -5.81 1.69]
+TRAIN|gp_B|final_train_tp_mean=3.5573|final_entropy_mean=2.1283|max_entropy=2.3979
+CMP|gp_B|A2C vs Baseline|diff=0.3907|pct=11.10|ci90pct=[9.03 13.18]|wilcoxon=3.96e-12|holm=2.77e-11|tost2pct=1|tost010=1
+CMP|gp_B|A2C vs OLLA|diff=0.0466|pct=1.21|ci90pct=[-0.43 2.84]|wilcoxon=0.188|holm=0.376|tost2pct=0.211|tost010=0.0818
+CMP|gp_B|A2C vs Warm-OLLA|diff=0.1351|pct=3.58|ci90pct=[2.02 5.14]|wilcoxon=0.000105|holm=0.000526|tost2pct=0.952|tost010=0.838
+CMP|gp_B|A2C vs Multi-OLLA|diff=-0.0141|pct=-0.36|ci90pct=[-2.04 1.32]|wilcoxon=0.536|holm=0.536|tost2pct=0.0541|tost010=0.0164
+CMP|gp_B|A2C vs Fixed|diff=-0.1617|pct=-3.97|ci90pct=[-5.36 -2.58]|wilcoxon=1.81e-05|holm=0.000108|tost2pct=0.99|tost010=0.963
+CMP|gp_B|A2C vs Fixed-Online|diff=-0.1154|pct=-2.87|ci90pct=[-4.19 -1.54]|wilcoxon=0.000453|holm=0.00181|tost2pct=0.859|tost010=0.683
+CMP|gp_B|A2C vs FixedPU (Oracle)|diff=-0.0785|pct=-1.97|ci90pct=[-3.10 -0.84]|wilcoxon=0.00486|holm=0.0146|tost2pct=0.482|tost010=0.216
+
+### ACTIONS gp_B (traces=30, seeds=10)
+ACT|gp_B|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+ACT|gp_B|a2c_pct=[2.79 4.81 6.88 16.62 12.85 33.98 15.77 6.3 0 0 0]
+ACT|gp_B|fixedpu_pct=[0 0 11.67 0 88.33 0 0 0 0 0 0]
+ACT|gp_B|agree_exact_pct=12.57|agree_within1_pct=59.65|mean_user_modal_share_pct=71.22|a2c_mean_offset=-1.715|fixedpu_mean_offset=-2.233
+
+### POINT gp_A  (2026-10-04 00:02:32)
+CONFIG|gp_A|n_eval=100|n_seeds=10|tier=A|episodes=300|olla_warm_ttis=0|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[1 0 0]
+CALIB|gp_A|fixed_offset=-2|class_tab=[-2 -2 -2;-4 -2 -2]
+SCHEME|gp_A|Baseline|tp=3.5188|ci95=0.1612|bler1=0.6111|edge=0.1378|jain=0.8590|burst=2.2261|calm=4.0001
+SCHEME|gp_A|OLLA|tp=3.8629|ci95=0.1861|bler1=0.5196|edge=0.1693|jain=0.8602|burst=2.4685|calm=4.4196
+SCHEME|gp_A|Warm-OLLA|tp=3.7744|ci95=0.1998|bler1=0.3802|edge=0.1702|jain=0.8609|burst=2.0364|calm=4.2391
+SCHEME|gp_A|Multi-OLLA|tp=3.9236|ci95=0.1915|bler1=0.4771|edge=0.1767|jain=0.8577|burst=2.4721|calm=4.4598
+SCHEME|gp_A|Fixed|tp=4.0711|ci95=0.1862|bler1=0.3916|edge=0.1837|jain=0.8693|burst=2.4202|calm=4.6828
+SCHEME|gp_A|Fixed-Online|tp=4.0249|ci95=0.1866|bler1=0.3770|edge=0.1727|jain=0.8646|burst=2.4268|calm=4.6438
+SCHEME|gp_A|FixedPU (Oracle)|tp=3.9880|ci95=0.1852|bler1=0.3850|edge=0.1793|jain=0.8642|burst=2.4238|calm=4.5225
+SCHEME|gp_A|Deep A2C v8|tp=3.9532|ci95=0.1761|bler1=0.3983|edge=0.1745|jain=0.8647|burst=2.4054|calm=4.4952
+SEEDS|gp_A|a2c_seed_means=[3.9534 3.9849 3.9821 3.983 4.0288 4.014 4.1221 3.833 3.6038 4.0272]|vsFixedPU_pct=[-0.87 -0.08 -0.15 -0.13 1.02 0.65 3.36 -3.89 -9.63 0.98]
+TRAIN|gp_A|final_train_tp_mean=3.7856|final_entropy_mean=2.1845|max_entropy=2.3979
+CMP|gp_A|A2C vs Baseline|diff=0.4344|pct=12.35|ci90pct=[10.20 14.49]|wilcoxon=9.24e-13|holm=6.47e-12|tost2pct=1|tost010=1
+CMP|gp_A|A2C vs OLLA|diff=0.0904|pct=2.34|ci90pct=[0.66 4.02]|wilcoxon=0.0258|holm=0.103|tost2pct=0.631|tost010=0.403
+CMP|gp_A|A2C vs Warm-OLLA|diff=0.1789|pct=4.74|ci90pct=[3.10 6.38]|wilcoxon=6.35e-06|holm=3.81e-05|tost2pct=0.997|tost010=0.981
+CMP|gp_A|A2C vs Multi-OLLA|diff=0.0296|pct=0.75|ci90pct=[-0.92 2.43]|wilcoxon=0.566|holm=0.566|tost2pct=0.11|tost010=0.0393
+CMP|gp_A|A2C vs Fixed|diff=-0.1179|pct=-2.90|ci90pct=[-4.24 -1.55]|wilcoxon=0.000556|holm=0.00278|tost2pct=0.864|tost010=0.706
+CMP|gp_A|A2C vs Fixed-Online|diff=-0.0716|pct=-1.78|ci90pct=[-3.19 -0.37]|wilcoxon=0.0322|holm=0.103|tost2pct=0.398|tost010=0.205
+CMP|gp_A|A2C vs FixedPU (Oracle)|diff=-0.0348|pct=-0.87|ci90pct=[-1.97 0.23]|wilcoxon=0.176|holm=0.351|tost2pct=0.0457|tost010=0.00757
+
+### ACTIONS gp_A (traces=30, seeds=10)
+ACT|gp_A|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+ACT|gp_A|a2c_pct=[4.51 3.44 5.35 9.46 37.86 25.14 13.97 0.16 0.12 0 0]
+ACT|gp_A|fixedpu_pct=[0 0 11.67 0 88.33 0 0 0 0 0 0]
+ACT|gp_A|agree_exact_pct=33.96|agree_within1_pct=65.88|mean_user_modal_share_pct=67.85|a2c_mean_offset=-1.945|fixedpu_mean_offset=-2.233
+
+### POINT gp_steady  (2026-10-04 00:14:36)
+CONFIG|gp_steady|n_eval=100|n_seeds=5|tier=O|episodes=150|olla_warm_ttis=1000|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[1 0 0]
+CALIB|gp_steady|fixed_offset=0|class_tab=[-4 0 0;-1 0 0]
+SCHEME|gp_steady|Baseline|tp=3.4172|ci95=0.0893|bler1=0.6121|edge=0.2248|jain=0.9596|burst=2.1522|calm=4.0555
+SCHEME|gp_steady|OLLA|tp=3.5407|ci95=0.1205|bler1=0.3897|edge=0.2549|jain=0.9677|burst=1.8134|calm=4.4261
+SCHEME|gp_steady|Warm-OLLA|tp=3.5248|ci95=0.1183|bler1=0.3907|edge=0.2519|jain=0.9672|burst=1.8171|calm=4.3813
+SCHEME|gp_steady|Multi-OLLA|tp=3.5569|ci95=0.1206|bler1=0.3888|edge=0.2565|jain=0.9666|burst=1.8365|calm=4.4381
+SCHEME|gp_steady|Fixed|tp=3.5370|ci95=0.1217|bler1=0.3890|edge=0.2545|jain=0.9679|burst=1.8347|calm=4.4064
+SCHEME|gp_steady|Fixed-Online|tp=3.4273|ci95=0.1122|bler1=0.3703|edge=0.2384|jain=0.9637|burst=1.7968|calm=4.2786
+SCHEME|gp_steady|FixedPU (Oracle)|tp=3.4302|ci95=0.1151|bler1=0.3747|edge=0.2388|jain=0.9643|burst=1.7705|calm=4.2705
+SCHEME|gp_steady|Deep A2C v8|tp=3.4378|ci95=0.1154|bler1=0.3528|edge=0.2471|jain=0.9671|burst=1.7732|calm=4.2832
+SEEDS|gp_steady|a2c_seed_means=[3.4483 3.4091 3.4515 3.4341 3.446]|vsFixedPU_pct=[0.53 -0.61 0.62 0.11 0.46]
+TRAIN|gp_steady|final_train_tp_mean=3.4978|final_entropy_mean=2.0772|max_entropy=2.3979
+CMP|gp_steady|A2C vs Baseline|diff=0.0206|pct=0.60|ci90pct=[-1.01 2.22]|wilcoxon=0.518|holm=0.659|tost2pct=0.077|tost010=0.00936
+CMP|gp_steady|A2C vs OLLA|diff=-0.1028|pct=-2.90|ci90pct=[-3.49 -2.32]|wilcoxon=2.61e-11|holm=1.57e-10|tost2pct=0.994|tost010=0.59
+CMP|gp_steady|A2C vs Warm-OLLA|diff=-0.0870|pct=-2.47|ci90pct=[-3.03 -1.91]|wilcoxon=1.11e-09|holm=4.44e-09|tost2pct=0.915|tost010=0.14
+CMP|gp_steady|A2C vs Multi-OLLA|diff=-0.1191|pct=-3.35|ci90pct=[-3.88 -2.82]|wilcoxon=8.14e-14|holm=5.7e-13|tost2pct=1|tost010=0.953
+CMP|gp_steady|A2C vs Fixed|diff=-0.0991|pct=-2.80|ci90pct=[-3.41 -2.20]|wilcoxon=2.19e-10|holm=1.1e-09|tost2pct=0.985|tost010=0.474
+CMP|gp_steady|A2C vs Fixed-Online|diff=0.0106|pct=0.31|ci90pct=[-0.34 0.95]|wilcoxon=0.22|holm=0.659|tost2pct=1.61e-05|tost010=5.79e-10
+CMP|gp_steady|A2C vs FixedPU (Oracle)|diff=0.0076|pct=0.22|ci90pct=[-0.43 0.87]|wilcoxon=0.299|holm=0.659|tost2pct=7.9e-06|tost010=2.77e-10
+
+STEP6 finished 2026-10-04 00:14:36 | total 26.2 min
