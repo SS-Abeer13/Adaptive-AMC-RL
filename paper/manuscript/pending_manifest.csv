@@ -1,0 +1,63 @@
+item,key,description,format,feeds,default_if_not_run
+G1,n_newtx_m1,"Scheduled new-transmission decisions kept, M1",integer,VI-H; F7,section omitted
+G1,n_newtx_m3,"Scheduled new-transmission decisions kept, M3",integer,VI-H; F7,section omitted
+G1,pct_delta0_m1,"Share of delta=0 on new transmissions, M1 (%)",0.1f,VI-H; F7,section omitted
+G1,pct_delta0_m3,"Share of delta=0 on new transmissions, M3 (%)",0.1f,VI-H; VI-E,"only the metric-identity statement (R19a)"
+G1,pct_effnz_m1,"Share with effective delta != 0, M1 (%)",0.1f,VI-H,section omitted
+G1,pct_effnz_m3,"Share with effective delta != 0, M3 (%)",0.1f,VI-H; VI-E,section omitted
+G1,pumatch_m3,"Fraction of M3 new-transmission decisions identical to FixedPU",0.4f,VI-E,"metric identity only"
+G1,mech_bin,"State bin with the clearest delta pattern (text), if any",text,VIII-A,"no mechanism sentence"
+W1,cold_gain,"Margin over the best OLLA-family comparator, cold start (%)",0.2f,abstract; I; VI-G,quote cold
+W1,cold_ci_lo,"Cold gain 90% CI lower",0.2f,VI-G,-
+W1,cold_ci_hi,"Cold gain 90% CI upper",0.2f,VI-G,-
+W1,warm_gain,"Margin over the best OLLA-family comparator, 200-TTI warm-up (%)",0.2f,abstract; I; VI-G,-
+W1,warm_ci_lo,"Warm gain 90% CI lower",0.2f,VI-G,-
+W1,warm_ci_hi,"Warm gain 90% CI upper",0.2f,VI-G,-
+W1,abstract_gain,"min(cold_gain, warm_gain), quoted in abstract and I (%)",0.2f,abstract; I,cold_gain
+W1,abstract_cond,"cold | warm: which condition gives abstract_gain",choice,abstract; wording W1,cold
+W1,warm_ctx_margin,"Warm-up margin vs Context table (%)",0.2f,VI-G; F6,-
+W1,warm_ctx_ci_lo,"Warm margin vs Context, 90% CI lower",0.2f,VI-G,-
+W1,warm_fixed_margin,"Warm-up margin vs Fixed (%)",0.2f,VI-G,-
+W1,warm_claimB,"pass | fail",choice,VI-G; abstract qualifier,-
+G6,verdict,"ABJ | AB | A | none (G6 section 4)",choice,C2; abstract; wording C2 and SI,unrun
+G6,margin_ctx500,"Margin vs Context-500 (%)",0.2f,VI-G; C2,-
+G6,ci_lo_ctx500,"90% CI lower, vs Context-500",0.2f,VI-G,-
+G6,margin_fixed500,"Margin vs Fixed-500 (%)",0.2f,VI-G,-
+G6,margin_fpu500,"Margin vs FixedPU-500 (%)",0.2f,VI-G,-
+G6,margin_ctxj,"Margin vs combined comparator (%)",0.2f,VI-G; C2,-
+G6,ci_lo_ctxj,"90% CI lower, vs combined",0.2f,VI-G; C2,-
+G6,ci_hi_ctxj,"90% CI upper, vs combined",0.2f,VI-G,-
+G6,holm_ctxj,"Holm p vs combined",sci,VI-G,-
+G6,best_margin,"Margin vs the best re-calibrated comparator (%)",0.2f,abstract; I; C2,R03 value
+G6,seed_lo_best,"Hierarchical 95% CI lower bound vs the best comparator (%)",0.2f,VI-G; R2 qualifier,-
+G6,calib_obj_ctxj,"Combined table: calibration objective",0.4f,AT3,-
+G6,eval_obj_ctxj,"Combined table: evaluation on-time ratio",0.4f,AT3; VI-G,-
+G6,calib_obj_ctx500,"Context-500: calibration objective",0.4f,AT3,-
+G6,eval_obj_ctx500,"Context-500: evaluation on-time ratio",0.4f,AT3,-
+G6,n_searched_cells,"Cells searched (>= 200 decisions)",integer,V-B; AT3,-
+G6,cap_hit,"yes | no: any start hit the 6-sweep cap",choice,AT3,-
+G6,profile,"full | lite",choice,V-B; footnote,full
+NR,verdict,"WIN | CLAIMA | FAIL (NR1 section 4)",choice,VI-G; VIII-C; wording NR1,unrun
+NR,best_margin,"NR1 margin vs the best comparator (%)",0.2f,VI-G,-
+NR,ci_lo,"NR1 90% CI lower vs best",0.2f,VI-G,-
+NR,diff_vs_m1,"NR1 minus M1 primary (pp)",0.2f,VI-G,-
+NR,diff_ci_lo,"Difference 90% CI lower",0.2f,VI-G,-
+NR,diff_ci_hi,"Difference 90% CI upper",0.2f,VI-G,-
+G10,verdict,"ALL | MIXED | NONE (G10 section 4)",choice,VI-G; abstract scope; wording G10,unrun
+G10,n_tested,"Number of cells tested",integer,VI-G,-
+G10,n_win,"Number of cells with WIN",integer,VI-G,-
+G10,cells_win,"List of winning cells",text,VI-G,-
+G10,cells_notwin,"List of non-winning cells",text,VI-G,-
+G10,margin_min,"Smallest margin vs the best comparator across tested cells (%)",0.2f,VI-G,-
+G10,margin_max,"Largest margin (%)",0.2f,VI-G,-
+G10,bases,"Base rule chosen per cell (text, with oracle flag)",text,VI-G; AT3,-
+A1,margin_lo,"Margin vs Context, speed class <10 m/s (%)",0.2f,VI-H; F7,omitted
+A1,margin_mid,"Margin vs Context, 10-20 m/s (%)",0.2f,VI-H; F7,omitted
+A1,margin_hi,"Margin vs Context, >20 m/s (%)",0.2f,VI-H; F7,omitted
+A3,us_per_decision,"Median microseconds per user-decision",0.2f,IV-D,analytic MACs only
+A3,us_per_tti,"Median microseconds per TTI (N=10)",0.2f,IV-D,-
+A3,cpu,"CPU model",text,IV-D,-
+A6,baseline_8p_vs_1p_acked,"Baseline goodput ratio 8 vs 1 process, ACK-time PF",0.3f,VII-C; F8,use H17 diagnostic
+A6,baseline_8p_vs_1p_sched,"Same ratio, scheduling-time PF",0.3f,VII-C; F8,-
+A6,jain_8p_acked,"Baseline Jain, 8 processes, ACK-time PF",0.3f,VII-C; F8,0.420 (H17)
+A6,jain_8p_sched,"Baseline Jain, 8 processes, scheduling-time PF",0.3f,VII-C; F8,-

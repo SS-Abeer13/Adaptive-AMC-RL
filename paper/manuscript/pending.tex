@@ -1,0 +1,65 @@
+% pending.tex -- placeholders for every number and wording that waits on a run.
+% Input once in the preamble:  \input{pending}
+%
+% Numbers:   \Gone{key} \Wone{key} \Gsix{key} \NR{key} \Gten{key} \Aone{key} \Athree{key} \Asix{key}
+%   -> the value from pending_values.tex (generated from pending_values.csv),
+%      or a RED bold placeholder [[ITEM:key]] when the value is not yet known.
+% Switches:  \ifitemrun{ITEM}{text if the run is done}{text if it was not run / is pending}
+% Wording:   \wordingsel{SLOT}{ITEM}{key}{default}
+%   -> picks \defwording{SLOT}{<value of ITEM key>}{...}; uses the pre-registered
+%      conservative default when the value is undefined.
+% Each unresolved use is logged to pending_report.txt at the end of the run, and
+% check_pending.py fails the submission build if any remain.
+\makeatletter
+\RequirePackage{xcolor}
+\def\pend@unresolved{}
+\def\statusrun{run}
+% ---- run status of each item (overridden by pending_status.tex): run | not_run | pending
+\def\status@G1{pending}\def\status@W1{pending}\def\status@G6{pending}\def\status@NR{pending}
+\def\status@G10{pending}\def\status@A1{pending}\def\status@A3{pending}\def\status@A6{pending}
+\newcommand{\pendingdef}[3]{\expandafter\gdef\csname pend@#1@#2\endcsname{#3}}
+\newcommand{\pendingstatus}[2]{\expandafter\gdef\csname status@#1\endcsname{#2}}
+\newcommand{\pendingnum}[2]{%
+  \ifcsname pend@#1@#2\endcsname
+    \csname pend@#1@#2\endcsname
+  \else
+    \textcolor{red}{\textbf{[[\texttt{\detokenize{#1:#2}}]]}}%
+    \xdef\pend@unresolved{\pend@unresolved #1:#2\noexpand\space}%
+  \fi}
+\newcommand{\ifitemrun}[3]{%
+  \ifcsname status@#1\endcsname
+    \expandafter\ifx\csname status@#1\endcsname\statusrun #2\else #3\fi
+  \else #3\fi}
+\newcommand{\defwording}[3]{\expandafter\gdef\csname wording@#1@#2\endcsname{#3}}
+\newcommand{\wordingsel}[4]{%
+  \ifcsname pend@#2@#3\endcsname
+    \edef\pend@k{\csname pend@#2@#3\endcsname}%
+  \else
+    \def\pend@k{#4}%
+    \xdef\pend@unresolved{\pend@unresolved #2:#3(default=#4)\noexpand\space}%
+  \fi
+  \ifcsname wording@#1@\pend@k\endcsname
+    \csname wording@#1@\pend@k\endcsname
+  \else
+    \textcolor{red}{\textbf{[[no wording \texttt{\detokenize{#1/}}\texttt{\pend@k}]]}}%
+  \fi}
+% ---- the per-item macros
+\newcommand{\Gone}[1]{\pendingnum{G1}{#1}}
+\newcommand{\Wone}[1]{\pendingnum{W1}{#1}}
+\newcommand{\Gsix}[1]{\pendingnum{G6}{#1}}
+\newcommand{\NR}[1]{\pendingnum{NR}{#1}}
+\newcommand{\Gten}[1]{\pendingnum{G10}{#1}}
+\newcommand{\Aone}[1]{\pendingnum{A1}{#1}}
+\newcommand{\Athree}[1]{\pendingnum{A3}{#1}}
+\newcommand{\Asix}[1]{\pendingnum{A6}{#1}}
+% ---- generated values and statuses, if present
+\IfFileExists{pending_values.tex}{\input{pending_values.tex}}{}
+\IfFileExists{pending_status.tex}{\input{pending_status.tex}}{}
+\IfFileExists{wording.tex}{\input{wording.tex}}{}
+% ---- end-of-run report
+\newwrite\pend@report
+\AtEndDocument{%
+  \immediate\openout\pend@report=pending_report.txt
+  \immediate\write\pend@report{\pend@unresolved}%
+  \immediate\closeout\pend@report}
+\makeatother

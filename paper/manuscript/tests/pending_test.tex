@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{xcolor}
+\input{pending}
+\begin{document}
+Abstract gain: \Wone{abstract_gain}\% (\wordingsel{W1}{W1}{abstract_cond}{cold}).
+C2 \wordingsel{C2}{G6}{verdict}{unrun}. SI:[\wordingsel{SI}{G6}{verdict}{unrun}].
+Margin vs combined: \Gsix{margin_ctxj}\ [\Gsix{ci_lo_ctxj}] p=\Gsix{holm_ctxj}.
+\ifitemrun{G10}{Grid: \Gten{n_win} of \Gten{n_tested} cells.}{\wordingsel{G10}{G10}{verdict}{unrun}}
+\end{document}

@@ -12,7 +12,8 @@
 - *Setting:* RTT 8, 8 processes, PF averaged at scheduling time.
 - *Result:* residual A2C beats every comparator by **+1.58 %** vs the best rule [1.23, 1.94], Holm 9.06e-13 (R03); +0.95 pp absolute (R34).
 - *Robustness:* hierarchical 95 % CI [+0.62, +2.62] % (G3a); 9/10 seeds (R09); Bonferroni over 972 tests (M04); no fairness or goodput cost (R12, R13); training-limited (R25, G3d).
-- **Conditional wording rule (fixed now, pre-registered in proposals/G6 §3):**
+- **Seed-level condition (added at Checkpoint 5; `common_rules.md` R2):** if a claim passes at trace level but its hierarchical 95 % lower bound is ≤ 0, it is stated with "not robust to seed resampling". For M1 vs Context and vs Fixed all seed-level lower bounds are > 0 (+0.72, +0.48, +0.62 vs Context; ledger G3g, G3h), so no qualifier applies at present.
+- **Conditional wording rule (frozen in `proposals/G6_calibration_budget_prereg.md` §4):**
   - If M1 also beats the **combined comparator** (slack × class × busy HARQ processes) on Holm plus the 90 % CI lower bound, C2 reads "beats all calibrated comparators", and "same-information" may be used.
   - If not, C2 reads **"beats the OLLA family and the single-cue calibrated rules"**, and the combined table is reported as matching RL.
   - G6's re-calibrated single-cue rules apply the same logic to Claim B.

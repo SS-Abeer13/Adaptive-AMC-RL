@@ -1,0 +1,34 @@
+% wording.tex -- pre-registered wording variants, selected by the verdict of each run.
+% Source of truth: paper/proposals/G6 section 4, W1 section 3, NR1 section 4, G10 section 4.
+% Key = the value stored as the verdict in pending_values.csv.
+
+% ---- Contribution C2 / abstract clause (G6 verdict: ABJ | ABJ-seed | AB | A | none)
+\defwording{C2}{ABJ}{beats all calibrated comparators, including rules re-calibrated by exhaustive search on 500 fresh traces and a table that combines deadline slack, user class and HARQ-process state}
+\defwording{C2}{AB}{beats the OLLA family and the single-cue calibrated rules; a calibrated rule that combines the learner's cues matched the learned policy}
+\defwording{C2}{A}{beats the OLLA family; against calibrated rules its advantage depends on their calibration budget}
+\defwording{C2}{none}{did not survive re-calibration of the comparators}
+\defwording{C2}{unrun}{beats the OLLA family and the single-cue calibrated rules (calibrated on 10 to 20 traces)}
+
+% ---- "same-information" may be used only after the G6 combined comparator is beaten
+\defwording{SI}{ABJ}{same-information}
+\defwording{SI}{AB}{}
+\defwording{SI}{A}{}
+\defwording{SI}{none}{}
+\defwording{SI}{unrun}{}
+
+% ---- NR1 verdict: WIN | CLAIMA | FAIL
+\defwording{NR1}{WIN}{The gain does not require class-oracle information in the base rule.}
+\defwording{NR1}{CLAIMA}{Part of the margin over calibrated rules comes from the oracle base.}
+\defwording{NR1}{FAIL}{With a non-oracle base the residual policy did not beat the OLLA family under realistic HARQ timing; the M1 result relies on the class-oracle base rule.}
+\defwording{NR1}{unrun}{The M1 result uses a class-oracle base rule; a non-oracle base was not tested at RTT~8.}
+
+% ---- G10 verdict: ALL | MIXED | NONE
+\defwording{G10}{ALL}{The gain was robust across the tested load and deadline range.}
+\defwording{G10}{MIXED}{The gain is operating-point dependent.}
+\defwording{G10}{NONE}{The result was observed at the M1 operating point only.}
+\defwording{G10}{unrun}{The result is established at one operating point (12~kbit packets, 10-TTI budget); other loads and deadlines were not tested under the corrected scheduler.}
+
+% ---- W1: which condition gives the smaller gain over the OLLA family (cold | warm)
+\defwording{W1}{cold}{with loops started at the beginning of each trace}
+\defwording{W1}{warm}{after a 200-TTI warm-up}
+\defwording{W1}{unrun}{with loops started at the beginning of each trace (cold start)}

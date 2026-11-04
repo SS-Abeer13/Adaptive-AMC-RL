@@ -33,7 +33,7 @@ Planning estimates: about 800 words per page of pure text (IEEE two-column, 10 p
 1. **Scope:** "We study downlink link adaptation (CQI-offset / MCS selection) in a multi-user LTE/NR-like cell with realistic multi-process HARQ, in simulation."
 2. **Question and protocol:** when does deep RL beat OLLA *and* rules calibrated on the learner's cues? Pre-registered decision rules, fresh disjoint traces, project-wide multiplicity (67 cases, 108 scheme evaluations; M01).
 3. **Result 1:** against OLLA the gain is large (+11.96 % on-time, M1; R06) **[slot: W1 — quote the warm-up number if its CI does not overlap the cold one]**.
-4. **Result 2:** against calibrated rules it shrinks to +1.58 % [1.23, 1.94] (R03; hierarchical 95 % CI [+0.62, +2.62] %, G3a), for deadline traffic at RTT 8 with 8 HARQ processes, using a residual policy. **[slot: G6 — wording "beats all calibrated comparators" only if the combined comparator is beaten]**.
+4. **Result 2:** against calibrated rules it shrinks to +1.58 % [1.23, 1.94] (R03; hierarchical 95 % CI [+0.62, +2.62] %, G3a), for deadline traffic at RTT 8 with 8 HARQ processes, using a residual policy. **[slot: G6 — `\wordingsel{C2}{G6}{verdict}{unrun}`; "beats all calibrated comparators" and "same-information" only if the combined comparator is beaten and the seed-level bound is > 0]**.
 5. **Result 3:** no gain on full-buffer goodput (−0.88 % / −1.73 % vs Fixed; R19–R20).
 6. **Pitfalls:** three simulation pitfalls changed conclusions (mobility time scale, slot stealing, PF-average timing).
 7. **Artefacts:** code, data and registry released.
@@ -82,7 +82,7 @@ Notation follows the v8 draft: N users, T_tti, d_i (CQI delay), q^ref, Δ (OLLA 
 
 ### VI. Results (3.5 pp, T4, F3–F7)
 - **A. Deadline traffic, RTT 8 (M1)** (R01–R08, R10–R11): all nine comparators beaten; margins +1.58 % (Context), +1.87 % (Fixed), +2.70 % (FixedPU), +11.96 % (OLLA family); +0.95 pp absolute (R34). **T4 (double column):** M1 full comparator table with margin, 90 % CI, Holm p, Jain, edge5; M2–M4 summary rows. **F3 (double column):** forest plot of margins vs each comparator, four panels (M1–M4).
-- **B. Seed-level robustness** (G3a–c, R09): 9/10 seeds above the best rule; sign test p = 0.011; hierarchical 95 % CI [+0.62, +2.62] %; trace-only CIs are ≈ 2.3× narrower (G3c). **F4:** per-seed margins and both CIs.
+- **B. Seed-level robustness** (G3a–c, G3g, G3h, R09): vs Context, 9/10 seeds above 0 (the exception is seed 2, −0.80 %; sign test p = 0.011); 95 % CIs: bootstrap over the 10 seed means [+0.72, +2.53] %, t-based [+0.48, +2.68] %, hierarchical seed × trace [+0.62, +2.62] %. Vs Fixed: [+1.01, +2.81] %, [+0.77, +2.98] %, [+0.89, +2.90] %. **All seed-level lower bounds are > 0, so under common rule R2 no "not robust to seed resampling" qualifier applies to M1.** Trace-only CIs are ≈ 2.3× narrower than the hierarchical ones (G3c). **F4:** per-seed margins and the CIs.
 - **C. Fairness and cost** (R12, R13): Jain −0.0025 vs Context, edge5 +1.2 %; goodput 4.45 vs 4.36 Mbps.
 - **D. Replication without HARQ delay (M2)** (R16, G3e, S08b): +0.43 % vs Context, hierarchical 95 % CI [−0.03, +0.87] %; earlier RTT-0 wins (v13 X2, v14 Y0, v16 K2) used another PF variant. Described only as a replication.
 - **E. Goodput: no gain (M3, M4)** (R19–R21, R19a): −0.88 % / −1.73 % vs Fixed; the residual policy is bit-identical to its base rule in 5,000/5,000 seed × trace cells at RTT 8, not at RTT 0.
@@ -132,3 +132,18 @@ Notation follows the v8 draft: N users, T_tti, d_i (CQI delay), q^ref, Δ (OLLA 
 | **G10** grid | Abstract scope sentence and VIII state the one-operating-point restriction | F6 panel and per-cell table; "robust" or "operating-point specific" per G10 §3 | G10 §4 |
 | **A1** speed classes | Recommendation only | One paragraph + panel in F7 | — |
 | **A3** timing | Analytic MACs only | µs per decision added to IV-D | — |
+
+
+## 4. Placeholder macros (Phase 7 uses them from the first draft)
+Every number or wording that waits on a run is written with a tagged macro, never typed. Files: `paper/manuscript/pending.tex` (macros), `wording.tex` (pre-registered wording variants), `pending_manifest.csv` (62 keys with description, format, where used, default), `pending_values.csv` and `pending_status.csv` (filled when results arrive), `build_pending.py`, `check_pending.py`, `tests/test_pending.sh` (12 tests, passing with pdflatex).
+
+| Item | Number macro | Examples | Wording switch |
+|---|---|---|---|
+| G1 | `\Gone{key}` | `\Gone{pct_delta0_m1}` | `\ifitemrun{G1}{VI-H paragraph}{omit}` |
+| W1 | `\Wone{key}` | `\Wone{abstract_gain}`; `\wordingsel{W1}{W1}{abstract_cond}{cold}` | abstract quotes the smaller gain (W1 §3) |
+| G6 | `\Gsix{key}` | `\Gsix{margin_ctxj}`, `\Gsix{seed_lo_best}` | `\wordingsel{C2}{G6}{verdict}{unrun}` and `\wordingsel{SI}{G6}{verdict}{unrun}` ("same-information" appears only for verdict ABJ) |
+| NR1 | `\NR{key}` | `\NR{best_margin}` | `\wordingsel{NR1}{NR}{verdict}{unrun}` |
+| G10 | `\Gten{key}` | `\Gten{n_win}`, `\Gten{cells_win}` | `\wordingsel{G10}{G10}{verdict}{unrun}`; `\ifitemrun{G10}{per-cell table}{operating-point sentence}` |
+| A1 / A3 / A6 | `\Aone`, `\Athree`, `\Asix` | `\Athree{us_per_decision}` | `\ifitemrun{...}` |
+
+Rules: (i) an unresolved number prints as a red `[[ITEM:key]]` and is logged to `pending_report.txt`; (ii) `check_pending.py --final` is a submission gate that fails on unresolved placeholders, on items still "pending", and on numbers of a not-run item used outside `\ifitemrun`; (iii) the verdict value stored in `pending_values.csv` is the only thing that selects wording, so a result drops into its pre-set sentence without rewriting.

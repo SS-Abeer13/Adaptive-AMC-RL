@@ -72,26 +72,47 @@ Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is un
 - Length 13–15 pp; backups OJ-COMS → OJVT (TVT only if ≥ 14 pp at submission). Checklist: `manuscript/submission_checklist.md` (arXiv notice, AI disclosure).
 - Campaign check: a non-oracle (Fixed) base was used in v13 X2, v14 Y0/Y0_noshape and v16 K2 (all RTT-0 WINs, older PF). There was none at RTT 8 under v17, so NR1 is proposed.
 
-## Phase 5 (evidence gap check): done. **Waiting at Checkpoint 5.**
+## Phase 5 (evidence gap check): done (approved at Checkpoint 5, see below)
 - `proposals/checkpoint5_list.md`: consolidated list, classes, compute, prompts.
 - Pre-registrations: G6 (revised: 500-trace re-calibration + combined comparator, decision rule for C2), W1 (warm-up), NR1 (non-oracle residual), G10 (compute + prompt). Compute basis: `proposals/compute_basis.md`.
 
-## Phase 6 (outline): done. **Waiting at Checkpoint 6** (Checkpoint 5 run decisions still open; runs and outline proceed in parallel).
+## Checkpoint 5: approved 4 Nov 2026, with changes; pre-registrations FROZEN
+**Freeze commit:** `0726555fb7dda0190e780406828f785903d98f30` (branch `claude/magical-heisenberg-iek5sg`, mirrored to `paper-draft`). File hashes (SHA-256) in `paper/proposals/FREEZE.sha256`; verify with `cd paper/proposals && sha256sum -c FREEZE.sha256`.
+
+| File | SHA-256 |
+|---|---|
+| `G6_calibration_budget_prereg.md` | `058bac584c2811767884df00c186c2f3c5747a1d4d137f88672a1303de985591` |
+| `W1_warmup_prereg.md` | `3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d` |
+| `NR1_nonoracle_residual_prereg.md` | `ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258` |
+| `G10_operating_grid_prereg.md` | `e2150c50bac6e04f0e202e2c8a4d13165593c1d9472c72c48405903b691f9200` |
+| `common_rules.md` | `360e2f268937853203a054a588b33d3e4e66c5d486fc14eeba24f62298ce68fa` |
+| `checkpoint5_list.md` | `a54a30a728b8056bf5a8a38b9b95b8a4fbe1d3a993c01addbf52669c2bbcd93a` |
+| `compute_basis.md` | `d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a` |
+
+Changes applied before freezing: (1) G6 uses exhaustive search for Fixed, Context and OLLA; FixedPU keeps its separable grid plus a joint refinement (the v17 FixedPU was separable and never evaluated jointly); coordinate ascent only for the 36-cell combined table (composite init, 3 random restarts, run to convergence, sanity check, calibration-vs-evaluation reporting). (2) W1: the abstract quotes the smaller gain over the OLLA family; Baseline footnote. (3) G10: every comparator re-calibrated per cell, base rule recorded with oracle flag, wording rows fixed. NR1 wording rows fixed. Seed-level rule R2 added (`common_rules.md`).
+**Run list approved:** G1 → W1 → G6 → NR1 → G10 → A1/A3; A2, A4, A5 need no runs; A6 recommended; SALAD and a second simulator stay future work.
+**Compute (upper-bound basis):** G6 ≈ 41 h expected (30–76 h), G10 ≈ 70 h for four cells (≈ 17 h per cell), the whole programme ≈ 115 h. Levers pre-registered before any result: measured preflight rate, `G6B_PROFILE=lite`, `G10_CELLS`.
+
+## G3 (seed-level statistics), reported at Phase 6
+M1 primary vs Context: 9/10 seeds above 0 (sign p = 0.0107); 95 % CIs: bootstrap over seed means [+0.72, +2.53] %, t [+0.48, +2.68] %, hierarchical [+0.62, +2.62] %. Vs Fixed: [+1.01, +2.81], [+0.77, +2.98], [+0.89, +2.90] %. All lower bounds > 0 → no qualifier on C2 (ledger G3a, G3g, G3h). M2 vs Context: lower bounds −0.02 / +0.06 / −0.03 → replication only (G3i).
+
+## Runner and placeholders (infrastructure, not part of the freeze)
+- `Optimized/v17x/`: `run_v17x_all.bat` + MATLAB orchestrator, checkpoints, heartbeat, preflight with the 1.5× rule, error markers, `README_v17x_runner.md` (stage interface and the master prompt for Claude Code). Tested under Octave 8 (restart, halt, pause logic); **the .bat and MATLAB-only parts are untested here**; run the self-test first.
+- `paper/manuscript/pending.tex` etc.: tagged placeholder macros (`\Gsix{...}` etc.), 62-key manifest, wording variants, build and check scripts, 12 passing tests with pdflatex.
+
+## Phase 6 (outline): done (updated at Checkpoint 5). **Waiting at Checkpoint 6.**
 - `design/outline.md`: section plan (≈ 14.5 pp incl. references + ≈ 2 pp appendices), per-section content with ledger IDs, OJ-COMS/OJVT portability, defaults for each pending run.
 - `design/figure_table_plan.md`: 8 figures, 5 tables, 3 appendix tables; sources, scripts, style rules. New item **A6** (PF-timing demonstration, ≈ 3 min, no training) so the pitfall figure rests on one controlled comparison.
 - `design/claims_map.csv` (+ `build_claims_map.py`): 39 rows; **88 of 91 ledger claims placed**, 3 deliberately unused (R23, R24 withheld until G1; H12 pre-v17). The script fails if a withdrawn, superseded or not-usable claim appears outside Section VII.
 - `design/glossary.md`: terminology and notation (v8 symbols reused).
 - Correction found while drafting: the PF-artefact size. Baseline +39.6 % in the 6-trace diagnostic; 10–26 % across all 13 schemes in the v16-vs-v17 re-run (confounded). "≈ 40 % for every scheme" removed everywhere (ledger H17a, conflicts F1).
-- LaTeX is not installed in the container; `apt-get update` then `apt-get install texlive-publishers` (IEEEtran) works, so Phase 7 can build the PDF here. matplotlib via pip.
-
-## Open questions for Checkpoint 5 (unchanged)
-1. Approve which items run: recommended A6, W1, G6, G10 (essential), NR1 (recommended), A1/A3.
-2. Approve the frozen pre-registration texts (G6 §§1–6, W1 §§1–5, NR1 §§1–6, G10 §§1–6).
+- LaTeX is now installed in the container (`texlive-latex-base`, `-recommended`, `-publishers` incl. IEEEtran, `-fonts-recommended`); matplotlib via pip. Octave 8 is installed for testing the runner logic.
 
 ## Open questions for Checkpoint 6
 1. Approve the section plan and page budget (≈ 14.5 pp + appendices).
 2. Approve the 8 + 5 float plan (F6/F7 appear only if their runs are done).
 3. Approve A6 as an addition to the run list.
+4. Decide the launch profile before any run: `G6B_PROFILE` (full ≈ 41 h | lite ≈ 25 h) and `G10_CELLS` (four cells ≈ 70 h | two cells ≈ 35 h). Both are pre-registered, and the choice is made before any result.
 
 ## Next step
 Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, section drafts in the order system model → protocol → results → pitfalls → methods → related work → discussion → introduction → abstract → conclusion.
