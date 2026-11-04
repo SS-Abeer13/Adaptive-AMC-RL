@@ -11,7 +11,7 @@ Verified = record opened on Crossref (DOI registry) or the arXiv API, or on the 
 | "Pang 2024" | G. Pang, L. You, L. Fu, "An efficient DRL-based link adaptation for cellular networks with low overhead," **IEEE WCNC 2024** (TD3 tunes OLLA parameters) | ✅ verified | `pang2024td3olla` |
 | "LOLLA 2026" | R. Wang, L. Zhang, Q. Liu, K. Yang, "LOLLA: Deep RL for closed-loop link adaptation towards a GPU-accelerated AI-RAN," arXiv 2606.23110, and **IEEE Trans. Mobile Comput.** (DOI 10.1109/tmc.2026.3740957) | ✅ verified | `wang2026lolla` |
 | Saxena et al. (bandit LA, journal version) | V. Saxena, H. Tullberg, J. Jaldén, "Reinforcement learning for efficient and tuning-free link adaptation," **IEEE Trans. Wireless Commun.** 21(2), 2022 | ✅ verified | `saxena2022tuningfree` (+ `saxena2019cmab`, `saxena2021lts`) |
-| Ahsen et al. ("IEEE OJ-COMS; DOI unverified") | **arXiv preprint only** (2604.20459, Apr 2026). No OJ-COMS or other journal version was found. It is a *rank-dependent multi-offset* OLLA. The v17 code header cites it for "Multi-OLLA", but our Multi-OLLA (fast/slow integrator blend) is a **different method** | ✅ verified as a preprint; ⚠️ **mis-attributed in `evalPolicy_v17.m` L4** | `ahsen2026moolla` |
+| Ahsen et al. ("IEEE OJ-COMS; DOI unverified") | **CORRECTED 2026-11-04 (Phase 3):** published in **IEEE OJ-COMS** vol. 7, pp. 8362–8374, 2026, DOI 10.1109/ojcoms.2026.3714148, with arXiv 2604.20459 as the preprint. The Checkpoint-2 verdict "arXiv only" was wrong: the first Crossref search was filtered to titles and missed it. It is a *rank-dependent multi-offset* OLLA. The v17 code header cites it for "Multi-OLLA", but our Multi-OLLA (fast/slow integrator blend) is a **different method** | ✅ verified as a preprint; ⚠️ **mis-attributed in `evalPolicy_v17.m` L4** | `ahsen2026moolla` |
 
 ## B. v8 draft reference list (`papers/v8_draft/AMC_full_paper_v8_rev1_source.md`, refs [1]–[22])
 
@@ -24,7 +24,7 @@ Verified = record opened on Crossref (DOI registry) or the arXiv API, or on the 
 | [6] | Pulliyakode & Kalyani, arXiv 2017 | ✅ |
 | [7] | Wiesmayr et al., SALAD, arXiv 2025 | ✅ (now v2, Mar 2026) |
 | [8] | Dahlman et al., *5G NR*, Academic Press 2018, "doi: 10.1016/C2016-0-04354-9" | ⚠️ That DOI is **not in Crossref**. Chapter DOIs use 10.1016/b978-0-12-814323-0.*. Cite by ISBN or not at all → `UNVERIFIED` |
-| [9] | Ahsen et al., arXiv 2026 | ✅ preprint, but see A: it is not the Multi-OLLA we implement |
+| [9] | Ahsen et al., arXiv 2026 | ✅ now published in OJ-COMS 2026; but see A: it is not the Multi-OLLA we implement |
 | [12] | 3GPP TR 38.901 V17.0.0 | ✅ exists; the current version is V19.5.0 |
 | [13] | Wilcoxon 1945 | ✅ |
 | [14] | Holm 1979 | ✅ via bibliographic records (JSTOR page did not load). **No DOI** (10.2307/4615733 is not registered) |
@@ -34,3 +34,8 @@ Verified = record opened on Crossref (DOI registry) or the arXiv API, or on the 
 | [19] | Mnih et al., ICML 2016 | ✅ |
 | [22] | Watkins & Dayan 1992, doi 10.1007/BF00992698 | ✅ DOI correct (not needed in the new paper) |
 | [1], [10], [11], [18], [20], [21] | TS 36.213, Altman CMDP book, Jakes book, Sutton & Barto, ALVINN, Adam | Not re-verified. Not needed for the current outline, except possibly Jakes (fading model) and Adam (optimiser). Verify before use |
+
+## C. Phase-3 corrections
+
+- **Doherty et al., "Hype or Hope?"**: journal version **JOCN 17(9):D1, 2025**, DOI 10.1364/jocn.559990, with **5 authors** (Doherty, Matzner, Sadeghi, Bayvel, Beghelli). The Checkpoint-2 bib entry listed 4 authors from a truncated listing. Fixed.
+- **LOLLA**: arXiv 2606.23110**v1** (22 Jun 2026) is the only version. Venue: IEEE TMC (DOI 10.1109/tmc.2026.3740957, pp. 1–18, early access).

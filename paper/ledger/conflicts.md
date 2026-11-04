@@ -56,5 +56,5 @@ The repo README is not a paper source. Fixing it is optional housekeeping and wa
 | E1 🟠 | `Optimized/v17/evalPolicy_v17.m` L4 (and earlier versions): "Multi-OLLA … (arXiv:2604.20459)" | Ahsen et al. 2026 is a **rank-dependent** multi-offset OLLA. Our Multi-OLLA is a fast/slow integrator blend, a different method | In the paper, describe our Multi-OLLA on its own terms. Cite Ahsen et al. only as "multi-offset OLLA variants exist". The code comment is left untouched (frozen code); noted here |
 | E2 🟠 | v8 draft ref [2] | Pedersen 2007 DOI 10.1109/VETECF.2007.380 points to a different paper | Correct DOI: 10.1109/vetecf.2007.378 |
 | E3 🟢 | v8 draft ref [8] | Dahlman book DOI not registered | Do not cite with that DOI |
-| E4 🟢 | prompt §4.1 | "Ahsen et al. (IEEE OJ-COMS)" | No OJ-COMS version exists; arXiv preprint only |
+| E4 🟢 | prompt §4.1 | "Ahsen et al. (IEEE OJ-COMS)" | **Corrected in Phase 3:** the OJ-COMS version exists (2026, DOI 10.1109/ojcoms.2026.3714148). My Checkpoint-2 verdict was wrong |
 | E5 🟢 | prompt §4.1 | "Park 2015" | It is a GLOBECOM 2015 paper, not a letter |

@@ -121,3 +121,11 @@ Tools: Crossref REST API (`tools/xref.py`, bibliographic query, optional `from-p
 - No IEEE Xplore full-text access. Several IEEE-only papers (Ye 2023, Kela 2022, Ku 2024, Pang 2024) were read at abstract level only.
 - Crossref relevance ranking is noisy. A paper that matches none of the query terms could be missed. A targeted IEEE Xplore / Google Scholar pass by the author is recommended before submission (especially TMLCN and OJ-COMS 2024–2026 issues; Phase 3).
 - Cluster 4 and cluster 6 references were read at abstract level. They are cited for standard methods only.
+
+## 5. Phase 3 IEEE venue pass (2026-11-04)
+
+- **Access test:** IEEE Xplore document pages return a bot challenge (202) and the REST/stamp/PDF endpoints return **418**, even for open-access articles. Google Scholar returns **403**. Neither could be used.
+- **Substitute:** a venue-restricted Crossref scan (`tools/venue_scan.py`) by ISSN for TMLCN, OJ-COMS, TWC, TVT, TCOM, WCL, CL, TCCN, TMC, Computer Networks, Physical Communication, EURASIP JWCN and IEEE Access, from 2024-01-01. It used 9 terms (link adaptation; MCS selection; OLLA; HARQ-aware LA; URLLC/deadline LA; RL scheduling/LA; RL MCS; benchmark/baseline ML wireless; reproducibility ML wireless). Output: `search_raw/venue_scan_2024_2026.txt`. A second TMLCN/OJ-COMS scan with 11 RAN-RL terms: `search_raw/venue_scan_tmlcn_ojcoms.txt`.
+- **Abstracts:** OpenAlex (`search_raw/oa_abstracts2.txt`). **Exemplar full texts:** arXiv 2308.14523, 2408.00634, 2302.07837, 2604.20459, 2010.12461.
+- **Web searches (W29–W36):** TMLCN, OJ-COMS and TWC author pages; IEEE generative-AI policy; TVT page limits; TMLCN/OJ-COMS/TWC metrics; wireless "strong baselines" critique (extended); wireless ML reproducibility critique (extended).
+- **Not accessible:** TCOM policies (404); Elsevier guide for authors (403); published IEEE PDFs (418); Scholar (403).

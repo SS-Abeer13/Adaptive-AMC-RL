@@ -1,0 +1,54 @@
+### do we need deep learning wireless communications simple baseline comparison
+  2021 | Wireless Distributed Edge Learning: How Many Edge Devices Do We Need? | Song, Kountouris | IEEE Journal on Selected Areas in Communications | 10.1109/jsac.2020.3041379 | cites=18
+  2024 | Super-Directive Antenna Arrays: How Many Elements Do We Need? | Kanbaz, Yurduseven, Matthaiou | 2024 IEEE Wireless Communications and Networking Conference  | 10.1109/wcnc57260.2024.10570713 | cites=9
+  2018 | Wireless Power Transfer With Hybrid Beamforming: How Many RF Chains Do We Need? | Yang, Zeng, Zhang | IEEE Transactions on Wireless Communications | 10.1109/twc.2018.2865313 | cites=43
+  2024 | STARS-ISAC: How Many Sensors Do We Need? | Zhang, Liu, Wang, Chen | IEEE Transactions on Wireless Communications | 10.1109/twc.2023.3285795 | cites=36
+  2021 | How Often Do We Need to Estimate Wireless Channels in Massive MIMO with Channel Aging? | Tao, Wang | 2021 IEEE Global Communications Conference (GLOBECOM) | 10.1109/globecom46510.2021.9685540 | cites=5
+  2021 | Deep Learning Based Cardiac MRI Segmentation: Do We Need Experts? | Skandarani, Jodoin, Lalande | Algorithms | 10.3390/a14070212 | cites=3
+  2026 | Energy-Efficient SIM-Assisted Communications: How Many Layers Do We Need? | Shi, Zhang, An, Di Renzo et al. | IEEE Transactions on Wireless Communications | 10.1109/twc.2025.3612266 | cites=19
+  2021 | IRS-Assisted Wireless Powered NOMA: Do We Really Need Different Phase Shifts in DL and UL? | Wu, Zhou, Schober | IEEE Wireless Communications Letters | 10.1109/lwc.2021.3072502 | cites=117
+### rethinking machine learning wireless benchmark reproducibility
+  2024 | The Idealized Machine Learning Pipeline (IMLP) for Advancing Reproducibility in Machine Learning | Zheng, Stodden | Proceedings of the 2nd ACM Conference on Reproducibility and | 10.1145/3641525.366363
+  2022 | Machine Learning for Wireless Networks |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.003 | cites=0
+  2022 | Wireless Networks for Machine Learning |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.014 | cites=0
+  2022 | Wireless Network Simulation to Create Machine Learning Benchmark Data | Katzef, Cullen, Alpcan, Leckie et al. | GLOBECOM 2022 - 2022 IEEE Global Communications Conference | 10.1109/globecom48099.2022.1
+  2026 | Improving Reproducibility in Machine Learning: Overview, Barriers, and Drivers | Mzyece | ? | 10.36227/techrxiv.177155769.94899097/v1 | cites=0
+  2021 | Reproducibility, Transparency and Evaluation of Machine Learning in Health Applications | Wojtusiak | Proceedings of the 14th International Joint Conference on Bi | 10.5220/0010348306850692 | cites=3
+  2025 | Reproducibility report: quantum machine learning methods in fundus analysis—a benchmark study | Eslami, Raj, Hasan, Kazeminasab Hashemabad et al. | Eye | 10.1038/s41433-025-03916-w | cites=0
+  2025 | Explainability and Reproducibility in Machine Learning | Leung | Leveraging GenAI for Machine Learning Education in Public He | 10.1007/978-3-032-08677-8_9 | cites=0
+### benchmarking reinforcement learning radio resource management heuristics
+  2025 | An Offline Multi-Agent Reinforcement Learning Framework for Radio Resource Management | Eldeeb, Alves | ? | 10.22541/au.173767084.41252305/v1 | cites=0
+  2023 | Reinforcement-Learning-Based Robust Resource Management for Multi-Radio Systems | Delaney, Dowey, Cheng | Sensors | 10.3390/s23104821 | cites=6
+  2024 | Average Reward Reinforcement Learning for Wireless Radio Resource Management | Yang, Yang, Shen | 2024 58th Asilomar Conference on Signals, Systems, and Compu | 10.1109/ieeeconf60004.2024.10942648 | ci
+  2022 | MUESLI: Multi-objective Radio Resource Slice Management via Reinforcement Learning | Kattepur, David, Mohalik | 2022 IEEE 8th International Conference on Network Softwariza | 10.1109/netsoft54395.2022.
+  2024 | Distributed Deep Reinforcement Learning for Radio Resource Management in O-RAN | Siahpoush, Shah-Mansouri | 2024 32nd International Conference on Electrical Engineering | 10.1109/icee63041.2024.1066795
+  2025 | Intelligent reinforcement learning-based scheduling in 5G networks and beyond | Badidi, Harrous, Lamaazi | Machine Learning for Radio Resource Management and Optimizat | 10.1201/9781003514336-9 | cites
+  2023 | Offline Reinforcement Learning and Cognitive Radio Resource Management for Space-based Radio Access Network Op | Furman, Woods, Maracchion, Drozd | 2023 IEEE Cognitive Communications for Aerospace Appl
+  2020 | Radio Resource and Beam Management in 5G mmWave Using Clustering and Deep Reinforcement Learning | Elsayed, Erol-Kantarci | GLOBECOM 2020 - 2020 IEEE Global Communications Conference | 10.1109/globecom
+### pitfalls machine learning wireless networks evaluation
+  2022 | Machine Learning for Wireless Networks |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.003 | cites=0
+  2022 | Wireless Networks for Machine Learning |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.014 | cites=0
+  2022 | Collaborative Learning over Wireless Networks: An Introductory Overview |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.015 | cites=5
+  2025 | Learning Resource Allocation in Wireless Networks |  | Wireless Communications and Machine Learning | 10.1017/9781009232210.007 | cites=0
+  2022 | Optimized Federated Learning in Wireless Networks with Constrained Resources |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.016 | cites=0
+  2022 | Over-the-Air Computation for Distributed Learning over Wireless Networks |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.018 | cites=1
+  2022 | Data-Driven Wireless Networks: Scalability and Uncertainty |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.012 | cites=0
+  2024 | Prediction and evaluation of wireless network data transmission security risk based on machine learning | Huang, Yao, Wu | Wireless Networks | 10.1007/s11276-024-03773-7 | cites=0
+### reproducible research wireless communications machine learning datasets code
+  2022 | Machine Learning for Wireless Networks |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.003 | cites=0
+  2022 | Wireless Networks for Machine Learning |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.014 | cites=0
+  2022 | Machine Learning and Communications: An Introduction |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.002 | cites=0
+  2022 | Model-Based Machine Learning for Communications |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.008 | cites=6
+  2022 | Channel Coding via Machine Learning |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.006 | cites=0
+  2026 | Reuse quality of open polymer datasets: a reproducible cross-repository audit (2020–2025) | Meyer | Machine Learning with Applications | 10.1016/j.mlwa.2026.101044 | cites=0
+  2023 | Retracted: Machine Learning Model-Based English Project Learning and Functional Research |  | Wireless Communications and Mobile Computing | 10.1155/2023/9816136 | cites=0
+  2022 | Constrained Unsupervised Learning for Wireless Network Optimization |  | Machine Learning and Wireless Communications | 10.1017/9781108966559.009 | cites=0
+### comparison deep reinforcement learning classical heuristic scheduling wireless fails
+  2022 | Deep reinforcement learning based multi-layered traffic scheduling scheme in data center networks | Wu | Wireless Networks | 10.1007/s11276-021-02883-w | cites=13
+  2025 | Dynamic task scheduling in wireless edge computing using deep reinforcement learning with ordinal optimization | Wang, Sun | EURASIP Journal on Wireless Communications and Networking | 10.1186/s13638-0
+  2025 | Multi-Objective Scheduling in Wireless Networks With Deep Reinforcement Learning | Toure, Tsilimantos, Giannakas, Esrafilian et al. | 2025 IEEE Wireless Communications and Networking Conference  | 10.1
+  2023 | Mutated Deep Reinforcement Learning Scheduling in Cloud for Resource-Intensive IoT Systems | Shingne, Shriram | Wireless Personal Communications | 10.1007/s11277-023-10709-5 | cites=6
+  2024 | Multi-Agent Deep Reinforcement Learning for Collaborative Task Scheduling | Gergely | Proceedings of the 16th International Conference on Agents a | 10.5220/0012434700003636 | cites=1
+  2024 | Deep Reinforcement Learning-Based Adaptive Scheduling for Wireless Time-Sensitive Networking | Kim, Kim, Kim | Sensors | 10.3390/s24165281 | cites=29
+  2025 | AoI-Aware Wireless Resource Scheduling Based on Deep Reinforcement Learning | Bai, Zhang, Xie | 2025 IEEE 23rd International Conference on Industrial Inform | 10.1109/indin64977.2025.11279547 | cites=0
+  2020 | Deep Reinforcement Learning-Based Joint Scheduling of eMBB and URLLC in 5G Networks | Li, Zhang | IEEE Wireless Communications Letters | 10.1109/lwc.2020.2997036 | cites=90

@@ -1,7 +1,7 @@
 # Paper status
 
 **Branch:** `claude/magical-heisenberg-iek5sg` (session branch), mirrored to `paper-draft` (push access confirmed 4 Nov 2026).
-**Current phase:** 2 (literature research) complete. **Waiting at Checkpoint 2.**
+**Current phase:** 3 (venue research) complete. **Waiting at Checkpoint 3.**
 
 ## Checkpoint 1: approved 4 Nov 2026, with conditions. Status of each condition
 
@@ -39,10 +39,20 @@
 - `paper/lit/candidates_audit.md`: named candidates and the v8 reference list (2 wrong DOIs, 1 mis-attribution).
 - `paper/lit/search_log.md` + `search_raw/`; tools in `paper/lit/tools/`.
 
-## Open questions for Checkpoint 2
-1. LOLLA (IEEE TMC 2026) already proposes a residual offset on the OLLA/LUT mapping. Accept an evaluation-led framing (A or A-leaning C) rather than a method-led one (B)?
-2. Doherty et al. 2025 make the "tuned heuristics match RL" point in optical networks. Position as the cellular-LA counterpart?
-3. Should an author-side IEEE Xplore / Scholar pass (TMLCN, OJ-COMS, TWC, TVT 2024–2026) be done before Phase 3?
+## Checkpoint 2: approved 4 Nov 2026
+- Framing: evaluation-led hybrid. Thesis recorded in `lit/gap_analysis.md` §9 item 0. LOLLA positioned respectfully (§5). "Hype or Hope?" used as an anchor, not as the paper's identity (§2, §8).
+- Literature counts added (`lit_matrix.csv` columns `calibrated_rule_baseline`, `information_parity`): 23 learning-LA papers; none with a calibrated same-information baseline.
+
+## Phase 3 (venue): done
+- `venue/venue_research.md`: policies from official pages, recent papers per venue, blocked sources listed.
+- `venue/exemplar_template.md`: 7 exemplars (TMLCN, OJ-COMS) and our section and page template.
+- `venue/venue_decision.md`: weighted matrix. **Primary TMLCN (63/75), backup OJ-COMS (58), backup TVT (43); TWC stretch; letter spin-off not advised before the main paper.**
+- Bibliography: 98 verified entries. Corrections: Ahsen → OJ-COMS 2026; Doherty → JOCN 2025 (5 authors); LOLLA arXiv v1.
+
+## Open questions for Checkpoint 3
+1. Choose the primary venue and backups (recommended: TMLCN; OJ-COMS; TVT).
+2. TWC as primary instead (prestige, 13-page limit, method-novelty bar)?
+3. Letter spin-off: fold into the main paper (recommended), or plan it for after acceptance?
 
 ## Next step
-Phase 3 (venue research) after Checkpoint 2 approval.
+Phase 4 (framing and contribution design, `paper/design/`) after Checkpoint 3.
