@@ -9,26 +9,26 @@
 
 This repository contains the simulation harness, channel physics, learning algorithms, and pre-registered empirical evaluations investigating whether Deep Reinforcement Learning (RL) can outperform classical Outer Loop Link Adaptation (OLLA) and calibrated link-adaptation baselines in multi-user cellular downlinks.
 
-The definitive, fully audited campaign is **v17** (`Optimized/v17/`), evaluated across 500 independent channel traces under Proportional Fair (PF) scheduling, Chase combining HARQ, and feedback round-trip times (RTT $\in \{0, 8\}$ TTIs).
+The primary audited campaign is **v17** (`Optimized/v17/`), evaluated across 500 independent channel traces under Proportional Fair (PF) scheduling, Chase combining HARQ, and feedback round-trip times (RTT $\in \{0, 8\}$ TTIs).
 
 ### Headline Results:
-1. **Definitive WIN under Realistic HARQ Feedback Delay (M1, RTT = 8 TTIs):**
+1. **Statistically Significant WIN under Realistic HARQ Feedback Delay (M1, RTT = 8 TTIs):**
    Under realistic feedback delay (RTT = 8 TTIs) and deadline-constrained traffic, **Deep A2C achieves a statistically significant victory** over all classical and calibrated baselines:
-   - Primary single-seed Deep A2C: **$+1.58\%$** on-time throughput over the strongest non-RL comparator (`Context table`), Holm-adjusted $p = 9.06 \times 10^{-13}$.
+   - Primary (mean over 10 seeds) Deep A2C: **$+1.58\%$** on-time throughput over the strongest non-RL comparator (`Context table`), Holm-adjusted $p = 9.06 \times 10^{-13}$.
    - 10-seed Ensemble Policy: **$+4.56\%$** on-time throughput over `Context table`, Holm-adjusted $p = 1.62 \times 10^{-43}$.
    - Secondary pre-registered A2C-resid (800 ep): $+0.34\%$ ($p = 0.0244$), confirming the advantage is structural.
-   - **Mechanism:** Under delay, the agent discovers state-dependent risk modulation—biasing aggressively ($+1$ offset, $>85\%$ share) during buffer congestion / busy HARQ processes to avoid deadline drops, and falling back to conservative transmissions on retransmissions and low-slack packets.
+   - **Mechanism:** Under delay on new transmissions, the agent discovers state-dependent risk modulation—biasing aggressively ($+1$ offset, 88–90% share) during deadline urgency (slack $\le 5$ TTIs) and buffer congestion / busy HARQ processes (85–93% share) to avoid deadline drops, while selecting conservative choices (actions 0 and −1) primarily when slack is abundant ($> 5$ TTIs) and processes are idle.
 
 2. **Fourth Replication at Zero Delay (M2, RTT = 0 TTIs):**
-   Under instantaneous feedback (RTT = 0 TTIs), Deep A2C replicates the zero-delay deadline win for the fourth independent campaign generation (following v10 E4c, v13 X1, v14 Y0, and v16 K2):
-   - Single seed: $+0.43\%$ ($p = 0.0167$); Ensemble: $+0.63\%$ ($p = 5.07 \times 10^{-5}$).
+   Under instantaneous feedback (RTT = 0 TTIs), Deep A2C replicates the zero-delay deadline win across multiple campaigns: v13 X2 (secondary), v14 Y0, v16 K2, and v17 M2, plus v10 E4c (noted as partly overlapping its exploratory traces):
+   - Primary (mean over 10 seeds): $+0.43\%$ ($p = 0.0167$); Ensemble: $+0.63\%$ ($p = 5.07 \times 10^{-5}$).
    - Recorded as a confirmatory replication under project-wide multiplicity control.
 
 3. **No Goodput Win (M3 & M4, Pure Rate Maximization):**
    RL achieves **no gain over calibrated fixed setpoints** under pure unconstrained goodput traffic:
    - M3 (RTT = 8): $-0.88\%$ vs `Fixed` ($p = 0.0072$);
    - M4 (RTT = 0): $-1.73\%$ vs `Fixed` ($p = 1.72 \times 10^{-8}$).
-   - The learned policy collapses directly onto the calibrated base rule (selecting action 0 >99% of the time). This firmly refutes the hypothesis that RL discovers opportunistic channel prediction under rate maximization, bounding the RL advantage strictly to queue/deadline dynamics.
+   - The learned policy collapses directly onto the calibrated base rule (selecting action 0 for 92.3% of TTIs in M3 and 76.3% in M4). This indicates that RL does not discover opportunistic channel prediction under rate maximization, bounding the RL advantage strictly to queue/deadline dynamics.
 
 ---
 
@@ -39,8 +39,8 @@ The project underwent rigorous retrospective validation and bug identification, 
 * **v7 / v8 Claims Withdrawn (Mobility Time-Scale Discrepancy):**
   Early versions (v7/v8) reported large throughput gains ($+12.8\%$) under goodput traffic. In October 2026, an internal audit identified that spatial displacement had been computed as $v$ meters per TTI rather than $v \cdot T_{\text{tti}}$, scaling user mobility $1000\times$ faster than physical reality. When corrected (`mob_kappa = 1` in v9), the goodput gain completely vanished ($0/18$ wins in v9). All v7/v8 claims were formally withdrawn. The historical v7 documentation is preserved in [`Docs/README_v7_historical.md`](Docs/README_v7_historical.md).
 * **v15 / v16 RTT Claims Superseded (PF Denominator Feedback Artefact):**
-  In v15 and v16, evaluations at RTT $> 0$ showed massive apparent gains (+37% to +44%). An investigation in November 2026 revealed an implementation artefact in the scheduler: the Proportional Fair denominator (past average throughput $\bar{R}_k$) was updated only when HARQ ACK/NACK feedback was received (at $t + \text{RTT}$) instead of when the packet was scheduled and transmitted ($t$). Because RL transmitted higher-MCS packets that failed more frequently on the first transmission, its feedback was delayed or suppressed, depressing $\bar{R}_k$ and causing the scheduler to disproportionately grant it more transmission slots.
-* **v17 Definitive Pipeline:**
+  In v15 and v16, evaluations at RTT $> 0$ were affected by an implementation artefact in the scheduler: Proportional Fair's average throughput was updated at feedback time rather than transmission time. With 8 parallel HARQ processes, the strongest user was repeatedly scheduled before its feedback arrived. That inflated goodput for all schemes, Baseline included (about +40–50%), and reduced fairness (Jain 0.50 → 0.42). It was not an RL-specific gain.
+* **v17 Corrected Pipeline:**
   v17 resolved this by:
   1. Updating PF rate averaging at transmission time (`pf_avg = 'scheduled'`);
   2. Introducing an end-of-trace HARQ drain window (`harq_rtt` extra TTIs with zero new transmissions) to credit all in-flight blocks fairly;
@@ -79,15 +79,15 @@ fill_stats_v17
 To inspect the project-wide case registry and status across all versions:
 ```matlab
 cd 'd:\Adaptive AMC A2C+QL\Optimized'
-build_case_registry; % Regenerates case_registry.csv (67 unique cases, 108 rows)
+build_case_registry; % Regenerates case_registry.csv (67 unique cases, 108 scheme evaluations)
 ```
 
 ---
 
 ## 4. Primary Documentation & Links
 
-* **Definitive Campaign Report:** [`Optimized/v17/README_v17.md`](Optimized/v17/README_v17.md) — Comprehensive pre-registered protocol, empirical results, state-conditional action breakdowns, and statistical analyses.
-* **Full Case Registry:** [`Optimized/case_registry.csv`](Optimized/case_registry.csv) — Audit trail of all experimental cases, comparator baselines, Holm-adjusted p-values, and replication status from v9 to v17.
+* **Campaign Report:** [`Optimized/v17/README_v17.md`](Optimized/v17/README_v17.md) — Comprehensive pre-registered protocol, empirical results, state-conditional action breakdowns, and statistical analyses.
+* **Full Case Registry:** [`Optimized/case_registry.csv`](Optimized/case_registry.csv) — Audit trail of all 67 experimental cases and 108 scheme evaluations, comparator baselines, Holm-adjusted p-values, and replication status from v9 to v17.
 * **Historical Review Responses & Drafts:**
   - [`Docs/README_v7_historical.md`](Docs/README_v7_historical.md) — Archived v7 executive summary.
   - [`papers/v8_draft/`](papers/v8_draft/) — v8 paper drafts, reviewer response letters, and original figure assets.

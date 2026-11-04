@@ -278,7 +278,7 @@ The v17 campaign executed the 4 pre-registered cases sequentially (`M3_gp_rtt8` 
 
 #### Case M2: Instantaneous HARQ Deadline Traffic (`M2_dl_rtt0`)
 - **Role under Project Multiplicity (PLAN_v17 §C6):** **Confirmatory Replication (not a standalone new claim)**.
-  - Across the project's 39 registered experimental cases (tracked in `case_registry.csv`), M2 is pre-registered strictly as a replication of the established zero-delay gain already demonstrated in v13 (case X2), v14 (case Y0), and v16 (case K2).
+  - Across the project's 67 registered experimental cases / 108 scheme evaluations (tracked in `case_registry.csv`), M2 is pre-registered strictly as a replication of the established zero-delay gain already demonstrated in v13 X2 (secondary), v14 Y0, v16 K2, and v17 M2, plus v10 E4c (noted as partly overlapping its exploratory traces).
   - Its objective is to verify that the zero-delay gain replicates reliably under the corrected transmission-time Proportional Fair rate averaging (`env.pf_avg = 'scheduled'`), end-of-trace drain (`env.drain = true`), and packet-capped useful bit accounting (`env.useful_bits = true`). It is not counted as an independent hypothesis test to avoid multiplicity inflation.
 - **Environment:** Deadline traffic (12 kb / 20 ms), RTT = 0, 1 HARQ process, `pf_avg = 'scheduled'`, `drain = true`, `useful_bits = true`, $N=10$, 500 evaluation traces.
 - **Primary Scheme:** Deep A2C v17 (residual mode, 3,000 episodes, 10 seeds).
@@ -446,38 +446,33 @@ M4_gp_rtt0 (Goodput, RTT0):
 
 #### State-Conditional Action Analysis on Evaluation Traces (`table_action_by_state.csv`)
 
-To determine the empirical policy behavior, action choices of the primary Deep A2C policies were logged across all 500 evaluation traces ($N=10$ seeds, $pprox 600,000$ scheduled transmissions) and conditioned on queue slack, transmission type, and HARQ process occupancy ([`table_action_by_state.csv`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/table_action_by_state.csv)):
+To determine the empirical policy behavior, action choices of the primary Deep A2C policies were logged across all 500 evaluation traces ($N=10$ seeds) restricted strictly to scheduled users' new transmissions (excluding retransmissions and unscheduled users) and conditioned on queue slack and HARQ process occupancy ([`table_action_by_state.csv`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/table_action_by_state.csv)):
 
 | Case | Condition Type | Condition Bin | Total Transmissions | Action −1 (%) | Action 0 (%) | Action +1 (%) |
 |---|---|---|---|---|---|---|
-| **`M1_dl_rtt8`** | **Slack** | $\le 2$ TTIs | 43,259 | 25.55% | 30.66% | 43.79% |
+| **`M1_dl_rtt8`** | **Slack** | $\le 2$ TTIs | 12,083 | 1.03% | 10.56% | **88.41%** |
 | | | $3\text{--}5$ TTIs | 33,920 | 1.04% | 8.70% | **90.25%** |
 | | | $> 5$ TTIs | 541,013 | 20.57% | 27.84% | 51.59% |
-| | **Tx Type** | New transmission | 587,016 | 19.04% | 26.38% | **54.58%** |
-| | | Retransmission | 31,176 | **35.05%** | **38.45%** | 26.50% |
 | | **Busy Procs** | 0 busy (0%) | 371,728 | 27.32% | 35.67% | 37.00% |
-| | | 1–2 busy (12–25%) | 238,314 | 8.77% | 13.97% | **77.25%** |
-| | | $\ge 3$ busy ($\ge 37.5\%$) | 8,150 | 2.90% | 11.34% | **85.77%** |
-| **`M2_dl_rtt0`** | **Slack** | $\le 2$ TTIs | 22,260 | 19.55% | 27.69% | 52.77% |
-| | | $3\text{--}5$ TTIs | 46,906 | 20.20% | 22.63% | **57.18%** |
-| | | $> 5$ TTIs | 573,561 | **41.29%** | 19.07% | 39.64% |
-| | **Tx Type** | New transmission | 530,037 | 40.35% | 18.54% | 41.11% |
-| | | Retransmission | 112,690 | 32.65% | 24.74% | 42.62% |
-| | **Busy Procs** | 0 busy (instantaneous) | 642,727 | 39.00% | 19.62% | 41.38% |
+| | | 1–2 busy (12–25%) | 208,709 | 4.89% | 10.45% | **84.66%** |
+| | | $\ge 3$ busy ($\ge 37.5\%$) | 6,579 | 0.21% | 6.55% | **93.24%** |
+| **`M2_dl_rtt0`** | **Slack** | $\le 2$ TTIs | 12,027 | 13.15% | 21.83% | **65.01%** |
+| | | $3\text{--}5$ TTIs | 26,493 | 14.05% | 18.82% | **67.12%** |
+| | | $> 5$ TTIs | 491,517 | **42.43%** | 18.44% | 39.13% |
+| | **Busy Procs** | 0 busy (instantaneous) | 530,037 | 40.35% | 18.54% | 41.11% |
 
 #### Key Behavioral Findings from Empirical State Logging
 
-1. **Retransmission Conservatism in M1:** When retransmitting under realistic HARQ timing (`retx`), the agent shifts substantially toward conservative backoffs: action −1 increases from 19.04% (new transmissions) to **35.05%**, and action 0 increases to **38.45%**, while aggressive action +1 drops from 54.58% to **26.50%**. Because an initial failure under RTT 8 has already consumed 8 TTIs, the agent prioritizes delivery reliability on subsequent attempts to avert packet drops.
-2. **Intermediate Slack Aggression in M1:** In the intermediate slack window ($3\text{--}5$ TTIs), action +1 dominates at **90.25%**, with action −1 dropping to just **1.04%**. In this regime, the packet still has sufficient budget for transmission, incentivizing higher MCS to clear the buffer. When slack expires to critical levels ($\le 2$ TTIs), action −1 rebounds to **25.55%** and action 0 to 30.66%.
-3. **HARQ Process Congestion Response:** As parallel HARQ processes accumulate, the agent exhibits marked aggression: action +1 rises from 37.00% with 0 busy processes to **77.25%** with 1–2 busy processes, and **85.77%** when $\ge 3$ processes are occupied (with action −1 dropping to 2.90%). When process exhaustion threatens scheduling eligibility, the policy pushes higher MCS to prevent queue head-of-line blockage.
-4. **Behavior under Zero Delay (M2):** Without RTT latency, the policy exhibits a distinct distribution: when slack is abundant ($> 5$ TTIs), action −1 reaches **41.29%**, maintaining low BLER, whereas for tighter slack ($\le 5$ TTIs), action +1 rises to 52–57%.
-5. **Collapse to Base Rule on Full Buffer:** On full-buffer traffic (`M3`, `M4`), where queue state and deadlines are absent, the policy settles on action 0 (92.3% in M3, 76.3% in M4), degenerating to the calibrated base rule.
+1. **Slack-Dependent Aggression on New Transmissions in M1:** On scheduled new transmissions, when queue slack is tight ($\le 2$ TTIs) or intermediate ($3\text{--}5$ TTIs), action +1 strongly dominates (**88.41%** for $\le 2$ TTIs, **90.25%** for $3\text{--}5$ TTIs), with action −1 remaining at approximately 1% (1.03% and 1.04%). When slack is abundant ($> 5$ TTIs), action +1 drops to 51.59%, while conservative actions increase (action 0 to 27.84% and action −1 to 20.57%).
+2. **HARQ Process Congestion Aggression in M1:** As parallel HARQ processes become occupied on new transmissions, the policy shifts heavily toward action +1: rising from **37.00%** with 0 busy processes to **84.66%** with 1–2 busy processes, and reaching **93.24%** when $\ge 3$ processes are busy (with action −1 dropping to 0.21%). When process exhaustion threatens scheduling eligibility, the policy pushes higher MCS to prevent queue head-of-line blockage.
+3. **Behavior under Zero Delay (M2):** Under instantaneous feedback on new transmissions, action −1 is selected **42.43%** of the time when slack is abundant ($> 5$ TTIs), but shifts toward action +1 (**65.01%** for $\le 2$ TTIs, **67.12%** for $3\text{--}5$ TTIs) as deadline pressure tightens.
+4. **Collapse to Base Rule on Full Buffer:** On full-buffer traffic (`M3`, `M4`), where queue state and deadlines are absent, the policy settles on action 0 (92.3% in M3, 76.3% in M4), degenerating to the calibrated base rule.
 
 ---
 
 ### 6.8 Pre-Registered Wording Commitments & Multiplicity Accounting (PLAN_v17 §C5–C6)
 
-Under the project-wide multiplicity accounting (39 total evaluated cases across v10–v17 tracked in `case_registry.csv`), M1 serves as the sole novel primary claim of the paper under realistic HARQ timing, while M2 is treated strictly as a confirmatory replication of the zero-delay baseline rather than a standalone new claim.
+Under the project-wide multiplicity accounting (67 cases / 108 scheme evaluations across v9–v17 tracked in `case_registry.csv`), M1 serves as the sole novel primary claim of the paper under realistic HARQ timing, while M2 is treated strictly as a confirmatory replication of the zero-delay baseline rather than a standalone new claim.
 
 Following the pre-registered decision rules, the paper text must state:
 

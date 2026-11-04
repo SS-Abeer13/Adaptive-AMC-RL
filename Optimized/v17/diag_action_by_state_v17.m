@@ -1,6 +1,6 @@
 % diag_action_by_state_v17.m
 % State-conditional action share analysis for M1 and M2 primary policies (Deep A2C v17)
-% on the evaluation traces.
+% restricted to scheduled users' new transmissions (excluding retransmissions and unscheduled users).
 
 clear; clc;
 v17_setup;
@@ -14,7 +14,7 @@ fprintf(fid, 'case_tag,condition_type,condition_bin,count,pct_act_minus1,pct_act
 
 for cIdx = 1:numel(cases)
     tag = cases{cIdx};
-    fprintf('\n=== Analyzing State-Conditional Actions for %s ===\n', tag);
+    fprintf('\n=== Analyzing State-Conditional Actions for %s (New Transmissions Only) ===\n', tag);
     ov = C.(tag);
     o = base; fn = fieldnames(ov);
     for k = 1:numel(fn), o.(fn{k}) = ov.(fn{k}); end
@@ -46,7 +46,6 @@ for cIdx = 1:numel(cases)
     end
     
     slack_counts = zeros(3, 3); % [bin, action]
-    tx_counts    = zeros(2, 3);
     busy_counts  = zeros(3, 3);
     
     envE = env;
@@ -79,6 +78,9 @@ for cIdx = 1:numel(cases)
             busy = log(:, 5);
             
             for row = 1:size(log, 1)
+                % RESTRICTION: Exclude retransmissions
+                if is_retx(row) > 0, continue; end
+                
                 a = acts(row); % 1: -1, 2: 0, 3: +1
                 if a < 1 || a > 3, continue; end
                 
@@ -92,14 +94,6 @@ for cIdx = 1:numel(cases)
                     sb = 3;
                 end
                 slack_counts(sb, a) = slack_counts(sb, a) + 1;
-                
-                % Tx bin: 1: new_tx, 2: retx
-                if is_retx(row) > 0
-                    tb = 2;
-                else
-                    tb = 1;
-                end
-                tx_counts(tb, a) = tx_counts(tb, a) + 1;
                 
                 % Busy bin: 1: 0, 2: 1-2, 3: >=3
                 b = busy(row);
@@ -127,20 +121,6 @@ for cIdx = 1:numel(cases)
             fprintf(fid, '%s,slack,%s,%d,%.2f,%.2f,%.2f\n', tag, s_labels{sb}, cnt, p1, p2, p3);
             fprintf('  Slack %-10s | N=%6d | -1: %5.2f%% |  0: %5.2f%% | +1: %5.2f%%\n', ...
                 s_labels{sb}, cnt, p1, p2, p3);
-        end
-    end
-    
-    % Tx type rows
-    tx_labels = {'new_tx', 'retx'};
-    for tb = 1:2
-        cnt = sum(tx_counts(tb, :));
-        if cnt > 0
-            p1 = 100 * tx_counts(tb, 1) / cnt;
-            p2 = 100 * tx_counts(tb, 2) / cnt;
-            p3 = 100 * tx_counts(tb, 3) / cnt;
-            fprintf(fid, '%s,tx_type,%s,%d,%.2f,%.2f,%.2f\n', tag, tx_labels{tb}, cnt, p1, p2, p3);
-            fprintf('  TxType %-9s | N=%6d | -1: %5.2f%% |  0: %5.2f%% | +1: %5.2f%%\n', ...
-                tx_labels{tb}, cnt, p1, p2, p3);
         end
     end
     
