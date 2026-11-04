@@ -2,7 +2,7 @@
 
 Status key: ✅ usable as is · 🔧 usable after restyle or re-cut · ⛔ do not use.
 
-MATLAB is **not** available in this cloud container, and the `.mat` result files hold MATLAB `dlnetwork` objects. Figures or tables that need policy re-evaluation must therefore be regenerated on the author's PC. Figures built only from the CSVs and text summaries can be redrawn here in Python/matplotlib (`paper/figures_src/`, Phase 7).
+MATLAB is **not** available in this cloud container. The `.mat` result files are MATLAB v7.3 (HDF5): per-seed × per-trace metrics and learning curves **are** readable here (`paper/analysis/v17mat.py`, h5py), but the policies are `dlnetwork` objects and cannot be re-evaluated without MATLAB. Figures or tables that need policy re-evaluation must therefore be regenerated on the author's PC. Figures built only from the CSVs and text summaries can be redrawn here in Python/matplotlib (`paper/figures_src/`, Phase 7).
 
 ## 1. Tables
 
@@ -23,10 +23,10 @@ MATLAB is **not** available in this cloud container, and the `.mat` result files
 | Asset | Message | Source script | Data | Status |
 |---|---|---|---|---|
 | `v17/paper/figures/bars_M{1..4}_*.pdf/png` | Primary metric for every scheme, 95 % CI | `generate_v17_figures.m` (fig set 1) | `results_v17_*.mat` | 🔧 Restyle (column width, grayscale, consistent order). Can be redrawn from PRIM lines in Python, with no MATLAB needed |
-| `v17/paper/figures/margin_vs_rtt.pdf/png` | "RL margin vs HARQ RTT" | `generate_v17_figures.m` L67–70 | **Hard-coded numbers** `m_dl = [0.28, -0.21, -1.94]`, `m_gp = [-0.26, -0.01]` | ⛔ **Do not use.** The values are superseded v16 K1/K3/K4 and v15 Z2 results (PF artefact), and two points are mislabelled "v17". Replace with a figure from `table_harq_ablation.csv` (RTT 0 vs 8, v17 only) |
+| `v17/paper/figures/margin_vs_rtt.pdf/png` | "RL margin vs HARQ RTT" | `generate_v17_figures.m` L67–70 | **Hard-coded numbers** `m_dl = [0.28, -0.21, -1.94]`, `m_gp = [-0.26, -0.01]` | ⛔ **Do not use the existing image.** It plots superseded v16 K1/K3/K4 and v15 Z2 values (PF artefact), two of them mislabelled "v17". **Script fixed** in commit `7d085c9`: fig set 2 now reads only `paper/table_core.csv` (v17 M1–M4, primary scheme, vs Context table and Fixed, 90 % CI). Status stays ⛔ until the author regenerates it on the PC |
 | `v17/paper/figures/acthist_M{1..4}_*.pdf/png` | Greedy action histogram | `generate_v17_figures.m` (fig set 3) | `M.act_hist`: **all N users per TTI**, scheduled or not | ⛔ as captioned ("fraction of decisions"). Rebuild on scheduled new transmissions only (gaps G1) |
 | `Docs/figures/v5..v8`, `papers/v8_draft/v8_figures/*` | v8 results | — | — | ⛔ withdrawn results. Use at most a schematic of the system model, if one exists |
-| *(missing)* learning curves at 3000 ep | Training dynamics, seed spread | — | `LCURVE` lines in `fill_summary_v17.txt` (8 lines) + `results_v17_*.mat` | 🔧 To build. Check whether LCURVE lines hold the full curve; otherwise the author's PC is needed |
+| *(missing)* learning curves at 3000 ep | Training dynamics, seed spread | — | `results.learning_curves`, `results.entropy_curves` (10 seeds × 3000 ep for M1/M2, × 800 for M3/M4) in the HDF5 `.mat` files, readable here with `paper/analysis/v17mat.py` | 🔧 Can be built here |
 | *(missing)* seed-level dot plot | 9/10 seeds above best rule | — | `REPLSEED` lines | 🔧 Can be built here from text |
 | *(missing)* on-time vs goodput Pareto | No throughput cost of the deadline gain | — | PRIM lines (ontime and goodput fields) | 🔧 Can be built here from text |
 | *(missing)* campaign timeline / registry overview | Self-correction history | — | `history_table.csv`, registry | 🔧 Can be built here |
@@ -39,7 +39,8 @@ cd 'D:\Adaptive AMC A2C+QL\Optimized\v17'
 build_v17_tables            % table_core / harq_ablation / training_length
 headroom_v17                % headroom.csv
 diag_action_by_state_v17    % table_action_by_state.csv (re-cut version to be specified, gaps G1)
-generate_v17_figures        % bars_*, acthist_*, margin_vs_rtt (fix L67-70 first)
+generate_v17_figures        % bars_*, acthist_*, margin_vs_rtt (fig set 2 already fixed)
+addpath('g1'); g1_recut_v17 % G1 re-cut (spec: paper/analysis/G1_SPEC.md)
 ```
 
 ## 4. Data available here without MATLAB

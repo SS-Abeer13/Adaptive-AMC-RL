@@ -1,0 +1,26 @@
+== M3_gp_rtt8
+  Deep A2C v17                 primary  seeds=10 traces=500 identical_cells=5000/5000 max|diff|=0.000e+00
+  Deep A2C v17                 cell_tp  seeds=10 traces=500 identical_cells=5000/5000 max|diff|=0.000e+00
+  Deep A2C v17                 jain     seeds=10 traces=500 identical_cells=5000/5000 max|diff|=0.000e+00
+  Deep A2C v17                 edge_tp  seeds=10 traces=500 identical_cells=5000/5000 max|diff|=0.000e+00
+  Deep A2C v17 (best-on-val)   primary  seeds=10 traces=500 identical_cells=4661/5000 max|diff|=7.615e-01
+  Deep A2C v17 (best-on-val)   cell_tp  seeds=10 traces=500 identical_cells=4661/5000 max|diff|=7.615e-01
+  Deep A2C v17 (best-on-val)   jain     seeds=10 traces=500 identical_cells=4660/5000 max|diff|=1.598e-01
+  Deep A2C v17 (best-on-val)   edge_tp  seeds=10 traces=500 identical_cells=4901/5000 max|diff|=7.445e-02
+  Deep A2C v17 (ensemble)      primary  seeds= 1 traces=500 identical_cells=500/500 max|diff|=0.000e+00
+  Deep A2C v17 (ensemble)      cell_tp  seeds= 1 traces=500 identical_cells=500/500 max|diff|=0.000e+00
+  Deep A2C v17 (ensemble)      jain     seeds= 1 traces=500 identical_cells=500/500 max|diff|=0.000e+00
+  Deep A2C v17 (ensemble)      edge_tp  seeds= 1 traces=500 identical_cells=500/500 max|diff|=0.000e+00
+== M4_gp_rtt0
+  Deep A2C v17                 primary  seeds=10 traces=500 identical_cells=2985/5000 max|diff|=1.559e+00
+  Deep A2C v17                 cell_tp  seeds=10 traces=500 identical_cells=2985/5000 max|diff|=1.559e+00
+  Deep A2C v17                 jain     seeds=10 traces=500 identical_cells=2985/5000 max|diff|=2.362e-01
+  Deep A2C v17                 edge_tp  seeds=10 traces=500 identical_cells=4259/5000 max|diff|=1.129e-01
+  Deep A2C v17 (best-on-val)   primary  seeds=10 traces=500 identical_cells=2305/5000 max|diff|=1.407e+00
+  Deep A2C v17 (best-on-val)   cell_tp  seeds=10 traces=500 identical_cells=2305/5000 max|diff|=1.407e+00
+  Deep A2C v17 (best-on-val)   jain     seeds=10 traces=500 identical_cells=2299/5000 max|diff|=2.110e-01
+  Deep A2C v17 (best-on-val)   edge_tp  seeds=10 traces=500 identical_cells=4146/5000 max|diff|=9.749e-02
+  Deep A2C v17 (ensemble)      primary  seeds= 1 traces=500 identical_cells=498/500 max|diff|=2.978e-01
+  Deep A2C v17 (ensemble)      cell_tp  seeds= 1 traces=500 identical_cells=498/500 max|diff|=2.978e-01
+  Deep A2C v17 (ensemble)      jain     seeds= 1 traces=500 identical_cells=498/500 max|diff|=5.578e-02
+  Deep A2C v17 (ensemble)      edge_tp  seeds= 1 traces=500 identical_cells=500/500 max|diff|=0.000e+00

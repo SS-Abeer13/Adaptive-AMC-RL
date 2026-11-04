@@ -36,3 +36,27 @@ Input to Phase 5 (§7). Tag: **[A]** = can be answered by analysis of existing r
 
 - **G16 [W] Hard-coded Windows paths** (`D:\Adaptive AMC A2C+QL`) in `v17_setup.m` and the release. MATLAB-only, Deep Learning Toolbox required. Recommend a Zenodo DOI and a path-agnostic setup.
 - **G17 [W] No independent re-implementation.** All results come from one codebase. The self-found bugs (mobility, PF timing, v11 GRU bug, v14 script signature) show the risk.
+
+---
+
+## Triage (current view, to be finalised at Checkpoint 5)
+
+| Gap | Class | One-line reason | Status |
+|---|---|---|---|
+| G1 action re-cut | **essential** | No behaviour or mechanism statement is possible without it; reviewer (b) will ask | Script + spec ready (`Optimized/v17/g1/`, `analysis/G1_SPEC.md`); author runs it |
+| G2 on-time attribution by state | nice-to-have | Only needed if the paper keeps a mechanism paragraph; uses the G1 log, no new runs | After G1 |
+| G3 seed-level statistics | **essential** | The Wilcoxon test conditions on the trained policies | **Done** (ledger G3a–G3f): M1 survives (hier. 95 % CI [+0.62, +2.62]); resid-800 does not; M2 marginal |
+| G4 effect size in absolute terms | **essential (writing)** | +1.58 % relative = +0.95 pp absolute; must be stated next to hindsight headroom (+3.4 %) | Writing |
+| G5 recipe selected over 17 versions | **essential (writing)** | Garden of forking paths is the obvious attack | Paragraph drafted in multiplicity.md §5–6 |
+| G6 calibration budget | **essential** (probable) | The 10-trace Context table against 30,000 RL episodes is the most likely substantive objection | Proposal: `proposals/G6_calibration_budget_prereg.md` |
+| G7 weak bandit comparators | **essential (writing)** | At 41.8 % vs 60 % on-time they look like straw men; only 7 of 9 comparators are distinct in M1 | Explain in protocol; report "7 distinct comparators" |
+| G8 no published learning-based LA baseline | nice-to-have → decide after Phase 2 | Depends on what the literature offers with code; the Context table and UCB already cover the contextual-bandit family | Phase 2 input |
+| G9 OLLA step/RTT tuning | nice-to-have | Cheap; folded into G6 as the OLLA-tuned-500 grid (target × step) | Inside G6 |
+| G10 operating-point grid under v17 | **essential** (probable, for a Transactions venue) | Without it, generalisation is either untested or rests on pre-v17 v14 results | Proposal: `proposals/G10_operating_grid_prereg.md` |
+| G11 simulator realism (single cell, CQI abstraction, 1 user/TTI) | future work / limitation | A fix means a new simulator; acknowledge honestly with the scope sentence | Writing |
+| G12 short traces, no OLLA warm-up | nice-to-have | v9 steady_match exists (pre-v17); a v17 warm-up check would need RL re-evaluation with warm-up, and RL was trained cold | Limitation; reconsider at Checkpoint 5 |
+| G13 PF-definition dependence | **essential (writing)** | Code path verified (ledger S08a); this becomes a pitfalls example | Writing |
+| G14 inference complexity | **essential** (cheap) | Reviewer (a) always asks. Analytic: actor 57→128→96→3 MLP, ≈ 20.1 k parameters, ≈ 19.9 k MACs per user-decision (≈ 0.2 M MACs per TTI if all 10 users are evaluated) | Analytic done (ledger S16). Wall time optional, on the PC |
+| G15 training cost and learning curves | nice-to-have | Curves are in the HDF5 files (10 × 3000); can be plotted here | Phase 7 figure |
+| G16 reproducibility (paths, MATLAB-only) | **essential (writing)** | Availability statement + Zenodo DOI + path-agnostic setup note | Writing; small code fix optional |
+| G17 single codebase, no independent re-implementation | future work / limitation | The self-found bugs make this credible to state openly | Writing |

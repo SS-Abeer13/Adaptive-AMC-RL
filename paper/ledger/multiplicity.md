@@ -21,12 +21,12 @@ Recommended wording for the paper: *"Over the whole study we registered 67 cases
 | v10 | 15 | 15 | 2 (E4c, E5_mixed_nofeat) | valid, exploratory |
 | v11 | 10 | 17 | 0 | valid |
 | v12 | 2 | 2 | 0 | valid |
-| v13 | 3 | 6 | 2 (X1 per-seed mean, not pre-registered; X2) | valid |
+| v13 | 3 | 6 | 1 (X2). X1 = **FAIL** by corrected verdict (registry `correction` column) | valid |
 | v14 | 6 | 12 | 3 (Y0_base, Y0_noshape, Y1 ensemble) | valid |
 | v15 | 3 | 6 | 0 | **superseded** |
 | v16 | 6 | 20 | 3 (K2 valid; K1 offset, L1 superseded) | K1, K3, L1, L3 superseded |
 | v17 | 4 | 12 | 2 (M1, M2) | valid |
-| **Total** | **67** | **108** | **12** (10 valid) | 60 valid, 7 superseded |
+| **Total** | **67** | **108** | **11** by corrected verdict (**9 valid**) | 60 valid, 7 superseded (18 of 108 rows) |
 
 Roles across cases: 12 primary, 6 secondary, 16 robustness, 33 ablation.
 
@@ -71,7 +71,7 @@ M1 vs Fixed (+1.87 %, p = 6.74 × 10⁻¹⁷) survives by a wider margin.
 | v14 Y0_base | Earlier pre-registered confirmation (RTT 0) | Valid, but run under delivered-throughput PF averaging (see `conflicts.md` C5) |
 | v16 K2 | Replication (RTT 0) | Same PF caveat |
 | v13 X2 | Exploratory secondary that motivated v14 | Not pre-registered as primary; shaping confounded with seeds and traces |
-| v13 X1 per-seed mean | Not a win claim | The pre-registered primary scheme was the ensemble, which failed. The registry row shows win = 1 for the per-seed mean, so it must not be quoted as a pre-registered win |
+| v13 X1 | **FAIL** (corrected verdict, used everywhere) | Pre-registered scheme = ensemble → failed. The registry row with win = 1 is the per-seed mean, which was not the pre-registered scheme; the row now carries a `correction` note |
 | v10 E4c | Exploratory, superseded by v12 | Evaluation traces overlapped the motivating run; failed Claim B on fresh traces only |
 | v10 E5_mixed_nofeat | Exploratory ablation | WIN without the cue; never replicated. Report it in the registry table only |
 | v14 Y0_noshape, Y1 ensemble | Secondary | Y0_noshape matters for the shaping discussion (unshaped also won) |
@@ -84,3 +84,9 @@ M1 vs Fixed (+1.87 %, p = 6.74 × 10⁻¹⁷) survives by a wider margin.
 - 17 code versions. Many recipe changes (action space, reward, shaping, aggregator, training length) were chosen *after* earlier results were seen. They were not chosen on the evaluation traces of the round that tested them.
 - From v12 onward each round was pre-registered, on fresh seeds and traces, with no re-tuning after results.
 - The final recipe (residual + shaping + per-seed mean + 3000 episodes) was **selected over the course of the campaign**. M1 is a confirmatory test of that selected recipe on fresh data, not of a recipe fixed at v1. The paper must say this plainly.
+
+## 6. Draft multiplicity paragraph for the paper (approved at Checkpoint 1)
+
+> Every case run in this study is listed in a public registry (supplementary Table S1). We define a *case* as one environment and training recipe evaluated on one set of traces, and a *scheme evaluation* as one RL variant compared against the nine non-RL comparators within a case. Over the whole project (v9–v17) we registered 67 cases and 108 scheme evaluations. Seven cases (18 scheme evaluations) were later superseded because of a scheduler-timing artefact (Section VIII) and are not used as evidence. Forty-nine cases were run from v10 onward, under the current protocol of calibrated same-information comparators and pre-stated decision rules. Nine valid cases met the all-comparator criterion for at least one RL variant. The primary claim of this paper (M1) is a pre-registered confirmatory test on fresh traces and seeds. Its comparison against the strongest calibrated rule remains significant after a Bonferroni correction over every test in the project (972 = 108 × 9; adjusted p ≈ 8.8 × 10⁻¹⁰), and its hierarchical seed × trace bootstrap 95 % CI excludes zero ([+0.62, +2.62] %). The RTT-0 result (M2) is reported only as a replication of an effect first seen in exploratory and earlier pre-registered cases; it does not survive project-wide correction on its own.
+
+Numbers: ledger M01–M06, G3a.
