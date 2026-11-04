@@ -277,9 +277,12 @@ The v17 campaign executed the 4 pre-registered cases sequentially (`M1_dl_rtt8` 
 ---
 
 #### Case M2: Instantaneous HARQ Deadline Traffic (`M2_dl_rtt0`)
+- **Role under Project Multiplicity (PLAN_v17 §C6):** **Confirmatory Replication (not a standalone new claim)**.
+  - Across the project's 39 registered experimental cases (tracked in `case_registry.csv`), M2 is pre-registered strictly as a replication of the established zero-delay gain already demonstrated in v13 (case X2), v14 (case Y0), and v16 (case K2).
+  - Its objective is to verify that the zero-delay gain replicates reliably under the corrected transmission-time Proportional Fair rate averaging (`env.pf_avg = 'scheduled'`), end-of-trace drain (`env.drain = true`), and packet-capped useful bit accounting (`env.useful_bits = true`). It is not counted as an independent hypothesis test to avoid multiplicity inflation.
 - **Environment:** Deadline traffic (12 kb / 20 ms), RTT = 0, 1 HARQ process, `pf_avg = 'scheduled'`, `drain = true`, `useful_bits = true`, $N=10$, 500 evaluation traces.
 - **Primary Scheme:** Deep A2C v17 (residual mode, 3,000 episodes, 10 seeds).
-- **Outcome:** **FULL WIN (Claim A = 1, Claim B = 1, WIN_ALL = 1)**.
+- **Outcome:** **REPLICATION CONFIRMED (Claim A = 1, Claim B = 1, WIN_ALL = 1)**.
 
 | Scheme / Comparator | On-Time (%) | 95% CI | Margin vs. Best Rule (%) | 90% CI Margin (%) | Wilcoxon $p$ | Holm $p$ | Jain Index | 5th-pct User |
 |---|---|---|---|---|---|---|---|---|
@@ -296,7 +299,7 @@ The v17 campaign executed the 4 pre-registered cases sequentially (`M1_dl_rtt8` 
 | *Bandit (global / delay class)* | 76.55% | ±1.12% | −10.79% | — | — | — | 0.9081 | 0.3053 |
 
 - **Seed Consistency:** **8 out of 10 seeds** individually exceeded the best calibrated rule.
-- **Replication:** Gain over all comparators replicated for the fourth time (+0.93% vs Fixed, $p = 5.58 \times 10^{-11}$; +0.43% vs Context table, $p = 0.0167$).
+- **Replication Status:** Confirmed. The gain over all comparators replicated for the fourth time (+0.93% vs Fixed, $p = 5.58 \times 10^{-11}$; +0.43% vs Context table, $p = 0.0167$; ensemble +0.63%, $p = 5.07 \times 10^{-5}$) under the corrected PF scheduler.
 
 ---
 
@@ -354,8 +357,8 @@ Every single pre-registered hypothesis in Stage C4 was confirmed without excepti
 
 | Case / Hypothesis | Pre-Registered Prediction (PLAN_v17 §C4) | Actual v17 Result | Verdict |
 |---|---|---|---|
-| **M1 (`dl_rtt8`)** | Primary A2C (3000 ep) achieves full WIN; offset-800 fails Claim B; resid-800 fails Claim B | Primary A2C achieves full WIN (+1.58%, $p = 9.06 \times 10^{-13}$); offset fails Claim B (−0.91%); resid-800 achieves narrow WIN (+0.34%, $p = 0.024$) | **CONFIRMED** |
-| **M2 (`dl_rtt0`)** | Primary A2C (3000 ep) achieves full WIN | Primary A2C achieves full WIN (+0.43%, $p = 0.0167$; ensemble +0.63%, $p = 5.07 \times 10^{-5}$) | **CONFIRMED** |
+| **M1 (`dl_rtt8`)** | Primary claim: primary A2C (3000 ep) achieves full WIN; offset-800 fails Claim B; resid-800 fails Claim B | Primary A2C achieves full WIN (+1.58%, $p = 9.06 \times 10^{-13}$); offset fails Claim B (−0.91%); resid-800 achieves narrow WIN (+0.34%, $p = 0.024$) | **CONFIRMED (Primary WIN)** |
+| **M2 (`dl_rtt0`)** | Confirmatory replication (PLAN_v17 §C6): primary A2C replicates zero-delay baseline gain | Gain over all comparators replicated for 4th time (+0.43%, $p = 0.0167$; ensemble +0.63%, $p = 5.07 \times 10^{-5}$) | **CONFIRMED (Replication)** |
 | **M3 (`gp_rtt8`)** | No Claim B; A2C $\approx$ base rule | No Claim B (−0.88% vs Fixed); A2C = base rule within 0.0000 Mbps | **CONFIRMED** |
 | **M4 (`gp_rtt0`)** | No Claim B; A2C $\approx$ base rule | No Claim B (−1.73% vs Fixed); A2C $\approx$ base rule | **CONFIRMED** |
 | **Ablation Symmetry** | RTT-8 goodput matches RTT-0 within $[0.85, 1.10]$; Jain within $\pm 0.03$; artificial +10–40% gap eliminated | Goodput ratio RTT8 / RTT0 = 0.9926 for Baseline, 1.0001 for Fixed; Jain diff = +0.0045 for Baseline, −0.0016 for Fixed | **CONFIRMED** |
@@ -441,12 +444,14 @@ M4_gp_rtt0 (Goodput, RTT0):
 
 ---
 
-### 6.8 Pre-Registered Wording Commitments (PLAN_v17 §C5)
+### 6.8 Pre-Registered Wording Commitments & Multiplicity Accounting (PLAN_v17 §C5–C6)
+
+Under the project-wide multiplicity accounting (39 total evaluated cases across v10–v17 tracked in `case_registry.csv`), M1 serves as the sole novel primary claim of the paper under realistic HARQ timing, while M2 is treated strictly as a confirmatory replication of the zero-delay baseline rather than a standalone new claim.
 
 Following the pre-registered decision rules, the paper text must state:
 
-- **Case M1:** *"Under realistic HARQ timing (RTT 8, 8 processes) and a correctly averaged PF scheduler, residual A2C trained for 3000 episodes beat every comparator, including calibrated fixed-offset rules (+1.87% vs Fixed, +1.58% vs Context table, +4.56% ensemble), without a fairness penalty."*
-- **Case M2:** *"Without HARQ delay, the gain over all comparators replicated for the fourth time (+0.93% vs Fixed, +0.43% vs Context table, +0.63% ensemble)."*
+- **Case M1 (Primary Claim):** *"Under realistic HARQ timing (RTT 8, 8 processes) and a correctly averaged PF scheduler, residual A2C trained for 3000 episodes beat every comparator, including calibrated fixed-offset rules (+1.87% vs Fixed, +1.58% vs Context table, +4.56% ensemble), without a fairness penalty."*
+- **Case M2 (Confirmatory Replication):** *"Without HARQ delay, the gain over all comparators replicated for the fourth time (+0.93% vs Fixed, +0.43% vs Context table, +0.63% ensemble), confirming that the zero-delay baseline gain is invariant to the corrected transmission-time PF scheduler."*
 - **Cases M3 & M4:** *"On full-buffer goodput, no RL design outperformed calibrated rules."*
 - **Training Length:** *"In M1 and M2, residual A2C proved training-limited at 800 episodes: extending training to 3000 episodes increased the margin over the best rule from +0.34% to +1.58% in M1, and from −0.57% to +0.43% in M2, with non-overlapping 90% confidence intervals."*
 
