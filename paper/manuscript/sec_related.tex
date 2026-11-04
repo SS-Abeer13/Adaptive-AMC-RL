@@ -1,0 +1,31 @@
+\section{Related Work}\label{sec:related}
+\subsection{Classical link adaptation and OLLA}
+Outer-loop link adaptation (OLLA) corrects the reported channel quality indicator (CQI) with an offset that steps down after a NACK and up after an ACK, so that the long-run block-error rate approaches a target~\cite{nakamura2002olla,pedersen2007fdps}. Variants adapt the target~\cite{park2015targetbler}, the step sizes~\cite{blanquez2016eolla,sarret2015dolla,ohseki2016fastolla}, the offset estimator~\cite{delgado2017seqtest,zhu2023nolla}, or the feedback used under URLLC soft-ACK~\cite{peralta2022ollaurllc}. Ahsen et al.\ use a rank-dependent multi-offset rule~\cite{ahsen2026moolla}; this is a different design from the Multi-OLLA comparator used here. SALAD varies three OLLA step sizes without learning~\cite{wiesmayr2025salad}.
+
+\subsection{Learned link adaptation}
+Bandit formulations choose the modulation and coding scheme (MCS) or the offset directly~\cite{saxena2019cmab,saxena2022tuningfree,park2021twostagets,ku2024cmaburllc}. Deep reinforcement learning (RL) has been applied with DQN, actor-critic, TD3 and PPO agents~\cite{ye2023drlla,pang2024td3olla,you2026sim2real,parsa2025qdrlla,demirel2025genrl}. Deadline-aware RL on an OLLA loop is studied by Kela et al.~\cite{kela2022delayolla}, and learning on top of OLLA by Pulliyakode and Kalyanasundaram~\cite{pulliyakode2017rlolla}, Pang et al.~\cite{pang2024td3olla} and Wang et al. (LOLLA)~\cite{wang2026lolla}. These works are evaluated in different settings from ours (LOLLA, for example, treats uplink with an immediate CRC outcome and no HARQ feedback delay), and we do not re-implement them. Our question is a different one: given a simulator with multi-process HARQ, how much of a learner's gain over OLLA remains once the comparison includes rules calibrated on the learner's own cues?
+
+Table~\ref{tab:lit} summarises eight closely related papers on two points that matter for that question. Across the \NLitN{} learning-based papers we screened, \NLitCalYes{} compared against a calibrated rule built on the learner's cues, \NLitCalPart{} did so partly, \NLitCalNo{} did not, and \NLitCalUnc{} could not be determined. These counts rest on abstracts and the text we could access, and an ``unclear'' entry is not a negative finding.
+
+\begin{table}[t]
+\caption{Eight closely related learned link-adaptation papers. ``Calibrated rule'': a non-learning rule calibrated on the learner's cues is a baseline. ``Parity'': the learner and that rule use comparable information. Entries come from the abstract and accessible text.}\label{tab:lit}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{1.55cm}p{2.5cm}p{1.8cm}p{0.9cm}p{0.8cm}@{}}
+\toprule
+Paper & Setting & HARQ model & Calibr.\ rule & Parity\\
+\midrule
+Saxena~\cite{saxena2022tuningfree} & single link, AWGN and fading & first transmission only & no & partial\\
+Ye~\cite{ye2023drlla} & LTE/NR simulation & not stated & no & unclear\\
+Kela~\cite{kela2022delayolla} & 5G UL, XR, system-level & system-level HARQ & no & no\\
+Pang~\cite{pang2024td3olla} & LTE/NR simulation & not stated & no & unclear\\
+You~\cite{you2026sim2real} & simulation and USRP/srsRAN testbed & parallel HARQ, ACK delay & partial & no\\
+Wang (LOLLA)~\cite{wang2026lolla} & GPU NR stack, UL & immediate CRC, no HARQ delay & no & no\\
+Demirel~\cite{demirel2025genrl} & system-level, multi-cell & system-level & partial & unclear\\
+Wiesmayr (SALAD)~\cite{wiesmayr2025salad} & OAI, single user & real HARQ & partial & yes\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Evaluation rigour}
+Doherty et al.\ show that carefully tuned heuristics matched published RL results on optical-network problems~\cite{doherty2025hypehope}; this is the closest methodological precedent, in another domain. General concerns about reproducibility and baselines in learned systems and in wireless machine learning are raised in~\cite{ferraridacrema2019progress,mcgreivy2024weak,mangal2026gengap,kapoor2023leakage}. For RL specifically, variance across seeds and the reporting of intervals are discussed in~\cite{henderson2018matters,agarwal2021precipice,colas2018seeds}. Pre-registration is advocated in~\cite{nosek2018prereg,albanie2022preregml}, and credibility of simulation studies in~\cite{pawlikowski2002credibility,kurkowski2005manet}. We apply these ideas to one concrete question in link adaptation.

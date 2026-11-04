@@ -1,0 +1,71 @@
+\section{System Model}\label{sec:system}
+All results come from one MATLAB simulator, evaluated in simulation only. Table~\ref{tab:params} lists the parameters, and each is checked against the code by the number-generation script.
+
+\subsection{Cell and channel}
+A single macro cell serves $N=\NCfgUsers$ users on a \SI{20}{MHz} carrier at \SI{2}{GHz} with \NCfgRB{} resource blocks (RBs), \SI{15}{kHz} subcarrier spacing and a \SI{1}{ms} transmission time interval (TTI). Large-scale fading is log-normal shadowing with $\sigma=\NCfgSigmaSF$~dB and \NCfgDcorr~m decorrelation distance; small-scale fading is Jakes. User speeds are drawn from \NCfgSpeedMin--\NCfgSpeedMax~m/s, which gives Doppler frequencies of about \SIrange{20}{200}{Hz}. A two-state Markov process adds interference bursts of \NCfgBurstDb~dB with mean dwell times of \NCfgDwellCalm{} TTIs (calm) and \NCfgDwellBurst{} TTIs (burst).
+
+\subsection{CQI feedback and link abstraction}
+Each user reports a 15-level channel quality indicator (CQI) with a delay drawn from 2--8 TTIs and Gaussian report noise of $\sigma=\NCfgSigmaMeas$~dB. Block errors follow an SINR-to-BLER abstraction rather than LDPC link-level tables; this is a limitation (Section~\ref{sec:discussion}). The OLLA reference loop adds an offset $\Delta$ to the reported CQI. A NACK lowers $\Delta$ by $\Delta_\downarrow=\NCfgOllaDown$~dB, and an ACK raises it by $\Delta_\uparrow=\Delta_\downarrow P_\mathrm{tgt}/(1-P_\mathrm{tgt})\approx\NCfgOllaUp$~dB, for a target $P_\mathrm{tgt}=\NCfgOllaTarget$, with $|\Delta|\le\NCfgOllaLim$~dB. The corrected CQI selects the MCS. We call this corrected CQI the \emph{OLLA reference}. All calibrated rules and the learned action act as CQI-index offsets on top of it.
+
+\subsection{HARQ}
+Retransmissions use chase combining (\SI{\NCfgChase}{dB} gain per retransmission, at most \NCfgMaxRetx{} retransmissions) and reuse the stored MCS and transport block size. The learner's action therefore affects new transmissions only. We study two timing regimes: \emph{realistic} HARQ with an ACK/NACK round-trip time (RTT) of 8 TTIs and 8 processes per user, and \emph{instantaneous} feedback (RTT 0, one process).
+
+\subsection{Scheduler}
+A proportional-fair (PF) scheduler gives all RBs to one user per TTI. The PF average rate uses an exponential average with $\alpha=\NCfgPfAlpha$ and is updated \emph{at scheduling time} with the scheduled rate. Updating it instead when the ACK arrives is a common alternative; under multi-process HARQ it changes conclusions (Section~\ref{sec:pitfalls}), so we state the choice explicitly (Fig.~\ref{fig:system}b).
+
+\subsection{Traffic and metrics}
+\emph{Deadline traffic:} \SI{\NCfgPkt}{bit} packets arrive every \NCfgPeriod{} TTIs with a budget of \NCfgDeadline{} TTIs. The primary metric is the on-time delivery ratio. \emph{Full-buffer traffic:} the primary metric is goodput. Each trace lasts \NCfgTrace{} TTIs, of which the first \NCfgBurnIn{} are burn-in, leaving \NCfgScored{} scored TTIs. We also report the Jain fairness index over per-user means and the 5th-percentile user value (edge5). Four cases form the main campaign: M1 (deadline, RTT 8), M2 (deadline, RTT 0), M3 (goodput, RTT 8) and M4 (goodput, RTT 0).
+
+\begin{table}[t]
+\caption{Simulation parameters (checked against \texttt{defaultEnv\_v17.m} and \texttt{v17\_setup.m}).}\label{tab:params}
+\centering\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value\\
+\midrule
+Users, bandwidth, RBs & \NCfgUsers, 20~MHz, \NCfgRB\\
+Carrier, subcarrier spacing, TTI & 2~GHz, 15~kHz, 1~ms\\
+Shadowing & \NCfgSigmaSF~dB, \NCfgDcorr~m\\
+Speed range (Doppler) & \NCfgSpeedMin--\NCfgSpeedMax~m/s (20--200~Hz)\\
+Interference burst & \NCfgBurstDb~dB; dwell \NCfgDwellCalm/\NCfgDwellBurst~TTI\\
+CQI delay, noise & 2--8 TTI, \NCfgSigmaMeas~dB\\
+OLLA target, steps, limit & \NCfgOllaTarget, \NCfgOllaDown/\NCfgOllaUp~dB, \NCfgOllaLim~dB\\
+HARQ & chase, \NCfgChase~dB, $\le\NCfgMaxRetx$ retx; RTT 8/8 proc.\ or RTT 0/1 proc.\\
+PF averaging & scheduling time, $\alpha=\NCfgPfAlpha$\\
+Deadline traffic & \NCfgPkt~bit / \NCfgPeriod~TTI, budget \NCfgDeadline~TTI\\
+Trace length, burn-in & \NCfgTrace, \NCfgBurnIn~TTI\\
+Evaluation traces & \NCfgEval{} per case\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,node distance=4mm,
+ blk/.style={draw,rounded corners=1pt,minimum height=7mm,minimum width=14mm,align=center,fill=white},
+ rlb/.style={blk,draw=blue!60!black,fill=blue!6}]
+\node[blk] (cqi) {Reported\\CQI};
+\node[blk,right=of cqi] (olla) {OLLA\\reference};
+\node[rlb,right=of olla] (res) {Base rule\\+ residual $\delta$};
+\node[blk,right=of res] (mcs) {MCS\\selection};
+\node[blk,right=of mcs] (harq) {HARQ\\processes};
+\node[blk,right=of harq] (pf) {PF\\scheduler};
+\draw[->] (cqi)--(olla); \draw[->] (olla)--(res); \draw[->] (res)--(mcs); \draw[->] (mcs)--(harq); \draw[->] (harq)--(pf);
+\draw[->,dashed] (harq.south) -- ++(0,-5mm) -| node[pos=0.25,below]{ACK/NACK} (olla.south);
+\node[above=2mm of res,font=\scriptsize,align=center] {slack, HARQ state,\\(class via base rule)};
+\draw[->,dotted] ([yshift=2mm]res.north) -- (res.north);
+\node[below=11mm of res] {(a) Signal flow};
+% panel b
+\begin{scope}[yshift=-33mm,xshift=0mm]
+\draw[->] (0,0) -- (14.6,0) node[right]{TTI};
+\foreach \x/\l in {1/t,9/{t+8}} {\draw (\x,0.08)--(\x,-0.08) node[below,font=\scriptsize]{$\l$};}
+\fill[blue!55!black] (1,0.35) circle (1.3pt) node[above,font=\scriptsize]{user $i$ served};
+\fill[blue!55!black] (9,0.35) circle (1.3pt) node[above,font=\scriptsize]{ACK arrives};
+\draw[blue!55!black,->] (1,0.35)--(9,0.35);
+\node[align=left,anchor=west,font=\scriptsize] at (9.7,1.0) {\textbf{ACK-time:} $\bar R_i$ updated here;\\between $t$ and $t+8$ user $i$ still looks\\``starved'' and is scheduled again};
+\node[align=left,anchor=west,font=\scriptsize,text=blue!50!black] at (0.0,1.0) {\textbf{Scheduling-time (this paper):}\\$\bar R_i$ updated at $t$};
+\node at (7,-0.9) {(b) PF average timing at RTT 8};
+\end{scope}
+\end{tikzpicture}
+\caption{(a) Decision path: the learner (shaded) acts as a bounded offset on a calibrated base rule applied to the OLLA reference CQI; the dashed arrow is the OLLA loop. (b) The two PF-average definitions on an RTT-8 timeline.}\label{fig:system}
+\end{figure*}

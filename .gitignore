@@ -24,3 +24,10 @@ Desktop.ini
 # Local development tools and ephemeral sockets/logs
 tools/
 *.sock
+paper/manuscript/main.aux
+paper/manuscript/main.bbl
+paper/manuscript/main.blg
+paper/manuscript/main.log
+paper/manuscript/main.out
+paper/manuscript/pending_report.txt
+paper/manuscript/main.pdf

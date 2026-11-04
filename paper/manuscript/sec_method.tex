@@ -1,0 +1,9 @@
+\section{Learning Formulation and Method}\label{sec:method}
+\subsection{Decision problem}
+At every TTI each scheduled user receives one decision. The effective CQI is $\mathrm{clip}(q_\mathrm{ref}+b_i+\delta)$, where $q_\mathrm{ref}$ is the OLLA reference, $b_i$ is a calibrated base-rule offset and $\delta$ is the learned part. In the \emph{offset} formulation $b_i=0$ and $\delta\in[-4,+2]$. In the \emph{residual} formulation $\delta\in\{-1,0,+1\}$ and the base rule is the better of Fixed and FixedPU, chosen on calibration traces (it was FixedPU in all four cases). FixedPU uses the true delay and speed class of each user and is therefore a \emph{class oracle} (Section~\ref{sec:protocol}).
+
+\subsection{Rewards}
+For deadline traffic the reward is $+1$ for an on-time and $-1$ for a missed packet, with potential-based shaping $\Phi(s)=-\NCfgShape\,r/B$ for $r$ remaining bits of a $B$-bit packet~\cite{ng1999shaping} and a deviation penalty of \NCfgResidPen$|\delta|$. For goodput the reward is an opportunity cost, the fix for the slot-stealing failure in Section~\ref{sec:pitfalls}.
+
+\subsection{Learner and training}
+A shared multi-user advantage actor-critic (A2C)~\cite{mnih2016a3c} uses a $57$-$128$-$96$-$3$ actor on three stacked frames of $19$ features. It has \NParamsActor{} parameters and \NMacsActor{} multiply-accumulates per user decision. The logit of $\delta=0$ starts with a bias of \NCfgResidBias. We train for \NCfgEpDl{} episodes (deadline) or \NCfgEpGp{} (goodput) with \NCfgSeeds{} independent seeds. The \emph{primary scheme} is the per-seed mean: each seed's policy is evaluated and the results are averaged. A deterministic ensemble of the seeds is secondary (pre-registered from v14). Hyper-parameters are in Appendix~A. \ifitemrun{A3}{Measured inference time is \Athree{us_per_decision}~$\mu$s per decision on \Athree{cpu}.}{Wall-clock inference time was not measured; the count above is analytic.}

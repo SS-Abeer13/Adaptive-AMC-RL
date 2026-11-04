@@ -1,0 +1,66 @@
+\section{Results}\label{sec:results}
+\subsection{Deadline traffic with realistic HARQ (M1)}
+The residual A2C policy (primary scheme) delivers \NMonePctPrim\,\% of packets on time in M1, against \NMonePctCtx\,\% for the Context table, \NMonePctFixed\,\% for Fixed, \NMonePctFPU\,\% for FixedPU and \NMonePctOLLA\,\% for OLLA (Fig.~\ref{fig:thesis}, Table~\ref{tab:m1}). Its margin is \NMonePrimOLLAMar\,\% over OLLA, \NMonePrimMultiMar\,\% over Multi-OLLA, \NMonePrimFPUMar\,\% over FixedPU, \NMonePrimFixedMar\,\% over Fixed and \NMonePrimCtxMar\,\% over the Context table (90\,\% CI [\NMonePrimCtxLo, \NMonePrimCtxHi]\,\%; Holm $p=$ \NMonePrimCtxHolm). The policy beats all nine comparators under the rule of Section~\ref{sec:protocol}. In absolute terms the margin over the Context table is \NMoneAbsPpCtx{} percentage points. The tuned-target OLLA coincides with the default OLLA in M1 (target 0.10 was selected), and the two bandits coincide.
+
+How much of the gain over OLLA do simple calibrated rules already capture? A single calibrated offset (Fixed) captures \NMoneCalibShareFixed\,\% of the learner's gain over OLLA, and the Context table captures \NMoneCalibShareCtx\,\%. The comparison against OLLA alone would therefore overstate what the learner adds.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{f1_thesis}
+\caption{M1 on-time delivery ratio by scheme (mean and 95\,\% CI over \NCfgEval{} traces). Blue: residual A2C; orange: OLLA family; green: calibrated rules; gray: baseline. Annotations give the margin of the primary scheme.}\label{fig:thesis}
+\end{figure}
+
+\begin{table*}[t]
+\caption{M1 comparator table. Margin: paired percentage gain of residual A2C over the comparator, with the 90\,\% CI over traces and the Holm-adjusted Wilcoxon $p$. ``Beats'': the pre-registered rule is met.}\label{tab:m1}
+\centering\footnotesize
+\begin{tabular}{@{}lcccrc@{}}
+\toprule
+Comparator & On-time (\%) & Margin (\%) & 90\,\% CI (\%) & Holm $p$ & Beats\\
+\midrule
+Baseline & \NMonePctBaseline & \NMonePrimBaselineMar & [\NMonePrimBaselineLo, \NMonePrimBaselineHi] & \NMonePrimBaselineHolm & \NMonePrimBaselineBeats\\
+OLLA & \NMonePctOLLA & \NMonePrimOLLAMar & [\NMonePrimOLLALo, \NMonePrimOLLAHi] & \NMonePrimOLLAHolm & \NMonePrimOLLABeats\\
+OLLA (tuned target) & \NMonePctOLLAT & \NMonePrimOLLATMar & [\NMonePrimOLLATLo, \NMonePrimOLLATHi] & \NMonePrimOLLATHolm & \NMonePrimOLLATBeats\\
+Multi-OLLA & \NMonePctMulti & \NMonePrimMultiMar & [\NMonePrimMultiLo, \NMonePrimMultiHi] & \NMonePrimMultiHolm & \NMonePrimMultiBeats\\
+Bandit (global) & \NMonePctBanG & \NMonePrimBanGMar & [\NMonePrimBanGLo, \NMonePrimBanGHi] & \NMonePrimBanGHolm & \NMonePrimBanGBeats\\
+Bandit (delay class) & \NMonePctBanD & \NMonePrimBanDMar & [\NMonePrimBanDLo, \NMonePrimBanDHi] & \NMonePrimBanDHolm & \NMonePrimBanDBeats\\
+Fixed & \NMonePctFixed & \NMonePrimFixedMar & [\NMonePrimFixedLo, \NMonePrimFixedHi] & \NMonePrimFixedHolm & \NMonePrimFixedBeats\\
+FixedPU (class oracle) & \NMonePctFPU & \NMonePrimFPUMar & [\NMonePrimFPULo, \NMonePrimFPUHi] & \NMonePrimFPUHolm & \NMonePrimFPUBeats\\
+Context table & \NMonePctCtx & \NMonePrimCtxMar & [\NMonePrimCtxLo, \NMonePrimCtxHi] & \NMonePrimCtxHolm & \NMonePrimCtxBeats\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{f3_forest}
+\caption{Margin of residual A2C over each comparator in the four cases (90\,\% CI over traces). Filled markers: the pre-registered ``beats'' rule is met; open markers: it is not. The two bandits are omitted for scale (see Table~\ref{tab:m1}).}\label{fig:forest}
+\end{figure*}
+
+\subsection{Seed-level robustness}
+Trace-level intervals treat the ten training seeds as fixed. Seed-level views are therefore reported next to them (Fig.~\ref{fig:seeds}). Against the Context table, \NGMoneCtxAbove{} of \NMoneSeedsTotal{} seeds lie above zero; the exception is seed \NMoneWorstSeed{} (\NGMoneCtxSeedMin\,\%), and the one-sided sign test gives $p=\NGMoneCtxSign$. The 95\,\% interval for the mean margin is [\NGMoneCtxBootLo, \NGMoneCtxBootHi]\,\% by bootstrap over the ten seed means, [\NGMoneCtxTLo, \NGMoneCtxTHi]\,\% by a $t$-interval, and [\NGMoneCtxHierLo, \NGMoneCtxHierHi]\,\% by the hierarchical seed$\times$trace bootstrap. Against Fixed the corresponding intervals are [\NGMoneFixedBootLo, \NGMoneFixedBootHi]\,\%, [\NGMoneFixedTLo, \NGMoneFixedTHi]\,\% and [\NGMoneFixedHierLo, \NGMoneFixedHierHi]\,\%. All seed-level lower bounds are above zero, so the pre-registered ``not robust to seed resampling'' qualifier does not apply to M1. The hierarchical 90\,\% interval is about \NGWidthRatio{} times wider than the trace-only one, which is the price of counting seed variance.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{f4_seeds}
+\caption{Per-seed margin over the Context table for M1 and M2 (one dot per training seed) with the mean and its 95\,\% bootstrap interval over seed means (diamond).}\label{fig:seeds}
+\end{figure}
+
+\subsection{Fairness and cost}
+The gain does not come at the expense of fairness under the guard. Against the Context table the Jain index differs by \NMoneJainDiff{} (\NMoneJainRL{} against \NMoneJainCtx{}), and edge5 is \NMoneEdgePct\,\% higher (\NMoneEdgeRL{} against \NMoneEdgeCtx{}). Goodput is \NMoneGpPrim{} Mbps against \NMoneGpCtx{} Mbps.
+
+\subsection{Replication without HARQ delay (M2)}
+With instantaneous feedback (M2) the margin over the Context table is \NMtwoPrimCtxMar\,\% (90\,\% trace interval lower bound \NMtwoPrimCtxLo\,\%), and the hierarchical 95\,\% interval is [\NGMtwoCtxHierLo, \NGMtwoCtxHierHi]\,\%, so M2 is described as a replication only: \NGMtwoCtxAbove{} of ten seeds lie above zero. Earlier RTT-0 wins (v13, v14, v16) used the other PF-averaging definition and are not used as evidence.
+
+\subsection{Goodput: no gain (M3, M4)}
+On full-buffer goodput the primary scheme does not beat calibrated rules: \NMthreePrimFixedMar\,\% (M3) and \NMfourPrimFixedMar\,\% (M4) against Fixed. At RTT 8 the residual policy is bit-identical to its base rule in \NIMthreeIdent{} of \NIMthreeCells{} seed$\times$trace cells, which means that the policy learned to set $\delta=0$. At RTT 0 this is not the case (\NIMfourIdent{} of \NIMfourCells{} cells are identical), and the policy does worse than its base rule.
+
+\subsection{Headroom and training length}
+How much room is there? The per-trace hindsight bound over Fixed is \NHMoneHindPct\,\% in M1 (\NHMtwoHindPct\,\% in M2), and a genie bound \NHMoneGeniePct\,\% (Fig.~\ref{fig:headroom}a). The learner's M1 margin of \NMoneAbsPpCtx{} points is thus bounded by the information in the state, not by training alone, but training length matters: at 800 episodes the margin over Fixed is \NTMoneShort\,\% (90\,\% CI [\NTMoneShortLo, \NTMoneShortHi]\,\%) and at \NCfgEpDl{} episodes it is \NTMoneLong\,\% ([\NTMoneLongLo, \NTMoneLongHi]\,\%) (Fig.~\ref{fig:headroom}b). The 800-episode variant passes Claim B at trace level but only \NGMoneRsdCtxAbove{} of ten seeds lie above the Context table.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{f5_headroom}
+\caption{(a) Headroom over Fixed in the four cases: genie and per-trace hindsight bounds. (b) Margin of residual A2C over Fixed after 800 and \NCfgEpDl{} training episodes.}\label{fig:headroom}
+\end{figure*}
+
+\subsection{Robustness checks}\label{sec:robust}
+\placeholder{Four pre-registered checks wait on runs: W1 (OLLA warm-up), G6 (re-calibrated and combined comparators; verdict: \wordingsel{C2}{G6}{verdict}{unrun}), NR1 (non-oracle base rule; \wordingsel{NR1}{NR}{verdict}{unrun}) and G10 (two neighbouring operating points; \wordingsel{G10}{G10}{verdict}{unrun}). Run status: \ifitemrun{W1}{W1 done}{W1 pending}, \ifitemrun{G6}{G6 done}{G6 pending}.}
+
+\subsection{Policy behaviour}
+\ifitemrun{G1}{\placeholder{G1 action shares by state bin.}}{\placeholder{The action re-cut (G1) has not been run. No mechanism is claimed for the gain.}}

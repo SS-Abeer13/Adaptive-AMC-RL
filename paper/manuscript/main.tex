@@ -1,0 +1,31 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{amsmath,amssymb,booktabs,graphicx,xcolor,siunitx,tikz,array,multirow,balance}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit}
+\usepackage[hidelinks]{hyperref}
+\input{pending}
+\input{numbers}
+\newcommand{\placeholder}[1]{\par\noindent\fbox{\parbox{0.94\linewidth}{\footnotesize\textcolor{gray}{\textbf{[Draft v0 placeholder]} #1}}}\par}
+\newcommand{\OLLA}{OLLA}
+\graphicspath{{figs/}}
+\begin{document}
+\title{When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules}
+\author{Author names (to be completed)\thanks{Draft v0. Sections marked as placeholders wait on runs or on later drafting.}}
+\maketitle
+\begin{abstract}
+\placeholder{Abstract (about 200 words). The scope sentence comes first. The warm-up, G6 and G10 clauses are selected by \texttt{\textbackslash wordingsel} from the run results: for now, C2 reads ``\wordingsel{C2}{G6}{verdict}{unrun}''.}
+\end{abstract}
+\begin{IEEEkeywords}
+link adaptation, reinforcement learning, HARQ, evaluation methodology, pre-registration
+\end{IEEEkeywords}
+\input{sec_intro}
+\input{sec_related}
+\input{sec_system}
+\input{sec_method}
+\input{sec_protocol}
+\input{sec_results}
+\input{sec_pitfalls}
+\input{sec_discussion}
+\input{sec_conclusion}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}
