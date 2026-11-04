@@ -39,3 +39,29 @@ Scores run from 1 (poor) to 5 (good). "Novelty bar" scores 5 when the bar is rea
    - LOLLA is at arXiv **v1** and in IEEE TMC.
 5. **Counts now back the comparator-gap claim.** Of **23** learning-based LA papers assessed: calibrated-rule baseline **0 yes / 3 partial / 13 no / 7 unclear**; information parity **5 yes / 1 partial / 3 no / 14 unclear**. **No paper has both.** Of the 7 read in full text, **0** compare against a calibrated rule. Proposed wording: *"Of 23 learning-based LA studies we reviewed, none compared against a rule calibrated on the same information as the learner; three varied OLLA's step or target over a few settings."* The "unclear" cells come from abstract-only reading and must be reported as such.
 6. **No paper closer than LOLLA** was found on (a) RL vs calibrated rules or (b) deadline-aware RL-LA under realistic downlink HARQ. Limit: no Xplore full-text access. The Crossref venue scan covers titles and metadata only.
+
+---
+
+## Checkpoint 3 outcome (approved 4 Nov 2026)
+**TMLCN → OJ-COMS → (TVT or a no-cut alternative).** TWC is not primary. Revisit it only if both G6 and G10 come back strongly positive. No letter; see STATUS.md "Future work".
+
+## TMLCN items confirmed from official pages (opened 2026-11-04)
+
+| Item | Finding | Source | Status |
+|---|---|---|---|
+| Page limit / over-length charges | **No page limit or page charge appears on any live TMLCN page.** The Policies & Guidelines page (comsoc.org/node/18431) has no length or page-charge text; the only charge is the OA APC. A cached search snippet of the old TMLCN "Information for Authors" page (now 404) read: no page limits, but a "reasonable number of pages" is strongly recommended. Published exemplars run 13–17 pages | https://www.comsoc.org/publications/journals/ieee-tmlcn/policies-guidelines ; old info-for-authors URL returns 404 | ✅ no charge stated; ⚠️ the "no page limit" wording is from a cached snippet. **Confirm in the submission portal (ieee.atyponrex.com/journal/MLCN) before submitting** |
+| OA APC | "The Article Processing Charge is **US$2160** for articles submitted in 2026." IEEE member −5 %, Society member −20 % (not combinable). Paid after acceptance. Fully OA, CC BY 4.0 | TMLCN Policies & Guidelines | ✅ |
+| arXiv / preprint | TMLCN links to the IEEE Electronic Posting Policy. Posting is allowed. On submission, add to the preprint's first screen: "This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible." On acceptance, add the IEEE copyright notice and give IEEE the URL. After publication, the final IEEE version may not be posted, but the accepted manuscript may be | https://www.comsoc.org/electronic-posting-policy ; https://journals.ieeeauthorcenter.ieee.org/become-an-ieee-journal-author/publishing-ethics/guidelines-and-policies/submission-and-peer-review-policies/ | ✅ |
+| AI-use disclosure | TMLCN points to IEEE PSPB Operations Manual §8.2.1. IEEE Author Center wording: AI-generated content (text, figures, images, code) "shall be disclosed in the acknowledgments section of any article submitted to an IEEE publication. The AI system used shall be identified", with the sections concerned identified and "a brief explanation regarding the level at which the AI system was used". For editing and grammar only, disclosure "is not required, but recommended" | same Author Center page | ✅ (the manual PDF itself was not opened) |
+| Supplementary material and code reviewed? | TMLCN: authors of **accepted** papers are "strongly encouraged" to add a GitHub link in the **camera-ready** version, so code is **not** required at review. IEEE Author Center: supplementary files are uploaded "as separate files during article submission". Only graphical abstracts and videos are stated to be peer reviewed. It is **not stated** that other supplementary material or code is reviewed | TMLCN policies; https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-article/prepare-supplementary-materials/ | ✅ (not guaranteed reviewed) |
+
+**Consequence for the outline:** everything a reviewer needs to judge the claims goes in the main text or appendices. The protocol, the pitfalls and the corrective-history subsection all stay in. The registry and extra tables go in a supplementary PDF uploaded at submission. Under single-anonymous review, a code and data link can be given at submission, but we must not rely on reviewers opening it.
+
+## Portability to OJ-COMS
+Same IEEE template family, same APC (US$2,160), no page limit, single-anonymous review, and code sharing encouraged. **A transfer needs only reformatting** to the IEEE Open Journals template, plus the OJ-COMS cover-letter disclosure that the paper was rejected elsewhere. The outline will target about 15 pages, which suits both.
+
+## TVT length check (third choice)
+- **Verified (VTS page):** regular papers carry a mandatory US$220 per page beyond 10 pages. A VTS-member corresponding author gets 2 free extra pages from 1 July 2026.
+- **Not verifiable without the Author Portal:** the initial submission cap. Third-party guides say 14 pages at submission and 16 final.
+- **Our planned ~15 pages:** within a 14-page cap only after trimming about one page. Cost about US$1,100 (5 × US$220), or about US$660 with the member pages. Cutting to 10 pages would force removal of the pitfalls or protocol sections, which the author has ruled out.
+- **Proposed no-cut alternative to TVT: IEEE Open Journal of Vehicular Technology (OJVT).** Its VTS author page states no page limit and encourages code sharing (vtsociety.org/node/1435). It reaches the same vehicular/LA readership as TVT, and fully OA IEEE journals typically charge the IEEE OA APC (not verified for OJVT). **Recommendation:** third choice = TVT only if its portal shows a cap of 14 pages or more at submission; otherwise OJVT.

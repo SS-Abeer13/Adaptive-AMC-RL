@@ -54,5 +54,21 @@
 2. TWC as primary instead (prestige, 13-page limit, method-novelty bar)?
 3. Letter spin-off: fold into the main paper (recommended), or plan it for after acceptance?
 
+## Checkpoint 3: approved 4 Nov 2026
+Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is under 14 pages). TWC is not primary; revisit only if G6 and G10 are both strongly positive. TMLCN items confirmed in `venue/venue_decision.md`.
+
+## Future work (not before the main paper is accepted)
+- A pitfalls letter (e.g. WCL) **only** if it adds substantial new material, such as a general simulation-pitfall checklist validated on a second simulator or on published third-party code. Until then the pitfalls stay in the main paper only.
+
+## Phase 4 (framing and contributions): done. **Waiting at Checkpoint 4.**
+- `design/framing.md`: options A/B/C, chosen hybrid C, title options, the "same-information" precision, page budget (~15 pp main).
+- `design/contributions.md`: C1–C5 with ledger IDs, novelty paragraph, corrective-history placement.
+- `design/reviewer_attacks.md`: 24 criticisms with answers (R/L/P).
+
+## Open questions for Checkpoint 4
+1. Approve the hybrid framing, a title, and contributions C1–C5 (or merge C5 into C1)?
+2. "Same-information" wording: reword now, and add an information-parity comparator to G6?
+3. New Checkpoint-5 candidate: a no-training re-evaluation with OLLA warm-up (Claim A size vs cold-start OLLA).
+
 ## Next step
-Phase 4 (framing and contribution design, `paper/design/`) after Checkpoint 3.
+Phase 5 (evidence gap check) after Checkpoint 4.
