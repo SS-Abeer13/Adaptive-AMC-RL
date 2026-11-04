@@ -1,6 +1,6 @@
 # Common rules for the Checkpoint-5 runs (G1, W1, G6, NR1, G10, A1, A3)
 
-**STATUS: FROZEN (Checkpoint 5, 4 Nov 2026)** together with the pre-registrations that cite it (G6, W1, NR1, G10).
+**STATUS: FROZEN (Checkpoint 5, 4 Nov 2026), amended at Checkpoint 5b before any run started (`AMENDMENTS.md`)**, together with the pre-registrations that cite it (G6, W1, NR1, G10, A6).
 
 **R1. "Beats X"** = two-sided Wilcoxon signed-rank on paired per-trace values, Holm-adjusted over the case's comparator family (p < 0.05), **and** the 90 % CI lower bound of the paired % margin > 0. Identical to `analyze_v17_replication.m`. Claim A, Claim B and WIN are defined as in `README_v17.md` §3.3, with the family size stated in each pre-registration.
 
@@ -14,6 +14,8 @@
 
 **R6. Failure handling.** A stage that errors writes `ERROR_<stage>.txt` (message and stack) and **no** "done" marker. It is retried at most once after a restart; if the second attempt also errors, the pipeline halts (default) and the status file reads `HALTED`. A native crash (no marker written) triggers a restart of the whole runner from the checkpoints. "FINISHED" is written only when every requested stage has a done marker.
 
-**R7. Multiplicity bookkeeping.** Each stage's new registry rows are listed in its pre-registration. All of them are robustness checks or design ablations of M1, never new claims.
+**R7. Multiplicity bookkeeping.** Each stage's new registry rows are listed in its pre-registration: W1 1 case, G6 1, NR1 1, G10 2, A6 1 (diagnostic), giving 73 cases in all; the scheme-evaluation rows rise from 108 to at most 119 (W1 2, G6 2, NR1 3, G10 4) plus the A6 diagnostic row. All are robustness checks, design ablations or diagnostics of M1, never new claims. M1's Bonferroni factor is at most 1,190 tests (119 rows × 10 comparators); its p of 9.06e-13 gives ≈ 1.1e-9.
 
 **R8. Parallelism.** 2 parfor workers (`n_workers = 2`). A larger pool only by explicit author decision (4 workers ran out of memory in v17 M1).
+
+**R9. Report points.** After every stage the runner calls the optional `stage_<id>_report(ctx)` and writes `Dataset\REPORT_<id>.txt`; the pipeline **continues without waiting**. A report is descriptive: it may contain only information the stage was already pre-registered to produce, and it **cannot change any pre-registered rule, design choice or wording**. A failing report function is logged as a warning and does not invalidate the stage. Reports of calibration stages contain calibration-set information only (R3).

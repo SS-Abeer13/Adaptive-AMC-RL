@@ -1,6 +1,6 @@
 # Pre-registration G6: comparator calibration budget and the combined comparator (v17b-cal)
 
-**STATUS: FROZEN (Checkpoint 5, 4 Nov 2026).** §§1–6 do not change after the freeze commit recorded in `paper/STATUS.md`. Results are appended in §8 only. Common rules are in `common_rules.md`.
+**STATUS: FROZEN (Checkpoint 5, 4 Nov 2026), amended once at Checkpoint 5b (4 Nov 2026) before any run started** (`AMENDMENTS.md`, amendment 1: composite defined in full; profile fixed to `full`; report point after `g6a`). §§1–6 do not change after the freeze-v2 commit recorded in `paper/STATUS.md`. Results are appended in §8 only. Common rules: `common_rules.md`.
 **Class:** essential. **No RL training**: the RL per-trace values come from the stored M1 results.
 
 ## 1. Questions
@@ -39,8 +39,9 @@ No coordinate ascent is used for Fixed, Context or OLLA.
 ### 2.3 Combined comparator, "Context-joint-500"
 - **Cells:** slack ≤ 2 / 3–5 / > 5 TTI × delay class d ≤ 4 / d ≥ 5 × speed class < 10 / 10–20 / > 20 m/s (`userClass_v17`; true values, as for FixedPU) × busy HARQ processes 0 / ≥ 1 (`sum(H.proc_busy(u,:)) >= 1` at the decision). **3 × 2 × 3 × 2 = 36 cells.** Busy ≥ 3 merges into ≥ 1 (1.3 % of M1 decisions, `table_action_by_state.csv`).
 - **Offsets:** −4…+2 CQI steps on the OLLA reference; applied to new transmissions.
-- **Composite table (deterministic):** `composite(cell) = clip(FixedPU-500(class) + Context-500(slack bin) − Fixed-500, −4, +2)`. It is a function of the already re-calibrated rules.
-- **Sparse cells:** one counting pass with the composite table counts scheduled new-transmission decisions per cell on the 500 calibration traces. A cell with **fewer than N = 200** decisions is **not searched** and keeps its composite value ("fallback"). The counts and fallback list are written to `ctxj_cells.csv`.
+- **Composite table (deterministic; defined here, not only in the code).** Let a cell be `(b, d, v, u)` with slack bin `b ∈ {1,2,3}` (≤ 2, 3–5, > 5 TTI), delay class `d ∈ {1,2}`, speed class `v ∈ {1,2,3}` and busy bin `u ∈ {0,1}`. With the re-calibrated tables `F` (Fixed-500 offset, a scalar), `P(d,v)` (FixedPU-500, the joint-refined 2×3 table) and `X(b)` (Context-500, the 3-entry table):
+  `composite(b,d,v,u) = min(2, max(−4, P(d,v) + X(b) − F))`, with all quantities integer CQI steps and no rounding. It does not depend on `u`. It is evaluated once after `g6a` and written to `composite_table.csv` before `g6b` starts. It is the **initial table of start S0**, the **fallback value of every sparse cell**, and one of the coarser tables in the sanity check. No other "coarser table" exists in this pre-registration.
+- **Sparse cells:** one counting pass with the composite table counts scheduled new-transmission decisions per cell on the 500 calibration traces. A cell with **fewer than N = 200** decisions is **not searched** and keeps its composite value ("fallback": the value defined above). The counts and fallback list are written to `ctxj_cells.csv`.
 - **Search (coordinate ascent; exhaustive search over 7³⁶ tables is infeasible):**
   - **4 starts:** S0 = the composite table; R1–R3 = random initial offsets, uniform on −4…+2 per searched cell, with generator seeds 90017 + k.
   - One **sweep** visits the searched cells in lexicographic order. Each cell tries the 6 other offsets and accepts the best improvement over 1e-6 (evaluated on all 500 traces).
@@ -51,11 +52,18 @@ No coordinate ascent is used for Fixed, Context or OLLA.
 - **Freeze rule:** all tables are written to `cal500_tables.txt` and hashed (SHA-256, logged) **before** any evaluation-trace run.
 - **Overfitting visibility:** for every re-calibrated table the calibration-set objective and the evaluation-set on-time ratio are reported side by side (`table_cal500.csv`), for all five rules and for the single-cue originals.
 
-### 2.4 Profiles (chosen by the author at launch, before any result; both frozen)
-| Profile | Single-cue rules | Combined search | Wording consequence |
+### 2.4 Profiles (decided at Checkpoint 5b, before any result): **G6 runs the `full` profile**
+Both profiles stay defined so that the wording and G10 can refer to them.
+
+| Profile | Single-cue rules | Combined search | What differs from `full` |
 |---|---|---|---|
-| **full (default)** | as §2.2 | as §2.3 | none |
-| **lite** (`G6B_PROFILE=lite`) | as §2.2 | starts R1–R3 and S0 run to convergence on the **first 100** calibration traces; the best two final tables are then polished on all 500 traces (sweeps until no accepted move, cap 6); the final table is the better of the two by the 500-trace objective | any statement about the combined comparator carries "(search budget reduced)" |
+| **full (chosen for G6)** | as §2.2 | as §2.3: 4 starts, every sweep evaluated on all 500 calibration traces, every start run to convergence | — |
+| **lite** (`G6B_PROFILE=lite`; **not used**) | as §2.2 | the 4 starts run to convergence on the **first 100** calibration traces only; the best **two** final tables are then polished on all 500 traces (sweeps until no accepted move, cap 6); the final table is the better of the two by the 500-trace objective | (i) **100 instead of 500 calibration traces per candidate during the restart phase**; (ii) only two of the four starts are ever evaluated on the full budget; restarts and the cap of 6 sweeps are unchanged; the grid of offsets and the 36 cells are unchanged |
+
+`lite` is not used in this study. It is kept only because it is defined in `G10`, which explains why G10 also uses `full`.
+
+### 2.5 Report point after `g6a` (descriptive only)
+When `g6a` is done, the runner writes `REPORT_g6a.txt` and continues without waiting. It contains **calibration-set information only** (no evaluation trace has been touched): per rule the calibration objective of the v17 table and of the re-calibrated table; the selected tables (Fixed-500, FixedPU-500 separable and joint, Context-500, OLLA-tuned-500); whether the joint refinement changed FixedPU; how the exhaustive Context table differs from the v17 table; the composite table; and the projected time of `g6b`. Nothing in `g6b`, `g6c` or any decision rule depends on this report; the author may read it, and it **cannot** change any pre-registered choice.
 
 ## 3. Decision rules (pre-registered)
 - **Family:** {Baseline, OLLA, OLLA-tuned-500, Multi-OLLA, Fixed-500, FixedPU-500, Context-500, Bandit (global), Bandit (delay class), **Context-joint-500**}: **10 comparators, Holm over 10.**
@@ -87,7 +95,7 @@ No coordinate ascent is used for Fixed, Context or OLLA.
 | **`g6b` minimum** (4 starts × 2 sweeps) / **expected** (× 3) / **cap** (× 6) | 0.86 M / 1.30 M / 2.59 M | **22.8 h / 34.2 h / 68.4 h** |
 | `g6c`: counting pass + evaluation of the re-calibrated rules + REPRO | ≈ 8,000 | 0.2 h |
 | **G6 total (full)** | | **≈ 30 h min, ≈ 41 h expected, ≤ 76 h cap** |
-| **G6 total (lite)** | `g6b` ≈ 0.26 M (restarts on 100 traces) + ≈ 0.43 M (polish) | **≈ 25 h** |
+| *G6 total (lite, not used)* | `g6b` ≈ 0.26 M (restarts on 100 traces) + ≈ 0.43 M (polish) | *≈ 25 h* |
 
 Sweeps skip cells below the 200-decision threshold, so real sweeps are cheaper than the ≤ 36-cell bound. If the preflight shows a measured rate below the basis, all times scale down proportionally. The runner prints the projected time and pauses if the measured rate is more than 1.5× the basis (`common_rules.md` R5).
 
@@ -95,8 +103,8 @@ Sweeps skip cells below the 200-decision threshold, so real sweeps are cheaper t
 Adds **1 case** (M1-cal500) with 2 scheme rows (primary, ensemble) to the registry. It is a robustness check of the primary claim and cannot create a new claim.
 
 ## 7. Stage specification for the runner (`Optimized/v17x/`)
-Stages `g6a`, `g6b`, `g6c`, implemented by the functions `stage_g6a(ctx)`, `stage_g6b(ctx)`, `stage_g6c(ctx)` (interface in `Optimized/v17x/README_v17x_runner.md`).
-- **`g6a`** units: `sep_grid_chunkK` (25 traces each), `fixedpu_joint_sweepS`, `ctx_exh_chunkK` (7 chunks of 49 tables), `olla_set_K` (30). Writes `cal500_single.txt`.
+Stages `g6a`, `g6b`, `g6c`, implemented by `stage_g6a(ctx)`, `stage_g6b(ctx)`, `stage_g6c(ctx)` (interface in `Optimized/v17x/README_v17x_runner.md`). `g6a` also provides `stage_g6a_report(ctx)` (§2.5). Run order in the programme: G1 → W1 → NR1 → **G6** → G10 → A1/A3 → A6.
+- **`g6a`** writes `composite_table.csv` and `REPORT_g6a.txt`; units: `sep_grid_chunkK` (25 traces each), `fixedpu_joint_sweepS`, `ctx_exh_chunkK` (7 chunks of 49 tables), `olla_set_K` (30). Writes `cal500_single.txt`.
 - **`g6b`** units: `start_k_sweep_s` (checkpoint after each sweep); writes `ctxj_cells.csv` and `cal500_tables.txt` with the SHA-256 and the sanity check.
 - **`g6c`** refuses to run if the sanity check failed or the hash differs. Evaluates on traces 500001–500500, runs REPRO, computes REPLCMP/REPL/REPLSEED for the 10-comparator family and the hierarchical seed-level CIs, writes `fill_summary_v17b_cal.txt`, `table_cal500.csv` and the verdict row of §4.
 

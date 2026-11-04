@@ -2,33 +2,34 @@
 
 Compute basis: `compute_basis.md` (RTT 8, 2 workers: about 0.14 s per training episode and 0.095 s per 200-TTI evaluation; upper bounds). Every run has a 20-trace preflight and pauses if the measured rate exceeds 1.5× the basis. Each pre-registration's §§1–6 are frozen on approval.
 
-## Summary (revised at Checkpoint 5: FROZEN texts)
+## Summary (FROZEN; amended at Checkpoint 5b, see `AMENDMENTS.md`)
 
-All pre-registrations G6, W1, NR1, G10 and `common_rules.md` are **frozen**; the freeze commit and file hashes are in `paper/STATUS.md`. Run order (approved): **G1 → W1 → G6 → NR1 → G10 → A1/A3**. A2, A4 and A5 need no runs.
+All pre-registrations G6, W1, NR1, G10, A6 and `common_rules.md` are frozen; the freeze commits and hashes are in `paper/STATUS.md` and `FREEZE.sha256`. **Run order (approved at Checkpoint 5b): G1 → W1 → NR1 → G6 (g6a → report point → g6b → g6c) → G10 → A1/A3 → A6.** A2, A4 and A5 need no runs. NR1 runs before G6 so that the short items report early.
 
 | ID | Item | Class | New runs? | Wall time (upper-bound basis; 2 workers) | Pre-registration |
 |---|---|---|---|---|---|
 | **G1** | Action re-cut on scheduled new transmissions (M1, M3) | essential | re-evaluation | 20–60 min | `paper/analysis/G1_SPEC.md` |
 | **G3** | Seed-level statistics | essential | none | — | **done** (ledger G3a–G3i) |
 | **W1** | Warm-up robustness (200 unscored TTIs, stored policies) | essential | re-evaluation | ≈ 1.2 h | `W1_warmup_prereg.md` |
-| **G6** | Exhaustive re-calibration of Fixed / FixedPU / Context / OLLA on 500 traces + the combined comparator (coordinate ascent, ≥ 3 random restarts) | essential | calibration, no RL training | `g6a` ≈ 6.9 h; `g6b` ≈ 23 h min, **≈ 34 h expected**, ≤ 68 h cap; **total ≈ 41 h expected** (lite profile ≈ 25 h) | `G6_calibration_budget_prereg.md` |
 | **NR1** | Residual on the non-oracle Fixed base at RTT 8 | recommended | training | ≈ 1.5 h | `NR1_nonoracle_residual_prereg.md` |
-| **G10** | v17 load × deadline grid, **per-cell recalibration of all comparators incl. the combined one** | essential | training + calibration | **≈ 17 h per cell expected (≈ 13 h min), ≈ 70 h for four cells**; two cells ≈ 35 h | `G10_operating_grid_prereg.md` |
+| **G6** | **Full profile.** Exhaustive re-calibration of Fixed / Context / OLLA on 500 traces, FixedPU separable + joint, and the combined comparator (coordinate ascent, 4 starts) | essential | calibration, no RL training | `g6a` ≈ 6.9 h (**report point**), `g6b` ≈ 23 h min / **≈ 34 h expected** / ≤ 68 h cap; **total ≈ 41 h expected** | `G6_calibration_budget_prereg.md` |
+| **G10** | **Two cells** (G2_hi_d10, G3_lo_d18), per-cell recalibration of all comparators incl. the combined one, 200 calibration traces per cell | essential | training + calibration | **≈ 26 h min, ≈ 35 h expected, ≈ 62 h cap** | `G10_operating_grid_prereg.md` |
 | A1 | Results by speed class (M1) | approved | re-evaluation | ≈ 20 min | below |
 | A2 | On-time attribution by state (from the G1 log) | approved | none | minutes | after G1 |
 | A3 | Inference wall time per TTI | approved | micro-benchmark | ≈ 5 min | below |
 | A4 | Learning curves and entropy (HDF5) | approved | none | — | Phase 7 figure F5b |
 | A5 | Path-agnostic release setup | approved | none | — | below |
-| **A6** | PF-timing demonstration (pitfall figure F8) | recommended | re-evaluation | ≈ 3 min | `design/figure_table_plan.md` |
+| **A6** | PF-timing demonstration (pitfall figure F8) | approved **with its own frozen text, after G10** | re-evaluation (no training) | ≈ 3 min + 2 min test | `A6_pf_timing_prereg.md` |
 | F1, F2 | SALAD comparator; second simulator | future work | — | — | — |
+| F3, F4 | Grid corners G1_lo_d10 and G4_hi_d18 | future work, decided now (not to be added on the basis of G2/G3) | — | — | `G10_operating_grid_prereg.md` §2 |
 
-**Total on the upper-bound basis:** ≈ 1 h (G1) + 1.2 h (W1) + 41 h (G6) + 1.5 h (NR1) + 70 h (G10) + 0.5 h ≈ **115 h (about 5 days)**. The two long items are G6's combined-table search and G10's per-cell repeat of it. Levers, all pre-registered and chosen before any result: (i) the measured preflight rate (expected below the basis for deterministic rules); (ii) `G6B_PROFILE=lite` (≈ 25 h for G6); (iii) `G10_CELLS` (a subset of cells). Stage order and subsets are set by the `STAGES` variable of the runner.
+**Total on the upper-bound basis:** ≈ 1 h (G1) + 1.2 h (W1) + 1.5 h (NR1) + 41 h (G6) + 35 h (G10) + 0.5 h (A1/A3) + 0.1 h (A6) ≈ **80 h (about 3.3 days)**. The measured preflight rate (expected below the basis for deterministic rules) can only shorten it.
 
-**Multiplicity after all runs:** registry +7 cases (W1 1, G6 1, NR1 1, G10 4) → **74 cases**; none is a new claim. M1's Bonferroni factor rises to at most (108 + 15 rows) × 10 = 1,230 tests; M1's p (9.06e-13) is far below 0.05/1,230.
+**Multiplicity after all runs:** registry +6 cases (W1 1, G6 1, NR1 1, G10 2, A6 1 diagnostic) → **73 cases**; none is a new claim. M1's Bonferroni factor is at most 1,190 tests (`common_rules.md` R7); M1's p (9.06e-13) gives ≈ 1.1e-9.
 
-**TWC revisit rule (Checkpoint 3/5):** only if G6 (A, B-500 and JP all pass, seed-level bounds > 0) **and** G10 (all tested cells WIN) are both strongly positive.
+**TWC revisit rule (Checkpoint 3):** only if G6 (A, B-500 and JP all pass, seed-level bounds > 0) **and** G10 (both tested cells WIN) are strongly positive.
 
-**Seed-level rule (applies everywhere):** `common_rules.md` R2. Current state for M1: seed-level 95 % lower bounds vs Context are +0.72 (bootstrap over seed means), +0.48 (t) and +0.62 (hierarchical), all > 0 (ledger G3g).
+**Seed-level rule (applies everywhere):** `common_rules.md` R2. For M1 all seed-level 95 % lower bounds vs Context are > 0 (+0.72, +0.48, +0.62; ledger G3g).
 
 ## Prompts for the items without their own file
 
