@@ -233,16 +233,16 @@ Evaluated training 2 seeds under parallel workers vs. serial client execution wi
 
 ### 6.1 Campaign Execution & Operational Summary
 
-The v17 campaign executed the 4 pre-registered cases sequentially (`M1_dl_rtt8` → `M2_dl_rtt0` → `M3_gp_rtt8` → `M4_gp_rtt0`) on MATLAB R2023a with full CRN discipline over 500 evaluation traces each.
+The v17 campaign executed the 4 pre-registered cases sequentially (`M3_gp_rtt8` → `M4_gp_rtt0` → `M2_dl_rtt0` → `M1_dl_rtt8`) on MATLAB R2023a with full CRN discipline over 500 evaluation traces each.
 
-- **Total Execution Time:** **126.1 minutes** (~2.10 hours wall time).
-  - `M1_dl_rtt8`: 160.8 min cumulative (including initial 2-seed restart)
-  - `M2_dl_rtt0`: 66.3 min
-  - `M3_gp_rtt8`: 70.0 min
-  - `M4_gp_rtt0`: 56.1 min
-- **Operational Interventions & Memory Failure Recovery:**
-  - Initial training launched with 4 parallel workers (`parfor`). At 4 workers, system committed memory exceeded available physical RAM (16 GB host), triggering a memory commit fault in `ucrtbase.dll`.
-  - Following the pre-registered failure recovery protocol, the worker pool was reconfigured to 2 workers (`n_workers = 2`). Peak memory was stabilized at ~4 GB across all cases.
+- **Real Wall Time:** **3 Nov 18:10 → 4 Nov 10:41** (16 hours 31 minutes wall time across 5 launches; active compute time ~6.3 hours).
+  - `M3_gp_rtt8`: 70.0 min active compute
+  - `M4_gp_rtt0`: 56.1 min active compute
+  - `M2_dl_rtt0`: 66.3 min active compute
+  - `M1_dl_rtt8`: 160.8 min cumulative compute (including initial interrupted run)
+- **Operational Deviation & Memory Fault Recovery:**
+  - Initial execution launched with 4 parallel workers (`parfor`). At 23:44 on 3 Nov, during `M1_dl_rtt8`, total host virtual memory commit exceeded the available physical RAM (16 GB host), triggering a memory commit crash in `ucrtbase.dll`.
+  - **Deviation logged:** At 23:44, the worker pool was reduced from 4 to 2 workers (`n_workers = 2`) to stabilize memory below 4 GB. The pre-flight `parfor` bit-identity test ([`test_parfor_seeds.m`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/test_parfor_seeds.m)) formally verified that seed trajectories and numerical metrics are bit-identical to machine precision ($0.00 \times 10^0$ delta) between serial execution, 2 workers, and 4 workers, ensuring this operational reduction had zero impact on results.
   - Heartbeat logger `logs/heartbeat_v17.txt` verified active progress every 25 episodes throughout the entire run.
   - All per-seed checkpoints were saved to `Dataset/ckpt/` and the master campaign log was written to `Dataset/fill_summary_v17.txt`.
 
@@ -353,15 +353,20 @@ The v17 campaign executed the 4 pre-registered cases sequentially (`M1_dl_rtt8` 
 
 ### 6.3 Pre-Registered Hypothesis Check (C4)
 
-Every single pre-registered hypothesis in Stage C4 was confirmed without exception:
+The table below reproduces the pre-registered predictions from PLAN_v17 §C4 verbatim alongside the observed campaign outcomes:
 
-| Case / Hypothesis | Pre-Registered Prediction (PLAN_v17 §C4) | Actual v17 Result | Verdict |
-|---|---|---|---|
-| **M1 (`dl_rtt8`)** | Primary claim: primary A2C (3000 ep) achieves full WIN; offset-800 fails Claim B; resid-800 fails Claim B | Primary A2C achieves full WIN (+1.58%, $p = 9.06 \times 10^{-13}$); offset fails Claim B (−0.91%); resid-800 achieves narrow WIN (+0.34%, $p = 0.024$) | **CONFIRMED (Primary WIN)** |
-| **M2 (`dl_rtt0`)** | Confirmatory replication (PLAN_v17 §C6): primary A2C replicates zero-delay baseline gain | Gain over all comparators replicated for 4th time (+0.43%, $p = 0.0167$; ensemble +0.63%, $p = 5.07 \times 10^{-5}$) | **CONFIRMED (Replication)** |
-| **M3 (`gp_rtt8`)** | No Claim B; A2C $\approx$ base rule | No Claim B (−0.88% vs Fixed); A2C = base rule within 0.0000 Mbps | **CONFIRMED** |
-| **M4 (`gp_rtt0`)** | No Claim B; A2C $\approx$ base rule | No Claim B (−1.73% vs Fixed); A2C $\approx$ base rule | **CONFIRMED** |
-| **Ablation Symmetry** | RTT-8 goodput matches RTT-0 within $[0.85, 1.10]$; Jain within $\pm 0.03$; artificial +10–40% gap eliminated | Goodput ratio RTT8 / RTT0 = 0.9926 for Baseline, 1.0001 for Fixed; Jain diff = +0.0045 for Baseline, −0.0016 for Fixed | **CONFIRMED** |
+| Case | Pre-Registered Prediction (PLAN_v17 §C4 verbatim) | Source | Actual v17 Result | Verdict |
+|---|---|---|---|---|
+| **M1** | primary WIN; offset-800 WIN; resid-800 Claim B fail | v16 L1, K1 | Primary A2C (3000 ep) achieves full WIN (+1.58% vs Context table, $p = 9.06 \times 10^{-13}$); offset-800 fails Claim B (−0.91%, $p = 8.58 \times 10^{-7}$); resid-800 achieves narrow WIN (+0.34%, $p = 0.0244$) | **Primary prediction MET; Secondary predictions NOT MET** |
+| **M2** | primary WIN | v16 K2, v14 Y0, v13 X2 | Primary A2C (3000 ep) replicates zero-delay baseline gain (+0.43% vs Context table, $p = 0.0167$; ensemble +0.63%, $p = 5.07 \times 10^{-5}$) | **MET (Replication)** |
+| **M3, M4** | no Claim B; A2C ≈ base rule | v16 K3, K4 and earlier | In M3: no Claim B (−0.88% vs Fixed), A2C = base rule within 0.0000 Mbps.<br>In M4: no Claim B (−1.73% vs Fixed), A2C ≈ base rule within 0.0362 Mbps. | **MET** |
+| **all** | with `pf_avg = 'scheduled'`, the RTT-8 absolute levels fall back near RTT-0 levels (B2.4) | v17 B2.4 | Goodput ratio RTT8 / RTT0 is 0.9926 for Baseline, 1.0001 for Fixed; Jain diff is +0.0045 for Baseline, −0.0016 for Fixed (all margin swings $< 1.0$ pp). | **MET** |
+
+**Summary of Prediction Check:**
+- The **primary predictions** for all four cases (M1, M2, M3, M4) were completely **met**. Under realistic HARQ (M1), primary 3000-episode residual A2C achieved a statistically significant WIN over every comparator (+1.58% over the best calibrated rule, Holm $p = 9.06 \times 10^{-13}$). In M2, the zero-delay baseline gain was successfully replicated (+0.43%, Holm $p = 0.0167$). In M3 and M4, RL link adaptation confirmed the null result against calibrated static baselines.
+- The **secondary predictions** for M1 were **not met**:
+  1. *offset-800 WIN*: Predicted to achieve WIN, but actually **failed Claim B** (achieved 59.76% vs Context table 60.31%, margin −0.91%, Holm $p = 8.58 \times 10^{-7}$).
+  2. *resid-800 Claim B fail*: Predicted to fail Claim B, but actually achieved a narrow **WIN** across all 9 comparators (achieved 60.51% vs Context table 60.31%, margin +0.34%, Holm $p = 0.0244$).
 
 ---
 
@@ -439,8 +444,34 @@ M4_gp_rtt0 (Goodput, RTT0):
   A2C (800 ep):    action -1 ( 8.8%), action 0 (76.3%), action +1 (14.9%)
 ```
 
-1. **Active Modulation under Deadlines:** On deadline traffic, the trained policy actively utilizes all three residual actions, dynamically switching between aggressive transmissions (+1) when slack is abundant and conservative backoffs (−1) when packets approach deadline expiration. Notice that under RTT 8, where retransmissions take 8 TTIs, the agent takes aggressive action +1 more frequently (47.2% vs 25.9%) to deliver packets in the first transmission.
-2. **Collapse to Base Rule on Full Buffer:** On full-buffer goodput traffic, there is no packet deadline or queue state to manage. The policy rapidly discovers that deviating from the base calibrated offset yields negative reward on average, collapsing to action 0 ($92.3\%$ in M3). This conclusively proves that RL's advantage is domain-specific to QoS/delay-sensitive traffic with state memory.
+#### State-Conditional Action Analysis on Evaluation Traces (`table_action_by_state.csv`)
+
+To determine the empirical policy behavior, action choices of the primary Deep A2C policies were logged across all 500 evaluation traces ($N=10$ seeds, $pprox 600,000$ scheduled transmissions) and conditioned on queue slack, transmission type, and HARQ process occupancy ([`table_action_by_state.csv`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/table_action_by_state.csv)):
+
+| Case | Condition Type | Condition Bin | Total Transmissions | Action −1 (%) | Action 0 (%) | Action +1 (%) |
+|---|---|---|---|---|---|---|
+| **`M1_dl_rtt8`** | **Slack** | $\le 2$ TTIs | 43,259 | 25.55% | 30.66% | 43.79% |
+| | | $3\text{--}5$ TTIs | 33,920 | 1.04% | 8.70% | **90.25%** |
+| | | $> 5$ TTIs | 541,013 | 20.57% | 27.84% | 51.59% |
+| | **Tx Type** | New transmission | 587,016 | 19.04% | 26.38% | **54.58%** |
+| | | Retransmission | 31,176 | **35.05%** | **38.45%** | 26.50% |
+| | **Busy Procs** | 0 busy (0%) | 371,728 | 27.32% | 35.67% | 37.00% |
+| | | 1–2 busy (12–25%) | 238,314 | 8.77% | 13.97% | **77.25%** |
+| | | $\ge 3$ busy ($\ge 37.5\%$) | 8,150 | 2.90% | 11.34% | **85.77%** |
+| **`M2_dl_rtt0`** | **Slack** | $\le 2$ TTIs | 22,260 | 19.55% | 27.69% | 52.77% |
+| | | $3\text{--}5$ TTIs | 46,906 | 20.20% | 22.63% | **57.18%** |
+| | | $> 5$ TTIs | 573,561 | **41.29%** | 19.07% | 39.64% |
+| | **Tx Type** | New transmission | 530,037 | 40.35% | 18.54% | 41.11% |
+| | | Retransmission | 112,690 | 32.65% | 24.74% | 42.62% |
+| | **Busy Procs** | 0 busy (instantaneous) | 642,727 | 39.00% | 19.62% | 41.38% |
+
+#### Key Behavioral Findings from Empirical State Logging
+
+1. **Retransmission Conservatism in M1:** When retransmitting under realistic HARQ timing (`retx`), the agent shifts substantially toward conservative backoffs: action −1 increases from 19.04% (new transmissions) to **35.05%**, and action 0 increases to **38.45%**, while aggressive action +1 drops from 54.58% to **26.50%**. Because an initial failure under RTT 8 has already consumed 8 TTIs, the agent prioritizes delivery reliability on subsequent attempts to avert packet drops.
+2. **Intermediate Slack Aggression in M1:** In the intermediate slack window ($3\text{--}5$ TTIs), action +1 dominates at **90.25%**, with action −1 dropping to just **1.04%**. In this regime, the packet still has sufficient budget for transmission, incentivizing higher MCS to clear the buffer. When slack expires to critical levels ($\le 2$ TTIs), action −1 rebounds to **25.55%** and action 0 to 30.66%.
+3. **HARQ Process Congestion Response:** As parallel HARQ processes accumulate, the agent exhibits marked aggression: action +1 rises from 37.00% with 0 busy processes to **77.25%** with 1–2 busy processes, and **85.77%** when $\ge 3$ processes are occupied (with action −1 dropping to 2.90%). When process exhaustion threatens scheduling eligibility, the policy pushes higher MCS to prevent queue head-of-line blockage.
+4. **Behavior under Zero Delay (M2):** Without RTT latency, the policy exhibits a distinct distribution: when slack is abundant ($> 5$ TTIs), action −1 reaches **41.29%**, maintaining low BLER, whereas for tighter slack ($\le 5$ TTIs), action +1 rises to 52–57%.
+5. **Collapse to Base Rule on Full Buffer:** On full-buffer traffic (`M3`, `M4`), where queue state and deadlines are absent, the policy settles on action 0 (92.3% in M3, 76.3% in M4), degenerating to the calibrated base rule.
 
 ---
 
@@ -451,7 +482,7 @@ Under the project-wide multiplicity accounting (39 total evaluated cases across 
 Following the pre-registered decision rules, the paper text must state:
 
 - **Case M1 (Primary Claim):** *"Under realistic HARQ timing (RTT 8, 8 processes) and a correctly averaged PF scheduler, residual A2C trained for 3000 episodes beat every comparator, including calibrated fixed-offset rules (+1.87% vs Fixed, +1.58% vs Context table, +4.56% ensemble), without a fairness penalty."*
-- **Case M2 (Confirmatory Replication):** *"Without HARQ delay, the gain over all comparators replicated for the fourth time (+0.93% vs Fixed, +0.43% vs Context table, +0.63% ensemble), confirming that the zero-delay baseline gain is invariant to the corrected transmission-time PF scheduler."*
+- **Case M2 (Confirmatory Replication):** *"Without HARQ delay, the gain over all comparators replicated for the fourth time (+0.93% vs Fixed, +0.43% vs Context table, +0.63% ensemble), confirming that the zero-delay baseline gain is preserved and replicated under the corrected transmission-time PF scheduler."*
 - **Cases M3 & M4:** *"On full-buffer goodput, no RL design outperformed calibrated rules."*
 - **Training Length:** *"In M1 and M2, residual A2C proved training-limited at 800 episodes: extending training to 3000 episodes increased the margin over the best rule from +0.34% to +1.58% in M1, and from −0.57% to +0.43% in M2, with non-overlapping 90% confidence intervals."*
 
@@ -486,7 +517,7 @@ Reference bounds evaluated across all 500 evaluation traces per case (`headroom_
 | **`M3_gp_rtt8`** | Full buffer | Goodput (Mbps) | **3.4989** | 3.4679 | 3.4679 | 3.6445 | 5.7153 |
 | **`M4_gp_rtt0`** | Full buffer | Goodput (Mbps) | **3.4985** | 3.4378 | 3.4746 | 3.6409 | 5.6615 |
 
-- **Surpassing Static Hindsight:** In `M1_dl_rtt8`, the Deep A2C Ensemble achieves **63.06%**, which exceeds the static per-trace hindsight upper bound (**62.16%**). This highlights that dynamic, per-TTI adaptation based on queue slack and HARQ retransmission status achieves higher packet delivery than selecting any single constant offset per trace in hindsight.
+- **Surpassing Static Hindsight:** In `M1_dl_rtt8`, the M1 ensemble (0.6306) exceeds the per-trace hindsight bound (0.6216). This confirms that dynamic, per-TTI adaptation based on queue slack and HARQ retransmission status achieves higher packet delivery than selecting any single constant offset per trace in hindsight.
 - **Goodput Gap to Genie:** On full-buffer traffic (`M3`, `M4`), the Genie upper bound reaches 5.71 Mbps, but no link adaptation scheme observing delayed/quantized CQI can bridge that gap; static calibration at 3.50 Mbps captures almost all practical gains obtainable from non-anticipative policies.
 
 

@@ -159,6 +159,8 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17(ptype, policy, SINR_tru
     nSingle = nSingle + nExtra_v17(env);
     nFeat = nSingle * L_seq;
     histS = zeros(nSingle, N, L_seq, 'single');
+    sch_log = zeros(T, 5); n_sch = 0;
+    b0 = min(env.burn_in, T - 1);
 
 
     b_i = zeros(1, N);
@@ -176,15 +178,19 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17(ptype, policy, SINR_tru
     end
 
     if isDeep
-        L = policy.Learnables;
-        Wa.w1 = extractdata(L.Value{L.Layer == "fc1" & L.Parameter == "Weights"});
-        Wa.b1 = extractdata(L.Value{L.Layer == "fc1" & L.Parameter == "Bias"});
-        Wa.w2 = extractdata(L.Value{L.Layer == "fc2" & L.Parameter == "Weights"});
-        Wa.b2 = extractdata(L.Value{L.Layer == "fc2" & L.Parameter == "Bias"});
-        isL3 = (L.Layer == "logits" | L.Layer == "value") & L.Parameter == "Weights";
-        Wa.w3 = extractdata(L.Value{isL3});
-        isB3 = (L.Layer == "logits" | L.Layer == "value") & L.Parameter == "Bias";
-        Wa.b3 = extractdata(L.Value{isB3});
+        if isstruct(policy)
+            Wa = policy;
+        else
+            L = policy.Learnables;
+            Wa.w1 = extractdata(L.Value{L.Layer == "fc1" & L.Parameter == "Weights"});
+            Wa.b1 = extractdata(L.Value{L.Layer == "fc1" & L.Parameter == "Bias"});
+            Wa.w2 = extractdata(L.Value{L.Layer == "fc2" & L.Parameter == "Weights"});
+            Wa.b2 = extractdata(L.Value{L.Layer == "fc2" & L.Parameter == "Bias"});
+            isL3 = (L.Layer == "logits" | L.Layer == "value") & L.Parameter == "Weights";
+            Wa.w3 = extractdata(L.Value{isL3});
+            isB3 = (L.Layer == "logits" | L.Layer == "value") & L.Parameter == "Bias";
+            Wa.b3 = extractdata(L.Value{isB3});
+        end
     end
     if isEns
         K_ens = numel(policy);
@@ -481,6 +487,19 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17(ptype, policy, SINR_tru
                     r_sched(sch_u) = tbsFromMCSandRB_v17(tx_mcs, rb(sch_u)) * 1e-3;
                 end
             end
+            if ~isempty(sch_u) && t > b0
+                for u = sch_u(:)'
+                    n_sch = n_sch + 1;
+                    if n_sch > size(sch_log, 1)
+                        sch_log = [sch_log; zeros(T, 5)];
+                    end
+                    sl_u = Q.dl(u) - t + 1;
+                    is_retx_u = double(retxReady(u));
+                    n_busy_u = sum(H.proc_busy(u, :));
+                    act_u = act(t, u);
+                    sch_log(n_sch, :) = [u, act_u, sl_u, is_retx_u, n_busy_u];
+                end
+            end
 
             if isempty(U), uRow = []; else, uRow = U(t, :); end
             [H, Q, bl1, isRetxTx] = harqTransmit_v17(sent, SINR_true(t, :), rb, H, Q, env, t, uRow);
@@ -543,6 +562,19 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17(ptype, policy, SINR_tru
                 else
                     tx_mcs = max(0, min(14, sent(sch_u) - 1));
                     r_sched(sch_u) = tbsFromMCSandRB_v17(tx_mcs, rb(sch_u)) * 1e-3;
+                end
+            end
+            if ~isempty(sch_u) && t > b0
+                for u = sch_u(:)'
+                    n_sch = n_sch + 1;
+                    if n_sch > size(sch_log, 1)
+                        sch_log = [sch_log; zeros(T, 5)];
+                    end
+                    sl_u = Q.dl(u) - t + 1;
+                    is_retx_u = double(env.harq_on && H.pend(u));
+                    n_busy_u = 0;
+                    act_u = act(t, u);
+                    sch_log(n_sch, :) = [u, act_u, sl_u, is_retx_u, n_busy_u];
                 end
             end
 
@@ -635,7 +667,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17(ptype, policy, SINR_tru
         end
     end
 
-    info = struct('okU', Q.okU, 'resU', Q.resU);
+    info = struct('okU', Q.okU, 'resU', Q.resU, 'sch_log', sch_log(1:n_sch, :));
     % Strip warm-up phase if applied
     if W > 0
         tp = tp(W+1:end, :);

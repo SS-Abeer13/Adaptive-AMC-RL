@@ -1,0 +1,15 @@
+case_tag,condition_type,condition_bin,count,pct_act_minus1,pct_act_0,pct_act_plus1
+M1_dl_rtt8,slack,<=2 TTIs,43259,25.55,30.66,43.79
+M1_dl_rtt8,slack,3-5 TTIs,33920,1.04,8.70,90.25
+M1_dl_rtt8,slack,>5 TTIs,541013,20.57,27.84,51.59
+M1_dl_rtt8,tx_type,new_tx,587016,19.04,26.38,54.58
+M1_dl_rtt8,tx_type,retx,31176,35.05,38.45,26.50
+M1_dl_rtt8,busy_proc,0 busy (0%),371728,27.32,35.67,37.00
+M1_dl_rtt8,busy_proc,1-2 busy (12-25%),238314,8.77,13.97,77.25
+M1_dl_rtt8,busy_proc,>=3 busy (>=37.5%),8150,2.90,11.34,85.77
+M2_dl_rtt0,slack,<=2 TTIs,22260,19.55,27.69,52.77
+M2_dl_rtt0,slack,3-5 TTIs,46906,20.20,22.63,57.18
+M2_dl_rtt0,slack,>5 TTIs,573561,41.29,19.07,39.64
+M2_dl_rtt0,tx_type,new_tx,530037,40.35,18.54,41.11
+M2_dl_rtt0,tx_type,retx,112690,32.65,24.74,42.62
+M2_dl_rtt0,busy_proc,0 busy (instantaneous),642727,39.00,19.62,41.38
