@@ -1,159 +1,93 @@
-# Reinforcement Learning for Adaptive Modulation and Coding (RL-AMC)
+# Deep Reinforcement Learning for Adaptive Modulation and Coding (RL-AMC)
 
-**Project:** Reinforcement-Learning-based Adaptive Modulation and Coding (AMC) for Multi-User LTE / 5G-NR Cellular Downlinks  
-**Scope:** Complete simulation codebase, channel physics, evolutionary algorithms (v1 to v7), evaluation harnesses, benchmark datasets, and technical documentation.
-
----
-
-## 1. Executive Summary & Core Scientific Findings
-
-This project investigates whether Reinforcement Learning (RL) can outperform classical Outer Loop Link Adaptation (OLLA) in multi-user cellular downlinks under realistic physical-layer channel dynamics. Over seven iterative algorithm generations (v1 to v7), the system evolved from early per-user tabular networks to a centralized multi-agent Advantage Actor-Critic (A2C) architecture.
-
-### Headline Findings (v7 Definitive Pipeline):
-*   **$+12.8\%$ Throughput Gain over Standard OLLA:** Under Proportional Fair (PF) scheduling, realistic HARQ Chase combining ($+2.5\text{ dB}$), heterogeneous user speeds ($3\text{--}30\text{ m/s}$), variable delays ($2\text{--}8\text{ TTIs}$), and Markovian interference bursts ($+9\text{ dB}$), Deep A2C achieves $3.71\text{ Mbps}$ average cell throughput vs. OLLA's $3.29\text{ Mbps}$ ($p = 0.0003$, paired Wilcoxon test).
-*   **Parity with Theoretical Oracle Upper Bound:** Deep A2C matches the performance of an offline-calibrated, class-specific static offset rule (`FixedPU`, $3.73\text{ Mbps}$, $-0.4\%$ difference, $p = 0.813$, statistically indistinguishable) with **zero offline calibration or pre-deployment tuning**.
-*   **Mechanism Discovery (Setpoint Control):** RL's gain over OLLA is a *setpoint shift* (operating at $\text{BLER}_1 \approx 44\%$ instead of OLLA's fixed $10\%$). Chase combining heavily cushions transmission failures, making an aggressive first-transmission strategy throughput-optimal.
-*   **State-Space Sufficiency:** Information-equal state (Tier-A) matches full state (Tier-B), proving standard OLLA-loop features suffice for Deep RL to discover the optimal setpoint.
+**Codebase & Scientific Campaign Registry (v9–v17)**  
+*Multi-User LTE / 5G-NR Cellular Downlink AMC under Realistic Channel Dynamics & HARQ Delay*
 
 ---
 
-## 2. Quick-Start & Execution Guide
+## 1. Executive Summary & Headline Findings (v17 Stack)
 
-The **v7 stack** (`Optimized/v7/`) is the definitive, fully audited pipeline.
+This repository contains the simulation harness, channel physics, learning algorithms, and pre-registered empirical evaluations investigating whether Deep Reinforcement Learning (RL) can outperform classical Outer Loop Link Adaptation (OLLA) and calibrated link-adaptation baselines in multi-user cellular downlinks.
 
-### Running in MATLAB:
-```matlab
-cd 'Optimized/v7'
+The definitive, fully audited campaign is **v17** (`Optimized/v17/`), evaluated across 500 independent channel traces under Proportional Fair (PF) scheduling, Chase combining HARQ, and feedback round-trip times (RTT $\in \{0, 8\}$ TTIs).
 
-% 1. Pipeline Sanity Check (2-5 min)
-run_v7_point('smoke');
+### Headline Results:
+1. **Definitive WIN under Realistic HARQ Feedback Delay (M1, RTT = 8 TTIs):**
+   Under realistic feedback delay (RTT = 8 TTIs) and deadline-constrained traffic, **Deep A2C achieves a statistically significant victory** over all classical and calibrated baselines:
+   - Primary single-seed Deep A2C: **$+1.58\%$** on-time throughput over the strongest non-RL comparator (`Context table`), Holm-adjusted $p = 9.06 \times 10^{-13}$.
+   - 10-seed Ensemble Policy: **$+4.56\%$** on-time throughput over `Context table`, Holm-adjusted $p = 1.62 \times 10^{-43}$.
+   - Secondary pre-registered A2C-resid (800 ep): $+0.34\%$ ($p = 0.0244$), confirming the advantage is structural.
+   - **Mechanism:** Under delay, the agent discovers state-dependent risk modulation—biasing aggressively ($+1$ offset, $>85\%$ share) during buffer congestion / busy HARQ processes to avoid deadline drops, and falling back to conservative transmissions on retransmissions and low-slack packets.
 
-% 2. Credibility Anchor (Calm homogeneous cell; RL ~ OLLA expected)
-run_v7_point('phase0');
+2. **Fourth Replication at Zero Delay (M2, RTT = 0 TTIs):**
+   Under instantaneous feedback (RTT = 0 TTIs), Deep A2C replicates the zero-delay deadline win for the fourth independent campaign generation (following v10 E4c, v13 X1, v14 Y0, and v16 K2):
+   - Single seed: $+0.43\%$ ($p = 0.0167$); Ensemble: $+0.63\%$ ($p = 5.07 \times 10^{-5}$).
+   - Recorded as a confirmatory replication under project-wide multiplicity control.
 
-% 3. Headline Evaluation (+9 dB Markov burst, heterogeneous users)
-% Yields +12.8% gain over OLLA (p=0.0003) and parity with Oracle FixedPU
-run_v7_point('burst', 9);
+3. **No Goodput Win (M3 & M4, Pure Rate Maximization):**
+   RL achieves **no gain over calibrated fixed setpoints** under pure unconstrained goodput traffic:
+   - M3 (RTT = 8): $-0.88\%$ vs `Fixed` ($p = 0.0072$);
+   - M4 (RTT = 0): $-1.73\%$ vs `Fixed` ($p = 1.72 \times 10^{-8}$).
+   - The learned policy collapses directly onto the calibrated base rule (selecting action 0 >99% of the time). This firmly refutes the hypothesis that RL discovers opportunistic channel prediction under rate maximization, bounding the RL advantage strictly to queue/deadline dynamics.
 
-% 4. User Heterogeneity Sweeps
-run_v7_point('hetero', 0.5);
-run_v7_point('hetero', 1.0);
+---
 
-% 5. State Ablations & Converged OLLA Defense
-run_v7_point('tierA');
-run_v7_point('warm');
-```
+## 2. Project Lineage & Scientific Corrective Record
 
-### Running Headless via Windows Command Prompt:
+The project underwent rigorous retrospective validation and bug identification, leading to the withdrawal and supersession of earlier claims:
+
+* **v7 / v8 Claims Withdrawn (Mobility Time-Scale Discrepancy):**
+  Early versions (v7/v8) reported large throughput gains ($+12.8\%$) under goodput traffic. In October 2026, an internal audit identified that spatial displacement had been computed as $v$ meters per TTI rather than $v \cdot T_{\text{tti}}$, scaling user mobility $1000\times$ faster than physical reality. When corrected (`mob_kappa = 1` in v9), the goodput gain completely vanished ($0/18$ wins in v9). All v7/v8 claims were formally withdrawn. The historical v7 documentation is preserved in [`Docs/README_v7_historical.md`](Docs/README_v7_historical.md).
+* **v15 / v16 RTT Claims Superseded (PF Denominator Feedback Artefact):**
+  In v15 and v16, evaluations at RTT $> 0$ showed massive apparent gains (+37% to +44%). An investigation in November 2026 revealed an implementation artefact in the scheduler: the Proportional Fair denominator (past average throughput $\bar{R}_k$) was updated only when HARQ ACK/NACK feedback was received (at $t + \text{RTT}$) instead of when the packet was scheduled and transmitted ($t$). Because RL transmitted higher-MCS packets that failed more frequently on the first transmission, its feedback was delayed or suppressed, depressing $\bar{R}_k$ and causing the scheduler to disproportionately grant it more transmission slots.
+* **v17 Definitive Pipeline:**
+  v17 resolved this by:
+  1. Updating PF rate averaging at transmission time (`pf_avg = 'scheduled'`);
+  2. Introducing an end-of-trace HARQ drain window (`harq_rtt` extra TTIs with zero new transmissions) to credit all in-flight blocks fairly;
+  3. Enforcing `useful_bits` accounting across all deadline policies.
+
+The full campaign history across all 67 experimental cases and 108 scheme evaluations is tracked in [`Optimized/case_registry.csv`](Optimized/case_registry.csv).
+
+---
+
+## 3. Quick-Start & Reproduction Guide
+
+The complete v17 release pipeline is located in `Optimized/v17/`.
+
+### Headless Reproduction (Windows Command Prompt / PowerShell)
+To execute the automated campaign runner with memory protection, heartbeats, and resume capabilities:
 ```cmd
-cd "Optimized\v7"
-run_v7_all.bat
+cd "d:\Adaptive AMC A2C+QL\Optimized\v17"
+run_v17_headless.bat
+```
+
+### Direct MATLAB Execution
+```matlab
+cd 'd:\Adaptive AMC A2C+QL\Optimized\v17'
+
+% 1. Preflight sanity verification (~2-3 minutes)
+fill_v17_preflight
+
+% 2. Full pre-registered campaign (4 cases: M1, M2, M3, M4)
+fill_v17_campaign
+
+% 3. Generate summary statistics and evaluation tables
+fill_stats_v17
+```
+
+### Inspect Campaign Registry
+To inspect the project-wide case registry and status across all versions:
+```matlab
+cd 'd:\Adaptive AMC A2C+QL\Optimized'
+build_case_registry; % Regenerates case_registry.csv (67 unique cases, 108 rows)
 ```
 
 ---
 
-## 3. Algorithm Version Progression (v1 to v7)
+## 4. Primary Documentation & Links
 
-```
-+---------------------------------------------------------------------------------------------------------+
-|                                    Evolutionary Algorithm Timeline                                      |
-+---------------------------------------------------------------------------------------------------------+
-| v1 (Per-User QL/AC)      --> Broken multi-user due to zero-init argmax tie-break bias                   |
-| v2 (Bias Init / Shaping) --> Fixed tie-break; hit "no-offset freeze" plateau                            |
-| v3 (Imitation Bonus)     --> Explored discrete action limits on multi-user GPU harness                  |
-| v4 (Baseline-Relative)   --> Shared MLP parameterization; first version beating fixed CQI map           |
-| v5 (Domain Randomize)    --> Imperfect CQI + PF/RR/EQ domain weights; post-audit showed parity with OLLA|
-| v6 (OLLA-Relative)       --> Action 0 = OLLA; Deep A2C beat OLLA (+6.7%), matched constant offset       |
-| v7 (Full SOTA Pipeline)  --> HARQ Chase combining (+2.5 dB), Markov bursts (+9 dB), user heterogeneity, |
-|                              steep BLER waterfalls, Behavior Cloning warm-start + soft entropy decay.    |
-|                              Result: +12.8% over OLLA (p=0.0003), matches Oracle FixedPU (p=0.813).     |
-+---------------------------------------------------------------------------------------------------------+
-```
-
----
-
-## 4. Summary of Primary Headline Results (v7 Final Pipeline)
-
-Evaluated across 30 held-out evaluation traces, Proportional Fair (PF) scheduling, 5 seeds, under realistic HARQ and non-stationary conditions:
-
-| Scheme | Cell Throughput (Mbps) | Gain vs. Baseline | BLER₁ (1st Tx) | vs. Deep A2C (Wilcoxon $p$-value) | Role / Type |
-|---|---|---|---|---|---|
-| **Baseline (Fixed CQI)** | $3.10 \pm 0.25$ | (ref) | $0.692$ | $+19.9\%$, $p = 1.1 \times 10^{-4}$ (***) | Uncorrected lookup table |
-| **OLLA (Reactive Standard)** | $3.29 \pm 0.27$ | $+6.3\%$ | $0.640$ | $+12.8\%$, $p = 2.8 \times 10^{-4}$ (***) | Industry-standard benchmark |
-| **Fixed (Best Global Constant)**| $3.77 \pm 0.35$ | $+21.8\%$ | $0.444$ | $-1.6\%$, $p = 0.262$ (n.s.) | Offline-calibrated global offset |
-| **FixedPU (Oracle Per-Class)** | $3.73 \pm 0.34$ | $+20.4\%$ | $0.443$ | **$-0.4\%$, $p = 0.813$ (n.s.)** | **Theoretical Oracle Upper Bound** |
-| **QL v7 (Tabular)** | $3.12 \pm 0.25$ | $+0.9\%$ | $0.690$ | $+19.4\%$, $p = 2.9 \times 10^{-6}$ (***) | Underfitted discrete state table |
-| **Tab AC v7 (Tabular)** | $3.11 \pm 0.21$ | $+0.4\%$ | $0.677$ | $+19.4\%$, $p = 2.9 \times 10^{-6}$ (***) | Tabular Actor-Critic baseline |
-| **Deep A2C v7 (Proposed Final)**| **$3.71 \pm 0.32$** | **$+19.9\%$** | **$0.439$** | — | **Autonomous Online Calibrator** |
-
----
-
-## 5. Complete File-by-File Inventory by Directory
-
-### 5.1 Original Baseline Code (`Original/`)
-Original MATLAB Live Scripts representing the initial baseline implementation of multi-user AMC:
-*   `Original/case_2/`: 5 users under dynamic Proportional Fair scheduling (`BLER_Calculation.mlx`, `Calculate_SINR_Final1.mlx`, `selectTBSFromSINRDynamicScheduling.mlx`, `Throughput_Calculation.mlx`, `Read me.txt`).
-*   `Original/case_3/`: 5 users under Round Robin scheduling (`BLER_Calculation.mlx`, `Calculate_SINR_Final1.mlx`, `selectTBSFromSINR_final2.mlx`, `Throughput_Calculation.mlx`, `Read me.txt`).
-
-### 5.2 Version 1 & GPU Baselines (`Optimized/case1/`, `Optimized/case2_3/`)
-*   `Optimized/case1/`: Single-user radial baseline (`runComparison_v1.m`, `randomWaypointSimulation.m`, `tbsFromMCSandRB.m`, `estimateBLER_Enhanced.m`, `calculateControlledSINR2.m`, `computeReward.m`).
-*   `Optimized/case2_3/`: Multi-user GPU/CPU harnesses (v1/v3/v4 baselines, `runComparison_Multi_GPU_v1.m`, `runComparison_Multi_GPU_v3.m`, `runComparison_Multi_v4.m`, `schedule_users.m`, `createTBS_Table.m`, `computeSINR.m`).
-
-### 5.3 Version 4 (`Optimized/v4/`)
-Baseline-relative action formulation and centralized shared MLP:
-*   `DeepA2C_AMC_Multi_v4.m`, `AC_AMC_Multi_v4.m`, `QL_AMC_Multi_v4.m`: Trainers for v4.
-*   `defaultEnv_v4.m`, `generateChannel_v4.m`, `cqiFeedback_v4.m`, `estimateBLER_v4.m`, `evalPolicy_v4.m`, `computeReward_v4.m`, `schedule_users_v4.m`: Physical and evaluation modules.
-*   `runComparison_v4.m`, `runCase1_v4.m`, `runCase23_v4.m`, `plotPolicyHeatmap_v4.m`, `README_v4.md`: Evaluation and documentation.
-
-### 5.4 Version 5 (`Optimized/v5/`)
-Clean-slate modular rewrite introducing scheduler domain randomization and Wilcoxon testing:
-*   `DeepA2C_Shared_v5.m`, `AC_Shared_v5.m`, `QL_Shared_v5.m`: Multi-scheduler context-aware trainers.
-*   `defaultEnv_v5.m`, `generateChannel_v5.m`, `cqiFeedback_v5.m`, `baseCQI_v5.m`, `estimateBLER_v5.m`, `evalPolicy_v5.m`: Physical simulation pipeline.
-*   `sampleSched_v5.m`, `schedContext_v5.m`, `schedule_users_v5.m`, `argmaxNoOp_v5.m`, `trendBin_v5.m`, `computeReward_v5.m`: Scheduling and discretization utilities.
-*   `runComparison_v5.m`, `sweepDelay_v5.m`, `sweepN_v5.m`, `replotFromResults_v5.m`, `README_v5.md`: Harnesses and parameter sweeps.
-
-### 5.5 Version 6 (`Optimized/v6 _USE THIS_/`)
-OLLA-relative action encoding ($a=0 \equiv \text{OLLA}$) and empirical action distribution analysis:
-*   `DeepA2C_Shared_v6.m`, `AC_Shared_v6.m`, `QL_Shared_v6.m`: OLLA-relative trainers.
-*   `defaultEnv_v6.m`, `evalPolicy_v6.m`, `runComparison_v6.m`, `runCase23_v6.m`: Simulation and evaluation harnesses.
-*   `sweepDelay_v6.m`, `sweepNoise_v6.m`, `sweepOffset_v6.m`, `sweepCoherence_v6.m`, `measureActionUsage_v6.m`: Parametric sweeps and action usage analysis.
-*   `generateInsightfulPlots_v6.m`, `saveFigures_v6.m`, `rebuildSweep_v6.m`, `runDelay02_and_bootstrap.m`: Diagnostic plotting and statistical bootstrap.
-*   `Dataset/`: 52 `.mat` and `.txt` result files across all tested configurations.
-
-### 5.6 Version 7 — Definitive SOTA Pipeline (`Optimized/v7/`)
-The full SOTA pipeline incorporating HARQ Chase combining, non-stationary Markov interference bursts, speed/delay heterogeneity, steep BLER waterfalls, and Behavior Cloning warm-start:
-*   **Core Modules:** `DeepA2C_Shared_v7.m`, `AC_Shared_v7.m`, `QL_Shared_v7.m`, `defaultEnv_v7.m`, `generateChannel_v7.m`, `cqiFeedback_v7.m`, `estimateBLER_v7.m`, `txStep_v7.m`, `harqInit_v7.m`, `stateFeat_v7.m`, `userClass_v7.m`, `calibrateFixedClass_v7.m`, `evalPolicy_v7.m`, `runComparison_v7.m`, `sweep_olla_target_v7.m`, `action_histogram_v7.m`, `generate_figures_v7.m`, `run_v7_point.m`, `run_v7_all.bat`.
-*   **Documentation & Technical Reports:** `README_v7.md`, `V7_DESIGN_PLAN.md`, `DATA_STATUS_REPORT_v7.md`, `v7_technical_process_report.md`, `v7_beginners_guide.md`, `v7_beginners_guide_bn.md`.
-*   **Dataset/ & Figures & Logs:** 29 campaign result datasets (`Dataset/`), 28 diagnostic figure files (`figures/`), and full runtime execution logs (`logs/v7_master_log.txt`).
-
-### 5.7 Documentation & Reports (`Docs/`)
-Master briefing documents, conference paper drafts, and parameter audit reports:
-*   `Docs/v7/`: `v7_comprehensive_evaluation_report.pdf`, `v7_technical_process_report.pdf`, `v7_beginners_guide_bn.pdf`.
-*   `Docs/v6/`: `v6_comprehensive_evaluation_report.pdf`, `Case1_Technical_Paper_v6_compile.pdf`, `Case1_Technical_Paper_v5.pdf`, `Case1_v6_Methodology_and_Architectural_Justification.pdf`, `Case1_A2C_Implementation_Spec.pdf`, `Case1_Parameter_Audit.pdf`.
-*   `Docs/V5/`: `Case1_Methodology_v5.docx`.
-*   `Docs/figures/`: High-resolution PNG plots for v5 (12 plots), v6 (20 plots), and v7 (28 plots).
-
----
-
-## 6. System Requirements & Dependencies
-
-*   **MATLAB Version:** MATLAB R2023a, R2024a, or newer.
-*   **Required Toolboxes:**
-    *   *Deep Learning Toolbox* (for `dlnetwork`, `dlarray`, and automatic differentiation).
-    *   *Parallel Computing Toolbox* (optional, for multi-core/GPU parallelization).
-    *   *Statistics and Machine Learning Toolbox* (for `signrank` Wilcoxon tests).
-*   **Hardware:** Multi-core CPU (Intel Core i7/AMD Ryzen 7 or higher), 8 GB+ RAM.
-
----
-
-## 7. Academic References
-
-1. **Bruno et al. (2014)** --- *"Robust AMC Selection in LTE Systems using Reinforcement Learning"*, IEEE VTC-Fall. [DOI: 10.1109/VTCFall.2014.6966164](https://doi.org/10.1109/VTCFall.2014.6966164)
-2. **Leite et al. (2015)** --- *"A Continuous-State Reinforcement Learning Strategy for Link Adaptation in OFDM Wireless Systems"*, Journal of Communication and Information Systems (JCIS). [DOI: 10.14209/jcis.2015.6](https://doi.org/10.14209/jcis.2015.6)
-3. **Mota et al. (2019)** --- *"Adaptive Modulation and Coding based on Reinforcement Learning for 5G Networks"*, arXiv:1912.04030. [Link: arXiv:1912.04030](https://arxiv.org/abs/1912.04030)
-4. **Zhang et al. (2018)** --- *"Deep Reinforcement Learning Based Resource Allocation in Cognitive HetNet"*, IEEE Transactions on Wireless Communications. [DOI: 10.1109/TWC.2018.2878018](https://doi.org/10.1109/TWC.2018.2878018)
-5. **Pedersen et al. (2007)** --- *"Frequency Domain Scheduling for OFDMA with Limited and Noisy Channel Feedback"*, IEEE VTC-Fall. [DOI: 10.1109/VETECF.2007.380](https://doi.org/10.1109/VETECF.2007.380)
-6. **Mnih et al. (2016)** --- *"Asynchronous Methods for Deep Reinforcement Learning"*, ICML. [Link: arXiv:1602.01783](https://arxiv.org/abs/1602.01783)
-7. **Schulman et al. (2015)** --- *"High-Dimensional Continuous Control Using Generalized Advantage Estimation"*, ICLR. [Link: arXiv:1506.02438](https://arxiv.org/abs/1506.02438)
-8. **3GPP TS 36.213** --- *"E-UTRA; Physical layer procedures"*, 3GPP Technical Specification. [Link: 3GPP Portal](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2427)
-9. **3GPP TR 38.901** --- *"Study on channel model for frequencies from 0.5 to 100 GHz"*, 3GPP Technical Report. [Link: 3GPP Portal](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3173)
+* **Definitive Campaign Report:** [`Optimized/v17/README_v17.md`](Optimized/v17/README_v17.md) — Comprehensive pre-registered protocol, empirical results, state-conditional action breakdowns, and statistical analyses.
+* **Full Case Registry:** [`Optimized/case_registry.csv`](Optimized/case_registry.csv) — Audit trail of all experimental cases, comparator baselines, Holm-adjusted p-values, and replication status from v9 to v17.
+* **Historical Review Responses & Drafts:**
+  - [`Docs/README_v7_historical.md`](Docs/README_v7_historical.md) — Archived v7 executive summary.
+  - [`papers/v8_draft/`](papers/v8_draft/) — v8 paper drafts, reviewer response letters, and original figure assets.
