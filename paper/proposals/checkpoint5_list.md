@@ -2,34 +2,33 @@
 
 Compute basis: `compute_basis.md` (RTT 8, 2 workers: about 0.14 s per training episode and 0.095 s per 200-TTI evaluation; upper bounds). Every run has a 20-trace preflight and pauses if the measured rate exceeds 1.5× the basis. Each pre-registration's §§1–6 are frozen on approval.
 
-## Summary
+## Summary (revised at Checkpoint 5: FROZEN texts)
 
-| ID | Item | Class | New runs? | Wall time | Pre-registration | Status |
-|---|---|---|---|---|---|---|
-| **G1** | Action re-cut on scheduled new transmissions (M1, M3) | **essential** | re-evaluation only | 20–60 min | `paper/analysis/G1_SPEC.md` | running on author's PC |
-| **G3** | Seed-level statistics (sign test, seed t-test, hierarchical bootstrap) | **essential** | none | — | — | **done** (ledger G3a–G3f) |
-| **W1** | Warm-up robustness (200 unscored TTIs, all OLLA-based schemes, stored policies) | **essential** | re-evaluation only | ≈ 1.2 h | `W1_warmup_prereg.md` | proposal |
-| **G6** | Re-calibrated rules (500 traces) + combined slack × class × busy-HARQ comparator | **essential** | calibration + re-evaluation, no RL training | ≈ 8.4 h (overnight) | `G6_calibration_budget_prereg.md` | proposal |
-| **G10** | v17 load × deadline grid (4 cells, 5 seeds, 3000 ep, 300 traces) | **essential** (for TMLCN robustness; also gates any TWC revisit) | training | ≈ 3.7 h | `G10_operating_grid_prereg.md` | proposal |
-| **NR1** | Residual on the non-oracle Fixed base at RTT 8 | **nice-to-have (recommended)**; removes limitation #25 | training | ≈ 1.5 h | `NR1_nonoracle_residual_prereg.md` | proposal |
-| A1 | Results by mobility regime (per-user on-time by speed class, M1) | nice-to-have | re-evaluation only | ≈ 20 min | below | proposal |
-| A2 | On-time attribution by state (G2), from the G1 log | nice-to-have | none (analysis of G1 output) | minutes | below | after G1 |
-| A3 | Inference wall time per TTI (G14) | nice-to-have | micro-benchmark | ≈ 5 min | below | proposal |
-| **A6** | PF-timing demonstration (Baseline, OLLA, Fixed; ACK-time vs scheduling-time PF × 3 HARQ configs; 100 traces) for pitfall F8 | nice-to-have, **strongly recommended** | re-evaluation only | ≈ 3 min | `design/figure_table_plan.md` (A6 section) | proposal (added in Phase 6) |
-| A4 | Learning curves and entropy (3000 ep, 10 seeds) from the HDF5 files (G15) | nice-to-have | none | — | done in Phase 7 here | planned |
-| A5 | Path-agnostic setup for the release (G16) | nice-to-have (before release) | none | — | below | proposal |
-| F1 | SALAD as an extra comparator (attack #4) | **future work** | port + runs | days | — | not proposed |
-| F2 | Second simulator / NR LDPC abstraction / ns-3 (G11, G17) | **future work** | — | — | — | not proposed |
+All pre-registrations G6, W1, NR1, G10 and `common_rules.md` are **frozen**; the freeze commit and file hashes are in `paper/STATUS.md`. Run order (approved): **G1 → W1 → G6 → NR1 → G10 → A1/A3**. A2, A4 and A5 need no runs.
 
-**Essential total ≈ 13.3 h** of wall time (W1 + G6 + G10), plus G1. With NR1 and A1–A3 it is **≈ 15.2 h**.
+| ID | Item | Class | New runs? | Wall time (upper-bound basis; 2 workers) | Pre-registration |
+|---|---|---|---|---|---|
+| **G1** | Action re-cut on scheduled new transmissions (M1, M3) | essential | re-evaluation | 20–60 min | `paper/analysis/G1_SPEC.md` |
+| **G3** | Seed-level statistics | essential | none | — | **done** (ledger G3a–G3i) |
+| **W1** | Warm-up robustness (200 unscored TTIs, stored policies) | essential | re-evaluation | ≈ 1.2 h | `W1_warmup_prereg.md` |
+| **G6** | Exhaustive re-calibration of Fixed / FixedPU / Context / OLLA on 500 traces + the combined comparator (coordinate ascent, ≥ 3 random restarts) | essential | calibration, no RL training | `g6a` ≈ 6.9 h; `g6b` ≈ 23 h min, **≈ 34 h expected**, ≤ 68 h cap; **total ≈ 41 h expected** (lite profile ≈ 25 h) | `G6_calibration_budget_prereg.md` |
+| **NR1** | Residual on the non-oracle Fixed base at RTT 8 | recommended | training | ≈ 1.5 h | `NR1_nonoracle_residual_prereg.md` |
+| **G10** | v17 load × deadline grid, **per-cell recalibration of all comparators incl. the combined one** | essential | training + calibration | **≈ 17 h per cell expected (≈ 13 h min), ≈ 70 h for four cells**; two cells ≈ 35 h | `G10_operating_grid_prereg.md` |
+| A1 | Results by speed class (M1) | approved | re-evaluation | ≈ 20 min | below |
+| A2 | On-time attribution by state (from the G1 log) | approved | none | minutes | after G1 |
+| A3 | Inference wall time per TTI | approved | micro-benchmark | ≈ 5 min | below |
+| A4 | Learning curves and entropy (HDF5) | approved | none | — | Phase 7 figure F5b |
+| A5 | Path-agnostic release setup | approved | none | — | below |
+| **A6** | PF-timing demonstration (pitfall figure F8) | recommended | re-evaluation | ≈ 3 min | `design/figure_table_plan.md` |
+| F1, F2 | SALAD comparator; second simulator | future work | — | — | — |
 
-**Suggested order:** G1 (running) → A6 (3 min) → W1 → G6 (overnight) → NR1 → G10 → A1/A3.
-- W1 comes first because it is cheap and can change the abstract number.
-- G6 and NR1 settle C2's wording.
+**Total on the upper-bound basis:** ≈ 1 h (G1) + 1.2 h (W1) + 41 h (G6) + 1.5 h (NR1) + 70 h (G10) + 0.5 h ≈ **115 h (about 5 days)**. The two long items are G6's combined-table search and G10's per-cell repeat of it. Levers, all pre-registered and chosen before any result: (i) the measured preflight rate (expected below the basis for deterministic rules); (ii) `G6B_PROFILE=lite` (≈ 25 h for G6); (iii) `G10_CELLS` (a subset of cells). Stage order and subsets are set by the `STAGES` variable of the runner.
 
-**Multiplicity after all runs:** registry +7 cases (W1 1, G6 1, NR1 1, G10 4), giving **74 cases**. They are all robustness checks or design ablations of M1, none a new claim. The project-wide Bonferroni factor for M1 rises from 972 to at most (108 + 15 new rows: W1 2, G6 2, NR1 3, G10 8) × 10 = 1,230 tests. M1's p (9.06e-13) is far below 0.05/1,230.
+**Multiplicity after all runs:** registry +7 cases (W1 1, G6 1, NR1 1, G10 4) → **74 cases**; none is a new claim. M1's Bonferroni factor rises to at most (108 + 15 rows) × 10 = 1,230 tests; M1's p (9.06e-13) is far below 0.05/1,230.
 
-**TWC revisit rule (Checkpoint 3):** only if G6 (all three of A, B-500 and JP pass) **and** G10 ("robust" with Claim B in ≥ 3 cells) are both strongly positive.
+**TWC revisit rule (Checkpoint 3/5):** only if G6 (A, B-500 and JP all pass, seed-level bounds > 0) **and** G10 (all tested cells WIN) are both strongly positive.
+
+**Seed-level rule (applies everywhere):** `common_rules.md` R2. Current state for M1: seed-level 95 % lower bounds vs Context are +0.72 (bootstrap over seed means), +0.48 (t) and +0.62 (hierarchical), all > 0 (ledger G3g).
 
 ## Prompts for the items without their own file
 
