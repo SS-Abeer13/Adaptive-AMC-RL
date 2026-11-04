@@ -15,6 +15,7 @@ Compute basis: `compute_basis.md` (RTT 8, 2 workers: about 0.14 s per training e
 | A1 | Results by mobility regime (per-user on-time by speed class, M1) | nice-to-have | re-evaluation only | ≈ 20 min | below | proposal |
 | A2 | On-time attribution by state (G2), from the G1 log | nice-to-have | none (analysis of G1 output) | minutes | below | after G1 |
 | A3 | Inference wall time per TTI (G14) | nice-to-have | micro-benchmark | ≈ 5 min | below | proposal |
+| **A6** | PF-timing demonstration (Baseline, OLLA, Fixed; ACK-time vs scheduling-time PF × 3 HARQ configs; 100 traces) for pitfall F8 | nice-to-have, **strongly recommended** | re-evaluation only | ≈ 3 min | `design/figure_table_plan.md` (A6 section) | proposal (added in Phase 6) |
 | A4 | Learning curves and entropy (3000 ep, 10 seeds) from the HDF5 files (G15) | nice-to-have | none | — | done in Phase 7 here | planned |
 | A5 | Path-agnostic setup for the release (G16) | nice-to-have (before release) | none | — | below | proposal |
 | F1 | SALAD as an extra comparator (attack #4) | **future work** | port + runs | days | — | not proposed |
@@ -22,7 +23,7 @@ Compute basis: `compute_basis.md` (RTT 8, 2 workers: about 0.14 s per training e
 
 **Essential total ≈ 13.3 h** of wall time (W1 + G6 + G10), plus G1. With NR1 and A1–A3 it is **≈ 15.2 h**.
 
-**Suggested order:** G1 (running) → W1 → G6 (overnight) → NR1 → G10 → A1/A3.
+**Suggested order:** G1 (running) → A6 (3 min) → W1 → G6 (overnight) → NR1 → G10 → A1/A3.
 - W1 comes first because it is cheap and can change the abstract number.
 - G6 and NR1 settle C2's wording.
 

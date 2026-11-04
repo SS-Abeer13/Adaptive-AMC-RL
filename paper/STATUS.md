@@ -76,9 +76,22 @@ Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is un
 - `proposals/checkpoint5_list.md`: consolidated list, classes, compute, prompts.
 - Pre-registrations: G6 (revised: 500-trace re-calibration + combined comparator, decision rule for C2), W1 (warm-up), NR1 (non-oracle residual), G10 (compute + prompt). Compute basis: `proposals/compute_basis.md`.
 
-## Open questions for Checkpoint 5
-1. Approve which items run: recommended W1, G6, G10 (essential), NR1 (recommended), A1/A3 (cheap).
+## Phase 6 (outline): done. **Waiting at Checkpoint 6** (Checkpoint 5 run decisions still open; runs and outline proceed in parallel).
+- `design/outline.md`: section plan (≈ 14.5 pp incl. references + ≈ 2 pp appendices), per-section content with ledger IDs, OJ-COMS/OJVT portability, defaults for each pending run.
+- `design/figure_table_plan.md`: 8 figures, 5 tables, 3 appendix tables; sources, scripts, style rules. New item **A6** (PF-timing demonstration, ≈ 3 min, no training) so the pitfall figure rests on one controlled comparison.
+- `design/claims_map.csv` (+ `build_claims_map.py`): 39 rows; **88 of 91 ledger claims placed**, 3 deliberately unused (R23, R24 withheld until G1; H12 pre-v17). The script fails if a withdrawn, superseded or not-usable claim appears outside Section VII.
+- `design/glossary.md`: terminology and notation (v8 symbols reused).
+- Correction found while drafting: the PF-artefact size. Baseline +39.6 % in the 6-trace diagnostic; 10–26 % across all 13 schemes in the v16-vs-v17 re-run (confounded). "≈ 40 % for every scheme" removed everywhere (ledger H17a, conflicts F1).
+- LaTeX is not installed in the container; `apt-get update` then `apt-get install texlive-publishers` (IEEEtran) works, so Phase 7 can build the PDF here. matplotlib via pip.
+
+## Open questions for Checkpoint 5 (unchanged)
+1. Approve which items run: recommended A6, W1, G6, G10 (essential), NR1 (recommended), A1/A3.
 2. Approve the frozen pre-registration texts (G6 §§1–6, W1 §§1–5, NR1 §§1–6, G10 §§1–6).
 
+## Open questions for Checkpoint 6
+1. Approve the section plan and page budget (≈ 14.5 pp + appendices).
+2. Approve the 8 + 5 float plan (F6/F7 appear only if their runs are done).
+3. Approve A6 as an addition to the run list.
+
 ## Next step
-Phase 6 (outline) can proceed in parallel with the runs. Results slot into the pre-stated wording rows.
+Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, section drafts in the order system model → protocol → results → pitfalls → methods → related work → discussion → introduction → abstract → conclusion.

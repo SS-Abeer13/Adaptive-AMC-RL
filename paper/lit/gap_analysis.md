@@ -33,7 +33,7 @@ Basis: 84 verified references (`bibliography.bib`, `lit_matrix.csv`). Full texts
 - **Instantaneous or no HARQ** is the norm: Saxena 2022 (first transmission only), Mota 2019 (none), LOLLA 2026 (uplink CRC outcome, no feedback delay).
 - **You et al. 2026** explicitly model ACK/NACK delay, retransmissions and parallel HARQ processes, and claim to be the first practical DRL-LA to do so. **We are therefore not the first to include multi-process HARQ.** We do add two things they do not report:
   1. a controlled RTT 0 vs RTT 8 ablation against calibrated rules (R28);
-  2. evidence that the **PF-average timing under multi-process HARQ** can inflate every scheme by about 40 % (H17). No published LA paper we found discusses this.
+  2. evidence that the **PF-average timing under multi-process HARQ** can inflate goodput of every scheme (Baseline +39.6 % in a 6-trace diagnostic; 10–26 % across the 13 schemes of the full v16 K3 vs v17 M3 re-run; H17, H17a). No published LA paper we found discusses this.
 
 ## 4. Deadline / latency-aware learned LA
 

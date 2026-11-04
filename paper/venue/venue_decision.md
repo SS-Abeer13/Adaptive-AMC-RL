@@ -24,7 +24,7 @@ Scores run from 1 (poor) to 5 (good). "Novelty bar" scores 5 when the bar is rea
 
 ## Letter-length spin-off option
 
-**Candidate:** a WCL letter (≤ 5 pp), "Scheduler-timing and mobility pitfalls that manufacture gains in learned link adaptation": PF-average timing under multi-process HARQ (+~40 % for every scheme; H17) and the mobility time-scale error (H01–H03).
+**Candidate:** a WCL letter (≤ 5 pp), "Scheduler-timing and mobility pitfalls that manufacture gains in learned link adaptation": PF-average timing under multi-process HARQ (Baseline +39.6 % in a diagnostic, 10–26 % across all schemes in the re-run; H17, H17a) and the mobility time-scale error (H01–H03).
 
 **Assessment: do not submit before the main paper.** The pitfalls are one of the main paper's contributions. A prior letter would split the contribution and invite an overlap check. If wanted, write it *after* the main paper is accepted, as a short practitioner note citing it, or fold it into the main paper only (my recommendation).
 

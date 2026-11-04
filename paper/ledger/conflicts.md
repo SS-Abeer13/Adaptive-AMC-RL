@@ -58,3 +58,9 @@ The repo README is not a paper source. Fixing it is optional housekeeping and wa
 | E3 🟢 | v8 draft ref [8] | Dahlman book DOI not registered | Do not cite with that DOI |
 | E4 🟢 | prompt §4.1 | "Ahsen et al. (IEEE OJ-COMS)" | **Corrected in Phase 3:** the OJ-COMS version exists (2026, DOI 10.1109/ojcoms.2026.3714148). My Checkpoint-2 verdict was wrong |
 | E5 🟢 | prompt §4.1 | "Park 2015" | It is a GLOBECOM 2015 paper, not a letter |
+
+## F. Phase 6 finding (outline drafting)
+
+| # | Where | Error | Resolution |
+|---|---|---|---|
+| F1 🟠 | My Phase 1–5 documents (gap_analysis, venue_decision, outline draft) and the prompt's §2.1 summary: "PF-average timing inflated every scheme by about 40–50 %" | The single-factor diagnostic (6 traces, Baseline, 8 vs 1 process) gives +39.6 %. The full v16 K3 vs v17 M3 re-run shows all 13 schemes higher by 10–26 %, but that comparison is confounded (different traces/seeds, plus drain and useful-bit accounting added in v17) | Quote "+39.6 % (Baseline, 6-trace diagnostic)" and "10–26 % across schemes (confounded)" with ledger H17 and H17a. Never "40 % for every scheme". Corrected in outline.md, gap_analysis.md, venue_decision.md, reviewer_attacks.md |
