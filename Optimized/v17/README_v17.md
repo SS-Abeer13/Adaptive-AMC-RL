@@ -278,7 +278,7 @@ The v17 campaign executed the 4 pre-registered cases sequentially (`M3_gp_rtt8` 
 
 #### Case M2: Instantaneous HARQ Deadline Traffic (`M2_dl_rtt0`)
 - **Role under Project Multiplicity (PLAN_v17 §C6):** **Confirmatory Replication (not a standalone new claim)**.
-  - Across the project's 39 registered experimental cases (tracked in `case_registry.csv`), M2 is pre-registered strictly as a replication of the established zero-delay gain already demonstrated in v13 (case X2), v14 (case Y0), and v16 (case K2).
+  - Across the project's 67 registered cases / 108 scheme evaluations (v9–v17; 49 cases from v10 onward; tracked in `case_registry.csv`), M2 is pre-registered strictly as a replication of the established zero-delay gain already demonstrated in v13 (case X2), v14 (case Y0), and v16 (case K2).
   - Its objective is to verify that the zero-delay gain replicates reliably under the corrected transmission-time Proportional Fair rate averaging (`env.pf_avg = 'scheduled'`), end-of-trace drain (`env.drain = true`), and packet-capped useful bit accounting (`env.useful_bits = true`). It is not counted as an independent hypothesis test to avoid multiplicity inflation.
 - **Environment:** Deadline traffic (12 kb / 20 ms), RTT = 0, 1 HARQ process, `pf_avg = 'scheduled'`, `drain = true`, `useful_bits = true`, $N=10$, 500 evaluation traces.
 - **Primary Scheme:** Deep A2C v17 (residual mode, 3,000 episodes, 10 seeds).
@@ -477,7 +477,7 @@ To determine the empirical policy behavior, action choices of the primary Deep A
 
 ### 6.8 Pre-Registered Wording Commitments & Multiplicity Accounting (PLAN_v17 §C5–C6)
 
-Under the project-wide multiplicity accounting (39 total evaluated cases across v10–v17 tracked in `case_registry.csv`), M1 serves as the sole novel primary claim of the paper under realistic HARQ timing, while M2 is treated strictly as a confirmatory replication of the zero-delay baseline rather than a standalone new claim.
+Under the project-wide multiplicity accounting (67 cases / 108 scheme evaluations across v9–v17, 49 cases from v10 onward, tracked in `case_registry.csv`; corrected 4 Nov 2026 from a stale count of 39, which was the v10–v15 total), M1 serves as the sole novel primary claim of the paper under realistic HARQ timing, while M2 is treated strictly as a confirmatory replication of the zero-delay baseline rather than a standalone new claim.
 
 Following the pre-registered decision rules, the paper text must state:
 
@@ -502,7 +502,7 @@ All publication tables and figures have been generated and validated:
    - RTT Margin curve: [`margin_vs_rtt.png`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/figures/margin_vs_rtt.png) / `.pdf`.
    - Action distribution histograms: [`acthist_M1_dl_rtt8.png`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/figures/acthist_M1_dl_rtt8.png), [`acthist_M2_dl_rtt0.png`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/figures/acthist_M2_dl_rtt0.png), [`acthist_M3_gp_rtt8.png`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/figures/acthist_M3_gp_rtt8.png), [`acthist_M4_gp_rtt0.png`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/v17/paper/figures/acthist_M4_gp_rtt0.png) (and matching PDFs).
 3. **Case Registry:**
-   - [`case_registry.csv`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/case_registry.csv): Contains 90 rows total, with 12 valid v17 rows (`M1_dl_rtt8`, `M2_dl_rtt0`, `M3_gp_rtt8`, `M4_gp_rtt0` across all evaluated schemes), accurately tracking project-wide multiplicity.
+   - [`case_registry.csv`](file:///d:/Adaptive%20AMC%20A2C+QL/Optimized/case_registry.csv): Contains 108 rows (67 cases, v9–v17; 7 cases / 18 rows superseded) plus a `correction` column, with 12 valid v17 rows (`M1_dl_rtt8`, `M2_dl_rtt0`, `M3_gp_rtt8`, `M4_gp_rtt0` across all evaluated schemes), accurately tracking project-wide multiplicity.
 
 ---
 
@@ -520,4 +520,10 @@ Reference bounds evaluated across all 500 evaluation traces per case (`headroom_
 - **Surpassing Static Hindsight:** In `M1_dl_rtt8`, the M1 ensemble (0.6306) exceeds the per-trace hindsight bound (0.6216). This confirms that dynamic, per-TTI adaptation based on queue slack and HARQ retransmission status achieves higher packet delivery than selecting any single constant offset per trace in hindsight.
 - **Goodput Gap to Genie:** On full-buffer traffic (`M3`, `M4`), the Genie upper bound reaches 5.71 Mbps, but no link adaptation scheme observing delayed/quantized CQI can bridge that gap; static calibration at 3.50 Mbps captures almost all practical gains obtainable from non-anticipative policies.
 
+---
 
+## Corrections (4 Nov 2026)
+
+1. **Case count (§6.2, §6.8, §6.9):** "39 cases" was the v10–v15 registry count carried over from README_v16. The registry holds **67 cases / 108 scheme evaluations** (v9–v17), 49 cases from v10 onward; 7 cases (18 rows) are superseded.
+2. **`margin_vs_rtt` figure (§6.9):** the earlier figure plotted hard-coded, superseded v15/v16 values. `generate_v17_figures.m` now reads only `paper/table_core.csv`. Do not use the old image; regenerate it.
+3. **Action shares (§6.7):** the scheme-level histograms (e.g. 92.3% / 76.3% at δ = 0) count all users in every TTI, scheduled or not. The state-conditional table counts scheduled users, but its bins include retransmissions, where δ has no effect. Neither is used as evidence of a mechanism until a re-cut restricted to scheduled new transmissions has been run.

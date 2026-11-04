@@ -62,22 +62,40 @@ for i = 1:numel(names)
 end
 
 % -------------------------------------------------------------
-% Fig set 2: RL margin (A2C-resid vs Fixed) vs RTT, deadline and goodput
+% Fig set 2: primary residual A2C margin vs HARQ RTT (v17 only)
 % -------------------------------------------------------------
-% deadline: RTT0 (K2), RTT4 (v15 Z2, labelled "v15"), RTT8 (K1)
-% goodput:  RTT0 (K4), RTT8 (K3) -- no v15 goodput RTT4 case exists
+% Rewritten 4 Nov 2026 (paper ledger, conflict C1): the previous version
+% hard-coded superseded v15/v16 values. Every value plotted here is read
+% from paper/table_core.csv (built by build_v17_tables.m from the v17
+% REPLCMP lines). RTT 0 = M2/M4 (1 process), RTT 8 = M1/M3 (8 processes).
+% Deadline cases use 3000 training episodes, goodput cases 800 (C2).
+Tc = readtable(fullfile(v17, 'paper', 'table_core.csv'), 'TextType', 'string');
+num = @(x) str2double(string(x));
+pick = @(tag, cmp) Tc(Tc.case_tag == tag & Tc.scheme == "Deep A2C v17" & Tc.comparator == cmp, :);
+pairs = {"M2_dl_rtt0", "M1_dl_rtt8", "deadline"; "M4_gp_rtt0", "M3_gp_rtt8", "goodput"};
+cmps  = ["Context table", "Fixed"];
+rtt   = [0 8];
 f2 = figure('Position', [100, 100, 700, 480], 'Visible', 'off'); hold on;
-rtt_dl = [0 4 8]; m_dl = [0.28, -0.21, -1.94]; lbl_dl = {'v17', 'v15', 'v17'};
-rtt_gp = [0 8]; m_gp = [-0.26, -0.01];
-plot(rtt_dl, m_dl, '-o', 'Color', c_blue, 'LineWidth', 2, 'MarkerFaceColor', c_blue, 'MarkerSize', 8);
-plot(rtt_gp, m_gp, '-s', 'Color', c_orange, 'LineWidth', 2, 'MarkerFaceColor', c_orange, 'MarkerSize', 8);
-for i = 1:numel(rtt_dl)
-    text(rtt_dl(i) + 0.15, m_dl(i), lbl_dl{i}, 'FontSize', 8, 'Color', c_blue);
+cols = {c_blue, c_orange}; mk = {'-o', '-s'; '--o', '--s'};
+lgd = {};
+for p = 1:size(pairs, 1)
+    for c = 1:numel(cmps)
+        m = zeros(1, 2); lo = m; hi = m;
+        for r = 1:2
+            row = pick(pairs{p, r}, cmps(c));
+            assert(height(row) == 1, 'table_core.csv: expected one row for %s / %s', pairs{p, r}, cmps(c));
+            m(r) = num(row.pct_margin); lo(r) = num(row.ci90_lo); hi(r) = num(row.ci90_hi);
+        end
+        errorbar(rtt + 0.15 * (c - 1.5), m, m - lo, hi - m, mk{c, p}, 'Color', cols{p}, ...
+                 'LineWidth', 1.5, 'MarkerFaceColor', cols{p}, 'MarkerSize', 7, 'CapSize', 6);
+        lgd{end+1} = sprintf('%s vs %s', pairs{p, 3}, cmps(c)); %#ok<SAGROW>
+    end
 end
 yline(0, 'k:');
-xlabel('HARQ RTT (TTI)'); ylabel('A2C-resid margin vs Fixed (%)');
-legend({'deadline', 'goodput'}, 'Location', 'best');
-title('RL margin vs HARQ feedback delay (800-episode cases)');
+xlim([-1 9]); xticks(rtt);
+xlabel('HARQ RTT (TTI)'); ylabel('Residual A2C margin (%), 90% CI');
+legend(lgd, 'Location', 'best');
+title('v17: residual A2C margin vs calibrated rules');
 grid on; box off;
 exportgraphics(f2, fullfile(figdir, 'margin_vs_rtt.png'), 'Resolution', 200);
 exportgraphics(f2, fullfile(figdir, 'margin_vs_rtt.pdf'));

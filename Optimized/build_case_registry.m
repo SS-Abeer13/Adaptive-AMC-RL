@@ -197,9 +197,10 @@ end
 
 outFile = fullfile(root, 'case_registry.csv');
 fid = fopen(outFile, 'w');
-fprintf(fid, 'case_id,version,tag,role,rl_scheme,primary_metric,rl_value,best_rule,margin_vs_best_rule_pct,claimA,claimB,win,holm_vs_best,n_seeds,n_traces,status\n');
+fprintf(fid, 'case_id,version,tag,role,rl_scheme,primary_metric,rl_value,best_rule,margin_vs_best_rule_pct,claimA,claimB,win,holm_vs_best,n_seeds,n_traces,status,correction\n');
 for i = 1:size(rows, 1)
-    fprintf(fid, '%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n', rows{i, :});
+    corr = registry_correction(rows{i, 2}, rows{i, 3}, rows{i, 5});
+    fprintf(fid, '%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n', rows{i, :}, corr);
 end
 fclose(fid);
 fprintf('Wrote %d rows (%d unique cases) to %s\n', size(rows, 1), nextCaseId - 1, outFile);
@@ -231,5 +232,16 @@ function role = infer_role_v16(v, tag)
         role = 'robustness';
     else
         role = 'ablation';
+    end
+end
+
+function c = registry_correction(v, tag, scheme)
+% Corrections recorded beside (never instead of) the parsed values.
+% Added 4 Nov 2026 (paper ledger, conflicts C7 and B4). Text must not contain commas.
+    c = '';
+    if strcmp(v, 'v13') && strcmp(tag, 'X1_pf') && strcmp(scheme, 'Deep A2C v13')
+        c = 'pre-registered scheme = ensemble -> failed; the per-seed mean shown was not the pre-registered scheme';
+    elseif strcmp(v, 'v17') && strcmp(tag, 'M3_gp_rtt8') && strcmp(scheme, 'Deep A2C v17 (offset)')
+        c = 'n_seeds is 5 for this scheme (v17_setup n_seeds_a2c_offset=5; REPLSEED shows 5 seeds) not 10';
     end
 end

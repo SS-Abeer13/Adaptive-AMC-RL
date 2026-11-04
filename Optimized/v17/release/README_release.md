@@ -19,7 +19,7 @@ release/
   README_release.md        -- this file
   PLAN_v17.md              -- governing plan and pre-registered hypotheses
   README_v17.md            -- pre-registration (S1-5) and full campaign results (S6)
-  case_registry.csv        -- project-wide registry (90 rows) tracking multiplicity and validity
+  case_registry.csv        -- project-wide registry (108 rows, 67 cases, with correction column)
   code/                    -- self-contained MATLAB source scripts and runner batch files
   dataset/
     fill_summary_v17.txt   -- master execution log with per-scheme CONFIG/PRIM/SCHEME/CMP/WIN lines
