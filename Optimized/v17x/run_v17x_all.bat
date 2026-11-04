@@ -1,7 +1,7 @@
 @echo off
 rem ======================================================================
 rem run_v17x_all.bat -- headless runner for the Checkpoint-5 stages
-rem   G1 -> W1 -> G6a/b/c -> NR1 -> G10 -> A1/A3   (approved order)
+rem   G1 -> W1 -> NR1 -> G6a/b/c -> G10 -> A1/A3 -> A6   (approved order, Checkpoint 5b)
 rem Restarts MATLAB after a crash; every stage and unit is checkpointed, so a
 rem restart skips completed work. Never prints FINISHED unless MATLAB wrote
 rem Dataset\FINISHED_ALL.marker (every requested stage done, no error marker).
@@ -12,8 +12,8 @@ rem Options (set before calling, or edit the defaults below):
 rem   MATLAB_EXE     path to matlab.exe
 rem   STAGES         e.g. g1,w1,g6a,g6b,g6c,nr1,g10,a1,a3   (default: all, in this order)
 rem   N_WORKERS      parfor workers (default 2; 4 ran out of memory in v17 M1)
-rem   G6B_PROFILE    full (default) or lite   (frozen G6 pre-registration, 2.4)
-rem   G10_CELLS      e.g. G1_lo_d10,G2_hi_d10   (default: all four)
+rem   G6B_PROFILE    full (default, decided) or lite (defined, not used)
+rem   G10_CELLS      default G2_hi_d10,G3_lo_d18 (the two pre-registered cells)
 rem   V17X_SELFTEST  1, 2 or 3: dummy stages that test restart/halt/pause logic
 rem   V17X_SMOKE     1 = tiny sizes, folders Dataset_smoke / logs_smoke
 rem ======================================================================

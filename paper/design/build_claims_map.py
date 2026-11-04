@@ -35,7 +35,7 @@ ROWS = [
  ('C4', 'IV-D; VIII-B', 'S16', 'About 19.9 k MACs per user-decision', 'final; A3 adds wall time', ''),
  # ---------------- Protocol
  ('C1', 'V-A', 'M01 M02 P03', '67 cases / 108 scheme evaluations (49 cases from v10); fresh disjoint seeds and traces per round', 'final', 'Both views: 67 project-wide, 7 cases / 18 evaluations superseded, 49 from v10'),
- ('C1', 'V-B; T2', 'P04 S12 S13a', 'Nine comparators (7 distinct in M1); calibration budgets 20 / 10 traces; information table', 'final; G6 may add rows', '"Calibrated rules built on the learner\'s cues" until G6'),
+ ('C1', 'V-B; T2', 'P04 S12 S13a S18 S19 S20', 'Nine comparators (7 distinct in M1); calibration budgets 20 / 10 traces; information table', 'final; G6 may add rows', '"Calibrated rules built on the learner\'s cues" until G6'),
  ('C1', 'V-C', 'S10 P03', 'Calibration / validation / evaluation traces disjoint; CRN', 'final', ''),
  ('C1', 'V-D', 'P01 P02 G3a', 'Holm + CI rule; Claim A/B/WIN; fairness guard; hierarchical seed x trace bootstrap reported beside the trace-level test', 'final', ''),
  ('C1', 'V-E', 'R29 M03 M04 M06', 'Failed secondary predictions; 9 of 60 valid cases with a WIN; M1 survives Bonferroni over 972 tests (p about 8.8e-10)', 'final', 'Use the approved multiplicity paragraph (multiplicity.md §6)'),

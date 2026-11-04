@@ -1,0 +1,8 @@
+# FREEZE v1 (commit 0726555fb7dda0190e780406828f785903d98f30, Checkpoint 5). Superseded by FREEZE.sha256 (v2) for the files changed by amendment 1; W1, NR1 and compute_basis.md are identical in v1 and v2.
+058bac584c2811767884df00c186c2f3c5747a1d4d137f88672a1303de985591  G6_calibration_budget_prereg.md
+3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d  W1_warmup_prereg.md
+ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258  NR1_nonoracle_residual_prereg.md
+e2150c50bac6e04f0e202e2c8a4d13165593c1d9472c72c48405903b691f9200  G10_operating_grid_prereg.md
+360e2f268937853203a054a588b33d3e4e66c5d486fc14eeba24f62298ce68fa  common_rules.md
+a54a30a728b8056bf5a8a38b9b95b8a4fbe1d3a993c01addbf52669c2bbcd93a  checkpoint5_list.md
+d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a  compute_basis.md

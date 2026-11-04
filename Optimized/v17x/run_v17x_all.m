@@ -1,6 +1,6 @@
 function run_v17x_all()
 % run_v17x_all  Orchestrates the Checkpoint-5 stages in the approved order
-% (G1 -> W1 -> G6a/b/c -> NR1 -> G10 -> A1/A3). Called by run_v17x_all.bat,
+% (G1 -> W1 -> NR1 -> G6a/b/c -> G10 -> A1/A3 -> A6). Called by run_v17x_all.bat,
 % which restarts MATLAB after a crash; every stage and every unit inside a stage
 % is checkpointed, so a restart skips completed work.
 %
@@ -79,6 +79,7 @@ function run_v17x_all()
             write_text(doneF, sprintf('%s\nelapsed %.1f s\n', datestr(now, 31), toc(t0)));
             delete_if(fullfile(cfg.outdir, ['ERROR_' id '.txt']));
             hbf(id, sprintf('stage DONE in %.2f h', toc(t0) / 3600));
+            run_report(cfg, ctx, id, hbf);       % common_rules.md R9: descriptive, never blocks
         catch ME
             handle_error(cfg, id, ME, hbf);   % exits
             return
@@ -99,6 +100,23 @@ function run_v17x_all()
 end
 
 % ======================================================================
+function run_report(cfg, ctx, id, hbf)
+% R9: optional stage_<id>_report(ctx) writes Dataset/REPORT_<id>.txt. The pipeline
+% continues without waiting. A failing report is a warning; the stage stays done.
+    rf = ['stage_' id '_report'];
+    if exist(rf, 'file') ~= 2, return; end
+    try
+        feval(rf, ctx);
+        if exist(fullfile(cfg.outdir, ['REPORT_' id '.txt']), 'file')
+            hbf(id, ['REPORT READY: ' fullfile(cfg.outdir, ['REPORT_' id '.txt'])]);
+        else
+            hbf(id, 'WARNING report function ran but REPORT file is missing (stage stays done)');
+        end
+    catch ME
+        hbf(id, ['WARNING report failed (stage stays done): ' strtok(report_of(ME), sprintf('\n'))]);
+    end
+end
+
 function ctx = make_ctx(cfg, id)
     ctx.cfg = cfg;
     ctx.stage = id;

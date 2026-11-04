@@ -22,10 +22,10 @@
 \defwording{NR1}{FAIL}{With a non-oracle base the residual policy did not beat the OLLA family under realistic HARQ timing; the M1 result relies on the class-oracle base rule.}
 \defwording{NR1}{unrun}{The M1 result uses a class-oracle base rule; a non-oracle base was not tested at RTT~8.}
 
-% ---- G10 verdict: ALL | MIXED | NONE
-\defwording{G10}{ALL}{The gain was robust across the tested load and deadline range.}
-\defwording{G10}{MIXED}{The gain is operating-point dependent.}
-\defwording{G10}{NONE}{The result was observed at the M1 operating point only.}
+% ---- G10 verdict: ALL | MIXED | NONE   (two cells tested; G10 section 4; never "robust across the range")
+\defwording{G10}{ALL}{The gain held at both tested neighbouring operating points (a higher load at the M1 deadline, and a lower load with a looser deadline), including against rules re-calibrated for each cell. Two further grid corners were not tested.}
+\defwording{G10}{MIXED}{The gain is operating-point dependent: it held at \Gten{cells_win} but not at \Gten{cells_notwin}. Two further grid corners were not tested.}
+\defwording{G10}{NONE}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced. Two further grid corners were not tested.}
 \defwording{G10}{unrun}{The result is established at one operating point (12~kbit packets, 10-TTI budget); other loads and deadlines were not tested under the corrected scheduler.}
 
 % ---- W1: which condition gives the smaller gain over the OLLA family (cold | warm)

@@ -76,7 +76,7 @@ Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is un
 - `proposals/checkpoint5_list.md`: consolidated list, classes, compute, prompts.
 - Pre-registrations: G6 (revised: 500-trace re-calibration + combined comparator, decision rule for C2), W1 (warm-up), NR1 (non-oracle residual), G10 (compute + prompt). Compute basis: `proposals/compute_basis.md`.
 
-## Checkpoint 5: approved 4 Nov 2026, with changes; pre-registrations FROZEN
+## Checkpoint 5: approved 4 Nov 2026, with changes; pre-registrations FROZEN (v1; amended by v2 below)
 **Freeze commit:** `0726555fb7dda0190e780406828f785903d98f30` (branch `claude/magical-heisenberg-iek5sg`, mirrored to `paper-draft`). File hashes (SHA-256) in `paper/proposals/FREEZE.sha256`; verify with `cd paper/proposals && sha256sum -c FREEZE.sha256`.
 
 | File | SHA-256 |
@@ -92,6 +92,24 @@ Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is un
 Changes applied before freezing: (1) G6 uses exhaustive search for Fixed, Context and OLLA; FixedPU keeps its separable grid plus a joint refinement (the v17 FixedPU was separable and never evaluated jointly); coordinate ascent only for the 36-cell combined table (composite init, 3 random restarts, run to convergence, sanity check, calibration-vs-evaluation reporting). (2) W1: the abstract quotes the smaller gain over the OLLA family; Baseline footnote. (3) G10: every comparator re-calibrated per cell, base rule recorded with oracle flag, wording rows fixed. NR1 wording rows fixed. Seed-level rule R2 added (`common_rules.md`).
 **Run list approved:** G1 → W1 → G6 → NR1 → G10 → A1/A3; A2, A4, A5 need no runs; A6 recommended; SALAD and a second simulator stay future work.
 **Compute (upper-bound basis):** G6 ≈ 41 h expected (30–76 h), G10 ≈ 70 h for four cells (≈ 17 h per cell), the whole programme ≈ 115 h. Levers pre-registered before any result: measured preflight rate, `G6B_PROFILE=lite`, `G10_CELLS`.
+
+## Checkpoint 5b / 6: approved 4 Nov 2026; FREEZE v2 (amendment 1, before any run)
+**Freeze v2 commit:** `e12757480d30744f2954c90c043c03c62393fad1`. Hashes: `paper/proposals/FREEZE.sha256` (v2) and `FREEZE_v1.sha256` (v1, kept for history; it fails for exactly the four files amended). Record of changes: `paper/proposals/AMENDMENTS.md`. Verify: `cd paper/proposals && sha256sum -c FREEZE.sha256`.
+
+| File (v2) | SHA-256 |
+|---|---|
+| `G6_calibration_budget_prereg.md` | `c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd` |
+| `G10_operating_grid_prereg.md` | `9963d10a9050151374e4ffed5c9703b40096657eb6d6abddc2d5cad57858e203` |
+| `A6_pf_timing_prereg.md` (new) | `35ffa58f563c5e184b5429acafcdbbcb4fa92f78d1ee4970c2609af4dca1a8d8` |
+| `common_rules.md` | `f8382b866c5b51131d4185f4fe2920efabe46b6f7ed81963ec5759472fed664f` |
+| `checkpoint5_list.md` | `b7eda3b784d9f653cbb26f567fac53dd122d74c46a85b479d019101a9ddc117c` |
+| `W1_warmup_prereg.md` (unchanged) | `3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d` |
+| `NR1_nonoracle_residual_prereg.md` (unchanged) | `ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258` |
+| `compute_basis.md` (unchanged) | `d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a` |
+| `AMENDMENTS.md` (new) | `9b05af785eb8cf6ec9a034ec6a9e39b10de1fdedf1ca592cc5c2a72ee8f21055` |
+
+Decisions recorded: **G6 runs the full profile** (lite differs in 100 vs 500 calibration traces per candidate in the restart phase and in polishing only two starts; it is defined but not used). **G10 runs two cells, G2_hi_d10 and G3_lo_d18** (opposite corners; G3 is where calibrated rules were strongest in the old grid); G1_lo_d10 and G4_hi_d18 are future work, decided now. G10 uses the full profile (lite lowers calibration traces per candidate) with 200 calibration traces per cell, a stated difference from G6's 500. Composite fallback table defined in G6 §2.3. Report point after `g6a` (R9). **Run order: G1 → W1 → NR1 → G6 → G10 → A1/A3 → A6.** A6 got its own frozen text. Expected programme length ≈ 80 h (≈ 3.3 days). **Do not launch the batch: the stages are stubs;** Claude Code on the PC implements them (master prompt, `Optimized/v17x/README_v17x_runner.md`) and stops if a frozen spec would need to change.
+Checkpoint 6 conditions: 13–15 pages including references, about 8 figures and 5 tables, information table in the main text, the Protocol section states the three calibration findings (ledger S18, S19, S20), seed-level CIs in VI-B.
 
 ## G3 (seed-level statistics), reported at Phase 6
 M1 primary vs Context: 9/10 seeds above 0 (sign p = 0.0107); 95 % CIs: bootstrap over seed means [+0.72, +2.53] %, t [+0.48, +2.68] %, hierarchical [+0.62, +2.62] %. Vs Fixed: [+1.01, +2.81], [+0.77, +2.98], [+0.89, +2.90] %. All lower bounds > 0 → no qualifier on C2 (ledger G3a, G3g, G3h). M2 vs Context: lower bounds −0.02 / +0.06 / −0.03 → replication only (G3i).
