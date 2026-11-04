@@ -1,0 +1,180 @@
+[Warning: File 'Dataset\ckpt\smoketest_p05_seed1.mat' not found.] 
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=B
+  Seeds=1 | Traces=2 | Episodes=6 | SimTime=200 | Actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-21 10:59:53
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 4 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0    -1     2
+     0     0     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.2858
+  [calib-ctx] OLLA target 0.03 -> 0.2847
+  [calib-ctx] OLLA target 0.10 -> 0.2856
+  [calib-ctx] OLLA target 0.20 -> 0.2961
+  [calib-ctx] OLLA target 0.30 -> 0.3017
+  [calib-ctx] OLLA target 0.50 -> 0.3017
+  [calib-ctx] tuned OLLA target = 0.30
+  [calib-ctx] context table (cue none, edges []) = 0 | score 0.2856
+
+PHASE 1 -- Autonomous Training (1 seeds)
+  Seed 1/1 (11:00:01)...
+  Deep A2C v11 ep   6/6 | CellTp =  0.85 Mbps | Policy Entropy = 2.295 | entW = 0.005
+    [Deep A2C v11] Finished in    20.4 s | Final CellTp =  0.85 Mbps | best-on-val ep 6
+    [Bandits] global arm +3 | delay-class arms [4 3]
+
+PHASE 2 -- Evaluation on 2 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  4.00 +/- 0.30   | 0.643  |  0.00   | 0.408  | 3.24 / 4.46 Mbps
+  OLLA                 |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  OLLA (tuned target)  |  3.91 +/- 0.59   | 0.577  |  0.05   | 0.399  | 2.50 / 4.77 Mbps
+  Multi-OLLA           |  3.79 +/- 0.65   | 0.567  |  0.04   | 0.395  | 2.48 / 4.61 Mbps
+  Fixed                |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  FixedPU (Oracle)     |  3.68 +/- 0.10   | 0.600  |  0.04   | 0.388  | 2.12 / 4.48 Mbps
+  Context table        |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  Deep A2C v11         |  2.70 +/- 0.87   | 0.501  |  0.04   | 0.429  | 1.77 / 3.38 Mbps
+  Deep A2C v11 (best-on-val) |  2.70 +/- 0.87   | 0.501  |  0.04   | 0.429  | 1.77 / 3.38 Mbps
+  Bandit (global)      |  2.82 +/- 0.03   | 0.854  |  0.00   | 0.394  | 2.27 / 3.09 Mbps
+  Bandit (delay class) |  2.81 +/- 0.10   | 0.822  |  0.00   | 0.402  | 1.59 / 3.40 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (A2C vs. Comparators):
+  vs. Baseline           : Delta = -1.31 Mbps (-32.6%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9244 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = -1.22 Mbps (-31.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9599 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -1.09 Mbps (-28.8%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9647 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.98 Mbps (-26.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8664 [NON-EQUIVALENT]
+  vs. Context table      : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = -0.13 Mbps ( -4.4%) | Wilcoxon p =       1 (Holm       1) | TOST p =  0.5177 [NON-EQUIVALENT]
+  vs. Bandit (delay class) : Delta = -0.12 Mbps ( -4.2%) | Wilcoxon p =       1 (Holm       1) | TOST p =   0.511 [NON-EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoketest_p05.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoketest_p05.txt
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=B
+  Seeds=1 | Traces=2 | Episodes=6 | SimTime=200 | Actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-21 11:00:28
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 4 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0    -1     2
+     0     0     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.2858
+  [calib-ctx] OLLA target 0.03 -> 0.2847
+  [calib-ctx] OLLA target 0.10 -> 0.2856
+  [calib-ctx] OLLA target 0.20 -> 0.2961
+  [calib-ctx] OLLA target 0.30 -> 0.3017
+  [calib-ctx] OLLA target 0.50 -> 0.3017
+  [calib-ctx] tuned OLLA target = 0.30
+  [calib-ctx] context table (cue none, edges []) = 0 | score 0.2856
+
+PHASE 1 -- Autonomous Training (1 seeds)
+  Seed 1/1 (11:00:35)...
+  Deep A2C v11 ep   6/6 | CellTp =  0.85 Mbps | Policy Entropy = 2.295 | entW = 0.005
+    [Deep A2C v11] Finished in     7.2 s | Final CellTp =  0.85 Mbps | best-on-val ep 6
+    [Bandits] global arm +3 | delay-class arms [4 3]
+
+PHASE 2 -- Evaluation on 2 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  4.00 +/- 0.30   | 0.643  |  0.00   | 0.408  | 3.24 / 4.46 Mbps
+  OLLA                 |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  OLLA (tuned target)  |  3.91 +/- 0.59   | 0.577  |  0.05   | 0.399  | 2.50 / 4.77 Mbps
+  Multi-OLLA           |  3.79 +/- 0.65   | 0.567  |  0.04   | 0.395  | 2.48 / 4.61 Mbps
+  Fixed                |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  FixedPU (Oracle)     |  3.68 +/- 0.10   | 0.600  |  0.04   | 0.388  | 2.12 / 4.48 Mbps
+  Context table        |  3.80 +/- 0.34   | 0.583  |  0.03   | 0.367  | 2.35 / 4.62 Mbps
+  Deep A2C v11         |  2.70 +/- 0.87   | 0.501  |  0.04   | 0.429  | 1.77 / 3.38 Mbps
+  Deep A2C v11 (best-on-val) |  2.70 +/- 0.87   | 0.501  |  0.04   | 0.429  | 1.77 / 3.38 Mbps
+  Bandit (global)      |  2.82 +/- 0.03   | 0.854  |  0.00   | 0.394  | 2.27 / 3.09 Mbps
+  Bandit (delay class) |  2.81 +/- 0.10   | 0.822  |  0.00   | 0.402  | 1.59 / 3.40 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (A2C vs. Comparators):
+  vs. Baseline           : Delta = -1.31 Mbps (-32.6%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9244 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = -1.22 Mbps (-31.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9599 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -1.09 Mbps (-28.8%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9647 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.98 Mbps (-26.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8664 [NON-EQUIVALENT]
+  vs. Context table      : Delta = -1.11 Mbps (-29.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9166 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = -0.13 Mbps ( -4.4%) | Wilcoxon p =       1 (Holm       1) | TOST p =  0.5177 [NON-EQUIVALENT]
+  vs. Bandit (delay class) : Delta = -0.12 Mbps ( -4.2%) | Wilcoxon p =       1 (Holm       1) | TOST p =   0.511 [NON-EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoketest_p05v.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoketest_p05v.txt
+---- fill_stats output ----
+
+
+### POINT smoketest_p05  (2026-10-21 11:00:48)
+CONFIG|smoketest_p05|n_eval=2|n_seeds=1|tier=B|episodes=6|olla_warm_ttis=0|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|train_sched=[0.5 0.25 0.25]
+CALIB|smoketest_p05|fixed_offset=0|class_tab=[0 -1 2;0 0 0]
+V9ENV|smoketest_p05|mob_kappa=1|crn=1|train_warm=0|calib_warm=0|sched=pf|burst_dB=9|hetero=1|sched_on_ref=0|lambda=[0.05 0.5]
+V11ENV|smoketest_p05|deadline=10|primary=goodput|traffic=full|reward=goodput|cqi_period=1|delays=[2 3 4 5 6 7 8]|speed=[3 30]|burst=9/250/120|feat=-|cue=none|edges=[]|ctx_tab=0|olla_tuned=0.30|a2c={}
+PRIM|smoketest_p05|Baseline|goodput=4.0032|ci95=0.2974|goodput=4.0032|ontime=0.0000
+PRIM|smoketest_p05|OLLA|goodput=3.8049|ci95=0.3399|goodput=3.8049|ontime=0.0000
+PRIM|smoketest_p05|OLLA (tuned target)|goodput=3.9135|ci95=0.5924|goodput=3.9135|ontime=0.0000
+PRIM|smoketest_p05|Multi-OLLA|goodput=3.7894|ci95=0.6529|goodput=3.7894|ontime=0.0000
+PRIM|smoketest_p05|Fixed|goodput=3.8049|ci95=0.3399|goodput=3.8049|ontime=0.0000
+PRIM|smoketest_p05|FixedPU (Oracle)|goodput=3.6807|ci95=0.0965|goodput=3.6807|ontime=0.0000
+PRIM|smoketest_p05|Context table|goodput=3.8049|ci95=0.3399|goodput=3.8049|ontime=0.0000
+PRIM|smoketest_p05|Deep A2C v11|goodput=2.6962|ci95=0.8700|goodput=2.6962|ontime=0.0000
+PRIM|smoketest_p05|Deep A2C v11 (best-on-val)|goodput=2.6962|ci95=0.8700|goodput=2.6962|ontime=0.0000
+PRIM|smoketest_p05|Bandit (global)|goodput=2.8216|ci95=0.0253|goodput=2.8216|ontime=0.0000
+PRIM|smoketest_p05|Bandit (delay class)|goodput=2.8133|ci95=0.0964|goodput=2.8133|ontime=0.0000
+SCHEME|smoketest_p05|Baseline|tp=4.0032|ci95=0.2974|bler1=0.6426|edge=0.0000|jain=0.4076|burst=3.2446|calm=4.4584
+SCHEME|smoketest_p05|OLLA|tp=3.8049|ci95=0.3399|bler1=0.5826|edge=0.0307|jain=0.3675|burst=2.3522|calm=4.6179
+SCHEME|smoketest_p05|OLLA (tuned target)|tp=3.9135|ci95=0.5924|bler1=0.5770|edge=0.0465|jain=0.3986|burst=2.4992|calm=4.7718
+SCHEME|smoketest_p05|Multi-OLLA|tp=3.7894|ci95=0.6529|bler1=0.5674|edge=0.0372|jain=0.3949|burst=2.4844|calm=4.6085
+SCHEME|smoketest_p05|Fixed|tp=3.8049|ci95=0.3399|bler1=0.5826|edge=0.0307|jain=0.3675|burst=2.3522|calm=4.6179
+SCHEME|smoketest_p05|FixedPU (Oracle)|tp=3.6807|ci95=0.0965|bler1=0.5999|edge=0.0367|jain=0.3878|burst=2.1248|calm=4.4833
+SCHEME|smoketest_p05|Context table|tp=3.8049|ci95=0.3399|bler1=0.5826|edge=0.0307|jain=0.3675|burst=2.3522|calm=4.6179
+SCHEME|smoketest_p05|Deep A2C v11|tp=2.6962|ci95=0.8700|bler1=0.5014|edge=0.0372|jain=0.4285|burst=1.7728|calm=3.3799
+SCHEME|smoketest_p05|Deep A2C v11 (best-on-val)|tp=2.6962|ci95=0.8700|bler1=0.5014|edge=0.0372|jain=0.4285|burst=1.7728|calm=3.3799
+SCHEME|smoketest_p05|Bandit (global)|tp=2.8216|ci95=0.0253|bler1=0.8541|edge=0.0000|jain=0.3939|burst=2.2685|calm=3.0917
+SCHEME|smoketest_p05|Bandit (delay class)|tp=2.8133|ci95=0.0964|bler1=0.8219|edge=0.0000|jain=0.4023|burst=1.5851|calm=3.4028
+SEEDS|smoketest_p05|a2c_seed_means=2.6962|vsFixedPU_pct=-29.14
+TRAIN|smoketest_p05|final_train_tp_mean=0.8454|final_entropy_mean=2.2951|max_entropy=2.3979
+ACT|smoketest_p05|Deep A2C v11|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|hist=[0.0007 0.4653 0.5263 0.002 0.0047 0 0.001 0 0 0 0]|max_action=-4|max_frac=0.526
+ACT|smoketest_p05|Deep A2C v11 (best-on-val)|actions=[-6 -5 -4 -3 -2 -1 0 1 2 3 4]|hist=[0.0007 0.4653 0.5263 0.002 0.0047 0 0.001 0 0 0 0]|max_action=-4|max_frac=0.526
+LCURVE|smoketest_p05|which=train|deciles=[0.8454 0.9007 1.2325 1.426 1.4812 2.2795 3.0921 3.2326 3.3339 3.3959 3.4062]
+LCURVE|smoketest_p05|which=val|deciles=[NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN]
+CMP|smoketest_p05|A2C vs Baseline|diff=-1.3070|pct=-32.65|ci90pct=[-78.72 13.42]|wilcoxon=0.5|holm=1|tost2pct=0.926|tost010=0.924
+CMP|smoketest_p05|A2C vs OLLA|diff=-1.1086|pct=-29.14|ci90pct=[-74.02 15.74]|wilcoxon=0.5|holm=1|tost2pct=0.918|tost010=0.917
+CMP|smoketest_p05|A2C vs OLLA (tuned target)|diff=-1.2173|pct=-31.10|ci90pct=[-53.95 -8.26]|wilcoxon=0.5|holm=1|tost2pct=0.961|tost010=0.96
+CMP|smoketest_p05|A2C vs Multi-OLLA|diff=-1.0932|pct=-28.85|ci90pct=[-47.30 -10.40]|wilcoxon=0.5|holm=1|tost2pct=0.965|tost010=0.965
+CMP|smoketest_p05|A2C vs Fixed|diff=-1.1086|pct=-29.14|ci90pct=[-74.02 15.74]|wilcoxon=0.5|holm=1|tost2pct=0.918|tost010=0.917
+CMP|smoketest_p05|A2C vs FixedPU (Oracle)|diff=-0.9845|pct=-26.75|ci90pct=[-94.44 40.95]|wilcoxon=0.5|holm=1|tost2pct=0.87|tost010=0.866
+CMP|smoketest_p05|A2C vs Context table|diff=-1.1086|pct=-29.14|ci90pct=[-74.02 15.74]|wilcoxon=0.5|holm=1|tost2pct=0.918|tost010=0.917
+CMP|smoketest_p05|A2C vs Bandit (global)|diff=-0.1254|pct=-4.44|ci90pct=[-106.65 97.77]|wilcoxon=1|holm=1|tost2pct=0.548|tost010=0.518
+CMP|smoketest_p05|A2C vs Bandit (delay class)|diff=-0.1171|pct=-4.16|ci90pct=[-114.82 106.50]|wilcoxon=1|holm=1|tost2pct=0.539|tost010=0.511
+WIN|smoketest_p05|primary=goodput|a2c=2.6962|best_simple=Baseline|best=4.0032|pct_vs_best=-32.65|holm_vs_best=1|all_holm_lt_0.05_and_ci_gt0=0
+BCMP|smoketest_p05|Bandit (global) vs OLLA|pct=-25.84|ci90pct=[-56.76 5.08]|wilcoxon=0.5|tost2pct=0.936
+BCMP|smoketest_p05|Bandit (global) vs Fixed|pct=-25.84|ci90pct=[-56.76 5.08]|wilcoxon=0.5|tost2pct=0.936
+BCMP|smoketest_p05|Bandit (global) vs Context table|pct=-25.84|ci90pct=[-56.76 5.08]|wilcoxon=0.5|tost2pct=0.936
+BCMP|smoketest_p05|Bandit (delay class) vs OLLA|pct=-26.06|ci90pct=[-63.00 10.88]|wilcoxon=0.5|tost2pct=0.924
+BCMP|smoketest_p05|Bandit (delay class) vs Fixed|pct=-26.06|ci90pct=[-63.00 10.88]|wilcoxon=0.5|tost2pct=0.924
+BCMP|smoketest_p05|Bandit (delay class) vs Context table|pct=-26.06|ci90pct=[-63.00 10.88]|wilcoxon=0.5|tost2pct=0.924
+BARMS|smoketest_p05|global=3|delay_class=[4 3]

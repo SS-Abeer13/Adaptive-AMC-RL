@@ -1,0 +1,36 @@
+function S = stateFeat_v13(tier, ref, dRef, obs, dS, off, slope4, nk, H, spd, burstObs, delays, r_ema, ctx, xtra)
+% stateFeat_v13  v8 Deep-agent feature vector formulation.
+% Continuous, normalized features in [-1, 1] with temporal and HARQ context.
+    N = numel(ref);
+    if nargin < 15 || isempty(xtra), xtra = zeros(0, N, 'single'); end  % v13 extra cues
+    base = [ref / 15; ...
+            dRef / 5; ...
+            obs / 30; ...
+            dS / 5; ...
+            off / 5];
+
+    if upper(tier) == 'A'
+        S = single([base; xtra; ctx]);
+    elseif upper(tier) == 'O'
+        % Tier O (observable Tier-B): drops the simulator-only features
+        % (true speed, ground-truth burst flag, true feedback delay).
+        r_max = max(r_ema);
+        if r_max > 1e-6, r_norm = r_ema / r_max; else, r_norm = zeros(1, N); end
+        extra = [slope4 / 5; nk; double(H.pend); H.nret / 3; r_norm];
+        S = single([base; extra; xtra; ctx]);
+    else
+        % Tier B: Temporal history, HARQ soft status, speed, burst, and fairness
+        r_max = max(r_ema);
+        if r_max > 1e-6, r_norm = r_ema / r_max; else, r_norm = zeros(1, N); end
+
+        extra = [slope4 / 5; ...
+                 nk; ...
+                 double(H.pend); ...
+                 H.nret / 3; ...
+                 spd / 30; ...
+                 burstObs; ...
+                 delays / 8; ...
+                 r_norm];
+        S = single([base; extra; xtra; ctx]);
+    end
+end

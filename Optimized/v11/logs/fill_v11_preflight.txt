@@ -1,0 +1,175 @@
+V11 PREFLIGHT 2026-10-21 14:15:22
+
+### POINT pre_T1_gp  (2026-10-21 14:15:43)
+CONFIG|pre_T1_gp|n_eval=4|n_seeds=1|tier=O|episodes=2|olla_warm_ttis=0|actions=[-4 -3 -2 -1 0 1 2]|train_sched=[1 0 0]
+CALIB|pre_T1_gp|fixed_offset=0|class_tab=[2 -1 -2;0 2 0]
+V9ENV|pre_T1_gp|mob_kappa=1|crn=1|train_warm=0|calib_warm=0|sched=pf|burst_dB=9|hetero=1|sched_on_ref=0|lambda=[0 0]
+V11ENV|pre_T1_gp|deadline=10|primary=goodput|traffic=full|reward=goodput|cqi_period=1|delays=[2 3 4 5 6 7 8]|speed=[3 30]|burst=9/250/120|feat=-|cue=none|edges=[]|ctx_tab=0|olla_tuned=0.10|a2c={"lr_actor":0.0003,"lr_critic":0.001,"ent_start":0.03,"ent_end":0.001,"n_step":10}
+PRIM|pre_T1_gp|Baseline|goodput=2.4118|ci95=1.0157|goodput=2.4118|ontime=0.0000
+PRIM|pre_T1_gp|OLLA|goodput=2.3700|ci95=0.9305|goodput=2.3700|ontime=0.0000
+PRIM|pre_T1_gp|OLLA (tuned target)|goodput=2.3700|ci95=0.9305|goodput=2.3700|ontime=0.0000
+PRIM|pre_T1_gp|Multi-OLLA|goodput=2.2035|ci95=0.8099|goodput=2.2035|ontime=0.0000
+PRIM|pre_T1_gp|Fixed|goodput=2.3700|ci95=0.9305|goodput=2.3700|ontime=0.0000
+PRIM|pre_T1_gp|FixedPU (Oracle)|goodput=1.8629|ci95=0.6452|goodput=1.8629|ontime=0.0000
+PRIM|pre_T1_gp|Context table|goodput=2.3700|ci95=0.9305|goodput=2.3700|ontime=0.0000
+PRIM|pre_T1_gp|Deep A2C v11|goodput=2.5737|ci95=1.1699|goodput=2.5737|ontime=0.0000
+PRIM|pre_T1_gp|Deep A2C v11 (best-on-val)|goodput=2.5737|ci95=1.1699|goodput=2.5737|ontime=0.0000
+PRIM|pre_T1_gp|Per-class tuned target|goodput=2.3678|ci95=0.7052|goodput=2.3678|ontime=0.0000
+PRIM|pre_T1_gp|Bandit over targets (delay class)|goodput=2.4072|ci95=1.0628|goodput=2.4072|ontime=0.0000
+PRIM|pre_T1_gp|Bandit (global)|goodput=2.3700|ci95=0.9305|goodput=2.3700|ontime=0.0000
+SCHEME|pre_T1_gp|Baseline|tp=2.4118|ci95=1.0157|bler1=0.7285|edge=0.0000|jain=0.4049|burst=1.0349|calm=2.5791
+SCHEME|pre_T1_gp|OLLA|tp=2.3700|ci95=0.9305|bler1=0.6685|edge=0.0279|jain=0.4347|burst=1.0082|calm=2.8967
+SCHEME|pre_T1_gp|OLLA (tuned target)|tp=2.3700|ci95=0.9305|bler1=0.6685|edge=0.0279|jain=0.4347|burst=1.0082|calm=2.8967
+SCHEME|pre_T1_gp|Multi-OLLA|tp=2.2035|ci95=0.8099|bler1=0.6804|edge=0.0000|jain=0.4372|burst=0.7417|calm=3.0050
+SCHEME|pre_T1_gp|Fixed|tp=2.3700|ci95=0.9305|bler1=0.6685|edge=0.0279|jain=0.4347|burst=1.0082|calm=2.8967
+SCHEME|pre_T1_gp|FixedPU (Oracle)|tp=1.8629|ci95=0.6452|bler1=0.7706|edge=0.0000|jain=0.4898|burst=0.3910|calm=2.7134
+SCHEME|pre_T1_gp|Context table|tp=2.3700|ci95=0.9305|bler1=0.6685|edge=0.0279|jain=0.4347|burst=1.0082|calm=2.8967
+SCHEME|pre_T1_gp|Deep A2C v11|tp=2.5737|ci95=1.1699|bler1=0.6599|edge=0.0140|jain=0.4423|burst=1.0405|calm=3.0996
+SCHEME|pre_T1_gp|Deep A2C v11 (best-on-val)|tp=2.5737|ci95=1.1699|bler1=0.6599|edge=0.0140|jain=0.4423|burst=1.0405|calm=3.0996
+SCHEME|pre_T1_gp|Per-class tuned target|tp=2.3678|ci95=0.7052|bler1=0.7214|edge=0.0000|jain=0.4628|burst=0.9802|calm=3.6859
+SCHEME|pre_T1_gp|Bandit over targets (delay class)|tp=2.4072|ci95=1.0628|bler1=0.7176|edge=0.0279|jain=0.4260|burst=1.1947|calm=2.8648
+SCHEME|pre_T1_gp|Bandit (global)|tp=2.3700|ci95=0.9305|bler1=0.6685|edge=0.0279|jain=0.4347|burst=1.0082|calm=2.8967
+SEEDS|pre_T1_gp|a2c_seed_means=2.5737|vsFixedPU_pct=8.6
+TRAIN|pre_T1_gp|final_train_tp_mean=0.8617|final_entropy_mean=1.7799|max_entropy=1.9459
+ACT|pre_T1_gp|Deep A2C v11|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.115 0.325 0.005 0 0 0.555]|max_action=0.5|max_frac=0.555
+ACT|pre_T1_gp|Deep A2C v11 (best-on-val)|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.115 0.325 0.005 0 0 0.555]|max_action=0.5|max_frac=0.555
+LCURVE|pre_T1_gp|which=train|deciles=[0.8617 0.8617 0.8617 1.0479 1.4203 1.7926 2.165 2.5374 2.7236 2.7236 2.7236]
+LCURVE|pre_T1_gp|which=val|deciles=[NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN]
+CMP|pre_T1_gp|A2C vs Baseline|diff=0.1620|pct=6.72|ci90pct=[-8.85 22.28]|wilcoxon=0.375|holm=1|tost2pct=0.736|tost010=0.638
+CMP|pre_T1_gp|A2C vs OLLA|diff=0.2038|pct=8.60|ci90pct=[-5.31 22.51]|wilcoxon=0.625|holm=1|tost2pct=0.827|tost010=0.744
+CMP|pre_T1_gp|A2C vs OLLA (tuned target)|diff=0.2038|pct=8.60|ci90pct=[-5.31 22.51]|wilcoxon=0.625|holm=1|tost2pct=0.827|tost010=0.744
+CMP|pre_T1_gp|A2C vs Multi-OLLA|diff=0.3702|pct=16.80|ci90pct=[-4.67 38.27]|wilcoxon=0.25|holm=1|tost2pct=0.898|tost010=0.864
+CMP|pre_T1_gp|A2C vs Fixed|diff=0.2038|pct=8.60|ci90pct=[-5.31 22.51]|wilcoxon=0.625|holm=1|tost2pct=0.827|tost010=0.744
+CMP|pre_T1_gp|A2C vs FixedPU (Oracle)|diff=0.7108|pct=38.16|ci90pct=[-13.46 89.77]|wilcoxon=0.25|holm=1|tost2pct=0.901|tost010=0.884
+CMP|pre_T1_gp|A2C vs Context table|diff=0.2038|pct=8.60|ci90pct=[-5.31 22.51]|wilcoxon=0.625|holm=1|tost2pct=0.827|tost010=0.744
+CMP|pre_T1_gp|A2C vs Per-class tuned target|diff=0.2059|pct=8.70|ci90pct=[-15.07 32.46]|wilcoxon=0.375|holm=1|tost2pct=0.723|tost010=0.656
+CMP|pre_T1_gp|A2C vs Bandit over targets (delay class)|diff=0.1665|pct=6.92|ci90pct=[-2.87 16.70]|wilcoxon=0.125|holm=1|tost2pct=0.839|tost010=0.723
+CMP|pre_T1_gp|A2C vs Bandit (global)|diff=0.2038|pct=8.60|ci90pct=[-5.31 22.51]|wilcoxon=0.625|holm=1|tost2pct=0.827|tost010=0.744
+WIN|pre_T1_gp|primary=goodput|a2c=2.5737|best_simple=Baseline|best=2.4118|pct_vs_best=6.72|holm_vs_best=1|all_holm_lt_0.05_and_ci_gt0=0
+BCMP|pre_T1_gp|Per-class tuned target vs OLLA|pct=-0.09|ci90pct=[-11.98 11.80]|wilcoxon=0.875|tost2pct=0.365
+BCMP|pre_T1_gp|Per-class tuned target vs Fixed|pct=-0.09|ci90pct=[-11.98 11.80]|wilcoxon=0.875|tost2pct=0.365
+BCMP|pre_T1_gp|Per-class tuned target vs Context table|pct=-0.09|ci90pct=[-11.98 11.80]|wilcoxon=0.875|tost2pct=0.365
+BCMP|pre_T1_gp|Bandit over targets (delay class) vs OLLA|pct=1.57|ci90pct=[-7.39 10.54]|wilcoxon=1|tost2pct=0.459
+BCMP|pre_T1_gp|Bandit over targets (delay class) vs Fixed|pct=1.57|ci90pct=[-7.39 10.54]|wilcoxon=1|tost2pct=0.459
+BCMP|pre_T1_gp|Bandit over targets (delay class) vs Context table|pct=1.57|ci90pct=[-7.39 10.54]|wilcoxon=1|tost2pct=0.459
+BCMP|pre_T1_gp|Bandit (global) vs OLLA|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BCMP|pre_T1_gp|Bandit (global) vs Fixed|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BCMP|pre_T1_gp|Bandit (global) vs Context table|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BARMS|pre_T1_gp|global=0|delay_class=[0 0]
+PREFLIGHT_T1_gp_OK
+
+### POINT pre_T2_stale  (2026-10-21 14:15:53)
+CONFIG|pre_T2_stale|n_eval=4|n_seeds=1|tier=O|episodes=2|olla_warm_ttis=0|actions=[-4 -3 -2 -1 0 1 2]|train_sched=[1 0 0]
+CALIB|pre_T2_stale|fixed_offset=2|class_tab=[2 2 1;2 0 2]
+V9ENV|pre_T2_stale|mob_kappa=1|crn=1|train_warm=0|calib_warm=0|sched=pf|burst_dB=9|hetero=1|sched_on_ref=0|lambda=[0 0]
+V11ENV|pre_T2_stale|deadline=10|primary=goodput|traffic=full|reward=goodput|cqi_period=5|delays=[4 5 6 7 8 9 10]|speed=[16.7 33.3]|burst=9/250/120|feat=age+dev|cue=dev|edges=[-3 3]|ctx_tab=[1 0 0]|olla_tuned=0.20|a2c={"lr_actor":0.0003,"lr_critic":0.001,"ent_start":0.03,"ent_end":0.001,"n_step":10}
+PRIM|pre_T2_stale|Baseline|goodput=2.2172|ci95=0.9957|goodput=2.2172|ontime=0.0000
+PRIM|pre_T2_stale|OLLA|goodput=2.1554|ci95=1.0539|goodput=2.1554|ontime=0.0000
+PRIM|pre_T2_stale|OLLA (tuned target)|goodput=2.2580|ci95=1.2277|goodput=2.2580|ontime=0.0000
+PRIM|pre_T2_stale|Multi-OLLA|goodput=2.3234|ci95=1.1536|goodput=2.3234|ontime=0.0000
+PRIM|pre_T2_stale|Fixed|goodput=1.7647|ci95=0.5017|goodput=1.7647|ontime=0.0000
+PRIM|pre_T2_stale|FixedPU (Oracle)|goodput=1.8415|ci95=0.6327|goodput=1.8415|ontime=0.0000
+PRIM|pre_T2_stale|Context table|goodput=2.3096|ci95=1.2979|goodput=2.3096|ontime=0.0000
+PRIM|pre_T2_stale|Deep A2C v11|goodput=2.2958|ci95=1.1459|goodput=2.2958|ontime=0.0000
+PRIM|pre_T2_stale|Deep A2C v11 (best-on-val)|goodput=2.2958|ci95=1.1459|goodput=2.2958|ontime=0.0000
+PRIM|pre_T2_stale|Per-class tuned target|goodput=2.2580|ci95=1.2277|goodput=2.2580|ontime=0.0000
+PRIM|pre_T2_stale|Bandit over targets (delay class)|goodput=2.1262|ci95=1.0415|goodput=2.1262|ontime=0.0000
+PRIM|pre_T2_stale|Bandit (global)|goodput=1.7647|ci95=0.5017|goodput=1.7647|ontime=0.0000
+SCHEME|pre_T2_stale|Baseline|tp=2.2172|ci95=0.9957|bler1=0.7838|edge=0.0000|jain=0.4503|burst=0.6665|calm=3.8529
+SCHEME|pre_T2_stale|OLLA|tp=2.1554|ci95=1.0539|bler1=0.7777|edge=0.0181|jain=0.4099|burst=0.7921|calm=3.3621
+SCHEME|pre_T2_stale|OLLA (tuned target)|tp=2.2580|ci95=1.2277|bler1=0.7631|edge=0.0140|jain=0.4271|burst=1.1258|calm=3.3244
+SCHEME|pre_T2_stale|Multi-OLLA|tp=2.3234|ci95=1.1536|bler1=0.7447|edge=0.0140|jain=0.4124|burst=0.9550|calm=3.7635
+SCHEME|pre_T2_stale|Fixed|tp=1.7647|ci95=0.5017|bler1=0.9202|edge=0.0000|jain=0.3420|burst=1.7304|calm=3.0195
+SCHEME|pre_T2_stale|FixedPU (Oracle)|tp=1.8415|ci95=0.6327|bler1=0.8728|edge=0.0000|jain=0.3834|burst=1.5950|calm=3.3195
+SCHEME|pre_T2_stale|Context table|tp=2.3096|ci95=1.2979|bler1=0.7582|edge=0.0279|jain=0.3534|burst=1.7892|calm=3.3015
+SCHEME|pre_T2_stale|Deep A2C v11|tp=2.2958|ci95=1.1459|bler1=0.7191|edge=0.0140|jain=0.3917|burst=0.9019|calm=3.3729
+SCHEME|pre_T2_stale|Deep A2C v11 (best-on-val)|tp=2.2958|ci95=1.1459|bler1=0.7191|edge=0.0140|jain=0.3917|burst=0.9019|calm=3.3729
+SCHEME|pre_T2_stale|Per-class tuned target|tp=2.2580|ci95=1.2277|bler1=0.7631|edge=0.0140|jain=0.4271|burst=1.1258|calm=3.3244
+SCHEME|pre_T2_stale|Bandit over targets (delay class)|tp=2.1262|ci95=1.0415|bler1=0.7640|edge=0.0181|jain=0.4073|burst=0.9255|calm=3.3046
+SCHEME|pre_T2_stale|Bandit (global)|tp=1.7647|ci95=0.5017|bler1=0.9202|edge=0.0000|jain=0.3420|burst=1.7304|calm=3.0195
+SEEDS|pre_T2_stale|a2c_seed_means=2.2958|vsFixedPU_pct=-0.6
+TRAIN|pre_T2_stale|final_train_tp_mean=3.8434|final_entropy_mean=1.7765|max_entropy=1.9459
+ACT|pre_T2_stale|Deep A2C v11|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.02 0 0 0.085 0.63 0.265]|max_action=0.3|max_frac=0.630
+ACT|pre_T2_stale|Deep A2C v11 (best-on-val)|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.02 0 0 0.085 0.63 0.265]|max_action=0.3|max_frac=0.630
+LCURVE|pre_T2_stale|which=train|deciles=[2.3534 2.3534 2.3534 2.5024 2.8004 3.0984 3.3964 3.6944 3.8434 3.8434 3.8434]
+LCURVE|pre_T2_stale|which=val|deciles=[NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN]
+CMP|pre_T2_stale|A2C vs Baseline|diff=0.0786|pct=3.54|ci90pct=[-10.67 17.76]|wilcoxon=0.875|holm=1|tost2pct=0.593|tost010=0.442
+CMP|pre_T2_stale|A2C vs OLLA|diff=0.1405|pct=6.52|ci90pct=[-7.19 20.22]|wilcoxon=0.625|holm=1|tost2pct=0.753|tost010=0.616
+CMP|pre_T2_stale|A2C vs OLLA (tuned target)|diff=0.0378|pct=1.68|ci90pct=[-13.42 16.77]|wilcoxon=0.875|holm=1|tost2pct=0.481|tost010=0.348
+CMP|pre_T2_stale|A2C vs Multi-OLLA|diff=-0.0276|pct=-1.19|ci90pct=[-6.14 3.76]|wilcoxon=0.625|holm=1|tost2pct=0.363|tost010=0.117
+CMP|pre_T2_stale|A2C vs Fixed|diff=0.5312|pct=30.10|ci90pct=[-21.26 81.46]|wilcoxon=0.25|holm=1|tost2pct=0.856|tost010=0.828
+CMP|pre_T2_stale|A2C vs FixedPU (Oracle)|diff=0.4544|pct=24.67|ci90pct=[-11.32 60.67]|wilcoxon=0.25|holm=1|tost2pct=0.883|tost010=0.851
+CMP|pre_T2_stale|A2C vs Context table|diff=-0.0138|pct=-0.60|ci90pct=[-30.07 28.88]|wilcoxon=0.875|holm=1|tost2pct=0.459|tost010=0.393
+CMP|pre_T2_stale|A2C vs Per-class tuned target|diff=0.0378|pct=1.68|ci90pct=[-13.42 16.77]|wilcoxon=0.875|holm=1|tost2pct=0.481|tost010=0.348
+CMP|pre_T2_stale|A2C vs Bandit over targets (delay class)|diff=0.1696|pct=7.98|ci90pct=[-4.64 20.59]|wilcoxon=0.375|holm=1|tost2pct=0.827|tost010=0.708
+CMP|pre_T2_stale|A2C vs Bandit (global)|diff=0.5312|pct=30.10|ci90pct=[-21.26 81.46]|wilcoxon=0.25|holm=1|tost2pct=0.856|tost010=0.828
+WIN|pre_T2_stale|primary=goodput|a2c=2.2958|best_simple=Multi-OLLA|best=2.3234|pct_vs_best=-1.19|holm_vs_best=1|all_holm_lt_0.05_and_ci_gt0=0
+BCMP|pre_T2_stale|Per-class tuned target vs OLLA|pct=4.76|ci90pct=[-7.83 17.36]|wilcoxon=1|tost2pct=0.679
+BCMP|pre_T2_stale|Per-class tuned target vs Fixed|pct=27.96|ci90pct=[-33.47 89.38]|wilcoxon=0.625|tost2pct=0.803
+BCMP|pre_T2_stale|Per-class tuned target vs Context table|pct=-2.23|ci90pct=[-28.14 23.67]|wilcoxon=0.875|tost2pct=0.508
+BCMP|pre_T2_stale|Bandit over targets (delay class) vs OLLA|pct=-1.35|ci90pct=[-4.53 1.83]|wilcoxon=1|tost2pct=0.332
+BCMP|pre_T2_stale|Bandit over targets (delay class) vs Fixed|pct=20.49|ci90pct=[-26.77 67.74]|wilcoxon=0.625|tost2pct=0.787
+BCMP|pre_T2_stale|Bandit over targets (delay class) vs Context table|pct=-7.94|ci90pct=[-32.18 16.30]|wilcoxon=1|tost2pct=0.698
+BCMP|pre_T2_stale|Bandit (global) vs OLLA|pct=-18.13|ci90pct=[-56.84 20.59]|wilcoxon=0.625|tost2pct=0.8
+BCMP|pre_T2_stale|Bandit (global) vs Fixed|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BCMP|pre_T2_stale|Bandit (global) vs Context table|pct=-23.59|ci90pct=[-70.90 23.71]|wilcoxon=0.625|tost2pct=0.819
+BARMS|pre_T2_stale|global=2|delay_class=[0 0]
+PREFLIGHT_T2_stale_OK
+
+### POINT pre_T4_deadline  (2026-10-21 14:16:02)
+CONFIG|pre_T4_deadline|n_eval=4|n_seeds=1|tier=O|episodes=2|olla_warm_ttis=0|actions=[-4 -3 -2 -1 0 1 2]|train_sched=[1 0 0]
+CALIB|pre_T4_deadline|fixed_offset=-1|class_tab=[-4 -5 -3;-5 0 -1]
+V9ENV|pre_T4_deadline|mob_kappa=1|crn=1|train_warm=0|calib_warm=0|sched=pf|burst_dB=9|hetero=1|sched_on_ref=0|lambda=[0 0]
+V11ENV|pre_T4_deadline|deadline=10|primary=ontime|traffic=deadline|reward=ontime|cqi_period=1|delays=[2 3 4 5 6 7 8]|speed=[3 30]|burst=9/250/120|feat=slack|cue=slack|edges=[2 5]|ctx_tab=[0 0 0]|olla_tuned=0.01|a2c={"lr_actor":0.0003,"lr_critic":0.001,"ent_start":0.03,"ent_end":0.001,"n_step":10}
+PRIM|pre_T4_deadline|Baseline|ontime=0.7702|ci95=0.1090|goodput=8.3939|ontime=0.7702
+PRIM|pre_T4_deadline|OLLA|ontime=0.7511|ci95=0.1000|goodput=8.4615|ontime=0.7511
+PRIM|pre_T4_deadline|OLLA (tuned target)|ontime=0.7816|ci95=0.0903|goodput=8.7641|ontime=0.7816
+PRIM|pre_T4_deadline|Multi-OLLA|ontime=0.7708|ci95=0.1048|goodput=8.5874|ontime=0.7708
+PRIM|pre_T4_deadline|Fixed|ontime=0.8088|ci95=0.0766|goodput=8.3660|ontime=0.8088
+PRIM|pre_T4_deadline|FixedPU (Oracle)|ontime=0.7006|ci95=0.1496|goodput=7.2562|ontime=0.7006
+PRIM|pre_T4_deadline|Context table|ontime=0.7511|ci95=0.1000|goodput=8.4615|ontime=0.7511
+PRIM|pre_T4_deadline|Deep A2C v11|ontime=0.7336|ci95=0.1041|goodput=8.4626|ontime=0.7336
+PRIM|pre_T4_deadline|Deep A2C v11 (best-on-val)|ontime=0.7336|ci95=0.1041|goodput=8.4626|ontime=0.7336
+PRIM|pre_T4_deadline|Per-class tuned target|ontime=0.7816|ci95=0.0903|goodput=8.7641|ontime=0.7816
+PRIM|pre_T4_deadline|Bandit over targets (delay class)|ontime=0.7511|ci95=0.1000|goodput=8.4610|ontime=0.7511
+PRIM|pre_T4_deadline|Bandit (global)|ontime=0.7578|ci95=0.0682|goodput=8.4143|ontime=0.7578
+SCHEME|pre_T4_deadline|Baseline|tp=8.3939|ci95=1.2227|bler1=0.4063|edge=0.3134|jain=0.8104|burst=5.6042|calm=9.8683
+SCHEME|pre_T4_deadline|OLLA|tp=8.4615|ci95=1.0091|bler1=0.3697|edge=0.3010|jain=0.7992|burst=5.2995|calm=10.7362
+SCHEME|pre_T4_deadline|OLLA (tuned target)|tp=8.7641|ci95=0.9678|bler1=0.3483|edge=0.2810|jain=0.8017|burst=6.0077|calm=10.7829
+SCHEME|pre_T4_deadline|Multi-OLLA|tp=8.5874|ci95=1.1054|bler1=0.3512|edge=0.2574|jain=0.7868|burst=5.9140|calm=10.7890
+SCHEME|pre_T4_deadline|Fixed|tp=8.3660|ci95=0.6199|bler1=0.2773|edge=0.3373|jain=0.8501|burst=5.2980|calm=10.6299
+SCHEME|pre_T4_deadline|FixedPU (Oracle)|tp=7.2562|ci95=1.0024|bler1=0.2695|edge=0.3237|jain=0.8186|burst=5.2886|calm=8.7302
+SCHEME|pre_T4_deadline|Context table|tp=8.4615|ci95=1.0091|bler1=0.3697|edge=0.3010|jain=0.7992|burst=5.2995|calm=10.7362
+SCHEME|pre_T4_deadline|Deep A2C v11|tp=8.4626|ci95=0.5742|bler1=0.4264|edge=0.2754|jain=0.7867|burst=4.8028|calm=10.2082
+SCHEME|pre_T4_deadline|Deep A2C v11 (best-on-val)|tp=8.4626|ci95=0.5742|bler1=0.4264|edge=0.2754|jain=0.7867|burst=4.8028|calm=10.2082
+SCHEME|pre_T4_deadline|Per-class tuned target|tp=8.7641|ci95=0.9678|bler1=0.3483|edge=0.2810|jain=0.8017|burst=6.0077|calm=10.7829
+SCHEME|pre_T4_deadline|Bandit over targets (delay class)|tp=8.4610|ci95=0.9881|bler1=0.3661|edge=0.2810|jain=0.7981|burst=5.3231|calm=10.7201
+SCHEME|pre_T4_deadline|Bandit (global)|tp=8.4143|ci95=0.8226|bler1=0.5035|edge=0.2644|jain=0.7785|burst=4.8701|calm=10.5038
+SEEDS|pre_T4_deadline|a2c_seed_means=0.7336|vsFixedPU_pct=-2.34
+TRAIN|pre_T4_deadline|final_train_tp_mean=10.1832|final_entropy_mean=1.7708|max_entropy=1.9459
+ACT|pre_T4_deadline|Deep A2C v11|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.035 0.045 0 0.115 0.525 0.28]|max_action=0.3|max_frac=0.525
+ACT|pre_T4_deadline|Deep A2C v11 (best-on-val)|actions=[0.01 0.03 0.1 0.2 0.3 0.5]|hist=[0.035 0.045 0 0.115 0.525 0.28]|max_action=0.3|max_frac=0.525
+LCURVE|pre_T4_deadline|which=train|deciles=[8.3133 8.3133 8.3133 8.5003 8.8743 9.2482 9.6222 9.9962 10.1832 10.1832 10.1832]
+LCURVE|pre_T4_deadline|which=val|deciles=[NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN]
+CMP|pre_T4_deadline|A2C vs Baseline|diff=-0.0367|pct=-4.76|ci90pct=[-8.74 -0.79]|wilcoxon=0.25|holm=1|tost2pct=0.9|tost010=0.00829
+CMP|pre_T4_deadline|A2C vs OLLA|diff=-0.0176|pct=-2.34|ci90pct=[-5.06 0.38]|wilcoxon=0.125|holm=1|tost2pct=0.605|tost010=0.00124
+CMP|pre_T4_deadline|A2C vs OLLA (tuned target)|diff=-0.0481|pct=-6.15|ci90pct=[-10.92 -1.38]|wilcoxon=0.125|holm=1|tost2pct=0.934|tost010=0.0232
+CMP|pre_T4_deadline|A2C vs Multi-OLLA|diff=-0.0372|pct=-4.83|ci90pct=[-7.67 -1.98]|wilcoxon=0.125|holm=1|tost2pct=0.949|tost010=0.00334
+CMP|pre_T4_deadline|A2C vs Fixed|diff=-0.0752|pct=-9.30|ci90pct=[-18.16 -0.44]|wilcoxon=0.25|holm=1|tost2pct=0.926|tost010=0.238
+CMP|pre_T4_deadline|A2C vs FixedPU (Oracle)|diff=0.0330|pct=4.70|ci90pct=[-5.08 14.49]|wilcoxon=0.375|holm=1|tost2pct=0.719|tost010=0.0524
+CMP|pre_T4_deadline|A2C vs Context table|diff=-0.0176|pct=-2.34|ci90pct=[-5.06 0.38]|wilcoxon=0.125|holm=1|tost2pct=0.605|tost010=0.00124
+CMP|pre_T4_deadline|A2C vs Per-class tuned target|diff=-0.0481|pct=-6.15|ci90pct=[-10.92 -1.38]|wilcoxon=0.125|holm=1|tost2pct=0.934|tost010=0.0232
+CMP|pre_T4_deadline|A2C vs Bandit over targets (delay class)|diff=-0.0176|pct=-2.34|ci90pct=[-5.06 0.38]|wilcoxon=0.125|holm=1|tost2pct=0.605|tost010=0.00124
+CMP|pre_T4_deadline|A2C vs Bandit (global)|diff=-0.0243|pct=-3.20|ci90pct=[-12.65 6.24]|wilcoxon=0.5|holm=1|tost2pct=0.608|tost010=0.0442
+WIN|pre_T4_deadline|primary=ontime|a2c=0.7336|best_simple=Fixed|best=0.8088|pct_vs_best=-9.30|holm_vs_best=1|all_holm_lt_0.05_and_ci_gt0=0
+BCMP|pre_T4_deadline|Per-class tuned target vs OLLA|pct=4.06|ci90pct=[-1.81 9.93]|wilcoxon=0.5|tost2pct=0.766
+BCMP|pre_T4_deadline|Per-class tuned target vs Fixed|pct=-3.36|ci90pct=[-9.70 2.98]|wilcoxon=0.5|tost2pct=0.676
+BCMP|pre_T4_deadline|Per-class tuned target vs Context table|pct=4.06|ci90pct=[-1.81 9.93]|wilcoxon=0.5|tost2pct=0.766
+BCMP|pre_T4_deadline|Bandit over targets (delay class) vs OLLA|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BCMP|pre_T4_deadline|Bandit over targets (delay class) vs Fixed|pct=-7.13|ci90pct=[-14.70 0.44]|wilcoxon=0.25|tost2pct=0.896
+BCMP|pre_T4_deadline|Bandit over targets (delay class) vs Context table|pct=0.00|ci90pct=[0.00 0.00]|wilcoxon=1|tost2pct=0
+BCMP|pre_T4_deadline|Bandit (global) vs OLLA|pct=0.89|ci90pct=[-9.45 11.24]|wilcoxon=1|tost2pct=0.409
+BCMP|pre_T4_deadline|Bandit (global) vs Fixed|pct=-6.30|ci90pct=[-18.22 5.61]|wilcoxon=0.375|tost2pct=0.771
+BCMP|pre_T4_deadline|Bandit (global) vs Context table|pct=0.89|ci90pct=[-9.45 11.24]|wilcoxon=1|tost2pct=0.409
+BARMS|pre_T4_deadline|global=1|delay_class=[-1 0]
+PREFLIGHT_T4_deadline_OK

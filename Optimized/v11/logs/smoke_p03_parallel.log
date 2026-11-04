@@ -1,0 +1,12 @@
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Connected to parallel pool with 4 workers.
+{Error using txStep_v11
+Unable to perform assignment because the left and right sides have a different number of elements.
+
+Error in DeepA2C_Shared_v11>rollout_episode_v11 (line 440)
+        [tp_now, off, H, ~, nEv, dropEv] = txStep_v11(sent, Strue(t,:), rb, off, H, env);
+
+Error in DeepA2C_Shared_v11 (line 300)
+            parfor e = 1:thisN
+} 
+Parallel pool using the 'Processes' profile is shutting down.

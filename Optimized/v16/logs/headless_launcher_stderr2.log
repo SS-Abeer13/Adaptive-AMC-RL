@@ -1,0 +1,15 @@
+{Operation terminated by user during DeepA2C_Shared_v16
+
+
+In runComparison_v16 (line 131)
+            DeepA2C_Shared_v16(simTime, ep_deep, baseSeed + 200 + s, env);
+
+In fill_v16_campaign (line 41)
+        runComparison_v16(o);
+
+In run_v16_resume (line 5)
+fill_v16_campaign;
+
+In run (line 91)
+evalin('caller', strcat(script, ';'));
+} 

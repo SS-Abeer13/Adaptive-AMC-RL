@@ -1,0 +1,27 @@
+
+######## E5_mixed | 23:43:53 | elapsed 0.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=5 | Traces=300 | Episodes=800 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-20 23:43:54
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: -2
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+    -1     0    -2
+    -2    -2     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.8166
+  [calib-ctx] OLLA target 0.03 -> 0.8177
+  [calib-ctx] OLLA target 0.10 -> 0.8035
+  [calib-ctx] OLLA target 0.20 -> 0.8106
+  [calib-ctx] OLLA target 0.30 -> 0.7970
+  [calib-ctx] OLLA target 0.50 -> 0.7743
+  [calib-ctx] tuned OLLA target = 0.03
+  [calib-ctx] context table (cue dslack, edges [2 5]) = [-1 -2 0 1 0 -3] | score 0.8517
+
+PHASE 1 -- Autonomous Training (5 seeds)
+  Seed 1/5 (23:44:41)...

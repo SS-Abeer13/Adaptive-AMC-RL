@@ -1,0 +1,9 @@
+{Error using dlnetwork/predict
+Layer 'in': Invalid input data. Layer input must have one sequence dimension labeled 'T'.
+
+Error in gru_test_tmp (line 8)
+    [Y, st] = predict(net, Xt);
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+} 

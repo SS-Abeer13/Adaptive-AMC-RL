@@ -1,0 +1,27 @@
+  Deep GRU v11 ep  25/150 | CellTp =  2.82 Mbps | Policy Entropy = 1.477 | entW = 0.044
+  Deep GRU v11 ep  50/150 | CellTp =  1.73 Mbps | Policy Entropy = 0.595 | entW = 0.037
+  Deep GRU v11 ep  75/150 | CellTp =  0.73 Mbps | Policy Entropy = 0.891 | entW = 0.030
+  Deep GRU v11 ep 100/150 | CellTp =  3.25 Mbps | Policy Entropy = 1.173 | entW = 0.023
+  Deep GRU v11 ep 125/150 | CellTp =  4.51 Mbps | Policy Entropy = 0.963 | entW = 0.017
+  Deep GRU v11 ep 150/150 | CellTp =  2.38 Mbps | Policy Entropy = 0.877 | entW = 0.010
+seed 1 done in 303.6 s, final_tp=2.832, final_ent=0.877
+  Deep GRU v11 ep  25/150 | CellTp =  2.22 Mbps | Policy Entropy = 1.393 | entW = 0.044
+  Deep GRU v11 ep  50/150 | CellTp =  5.53 Mbps | Policy Entropy = 0.847 | entW = 0.037
+  Deep GRU v11 ep  75/150 | CellTp =  1.97 Mbps | Policy Entropy = 1.025 | entW = 0.030
+  Deep GRU v11 ep 100/150 | CellTp =  3.07 Mbps | Policy Entropy = 0.734 | entW = 0.023
+  Deep GRU v11 ep 125/150 | CellTp =  1.33 Mbps | Policy Entropy = 0.533 | entW = 0.017
+  Deep GRU v11 ep 150/150 | CellTp =  3.72 Mbps | Policy Entropy = 0.460 | entW = 0.010
+seed 2 done in 117.7 s, final_tp=2.830, final_ent=0.460
+  Deep GRU v11 ep  25/150 | CellTp =  1.05 Mbps | Policy Entropy = 1.588 | entW = 0.044
+  Deep GRU v11 ep  50/150 | CellTp =  2.18 Mbps | Policy Entropy = 0.770 | entW = 0.037
+  Deep GRU v11 ep  75/150 | CellTp =  2.34 Mbps | Policy Entropy = 0.766 | entW = 0.030
+  Deep GRU v11 ep 100/150 | CellTp =  1.03 Mbps | Policy Entropy = 1.036 | entW = 0.023
+  Deep GRU v11 ep 125/150 | CellTp =  3.58 Mbps | Policy Entropy = 1.136 | entW = 0.017
+  Deep GRU v11 ep 150/150 | CellTp =  2.95 Mbps | Policy Entropy = 1.196 | entW = 0.010
+seed 3 done in 98.5 s, final_tp=3.585, final_ent=1.196
+=== P4 DIAGNOSTIC (E2-style, GRU+A2C+offset, 3 seeds x 150 episodes) ===
+first-half mean tp per seed: [2.563 2.699 2.81]
+second-half mean tp per seed: [2.802 2.953 2.92]
+non-decreasing (2nd half >= 1st half) per seed: [true true true]
+max action fraction per seed (want < 0.95): [0.56 0.631 0.727]
+seed SD / mean of final tp (want < 0.5%): 14.116%

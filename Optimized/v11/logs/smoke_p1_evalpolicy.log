@@ -1,0 +1,3 @@
+olla_target_class OK, sum tp=886.5920
+bandit_target OK, sum tp=893.8400
+rand (target mode) OK, sum tp=883.7200, unique act=[1 2 3 4 5 6]

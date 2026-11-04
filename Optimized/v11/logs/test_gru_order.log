@@ -1,0 +1,17 @@
+Wi size=[9 4] Wh size=[9 3] b size=[9 1]
+reference h1 (from net):
+    0.1988    0.1187
+   -0.1605    0.6149
+   -0.1129   -0.1252
+
+order A (reset,update,new) h1:
+    0.1988    0.1187
+   -0.1605    0.6149
+   -0.1129   -0.1252
+
+order B (update,reset,new) h1:
+    0.1596    0.1042
+   -0.3343    0.3797
+   -0.2724   -0.1040
+
+matchA=1 matchB=0

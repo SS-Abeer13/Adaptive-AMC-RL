@@ -1,0 +1,5 @@
+  Deep PPO v11 ep  10/10 | CellTp =  3.02 Mbps | Policy Entropy = 1.666 | entW = 0.010
+target-mode PPO smoke OK, 21.72s, lc(end)=3.024 ent(end)=1.666
+eval via a2c_v11 ptype OK, sum tp=870.5840, unique act=[2 3 4]
+  Deep PPO v11 ep   6/6 | CellTp =  2.13 Mbps | Policy Entropy = 2.264 | entW = 0.010
+cell-reward PPO smoke OK, lc(end)=2.133 ent(end)=2.264

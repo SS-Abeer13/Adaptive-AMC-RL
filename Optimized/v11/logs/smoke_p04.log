@@ -1,0 +1,8 @@
+  Deep A2C v11 ep   6/6 | CellTp =  1.46 Mbps | Policy Entropy = 2.347 | entW = 0.005
+  Deep A2C v11 ep   6/6 | CellTp =  1.46 Mbps | Policy Entropy = 2.347 | entW = 0.005
+max|lc0-lc1|=0 max|ent0-ent1|=0 bestEp=6
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Connected to parallel pool with 4 workers.
+  Deep A2C v11 ep   8/8 | CellTp =  2.43 Mbps | Policy Entropy = 2.336 | entW = 0.005 (parallel batch, n_envs=2)
+parallel+val smoke OK, bestEp=8, lc(end)=2.427
+Parallel pool using the 'Processes' profile is shutting down.

@@ -1,0 +1,30 @@
+
+######## X1_pf | 16:04:17 | elapsed 0.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=10 | Traces=500 | Episodes=800 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-23 16:04:18
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: -1
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+    -1    -1    -1
+    -2    -2     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.8591
+  [calib-ctx] OLLA target 0.03 -> 0.8607
+  [calib-ctx] OLLA target 0.10 -> 0.8523
+  [calib-ctx] OLLA target 0.20 -> 0.8564
+  [calib-ctx] OLLA target 0.30 -> 0.8528
+  [calib-ctx] OLLA target 0.50 -> 0.8329
+  [calib-ctx] tuned OLLA target = 0.03
+  [calib-ctx] context table (cue slack, edges [2 5]) = [0 -1 -3] | score 0.8874
+  [base-rule] Calib on-time score: Fixed = 0.8289 (offset -1), FixedPU = 0.8232 -> chosen base rule: Fixed
+
+PHASE 1 -- Autonomous Training (10 seeds)
+  Seed 1/10 (16:04:52)...
+  Deep A2C v13 ep  25/800 | CellTp =  7.50 Mbps | Policy Entropy = 0.406 | entW = 0.029
+  Deep A2C v13 ep  50/800 | CellTp =  9.18 Mbps | Policy Entropy = 0.404 | entW = 0.028

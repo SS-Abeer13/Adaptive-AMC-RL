@@ -1,0 +1,803 @@
+SKIP M1_dl_rtt8 (done)
+SKIP M2_dl_rtt0 (done)
+
+######## M3_gp_rtt8 | 08:34:54 | elapsed 0.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=10 | Traces=500 | Episodes=800 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-11-04 08:34:57
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: -1
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+    -1    -1     0
+     0    -1    -2
+
+  [calib-ctx] OLLA target 0.01 -> 0.3443
+  [calib-ctx] OLLA target 0.03 -> 0.3457
+  [calib-ctx] OLLA target 0.10 -> 0.3428
+  [calib-ctx] OLLA target 0.20 -> 0.3479
+  [calib-ctx] OLLA target 0.30 -> 0.3378
+  [calib-ctx] OLLA target 0.50 -> 0.3292
+  [calib-ctx] tuned OLLA target = 0.20
+  [calib-ctx] context table (cue none, edges []) = -1 | score 0.3658
+  [base-rule] Calib on-time score: Fixed = 0.3662 (offset -1), FixedPU = 0.3664 -> chosen base rule: FixedPU (Oracle)
+
+PHASE 1 -- Autonomous Training (10 seeds)
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to parallel pool with 2 workers.
+  Seed 2/10 (08:36:48)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\ckpt\M3_gp_rtt8_seed2.mat
+  Seed 1/10 (08:36:48)...
+  Seed 6/10 (08:36:57)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\ckpt\M3_gp_rtt8_seed1.mat
+  Seed 4/10 (08:36:57)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\ckpt\M3_gp_rtt8_seed4.mat
+  Seed 3/10 (08:36:58)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\ckpt\M3_gp_rtt8_seed6.mat
+  Seed 5/10 (08:36:58)...
+  Deep A2C v17 ep  25/800 | CellTp =  1.54 Mbps | Policy Entropy = 0.325 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  5.65 Mbps | Policy Entropy = 0.350 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  3.05 Mbps | Policy Entropy = 0.409 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  2.66 Mbps | Policy Entropy = 0.359 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  6.75 Mbps | Policy Entropy = 0.437 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.33 Mbps | Policy Entropy = 0.543 | entW = 0.026
+  Deep A2C v17 ep  75/800 | CellTp =  6.13 Mbps | Policy Entropy = 0.413 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.29 Mbps | Policy Entropy = 0.515 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  2.12 Mbps | Policy Entropy = 0.478 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  4.85 Mbps | Policy Entropy = 0.514 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  1.65 Mbps | Policy Entropy = 0.602 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  5.74 Mbps | Policy Entropy = 0.475 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.48 Mbps | Policy Entropy = 0.453 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  2.17 Mbps | Policy Entropy = 0.530 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  2.96 Mbps | Policy Entropy = 0.534 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  4.21 Mbps | Policy Entropy = 0.592 | entW = 0.022
+  Deep A2C v17 ep 200/800 | CellTp =  4.26 Mbps | Policy Entropy = 0.470 | entW = 0.023
+  Deep A2C v17 ep 250/800 | CellTp =  1.98 Mbps | Policy Entropy = 0.589 | entW = 0.021
+  Deep A2C v17 ep 225/800 | CellTp =  4.84 Mbps | Policy Entropy = 0.415 | entW = 0.022
+  Deep A2C v17 ep 275/800 | CellTp =  2.70 Mbps | Policy Entropy = 0.570 | entW = 0.020
+  Deep A2C v17 ep 250/800 | CellTp =  2.97 Mbps | Policy Entropy = 0.413 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  1.85 Mbps | Policy Entropy = 0.410 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  4.26 Mbps | Policy Entropy = 0.472 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  1.13 Mbps | Policy Entropy = 0.600 | entW = 0.018
+  Deep A2C v17 ep 300/800 | CellTp =  5.83 Mbps | Policy Entropy = 0.350 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  4.08 Mbps | Policy Entropy = 0.288 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  2.27 Mbps | Policy Entropy = 0.556 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  2.16 Mbps | Policy Entropy = 0.365 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  4.22 Mbps | Policy Entropy = 0.270 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  1.50 Mbps | Policy Entropy = 0.621 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  3.58 Mbps | Policy Entropy = 0.461 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  6.65 Mbps | Policy Entropy = 0.245 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  1.15 Mbps | Policy Entropy = 0.317 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  3.23 Mbps | Policy Entropy = 0.383 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  1.86 Mbps | Policy Entropy = 0.449 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  6.20 Mbps | Policy Entropy = 0.297 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  4.14 Mbps | Policy Entropy = 0.283 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  4.58 Mbps | Policy Entropy = 0.419 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  2.95 Mbps | Policy Entropy = 0.330 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  3.81 Mbps | Policy Entropy = 0.349 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  5.73 Mbps | Policy Entropy = 0.343 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  3.06 Mbps | Policy Entropy = 0.324 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  4.61 Mbps | Policy Entropy = 0.333 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  3.39 Mbps | Policy Entropy = 0.315 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  3.24 Mbps | Policy Entropy = 0.373 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  3.10 Mbps | Policy Entropy = 0.334 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  2.36 Mbps | Policy Entropy = 0.359 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  2.33 Mbps | Policy Entropy = 0.289 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  3.72 Mbps | Policy Entropy = 0.348 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  4.37 Mbps | Policy Entropy = 0.272 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  4.01 Mbps | Policy Entropy = 0.277 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  2.49 Mbps | Policy Entropy = 0.321 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  5.59 Mbps | Policy Entropy = 0.254 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  1.82 Mbps | Policy Entropy = 0.368 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  1.25 Mbps | Policy Entropy = 0.335 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  6.42 Mbps | Policy Entropy = 0.229 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  1.06 Mbps | Policy Entropy = 0.324 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  3.97 Mbps | Policy Entropy = 0.283 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  2.80 Mbps | Policy Entropy = 0.358 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  2.33 Mbps | Policy Entropy = 0.285 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  5.66 Mbps | Policy Entropy = 0.215 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  4.11 Mbps | Policy Entropy = 0.265 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  1.80 Mbps | Policy Entropy = 0.307 | entW = 0.001
+    [Deep A2C v17] Finished in   237.6 s | Final CellTp =  1.80 Mbps | best-on-val ep 400
+  Deep A2C v17 ep 800/800 | CellTp =  1.62 Mbps | Policy Entropy = 0.334 | entW = 0.001
+    [Deep A2C v17] Finished in   237.0 s | Final CellTp =  1.62 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep  25/800 | CellTp =  1.31 Mbps | Policy Entropy = 1.934 | entW = 0.029
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep  25/800 | CellTp =  3.50 Mbps | Policy Entropy = 1.920 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  2.33 Mbps | Policy Entropy = 1.915 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  4.30 Mbps | Policy Entropy = 1.929 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  2.03 Mbps | Policy Entropy = 1.913 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  3.00 Mbps | Policy Entropy = 1.912 | entW = 0.026
+  Deep A2C v17 ep  75/800 | CellTp =  7.38 Mbps | Policy Entropy = 1.902 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  0.99 Mbps | Policy Entropy = 1.870 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  1.26 Mbps | Policy Entropy = 1.899 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  1.97 Mbps | Policy Entropy = 1.855 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  4.83 Mbps | Policy Entropy = 1.886 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  3.06 Mbps | Policy Entropy = 1.840 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.38 Mbps | Policy Entropy = 1.814 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  2.63 Mbps | Policy Entropy = 1.878 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  3.70 Mbps | Policy Entropy = 1.862 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  1.20 Mbps | Policy Entropy = 1.826 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  4.57 Mbps | Policy Entropy = 1.828 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  2.90 Mbps | Policy Entropy = 1.829 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  2.97 Mbps | Policy Entropy = 1.831 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  2.97 Mbps | Policy Entropy = 1.838 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  3.02 Mbps | Policy Entropy = 1.795 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  3.30 Mbps | Policy Entropy = 1.807 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  3.13 Mbps | Policy Entropy = 1.816 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  3.04 Mbps | Policy Entropy = 1.770 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  6.50 Mbps | Policy Entropy = 1.560 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  1.54 Mbps | Policy Entropy = 1.828 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  3.94 Mbps | Policy Entropy = 1.821 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  2.73 Mbps | Policy Entropy = 1.822 | entW = 0.016
+  Deep A2C v17 ep 350/800 | CellTp =  2.86 Mbps | Policy Entropy = 1.713 | entW = 0.017
+  Deep A2C v17 ep 400/800 | CellTp =  2.66 Mbps | Policy Entropy = 1.786 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  1.55 Mbps | Policy Entropy = 1.702 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  3.16 Mbps | Policy Entropy = 1.541 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  3.49 Mbps | Policy Entropy = 1.771 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  1.67 Mbps | Policy Entropy = 1.545 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  3.03 Mbps | Policy Entropy = 1.693 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  5.52 Mbps | Policy Entropy = 1.386 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  4.03 Mbps | Policy Entropy = 1.742 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  4.41 Mbps | Policy Entropy = 1.391 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  1.89 Mbps | Policy Entropy = 1.717 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  2.65 Mbps | Policy Entropy = 1.459 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  6.29 Mbps | Policy Entropy = 1.609 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  2.64 Mbps | Policy Entropy = 1.205 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  1.48 Mbps | Policy Entropy = 1.584 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  7.24 Mbps | Policy Entropy = 1.050 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  2.08 Mbps | Policy Entropy = 1.517 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  3.86 Mbps | Policy Entropy = 1.084 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  3.05 Mbps | Policy Entropy = 1.473 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  4.12 Mbps | Policy Entropy = 1.269 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  2.14 Mbps | Policy Entropy = 1.400 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  4.79 Mbps | Policy Entropy = 1.089 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  2.69 Mbps | Policy Entropy = 1.320 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  5.22 Mbps | Policy Entropy = 1.048 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  5.88 Mbps | Policy Entropy = 1.065 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  4.01 Mbps | Policy Entropy = 1.122 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  1.95 Mbps | Policy Entropy = 0.888 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  2.27 Mbps | Policy Entropy = 1.171 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  5.35 Mbps | Policy Entropy = 0.849 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  1.90 Mbps | Policy Entropy = 1.212 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  3.13 Mbps | Policy Entropy = 0.665 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  2.62 Mbps | Policy Entropy = 1.042 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  3.31 Mbps | Policy Entropy = 0.756 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  5.63 Mbps | Policy Entropy = 0.609 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  3.09 Mbps | Policy Entropy = 0.778 | entW = 0.001
+    [Deep A2C v17 (offset)] Finished in   205.3 s | Final CellTp =  3.09 Mbps
+  Deep A2C v17 ep 800/800 | CellTp =  8.08 Mbps | Policy Entropy = 0.596 | entW = 0.001
+    [Deep A2C v17 (offset)] Finished in   205.9 s | Final CellTp =  8.08 Mbps
+  Seed 7/10 (08:45:27)...
+  Seed 8/10 (08:45:28)...
+  Deep A2C v17 ep  25/800 | CellTp =  3.28 Mbps | Policy Entropy = 0.534 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  5.49 Mbps | Policy Entropy = 0.427 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  2.67 Mbps | Policy Entropy = 0.566 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  3.21 Mbps | Policy Entropy = 0.532 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  2.40 Mbps | Policy Entropy = 0.604 | entW = 0.027
+  Deep A2C v17 ep  75/800 | CellTp =  4.10 Mbps | Policy Entropy = 0.602 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.57 Mbps | Policy Entropy = 0.578 | entW = 0.026
+  Deep A2C v17 ep 100/800 | CellTp =  6.72 Mbps | Policy Entropy = 0.568 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  4.81 Mbps | Policy Entropy = 0.610 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  6.40 Mbps | Policy Entropy = 0.539 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  3.31 Mbps | Policy Entropy = 0.660 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  2.31 Mbps | Policy Entropy = 0.617 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.20 Mbps | Policy Entropy = 0.657 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  3.17 Mbps | Policy Entropy = 0.536 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  2.90 Mbps | Policy Entropy = 0.674 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  3.41 Mbps | Policy Entropy = 0.556 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  4.35 Mbps | Policy Entropy = 0.587 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  1.33 Mbps | Policy Entropy = 0.546 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  4.19 Mbps | Policy Entropy = 0.616 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  1.88 Mbps | Policy Entropy = 0.518 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  2.85 Mbps | Policy Entropy = 0.561 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  2.02 Mbps | Policy Entropy = 0.520 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  1.08 Mbps | Policy Entropy = 0.569 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  4.20 Mbps | Policy Entropy = 0.480 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  4.41 Mbps | Policy Entropy = 0.491 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  2.25 Mbps | Policy Entropy = 0.454 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  3.55 Mbps | Policy Entropy = 0.523 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  3.63 Mbps | Policy Entropy = 0.436 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  3.60 Mbps | Policy Entropy = 0.534 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  4.45 Mbps | Policy Entropy = 0.423 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  3.14 Mbps | Policy Entropy = 0.483 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  2.36 Mbps | Policy Entropy = 0.464 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  3.63 Mbps | Policy Entropy = 0.451 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  2.47 Mbps | Policy Entropy = 0.313 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  5.08 Mbps | Policy Entropy = 0.397 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  3.89 Mbps | Policy Entropy = 0.318 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  3.15 Mbps | Policy Entropy = 0.424 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  2.99 Mbps | Policy Entropy = 0.294 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  4.10 Mbps | Policy Entropy = 0.403 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  1.76 Mbps | Policy Entropy = 0.304 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  1.81 Mbps | Policy Entropy = 0.432 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  3.20 Mbps | Policy Entropy = 0.306 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  2.08 Mbps | Policy Entropy = 0.434 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  3.56 Mbps | Policy Entropy = 0.235 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  4.62 Mbps | Policy Entropy = 0.367 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  1.69 Mbps | Policy Entropy = 0.233 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  3.07 Mbps | Policy Entropy = 0.380 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  4.32 Mbps | Policy Entropy = 0.245 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  2.64 Mbps | Policy Entropy = 0.476 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  1.73 Mbps | Policy Entropy = 0.339 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  1.25 Mbps | Policy Entropy = 0.469 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  2.97 Mbps | Policy Entropy = 0.279 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  0.67 Mbps | Policy Entropy = 0.370 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  4.39 Mbps | Policy Entropy = 0.225 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  2.89 Mbps | Policy Entropy = 0.328 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  3.13 Mbps | Policy Entropy = 0.226 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  1.08 Mbps | Policy Entropy = 0.347 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  0.99 Mbps | Policy Entropy = 0.284 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  5.18 Mbps | Policy Entropy = 0.316 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  6.06 Mbps | Policy Entropy = 0.181 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  1.64 Mbps | Policy Entropy = 0.306 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  2.08 Mbps | Policy Entropy = 0.289 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  2.05 Mbps | Policy Entropy = 0.267 | entW = 0.001
+    [Deep A2C v17] Finished in   190.7 s | Final CellTp =  2.05 Mbps | best-on-val ep 250
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep 800/800 | CellTp =  3.91 Mbps | Policy Entropy = 0.221 | entW = 0.001
+    [Deep A2C v17] Finished in   191.3 s | Final CellTp =  3.91 Mbps | best-on-val ep 150
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Seed 9/10 (08:49:40)...
+  Seed 10/10 (08:49:43)...
+  Deep A2C v17 ep  25/800 | CellTp =  2.74 Mbps | Policy Entropy = 0.380 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  4.31 Mbps | Policy Entropy = 0.344 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  4.54 Mbps | Policy Entropy = 0.353 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  1.18 Mbps | Policy Entropy = 0.383 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  3.16 Mbps | Policy Entropy = 0.425 | entW = 0.027
+  Deep A2C v17 ep  75/800 | CellTp =  1.15 Mbps | Policy Entropy = 0.379 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.20 Mbps | Policy Entropy = 0.477 | entW = 0.026
+  Deep A2C v17 ep 100/800 | CellTp =  1.93 Mbps | Policy Entropy = 0.479 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  3.03 Mbps | Policy Entropy = 0.470 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  3.15 Mbps | Policy Entropy = 0.471 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  6.02 Mbps | Policy Entropy = 0.434 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  4.51 Mbps | Policy Entropy = 0.494 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.15 Mbps | Policy Entropy = 0.375 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  1.22 Mbps | Policy Entropy = 0.586 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  1.67 Mbps | Policy Entropy = 0.438 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  3.13 Mbps | Policy Entropy = 0.585 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  5.15 Mbps | Policy Entropy = 0.329 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  1.09 Mbps | Policy Entropy = 0.564 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  2.26 Mbps | Policy Entropy = 0.338 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  5.03 Mbps | Policy Entropy = 0.453 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  4.46 Mbps | Policy Entropy = 0.331 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  3.36 Mbps | Policy Entropy = 0.475 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  1.00 Mbps | Policy Entropy = 0.369 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  2.86 Mbps | Policy Entropy = 0.494 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  2.69 Mbps | Policy Entropy = 0.359 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  5.51 Mbps | Policy Entropy = 0.400 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  4.55 Mbps | Policy Entropy = 0.328 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  3.01 Mbps | Policy Entropy = 0.396 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  3.71 Mbps | Policy Entropy = 0.341 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  3.06 Mbps | Policy Entropy = 0.417 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  1.72 Mbps | Policy Entropy = 0.322 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  5.34 Mbps | Policy Entropy = 0.350 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  4.79 Mbps | Policy Entropy = 0.258 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  3.93 Mbps | Policy Entropy = 0.334 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  2.37 Mbps | Policy Entropy = 0.299 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  1.72 Mbps | Policy Entropy = 0.384 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  2.19 Mbps | Policy Entropy = 0.296 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  3.96 Mbps | Policy Entropy = 0.263 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  3.46 Mbps | Policy Entropy = 0.328 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  2.88 Mbps | Policy Entropy = 0.317 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  2.27 Mbps | Policy Entropy = 0.270 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  1.36 Mbps | Policy Entropy = 0.354 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  3.66 Mbps | Policy Entropy = 0.325 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  3.54 Mbps | Policy Entropy = 0.254 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  2.42 Mbps | Policy Entropy = 0.310 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  3.73 Mbps | Policy Entropy = 0.297 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  5.12 Mbps | Policy Entropy = 0.288 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  3.55 Mbps | Policy Entropy = 0.271 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  6.19 Mbps | Policy Entropy = 0.259 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  4.61 Mbps | Policy Entropy = 0.271 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  6.37 Mbps | Policy Entropy = 0.319 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  2.45 Mbps | Policy Entropy = 0.315 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  6.59 Mbps | Policy Entropy = 0.287 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  5.82 Mbps | Policy Entropy = 0.183 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  2.51 Mbps | Policy Entropy = 0.297 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  4.09 Mbps | Policy Entropy = 0.235 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  7.06 Mbps | Policy Entropy = 0.245 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  3.56 Mbps | Policy Entropy = 0.243 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  2.31 Mbps | Policy Entropy = 0.308 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  2.41 Mbps | Policy Entropy = 0.300 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  2.30 Mbps | Policy Entropy = 0.305 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  2.55 Mbps | Policy Entropy = 0.319 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  4.14 Mbps | Policy Entropy = 0.306 | entW = 0.001
+    [Deep A2C v17] Finished in   193.2 s | Final CellTp =  4.14 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep 800/800 | CellTp =  4.40 Mbps | Policy Entropy = 0.258 | entW = 0.001
+    [Deep A2C v17] Finished in   193.0 s | Final CellTp =  4.40 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+
+PHASE 2 -- Evaluation on 500 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  3.19 +/- 0.13   | 0.683  |  0.03   | 0.517  | 1.21 / 3.83 Mbps
+  OLLA                 |  3.42 +/- 0.14   | 0.572  |  0.03   | 0.517  | 1.29 / 4.06 Mbps
+  OLLA (tuned target)  |  3.40 +/- 0.13   | 0.588  |  0.03   | 0.514  | 1.26 / 4.02 Mbps
+  Multi-OLLA           |  3.46 +/- 0.14   | 0.561  |  0.03   | 0.514  | 1.34 / 4.11 Mbps
+  Fixed                |  3.50 +/- 0.13   | 0.496  |  0.03   | 0.506  | 1.36 / 4.14 Mbps
+  FixedPU (Oracle)     |  3.47 +/- 0.14   | 0.506  |  0.03   | 0.512  | 1.39 / 4.10 Mbps
+  Context table        |  3.50 +/- 0.13   | 0.496  |  0.03   | 0.506  | 1.36 / 4.14 Mbps
+  Deep A2C v17         |  3.47 +/- 0.14   | 0.506  |  0.03   | 0.512  | 1.39 / 4.10 Mbps
+  Deep A2C v17 (best-on-val) |  3.47 +/- 0.14   | 0.506  |  0.03   | 0.512  | 1.39 / 4.10 Mbps
+  Deep A2C v17 (ensemble) |  3.47 +/- 0.14   | 0.506  |  0.03   | 0.512  | 1.39 / 4.10 Mbps
+  Deep A2C v17 (offset) |  3.41 +/- 0.14   | 0.580  |  0.03   | 0.513  | 1.28 / 4.04 Mbps
+  Bandit (global)      |  3.42 +/- 0.14   | 0.572  |  0.03   | 0.517  | 1.29 / 4.06 Mbps
+  Bandit (delay class) |  3.41 +/- 0.14   | 0.577  |  0.03   | 0.516  | 1.29 / 4.04 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v17 vs. Comparators):
+  vs. Baseline           : Delta = +0.28 Mbps ( +8.8%) | Wilcoxon p = 4.179e-45 (Holm 3.761e-44) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p = 0.001205 (Holm 0.007232) | TOST p = 2.884e-05 [EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = +0.07 Mbps ( +2.1%) | Wilcoxon p = 2.424e-06 (Holm 1.939e-05) | TOST p = 0.02964 [EQUIVALENT]
+  vs. Multi-OLLA         : Delta = +0.01 Mbps ( +0.2%) | Wilcoxon p =  0.8876 (Holm       1) | TOST p = 6.327e-11 [EQUIVALENT]
+  vs. Fixed              : Delta = -0.03 Mbps ( -0.9%) | Wilcoxon p = 0.001731 (Holm 0.007232) | TOST p = 4.53e-09 [EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = +0.00 Mbps ( +0.0%) | Wilcoxon p =       1 (Holm       1) | TOST p =       0 [EQUIVALENT]
+  vs. Context table      : Delta = -0.03 Mbps ( -0.9%) | Wilcoxon p = 0.001731 (Holm 0.007232) | TOST p = 4.53e-09 [EQUIVALENT]
+  vs. Bandit (global)    : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p = 0.001205 (Holm 0.007232) | TOST p = 2.884e-05 [EQUIVALENT]
+  vs. Bandit (delay class) : Delta = +0.06 Mbps ( +1.7%) | Wilcoxon p = 1.437e-05 (Holm 0.0001006) | TOST p = 0.0006954 [EQUIVALENT]
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v17 (ensemble) vs. Comparators):
+  vs. Baseline           : Delta = +0.28 Mbps ( +8.8%) | Wilcoxon p = 4.179e-45 (Holm 3.761e-44) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p = 0.001205 (Holm 0.007232) | TOST p = 2.884e-05 [EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = +0.07 Mbps ( +2.1%) | Wilcoxon p = 2.424e-06 (Holm 1.939e-05) | TOST p = 0.02964 [EQUIVALENT]
+  vs. Multi-OLLA         : Delta = +0.01 Mbps ( +0.2%) | Wilcoxon p =  0.8876 (Holm       1) | TOST p = 6.327e-11 [EQUIVALENT]
+  vs. Fixed              : Delta = -0.03 Mbps ( -0.9%) | Wilcoxon p = 0.001731 (Holm 0.007232) | TOST p = 4.53e-09 [EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = +0.00 Mbps ( +0.0%) | Wilcoxon p =       1 (Holm       1) | TOST p =       0 [EQUIVALENT]
+  vs. Context table      : Delta = -0.03 Mbps ( -0.9%) | Wilcoxon p = 0.001731 (Holm 0.007232) | TOST p = 4.53e-09 [EQUIVALENT]
+  vs. Bandit (global)    : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p = 0.001205 (Holm 0.007232) | TOST p = 2.884e-05 [EQUIVALENT]
+  vs. Bandit (delay class) : Delta = +0.06 Mbps ( +1.7%) | Wilcoxon p = 1.437e-05 (Holm 0.0001006) | TOST p = 0.0006954 [EQUIVALENT]
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v17 (offset) vs. Comparators):
+  vs. Baseline           : Delta = +0.22 Mbps ( +7.0%) | Wilcoxon p = 5.407e-43 (Holm 4.866e-42) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -0.01 Mbps ( -0.3%) | Wilcoxon p = 0.008731 (Holm 0.03492) | TOST p =       0 [EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = +0.02 Mbps ( +0.5%) | Wilcoxon p =  0.1362 (Holm  0.2723) | TOST p = 2.22e-16 [EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -0.05 Mbps ( -1.4%) | Wilcoxon p = 4.321e-07 (Holm 2.592e-06) | TOST p = 4.55e-07 [EQUIVALENT]
+  vs. Fixed              : Delta = -0.09 Mbps ( -2.5%) | Wilcoxon p = 1.232e-12 (Holm 9.859e-12) | TOST p =  0.1522 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.06 Mbps ( -1.6%) | Wilcoxon p = 1.594e-06 (Holm 7.972e-06) | TOST p = 0.0001002 [EQUIVALENT]
+  vs. Context table      : Delta = -0.09 Mbps ( -2.5%) | Wilcoxon p = 1.232e-12 (Holm 9.859e-12) | TOST p =  0.1522 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = -0.01 Mbps ( -0.3%) | Wilcoxon p = 0.008731 (Holm 0.03492) | TOST p =       0 [EQUIVALENT]
+  vs. Bandit (delay class) : Delta = +0.00 Mbps ( +0.0%) | Wilcoxon p =  0.8311 (Holm  0.8311) | TOST p =       0 [EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\results_v17_M3_gp_rtt8.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\results_v17_M3_gp_rtt8.txt
+
+######## M4_gp_rtt0 | 09:44:52 | elapsed 70.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=10 | Traces=500 | Episodes=800 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-11-04 09:44:52
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: -1
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+    -1    -1     0
+     0    -2    -1
+
+  [calib-ctx] OLLA target 0.01 -> 0.3556
+  [calib-ctx] OLLA target 0.03 -> 0.3642
+  [calib-ctx] OLLA target 0.10 -> 0.3550
+  [calib-ctx] OLLA target 0.20 -> 0.3552
+  [calib-ctx] OLLA target 0.30 -> 0.3482
+  [calib-ctx] OLLA target 0.50 -> 0.3173
+  [calib-ctx] tuned OLLA target = 0.03
+  [calib-ctx] context table (cue none, edges []) = -1 | score 0.3665
+  [base-rule] Calib on-time score: Fixed = 0.3643 (offset -1), FixedPU = 0.3659 -> chosen base rule: FixedPU (Oracle)
+
+PHASE 1 -- Autonomous Training (10 seeds)
+Starting parallel pool (parpool) using the 'local' profile ...
+IdleTimeout has been reached.
+Parallel pool using the 'Processes' profile is shutting down.
+Connected to parallel pool with 2 workers.
+  Seed 2/10 (09:47:00)...
+  Seed 1/10 (09:47:00)...
+  Deep A2C v17 ep  25/800 | CellTp =  2.02 Mbps | Policy Entropy = 0.460 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  2.01 Mbps | Policy Entropy = 0.522 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  2.67 Mbps | Policy Entropy = 0.596 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  2.93 Mbps | Policy Entropy = 0.478 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  2.01 Mbps | Policy Entropy = 0.658 | entW = 0.027
+  Deep A2C v17 ep  75/800 | CellTp =  3.13 Mbps | Policy Entropy = 0.525 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.54 Mbps | Policy Entropy = 0.531 | entW = 0.026
+  Deep A2C v17 ep 100/800 | CellTp =  2.10 Mbps | Policy Entropy = 0.761 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  2.95 Mbps | Policy Entropy = 0.550 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  1.39 Mbps | Policy Entropy = 0.835 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  0.64 Mbps | Policy Entropy = 0.473 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  2.03 Mbps | Policy Entropy = 0.855 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.46 Mbps | Policy Entropy = 0.592 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  3.83 Mbps | Policy Entropy = 0.825 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  2.02 Mbps | Policy Entropy = 0.624 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  2.52 Mbps | Policy Entropy = 0.784 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  2.22 Mbps | Policy Entropy = 0.667 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  2.71 Mbps | Policy Entropy = 0.827 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  2.30 Mbps | Policy Entropy = 0.665 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  1.81 Mbps | Policy Entropy = 0.842 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  1.49 Mbps | Policy Entropy = 0.709 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  3.16 Mbps | Policy Entropy = 0.785 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  1.48 Mbps | Policy Entropy = 0.581 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  4.54 Mbps | Policy Entropy = 0.779 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  1.93 Mbps | Policy Entropy = 0.624 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  3.55 Mbps | Policy Entropy = 0.768 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  3.00 Mbps | Policy Entropy = 0.631 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  2.91 Mbps | Policy Entropy = 0.779 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  2.27 Mbps | Policy Entropy = 0.712 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  1.69 Mbps | Policy Entropy = 0.787 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  3.10 Mbps | Policy Entropy = 0.690 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  2.70 Mbps | Policy Entropy = 0.753 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  2.76 Mbps | Policy Entropy = 0.598 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  2.69 Mbps | Policy Entropy = 0.614 | entW = 0.014
+  Deep A2C v17 ep 425/800 | CellTp =  2.41 Mbps | Policy Entropy = 0.782 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  3.45 Mbps | Policy Entropy = 0.800 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  4.09 Mbps | Policy Entropy = 0.788 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  3.20 Mbps | Policy Entropy = 0.676 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  3.29 Mbps | Policy Entropy = 0.710 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  1.14 Mbps | Policy Entropy = 0.726 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  3.61 Mbps | Policy Entropy = 0.797 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  1.77 Mbps | Policy Entropy = 0.689 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  5.15 Mbps | Policy Entropy = 0.696 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  4.72 Mbps | Policy Entropy = 0.728 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  2.94 Mbps | Policy Entropy = 0.688 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  4.30 Mbps | Policy Entropy = 0.766 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  2.54 Mbps | Policy Entropy = 0.644 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  3.37 Mbps | Policy Entropy = 0.721 | entW = 0.007
+  Deep A2C v17 ep 600/800 | CellTp =  1.55 Mbps | Policy Entropy = 0.762 | entW = 0.008
+  Deep A2C v17 ep 650/800 | CellTp =  3.23 Mbps | Policy Entropy = 0.711 | entW = 0.006
+  Deep A2C v17 ep 625/800 | CellTp =  3.86 Mbps | Policy Entropy = 0.715 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  3.16 Mbps | Policy Entropy = 0.760 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  1.49 Mbps | Policy Entropy = 0.645 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  4.89 Mbps | Policy Entropy = 0.745 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  1.84 Mbps | Policy Entropy = 0.653 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  1.77 Mbps | Policy Entropy = 0.776 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  2.13 Mbps | Policy Entropy = 0.642 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  3.11 Mbps | Policy Entropy = 0.773 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  3.01 Mbps | Policy Entropy = 0.613 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  2.26 Mbps | Policy Entropy = 0.778 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  1.46 Mbps | Policy Entropy = 0.613 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  3.35 Mbps | Policy Entropy = 0.765 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  3.95 Mbps | Policy Entropy = 0.675 | entW = 0.001
+    [Deep A2C v17] Finished in   285.9 s | Final CellTp =  3.95 Mbps | best-on-val ep 300
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep 800/800 | CellTp =  1.45 Mbps | Policy Entropy = 0.786 | entW = 0.001
+    [Deep A2C v17] Finished in   286.2 s | Final CellTp =  1.45 Mbps | best-on-val ep 200
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Seed 6/10 (09:53:02)...
+  Seed 4/10 (09:53:04)...
+  Deep A2C v17 ep  25/800 | CellTp =  4.28 Mbps | Policy Entropy = 0.526 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  2.39 Mbps | Policy Entropy = 0.395 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  1.06 Mbps | Policy Entropy = 0.590 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  1.95 Mbps | Policy Entropy = 0.493 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  3.30 Mbps | Policy Entropy = 0.587 | entW = 0.027
+  Deep A2C v17 ep  75/800 | CellTp =  2.74 Mbps | Policy Entropy = 0.524 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  3.62 Mbps | Policy Entropy = 0.622 | entW = 0.026
+  Deep A2C v17 ep 100/800 | CellTp =  2.16 Mbps | Policy Entropy = 0.610 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  1.60 Mbps | Policy Entropy = 0.636 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  2.78 Mbps | Policy Entropy = 0.651 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  7.04 Mbps | Policy Entropy = 0.465 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  3.10 Mbps | Policy Entropy = 0.624 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  2.79 Mbps | Policy Entropy = 0.523 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  2.41 Mbps | Policy Entropy = 0.595 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  4.94 Mbps | Policy Entropy = 0.480 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  1.62 Mbps | Policy Entropy = 0.588 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  1.58 Mbps | Policy Entropy = 0.496 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  2.72 Mbps | Policy Entropy = 0.575 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  6.67 Mbps | Policy Entropy = 0.468 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  4.03 Mbps | Policy Entropy = 0.549 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  2.44 Mbps | Policy Entropy = 0.566 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  3.00 Mbps | Policy Entropy = 0.618 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  2.44 Mbps | Policy Entropy = 0.482 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  2.54 Mbps | Policy Entropy = 0.622 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  2.79 Mbps | Policy Entropy = 0.512 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  1.10 Mbps | Policy Entropy = 0.690 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  2.94 Mbps | Policy Entropy = 0.473 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  2.10 Mbps | Policy Entropy = 0.605 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  3.57 Mbps | Policy Entropy = 0.505 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  3.50 Mbps | Policy Entropy = 0.633 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  2.46 Mbps | Policy Entropy = 0.569 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  2.24 Mbps | Policy Entropy = 0.671 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  1.89 Mbps | Policy Entropy = 0.603 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  4.15 Mbps | Policy Entropy = 0.569 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  1.59 Mbps | Policy Entropy = 0.683 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  4.78 Mbps | Policy Entropy = 0.570 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  1.56 Mbps | Policy Entropy = 0.573 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  3.22 Mbps | Policy Entropy = 0.595 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  1.75 Mbps | Policy Entropy = 0.529 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  3.02 Mbps | Policy Entropy = 0.571 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  2.35 Mbps | Policy Entropy = 0.463 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  1.65 Mbps | Policy Entropy = 0.647 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  2.08 Mbps | Policy Entropy = 0.434 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  4.83 Mbps | Policy Entropy = 0.576 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  2.96 Mbps | Policy Entropy = 0.461 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  2.54 Mbps | Policy Entropy = 0.663 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  2.40 Mbps | Policy Entropy = 0.499 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  3.41 Mbps | Policy Entropy = 0.570 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  1.85 Mbps | Policy Entropy = 0.465 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  3.14 Mbps | Policy Entropy = 0.626 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  3.28 Mbps | Policy Entropy = 0.497 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  1.24 Mbps | Policy Entropy = 0.612 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  4.79 Mbps | Policy Entropy = 0.489 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  2.31 Mbps | Policy Entropy = 0.511 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  2.10 Mbps | Policy Entropy = 0.504 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  2.32 Mbps | Policy Entropy = 0.431 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  2.98 Mbps | Policy Entropy = 0.494 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  3.03 Mbps | Policy Entropy = 0.432 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  3.01 Mbps | Policy Entropy = 0.514 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  4.95 Mbps | Policy Entropy = 0.417 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  4.33 Mbps | Policy Entropy = 0.474 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  2.02 Mbps | Policy Entropy = 0.448 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  2.08 Mbps | Policy Entropy = 0.537 | entW = 0.001
+    [Deep A2C v17] Finished in   182.0 s | Final CellTp =  2.08 Mbps | best-on-val ep 100
+  Deep A2C v17 ep 800/800 | CellTp =  3.63 Mbps | Policy Entropy = 0.413 | entW = 0.001
+    [Deep A2C v17] Finished in   181.9 s | Final CellTp =  3.63 Mbps | best-on-val ep 400
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Seed 5/10 (09:57:14)...
+    [Bandits] global arm +0 | delay-class arms [1 0]
+  Seed 3/10 (09:57:16)...
+  Deep A2C v17 ep  25/800 | CellTp =  1.28 Mbps | Policy Entropy = 0.389 | entW = 0.029
+  Deep A2C v17 ep  25/800 | CellTp =  4.24 Mbps | Policy Entropy = 0.392 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  0.94 Mbps | Policy Entropy = 0.377 | entW = 0.028
+  Deep A2C v17 ep  50/800 | CellTp =  1.46 Mbps | Policy Entropy = 0.375 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  2.96 Mbps | Policy Entropy = 0.365 | entW = 0.027
+  Deep A2C v17 ep  75/800 | CellTp =  2.37 Mbps | Policy Entropy = 0.393 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  2.44 Mbps | Policy Entropy = 0.365 | entW = 0.026
+  Deep A2C v17 ep 100/800 | CellTp =  2.96 Mbps | Policy Entropy = 0.424 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  3.65 Mbps | Policy Entropy = 0.334 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  2.18 Mbps | Policy Entropy = 0.464 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  1.60 Mbps | Policy Entropy = 0.405 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  2.36 Mbps | Policy Entropy = 0.504 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  3.53 Mbps | Policy Entropy = 0.432 | entW = 0.024
+  Deep A2C v17 ep 175/800 | CellTp =  2.58 Mbps | Policy Entropy = 0.489 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  1.20 Mbps | Policy Entropy = 0.519 | entW = 0.023
+  Deep A2C v17 ep 200/800 | CellTp =  5.62 Mbps | Policy Entropy = 0.499 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  2.23 Mbps | Policy Entropy = 0.486 | entW = 0.022
+  Deep A2C v17 ep 225/800 | CellTp =  3.03 Mbps | Policy Entropy = 0.472 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  3.50 Mbps | Policy Entropy = 0.540 | entW = 0.021
+  Deep A2C v17 ep 250/800 | CellTp =  3.12 Mbps | Policy Entropy = 0.417 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  2.98 Mbps | Policy Entropy = 0.542 | entW = 0.020
+  Deep A2C v17 ep 275/800 | CellTp =  3.16 Mbps | Policy Entropy = 0.363 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  1.07 Mbps | Policy Entropy = 0.514 | entW = 0.019
+  Deep A2C v17 ep 300/800 | CellTp =  1.39 Mbps | Policy Entropy = 0.393 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  4.13 Mbps | Policy Entropy = 0.396 | entW = 0.018
+  Deep A2C v17 ep 325/800 | CellTp =  3.18 Mbps | Policy Entropy = 0.403 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  3.02 Mbps | Policy Entropy = 0.444 | entW = 0.017
+  Deep A2C v17 ep 350/800 | CellTp =  4.10 Mbps | Policy Entropy = 0.485 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  3.72 Mbps | Policy Entropy = 0.504 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  2.30 Mbps | Policy Entropy = 0.506 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  3.64 Mbps | Policy Entropy = 0.502 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  1.62 Mbps | Policy Entropy = 0.427 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  2.65 Mbps | Policy Entropy = 0.517 | entW = 0.015
+  Deep A2C v17 ep 425/800 | CellTp =  4.60 Mbps | Policy Entropy = 0.444 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  5.21 Mbps | Policy Entropy = 0.518 | entW = 0.014
+  Deep A2C v17 ep 450/800 | CellTp =  1.62 Mbps | Policy Entropy = 0.394 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  1.62 Mbps | Policy Entropy = 0.491 | entW = 0.013
+  Deep A2C v17 ep 475/800 | CellTp =  0.77 Mbps | Policy Entropy = 0.385 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  3.87 Mbps | Policy Entropy = 0.433 | entW = 0.012
+  Deep A2C v17 ep 500/800 | CellTp =  1.87 Mbps | Policy Entropy = 0.485 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  2.40 Mbps | Policy Entropy = 0.408 | entW = 0.011
+  Deep A2C v17 ep 525/800 | CellTp =  4.02 Mbps | Policy Entropy = 0.411 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  0.65 Mbps | Policy Entropy = 0.397 | entW = 0.010
+  Deep A2C v17 ep 550/800 | CellTp =  4.62 Mbps | Policy Entropy = 0.438 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  1.21 Mbps | Policy Entropy = 0.437 | entW = 0.009
+  Deep A2C v17 ep 575/800 | CellTp =  2.37 Mbps | Policy Entropy = 0.486 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  1.74 Mbps | Policy Entropy = 0.450 | entW = 0.008
+  Deep A2C v17 ep 600/800 | CellTp =  3.16 Mbps | Policy Entropy = 0.507 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  4.11 Mbps | Policy Entropy = 0.414 | entW = 0.007
+  Deep A2C v17 ep 625/800 | CellTp =  1.96 Mbps | Policy Entropy = 0.582 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  4.04 Mbps | Policy Entropy = 0.388 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  1.81 Mbps | Policy Entropy = 0.511 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  1.92 Mbps | Policy Entropy = 0.394 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  4.24 Mbps | Policy Entropy = 0.485 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  4.34 Mbps | Policy Entropy = 0.307 | entW = 0.005
+  Deep A2C v17 ep 700/800 | CellTp =  3.18 Mbps | Policy Entropy = 0.439 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  2.45 Mbps | Policy Entropy = 0.365 | entW = 0.004
+  Deep A2C v17 ep 725/800 | CellTp =  3.66 Mbps | Policy Entropy = 0.422 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  2.47 Mbps | Policy Entropy = 0.351 | entW = 0.003
+  Deep A2C v17 ep 750/800 | CellTp =  2.86 Mbps | Policy Entropy = 0.429 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  2.18 Mbps | Policy Entropy = 0.415 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  2.18 Mbps | Policy Entropy = 0.425 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  7.74 Mbps | Policy Entropy = 0.282 | entW = 0.001
+    [Deep A2C v17] Finished in   155.6 s | Final CellTp =  7.74 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep 800/800 | CellTp =  2.31 Mbps | Policy Entropy = 0.441 | entW = 0.001
+    [Deep A2C v17] Finished in   156.7 s | Final CellTp =  2.31 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Seed 7/10 (10:00:58)...
+  Seed 8/10 (10:01:04)...
+  Deep A2C v17 ep  25/800 | CellTp =  2.88 Mbps | Policy Entropy = 0.485 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  1.58 Mbps | Policy Entropy = 0.569 | entW = 0.028
+  Deep A2C v17 ep  25/800 | CellTp =  1.66 Mbps | Policy Entropy = 0.433 | entW = 0.029
+  Deep A2C v17 ep  50/800 | CellTp =  3.06 Mbps | Policy Entropy = 0.469 | entW = 0.028
+  Deep A2C v17 ep  75/800 | CellTp =  2.54 Mbps | Policy Entropy = 0.564 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  4.41 Mbps | Policy Entropy = 0.525 | entW = 0.026
+  Deep A2C v17 ep  75/800 | CellTp =  2.92 Mbps | Policy Entropy = 0.492 | entW = 0.027
+  Deep A2C v17 ep 100/800 | CellTp =  4.36 Mbps | Policy Entropy = 0.494 | entW = 0.026
+  Deep A2C v17 ep 125/800 | CellTp =  3.89 Mbps | Policy Entropy = 0.535 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  2.23 Mbps | Policy Entropy = 0.560 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  3.10 Mbps | Policy Entropy = 0.526 | entW = 0.025
+  Deep A2C v17 ep 150/800 | CellTp =  3.24 Mbps | Policy Entropy = 0.558 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  5.35 Mbps | Policy Entropy = 0.606 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  2.91 Mbps | Policy Entropy = 0.646 | entW = 0.023
+  Deep A2C v17 ep 175/800 | CellTp =  4.45 Mbps | Policy Entropy = 0.498 | entW = 0.024
+  Deep A2C v17 ep 200/800 | CellTp =  1.61 Mbps | Policy Entropy = 0.502 | entW = 0.023
+  Deep A2C v17 ep 225/800 | CellTp =  5.06 Mbps | Policy Entropy = 0.686 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  3.71 Mbps | Policy Entropy = 0.747 | entW = 0.021
+  Deep A2C v17 ep 225/800 | CellTp =  1.23 Mbps | Policy Entropy = 0.456 | entW = 0.022
+  Deep A2C v17 ep 250/800 | CellTp =  2.05 Mbps | Policy Entropy = 0.517 | entW = 0.021
+  Deep A2C v17 ep 275/800 | CellTp =  3.11 Mbps | Policy Entropy = 0.722 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  1.90 Mbps | Policy Entropy = 0.738 | entW = 0.019
+  Deep A2C v17 ep 275/800 | CellTp =  2.85 Mbps | Policy Entropy = 0.559 | entW = 0.020
+  Deep A2C v17 ep 300/800 | CellTp =  3.60 Mbps | Policy Entropy = 0.560 | entW = 0.019
+  Deep A2C v17 ep 325/800 | CellTp =  2.12 Mbps | Policy Entropy = 0.724 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  3.32 Mbps | Policy Entropy = 0.748 | entW = 0.017
+  Deep A2C v17 ep 325/800 | CellTp =  1.96 Mbps | Policy Entropy = 0.626 | entW = 0.018
+  Deep A2C v17 ep 350/800 | CellTp =  1.97 Mbps | Policy Entropy = 0.610 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  2.22 Mbps | Policy Entropy = 0.773 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  5.42 Mbps | Policy Entropy = 0.765 | entW = 0.016
+  Deep A2C v17 ep 375/800 | CellTp =  3.55 Mbps | Policy Entropy = 0.550 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  1.60 Mbps | Policy Entropy = 0.539 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  3.46 Mbps | Policy Entropy = 0.755 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  2.75 Mbps | Policy Entropy = 0.735 | entW = 0.014
+  Deep A2C v17 ep 425/800 | CellTp =  1.78 Mbps | Policy Entropy = 0.559 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  2.30 Mbps | Policy Entropy = 0.535 | entW = 0.014
+  Deep A2C v17 ep 475/800 | CellTp =  2.88 Mbps | Policy Entropy = 0.747 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  1.27 Mbps | Policy Entropy = 0.702 | entW = 0.012
+  Deep A2C v17 ep 475/800 | CellTp =  2.34 Mbps | Policy Entropy = 0.525 | entW = 0.013
+  Deep A2C v17 ep 500/800 | CellTp =  2.45 Mbps | Policy Entropy = 0.445 | entW = 0.012
+  Deep A2C v17 ep 525/800 | CellTp =  2.60 Mbps | Policy Entropy = 0.731 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  2.94 Mbps | Policy Entropy = 0.742 | entW = 0.010
+  Deep A2C v17 ep 525/800 | CellTp =  2.80 Mbps | Policy Entropy = 0.425 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  1.67 Mbps | Policy Entropy = 0.471 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  2.09 Mbps | Policy Entropy = 0.721 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  3.82 Mbps | Policy Entropy = 0.742 | entW = 0.008
+  Deep A2C v17 ep 575/800 | CellTp =  3.31 Mbps | Policy Entropy = 0.457 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  2.27 Mbps | Policy Entropy = 0.476 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  2.02 Mbps | Policy Entropy = 0.701 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  2.85 Mbps | Policy Entropy = 0.579 | entW = 0.006
+  Deep A2C v17 ep 625/800 | CellTp =  4.03 Mbps | Policy Entropy = 0.433 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  4.52 Mbps | Policy Entropy = 0.474 | entW = 0.006
+  Deep A2C v17 ep 675/800 | CellTp =  2.09 Mbps | Policy Entropy = 0.578 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  2.52 Mbps | Policy Entropy = 0.630 | entW = 0.005
+  Deep A2C v17 ep 675/800 | CellTp =  4.45 Mbps | Policy Entropy = 0.382 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  1.10 Mbps | Policy Entropy = 0.341 | entW = 0.005
+  Deep A2C v17 ep 725/800 | CellTp =  2.79 Mbps | Policy Entropy = 0.658 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  5.36 Mbps | Policy Entropy = 0.574 | entW = 0.003
+  Deep A2C v17 ep 725/800 | CellTp =  2.68 Mbps | Policy Entropy = 0.389 | entW = 0.004
+  Deep A2C v17 ep 750/800 | CellTp =  3.20 Mbps | Policy Entropy = 0.376 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  2.18 Mbps | Policy Entropy = 0.579 | entW = 0.002
+  Deep A2C v17 ep 775/800 | CellTp =  3.46 Mbps | Policy Entropy = 0.337 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  2.20 Mbps | Policy Entropy = 0.586 | entW = 0.001
+    [Deep A2C v17] Finished in   159.9 s | Final CellTp =  2.20 Mbps | best-on-val ep 250
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Seed 9/10 (10:04:48)...
+  Deep A2C v17 ep 800/800 | CellTp =  2.67 Mbps | Policy Entropy = 0.319 | entW = 0.001
+    [Deep A2C v17] Finished in   160.0 s | Final CellTp =  2.67 Mbps | best-on-val ep 50
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep  25/800 | CellTp =  1.33 Mbps | Policy Entropy = 0.518 | entW = 0.029
+  Seed 10/10 (10:04:54)...
+  Deep A2C v17 ep  50/800 | CellTp =  3.48 Mbps | Policy Entropy = 0.616 | entW = 0.028
+  Deep A2C v17 ep  25/800 | CellTp =  1.56 Mbps | Policy Entropy = 0.494 | entW = 0.029
+  Deep A2C v17 ep  75/800 | CellTp =  4.09 Mbps | Policy Entropy = 0.603 | entW = 0.027
+  Deep A2C v17 ep  50/800 | CellTp =  4.01 Mbps | Policy Entropy = 0.532 | entW = 0.028
+  Deep A2C v17 ep 100/800 | CellTp =  2.33 Mbps | Policy Entropy = 0.588 | entW = 0.026
+  Deep A2C v17 ep  75/800 | CellTp =  1.07 Mbps | Policy Entropy = 0.512 | entW = 0.027
+  Deep A2C v17 ep 125/800 | CellTp =  3.29 Mbps | Policy Entropy = 0.576 | entW = 0.025
+  Deep A2C v17 ep 100/800 | CellTp =  1.96 Mbps | Policy Entropy = 0.571 | entW = 0.026
+  Deep A2C v17 ep 150/800 | CellTp =  2.93 Mbps | Policy Entropy = 0.572 | entW = 0.025
+  Deep A2C v17 ep 125/800 | CellTp =  1.20 Mbps | Policy Entropy = 0.631 | entW = 0.025
+  Deep A2C v17 ep 175/800 | CellTp =  1.60 Mbps | Policy Entropy = 0.547 | entW = 0.024
+  Deep A2C v17 ep 150/800 | CellTp =  5.43 Mbps | Policy Entropy = 0.651 | entW = 0.025
+  Deep A2C v17 ep 200/800 | CellTp =  2.42 Mbps | Policy Entropy = 0.518 | entW = 0.023
+  Deep A2C v17 ep 175/800 | CellTp =  1.90 Mbps | Policy Entropy = 0.668 | entW = 0.024
+  Deep A2C v17 ep 225/800 | CellTp =  2.23 Mbps | Policy Entropy = 0.582 | entW = 0.022
+  Deep A2C v17 ep 200/800 | CellTp =  3.52 Mbps | Policy Entropy = 0.742 | entW = 0.023
+  Deep A2C v17 ep 250/800 | CellTp =  2.15 Mbps | Policy Entropy = 0.602 | entW = 0.021
+  Deep A2C v17 ep 225/800 | CellTp =  3.60 Mbps | Policy Entropy = 0.761 | entW = 0.022
+  Deep A2C v17 ep 275/800 | CellTp =  1.67 Mbps | Policy Entropy = 0.671 | entW = 0.020
+  Deep A2C v17 ep 250/800 | CellTp =  5.25 Mbps | Policy Entropy = 0.761 | entW = 0.021
+  Deep A2C v17 ep 300/800 | CellTp =  1.49 Mbps | Policy Entropy = 0.699 | entW = 0.019
+  Deep A2C v17 ep 275/800 | CellTp =  1.05 Mbps | Policy Entropy = 0.829 | entW = 0.020
+  Deep A2C v17 ep 325/800 | CellTp =  2.21 Mbps | Policy Entropy = 0.751 | entW = 0.018
+  Deep A2C v17 ep 300/800 | CellTp =  2.79 Mbps | Policy Entropy = 0.796 | entW = 0.019
+  Deep A2C v17 ep 350/800 | CellTp =  1.92 Mbps | Policy Entropy = 0.664 | entW = 0.017
+  Deep A2C v17 ep 325/800 | CellTp =  4.51 Mbps | Policy Entropy = 0.787 | entW = 0.018
+  Deep A2C v17 ep 375/800 | CellTp =  2.50 Mbps | Policy Entropy = 0.806 | entW = 0.016
+  Deep A2C v17 ep 400/800 | CellTp =  2.90 Mbps | Policy Entropy = 0.843 | entW = 0.016
+  Deep A2C v17 ep 350/800 | CellTp =  3.01 Mbps | Policy Entropy = 0.760 | entW = 0.017
+  Deep A2C v17 ep 375/800 | CellTp =  6.93 Mbps | Policy Entropy = 0.834 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  1.40 Mbps | Policy Entropy = 0.767 | entW = 0.015
+  Deep A2C v17 ep 450/800 | CellTp =  3.44 Mbps | Policy Entropy = 0.825 | entW = 0.014
+  Deep A2C v17 ep 400/800 | CellTp =  2.05 Mbps | Policy Entropy = 0.805 | entW = 0.016
+  Deep A2C v17 ep 425/800 | CellTp =  3.91 Mbps | Policy Entropy = 0.729 | entW = 0.015
+  Deep A2C v17 ep 475/800 | CellTp =  1.81 Mbps | Policy Entropy = 0.827 | entW = 0.013
+  Deep A2C v17 ep 450/800 | CellTp =  4.28 Mbps | Policy Entropy = 0.691 | entW = 0.014
+  Deep A2C v17 ep 500/800 | CellTp =  3.13 Mbps | Policy Entropy = 0.814 | entW = 0.012
+  Deep A2C v17 ep 475/800 | CellTp =  3.35 Mbps | Policy Entropy = 0.692 | entW = 0.013
+  Deep A2C v17 ep 525/800 | CellTp =  2.69 Mbps | Policy Entropy = 0.837 | entW = 0.011
+  Deep A2C v17 ep 500/800 | CellTp =  2.99 Mbps | Policy Entropy = 0.554 | entW = 0.012
+  Deep A2C v17 ep 550/800 | CellTp =  2.96 Mbps | Policy Entropy = 0.809 | entW = 0.010
+  Deep A2C v17 ep 525/800 | CellTp =  3.00 Mbps | Policy Entropy = 0.567 | entW = 0.011
+  Deep A2C v17 ep 550/800 | CellTp =  2.26 Mbps | Policy Entropy = 0.490 | entW = 0.010
+  Deep A2C v17 ep 575/800 | CellTp =  1.92 Mbps | Policy Entropy = 0.876 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  2.20 Mbps | Policy Entropy = 0.901 | entW = 0.008
+  Deep A2C v17 ep 575/800 | CellTp =  3.05 Mbps | Policy Entropy = 0.527 | entW = 0.009
+  Deep A2C v17 ep 600/800 | CellTp =  1.82 Mbps | Policy Entropy = 0.496 | entW = 0.008
+  Deep A2C v17 ep 625/800 | CellTp =  4.83 Mbps | Policy Entropy = 0.705 | entW = 0.007
+  Deep A2C v17 ep 650/800 | CellTp =  1.22 Mbps | Policy Entropy = 0.739 | entW = 0.006
+  Deep A2C v17 ep 625/800 | CellTp =  1.66 Mbps | Policy Entropy = 0.535 | entW = 0.007
+  Deep A2C v17 ep 675/800 | CellTp =  1.99 Mbps | Policy Entropy = 0.745 | entW = 0.006
+  Deep A2C v17 ep 650/800 | CellTp =  1.38 Mbps | Policy Entropy = 0.439 | entW = 0.006
+  Deep A2C v17 ep 700/800 | CellTp =  1.08 Mbps | Policy Entropy = 0.785 | entW = 0.005
+  Deep A2C v17 ep 675/800 | CellTp =  1.18 Mbps | Policy Entropy = 0.484 | entW = 0.006
+  Deep A2C v17 ep 725/800 | CellTp =  1.79 Mbps | Policy Entropy = 0.759 | entW = 0.004
+  Deep A2C v17 ep 700/800 | CellTp =  1.74 Mbps | Policy Entropy = 0.443 | entW = 0.005
+  Deep A2C v17 ep 750/800 | CellTp =  2.95 Mbps | Policy Entropy = 0.766 | entW = 0.003
+  Deep A2C v17 ep 725/800 | CellTp =  1.01 Mbps | Policy Entropy = 0.496 | entW = 0.004
+  Deep A2C v17 ep 775/800 | CellTp =  1.51 Mbps | Policy Entropy = 0.682 | entW = 0.002
+  Deep A2C v17 ep 750/800 | CellTp =  3.70 Mbps | Policy Entropy = 0.515 | entW = 0.003
+  Deep A2C v17 ep 775/800 | CellTp =  5.35 Mbps | Policy Entropy = 0.466 | entW = 0.002
+  Deep A2C v17 ep 800/800 | CellTp =  3.00 Mbps | Policy Entropy = 0.710 | entW = 0.001
+    [Deep A2C v17] Finished in   159.9 s | Final CellTp =  3.00 Mbps | best-on-val ep 700
+    [Bandits] global arm +0 | delay-class arms [0 0]
+  Deep A2C v17 ep 800/800 | CellTp =  2.93 Mbps | Policy Entropy = 0.470 | entW = 0.001
+    [Deep A2C v17] Finished in   159.9 s | Final CellTp =  2.93 Mbps | best-on-val ep 400
+    [Bandits] global arm +0 | delay-class arms [0 0]
+
+PHASE 2 -- Evaluation on 500 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  3.21 +/- 0.13   | 0.683  |  0.03   | 0.513  | 1.21 / 3.86 Mbps
+  OLLA                 |  3.43 +/- 0.14   | 0.571  |  0.03   | 0.510  | 1.25 / 4.07 Mbps
+  OLLA (tuned target)  |  3.47 +/- 0.14   | 0.561  |  0.03   | 0.509  | 1.31 / 4.10 Mbps
+  Multi-OLLA           |  3.46 +/- 0.14   | 0.540  |  0.03   | 0.507  | 1.31 / 4.11 Mbps
+  Fixed                |  3.50 +/- 0.14   | 0.498  |  0.03   | 0.507  | 1.36 / 4.12 Mbps
+  FixedPU (Oracle)     |  3.47 +/- 0.14   | 0.501  |  0.03   | 0.507  | 1.41 / 4.09 Mbps
+  Context table        |  3.50 +/- 0.14   | 0.498  |  0.03   | 0.507  | 1.36 / 4.12 Mbps
+  Deep A2C v17         |  3.44 +/- 0.14   | 0.517  |  0.03   | 0.508  | 1.35 / 4.05 Mbps
+  Deep A2C v17 (best-on-val) |  3.44 +/- 0.13   | 0.514  |  0.03   | 0.509  | 1.36 / 4.05 Mbps
+  Deep A2C v17 (ensemble) |  3.47 +/- 0.14   | 0.501  |  0.03   | 0.507  | 1.41 / 4.09 Mbps
+  Bandit (global)      |  3.43 +/- 0.14   | 0.571  |  0.03   | 0.510  | 1.25 / 4.07 Mbps
+  Bandit (delay class) |  3.42 +/- 0.14   | 0.576  |  0.03   | 0.510  | 1.25 / 4.06 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v17 vs. Comparators):
+  vs. Baseline           : Delta = +0.23 Mbps ( +7.1%) | Wilcoxon p = 1.621e-39 (Holm 1.459e-38) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.01 Mbps ( +0.2%) | Wilcoxon p =  0.9634 (Holm       1) | TOST p = 4.219e-15 [EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = -0.03 Mbps ( -0.9%) | Wilcoxon p = 0.01639 (Holm 0.08195) | TOST p = 3.623e-08 [EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -0.03 Mbps ( -0.8%) | Wilcoxon p =  0.0318 (Holm  0.1272) | TOST p = 1.737e-09 [EQUIVALENT]
+  vs. Fixed              : Delta = -0.06 Mbps ( -1.7%) | Wilcoxon p = 2.457e-09 (Holm 1.72e-08) | TOST p = 9.256e-05 [EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.04 Mbps ( -1.0%) | Wilcoxon p = 6.144e-16 (Holm 4.915e-15) | TOST p =       0 [EQUIVALENT]
+  vs. Context table      : Delta = -0.06 Mbps ( -1.7%) | Wilcoxon p = 2.457e-09 (Holm 1.72e-08) | TOST p = 9.256e-05 [EQUIVALENT]
+  vs. Bandit (global)    : Delta = +0.01 Mbps ( +0.2%) | Wilcoxon p =  0.9634 (Holm       1) | TOST p = 4.219e-15 [EQUIVALENT]
+  vs. Bandit (delay class) : Delta = +0.02 Mbps ( +0.5%) | Wilcoxon p =  0.1975 (Holm  0.5924) | TOST p = 2.676e-13 [EQUIVALENT]
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v17 (ensemble) vs. Comparators):
+  vs. Baseline           : Delta = +0.26 Mbps ( +8.2%) | Wilcoxon p = 1.416e-41 (Holm 1.275e-40) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.04 Mbps ( +1.2%) | Wilcoxon p = 0.003846 (Holm 0.02693) | TOST p = 2.802e-05 [EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = +0.01 Mbps ( +0.2%) | Wilcoxon p =  0.7243 (Holm       1) | TOST p = 1.795e-10 [EQUIVALENT]
+  vs. Multi-OLLA         : Delta = +0.01 Mbps ( +0.3%) | Wilcoxon p =  0.3373 (Holm       1) | TOST p = 4.726e-10 [EQUIVALENT]
+  vs. Fixed              : Delta = -0.02 Mbps ( -0.7%) | Wilcoxon p = 0.03443 (Holm  0.1721) | TOST p = 2.567e-10 [EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = +0.00 Mbps ( +0.0%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =       0 [EQUIVALENT]
+  vs. Context table      : Delta = -0.02 Mbps ( -0.7%) | Wilcoxon p = 0.03443 (Holm  0.1721) | TOST p = 2.567e-10 [EQUIVALENT]
+  vs. Bandit (global)    : Delta = +0.04 Mbps ( +1.2%) | Wilcoxon p = 0.003846 (Holm 0.02693) | TOST p = 2.802e-05 [EQUIVALENT]
+  vs. Bandit (delay class) : Delta = +0.05 Mbps ( +1.6%) | Wilcoxon p = 6.045e-05 (Holm 0.0004836) | TOST p = 0.0004337 [EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\results_v17_M4_gp_rtt0.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v17\Dataset\results_v17_M4_gp_rtt0.txt
+
+=== ALL CASES FINISHED SUCCESSFULLY ===
+IdleTimeout has been reached.
+Parallel pool using the 'Processes' profile is shutting down.

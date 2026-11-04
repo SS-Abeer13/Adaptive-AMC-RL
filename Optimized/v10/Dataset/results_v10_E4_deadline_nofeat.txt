@@ -1,0 +1,33 @@
+========================================================================
+RL-AMC v8 EVALUATION REPORT [E4_DEADLINE_NOFEAT]
+N=10 | BW=20 MHz | RB=100 | NoiseFloor=-92.0 dBm | Hetero=1.00 | Burst=+9 dB
+HARQ=1 | StateTier=O | Actions=[-4 -3 -2 -1 0 1 2] | Zero-BC (bc_warm_eps=0)
+Seeds=5 | Traces=100 | SimTime=200 | Saved: 2026-10-20 20:33:36
+========================================================================
+
+---- SCHEDULER: PF ----
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  8.94 +/- 0.27   | 0.352  |  0.44   | 0.896  | 6.41 / 9.72 Mbps
+  OLLA                 |  8.99 +/- 0.25   | 0.278  |  0.48   | 0.904  | 6.55 / 9.72 Mbps
+  OLLA (tuned target)  |  8.98 +/- 0.25   | 0.269  |  0.48   | 0.905  | 6.55 / 9.69 Mbps
+  Multi-OLLA           |  8.96 +/- 0.25   | 0.260  |  0.48   | 0.903  | 6.51 / 9.66 Mbps
+  Fixed                |  8.60 +/- 0.21   | 0.205  |  0.50   | 0.927  | 6.31 / 9.34 Mbps
+  FixedPU (Oracle)     |  8.49 +/- 0.21   | 0.196  |  0.49   | 0.925  | 6.29 / 9.19 Mbps
+  Context table        |  7.88 +/- 0.17   | 0.131  |  0.50   | 0.953  | 6.09 / 8.46 Mbps
+  Deep A2C v10         |  8.38 +/- 0.21   | 0.235  |  0.51   | 0.934  | 6.10 / 9.09 Mbps
+  Bandit (global)      |  8.65 +/- 0.31   | 0.473  |  0.41   | 0.881  | 5.40 / 9.49 Mbps
+  Bandit (delay class) |  8.67 +/- 0.31   | 0.464  |  0.41   | 0.881  | 5.49 / 9.51 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (A2C vs. Comparators):
+  vs. Baseline           : Delta = -0.56 Mbps ( -6.3%) | Wilcoxon p = 1.901e-14 (Holm 7.604e-14) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -0.61 Mbps ( -6.7%) | Wilcoxon p = 8.778e-18 (Holm 7.022e-17) | TOST p =       1 [NON-EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = -0.60 Mbps ( -6.7%) | Wilcoxon p = 1.082e-17 (Holm 7.574e-17) | TOST p =       1 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -0.58 Mbps ( -6.5%) | Wilcoxon p = 6.702e-18 (Holm 6.032e-17) | TOST p =       1 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -0.23 Mbps ( -2.6%) | Wilcoxon p = 7.601e-15 (Holm 3.801e-14) | TOST p =       1 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.11 Mbps ( -1.3%) | Wilcoxon p = 5.75e-05 (Holm 0.0001651) | TOST p =  0.6098 [NON-EQUIVALENT]
+  vs. Context table      : Delta = +0.50 Mbps ( +6.3%) | Wilcoxon p = 5.051e-15 (Holm 3.031e-14) | TOST p =       1 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = -0.27 Mbps ( -3.1%) | Wilcoxon p = 0.0002045 (Holm 0.0002045) | TOST p =  0.9889 [NON-EQUIVALENT]
+  vs. Bandit (delay class) : Delta = -0.29 Mbps ( -3.3%) | Wilcoxon p = 5.503e-05 (Holm 0.0001651) | TOST p =  0.9963 [NON-EQUIVALENT]
+

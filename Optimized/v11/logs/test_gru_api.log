@@ -1,0 +1,19 @@
+    Layer        Parameter             Value     
+    _____    __________________    ______________
+
+    "gru"    "InputWeights"        {24x5 dlarray}
+    "gru"    "RecurrentWeights"    {24x8 dlarray}
+    "gru"    "Bias"                {24x1 dlarray}
+    "fc"     "Weights"             { 3x8 dlarray}
+    "fc"     "Bias"                { 3x1 dlarray}
+
+     3     2     1
+
+    Layer      Parameter          Value    
+    _____    _____________    _____________
+
+    "gru"    "HiddenState"    {8x2 dlarray}
+
+     3     2     1
+
+state changed: 1

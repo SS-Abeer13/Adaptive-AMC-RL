@@ -1,0 +1,8 @@
+  Deep GRU v11 ep  15/15 | CellTp =  2.01 Mbps | Policy Entropy = 2.277 | entW = 0.010
+GRU R2-style train OK, lc(end)=2.009 ent(end)=2.277
+GRU R2-style eval OK, sum tp=794.0880
+{Index exceeds the number of array elements. Index must not exceed 1.
+
+Error in evalPolicy_v11 (line 179)
+        if isCtx, ctxOff = env.ctx_tab(ctxBin_v11(env, X)); end
+} 

@@ -1,0 +1,54 @@
+=== v10 vs v11 equivalence test (P0.1) ===
+-- calibrating v10 comparators --
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 6 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0     0     0
+     0     0    -1
+
+  [calib-ctx] OLLA target 0.01 -> 0.2858
+  [calib-ctx] OLLA target 0.03 -> 0.2847
+  [calib-ctx] OLLA target 0.10 -> 0.2856
+  [calib-ctx] OLLA target 0.20 -> 0.2961
+  [calib-ctx] OLLA target 0.30 -> 0.3017
+  [calib-ctx] OLLA target 0.50 -> 0.3017
+  [calib-ctx] tuned OLLA target = 0.30
+  [calib-ctx] context table (cue none, edges []) = 0 | score 0.2856
+-- calibrating v11 comparators --
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 6 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0     0     0
+     0     0    -1
+
+  [calib-ctx] OLLA target 0.01 -> 0.2858
+  [calib-ctx] OLLA target 0.03 -> 0.2847
+  [calib-ctx] OLLA target 0.10 -> 0.2856
+  [calib-ctx] OLLA target 0.20 -> 0.2961
+  [calib-ctx] OLLA target 0.30 -> 0.3017
+  [calib-ctx] OLLA target 0.50 -> 0.3017
+  [calib-ctx] tuned OLLA target = 0.30
+  [calib-ctx] context table (cue none, edges []) = 0 | score 0.2856
+  calibrated env fields: IDENTICAL
+  [trace 1] baseline     PASS
+  [trace 1] olla         PASS
+  [trace 1] fixed        PASS
+  [trace 1] multi_olla   PASS
+  [trace 1] ctxtab       PASS
+  [trace 2] baseline     PASS
+  [trace 2] olla         PASS
+  [trace 2] fixed        PASS
+  [trace 2] multi_olla   PASS
+  [trace 2] ctxtab       PASS
+  [trace 3] baseline     PASS
+  [trace 3] olla         PASS
+  [trace 3] fixed        PASS
+  [trace 3] multi_olla   PASS
+  [trace 3] ctxtab       PASS
+
+-- Deep A2C training (5 episodes, same seed) --
+  Deep A2C v10 ep   5/5 | CellTp =  3.21 Mbps | Policy Entropy = 2.364 | entW = 0.005
+  Deep A2C v11 ep   5/5 | CellTp =  3.21 Mbps | Policy Entropy = 2.364 | entW = 0.005
+  DeepA2C_Shared     PASS  (v10 15.30s, v11 3.41s, speedup 4.48x)
+
+=== EQUIVALENCE TEST: ALL PASS -- v11 reproduces v10 bit-for-bit ===

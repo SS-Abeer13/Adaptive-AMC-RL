@@ -1,0 +1,8 @@
+# v14 Grid Feasibility Check (Calibration Traces 60000+) - 2026-10-26 17:06:21
+
+FEAS|cell=Y0_base|pkt_bits=12000|deadline=10|olla=0.8156|fixed=0.8278|hindsight=0.8459|genie=0.9319|subst=none|status=FEASIBLE
+FEAS|cell=Y0_noshape|pkt_bits=12000|deadline=10|olla=0.8156|fixed=0.8278|hindsight=0.8459|genie=0.9319|subst=none|status=FEASIBLE
+FEAS|cell=Y1_lo_tight|pkt_bits=8000|deadline=6|olla=0.8765|fixed=0.8932|hindsight=0.9132|genie=0.9586|subst=none|status=FEASIBLE
+FEAS|cell=Y2_lo_loose|pkt_bits=8000|deadline=14|olla=0.9334|fixed=0.9334|hindsight=0.9458|genie=0.9728|subst=none|status=FEASIBLE
+FEAS|cell=Y3_hi_tight|pkt_bits=16000|deadline=6|olla=0.6411|fixed=0.6541|hindsight=0.6769|genie=0.8535|subst=none|status=FEASIBLE
+FEAS|cell=Y4_hi_loose|pkt_bits=16000|deadline=14|olla=0.6836|fixed=0.7161|hindsight=0.7343|genie=0.9059|subst=none|status=FEASIBLE

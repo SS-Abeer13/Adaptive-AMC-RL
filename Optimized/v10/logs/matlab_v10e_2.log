@@ -1,0 +1,38 @@
+
+######## E5_mixed | 23:45:32 | elapsed 0.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=5 | Traces=300 | Episodes=800 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-20 23:45:33
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: -2
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+    -1     0    -2
+    -2    -2     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.8166
+  [calib-ctx] OLLA target 0.03 -> 0.8177
+  [calib-ctx] OLLA target 0.10 -> 0.8035
+  [calib-ctx] OLLA target 0.20 -> 0.8106
+  [calib-ctx] OLLA target 0.30 -> 0.7970
+  [calib-ctx] OLLA target 0.50 -> 0.7743
+  [calib-ctx] tuned OLLA target = 0.03
+  [calib-ctx] context table (cue dslack, edges [2 5]) = [-1 -2 0 1 0 -3] | score 0.8517
+
+PHASE 1 -- Autonomous Training (5 seeds)
+  Seed 1/5 (23:46:20)...
+  Deep A2C v10 ep  25/800 | CellTp =  8.92 Mbps | Policy Entropy = 1.866 | entW = 0.029
+  Deep A2C v10 ep  50/800 | CellTp =  8.84 Mbps | Policy Entropy = 1.853 | entW = 0.028
+  Deep A2C v10 ep  75/800 | CellTp =  8.30 Mbps | Policy Entropy = 1.821 | entW = 0.027
+  Deep A2C v10 ep 100/800 | CellTp =  9.25 Mbps | Policy Entropy = 1.857 | entW = 0.026
+  Deep A2C v10 ep 125/800 | CellTp =  9.20 Mbps | Policy Entropy = 1.867 | entW = 0.025
+  Deep A2C v10 ep 150/800 | CellTp =  7.91 Mbps | Policy Entropy = 1.876 | entW = 0.025
+  Deep A2C v10 ep 175/800 | CellTp =  7.23 Mbps | Policy Entropy = 1.868 | entW = 0.024
+  Deep A2C v10 ep 200/800 | CellTp =  9.56 Mbps | Policy Entropy = 1.866 | entW = 0.023
+  Deep A2C v10 ep 225/800 | CellTp =  8.63 Mbps | Policy Entropy = 1.814 | entW = 0.022
+  Deep A2C v10 ep 250/800 | CellTp =  9.72 Mbps | Policy Entropy = 1.787 | entW = 0.021
+  Deep A2C v10 ep 275/800 | CellTp =  9.79 Mbps | Policy Entropy = 1.763 | entW = 0.020

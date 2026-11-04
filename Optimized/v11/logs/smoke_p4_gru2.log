@@ -1,0 +1,3 @@
+  Deep GRU v11 ep  15/15 | CellTp =  4.30 Mbps | Policy Entropy = 2.325 | entW = 0.010
+GRU train OK, lc(end)=4.297
+GRU eval OK, sum tp=888.5840, unique act=[2 4 6 7 8 9]

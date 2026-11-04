@@ -1,0 +1,9 @@
+# Stage 0 Headroom Check (PLAN_v13.md) - Generated 2026-10-23 13:29:11
+# Gate: genie - Fixed >= +2.0% AND hindsight - Fixed >= +0.5%
+
+HEAD|R1_pf|fixed=0.8461|fixedpu=0.8450|hindsight=0.8654|genie=0.9571|genie_bler=0.1000|a2c_v12=0.8421
+GATE|R1_pf|rel_genie=+13.11%|rel_hindsight=+2.28%|gate_pass=1
+
+HEAD|R2_edf|fixed=0.8693|fixedpu=0.8709|hindsight=0.8848|genie=0.9609|genie_bler=0.1000|a2c_v12=0.8717
+GATE|R2_edf|rel_genie=+10.54%|rel_hindsight=+1.79%|gate_pass=1
+

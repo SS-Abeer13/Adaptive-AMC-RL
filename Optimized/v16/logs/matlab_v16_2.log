@@ -1,0 +1,37 @@
+SKIP K1_dl_rtt8 (done)
+SKIP K3_gp_rtt8 (done)
+SKIP K2_dl_rtt0 (done)
+SKIP K4_gp_rtt0 (done)
+SKIP L1_dl_rtt8_long (done)
+
+######## L3_gp_rtt8_long | 22:04:54 | elapsed 0.0 min ########
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=5 | Traces=300 | Episodes=3000 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-11-02 22:04:57
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 20 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0    -1     0
+     1    -2     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.4322
+  [calib-ctx] OLLA target 0.03 -> 0.4345
+  [calib-ctx] OLLA target 0.10 -> 0.4429
+  [calib-ctx] OLLA target 0.20 -> 0.4466
+  [calib-ctx] OLLA target 0.30 -> 0.4298
+  [calib-ctx] OLLA target 0.50 -> 0.4121
+  [calib-ctx] tuned OLLA target = 0.20
+  [calib-ctx] context table (cue none, edges []) = 0 | score 0.4429
+  [base-rule] Calib on-time score: Fixed = 0.4278 (offset +0), FixedPU = 0.4251 -> chosen base rule: Fixed
+
+PHASE 1 -- Autonomous Training (5 seeds)
+  Seed 1/5 (22:05:39)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v16\Dataset\ckpt\L3_gp_rtt8_long_seed1.mat
+  Seed 2/5 (22:05:51)...
+    [ckpt] loaded D:\Adaptive AMC A2C+QL\Optimized\v16\Dataset\ckpt\L3_gp_rtt8_long_seed2.mat
+  Seed 3/5 (22:05:52)...

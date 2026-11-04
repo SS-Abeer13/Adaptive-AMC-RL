@@ -1,0 +1,3 @@
+  Deep A2C v11 ep  10/10 | CellTp =  2.46 Mbps | Policy Entropy = 1.771 | entW = 0.005
+target-mode training OK, 19.35s, lc(end)=2.460 ent(end)=1.771
+eval OK, sum tp=866.4560, unique act=[1 2 3 5 6]

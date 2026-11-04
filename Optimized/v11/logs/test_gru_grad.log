@@ -1,0 +1,4 @@
+ function [loss,grad] = lossfn(net, X, h0)
+ |
+{Error: Function definition are not supported in this context. Functions can only be created as local or nested functions in code files.
+} 

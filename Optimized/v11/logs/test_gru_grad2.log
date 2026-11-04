@@ -1,0 +1,6 @@
+loss=14.1246, grad rows=5
+  gru.InputWeights grad norm=24.0287
+  gru.RecurrentWeights grad norm=5.8470
+  gru.Bias grad norm=12.0840
+  fc.Weights grad norm=19.3694
+  fc.Bias grad norm=11.0072

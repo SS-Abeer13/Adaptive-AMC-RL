@@ -1,0 +1,2 @@
+bandit target-armed OK, arm=[0.2 0.5], lc(end)=4.029
+bandit offset-armed (default) OK, arm=[4 3], lc(end)=0.835

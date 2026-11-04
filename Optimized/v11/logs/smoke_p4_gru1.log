@@ -1,0 +1,2 @@
+  Deep GRU v11 ep   5/5 | CellTp =  5.22 Mbps | Policy Entropy = 2.367 | entW = 0.010
+GRU smoke OK, 19.67s, lc=[1.838 1.99 2.303 2.327 5.22] ent=[2.369 2.368 2.37 2.373 2.367]

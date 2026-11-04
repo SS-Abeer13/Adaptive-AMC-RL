@@ -1,0 +1,4 @@
+MATLAB exited before the campaign finished - restart 2 at 11:43:10.35 
+MATLAB exited before the campaign finished - restart 3 at 11:53:14.65 
+MATLAB exited before the campaign finished - restart 2 at 13:03:43.24 
+MATLAB exited before the campaign finished - restart 3 at 13:17:43.36 

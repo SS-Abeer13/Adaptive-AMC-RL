@@ -1,0 +1,77 @@
+========================================================================
+  RL-AMC v8 Master Comparison Campaign
+  N=10 | Hetero=1.00 | Burst=+9 dB | HARQ=1 | Tier=O
+  Seeds=1 | Traces=2 | Episodes=6 | SimTime=200 | Actions=[-4 -3 -2 -1 0 1 2]
+  Zero Behavior Cloning: bc_warm_eps = 0 (Strictly Autonomous)
+  Started: 2026-10-22 11:25:32
+========================================================================
+
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 2 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0     0     0
+     0     0     0
+
+  [calib-ctx] OLLA target 0.01 -> 0.3010
+  [calib-ctx] OLLA target 0.03 -> 0.2899
+  [calib-ctx] OLLA target 0.10 -> 0.2908
+  [calib-ctx] OLLA target 0.20 -> 0.2787
+  [calib-ctx] OLLA target 0.30 -> 0.2877
+  [calib-ctx] OLLA target 0.50 -> 0.3091
+  [calib-ctx] tuned OLLA target = 0.50
+  [calib-ctx] context table (cue dev, edges [-3 3]) = [-3 0 0] | score 0.2952
+
+PHASE 1 -- Autonomous Training (1 seeds)
+  Seed 1/1 (11:25:48)...
+  Deep A2C v11 ep   6/6 | CellTp =  3.21 Mbps | Policy Entropy = 1.935 | entW = 0.001
+    [Deep A2C v11] Finished in    44.2 s | Final CellTp =  3.21 Mbps | best-on-val ep 6
+    [Bandits] global arm +0 | delay-class arms [1 0]
+  Deep GRU v11 ep   6/6 | CellTp =  1.90 Mbps | Policy Entropy = 1.903 | entW = 0.010
+    [Deep GRU v11] Finished in    17.0 s | Final CellTp =  1.90 Mbps
+
+PHASE 2 -- Evaluation on 2 Held-Out Traces
+
+--- Evaluating Scheduler: PF ---
+
+========================================================================================
+  Scheme               | Cell Tp (Mbps)   | BLER1    | Edge Tp  | Jain     | Burst / Calm
+----------------------------------------------------------------------------------------
+  Baseline             |  3.58 +/- 0.16   | 0.642  |  0.01   | 0.420  | 3.08 / 3.87 Mbps
+  OLLA                 |  3.52 +/- 0.06   | 0.610  |  0.02   | 0.406  | 2.71 / 3.91 Mbps
+  OLLA (tuned target)  |  3.61 +/- 0.01   | 0.698  |  0.03   | 0.423  | 2.74 / 4.05 Mbps
+  Multi-OLLA           |  3.55 +/- 0.12   | 0.615  |  0.02   | 0.407  | 2.36 / 4.18 Mbps
+  Fixed                |  3.52 +/- 0.06   | 0.610  |  0.02   | 0.406  | 2.71 / 3.91 Mbps
+  FixedPU (Oracle)     |  3.52 +/- 0.06   | 0.610  |  0.02   | 0.406  | 2.71 / 3.91 Mbps
+  Context table        |  3.60 +/- 0.10   | 0.630  |  0.03   | 0.410  | 2.51 / 4.13 Mbps
+  Deep A2C v11         |  2.83 +/- 0.51   | 0.646  |  0.05   | 0.478  | 1.88 / 3.44 Mbps
+  Deep A2C v11 (best-on-val) |  2.83 +/- 0.51   | 0.646  |  0.05   | 0.478  | 1.88 / 3.44 Mbps
+  Deep GRU v11         |  3.65 +/- 0.01   | 0.633  |  0.04   | 0.409  | 2.58 / 4.18 Mbps
+  Bandit (global)      |  3.52 +/- 0.06   | 0.610  |  0.02   | 0.406  | 2.71 / 3.91 Mbps
+  Bandit (delay class) |  3.69 +/- 0.28   | 0.618  |  0.03   | 0.408  | 2.64 / 4.29 Mbps
+========================================================================================
+
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep A2C v11 vs. Comparators):
+  vs. Baseline           : Delta = -0.74 Mbps (-20.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9146 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = -0.68 Mbps (-19.4%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8526 [NON-EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = -0.78 Mbps (-21.5%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8863 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = -0.72 Mbps (-20.2%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9011 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = -0.68 Mbps (-19.4%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8526 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = -0.68 Mbps (-19.4%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8526 [NON-EQUIVALENT]
+  vs. Context table      : Delta = -0.77 Mbps (-21.3%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8622 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = -0.68 Mbps (-19.4%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.8526 [NON-EQUIVALENT]
+  vs. Bandit (delay class) : Delta = -0.86 Mbps (-23.2%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.9509 [NON-EQUIVALENT]
+STATISTICAL SIGNIFICANCE & TOST EQUIVALENCE TESTING (Deep GRU v11 vs. Comparators):
+  vs. Baseline           : Delta = +0.07 Mbps ( +2.1%) | Wilcoxon p =       1 (Holm       1) | TOST p =  0.4084 [NON-EQUIVALENT]
+  vs. OLLA               : Delta = +0.13 Mbps ( +3.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.7706 [NON-EQUIVALENT]
+  vs. OLLA (tuned target) : Delta = +0.04 Mbps ( +1.1%) | Wilcoxon p =     0.5 (Holm       1) | TOST p = 0.06278 [NON-EQUIVALENT]
+  vs. Multi-OLLA         : Delta = +0.10 Mbps ( +2.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.4808 [NON-EQUIVALENT]
+  vs. Fixed              : Delta = +0.13 Mbps ( +3.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.7706 [NON-EQUIVALENT]
+  vs. FixedPU (Oracle)   : Delta = +0.13 Mbps ( +3.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.7706 [NON-EQUIVALENT]
+  vs. Context table      : Delta = +0.05 Mbps ( +1.3%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.2194 [NON-EQUIVALENT]
+  vs. Bandit (global)    : Delta = +0.13 Mbps ( +3.7%) | Wilcoxon p =     0.5 (Holm       1) | TOST p =  0.7706 [NON-EQUIVALENT]
+  vs. Bandit (delay class) : Delta = -0.04 Mbps ( -1.2%) | Wilcoxon p =       1 (Holm       1) | TOST p =  0.3827 [NON-EQUIVALENT]
+
+Results successfully saved to:
+  MAT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoke_opp.mat
+  TXT: D:\Adaptive AMC A2C+QL\Optimized\v11\Dataset\results_v11_smoke_opp.txt
+schemes(12)=Baseline | OLLA | OLLA (tuned target) | Multi-OLLA | Fixed | FixedPU (Oracle) | Context table | Deep A2C v11 | Deep A2C v11 (best-on-val) | Deep GRU v11 | Bandit (global) | Bandit (delay class)

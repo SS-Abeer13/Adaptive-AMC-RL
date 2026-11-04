@@ -1,0 +1,19 @@
+traffic,case_rtt8,case_rtt0,comparator,pct_rtt8,pct_rtt0,swing_pp
+deadline,M1_dl_rtt8,M2_dl_rtt0,Baseline,16.62,4.73,11.89
+deadline,M1_dl_rtt8,M2_dl_rtt0,OLLA,11.96,2.50,9.46
+deadline,M1_dl_rtt8,M2_dl_rtt0,OLLA (tuned target),11.96,2.50,9.46
+deadline,M1_dl_rtt8,M2_dl_rtt0,Multi-OLLA,12.16,2.30,9.86
+deadline,M1_dl_rtt8,M2_dl_rtt0,Fixed,1.87,0.93,0.94
+deadline,M1_dl_rtt8,M2_dl_rtt0,FixedPU (Oracle),2.70,1.00,1.70
+deadline,M1_dl_rtt8,M2_dl_rtt0,Context table,1.58,0.43,1.15
+deadline,M1_dl_rtt8,M2_dl_rtt0,Bandit (global),46.55,12.57,33.98
+deadline,M1_dl_rtt8,M2_dl_rtt0,Bandit (delay class),46.55,12.57,33.98
+goodput,M3_gp_rtt8,M4_gp_rtt0,Baseline,8.81,7.07,1.74
+goodput,M3_gp_rtt8,M4_gp_rtt0,OLLA,1.32,0.15,1.17
+goodput,M3_gp_rtt8,M4_gp_rtt0,OLLA (tuned target),2.14,-0.90,3.04
+goodput,M3_gp_rtt8,M4_gp_rtt0,Multi-OLLA,0.20,-0.77,0.97
+goodput,M3_gp_rtt8,M4_gp_rtt0,Fixed,-0.88,-1.73,0.85
+goodput,M3_gp_rtt8,M4_gp_rtt0,FixedPU (Oracle),0.00,-1.04,1.04
+goodput,M3_gp_rtt8,M4_gp_rtt0,Context table,-0.88,-1.73,0.85
+goodput,M3_gp_rtt8,M4_gp_rtt0,Bandit (global),1.32,0.15,1.17
+goodput,M3_gp_rtt8,M4_gp_rtt0,Bandit (delay class),1.70,0.51,1.19

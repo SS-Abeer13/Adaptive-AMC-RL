@@ -1,0 +1,8 @@
+  [calib] fixed-offset candidate grid: [-5 -4 -3 -2 -1 0 1 2 3] across 6 calibration traces...
+  [calib] Best global fixed offset: +0
+  [calib] FixedPU 2x3 class table (rows: delay<=4, >=5 | cols: <10, 10-20, >20 m/s):
+     0     0     0
+     0     0    -1
+
+rand ptype OK, sum tp=560.0080
+fixed_online ptype OK, sum tp=958.3440

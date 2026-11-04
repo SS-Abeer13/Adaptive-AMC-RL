@@ -1,0 +1,7 @@
+case,primary_metric,n_traces,fixed,genie,hindsight
+K1_dl_rtt8,ontime,500,0.5859,0.8311,0.6100
+K2_dl_rtt0,ontime,500,0.8337,0.9466,0.8532
+K3_gp_rtt8,goodput,500,4.0727,5.8646,4.2990
+K4_gp_rtt0,goodput,500,2.7249,3.5623,2.7569
+L1_dl_rtt8_long,ontime,300,0.5964,0.8364,0.6158
+L3_gp_rtt8_long,goodput,300,3.9575,5.7682,4.2040

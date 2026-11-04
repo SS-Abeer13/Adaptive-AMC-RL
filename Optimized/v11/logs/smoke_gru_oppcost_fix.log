@@ -1,0 +1,5 @@
+  Deep GRU v11 ep  10/10 | CellTp =  2.04 Mbps | Policy Entropy = 2.367 | entW = 0.010
+GRU oppcost smoke OK, lc(end)=2.038 ent(end)=2.367
+  Deep GRU v11 ep  10/10 | CellTp =  2.02 Mbps | Policy Entropy = 2.356 | entW = 0.010
+GRU goodput smoke OK, lc(end)=2.023 ent(end)=2.356
+lc differ: 1 (should be 1, different reward -> different training)

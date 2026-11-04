@@ -1,0 +1,91 @@
+version,tag,role,rl_scheme,primary_metric,rl_value,best_rule,margin_vs_best_rule_pct,claimA,claimB,win,holm_vs_best,n_seeds,n_traces,status
+v10,E2_stale,ablation,A2C,goodput,1.6538,Baseline,-43.12,,,0,3.51e-17,5,100,valid
+v10,E3_cellcue,ablation,A2C,goodput,1.5101,Baseline,-48.57,,,0,3.51e-17,5,100,valid
+v10,E4_deadline,ablation,A2C,ontime,0.8504,Fixed,0.21,,,0,0.248,5,100,valid
+v10,E1_train,ablation,A2C,goodput,1.3800,Baseline,-54.83,,,0,3.51e-17,5,100,valid
+v10,E2_stale_nofeat,ablation,A2C,goodput,1.6434,Baseline,-43.47,,,0,3.51e-17,5,100,valid
+v10,E3_cellcue_nofeat,ablation,A2C,goodput,1.6095,Baseline,-45.18,,,0,3.51e-17,5,100,valid
+v10,E4_deadline_nofeat,ablation,A2C,ontime,0.8474,Fixed,-0.15,,,0,0.79,5,100,valid
+v10,E1_train_b,ablation,A2C,goodput,2.9191,Baseline,-4.46,,,0,4.95e-08,5,100,valid
+v10,E2_stale_b,ablation,A2C,goodput,2.7493,Baseline,-5.44,,,0,1.13e-09,5,100,valid
+v10,E3_cellcue_b,ablation,A2C,goodput,2.7643,Baseline,-5.85,,,0,4.03e-11,5,100,valid
+v10,E2_stale_nofeat_b,ablation,A2C,goodput,2.7428,Baseline,-5.66,,,0,1.41e-09,5,100,valid
+v10,E3_cellcue_nofeat_b,ablation,A2C,goodput,2.7880,Baseline,-5.04,,,0,8.97e-09,5,100,valid
+v10,E5_mixed,ablation,A2C,ontime,0.8013,Context table,-0.27,,,0,0.526,5,300,valid
+v10,E4c_deadline,primary,A2C,ontime,0.8514,Fixed,0.35,,,1,0.00536,5,300,valid
+v10,E5_mixed_nofeat,ablation,A2C,ontime,0.8107,Context table,0.90,,,1,0.00114,5,300,valid
+v11,T1_gp,primary,A2C,goodput,2.9040,Baseline,-2.79,,,0,7.46e-16,5,300,valid
+v11,T2_stale,ablation,A2C,goodput,2.7068,Baseline,-5.28,,,0,3.89e-26,5,300,valid
+v11,T4_deadline,ablation,A2C,ontime,0.8298,Fixed,-2.19,,,0,6.83e-17,5,300,valid
+v11,T1_gp_ppo,primary,Deep A2C v11,goodput,2.9040,Baseline,-2.79,,,0,7.46e-16,5,300,valid
+v11,T1_gp_ppo,primary,Deep PPO v11,goodput,2.9191,Baseline,-2.29,,,0,5.07e-13,5,300,valid
+v11,T2_stale_ppo,ablation,Deep A2C v11,goodput,2.7068,Baseline,-5.28,,,0,3.89e-26,5,300,valid
+v11,T2_stale_ppo,ablation,Deep PPO v11,goodput,2.6838,Baseline,-6.09,,,0,6.7e-29,5,300,valid
+v11,T4_deadline_ppo,ablation,Deep A2C v11,ontime,0.8298,Fixed,-2.19,,,0,6.83e-17,5,300,valid
+v11,T4_deadline_ppo,ablation,Deep PPO v11,ontime,0.8005,Fixed,-5.65,,,0,3.27e-37,5,300,valid
+v11,R2_stale,ablation,Deep A2C v11,goodput,1.4870,Baseline,-47.97,,,0,5.48e-50,5,300,valid
+v11,R2_stale,ablation,Deep GRU v11,goodput,2.7236,Baseline,-4.69,,,0,2.87e-20,5,300,valid
+v11,R3_cellcue,ablation,Deep A2C v11,goodput,1.4918,Baseline,-48.99,,,0,5.48e-50,5,300,valid
+v11,R3_cellcue,ablation,Deep GRU v11,goodput,2.7552,Baseline,-5.79,,,0,1.59e-33,5,300,valid
+v11,R2_stale_opp,ablation,Deep A2C v11,goodput,2.6595,Baseline,-6.94,,,0,7.54e-33,5,300,valid
+v11,R2_stale_opp,ablation,Deep GRU v11,goodput,2.5102,Baseline,-12.16,,,0,8.26e-47,5,300,valid
+v11,R3_cellcue_opp,ablation,Deep A2C v11,goodput,2.7807,Baseline,-4.92,,,0,8.33e-23,5,300,valid
+v11,R3_cellcue_opp,ablation,Deep GRU v11,goodput,2.7440,Baseline,-6.17,,,0,2.46e-34,5,300,valid
+v12,R1_pf,primary,Deep A2C v12,ontime,0.8421,Fixed,-0.47,,,0,0.000276,10,500,valid
+v12,R2_edf,secondary,Deep A2C v12,ontime,0.8717,FixedPU (Oracle),0.09,,,0,0.712,5,300,valid
+v13,X1_pf,primary,Deep A2C v13,ontime,0.8491,Fixed,0.26,,,1,0.000797,10,500,valid
+v13,X1_pf,primary,Deep A2C v13 (ensemble),ontime,0.8472,Fixed,0.04,,,0,0.135,10,500,valid
+v13,X1_edf,secondary,Deep A2C v13,ontime,0.8621,Context table,-0.06,,,0,1,10,500,valid
+v13,X1_edf,secondary,Deep A2C v13 (ensemble),ontime,0.8616,Context table,-0.13,,,0,1,10,500,valid
+v13,X2_pf_shaped,secondary,Deep A2C v13,ontime,0.8371,Fixed,0.42,,,1,2.07e-10,10,500,valid
+v13,X2_pf_shaped,secondary,Deep A2C v13 (ensemble),ontime,0.8357,Fixed,0.25,,,1,0.000415,10,500,valid
+v14,Y0_base,primary,Deep A2C v14,ontime,0.8521,Fixed,0.44,1,1,1,4.75e-07,10,500,valid
+v14,Y0_base,primary,Deep A2C v14 (ensemble),ontime,0.8557,Fixed,0.86,1,1,1,4.51e-15,10,500,valid
+v14,Y0_noshape,secondary,Deep A2C v14,ontime,0.8501,Fixed,0.21,1,1,1,9.66e-05,10,500,valid
+v14,Y0_noshape,secondary,Deep A2C v14 (ensemble),ontime,0.8484,Fixed,0.00,1,0,0,1,10,500,valid
+v14,Y1_lo_tight,robustness,Deep A2C v14,ontime,0.9007,Fixed,0.08,1,0,0,0.658,5,300,valid
+v14,Y1_lo_tight,robustness,Deep A2C v14 (ensemble),ontime,0.9057,Fixed,0.64,1,1,1,9.53e-08,5,300,valid
+v14,Y2_lo_loose,robustness,Deep A2C v14,ontime,0.9389,Context table,-0.77,1,0,0,1.79e-07,5,300,valid
+v14,Y2_lo_loose,robustness,Deep A2C v14 (ensemble),ontime,0.9386,Context table,-0.81,1,0,0,3.02e-07,5,300,valid
+v14,Y3_hi_tight,robustness,Deep A2C v14,ontime,0.6725,Context table,0.08,1,0,0,0.853,5,300,valid
+v14,Y3_hi_tight,robustness,Deep A2C v14 (ensemble),ontime,0.6722,Context table,0.04,1,0,0,0.818,5,300,valid
+v14,Y4_hi_loose,robustness,Deep A2C v14,ontime,0.7296,Fixed,-1.73,1,0,0,3.19e-10,5,300,valid
+v14,Y4_hi_loose,robustness,Deep A2C v14 (ensemble),ontime,0.7292,Fixed,-1.79,1,0,0,6.02e-05,5,300,valid
+v15,Z1_rtt8,primary,Deep A2C v15,ontime,0.5708,Context table,-2.16,1,0,0,2.07e-12,10,500,superseded: PF averaging artefact (v17)
+v15,Z1_rtt8,primary,Deep A2C v15 (ensemble),ontime,0.5658,Context table,-3.01,1,0,0,1.27e-17,10,500,superseded: PF averaging artefact (v17)
+v15,Z2_rtt4,robustness,Deep A2C v15,ontime,0.8019,Fixed,-0.21,1,0,0,1.3e-10,10,500,superseded: PF averaging artefact (v17)
+v15,Z2_rtt4,robustness,Deep A2C v15 (ensemble),ontime,0.8036,Fixed,0.00,1,0,0,1,10,500,superseded: PF averaging artefact (v17)
+v15,Z3_rtt8_loose,robustness,Deep A2C v15,ontime,0.8475,Fixed,-0.25,1,0,0,9.13e-10,10,500,superseded: PF averaging artefact (v17)
+v15,Z3_rtt8_loose,robustness,Deep A2C v15 (ensemble),ontime,0.8495,Fixed,-0.00,1,0,0,1,10,500,superseded: PF averaging artefact (v17)
+v16,K1_dl_rtt8,primary,Deep A2C v16,ontime,0.5745,Context table,-2.65,1,0,0,1.15e-18,10,500,superseded: PF averaging artefact (v17)
+v16,K1_dl_rtt8,primary,Deep A2C v16 (ensemble),ontime,0.5712,Context table,-3.21,1,0,0,3.1e-19,10,500,superseded: PF averaging artefact (v17)
+v16,K1_dl_rtt8,primary,Deep A2C v16 (offset),ontime,0.5955,Context table,0.90,1,1,1,0.00103,10,500,superseded: PF averaging artefact (v17)
+v16,K1_dl_rtt8,primary,Deep PPO v16,ontime,0.5618,Context table,-4.81,1,0,0,1.64e-31,10,500,superseded: PF averaging artefact (v17)
+v16,K3_gp_rtt8,primary,Deep A2C v16,goodput,4.0724,OLLA,-0.01,0,0,0,1,10,500,superseded: PF averaging artefact (v17)
+v16,K3_gp_rtt8,primary,Deep A2C v16 (ensemble),goodput,4.0727,OLLA,0.00,0,0,0,1,10,500,superseded: PF averaging artefact (v17)
+v16,K3_gp_rtt8,primary,Deep A2C v16 (offset),goodput,4.0727,OLLA,-0.00,0,0,0,1,10,500,superseded: PF averaging artefact (v17)
+v16,K3_gp_rtt8,primary,Deep PPO v16,goodput,3.3727,OLLA,-17.19,0,0,0,2.67e-76,10,500,superseded: PF averaging artefact (v17)
+v16,K2_dl_rtt0,robustness,Deep A2C v16,ontime,0.8360,Fixed,0.28,1,1,1,0.00109,10,500,valid
+v16,K2_dl_rtt0,robustness,Deep A2C v16 (ensemble),ontime,0.8350,Fixed,0.15,1,1,1,0.0499,10,500,valid
+v16,K2_dl_rtt0,robustness,Deep A2C v16 (offset),ontime,0.8351,Fixed,0.17,1,0,0,0.0502,10,500,valid
+v16,K2_dl_rtt0,robustness,Deep PPO v16,ontime,0.8079,Fixed,-3.09,0,0,0,2.18e-33,10,500,valid
+v16,K4_gp_rtt0,robustness,Deep A2C v16,goodput,2.7178,Baseline,-5.52,0,0,0,2.67e-48,10,500,valid
+v16,K4_gp_rtt0,robustness,Deep A2C v16 (ensemble),goodput,2.7257,Baseline,-5.25,0,0,0,1.33e-41,10,500,valid
+v16,K4_gp_rtt0,robustness,Deep A2C v16 (offset),goodput,2.7250,Baseline,-5.28,0,0,0,1.04e-41,10,500,valid
+v16,K4_gp_rtt0,robustness,Deep PPO v16,goodput,2.1582,Baseline,-24.98,0,0,0,5.26e-82,10,500,valid
+v16,L1_dl_rtt8_long,ablation,Deep A2C v16,ontime,0.6068,Context table,1.18,1,1,1,0.00218,5,300,superseded: PF averaging artefact (v17)
+v16,L1_dl_rtt8_long,ablation,Deep A2C v16 (ensemble),ontime,0.6100,Context table,1.73,1,1,1,0.000711,5,300,superseded: PF averaging artefact (v17)
+v16,L3_gp_rtt8_long,ablation,Deep A2C v16,goodput,3.9512,Baseline,-1.10,0,0,0,0.165,5,300,superseded: PF averaging artefact (v17)
+v16,L3_gp_rtt8_long,ablation,Deep A2C v16 (ensemble),goodput,3.9576,Baseline,-0.94,0,0,0,0.361,5,300,superseded: PF averaging artefact (v17)
+v17,M1_dl_rtt8,primary,Deep A2C v17,ontime,0.6126,Context table,1.58,1,1,1,9.06e-13,10,500,valid
+v17,M1_dl_rtt8,primary,Deep A2C v17 (ensemble),ontime,0.6306,Context table,4.56,1,1,1,1.62e-43,10,500,valid
+v17,M1_dl_rtt8,primary,Deep A2C v17 (offset),ontime,0.5976,Context table,-0.91,1,0,0,8.58e-07,10,500,valid
+v17,M1_dl_rtt8,primary,Deep A2C v17 (resid-800),ontime,0.6051,Context table,0.34,1,1,1,0.0244,10,500,valid
+v17,M2_dl_rtt0,robustness,Deep A2C v17,ontime,0.8617,Context table,0.43,1,1,1,0.0167,10,500,valid
+v17,M2_dl_rtt0,robustness,Deep A2C v17 (ensemble),ontime,0.8635,Context table,0.63,1,1,1,5.07e-05,10,500,valid
+v17,M2_dl_rtt0,robustness,Deep A2C v17 (resid-800),ontime,0.8532,Context table,-0.57,1,0,0,4.71e-06,10,500,valid
+v17,M3_gp_rtt8,primary,Deep A2C v17,goodput,3.4679,Fixed,-0.88,0,0,0,0.00723,10,500,valid
+v17,M3_gp_rtt8,primary,Deep A2C v17 (ensemble),goodput,3.4679,Fixed,-0.88,0,0,0,0.00723,10,500,valid
+v17,M3_gp_rtt8,primary,Deep A2C v17 (offset),goodput,3.4114,Fixed,-2.50,0,0,0,9.86e-12,10,500,valid
+v17,M4_gp_rtt0,robustness,Deep A2C v17,goodput,3.4378,Fixed,-1.73,0,0,0,1.72e-08,10,500,valid
+v17,M4_gp_rtt0,robustness,Deep A2C v17 (ensemble),goodput,3.4746,Fixed,-0.68,0,0,0,0.172,10,500,valid

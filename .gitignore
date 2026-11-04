@@ -20,3 +20,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Local development tools and ephemeral sockets/logs
+tools/
+*.sock
