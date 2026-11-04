@@ -24,9 +24,9 @@ function cfg = v17x_cfg()
     cfg.g10_cells   = strtrim(strsplit(envstr('G10_CELLS', 'G2_hi_d10,G3_lo_d18'), ','));
     cfg.g10_cells   = cfg.g10_cells(ismember(cfg.g10_cells, {'G2_hi_d10', 'G3_lo_d18'}));
     cfg.use_pool    = ~strcmp(envstr('V17X_NO_POOL', '0'), '1');
-    st = envstr('V17X_SELFTEST', '0');
+    st = strtrim(envstr('V17X_SELFTEST', '0'));
     cfg.selftest = st;
-    cfg.smoke = strcmp(envstr('V17X_SMOKE', '0'), '1');
+    cfg.smoke = strcmp(strtrim(envstr('V17X_SMOKE', '0')), '1');
     if strcmp(st, '1')
         cfg.stages = {'st_ok', 'st_crash_once', 'st_ok2'};
     elseif strcmp(st, '2')
