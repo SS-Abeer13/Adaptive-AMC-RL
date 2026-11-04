@@ -60,3 +60,6 @@ Input to Phase 5 (§7). Tag: **[A]** = can be answered by analysis of existing r
 | G15 training cost and learning curves | nice-to-have | Curves are in the HDF5 files (10 × 3000); can be plotted here | Phase 7 figure |
 | G16 reproducibility (paths, MATLAB-only) | **essential (writing)** | Availability statement + Zenodo DOI + path-agnostic setup note | Writing; small code fix optional |
 | G17 single codebase, no independent re-implementation | future work / limitation | The self-found bugs make this credible to state openly | Writing |
+
+
+**Phase 5 (Checkpoint 5) consolidation:** see `paper/proposals/checkpoint5_list.md`. G12 is promoted to essential as W1 (warm-up). New items: G6 combined comparator, NR1 (non-oracle residual), A1–A5.

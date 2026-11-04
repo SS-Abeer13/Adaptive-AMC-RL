@@ -65,10 +65,20 @@ Venue order **TMLCN → OJ-COMS → TVT** (or OJVT if TVT's submission cap is un
 - `design/contributions.md`: C1–C5 with ledger IDs, novelty paragraph, corrective-history placement.
 - `design/reviewer_attacks.md`: 24 criticisms with answers (R/L/P).
 
-## Open questions for Checkpoint 4
-1. Approve the hybrid framing, a title, and contributions C1–C5 (or merge C5 into C1)?
-2. "Same-information" wording: reword now, and add an information-parity comparator to G6?
-3. New Checkpoint-5 candidate: a no-training re-evaluation with OLLA warm-up (Claim A size vs cold-start OLLA).
+## Checkpoint 4: approved 4 Nov 2026
+- Title: *When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules.*
+- Four contributions: C1 protocol + artefacts; C2 the positive case (wording conditional on G6); C3 where RL does not help; C4 pitfalls + recommendations.
+- Wording "calibrated rules built on the learner's cues" until G6; information table added (`design/information_table.md`); FixedPU called a class oracle (attack #25).
+- Length 13–15 pp; backups OJ-COMS → OJVT (TVT only if ≥ 14 pp at submission). Checklist: `manuscript/submission_checklist.md` (arXiv notice, AI disclosure).
+- Campaign check: a non-oracle (Fixed) base was used in v13 X2, v14 Y0/Y0_noshape and v16 K2 (all RTT-0 WINs, older PF). There was none at RTT 8 under v17, so NR1 is proposed.
+
+## Phase 5 (evidence gap check): done. **Waiting at Checkpoint 5.**
+- `proposals/checkpoint5_list.md`: consolidated list, classes, compute, prompts.
+- Pre-registrations: G6 (revised: 500-trace re-calibration + combined comparator, decision rule for C2), W1 (warm-up), NR1 (non-oracle residual), G10 (compute + prompt). Compute basis: `proposals/compute_basis.md`.
+
+## Open questions for Checkpoint 5
+1. Approve which items run: recommended W1, G6, G10 (essential), NR1 (recommended), A1/A3 (cheap).
+2. Approve the frozen pre-registration texts (G6 §§1–6, W1 §§1–5, NR1 §§1–6, G10 §§1–6).
 
 ## Next step
-Phase 5 (evidence gap check) after Checkpoint 4.
+Phase 6 (outline) can proceed in parallel with the runs. Results slot into the pre-stated wording rows.

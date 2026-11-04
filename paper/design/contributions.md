@@ -1,38 +1,34 @@
 # Contributions, novelty statement, and corrective-history placement
 
-## 1. Contribution list (each tied to ledger claims)
+## 1. Contribution list (four items, approved at Checkpoint 4)
 
-**C1. A pre-registered evaluation of deep-RL link adaptation against calibrated comparators that include the learner's cues.**
-- *What:* 9 comparators (OLLA family, Fixed, FixedPU, Context table, bandits), calibrated on traces disjoint from evaluation, with CRN.
-- *Rules:* paired Wilcoxon + Holm + a CI bound; Claim A/B/WIN rules fixed before each run.
-- *Multiplicity:* a public registry of 67 cases and 108 scheme evaluations; project-wide multiplicity reported.
-- *Evidence:* P01–P04, M01–M06, R33 ("calibration captures 83–86 % of the gain over OLLA").
-- *Literature contrast:* 0 of 23 learning-LA studies compare against a calibrated rule (lit_matrix).
+**C1. Evaluation protocol and open artefacts.**
+- *What:* a pre-registered evaluation of deep RL link adaptation against nine comparators. Comparators are calibrated on traces disjoint from evaluation; the calibrated ones are built on the learner's cues (information table).
+- *Statistics:* CRN; paired Wilcoxon + Holm + a CI bound; Claim A/B/WIN rules fixed before each run.
+- *Artefacts:* a public registry of 67 cases and 108 scheme evaluations, with project-wide multiplicity reported; code, data summaries, pre-registrations and registry released (DOI at submission).
+- *Evidence:* P01–P04, M01–M06, R32, R33. *Literature contrast:* 0 of 23 learning-LA studies compare against a calibrated rule (lit_matrix).
 
-**C2. A positive result that survives the protocol: deadline traffic under realistic downlink HARQ.**
-- *Setting:* RTT 8 with 8 processes, PF averaged at scheduling time.
-- *Result:* residual A2C beats every comparator: **+1.58 %** vs the best rule [1.23, 1.94], Holm 9.06e-13 (R03); +1.87 % vs Fixed (R04); +11.96 % vs tuned OLLA (R06).
-- *Robustness:* hierarchical seed × trace 95 % CI [+0.62, +2.62] % (G3a); 9/10 seeds above the best rule (R09); survives Bonferroni over 972 tests (M04); no fairness cost (R12); no goodput cost (R13).
-- *Training:* training-limited at 800 episodes (R25), with the 800-episode win fragile (G3d).
+**C2. A positive result that survives the protocol: deadline traffic under realistic downlink HARQ.** *(Wording conditional on G6; see the rule below.)*
+- *Setting:* RTT 8, 8 processes, PF averaged at scheduling time.
+- *Result:* residual A2C beats every comparator by **+1.58 %** vs the best rule [1.23, 1.94], Holm 9.06e-13 (R03); +0.95 pp absolute (R34).
+- *Robustness:* hierarchical 95 % CI [+0.62, +2.62] % (G3a); 9/10 seeds (R09); Bonferroni over 972 tests (M04); no fairness or goodput cost (R12, R13); training-limited (R25, G3d).
+- **Conditional wording rule (fixed now, pre-registered in proposals/G6 §3):**
+  - If M1 also beats the **combined comparator** (slack × class × busy HARQ processes) on Holm plus the 90 % CI lower bound, C2 reads "beats all calibrated comparators", and "same-information" may be used.
+  - If not, C2 reads **"beats the OLLA family and the single-cue calibrated rules"**, and the combined table is reported as matching RL.
+  - G6's re-calibrated single-cue rules apply the same logic to Claim B.
 
 **C3. Where RL does not help, under the same protocol.**
-- *Goodput:* no gain on full-buffer goodput at RTT 0 or RTT 8 (−0.88 % / −1.73 % vs Fixed; R19–R20). The residual policy is bit-identical to its base rule in all 5,000 seed × trace cells at RTT 8 (R19a).
-- *RTT 0 deadline:* the gain is small (+0.43 % vs Context, hierarchical 95 % CI [−0.03, +0.87]; G3e). It is reported only as a replication of earlier campaigns run under another PF variant (S08b).
-- *Headroom:* static per-trace hindsight bounds (R26) show how little room a static rule leaves.
+- *Goodput:* no gain (−0.88 % / −1.73 % vs Fixed; R19–R20). The residual policy is bit-identical to its base rule at RTT 8 (R19a).
+- *RTT 0 deadline:* marginal, reported only as a replication across PF variants (G3e, S08b).
+- *Headroom:* bounds (R26).
 
-**C4. Three simulation and design pitfalls that manufactured or masked RL gains, with diagnosis and fix.**
-1. A mobility time-scale error (v metres per TTI): a +12.8 % gain that vanished when fixed (H01–H04).
-2. Slot stealing under a shared per-user reward: a bimodal policy at 1.38 vs 2.92 Mbps, removed by an opportunity-cost reward (H07).
-3. PF-average timing under multi-process HARQ: updating with ACKed bits at t + RTT inflated *every* scheme by ~40 % and cut fairness (H17, R30).
-
-Plus a protocol-sensitivity example: the sign of "open-loop vs OLLA" flips with the PF averaging definition (S08a, R22).
-
-**C5. Practical guidance and open artefacts.**
-- *Reporting checklist:* calibrated same-cue comparators, CRN, disjoint splits, seed-level intervals, results by mobility regime and HARQ timing, a registry of all cases.
-- *Cost:* inference complexity of ~20 k parameters and ~20 k MACs per decision (S16).
-- *Artefacts:* code, data summaries, pre-registrations and registry released (R32; DOI at submission).
-
-*(C5 can merge into C1 if a 4-item list reads better on page 1.)*
+**C4. Pitfalls and recommendations.**
+- *Pitfalls:* three simulation and design pitfalls that manufactured or masked RL gains, with diagnosis and fix: mobility time scale (H01–H04), slot stealing under a shared per-user reward (H07), and PF-average timing under multi-process HARQ (H17, R30). Plus the PF-definition sign flip as a protocol-sensitivity example (S08a, R22).
+- *Recommendations:*
+  - same-cue calibrated comparators, CRN and disjoint splits;
+  - seed-level intervals and a case registry;
+  - results reported by mobility regime, HARQ timing **and observation set**. Our information table applies this; LOLLA's Table V(a) observation ablation is cited as a neutral example.
+  - complexity reporting (S16).
 
 ## 2. Novelty statement (one paragraph, for the Introduction and the cover letter)
 

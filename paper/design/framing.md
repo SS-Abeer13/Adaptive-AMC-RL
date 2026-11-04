@@ -27,18 +27,13 @@ A residual policy on a calibrated rule, with a potential-shaped on-time reward, 
 
 ## Option C (chosen at Checkpoint 2): evaluation-led hybrid with a real positive result
 **Thesis.**
-- Against OLLA, RL gains look large, and we see that too: +11.96 % vs tuned OLLA in M1 (R06).
-- Against calibrated rules that use the learner's cues, the gain shrinks to about +1.6 % (R03).
+- Against OLLA, RL gains look large, and we see that too: +11.96 % vs tuned OLLA in M1 (R06). The size is to be re-checked with warm-up (W1); if it drops a lot, the abstract quotes the warm-up number.
+- Against **calibrated rules built on the learner's cues**, the gain shrinks to about +1.6 % (R03).
 - It survives only for deadline traffic under realistic HARQ, with a residual policy. Goodput shows no gain (R19–R21).
 
 **Narrative order:** comparator gap → protocol → the positive case (M1) and why it is credible → where RL does not help (goodput; RTT 0 only marginally) → pitfalls that would have changed the conclusion → what to report in future LA studies.
 
-**Working title options** (no "hype"):
-1. *When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules*
-2. *Learned Link Adaptation Under Realistic HARQ: Most of the Gain Is Calibration, Except for Deadline Traffic*
-3. *Calibrated Baselines, Realistic HARQ, and Pre-Registration: Re-Evaluating Deep RL for Link Adaptation*
-
-Recommendation: title 1. It is neutral, states the question, and fits TMLCN.
+**Title (approved at Checkpoint 4):** *When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules*. "Reinforcement Learning" is always spelled out in the title.
 
 ## Precision required by the framing (decide at Checkpoint 4)
 The phrase "calibrated rules that use the same information" is **only partly accurate** (S13, code checked 2026-11-04):
@@ -69,3 +64,8 @@ Options:
 | **Total** | **≈ 16** (main text ≈ 14.5) |
 
 Appendices (in the paper, reviewed): hyper-parameters, full comparator tables. Supplement: registry (108 rows), extra tables.
+
+## Checkpoint 4 decisions (4 Nov 2026)
+- **Wording rule until G6 is done:** "calibrated rules built on the learner's cues". The phrase "same-information" may be used only if M1 beats the G6 combined comparator (proposals/G6, §3).
+- An information table (`design/information_table.md`) goes in Section III or V. FixedPU is called a **class oracle**. The residual agent's inheritance of the oracle class is stated as a limitation (reviewer_attacks #25).
+- **Length target: 13–15 pages.** The author confirms the limit on the TMLCN portal before submitting. Backups: OJ-COMS → OJVT (TVT only if its portal allows ≥ 14 pages at submission).

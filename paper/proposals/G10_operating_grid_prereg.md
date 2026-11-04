@@ -40,16 +40,26 @@ All cells use M1's configuration: RTT 8, 8 processes, `pf_avg = 'scheduled'`, dr
 | robust, Claim B in < 3 cells | "The gain over the OLLA family was robust across loads and deadlines (4/4 cells), while the margin over calibrated rules was non-negative in k cells but significant in only m." |
 | operating-point specific | "The gain over calibrated rules is specific to the operating point studied (M1); at neighbouring loads/deadlines it was not reproduced (per-cell table)." This goes in the robustness section **and** the abstract's scope sentence. |
 
-## 5. Compute estimate (from v17 M1 timing)
+## 5. Compute estimate (basis: `compute_basis.md`)
+- Per cell, training: 5 seeds × 3000 episodes = 15,000 episodes × 0.14 s ≈ **35 min**.
+- Per cell, evaluation: (7 det. + 5 A2C + 5 best-on-val + 1 ens. + 2 × 5 bandit) × 300 = 8,400 runs × 0.095 s ≈ **13 min**.
+- Per cell, calibration and base-rule selection: ≈ 5 min.
+- So **≈ 53 min per cell, ≈ 3.5 h for 4 cells**, plus a 20-trace feasibility check (≈ 10 min).
+- `n_workers = 2` (16 GB limit, as in v17).
 
-- M1 used 160.8 min of cumulative compute (`STEP|M1_dl_rtt8|done … elapsed_min=160.8`). That covered 10 × 3000 + 10 × 800 + 10 × 800 = 46,000 training episodes plus evaluation of 14 schemes on 500 traces, on 2 workers. This is an upper-bound rate of about 0.21 min per 1,000 episodes per worker.
-- Per cell: 5 × 3000 = 15,000 episodes, about 15,000 / 46,000 × 161 ≈ **53 min**, plus evaluation on 300 traces and calibration, about **10–15 min**. So about **65 min per cell**.
-- **Total: about 4.5 h** for 4 cells on 2 workers, plus a 20-trace feasibility check (~10 min). The memory limit (16 GB) needs `n_workers = 2`, as in v17.
+**Base rule (added at Checkpoint 4):** the base rule is selected automatically, as in v17. Each cell reports which one was chosen (Fixed = non-oracle, FixedPU = class oracle). This is descriptive only and does not change the verdict.
 
 ## 6. Multiplicity
 
 This adds **4 cases** (4 primary scheme evaluations + 4 secondary ensemble rows). Project total after the run: 71 cases (72 if G6 also runs). The grid is a robustness check. It cannot produce a new headline claim, and it can only narrow the M1 claim.
 
-## 7. Results
+## 7. Claude Code prompt
+> In `Optimized/v17/`, implement G10 as in `paper/proposals/G10_operating_grid_prereg.md` (frozen).
+> 1. Create `g10/v17c_setup.m` as a copy of `v17_setup.m` with the 4 cells of §2 added. Each is M1's struct with `pkt_bits` / `pkt_deadline` changed, `n_seeds = 5`, `ep_deep = 3000`, `n_eval = 300`, no offset-800/resid-800 variants, and the seeds and trace ranges of §2. Make no other code changes.
+> 2. Write `g10/feasibility_v17c.m`: Fixed on-time ratio on 20 calibration traces per cell, with the substitution rule of §2. Log `FEAS|` lines. Infeasible cells are not run.
+> 3. Write `g10/fill_v17c_campaign.m` (resumable, like `fill_v17_campaign.m`, with checkpoints under tag names). Run feasible cells, then compute REPL/REPLCMP/REPLSEED (Holm over 9) and BASE_RULE lines per cell, plus a hierarchical seed × trace bootstrap of the margin vs the best rule (a Python port of `paper/analysis/g3_seed_stats.py` is fine; it reads the v7.3 .mat).
+> 4. Apply the grid verdict of §3 mechanically. Write `README_v17c.md` §8 with the verdict row from §4. Branch `v17c`.
+
+## 8. Results
 
 *(empty until run)*
