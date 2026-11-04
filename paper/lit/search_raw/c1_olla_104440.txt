@@ -1,0 +1,36 @@
+### outer loop link adaptation
+  2023 | On the Effect of BLER Requirement on Outer-Loop Link Adaptation | Chen, Han | 2023 IEEE/CIC International Conference on Communications in  | 10.1109/iccc57788.2023.10233351 | cites=3
+  2013 | An outer loop link adaptation for BICM-OFDM that learns | Wahls, Poor | 2013 IEEE 14th Workshop on Signal Processing Advances in Wir | 10.1109/spawc.2013.6612144 | cites=9
+  2021 | Two-Stage Thompson Sampling for Outer-Loop Link Adaptation | Park, Baek | IEEE Wireless Communications Letters | 10.1109/lwc.2021.3090046 | cites=9
+  2015 | Self-Optimization Algorithm for Outer Loop Link Adaptation in LTE | Duran, Toril, Ruiz, Mendo | IEEE Communications Letters | 10.1109/lcomm.2015.2477084 | cites=70
+  2016 | Fast outer-loop link adaptation scheme realizing low-latency transmission in LTE-Advanced and future wireless  | Ohseki, Suegara | 2016 IEEE Radio and Wireless Symposium (RWS) | 10.1109/rws.2016.7444346 | cites=12
+  2023 | NOLLA: Non-Linear Outer Loop Link Adaptation for Enhancing Wireless Link Transmission | Zhu, Bockelmann, Schier, Hajri et al. | 2023 IEEE 34th Annual International Symposium on Personal, I | 10.1109/pimrc56721.2023.10293829 | cites=5
+  2010 | System-Level Analysis of Outer Loop Link Adaptation on Mobile WiMAX Systems | Cavalcante, Bazzo, Souza, Sousa et al. | Anais de VII International Telecommunications Symposium | 10.14209/sbrt.2010.86 | cites=1
+  2023 | Soft-Ack based Outer Loop Link Adaptation for Latency-constrained 5G Video Conferencing | Liu, Chen, Wu, Ji et al. | GLOBECOM 2023 - 2023 IEEE Global Communications Conference | 10.1109/globecom54140.2023.10437503 | cites=10
+### OLLA offset step size target BLER LTE
+  2016 | BLER Performance Evaluation of LTE Device-to-Device Communications | Wang, Rouil | ? | 10.6028/nist.ir.8157 | cites=14
+  2015 | BER-based BLER prediction for LTE FDD DL channel with small delay dispersion | Hamza, Lipovac, Lipovac | 2015 International Wireless Communications and Mobile Comput | 10.1109/iwcmc.2015.7289246 | cites=7
+  2010 | Frequency Offset Estimation in 3G LTE | Bertrand | 2010 IEEE 71st Vehicular Technology Conference | 10.1109/vetecs.2010.5493807 | cites=11
+  2011 | Differential Carrier Frequency Offset and Sampling Frequency Offset Estimation for 3GPP LTE | Guo, Xu, Zhou | 2011 IEEE 73rd Vehicular Technology Conference (VTC Spring) | 10.1109/vetecs.2011.5956576 | cites=10
+  2010 | Low-Observable Target Detection in Sea Clutter Based on Fractal-based Variable Step-Size LMS Algorithm | Liu, Guan, Zhang | JOURNAL OF ELECTRONICS INFORMATION &amp; TECHNOLOGY | 10.3724/sp.j.1146.2009.00017 | cites=0
+  2006 | Relative Speed Step Size in SAR processing for Moving Target Detection | Pettersson | 2006 CIE International Conference on Radar | 10.1109/icr.2006.343120 | cites=0
+  2015 | Downlink resource scheduling technique for maximized throughput with improved fairness and reduced BLER in LTE | Shahab, Wahla, Mushtaq | 2015 38th International Conference on Telecommunications and | 10.1109/tsp.2015.7296244 | cites=5
+  2023 | BLER Performance of Carrier Frequency Offset Compensation and Channel Estimation Methods Using Synchronization | Ohiwa, Yoneda, Sawahashi, Nagata | 2023 VTS Asia Pacific Wireless Communications Symposium (APW | 10.1109/apwcs60142.2023.10233957 | cites=1
+### link adaptation HARQ throughput target block error rate optimization
+  2010 | Average Throughput Link Adaptation using HARQ Information and MIMO Systems | Araújo, Jr, Cavalcante | Anais de VII International Telecommunications Symposium | 10.14209/sbrt.2010.38 | cites=0
+  2015 | Analysis of MAC-level throughput in LTE systems with link rate adaptation and HARQ protocols | Masaracchia, Bruno, Passarella, Mangione | 2015 IEEE 16th International Symposium on A World of Wireles | 10.1109/wowmom.2015.7158162 | cites=13
+  2014 | Optimizing the Target Error Rate for Link Adaptation | Park, Daniels, Heath | 2015 IEEE Global Communications Conference (GLOBECOM) | 10.1109/glocom.2014.7417770 | cites=0
+  2015 | Optimizing the Target Error Rate for Link Adaptation | Park, Daniels, Heath | 2015 IEEE Global Communications Conference (GLOBECOM) | 10.1109/glocom.2015.7417770 | cites=19
+  2020 | Residual Block Error Rate Prediction for IR HARQ Protocol |  | Tehnicki vjesnik - Technical Gazette | 10.17559/tv-20181220161917 | cites=0
+  2018 | Improved Calibration Procedure of Block Error Rate Estimation for Fast Link Adaptation | Lee, Kim, Park | 2018 IEEE 4th International Conference on Computer and Commu | 10.1109/compcomm.2018.8780780 | cites=0
+  2022 | Enhanced Link Adaptation for Extended Reality Code Block Group based HARQ Transmissions | Paymard, Amiri, Kolding, Pedersen | 2022 IEEE Globecom Workshops (GC Wkshps) | 10.1109/gcwkshps56602.2022.10008622 | cites=14
+  2018 | Joint Optimization of Link Adaptation and HARQ Retransmissions for URLLC Services | Deghel, Elayoubi, Galindo-Serrano, Visoz | 2018 25th International Conference on Telecommunications (IC | 10.1109/ict.2018.8464906 | cites=8
+### multiple HARQ processes link adaptation delayed ACK NACK feedback
+  2009 | Link Level Investigation of ACK/NACK Bundling for LTE TDD | Rahman, Astely | VTC Spring 2009 - IEEE 69th Vehicular Technology Conference | 10.1109/vetecs.2009.5073647 | cites=7
+  2014 | Distributed power control over interference channels using ACK/NACK feedback | Andreotti, Marchetti, Sanguinetti, Debbah | 2014 IEEE Global Communications Conference | 10.1109/glocom.2014.7037464 | cites=1
+  2021 | Soft-ACK Feedback Based Link Adaptation for Latency Critical Applications in 5G/B5G | Nemeth, Al-Imari, Ozan | 2021 IEEE Global Communications Conference (GLOBECOM) | 10.1109/globecom46510.2021.9685435 | cites=7
+  2021 | Algorithmic Detection of Adversarial Attacks on Message Transmission and ACK/NACK Feedback | Boche, Schaefer, Vincent Poor | ICC 2021 - IEEE International Conference on Communications | 10.1109/icc42927.2021.9500592 | cites=3
+  2009 | A transmit antenna selection diversity scheme based on ACK/NACK feedback | Ming-yu, Hong-wen, Shuang, Wei-dong | 2009 15th Asia-Pacific Conference on Communications | 10.1109/apcc.2009.5375697 | cites=0
+  2010 | MAC Efficiency Enhancement with ACK/NACK and AGC Pilot Signal Adaptation Mechanism in Millimeter-Wave Communic | Matsuo, Tandai, Kasami, Kobayashi | 2010 IEEE 71st Vehicular Technology Conference | 10.1109/vetecs.2010.5493776 | cites=3
+  2025 | Enriched HARQ Feedback for Link Adaptation in 6G: Optimizing Uplink Overhead for Enhanced Downlink Spectral Ef | Mazumdar, Amiri, Paris, Pedersen et al. | IEEE Access | 10.1109/access.2025.3595675 | cites=0
+  2018 | Transmission Lengths That Maximize Throughput of Variable-Length Coding &amp;amp; ACK&amp;#x002F;NACK Feedback | Wesel, Wong, Baldauf, Belhouchat et al. | 2018 IEEE Global Communications Conference (GLOBECOM) | 10.1109/glocom.2018.8647619 | cites=6

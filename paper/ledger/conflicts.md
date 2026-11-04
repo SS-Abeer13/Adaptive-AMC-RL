@@ -48,3 +48,13 @@ The repo README is not a paper source. Fixing it is optional housekeeping and wa
 
 - Project notes `claude/amc_*` (priority 4) are in the claude.ai Project, not in this repo. I could not open them. Claims sourced only from them: none in the ledger. The E4c fresh-only numbers come from README_v12 §1, which cites that note.
 - `papers/v8_draft/AMC_full_paper_v8_rev1_source.md` has not been read yet. It is reserved for Phase 2 (system-model notation and reference candidates).
+
+## E. Citation errors found in Phase 2 (literature)
+
+| # | Where | Error | Resolution |
+|---|---|---|---|
+| E1 🟠 | `Optimized/v17/evalPolicy_v17.m` L4 (and earlier versions): "Multi-OLLA … (arXiv:2604.20459)" | Ahsen et al. 2026 is a **rank-dependent** multi-offset OLLA. Our Multi-OLLA is a fast/slow integrator blend, a different method | In the paper, describe our Multi-OLLA on its own terms. Cite Ahsen et al. only as "multi-offset OLLA variants exist". The code comment is left untouched (frozen code); noted here |
+| E2 🟠 | v8 draft ref [2] | Pedersen 2007 DOI 10.1109/VETECF.2007.380 points to a different paper | Correct DOI: 10.1109/vetecf.2007.378 |
+| E3 🟢 | v8 draft ref [8] | Dahlman book DOI not registered | Do not cite with that DOI |
+| E4 🟢 | prompt §4.1 | "Ahsen et al. (IEEE OJ-COMS)" | No OJ-COMS version exists; arXiv preprint only |
+| E5 🟢 | prompt §4.1 | "Park 2015" | It is a GLOBECOM 2015 paper, not a letter |

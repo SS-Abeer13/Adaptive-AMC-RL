@@ -1,0 +1,28 @@
+### Pang link adaptation 2024
+  2024 | An Efficient DRL-Based Link Adaptation for Cellular Networks with Low Overhead | Pang, You, Fu | 2024 IEEE Wireless Communications and Networking Conference  | 10.1109/wcnc57260.2024.10570648 | cites=3
+  2024 | WLAN link adaptation based on neural networks | Park, Park | ? | 10.22541/au.172605440.07554156/v1 | cites=0
+  2022 | Link Adaptation and Selection Method for OFDM-Based Wireless Relay Networks* | Can | Link Adaptation for Relay-Based Cellular Networks | 10.1201/9781003338765-3 | cites=0
+### Pang MCS selection reinforcement learning 2024
+  2024 | Joint Codebook Selection and MCS Adaptation for MmWave eMBB Services Based on Deep Reinforcement Learning | Ye, Fu, Cioffi | IEEE Internet of Things Journal | 10.1109/jiot.2024.3419900 | cites=4
+  2022 | Joint power allocation and MCS selection for energy-efficient link adaptation: A deep reinforcement learning a | Parsa, Moghim, Salavati | Computer Networks | 10.1016/j.comnet.2022.109386 | cites=12
+  2024 | eLife Assessment: Dynamics of striatal action selection and reinforcement learning | Langdon | ? | 10.7554/elife.101747.1.sa3 | cites=0
+### Lagen Wanuga Elkotby Bojovic Giupponi New radio physical layer abstraction for system-level simulations of 5G networks
+  2020 | New Radio Physical Layer Abstraction for System-Level Simulations of 5G Networks | Lagen, Wanuga, Elkotby, Goyal et al. | ICC 2020 - 2020 IEEE International Conference on Communicati | 10.1109/icc40277.2020.9149444 | cite
+  2018 | 5G New Radio Numerologies and their Impact on the End-To-End Latency | Patriciello, Lagen, Giupponi, Bojovic | 2018 IEEE 23rd International Workshop on Computer Aided Mode | 10.1109/camad.2018.8514979 | cites=48
+  2018 | Implementation and evaluation of frequency division multiplexing of numerologies for 5G new radio in ns-3 | Bojovic, Lagen, Giupponi | Proceedings of the 10th Workshop on ns-3  - WNS3 '18 | 10.1145/3199902.3199905 | cites
+### Mnih Kavukcuoglu Silver Human-level control through deep reinforcement learning
+  2015 | Human-level control through deep reinforcement learning | Mnih, Kavukcuoglu, Silver, Rusu et al. | Nature | 10.1038/nature14236 | cites=25214
+  2015 | Faculty Opinions recommendation of Human-level control through deep reinforcement learning. | Goodhill | Faculty Opinions – Post-Publication Peer Review of the Biome | 10.3410/f.725368782.793506817 | cites=1
+  2015 | Faculty Opinions recommendation of Human-level control through deep reinforcement learning. | de Polavieja | Faculty Opinions – Post-Publication Peer Review of the Biome | 10.3410/f.725368782.793509339 | cites=0
+### Jordan Chandak Cohen Zhang Thomas Evaluating the performance of reinforcement learning algorithms
+  2025 | Evaluating Reinforcement Learning algorithms forLunarLander-v2: A Comparative Analysis | Awasthi | ? | 10.21203/rs.3.rs-5939959/v2 | cites=0
+  2020 | Evaluating deep reinforcement learning algorithms for quadrupedal slope handling |  | Robots in Human Life | 10.13180/clawar.2020.24-26.08.58 | cites=1
+  None | IMPROVING THE PERFORMANCE OF GENETIC ALGORITHMS USING REINFORCEMENT LEARNING. | ?, Quevedo | ? | 10.23860/thesis-quevedo-jose-2023 | cites=0
+### Hessel Modayil Rainbow combining improvements in deep reinforcement learning
+  2018 | Rainbow: Combining Improvements in Deep Reinforcement Learning | Hessel, Modayil, Van Hasselt, Schaul et al. | Proceedings of the AAAI Conference on Artificial Intelligenc | 10.1609/aaai.v32i1.11796 | cites=1125
+  2026 | Rainbow-DemoRL: Combining Improvements in Demonstration-Augmented Reinforcement Learning | Bhatt, Chou, Atanasov | 2026 IEEE International Conference on Robotics and Automatio | 10.1109/icra57385.2026.11695938 | cites=0
+  None | Performance Improvements for Wireless Mobile Networks via Deep Reinforcement Learning | He | ? | 10.22215/etd/2019-13668 | cites=0
+### Jain Chiu Hawe quantitative measure of fairness and discrimination for resource allocation in shared computer systems
+  2004 | A resource-allocation queueing fairness measure | Raz, Levy, Avi-Itzhak | Proceedings of the joint international conference on Measure | 10.1145/1005686.1005704 | cites=37
+  2007 | A resource allocation queueing fairness measure: properties and bounds | Avi-Itzhak, Levy, Raz | Queueing Systems | 10.1007/s11134-007-9025-x | cites=22
+  None | Novel notions of fairness and resource allocation for congested networked systems | Fossati | ? | 10.70675/6ca8ce5ez6cd2z4c82z9e6az68c6bb3ceb79 | cites=0

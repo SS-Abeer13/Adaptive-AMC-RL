@@ -1,0 +1,48 @@
+### Saxena Jalden Gonzalez Bengtsson Tullberg Stoica Contextual multi-armed bandits for link adaptation in cellular networks
+  2019 | Contextual Multi-Armed Bandits for Link Adaptation in Cellular Networks | Saxena, Jaldén, Gonzalez, Bengtsson et al. | Proceedings of the 2019 Workshop on Network Meets AI &amp; M | 10.1145/3341216.3342212 | cites=20
+  2022 | Reinforcement Learning for Efficient and Tuning-Free Link Adaptation | Saxena, Tullberg, Jalden | IEEE Transactions on Wireless Communications | 10.1109/twc.2021.3098972 | cites=50
+  2018 | Deep Learning for Frame Error Probability Prediction in BICM-OFDM Systems | Saxena, Jalden, Bengtsson, Tullberg | 2018 IEEE International Conference on Acoustics, Speech and  | 10.1109/icassp.2018.8461864 | cites=18
+### Saxena Jalden Gonzalez Stoica Tullberg Constrained Thompson sampling for wireless link optimization
+  2022 | Reinforcement Learning for Efficient and Tuning-Free Link Adaptation | Saxena, Tullberg, Jalden | IEEE Transactions on Wireless Communications | 10.1109/twc.2021.3098972 | cites=50
+  2021 | Model-Based Adaptive Modulation and Coding with Latent Thompson Sampling | Saxena, Tullberg, Jalden | 2021 IEEE 32nd Annual International Symposium on Personal, I | 10.1109/pimrc50174.2021.9569685 | cites=4
+  2019 | Contextual Multi-Armed Bandits for Link Adaptation in Cellular Networks | Saxena, Jaldén, Gonzalez, Bengtsson et al. | Proceedings of the 2019 Workshop on Network Meets AI &amp; M | 10.1145/3341216.3342212 | cites=20
+### Ye Yu Deep reinforcement learning based link adaptation technique for LTE/NR systems
+  2023 | Deep Reinforcement Learning Based Link Adaptation Technique for LTE/NR Systems | Ye, Yu, Fu | IEEE Transactions on Vehicular Technology | 10.1109/tvt.2023.3236791 | cites=46
+  2026 | Generalizable Link Adaptation for NR Systems Based on Meta Deep Reinforcement Learning | Lin, Ye, Song, Wu | IEEE Transactions on Vehicular Technology | 10.1109/tvt.2026.3698387 | cites=0
+  2021 | Deep Reinforcement Learning for Dynamic Spectrum Sharing of LTE and NR | Challita, Sandberg | ICC 2021 - IEEE International Conference on Communications | 10.1109/icc42927.2021.9500325 | cites=29
+### Reinforcement learning based link adaptation in 5G URLLC contextual multi-armed bandit CQI prediction
+  2024 | Contextual Multi-Armed Bandit-Based Link Adaptation for URLLC | Ku, Lee | IEEE Transactions on Vehicular Technology | 10.1109/tvt.2024.3431613 | cites=7
+  2021 | Reinforcement Learning Based Link Adaptation in 5G URLLC | S, Khan, Jacob | 2021 8th International Conference on Smart Computing and Com | 10.1109/icscc51209.2021.9528117 | cites=7
+  2023 | A Hybrid Proactive Caching System in Vehicular Networks based on Contextual Multi-armed Bandit Learning | Wang, Grace | ? | 10.36227/techrxiv.20291673 | cites=0
+### Delgado Lau Middleton Fast convergence outer loop link adaptation with infrequent updates in steady state
+  2017 | Fast Convergence Outer Loop Link Adaptation with Infrequent Updates in Steady State | Delgado, Lau, Middleton, Karlsson et al. | 2017 IEEE 86th Vehicular Technology Conference (VTC-Fall) | 10.1109/vtcfall.2017.8288232 | c
+  2016 | Fast outer-loop link adaptation scheme realizing low-latency transmission in LTE-Advanced and future wireless  | Ohseki, Suegara | 2016 IEEE Radio and Wireless Symposium (RWS) | 10.1109/rws.2016.7444346 | cites=12
+  2023 | On the Effect of BLER Requirement on Outer-Loop Link Adaptation | Chen, Han | 2023 IEEE/CIC International Conference on Communications in  | 10.1109/iccc57788.2023.10233351 | cites=3
+### Pocovi Pedersen Mogensen Joint link adaptation and scheduling for 5G ultra-reliable low-latency communications
+  2018 | Joint Link Adaptation and Scheduling for 5G Ultra-Reliable Low-Latency Communications | Pocovi, Pedersen, Mogensen | IEEE Access | 10.1109/access.2018.2838585 | cites=134
+  2022 | Outer Loop Link Adaptation Enhancements for Ultra Reliable Low Latency Communications in 5G | Peralta, Pocovi, Kuru, Jayasinghe et al. | 2022 IEEE 95th Vehicular Technology Conference: (VTC2022-Spr | 10.1109/vtc2022-sprin
+  2017 | MAC layer enhancements for ultra-reliable low-latency communications in cellular networks | Pocovi, Soret, Pedersen, Mogensen | 2017 IEEE International Conference on Communications Worksho | 10.1109/iccw.2017.7962790 | ci
+### Kela Hohne Veijalainen Reinforcement learning for delay sensitive uplink outer-loop link adaptation
+  2022 | Reinforcement Learning for Delay Sensitive Uplink Outer-Loop Link Adaptation | Kela, Hohne, Veijalainen, Abdulrahman | 2022 Joint European Conference on Networks and Communication | 10.1109/eucnc/6gsummit54941.2022.981574
+  2023 | Cooperative Action Branching Deep Reinforcement Learning for Uplink Power Control | Kela, Veijalainen | 2023 Joint European Conference on Networks and Communication | 10.1109/eucnc/6gsummit58263.2023.10188225 | cites=5
+  None | LOLLA: Deep Reinforcement Learning for Closed-Loop Link Adaptation Towards a GPU-Accelerated AI-RAN_supp1-3740 | Yang | ? | 10.1109/tmc.2026.3740957/mm1 | cites=0
+### Sun Chen Shi Hong Fu Sidiropoulos Learning to optimize training deep neural networks for interference management
+  2018 | Learning to Optimize: Training Deep Neural Networks for Interference Management | Sun, Chen, Shi, Hong et al. | IEEE Transactions on Signal Processing | 10.1109/tsp.2018.2866382 | cites=773
+  2017 | Learning to optimize: Training deep neural networks for wireless resource management | Sun, Chen, Shi, Hong et al. | 2017 IEEE 18th International Workshop on Signal Processing A | 10.1109/spawc.2017.8227766 | cites=266
+  2019 | Learning to Optimize with Unsupervised Learning: Training Deep Neural Networks for URLLC | Sun, Yang | 2019 IEEE 30th Annual International Symposium on Personal, I | 10.1109/pimrc.2019.8904143 | cites=45
+### Bobrovnikov link adaptation reinforcement learning deep Q network 5G
+  2026 | Intelligent Network Slicing Optimization in 5G/6G Networks Using Deep Reinforcement Learning | Yahya Mohammed | IAR Journal of Engineering and Technology | 10.47310/iarjet.2026.v07i01.003 | cites=0
+  2025 | Probabilistic Representation for Robust Link Adaptation in Deep Reinforcement Learning-based 5G Systems | Song, Nam, Choi, Lee et al. | GLOBECOM 2025 - 2025 IEEE Global Communications Conference | 10.1109/globecom59602.20
+  2026 | Deep Reinforcement Learning for Intelligent Network Resource Allocation in 5G and 6G Networks | Oluwapelumi | ? | 10.2139/ssrn.7542628 | cites=0
+### Zhang Patras Haddadi Deep learning in mobile and wireless networking a survey
+  2019 | Deep Learning in Mobile and Wireless Networking: A Survey | Zhang, Patras, Haddadi | IEEE Communications Surveys &amp; Tutorials | 10.1109/comst.2019.2904897 | cites=1542
+  2018 | Long-Term Mobile Traffic Forecasting Using Deep Spatio-Temporal Neural Networks | Zhang, Patras | Proceedings of the Eighteenth ACM International Symposium on | 10.1145/3209582.3209606 | cites=245
+  2019 | A Survey on Deep Learning Techniques in Wireless Signal Recognition | Li, Dong, Zhang, Guo | Wireless Communications and Mobile Computing | 10.1155/2019/5629572 | cites=123
+### Luong Hoang Gong Niyato Applications of deep reinforcement learning in communications and networking a survey
+  2019 | Applications of Deep Reinforcement Learning in Communications and Networking: A Survey | Luong, Hoang, Gong, Niyato et al. | IEEE Communications Surveys &amp; Tutorials | 10.1109/comst.2019.2916583 | cites=1934
+  2020 | Optimization-driven Hierarchical Deep Reinforcement Learning for Hybrid Relaying Communications | Zou, Xie, Zhang, Gong et al. | 2020 IEEE Wireless Communications and Networking Conference  | 10.1109/wcnc45663.2020.912047
+  2023 | Deep Reinforcement Learning for Wireless Communications and Networking | Hoang, Huynh, Nguyen, Hossain et al. | ? | 10.1002/9781119873747 | cites=21
+### Wang Yu Learning based link adaptation deadline URLLC HARQ reinforcement
+  2021 | Reinforcement Learning Based Link Adaptation in 5G URLLC | S, Khan, Jacob | 2021 8th International Conference on Smart Computing and Com | 10.1109/icscc51209.2021.9528117 | cites=7
+  2018 | Joint Optimization of Link Adaptation and HARQ Retransmissions for URLLC Services | Deghel, Elayoubi, Galindo-Serrano, Visoz | 2018 25th International Conference on Telecommunications (IC | 10.1109/ict.2018.8464906 | cite
+  2025 | Reinforcement Learning Based Adaptation for Enhanced Point-to-Point Optical Link Performance | Pal, Jangid | ? | 10.36227/techrxiv.176306428.85921550/v1 | cites=4

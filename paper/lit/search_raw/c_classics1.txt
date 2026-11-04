@@ -1,0 +1,50 @@
+### Nakamura Awad Vadgama Adaptive control of link adaptation for high speed downlink packet access HSDPA
+  None | Adaptive control of link adaptation for high speed downlink packet access (HSDPA) in W-CDMA | Nakamura, Awad, Vadgama | The 5th International Symposium on Wireless Personal Multime | 10.1109/wpmc.2002.1088198 | cites=59
+  None | performance de la technologie 3g+ hsdpa « high speed downlink packet access » | andriamitsirisoa | ? | 10.63917/mem.2010.855 | cites=0
+  None | Fast scheduling strategies for WCDMA-high speed downlink packet access (HSDPA) system | Sun | ? | 10.22215/etd/2003-05465 | cites=0
+### Ng Harada Russell Policy invariance under reward transformations theory and application to reward shaping
+  2017 | Policy invariance under reward transformations for multi-objective reinforcement learning | Mannion, Devlin, Mason, Duggan et al. | Neurocomputing | 10.1016/j.neucom.2017.05.090 | cites=41
+  2011 | Policy Invariance under Reward Transformations for General-Sum Stochastic Games | Lu, Schwartz, Givigi | Journal of Artificial Intelligence Research | 10.1613/jair.3384 | cites=4
+  None | Reward Shaping |  | SpringerReference | 10.1007/springerreference_179443 | cites=1
+### Henderson Islam Bachman Pineau Precup Meger Deep reinforcement learning that matters
+  2018 | Deep Reinforcement Learning That Matters | Henderson, Islam, Bachman, Pineau et al. | Proceedings of the AAAI Conference on Artificial Intelligenc | 10.1609/aaai.v32i1.11694 | cites=1047
+  2018 | OptionGAN: Learning Joint Reward-Policy Options Using Generative Adversarial Inverse Reinforcement Learning | Henderson, Chang, Bacon, Meger et al. | Proceedings of the AAAI Conference on Artificial Intelligenc | 10.1609/
+  2018 | An Introduction to Deep
+                  Reinforcement Learning | François-Lavet, Henderson, Islam, Bellemare et al. | ? | 10.1561/9781680835397 | cites=222
+### Agarwal Schwarzer Castro Courville Bellemare Deep reinforcement learning at the edge of the statistical precipice
+  2022 | Reincarnating Reinforcement Learning: Reusing Prior Computation to Accelerate Progress | Agarwal, Schwarzer, Castro, Courville et al. | Advances in Neural Information Processing Systems 35 | 10.52202/068431-2099 | cites=6
+  2025 | Learning and Controlling Silicon Dopant Transitions in Graphene Using Scanning Transmission Electron Microscop | Schwarzer, Farebrother, Greaves, Cubuk et al. | Advanced Materials Interfaces | 10.1002/admi.202400998 | cit
+  2024 | The Position Dependence of Electron Beam Induced Effects in 2D Materials with Deep Neural Networks | Roccapriore, Schwarzer, Greaves, Farebrother et al. | Microscopy and Microanalysis | 10.1093/mam/ozae044.190 | cites=0
+### Johannink Bahl Nair Residual reinforcement learning for robot control
+  2019 | Residual Reinforcement Learning for Robot Control | Johannink, Bahl, Nair, Luo et al. | 2019 International Conference on Robotics and Automation (IC | 10.1109/icra.2019.8794127 | cites=390
+  2021 | Robot ℋ2 Neural Control Using Reinforcement Learning |  | Human‐Robot Interaction Control Using Reinforcement Learning | 10.1002/9781119782773.ch10 | cites=0
+  2021 | Reinforcement Learning for Robot Position/Force Control |  | Human‐Robot Interaction Control Using Reinforcement Learning | 10.1002/9781119782773.ch6 | cites=1
+### Silver Allen Tenenbaum Kaelbling Residual policy learning
+  2020 | Few-Shot Bayesian Imitation Learning with Logical Program Policies | Silver, Allen, Lew, Pack Kaelbling et al. | Proceedings of the AAAI Conference on Artificial Intelligenc | 10.1609/aaai.v34i06.6587 | cites=16
+  2022 | Learning Neuro-Symbolic Relational Transition Models for Bilevel Planning | Chitnis, Silver, Tenenbaum, Lozano-Pérez et al. | 2022 IEEE/RSJ International Conference on Intelligent Robots | 10.1109/iros47612.2022.9981440 
+  2021 | Learning Symbolic Operators for Task and Motion Planning | Silver, Chitnis, Tenenbaum, Kaelbling et al. | 2021 IEEE/RSJ International Conference on Intelligent Robots | 10.1109/iros51168.2021.9635941 | cites=38
+### Pawlikowski Jeong Lee On credibility of simulation studies of telecommunication networks
+  2002 | On credibility of simulation studies of telecommunication networks | Pawlikowski, Jeong, Lee | IEEE Communications Magazine | 10.1109/35.978060 | cites=252
+  2005 | Distributed steady-state simulation of telecommunication networks with self-similar teletraffic | Jeong, Lee, McNickle, Pawlikowski | Simulation Modelling Practice and Theory | 10.1016/j.simpat.2004.10.002 | cites=8
+  2003 | Generation of self-similar processes for simulation studies of telecommunication networks | Jeong, Pawlikowski, McNickle | Mathematical and Computer Modelling | 10.1016/s0895-7177(03)90127-0 | cites=8
+### Kurkowski Camp Colagrosso MANET simulation studies the incredibles
+  2005 | MANET simulation studies | Kurkowski, Camp, Colagrosso | ACM SIGMOBILE Mobile Computing and Communications Review | 10.1145/1096166.1096174 | cites=368
+  2007 | Constructing MANET Simulation Scenarios That Meet Standards | Kurkowski, Navidi, Camp | 2007 IEEE Internatonal Conference on Mobile Adhoc and Sensor | 10.1109/mobhoc.2007.4428640 | cites=16
+  None | A Visualization and Analysis Tool for NS-2 Wireless Simulations: iNSpect | Kurkowski, Camp, Mushell, Colagrosso | 13th IEEE International Symposium on Modeling, Analysis, and | 10.1109/mascots.2005.11 | cites=22
+### Jalali Padovani Pankaj Data throughput of CDMA-HDR a high efficiency high data rate personal communication wireless system
+  None | Data throughput of CDMA-HDR a high efficiency-high data rate personal communication wireless system | Jalali, Padovani, Pankaj | VTC2000-Spring. 2000 IEEE 51st Vehicular Technology Conferen | 10.1109/vetecs.2000.851593 | 
+  2000 | CDMA/HDR: a bandwidth efficient high speed wireless data service for nomadic users | Bender, Black, Grob, Padovani et al. | IEEE Communications Magazine | 10.1109/35.852034 | cites=867
+  2009 | CDMA/HDR: A Bandwidth-Efficient High-Speed Wireless Data Service for Nomadic Users | Bender, Black, Grob, Padovani et al. | The Foundations of the Digital Wireless World | 10.1142/9789814287517_0016 | cites=4
+### Andrews Kumaran Ramanan Stolyar Vijayakumar Whiting Providing quality of service over a shared wireless link
+  2001 | Providing quality of service over a shared wireless link | Andrews, Kumaran, Ramanan, Stolyar et al. | IEEE Communications Magazine | 10.1109/35.900644 | cites=939
+  2004 | SCHEDULING IN A QUEUING SYSTEM WITH ASYNCHRONOUSLY VARYING SERVICE 
+RATES | Andrews, Kumaran, Ramanan, Stolyar et al. | Probability in the Engineering and Informational Sciences | 10.1017/s0269964804182041 | cites=253
+  None | Providing quality of service in wireless ad hoc networks | Wang | ? | 10.32657/10356/13579 | cites=0
+### Capozzi Piro Grieco Boggia Camarda Downlink packet scheduling in LTE cellular networks key design issues and a survey
+  2013 | Downlink Packet Scheduling in LTE Cellular Networks: Key Design Issues and a Survey | Capozzi, Piro, Grieco, Boggia et al. | IEEE Communications Surveys &amp; Tutorials | 10.1109/surv.2012.060912.00100 | cites=619
+  2010 | A two-level scheduling algorithm for QoS support in the downlink of LTE cellular networks | Piro, Grieco, Boggia, Camarda | 2010 European Wireless Conference (EW) | 10.1109/ew.2010.5483423 | cites=46
+  2011 | Two-Level Downlink Scheduling for Real-Time Multimedia Services in LTE Networks | Piro, Grieco, Boggia, Fortuna et al. | IEEE Transactions on Multimedia | 10.1109/tmm.2011.2152381 | cites=182
+### Brueninghaus Link performance models for system level simulations of broadband radio access systems
+  None | Link Performance Models for System Level Simulations of Broadband Radio Access Systems | Brueninghaus, Astely, Salzer, Visuri et al. | 2005 IEEE 16th International Symposium on Personal, Indoor a | 10.1109/pimrc.2005.1651
+  None | Medium access control protocol chip for a broadband communication network including high level system simulati | Uhde, Apel | Proceedings of 1994 37th Midwest Symposium on Circuits and S | 10.1109/mwscas.1994.519081 | cit
+  None | Radio link configurations of broadband wireless access system | Koga, Fujimoto, Tejima | 1999 IEEE International Conference on Personal Wireless Comm | 10.1109/icpwc.1999.759648 | cites=1

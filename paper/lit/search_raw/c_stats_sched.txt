@@ -1,0 +1,50 @@
+### Gudmundson Correlation model for shadow fading in mobile radio systems
+  1991 | Correlation model for shadow fading in mobile radio systems | Gudmundson | Electronics Letters | 10.1049/el:19911328 | cites=1318
+  1996 | The spatial correlation of shadow fading in macrocellular mobile radio systems | Saunders | IEE Colloquium on Propagation Aspects of Future Mobile Syste | 10.1049/ic:19961163 | cites=14
+  2002 | A general correlation model for shadow fading in mobile radio systems | Graziosi, Santucci | IEEE Communications Letters | 10.1109/4234.991146 | cites=101
+### Kelly Maulloo Tan Rate control for communication networks shadow prices proportional fairness and stability
+  1998 | Rate control for communication networks: shadow prices, proportional fairness and stability | Kelly, Maulloo, Tan | Journal of the Operational Research Society | 10.1038/sj.jors.2600523 | cites=2250
+  1998 | Rate control for communication networks: shadow prices, proportional fairness and stability | Kelly, Maulloo, Tan | Journal of the Operational Research Society | 10.1057/palgrave.jors.2600523 | cites=2279
+  2008 | Optimal rate control policies for proportional fairness in wireless networks | Pantelidou, Ephremides | 2008 42nd Annual Conference on Information Sciences and Syst | 10.1109/ciss.2008.4558604 | cites=7
+### Kushner Whiting Convergence of proportional-fair sharing algorithms under general conditions
+  2004 | Convergence of Proportional-Fair Sharing Algorithms Under General Conditions | Kushner, Whiting | IEEE Transactions on Wireless Communications | 10.1109/twc.2004.830826 | cites=363
+  None | Extensions of proportional-fair sharing algorithms for multi-access control of mobile communications: constrai | Kushner | IEEE International Conference on Communications, 2005. ICC 2 | 10.1109/icc.2005.1494989 | cites=8
+  1997 | Weak Convergence Methods for General Algorithms | Kushner, Yin | Stochastic Approximation Algorithms and Applications | 10.1007/978-1-4899-2696-8_8 | cites=1
+### Wilcoxon Individual comparisons by ranking methods
+  1945 | Individual Comparisons by Ranking Methods | Wilcoxon | Biometrics Bulletin | 10.2307/3001968 | cites=13748
+  1947 | Probability Tables for Individual Comparisons by Ranking Methods | Wilcoxon | Biometrics | 10.2307/3001946 | cites=416
+  1992 | Individual Comparisons by Ranking Methods | Wilcoxon | Springer Series in Statistics | 10.1007/978-1-4612-4380-9_16 | cites=1755
+### Holm A simple sequentially rejective multiple test procedure
+  1987 | Correction: An Improved Sequentially Rejective Bonferroni Test Procedure |  | Biometrics | 10.2307/2532027 | cites=2
+  1987 | An Improved Sequentially Rejective Bonferroni Test Procedure | Holland, Copenhaver | Biometrics | 10.2307/2531823 | cites=301
+  1990 | A sequentially rejective test procedure based on a modified Bonferroni inequality | ROM | Biometrika | 10.1093/biomet/77.3.663 | cites=351
+### Glasserman Yao Some guidelines and guarantees for common random numbers
+  1992 | Some Guidelines and Guarantees for Common Random Numbers | Glasserman, Yao | Management Science | 10.1287/mnsc.38.6.884 | cites=154
+  2004 | Generating Random Numbers and Random Variables | Glasserman | Stochastic Modelling and Applied Probability | 10.1007/978-0-387-21617-1_2 | cites=7
+  2008 | The Method of Common Random Numbers: An Example |  | Wolfram Demonstrations Project | 10.3840/08004156 | cites=0
+### Saravanan Berman Sober Application of the hierarchical bootstrap to multi-level data in neuroscience
+  2019 | Application of the Hierarchical Bootstrap to Multi-Level Data in Neuroscience | Saravanan, Berman, Sober | ? | 10.1101/819334 | cites=127
+  2019 | Dopamine depletion affects vocal acoustics and disrupts sensorimotor adaptation in songbirds | Saravanan, Hoffmann, Jacob, Berman et al. | ? | 10.1101/600874 | cites=2
+  2024 | eLife Assessment: Hierarchical Bayesian modeling of multi-region brain cell count data | Berman | ? | 10.7554/elife.102391.1.sa3 | cites=0
+### Schuirmann comparison of the two one-sided tests procedure equivalence average bioavailability
+  1987 | A comparison of the Two One-Sided Tests Procedure and the Power Approach for assessing the equivalence of aver | Schuirmann | Journal of Pharmacokinetics and Biopharmaceutics | 10.1007/bf01068419 | cites=2328
+  None | Figure 3: Equivalence hypothesis test using the two one-sided
+                      <i>t</i>
+                  |  | ? | 10.7717/peerj.5541/fig-3 | cites=0
+  None | Table 4: Two one-sided tests – TOST results for statistical equivalence. |  | ? | 10.7717/peerj.13681/table-4 | cites=0
+### Dahlman Parkvall Skold 5G NR the next generation wireless access technology
+  2018 | 5G Standardization | Dahlman, Parkvall, Sköld | 5G NR: the Next Generation Wireless Access Technology | 10.1016/b978-0-12-814323-0.00002-8 | cites=2
+  2018 | NR Overview | Dahlman, Parkvall, Sköld | 5G NR: the Next Generation Wireless Access Technology | 10.1016/b978-0-12-814323-0.00005-3 | cites=13
+  2018 | Spectrum for 5G | Dahlman, Parkvall, Sköld | 5G NR: the Next Generation Wireless Access Technology | 10.1016/b978-0-12-814323-0.00003-x | cites=3
+### Benjamini Hochberg Controlling the false discovery rate
+  2024 | False discovery rate control: Moving beyond the Benjamini–Hochberg method | Koner, Sarkar, Laha | ? | 10.21203/rs.3.rs-3861673/v1 | cites=4
+  2021 | Adjusting the Benjamini–Hochberg method for controlling the false discovery rate in knockoff-assisted variable | Sarkar, Tang | Biometrika | 10.1093/biomet/asab066 | cites=15
+  1995 | Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing | Benjamini, Hochberg | Journal of the Royal Statistical Society Series B: Statistic | 10.1111/j.2517-6161.1995.tb02031.x | cites
+### reinforcement learning tuning outer loop link adaptation offset BLER target learning on top of OLLA
+  2023 | On the Effect of BLER Requirement on Outer-Loop Link Adaptation | Chen, Han | 2023 IEEE/CIC International Conference on Communications in  | 10.1109/iccc57788.2023.10233351 | cites=3
+  None | LOLLA: Deep Reinforcement Learning for Closed-Loop Link Adaptation Towards a GPU-Accelerated AI-RAN_supp1-3740 | Yang | ? | 10.1109/tmc.2026.3740957/mm1 | cites=0
+  2022 | Reinforcement Learning for Delay Sensitive Uplink Outer-Loop Link Adaptation | Kela, Hohne, Veijalainen, Abdulrahman | 2022 Joint European Conference on Networks and Communication | 10.1109/eucnc/6gsummit54941.2022.981574
+### deep reinforcement learning deadline aware scheduling wireless downlink packet delay
+  2014 | Distortion and Deadline Aware Packet Scheduling for Video Streaming over Wireless | Li, Lu, Hong | Journal of Electronics &amp; Information Technology | 10.3724/sp.j.1146.2012.01290 | cites=0
+  None | On Deadline-aware and Cost-aware Multipath Packet Scheduling in Mobile Applications_supp1-3731179.pdf | Cai | ? | 10.1109/tmc.2026.3731179/mm1 | cites=0
+  2019 | Delay-aware packet scheduling for massive MIMO beamforming transmission using large-scale reinforcement learni | Zhang, Sun | Physical Communication | 10.1016/j.phycom.2018.11.009 | cites=2

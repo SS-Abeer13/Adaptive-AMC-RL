@@ -1,0 +1,20 @@
+### Bobrov Kropotov Lu Zaev Massive MIMO adaptive modulation and coding using online deep learning algorithm
+  2021 | Massive MIMO Adaptive Modulation and Coding Using Online Deep Learning | Bobrov, Kropotov, Lu, Zaev | ? | 10.36227/techrxiv.14526840.v3 | cites=0
+  2021 | Massive MIMO Adaptive Modulation and Coding Using Online Deep Learning | Bobrov, Kropotov, Lu, Zaev | ? | 10.36227/techrxiv.14526840.v1 | cites=1
+  2021 | Massive MIMO Adaptive Modulation and Coding Using Online Deep Learning | Bobrov, Kropotov, Lu, Zaev | ? | 10.36227/techrxiv.14526840.v2 | cites=0
+### An Doost-Mohammady DRAGON a DRL-based MIMO layer and MCS adapter in open RAN 5G networks
+  2024 | DRAGON: A DRL-based MIMO Layer and MCS Adapter in Open RAN 5G Networks | An, Doost-Mohammady, Yang, Sridhar | Proceedings of the 30th Annual International Conference on M | 10.1145/3636534.3701549 | cites=2
+  2024 | Helix: A RAN Slicing Based Scheduling Framework for Massive MIMO Networks | An, Pandey, Doost-Mohammady, Sabharwal et al. | Proceedings of the ACM on Networking | 10.1145/3696399 | cites=2
+  2023 | ML-Based Feedback-Free Adaptive MCS Selection for Massive Multi-User MIMO | An, Zafari, Dick, Segarra et al. | 2023 57th Asilomar Conference on Signals, Systems, and Compu | 10.1109/ieeeconf59524.2023.10476866 | cites=8
+### Goldsmith Chua Adaptive coded modulation for fading channels
+  None | Adaptive coded modulation for fading channels | Soon-Ghee Chua, Goldsmith | Proceedings of ICC'97 - International Conference on Communic | 10.1109/icc.1997.595036 | cites=6
+  1998 | Adaptive coded modulation for fading channels | Goldsmith, Chua | IEEE Transactions on Communications | 10.1109/26.668727 | cites=674
+  2003 | Adaptive turbo-coded modulation for flat-fading channels | Vishwanath, Goldsmith | IEEE Transactions on Communications | 10.1109/tcomm.2003.813180 | cites=66
+### Nemeth Al-Imari Soft-ACK feedback based link adaptation latency critical 5G
+  2021 | Soft-ACK Feedback Based Link Adaptation for Latency Critical Applications in 5G/B5G | Nemeth, Al-Imari, Ozan | 2021 IEEE Global Communications Conference (GLOBECOM) | 10.1109/globecom46510.2021.9685435 | cites=7
+  2023 | Soft-Ack based Outer Loop Link Adaptation for Latency-constrained 5G Video Conferencing | Liu, Chen, Wu, Ji et al. | GLOBECOM 2023 - 2023 IEEE Global Communications Conference | 10.1109/globecom54140.2023.10437503 | cites
+  2021 | Dynamic Cross-Carrier Enhancement for 5G and B5G | Salah, Li, Al-Imari, Nemeth et al. | 2021 IEEE 93rd Vehicular Technology Conference (VTC2021-Spri | 10.1109/vtc2021-spring51267.2021.9448653 | cites=2
+### Holm 1979 sequentially rejective Scandinavian Journal of Statistics
+  2018 | Simultaneous Confidence Intervals Compatible with Sequentially Rejective Graphical Procedures | Guilbaud | Statistics in Biopharmaceutical Research | 10.1080/19466315.2018.1497532 | cites=3
+  1981 | On sequentially rejective subset selection procedures | Bronström | Communications in Statistics - Theory and Methods | 10.1080/03610928108828032 | cites=15
+  1979 | A Note on Rejective Sampling | Dupačová | Contributions to Statistics | 10.1007/978-94-009-9362-4_9 | cites=13

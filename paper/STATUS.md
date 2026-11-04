@@ -1,7 +1,7 @@
 # Paper status
 
-**Branch:** `claude/magical-heisenberg-iek5sg` (session branch; mirrored to `paper-draft` when push access allows; see the last line).
-**Current phase:** 2 (literature research), in progress. Next stop: **Checkpoint 2**.
+**Branch:** `claude/magical-heisenberg-iek5sg` (session branch), mirrored to `paper-draft` (push access confirmed 4 Nov 2026).
+**Current phase:** 2 (literature research) complete. **Waiting at Checkpoint 2.**
 
 ## Checkpoint 1: approved 4 Nov 2026, with conditions. Status of each condition
 
@@ -32,5 +32,17 @@
 ## Notes
 - G3 changes two earlier statements. The M1 resid-800 "win" does not survive seed resampling, and M2 vs the Context table has a hierarchical 95 % CI that includes 0. Both are now in the ledger.
 
+## Phase 2 (literature): done
+- `paper/lit/bibliography.bib`: 84 entries, all verified (Crossref DOI record, arXiv API, or a named publisher page; see `verification_report.csv`).
+- `paper/lit/lit_matrix.csv`: 84 rows; detailed fields for the LA papers.
+- `paper/lit/gap_analysis.md`: novelty position + top 30.
+- `paper/lit/candidates_audit.md`: named candidates and the v8 reference list (2 wrong DOIs, 1 mis-attribution).
+- `paper/lit/search_log.md` + `search_raw/`; tools in `paper/lit/tools/`.
+
+## Open questions for Checkpoint 2
+1. LOLLA (IEEE TMC 2026) already proposes a residual offset on the OLLA/LUT mapping. Accept an evaluation-led framing (A or A-leaning C) rather than a method-led one (B)?
+2. Doherty et al. 2025 make the "tuned heuristics match RL" point in optical networks. Position as the cellular-LA counterpart?
+3. Should an author-side IEEE Xplore / Scholar pass (TMLCN, OJ-COMS, TWC, TVT 2024–2026) be done before Phase 3?
+
 ## Next step
-Phase 2 literature: `paper/lit/` (search_log, bibliography.bib, lit_matrix.csv, gap_analysis.md), then Checkpoint 2.
+Phase 3 (venue research) after Checkpoint 2 approval.

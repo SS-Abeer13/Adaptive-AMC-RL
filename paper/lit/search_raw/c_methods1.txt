@@ -1,0 +1,48 @@
+### Patriciello Lagen Bojovic Giupponi An E2E simulator for 5G NR networks
+  2019 | An E2E simulator for 5G NR networks | Patriciello, Lagen, Bojovic, Giupponi | Simulation Modelling Practice and Theory | 10.1016/j.simpat.2019.101933 | cites=212
+  2019 | An Improved MAC Layer for the 5G NR ns-3 Module | Patriciello, Lagen, Giupponi, Bojovic | Proceedings of the 2019 Workshop on ns-3 | 10.1145/3321349.3321350 | cites=22
+  2019 | The Impact of NR Scheduling Timings on End-to-End Delay for Uplink Traffic | Patriciello, Lagen, Giupponi, Bojovic | 2019 IEEE Global Communications Conference (GLOBECOM) | 10.1109/globecom38437.2019.9013231 | cites=22
+### Mueller Ademaj Dittrich Fastenbauer Vienna 5G system level simulator
+  2018 | Flexible multi-node simulation of cellular mobile communications: the Vienna 5G System Level Simulator | Müller, Ademaj, Dittrich, Fastenbauer et al. | EURASIP Journal on Wireless Communications and Networking | 10.1186/
+  2019 | Verification of the Vienna 5G Link and System Level Simulators and Their Interaction | Pratschner, Muller, Ademaj, Nabavi et al. | 2019 16th IEEE Annual Consumer Communications &amp; Networki | 10.1109/ccnc.2019.8651694 |
+  2020 | Simu5G: A System-level Simulator for 5G Networks | Nardini, Stea, Virdis, Sabella | Proceedings of the 10th International Conference on Simulati | 10.5220/0009826400680080 | cites=52
+### Ikuno Wrulich Rupp System level simulation of LTE networks
+  2010 | System Level Simulation of LTE Networks | Ikuno, Wrulich, Rupp | 2010 IEEE 71st Vehicular Technology Conference | 10.1109/vetecs.2010.5494007 | cites=369
+  2012 | Accurate SINR estimation model for system level simulation of LTE networks | Ikuno, Pendl, Simko, Rupp | 2012 IEEE International Conference on Communications (ICC) | 10.1109/icc.2012.6364098 | cites=28
+  2011 | Evaluation of HSDPA and LTE | Caban, Mehlführer, Rupp, Wrulich | ? | 10.1002/9781119954705 | cites=15
+### Mezzavilla Zhang Polese ns-3 millimeter wave end-to-end simulation 5G
+  2018 | End-to-End Simulation of 5G mmWave Networks | Mezzavilla, Zhang, Polese, Ford et al. | IEEE Communications Surveys &amp; Tutorials | 10.1109/comst.2018.2828880 | cites=389
+  2018 | Understanding End-to-End Effects of Channel Dynamics in Millimeter Wave 5G New Radio | Slezak, Zhang, Mezzavilla, Rangan | 2018 IEEE 19th International Workshop on Signal Processing A | 10.1109/spawc.2018.8446037 | cites=
+  2016 | A Framework for End-to-End Evaluation of 5G mmWave Cellular Networks in ns-3 | Ford, Zhang, Dutta, Mezzavilla et al. | Proceedings of the 2016 Workshop on ns-3 | 10.1145/2915371.2915380 | cites=44
+### Kapoor Narayanan Leakage and the reproducibility crisis in machine-learning-based science
+  2023 | Leakage and the reproducibility crisis in machine-learning-based science | Kapoor, Narayanan | Patterns | 10.1016/j.patter.2023.100804 | cites=1463
+  2022 | Machine Learning Can Solve the Reproducibility Crisis by Supplanting Reductionist Statistics | Sadri | ? | 10.31222/osf.io/yxba5 | cites=1
+  2022 | Could machine learning fuel a reproducibility crisis in science? | Gibney | Nature | 10.1038/d41586-022-02035-w | cites=72
+### Nosek Ebersole DeHaven Mellor The preregistration revolution
+  2017 | The Preregistration Revolution | Nosek, Ebersole, DeHaven, Mellor | ? | 10.31219/osf.io/2dxu5 | cites=14
+  2018 | The preregistration revolution | Nosek, Ebersole, DeHaven, Mellor | Proceedings of the National Academy of Sciences | 10.1073/pnas.1708274114 | cites=1600
+  2018 | Reply to Ledgerwood: Predictions without Analysis Plans are Inert | Nosek, Ebersole, DeHaven, Mellor | ? | 10.31234/osf.io/a6k7h | cites=0
+### Lipton Steinhardt Troubling trends in machine learning scholarship
+  2019 | Research for practice | Lipton, Steinhardt | Communications of the ACM | 10.1145/3316774 | cites=19
+  2019 | Troubling Trends in Machine Learning Scholarship | Lipton, Steinhardt | Queue | 10.1145/3317287.3328534 | cites=106
+  2022 | Research trajectories—Troubling trends | Gennaro | Journal of Nursing Scholarship | 10.1111/jnu.12802 | cites=2
+### Colas Sigaud Oudeyer How many random seeds statistical power analysis deep reinforcement learning
+  2022 | Autotelic Agents with Intrinsically Motivated Goal-Conditioned Reinforcement Learning: A Short Survey | Colas, Karch, Sigaud, Oudeyer | Journal of Artificial Intelligence Research | 10.1613/jair.1.13554 | cites=69
+  2024 | Latent Learning Progress Drives Autonomous Goal Selection in Human Reinforcement Learning | Molinaro, Colas, Oudeyer, Collins | ? | 10.31234/osf.io/5dtx3 | cites=0
+  2024 | Latent Learning Progress Drives Autonomous Goal Selection in Human Reinforcement Learning | Molinaro, Colas, Oudeyer, Collins | Advances in Neural Information Processing Systems 37 | 10.52202/079017-1013 | cites=1
+### Patterson Neumann White Empirical design in reinforcement learning
+  None | Neural scaling laws for multi-agent reinforcement learning | ?, Neumann | ? | 10.21248/gups.82099 | cites=1
+  None | When is Offline Policy Selection Sample Efficient for Reinforcement Learning? | Liu, Nagarajan, Patterson, White | Proceedings of the 25th International Conference on Autonomo | 10.65109/vdef3989 | cites=0
+  None | Average Reward Reinforcement Learning: Foundations, Algorithms, and Empirical Results | Mahadevan | Recent Advances in Reinforcement Learning | 10.1007/978-0-585-33656-5_8 | cites=4
+### Foerster Farquhar Afouras Nardelli Whiteson Counterfactual multi-agent policy gradients
+  2018 | Counterfactual Multi-Agent Policy Gradients | Foerster, Farquhar, Afouras, Nardelli et al. | Proceedings of the AAAI Conference on Artificial Intelligenc | 10.1609/aaai.v32i1.11794 | cites=1436
+  2019 | The StarCraft Multi-Agent Challenge | Samvelyan, Rashid, Schroeder de Witt, Farquhar et al. | International Joint Conference on Autonomous Agents and Mult | 10.65109/lvzz5205 | cites=155
+  2019 | A Survey of Reinforcement Learning Informed by Natural Language | Luketina, Nardelli, Farquhar, Foerster et al. | Proceedings of the Twenty-Eighth International Joint Confere | 10.24963/ijcai.2019/880 | cites=90
+### Wolpert Tumer Optimal payoff functions for members of collectives
+  2002 | Optimal Payoff Functions for Members of Collectives | WOLPERT, TUMER | Modeling Complexity in Economic and Social Systems | 10.1142/9789812777263_0020 | cites=25
+  2001 | OPTIMAL PAYOFF FUNCTIONS FOR MEMBERS OF COLLECTIVES | WOLPERT, TUMER | Advances in Complex Systems | 10.1142/s0219525901000188 | cites=126
+  2004 | A Survey of Collectives | Tumer, Wolpert | Collectives and the Design of Complex Systems | 10.1007/978-1-4419-8909-3_1 | cites=35
+### Gencoglu HARK side of deep learning from grad student descent to automated machine learning
+  2025 | EXPLAINABLE DEEP LEARNING FOR AUTOMATED PNEUMONIA DETECTION FROM CHEST X-RAY IMAGES USING MOBILENETV2 AND GRAD | Reddy | ? | 10.36227/techrxiv.176108165.56312001/v1 | cites=2
+  2025 | Automated Student Engagement Detection Using Hybrid Deep Learning and Machine Learning Techniques | Abdelhamid, Aly | 2025 IEEE Frontiers in Education Conference (FIE) | 10.1109/fie63693.2025.11328252 | cites=2
+  2019 | Optimization for Machine Learning: Gradient Descent | Bisong | Building Machine Learning and Deep Learning Models on Google | 10.1007/978-1-4842-4470-8_16 | cites=4
