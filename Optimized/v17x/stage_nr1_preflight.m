@@ -19,10 +19,14 @@ function pf = stage_nr1_preflight(ctx)
     DeepA2C_Shared_v17(o.simTime, n_ep, 24042 + 201, env);
     sec = toc(t0) / n_ep;
     
-    n_ep_total = ternary(ctx.smoke, 2 * 2, 10 * 3000);
+    % NR1 true totals: 30,000 training episodes + 10,500 evaluation runs
+    % (10 A2C + 10 best-on-val + 1 ensemble) x 500 = 10,500 evals
+    % In episode units at basis ratio (0.095 / 0.140): 10,500 x 0.6786 = 7,125
+    % Total units = 30,000 + 7,125 = 37,125 episode-equivalents
+    n_ep_total = ternary(ctx.smoke, 4, 37125);
     pf = struct('unit', 'episode', 'sec_per_unit', sec, ...
                 'n_units_total', n_ep_total, ...
-                'note', sprintf('NR1 non-oracle residual A2C training (%d episodes)', n_ep));
+                'note', sprintf('NR1 non-oracle residual (30k ep training + 10.5k evals; %d ep benchmarked)', n_ep));
 end
 
 function out = ternary(cond, a, b)

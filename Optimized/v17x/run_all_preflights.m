@@ -48,13 +48,8 @@ for i = 1:numel(stages)
         end
         ratio = pf.sec_per_unit / b;
         
-        % For projected time, consider 2 parfor workers where applicable
-        % Training episodes run in parfor across seeds (2 workers -> 2x speedup)
-        % Trace evaluations run in parallel chunks / workers
-        proj_sec = pf.sec_per_unit * pf.n_units_total / 2; % 2 workers
-        if strcmp(id, 'a3')
-            proj_sec = pf.sec_per_unit * pf.n_units_total; % serial microbenchmark
-        end
+        % Projected wall time (measured rate already reflects execution setup)
+        proj_sec = pf.sec_per_unit * pf.n_units_total;
         proj_hr = proj_sec / 3600;
         total_proj_hours = total_proj_hours + proj_hr;
         
