@@ -140,3 +140,7 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - Drafted: Related work (T1), System model (T3, F2), Method, Protocol (T2, the three calibration findings, composite definition), Results VI-A to VI-F (G3 seed-level numbers), Pitfalls and recommendations. Placeholders: abstract, introduction, discussion, conclusion, VI-G (W1/G6/NR1/G10), VI-H (G1).
 - Build: 8 pages, no LaTeX errors or undefined references. `check_pending.py` (non-final) passes; unresolved placeholders: G6:verdict, NR:verdict, G10:verdict (defaults in use).
 - Next: review v0, then draft the placeholder sections; runs on the author's PC per the master prompt.
+
+## Amendment 2 / FREEZE v3 (5 Nov 2026)
+- G10 no longer runs the combined comparator (compute, about 100 h extra at two cells); it is tested at the M1 point only (G6). G10 compares against single-cue rules re-calibrated per cell (200 traces); family of 9, WIN = beats all 9. Options (a), (b), (c) and the reasoning are in `paper/proposals/AMENDMENTS.md`.
+- Freeze v3 commit: `0e43c3c2e87887888da89bc9e69f96f7d80876ca`. Changed: G10, checkpoint5_list, AMENDMENTS; G6, W1, NR1, A6, common_rules, compute_basis hashes unchanged from v2 (v2 hashes kept in `FREEZE_v2.sha256`). No G6 output had been read.
