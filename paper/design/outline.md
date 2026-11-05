@@ -129,7 +129,7 @@ Notation follows the v8 draft: N users, T_tti, d_i (CQI delay), q^ref, Δ (OLLA 
 | **W1** warm-up | Abstract quotes the cold-start gain and says "cold-start OLLA"; limitation | Cold and warm gains side by side in T4/F6; abstract quotes warm-up if the 90 % CIs do not overlap | W1 §3 |
 | **G6** budget + combined comparator | C2: "beats the OLLA family and the single-cue calibrated rules (calibrated on 10–20 traces)"; "same-information" not used | Re-calibrated rows added to T4; C2 per G6 §4 table | G6 §4 |
 | **NR1** non-oracle residual | Cite earlier RTT-0 wins on a Fixed base (v13 X2, v14 Y0, v16 K2) as partial evidence; limitation stays | F6 panel; qualification if Claim B fails | NR1 §4 |
-| **G10** two cells | Abstract scope sentence and VIII state the one-operating-point restriction | F6 panel and per-cell table (G2_hi_d10, G3_lo_d18; base rule and oracle flag per cell); wording per G10 §4; the other two corners are listed as untested future work | G10 §4 |
+| **G10** two cells | Abstract scope sentence and VIII state the one-operating-point restriction | F6 panel and per-cell table (G2_hi_d10, G3_lo_d18; base rule and oracle flag per cell; single-cue comparators re-calibrated per cell, combined comparator at M1 only, Amendment 2); wording per G10 §4; the other two corners are listed as untested future work | G10 §4 |
 | **A1** speed classes | Recommendation only | One paragraph + panel in F7 | — |
 | **A3** timing | Analytic MACs only | µs per decision added to IV-D | — |
 

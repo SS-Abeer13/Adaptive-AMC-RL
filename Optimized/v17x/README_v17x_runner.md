@@ -61,7 +61,7 @@ function stage_<id>(ctx)
 | `g6b` | G6 §2.3, §2.4 | `start_k_sweep_s` | sanity check (objective ≥ every coarser table); SHA-256 logged before any evaluation |
 | `g6c` | G6 §3–4 | `eval`, `repro`, `analysis` | refuses to run if the hash or sanity check failed; REPRO max diff = 0 |
 | `nr1` | NR1 §3–4 | `calib`, `train_seed_K`, `eval` | calibrated tables equal M1's; selector bit-identical when the flag is unset |
-| `g10` | G10 §2–5, §7 | per cell (G2, G3): `feas`, `calib_single_*`, `calib_comb_start_k_sweep_s`, `train_seed_K`, `bandit_*`, `eval` | disjoint seeds incl. G6 and A6 ranges |
+| `g10` | G10 §2–5, §7 | per cell (G2, G3): `feas`, `calib_single_*`, `train_seed_K`, `bandit_*`, `eval` (Amendment 2: no combined-comparator units) | disjoint seeds incl. G6 and A6 ranges |
 | `a1` | `checkpoint5_list.md` prompt A1 | `peruser` | REPRO of stored `cell_tp` |
 | `a3` | `checkpoint5_list.md` prompt A3 | `timing` | none |
 | `a6` | `A6_pf_timing_prereg.md` §2, §6 | `equiv_test`, six `cell_*` units | `test_equivalence_v17.m` passes; disjoint seeds |

@@ -13,7 +13,7 @@ All pre-registrations G6, W1, NR1, G10, A6 and `common_rules.md` are frozen; the
 | **W1** | Warm-up robustness (200 unscored TTIs, stored policies) | essential | re-evaluation | ≈ 1.2 h | `W1_warmup_prereg.md` |
 | **NR1** | Residual on the non-oracle Fixed base at RTT 8 | recommended | training | ≈ 1.5 h | `NR1_nonoracle_residual_prereg.md` |
 | **G6** | **Full profile.** Exhaustive re-calibration of Fixed / Context / OLLA on 500 traces, FixedPU separable + joint, and the combined comparator (coordinate ascent, 4 starts) | essential | calibration, no RL training | `g6a` ≈ 6.9 h (**report point**), `g6b` ≈ 23 h min / **≈ 34 h expected** / ≤ 68 h cap; **total ≈ 41 h expected** | `G6_calibration_budget_prereg.md` |
-| **G10** | **Two cells** (G2_hi_d10, G3_lo_d18), per-cell recalibration of all comparators incl. the combined one, 200 calibration traces per cell | essential | training + calibration | **≈ 26 h min, ≈ 35 h expected, ≈ 62 h cap** | `G10_operating_grid_prereg.md` |
+| **G10** | **Two cells** (G2_hi_d10, G3_lo_d18), per-cell recalibration of the **single-cue** comparators (Fixed, FixedPU, Context, OLLA-tuned), 200 calibration traces per cell; **no combined comparator** (Amendment 2; tested at M1 in G6 only) | essential | training + calibration | **≈ 7.4 h on the basis** (≈ 3.7 h per cell; before Amendment 2: ≈ 35 h expected) | `G10_operating_grid_prereg.md` |
 | A1 | Results by speed class (M1) | approved | re-evaluation | ≈ 20 min | below |
 | A2 | On-time attribution by state (from the G1 log) | approved | none | minutes | after G1 |
 | A3 | Inference wall time per TTI | approved | micro-benchmark | ≈ 5 min | below |
@@ -23,7 +23,7 @@ All pre-registrations G6, W1, NR1, G10, A6 and `common_rules.md` are frozen; the
 | F1, F2 | SALAD comparator; second simulator | future work | — | — | — |
 | F3, F4 | Grid corners G1_lo_d10 and G4_hi_d18 | future work, decided now (not to be added on the basis of G2/G3) | — | — | `G10_operating_grid_prereg.md` §2 |
 
-**Total on the upper-bound basis:** ≈ 1 h (G1) + 1.2 h (W1) + 1.5 h (NR1) + 41 h (G6) + 35 h (G10) + 0.5 h (A1/A3) + 0.1 h (A6) ≈ **80 h (about 3.3 days)**. The measured preflight rate (expected below the basis for deterministic rules) can only shorten it.
+**Total on the upper-bound basis:** ≈ 1 h (G1) + 1.2 h (W1) + 1.5 h (NR1) + 41 h (G6) + 7.4 h (G10, Amendment 2) + 0.5 h (A1/A3) + 0.1 h (A6) ≈ **53 h on the basis** (before Amendment 2: ≈ 80 h). The measured preflight rates for the calibration steps are higher than the basis (author-reported, 5 Nov 2026); `PREFLIGHT_<stage>.txt` holds the measured projections. The measured preflight rate (expected below the basis for deterministic rules) can only shorten it.
 
 **Multiplicity after all runs:** registry +6 cases (W1 1, G6 1, NR1 1, G10 2, A6 1 diagnostic) → **73 cases**; none is a new claim. M1's Bonferroni factor is at most 1,190 tests (`common_rules.md` R7); M1's p (9.06e-13) gives ≈ 1.1e-9.
 
