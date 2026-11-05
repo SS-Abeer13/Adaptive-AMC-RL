@@ -55,8 +55,8 @@ function out = unit_calib(env_M1, o, ctx)
         if cal_env.fixed_offset ~= env_M1.fixed_offset
             error('v17x:nr1:calib', 'calibrated fixed_offset (%d) differs from M1 (%d)', cal_env.fixed_offset, env_M1.fixed_offset);
         end
-        if ~isequal(cal_env.class_tab, env_M1.class_tab)
-            error('v17x:nr1:calib', 'calibrated class_tab differs from M1');
+        if ~isequal(cal_env.fixed_class_tab, env_M1.fixed_class_tab)
+            error('v17x:nr1:calib', 'calibrated fixed_class_tab differs from M1');
         end
         if ~isequal(cal_env.ctx_tab, env_M1.ctx_tab)
             error('v17x:nr1:calib', 'calibrated ctx_tab differs from M1');
