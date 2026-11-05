@@ -143,4 +143,4 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 
 ## Amendment 2 / FREEZE v3 (5 Nov 2026)
 - G10 no longer runs the combined comparator (compute, about 100 h extra at two cells); it is tested at the M1 point only (G6). G10 compares against single-cue rules re-calibrated per cell (200 traces); family of 9, WIN = beats all 9. Options (a), (b), (c) and the reasoning are in `paper/proposals/AMENDMENTS.md`.
-- Freeze v3 commit: `0e43c3c2e87887888da89bc9e69f96f7d80876ca`. Changed: G10, checkpoint5_list, AMENDMENTS; G6, W1, NR1, A6, common_rules, compute_basis hashes unchanged from v2 (v2 hashes kept in `FREEZE_v2.sha256`). No G6 output had been read.
+- Freeze v3 commit: `d08807f425a6cfa4b07fbebf6a2b3485216cbf98`. Changed: G10, checkpoint5_list, AMENDMENTS; G6, W1, NR1, A6, common_rules, compute_basis hashes unchanged from v2 (v2 hashes kept in `FREEZE_v2.sha256`). No G6 output had been read.
