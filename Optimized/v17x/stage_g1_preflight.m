@@ -1,5 +1,6 @@
 function pf = stage_g1_preflight(ctx)
 % 20-trace preflight: frozen-copy evaluator, M1 seed-1 policy, including trace generation.
+    addpath(ctx.v17);
     v17_setup;                                   % defines C, base, v17 (and cd's to the project root)
     addpath(fullfile(v17, 'g1'));
     tag = 'M1_dl_rtt8';

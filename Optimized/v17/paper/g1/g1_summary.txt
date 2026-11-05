@@ -1,0 +1,13 @@
+G1 re-cut, 2026-11-05 09:30:24, MATLAB 9.14.0.2206163 (R2023a)
+
+=== M1_dl_rtt8 (A2C scheme index 8, FixedPU index 6, 10 seeds, 500 traces)
+EQUIV|M1_dl_rtt8|instrumented_vs_frozen_bit_identical=1
+REPRO|M1_dl_rtt8|max_abs_diff_cell_goodput_vs_stored=0.000e+00 (must be 0)
+PUMATCH|M1_dl_rtt8|new_tx_decisions_at_same_(t,user)=504639|same_sent_cqi=213712|frac=0.423495
+COUNT|M1_dl_rtt8|logged_scheduled=618192|retx_dropped=31176|new_tx_kept=587016
+
+=== M3_gp_rtt8 (A2C scheme index 8, FixedPU index 6, 10 seeds, 500 traces)
+EQUIV|M3_gp_rtt8|instrumented_vs_frozen_bit_identical=1
+REPRO|M3_gp_rtt8|max_abs_diff_cell_goodput_vs_stored=0.000e+00 (must be 0)
+PUMATCH|M3_gp_rtt8|new_tx_decisions_at_same_(t,user)=379380|same_sent_cqi=379380|frac=1.000000
+COUNT|M3_gp_rtt8|logged_scheduled=750000|retx_dropped=370620|new_tx_kept=379380

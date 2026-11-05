@@ -56,7 +56,7 @@ for cIdx = 1:numel(G1_CASES)
         [a1, b1, c1, d1] = evalPolicy_v17('a2c_v17', Wa, traces(j).SINR, traces(j).obsS, envE, traces(j).meta, traces(j).U);
         rng(77000 + 100*j + 10*kA2C + 1);
         [a2, b2, c2, d2] = evalPolicy_v17_g1('a2c_v17', Wa, traces(j).SINR, traces(j).obsS, envE, traces(j).meta, traces(j).U);
-        eqOK = eqOK && isequal(a1, a2) && isequal(b1, b2) && isequal(c1, c2) && isequal(d1, d2);
+        eqOK = eqOK && isequaln(a1, a2) && isequaln(b1, b2) && isequaln(c1, c2) && isequaln(d1, d2);
     end
     fprintf(sumF, 'EQUIV|%s|instrumented_vs_frozen_bit_identical=%d\n', tag, eqOK);
     if ~eqOK, fclose(csvF); fclose(sumF); error('G1: instrumented evaluator differs from evalPolicy_v17 -- STOP'); end

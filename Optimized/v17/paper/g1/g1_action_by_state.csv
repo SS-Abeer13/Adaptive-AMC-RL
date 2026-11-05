@@ -1,0 +1,42 @@
+case_tag,condition_type,condition_bin,n_decisions,pct_delta_minus1,pct_delta_0,pct_delta_plus1,pct_effective_nonzero,n_clipped
+M1_dl_rtt8,all,all,587016,19.04,26.38,54.58,63.37,60201
+M1_dl_rtt8,cqi_delay_class,delay<=4 TTI,239368,19.09,26.67,54.23,63.25,24134
+M1_dl_rtt8,cqi_delay_class,delay>=5 TTI,347648,19.01,26.18,54.82,63.45,36067
+M1_dl_rtt8,cqi_delay,2 TTI,81210,19.08,27.08,53.84,62.93,8116
+M1_dl_rtt8,cqi_delay,3 TTI,75071,19.72,26.57,53.71,63.82,7216
+M1_dl_rtt8,cqi_delay,4 TTI,83087,18.54,26.36,55.10,63.05,8802
+M1_dl_rtt8,cqi_delay,5 TTI,87705,18.32,25.82,55.86,63.27,9574
+M1_dl_rtt8,cqi_delay,6 TTI,85771,19.55,26.52,53.93,63.79,8317
+M1_dl_rtt8,cqi_delay,7 TTI,90127,19.65,26.68,53.67,63.43,8908
+M1_dl_rtt8,cqi_delay,8 TTI,84045,18.49,25.66,55.85,63.31,9268
+M1_dl_rtt8,interference,calm,422181,22.38,28.91,48.71,64.08,29593
+M1_dl_rtt8,interference,burst,164835,10.50,19.89,69.61,61.55,30608
+M1_dl_rtt8,speed_class,<10 m/s,125363,19.79,28.34,51.87,59.95,14680
+M1_dl_rtt8,speed_class,10-20 m/s,266477,19.08,26.64,54.28,63.82,25404
+M1_dl_rtt8,speed_class,>20 m/s,195176,18.51,24.76,56.73,64.93,20117
+M1_dl_rtt8,deadline_frac,<=0.3,15092,1.10,10.43,88.47,67.51,3329
+M1_dl_rtt8,deadline_frac,0.3-0.6,72753,1.53,8.58,89.89,65.37,18948
+M1_dl_rtt8,deadline_frac,>0.6,499171,22.14,29.45,48.41,62.95,37924
+M1_dl_rtt8,bits_frac,<=0.5,903,2.99,13.62,83.39,82.28,37
+M1_dl_rtt8,bits_frac,>0.5,586113,19.07,26.40,54.53,63.34,60164
+M1_dl_rtt8,busy_procs,0,371728,27.32,35.67,37.00,57.85,24090
+M1_dl_rtt8,busy_procs,1-2,208709,4.89,10.45,84.66,73.85,32763
+M1_dl_rtt8,busy_procs,>=3,6579,0.21,6.55,93.24,42.56,3348
+M3_gp_rtt8,all,all,379380,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay_class,delay<=4 TTI,164010,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay_class,delay>=5 TTI,215370,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,2 TTI,56710,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,3 TTI,53350,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,4 TTI,53950,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,5 TTI,54270,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,6 TTI,53540,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,7 TTI,54530,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,cqi_delay,8 TTI,53030,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,interference,calm,309280,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,interference,burst,70100,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,speed_class,<10 m/s,82880,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,speed_class,10-20 m/s,180190,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,speed_class,>20 m/s,116310,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,busy_procs,0,270720,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,busy_procs,1-2,108650,0.00,100.00,0.00,0.00,0
+M3_gp_rtt8,busy_procs,>=3,10,0.00,100.00,0.00,0.00,0

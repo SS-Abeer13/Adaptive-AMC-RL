@@ -3,6 +3,7 @@ function stage_g1(ctx)
 % Wraps Optimized/v17/g1/g1_recut_v17.m for the cases M1 and M3. The stage is
 % treated as done only if the summary file shows, for BOTH cases, a bit-identical
 % instrumented evaluator and a reproduction difference of exactly 0.
+    addpath(ctx.v17);
     if g1_complete(ctx)
         ctx.hbf('G1 outputs already complete and valid: skipped');
         return
