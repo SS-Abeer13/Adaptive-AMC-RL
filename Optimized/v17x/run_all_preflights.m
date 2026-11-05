@@ -36,7 +36,7 @@ for i = 1:numel(stages)
     ctx.id = id;
     ctx.root = here;
     ctx.v17 = v17;
-    ctx.outdir = fullfile(v17, 'Dataset');
+    ctx.outdir = cfg.outdir;
     
     try
         pf = feval(pf_fcn, ctx);
@@ -64,6 +64,17 @@ for i = 1:numel(stages)
         results.(id) = pf;
         results.(id).proj_hr = proj_hr;
         results.(id).ratio = ratio;
+        
+        % Write Dataset/PREFLIGHT_<id>.txt the way G1 does
+        txtF = fullfile(cfg.outdir, ['PREFLIGHT_' id '.txt']);
+        fid = fopen(txtF, 'w');
+        if fid ~= -1
+            fprintf(fid, '%s\nstage %s\nunit %s\nmeasured s/unit %.5f\nbasis s/unit %.5f\nratio %.3f (pause above %.2f)\nunits %d\nprojected hours %.2f\nnote: %s\n', ...
+                datestr(now, 31), id, pf.unit, pf.sec_per_unit, b, ratio, cfg.pause_factor, pf.n_units_total, proj_hr, pf.note);
+            fclose(fid);
+        end
+        if ~exist(cfg.ckptdir, 'dir'), mkdir(cfg.ckptdir); end
+        save(fullfile(cfg.ckptdir, ['preflight_' id '.mat']), 'pf');
     catch ME
         fprintf('%-6s | ERROR: %s\n', id, ME.message);
     end
