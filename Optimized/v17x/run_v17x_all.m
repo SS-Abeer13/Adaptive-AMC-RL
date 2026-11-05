@@ -90,12 +90,20 @@ function run_v17x_all()
         write_text(fullfile(cfg.outdir, 'FINISHED_ALL.marker'), [datestr(now, 31) '\n']);
         hbf('runner', 'ALL REQUESTED STAGES FINISHED');
         v17x_status(cfg, 'FINISHED');
-        close_pool(cfg);
-        quit_(0);
+        code = 0;
     else
         hbf('runner', 'not every stage is done; not writing a finished marker');
         v17x_status(cfg, 'INCOMPLETE');
-        quit_(1);
+        code = 1;
+    end
+    try
+        close_pool(cfg);
+    catch ME
+        hbf('runner', ['warning: parpool shutdown threw: ' ME.message]);
+    end
+    try
+        quit_(code);
+    catch
     end
 end
 
@@ -211,8 +219,14 @@ function open_pool(cfg, hbf)
 end
 
 function close_pool(cfg)
-    if ~cfg.use_pool, return; end
-    try, delete(gcp('nocreate')); catch, end
+    try
+        if isfield(cfg, 'use_pool') && ~cfg.use_pool, return; end
+        p = gcp('nocreate');
+        if ~isempty(p)
+            delete(p);
+        end
+    catch
+    end
 end
 
 function mk(d)
@@ -232,5 +246,12 @@ function v = ternary(c, a, b)
 end
 
 function quit_(code)
-    exit(code);
+    try
+        exit(code);
+    catch
+        try
+            exit('force');
+        catch
+        end
+    end
 end
