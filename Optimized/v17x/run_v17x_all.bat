@@ -59,7 +59,9 @@ if not exist "%MATLAB_EXE%" (
 
 rem Launch watchdog in background if not already active
 if exist "%~dp0watchdog_v17x.ps1" (
-    start "v17x watchdog" /min powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0watchdog_v17x.ps1" -BaseDir "%~dp0" -LogsDir "%LG%" -DataDir "%DS%"
+    set "WD_BASE=%~dp0"
+    if "!WD_BASE:~-1!"=="\" set "WD_BASE=!WD_BASE:~0,-1!"
+    start "v17x watchdog" /min powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0watchdog_v17x.ps1" -BaseDir "!WD_BASE!" -LogsDir "%LG%" -DataDir "%DS%"
 )
 
 set /a N=0

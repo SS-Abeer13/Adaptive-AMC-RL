@@ -11,6 +11,9 @@ $scriptStartTime = Get-Date
 if (-not [System.IO.Path]::IsPathRooted($BaseDir)) {
     $BaseDir = [System.IO.Path]::GetFullPath((Join-Path (Get-Location) $BaseDir))
 }
+$BaseDir = $BaseDir.TrimEnd('\', '"')
+$LogsDir = $LogsDir.TrimEnd('\', '"')
+$DataDir = $DataDir.TrimEnd('\', '"')
 $fullLogs = if ([System.IO.Path]::IsPathRooted($LogsDir)) { $LogsDir } else { Join-Path $BaseDir $LogsDir }
 $fullData = if ([System.IO.Path]::IsPathRooted($DataDir)) { $DataDir } else { Join-Path $BaseDir $DataDir }
 $restartsFile = Join-Path $fullLogs "restarts_v17x.txt"
