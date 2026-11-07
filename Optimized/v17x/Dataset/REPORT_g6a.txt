@@ -1,0 +1,18 @@
+REPORT G6a: Calibration Budget Re-calibration (2026-11-06 13:11:46)
+Scope: Calibration-set information only (500 traces 600001-600500, CRN 610001+).
+
+--- Single-cue rules summary ---
+CALIBRATION 500 SINGLE-CUE SUMMARY (2026-11-06 13:11:46)
+Fixed-500: offset = -2 | score = 0.59530
+FixedPU-500 (separable): score = 0.59142
+FixedPU-500 (final): score = 0.59142
+Context-500: [-4 -4 -2] | score = 0.59824
+OLLA-tuned-500: target = 0.01, step = 1.00 dB | score = 0.56413
+Composite table: score = 0.60030
+
+--- Composite table ---
+Written to: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\composite_table.csv
+
+--- Projected g6b time ---
+Profile: full (4 starts x sweeps to convergence, cap 6 sweeps per start).
+Expected evaluations: ~1.3M evaluations (approx 34 h on 2 workers).

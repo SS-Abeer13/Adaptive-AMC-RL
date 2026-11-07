@@ -1,0 +1,9 @@
+2026-11-08 02:00:34
+stage g6c
+unit eval
+measured s/unit 0.08500
+basis s/unit 0.09500
+ratio 0.895 (pause above 1.50)
+units 8000
+projected hours 0.19
+note: G6c evaluation traces (20 traces)

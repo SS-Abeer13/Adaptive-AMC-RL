@@ -1,0 +1,33 @@
+
+========================================================================================
+  V17X CAMPAIGN PREFLIGHT BENCHMARK (20 traces / episodes, 2 parfor workers)
+========================================================================================
+Stage  | Unit     | Measured(s)  | Basis(s)   | Ratio    | Total Units  | Proj Time 
+----------------------------------------------------------------------------------------
+g1     | eval     |     0.1982 s |    0.095 s |    2.09x |        11000 |     0.61 h
+w1     | eval     |     0.2937 s |    0.095 s |    3.09x |        19000 |     1.55 h
+  [base-rule-forced] Forced base rule: Fixed (kind=fixed)
+  Deep A2C v17 ep  20/20 | CellTp =  4.43 Mbps | Policy Entropy = 0.472 | entW = 0.001
+nr1    | episode  |     0.6365 s |    0.140 s |    4.55x |        37125 |     6.56 h
+g6a    | eval     |     0.0714 s |    0.095 s |    0.75x |       263000 |     5.22 h
+g6b    | eval     |     0.0938 s |    0.095 s |    0.99x |      1300000 |    33.88 h
+g6c    | eval     |     0.0850 s |    0.095 s |    0.89x |         8000 |     0.19 h
+g10    | eval     |     0.0867 s |    0.095 s |    0.91x |      1312811 |    31.60 h
+a1     | eval     |     0.0730 s |    0.095 s |    0.77x |         6500 |     0.13 h
+a3     | eval     |     0.1052 s |    0.095 s |    1.11x |            2 |     0.00 h
+a6     | eval     |     0.0463 s |    0.095 s |    0.49x |         1800 |     0.02 h
+----------------------------------------------------------------------------------------
+TOTAL PROJECTED CAMPAIGN TIME: 79.76 hours (3.32 days)
+========================================================================================
+
+
+========================================================================================
+  G1 TRACE-GENERATION OVERHEAD BREAKDOWN (M1_dl_rtt8, 20 traces)
+========================================================================================
+Trace generation (channel + CQI feedback):  0.0060 s / trace (3.7% of combined)
+Policy evaluation (evalPolicy_v17_g1):      0.1577 s / trace (96.3% of combined)
+Combined preflight rate (gen + eval):       0.1638 s / trace (ratio vs 0.095: 1.72x)
+Steady-state evaluation rate (no gen):      0.1577 s / trace (ratio vs 0.095: 1.66x)
+Amortized G1 rate (1 gen per 11 evals):     0.1583 s / trace (ratio vs 0.095: 1.67x)
+========================================================================================
+

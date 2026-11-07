@@ -1,0 +1,9 @@
+2026-11-06 09:48:34
+stage nr1
+unit episode
+measured s/unit 0.63645
+basis s/unit 0.14000
+ratio 4.546 (pause above 1.50)
+units 37125
+projected hours 6.56
+note: NR1 non-oracle residual (30k ep training + 10.5k evals; 20 ep benchmarked)

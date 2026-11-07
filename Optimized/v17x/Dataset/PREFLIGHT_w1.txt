@@ -1,0 +1,9 @@
+2026-11-05 16:49:11
+stage w1
+unit eval
+measured s/unit 0.29372
+basis s/unit 0.09500
+ratio 3.092 (pause above 1.50)
+units 19000
+projected hours 1.55
+note: W1 warm-up 200 TTIs, 20 traces, M1 seed-1 policy

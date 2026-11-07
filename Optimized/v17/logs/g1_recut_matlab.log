@@ -1,0 +1,64 @@
+========================================================================
+Starting g1_recut_v17: State-conditional action analysis on M1 and M3
+Log file: D:\Adaptive AMC A2C+QL\Optimized\v17\logs\g1_recut.log
+========================================================================
+
+=== Evaluating Case M1_dl_rtt8 ===
+  [M1_dl_rtt8] Seed 1/10 done (elapsed: 68.9s)
+  [M1_dl_rtt8] Seed 2/10 done (elapsed: 132.5s)
+  [M1_dl_rtt8] Seed 3/10 done (elapsed: 201.8s)
+  [M1_dl_rtt8] Seed 4/10 done (elapsed: 276.6s)
+  [M1_dl_rtt8] Seed 5/10 done (elapsed: 349.9s)
+  [M1_dl_rtt8] Seed 6/10 done (elapsed: 421.7s)
+  [M1_dl_rtt8] Seed 7/10 done (elapsed: 491.4s)
+  [M1_dl_rtt8] Seed 8/10 done (elapsed: 563.3s)
+  [M1_dl_rtt8] Seed 9/10 done (elapsed: 634.9s)
+  [M1_dl_rtt8] Seed 10/10 done (elapsed: 704.5s)
+
+--- RESULTS FOR M1_dl_rtt8 ---
+SCHEDULED NEW TRANSMISSIONS (N = 587016):
+  Overall: delta -1: 19.04% | delta 0: 26.38% | delta +1: 54.58%
+
+  [New Tx] by Slack Bin:
+    Slack <=2 TTIs   | N= 12083 | delta -1:  1.03% | delta 0: 10.56% | delta +1: 88.41%
+    Slack 3-5 TTIs   | N= 33920 | delta -1:  1.04% | delta 0:  8.70% | delta +1: 90.25%
+    Slack >5 TTIs    | N=541013 | delta -1: 20.57% | delta 0: 27.84% | delta +1: 51.59%
+
+  [New Tx] by Busy HARQ Process Bin:
+    Busy 0 busy (0%)        | N=371728 | delta -1: 27.32% | delta 0: 35.67% | delta +1: 37.00%
+    Busy 1-2 busy (12-25%)  | N=208709 | delta -1:  4.89% | delta 0: 10.45% | delta +1: 84.66%
+    Busy >=3 busy (>=37.5%) | N=  6579 | delta -1:  0.21% | delta 0:  6.55% | delta +1: 93.24%
+
+SCHEDULED RETRANSMISSIONS (N = 31176):
+  Overall: delta -1: 35.05% | delta 0: 38.45% | delta +1: 26.50%
+    [Retx] Slack <=2 TTIs   | N= 31176 | delta -1: 35.05% | delta 0: 38.45% | delta +1: 26.50%
+    [Retx] Busy 1-2 busy (12-25%)  | N= 29605 | delta -1: 36.16% | delta 0: 38.82% | delta +1: 25.02%
+    [Retx] Busy >=3 busy (>=37.5%) | N=  1571 | delta -1: 14.13% | delta 0: 31.38% | delta +1: 54.49%
+
+=== Evaluating Case M3_gp_rtt8 ===
+  [M3_gp_rtt8] Seed 1/10 done (elapsed: 64.4s)
+  [M3_gp_rtt8] Seed 2/10 done (elapsed: 128.5s)
+  [M3_gp_rtt8] Seed 3/10 done (elapsed: 190.7s)
+  [M3_gp_rtt8] Seed 4/10 done (elapsed: 254.1s)
+  [M3_gp_rtt8] Seed 5/10 done (elapsed: 320.9s)
+  [M3_gp_rtt8] Seed 6/10 done (elapsed: 385.6s)
+  [M3_gp_rtt8] Seed 7/10 done (elapsed: 453.8s)
+  [M3_gp_rtt8] Seed 8/10 done (elapsed: 520.2s)
+  [M3_gp_rtt8] Seed 9/10 done (elapsed: 587.2s)
+  [M3_gp_rtt8] Seed 10/10 done (elapsed: 652.9s)
+
+--- RESULTS FOR M3_gp_rtt8 ---
+SCHEDULED NEW TRANSMISSIONS (N = 379380):
+  Overall: delta -1: 0.00% | delta 0: 100.00% | delta +1: 0.00%
+
+  [New Tx] by Busy HARQ Process Bin:
+    Busy 0 busy (0%)        | N=270720 | delta -1:  0.00% | delta 0: 100.00% | delta +1:  0.00%
+    Busy 1-2 busy (12-25%)  | N=108650 | delta -1:  0.00% | delta 0: 100.00% | delta +1:  0.00%
+    Busy >=3 busy (>=37.5%) | N=    10 | delta -1:  0.00% | delta 0: 100.00% | delta +1:  0.00%
+
+SCHEDULED RETRANSMISSIONS (N = 370620):
+  Overall: delta -1: 24.38% | delta 0: 55.80% | delta +1: 19.82%
+    [Retx] Busy 1-2 busy (12-25%)  | N=370580 | delta -1: 24.38% | delta 0: 55.80% | delta +1: 19.82%
+    [Retx] Busy >=3 busy (>=37.5%) | N=    40 | delta -1: 12.50% | delta 0: 65.00% | delta +1: 22.50%
+
+=== g1_recut_v17 completed successfully at 2026-11-04 19:20:16 ===

@@ -1,0 +1,9 @@
+A3 INFERENCE WALL TIME REPORT (2026-11-08 02:24:05)
+CPU Model: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+Forward Pass (N=10, dim=57):
+  Median per decision: 9.01 us
+  Loop (100000 passes) per decision: 2.03 us
+Full 200-TTI Trace (10 users):
+  Deep A2C v17: 830.3 us/TTI (0.166 s/trace)
+  FixedPU (Oracle): 346.2 us/TTI (0.069 s/trace)
+  Ratio A2C / FixedPU: 2.40x

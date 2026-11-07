@@ -1,0 +1,42 @@
+# cal500_tables.txt -- Frozen tables calibrated on 500 calibration traces
+DATE: 2026-11-08 02:00:34
+SANITY_CHECK_PASSED: 1
+SCORES: Context_joint_500=0.60879 | Composite=0.60030 | Fixed_500=0.59530 | FixedPU_500=0.59142 | Context_500=0.59824
+
+TABLE Context-joint-500 (slack_bin 1..3, delay_class 1..2, speed_class 1..3, busy_bin 0..1):
+cell(1,1,1,0) = -3
+cell(1,1,1,1) = -3
+cell(1,1,2,0) = -4
+cell(1,1,2,1) = -3
+cell(1,1,3,0) = -4
+cell(1,1,3,1) = -4
+cell(1,2,1,0) = -3
+cell(1,2,1,1) = -3
+cell(1,2,2,0) = -4
+cell(1,2,2,1) = -4
+cell(1,2,3,0) = -4
+cell(1,2,3,1) = -4
+cell(2,1,1,0) = -3
+cell(2,1,1,1) = -4
+cell(2,1,2,0) = -4
+cell(2,1,2,1) = -4
+cell(2,1,3,0) = -4
+cell(2,1,3,1) = -2
+cell(2,2,1,0) = -3
+cell(2,2,1,1) = -4
+cell(2,2,2,0) = -4
+cell(2,2,2,1) = -3
+cell(2,2,3,0) = -4
+cell(2,2,3,1) = -3
+cell(3,1,1,0) = -1
+cell(3,1,1,1) = -1
+cell(3,1,2,0) = -2
+cell(3,1,2,1) = -1
+cell(3,1,3,0) = -2
+cell(3,1,3,1) = -1
+cell(3,2,1,0) = -2
+cell(3,2,1,1) = -1
+cell(3,2,2,0) = -2
+cell(3,2,2,1) = -1
+cell(3,2,3,0) = -3
+cell(3,2,3,1) = -2

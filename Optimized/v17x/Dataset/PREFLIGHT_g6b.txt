@@ -1,0 +1,9 @@
+2026-11-08 00:11:19
+stage g6b
+unit eval
+measured s/unit 0.09381
+basis s/unit 0.09500
+ratio 0.987 (pause above 1.50)
+units 1300000
+projected hours 33.88
+note: G6b combined table coordinate ascent (20 traces)

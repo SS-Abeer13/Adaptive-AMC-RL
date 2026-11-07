@@ -1,0 +1,9 @@
+2026-11-08 02:23:53
+stage a3
+unit eval
+measured s/unit 0.10519
+basis s/unit 0.09500
+ratio 1.107 (pause above 1.50)
+units 2
+projected hours 0.00
+note: a3: benchmark: 0.1052 s/eval (basis 0.095 s)

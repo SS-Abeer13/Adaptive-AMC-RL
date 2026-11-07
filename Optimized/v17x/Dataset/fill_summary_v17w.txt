@@ -1,0 +1,22 @@
+W1 WARM-UP SUMMARY (2026-11-05 17:46:07, MATLAB 9.14.0.2206163 (R2023a))
+
+CONFIG|W1|olla_warm_ttis=200|n_eval=500|n_seeds=10
+PRIMARY_COLD|ontime=0.6126
+PRIMARY_WARM|ontime=0.6116
+ENS_WARM|ontime=0.6304
+OLLA_GAIN_COLD|vs=OLLA|gain=+11.96%
+OLLA_GAIN_WARM|vs=OLLA|gain=+7.49%
+CLAIM_B_COLD|passes=1
+CLAIM_B_WARM|passes=1
+
+REPLCMP_WARM|pf|A2C vs Baseline|pct=+16.42|ci90pct=[15.52 17.33]|p=7.00e-76|holm=4.90e-75|beats=1
+REPLCMP_WARM|pf|A2C vs OLLA|pct=+7.49|ci90pct=[6.79 8.19]|p=1.18e-46|holm=7.05e-46|beats=1
+REPLCMP_WARM|pf|A2C vs OLLA (tuned target)|pct=+7.49|ci90pct=[6.79 8.19]|p=1.18e-46|holm=7.05e-46|beats=1
+REPLCMP_WARM|pf|A2C vs Multi-OLLA|pct=+7.71|ci90pct=[6.99 8.43]|p=2.31e-46|holm=9.22e-46|beats=1
+REPLCMP_WARM|pf|A2C vs Fixed|pct=+2.08|ci90pct=[1.74 2.42]|p=5.34e-21|holm=1.07e-20|beats=1
+REPLCMP_WARM|pf|A2C vs FixedPU (Oracle)|pct=+2.87|ci90pct=[2.57 3.17]|p=4.54e-39|holm=1.36e-38|beats=1
+REPLCMP_WARM|pf|A2C vs Context table|pct=+1.75|ci90pct=[1.41 2.10]|p=4.82e-15|holm=4.82e-15|beats=1
+REPLCMP_WARM|pf|A2C vs Bandit (global)|pct=+25.33|ci90pct=[24.27 26.38]|p=2.67e-82|holm=2.40e-81|beats=1
+REPLCMP_WARM|pf|A2C vs Bandit (delay class)|pct=+25.33|ci90pct=[24.27 26.38]|p=2.67e-82|holm=2.40e-81|beats=1
+
+SECONDARY_RECAL|warm_fixed=0.5991|warm_fixedpu=0.5933|warm_ctx=0.6010

@@ -1,0 +1,9 @@
+2026-11-05 16:45:21
+stage g10
+unit eval
+measured s/unit 0.08666
+basis s/unit 0.09500
+ratio 0.912 (pause above 1.50)
+units 1312811
+projected hours 31.60
+note: G10 2 cells (recalibration 1.25M evals + 30k ep training; 20 traces benchmarked)

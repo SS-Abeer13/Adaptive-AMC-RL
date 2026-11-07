@@ -1,0 +1,18 @@
+NR1 NON-ORACLE RESIDUAL SUMMARY (2026-11-06 10:19:02, MATLAB 9.14.0.2206163 (R2023a))
+
+CONFIG|NR1|base_rule=fixed|offset=-2|n_seeds=10|ep_deep=3000|n_eval=500
+PRIMARY_NR1|ontime=0.6235
+ENS_NR1|ontime=0.6322
+PRIMARY_M1_ORACLE|ontime=0.6126
+DIFF_VS_M1|diff_pct=+1.77%|ci90=[1.55 2.00]|p=2.03e-31
+CLAIMS|claimA=1|claimB=1|win=1|verdict=NR1 WIN
+
+REPLCMP_NR1|pf|NR1 vs Baseline|pct=+18.69|ci90pct=[17.81 19.57]|p=1.07e-80|holm=7.52e-80|beats=1
+REPLCMP_NR1|pf|NR1 vs OLLA|pct=+13.95|ci90pct=[13.21 14.68]|p=2.40e-76|holm=1.44e-75|beats=1
+REPLCMP_NR1|pf|NR1 vs OLLA (tuned target)|pct=+13.95|ci90pct=[13.21 14.68]|p=2.40e-76|holm=1.44e-75|beats=1
+REPLCMP_NR1|pf|NR1 vs Multi-OLLA|pct=+14.15|ci90pct=[13.40 14.89]|p=4.51e-76|holm=1.80e-75|beats=1
+REPLCMP_NR1|pf|NR1 vs Fixed|pct=+3.68|ci90pct=[3.31 4.05]|p=1.94e-41|holm=3.87e-41|beats=1
+REPLCMP_NR1|pf|NR1 vs FixedPU (Oracle)|pct=+4.52|ci90pct=[4.09 4.95]|p=2.95e-46|holm=8.85e-46|beats=1
+REPLCMP_NR1|pf|NR1 vs Context table|pct=+3.38|ci90pct=[3.02 3.75]|p=1.51e-37|holm=1.51e-37|beats=1
+REPLCMP_NR1|pf|NR1 vs Bandit (global)|pct=+49.15|ci90pct=[47.79 50.51]|p=1.38e-83|holm=1.25e-82|beats=1
+REPLCMP_NR1|pf|NR1 vs Bandit (delay class)|pct=+49.15|ci90pct=[47.79 50.51]|p=1.38e-83|holm=1.25e-82|beats=1

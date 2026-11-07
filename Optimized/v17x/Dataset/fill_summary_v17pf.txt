@@ -1,0 +1,15 @@
+A6 PF-TIMING DEMONSTRATION SUMMARY (2026-11-08 02:26:02)
+Traces: 100
+VERDICT: Expectation E holds for ALL THREE schemes
+WORDING: the timing of the PF average, not HARQ itself, accounts for the apparent gain in this diagnostic
+
+--- Paired Comparisons (RTT 8: 8 processes vs 1 process) ---
+Baseline:
+  pf_avg=acked:      np1=2.924, np8=4.231, ratio=1.447, dJain=-0.097
+  pf_avg=scheduled:  np1=3.288, np8=3.210, ratio=0.976, dJain=0.004
+OLLA:
+  pf_avg=acked:      np1=2.945, np8=4.221, ratio=1.433, dJain=-0.098
+  pf_avg=scheduled:  np1=3.280, np8=3.201, ratio=0.976, dJain=0.004
+Fixed:
+  pf_avg=acked:      np1=2.999, np8=4.258, ratio=1.420, dJain=-0.102
+  pf_avg=scheduled:  np1=3.412, np8=3.436, ratio=1.007, dJain=0.001

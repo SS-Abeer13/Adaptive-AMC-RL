@@ -1,0 +1,11 @@
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to parallel pool with 2 workers.
+Parallel pool using the 'Processes' profile is shutting down.
+ERROR: MATLAB error Exit Status: 0x00000001
+[Thu 11/05/2026 16:32:32.11] MATLAB exited with code 1; restarting in 2 s (completed work is skipped)
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to parallel pool with 2 workers.
+Parallel pool using the 'Processes' profile is shutting down.
+ERROR: MATLAB error Exit Status: 0x00000002
+[Thu 11/05/2026 16:33:30.35] HALTED. A stage failed twice or is not implemented. See Dataset_selftest\HALTED.marker and Dataset_selftest\ERROR_*.txt
+No finished marker was written.

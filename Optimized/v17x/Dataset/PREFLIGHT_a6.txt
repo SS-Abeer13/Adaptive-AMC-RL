@@ -1,0 +1,9 @@
+2026-11-08 02:24:05
+stage a6
+unit eval
+measured s/unit 0.04625
+basis s/unit 0.09500
+ratio 0.487 (pause above 1.50)
+units 1800
+projected hours 0.02
+note: a6: 20-trace benchmark: 0.0463 s/eval (basis 0.095 s)

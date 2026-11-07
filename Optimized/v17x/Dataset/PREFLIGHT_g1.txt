@@ -1,0 +1,9 @@
+2026-11-05 16:44:38
+stage g1
+unit eval
+measured s/unit 0.19817
+basis s/unit 0.09500
+ratio 2.086 (pause above 1.50)
+units 11000
+projected hours 0.61
+note: M1 seed-1 policy, 20 traces, trace generation included
