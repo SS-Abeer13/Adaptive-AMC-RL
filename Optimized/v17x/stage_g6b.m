@@ -114,9 +114,14 @@ function stage_g6b(ctx)
             sweep_res = ctx.unit(u_name, @() run_one_sweep(C_traces, cur_tab, cur_sc, is_sparse, offset_cands, envE, k, s, ctx));
             cur_tab = sweep_res.tab;
             cur_sc  = sweep_res.score;
+            ctx.hbf(sprintf('Start S%d sweep %d: checking convergence (improved=%d, score=%.4f)', ...
+                k, s, sweep_res.improved, cur_sc));
             if ~sweep_res.improved
                 ctx.hbf(sprintf('Start S%d converged at sweep %d with score %.4f', k, s, cur_sc));
                 break;
+            else
+                ctx.hbf(sprintf('Start S%d sweep %d complete; continuing to sweep %d (score %.4f)', ...
+                    k, s, s + 1, cur_sc));
             end
         end
         start_results{k + 1} = struct('start_id', k, 'tab', cur_tab, 'score', cur_sc);
@@ -186,6 +191,8 @@ function out = run_one_sweep(traces, cur_tab, cur_score, is_sparse, cands, envE,
                     cur_off = tab(b, d, v, u);
                     best_cand_off = cur_off;
                     best_cand_score = score;
+                    ctx.hb(sprintf('S%d sweep %d: eval cell (%d,%d,%d,%d) [cur offset %+d, score %.4f]', ...
+                        start_k, sweep_s, b, d, v, u - 1, cur_off, score));
                     
                     for c = 1:numel(cands)
                         cand_off = cands(c);
@@ -203,8 +210,11 @@ function out = run_one_sweep(traces, cur_tab, cur_score, is_sparse, cands, envE,
                         improved = true;
                         score = best_cand_score;
                         tab(b, d, v, u) = best_cand_off;
-                        ctx.hb(sprintf('S%d sweep %d: cell (%d,%d,%d,%d) moved %d -> %d (score %.4f)', ...
+                        ctx.hb(sprintf('S%d sweep %d: cell (%d,%d,%d,%d) moved %+d -> %+d (score %.4f)', ...
                             start_k, sweep_s, b, d, v, u - 1, cur_off, best_cand_off, score));
+                    else
+                        ctx.hb(sprintf('S%d sweep %d: cell (%d,%d,%d,%d) kept offset %+d (score %.4f)', ...
+                            start_k, sweep_s, b, d, v, u - 1, cur_off, score));
                     end
                 end
             end

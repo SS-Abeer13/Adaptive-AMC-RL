@@ -39,9 +39,34 @@ if defined V17X_SMOKE if "%V17X_SMOKE%"=="1" (
 if not exist "%LG%" mkdir "%LG%"
 if not exist "%DS%" mkdir "%DS%"
 
+rem Lock file to prevent duplicate runner instances
+set "LOCKFILE=%DS%\runner.lock"
+if exist "%LOCKFILE%" (
+    set /p LOCK_PID=<"%LOCKFILE%"
+    if defined LOCK_PID (
+        set "PID_RUNNING="
+        for /f "tokens=2" %%A in ('tasklist /FI "PID eq !LOCK_PID!" /NH 2^>nul ^| findstr /i "!LOCK_PID!"') do set "PID_RUNNING=%%A"
+        if defined PID_RUNNING (
+            echo [%date% %time%] ERROR: Another runner instance ^(PID !LOCK_PID!^) is already active. Refusing to start.
+            exit /b 1
+        )
+    )
+)
+rem Acquire lock by recording this runner process ID
+for /f %%A in ('powershell -NoProfile -Command "(Get-CimInstance Win32_Process -Filter \"ProcessId = $PID\").ParentProcessId"') do (
+    set "RUNNER_PID=%%A"
+    echo !RUNNER_PID!> "%LOCKFILE%"
+)
+
+rem If starting a run and requested stages are not all done, clean up stale FINISHED_ALL.marker
+if exist "%DS%\FINISHED_ALL.marker" (
+    powershell -NoProfile -Command "$doneAll = $true; foreach ($s in ('%STAGES%'.Split(','))) { if ($s -and -not (Test-Path '%DS%\stage_$s.done')) { $doneAll = $false; break; } }; if (-not $doneAll) { Remove-Item '%DS%\FINISHED_ALL.marker' -Force -ErrorAction SilentlyContinue }"
+)
+
 if not exist "%MATLAB_EXE%" (
     echo ERROR: MATLAB not found at "%MATLAB_EXE%". Set MATLAB_EXE.
     echo [%date% %time%] MATLAB not found > "%DS%\ERROR_runner.txt"
+    if exist "%LOCKFILE%" del "%LOCKFILE%"
     exit /b 5
 )
 
@@ -74,23 +99,28 @@ goto :loop
 
 :finished
 echo [%date% %time%] ALL REQUESTED STAGES FINISHED. See %DS%\STATUS.txt
+if exist "%LOCKFILE%" del "%LOCKFILE%"
 exit /b 0
 
 :halted
 echo [%date% %time%] HALTED. A stage failed twice or is not implemented. See %DS%\HALTED.marker and %DS%\ERROR_*.txt
 echo No finished marker was written.
+if exist "%LOCKFILE%" del "%LOCKFILE%"
 exit /b 2
 
 :paused
 echo [%date% %time%] PAUSED by the 1.5x rule. Read %DS%\PAUSED_*.txt; to continue create APPROVE_^<stage^>.txt in %DS% and rerun this file.
+if exist "%LOCKFILE%" del "%LOCKFILE%"
 exit /b 3
 
 :giveup
 echo [%date% %time%] GAVE UP after !N! launches without a clean exit. See %LG%\restarts_v17x.txt and %LG%\matlab_batch_*.log
 echo [%date% %time%] gave up after !N! launches > "%DS%\ERROR_runner.txt"
+if exist "%LOCKFILE%" del "%LOCKFILE%"
 exit /b 4
 
 :unexpected
 echo [%date% %time%] MATLAB exited with code 0 but no FINISHED_ALL.marker exists. Not reporting success.
 echo [%date% %time%] exit 0 without finished marker > "%DS%\ERROR_runner.txt"
+if exist "%LOCKFILE%" del "%LOCKFILE%"
 exit /b 5

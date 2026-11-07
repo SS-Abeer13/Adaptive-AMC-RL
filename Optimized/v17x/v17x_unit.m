@@ -22,8 +22,10 @@ function out = v17x_unit(ctx, name, fcn)
     t0 = tic;
     ctx.hbf(['unit ' name ': start']);
     out = fcn();
+    ctx.hbf(['unit ' name ': saving checkpoint']);
     tmp = [f '.part'];
     if exist('OCTAVE_VERSION', 'builtin'), save('-v7', tmp, 'out'); else, save(tmp, 'out', '-v7.3'); end
     movefile(tmp, f, 'f');
+    ctx.hbf(['unit ' name ': checkpoint saved']);
     ctx.hbf(sprintf('unit %s: done in %.1f s', name, toc(t0)));
 end

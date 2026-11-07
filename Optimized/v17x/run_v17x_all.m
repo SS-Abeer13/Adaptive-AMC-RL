@@ -24,9 +24,14 @@ function run_v17x_all()
         v17x_status(cfg, 'HALTED');
         quit_(2);
     end
-    if exist(fullfile(cfg.outdir, 'FINISHED_ALL.marker'), 'file') && all_done(cfg)
-        hbf('runner', 'FINISHED_ALL.marker present and every stage done; nothing to do');
-        quit_(0);
+    if exist(fullfile(cfg.outdir, 'FINISHED_ALL.marker'), 'file')
+        if all_done(cfg)
+            hbf('runner', 'FINISHED_ALL.marker present and every stage done; nothing to do');
+            quit_(0);
+        else
+            hbf('runner', 'Removing stale FINISHED_ALL.marker from earlier run');
+            delete_if(fullfile(cfg.outdir, 'FINISHED_ALL.marker'));
+        end
     end
 
     open_pool(cfg, hbf);

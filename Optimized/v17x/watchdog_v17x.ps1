@@ -2,16 +2,29 @@ param(
     [string]$BaseDir = "D:\Adaptive AMC A2C+QL\Optimized\v17x",
     [string]$LogsDir = "logs",
     [string]$DataDir = "Dataset",
-    [int]$TimeoutMinutes = 30,
+    [double]$TimeoutMinutes = 30.0,
     [int]$PollSeconds = 15
 )
 
-# Mutex to ensure single instance
-$createdNew = $false
-$mutex = [System.Threading.Mutex]::new($true, "Global\v17x_watchdog_mutex", [ref]$createdNew)
-if (-not $createdNew) {
-    # Another watchdog instance is already active
+$scriptStartTime = Get-Date
+
+# Ensure single watchdog instance using local process check + mutex
+$runningWd = Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe'" -ErrorAction SilentlyContinue |
+             Where-Object { $_.CommandLine -like "*watchdog_v17x.ps1*" -and $_.ProcessId -ne $PID }
+if ($runningWd) {
+    # Another watchdog instance is already actively running
     exit 0
+}
+
+$createdNew = $false
+try {
+    $mutex = [System.Threading.Mutex]::new($true, "Local\v17x_watchdog_mutex", [ref]$createdNew)
+} catch {
+    try {
+        $mutex = [System.Threading.Mutex]::new($true, "v17x_watchdog_mutex", [ref]$createdNew)
+    } catch {
+        $mutex = $null
+    }
 }
 
 try {
@@ -26,12 +39,20 @@ try {
     while ($true) {
         Start-Sleep -Seconds $PollSeconds
 
-        # Exit cleanly if campaign completed or halted
-        if (Test-Path (Join-Path $fullData "FINISHED_ALL.marker")) {
-            break
+        # Exit cleanly if campaign completed or halted AFTER this watchdog started
+        $finFile = Join-Path $fullData "FINISHED_ALL.marker"
+        if (Test-Path $finFile) {
+            $finTime = (Get-Item $finFile).LastWriteTime
+            if ($finTime -ge $scriptStartTime) {
+                break
+            }
         }
-        if (Test-Path (Join-Path $fullData "HALTED.marker")) {
-            break
+        $haltFile = Join-Path $fullData "HALTED.marker"
+        if (Test-Path $haltFile) {
+            $haltTime = (Get-Item $haltFile).LastWriteTime
+            if ($haltTime -ge $scriptStartTime) {
+                break
+            }
         }
 
         # Check if MATLAB is currently running
@@ -67,6 +88,7 @@ try {
 
             # Terminate MATLAB process tree
             & taskkill.exe /F /IM MATLAB.exe /T *>$null
+            & taskkill.exe /F /IM matlab.exe /T *>$null
 
             # Sleep to allow runner loop to detect exit and trigger restart
             Start-Sleep -Seconds 60
@@ -74,6 +96,8 @@ try {
     }
 }
 finally {
-    $mutex.ReleaseMutex()
-    $mutex.Dispose()
+    if ($mutex) {
+        try { $mutex.ReleaseMutex() } catch {}
+        $mutex.Dispose()
+    }
 }
