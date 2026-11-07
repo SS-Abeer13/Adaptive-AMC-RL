@@ -8,34 +8,31 @@ param(
 
 $scriptStartTime = Get-Date
 
-# Ensure single watchdog instance using local process check + mutex
-$runningWd = Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe'" -ErrorAction SilentlyContinue |
-             Where-Object { $_.CommandLine -like "*watchdog_v17x.ps1*" -and $_.ProcessId -ne $PID }
-if ($runningWd) {
-    # Another watchdog instance is already actively running
-    exit 0
+if (-not [System.IO.Path]::IsPathRooted($BaseDir)) {
+    $BaseDir = [System.IO.Path]::GetFullPath((Join-Path (Get-Location) $BaseDir))
 }
+$fullLogs = if ([System.IO.Path]::IsPathRooted($LogsDir)) { $LogsDir } else { Join-Path $BaseDir $LogsDir }
+$fullData = if ([System.IO.Path]::IsPathRooted($DataDir)) { $DataDir } else { Join-Path $BaseDir $DataDir }
+$restartsFile = Join-Path $fullLogs "restarts_v17x.txt"
+$hbFile = Join-Path $fullLogs "heartbeat_v17x.txt"
+$wdLockFile = Join-Path $fullData "watchdog.lock"
 
-$createdNew = $false
-try {
-    $mutex = [System.Threading.Mutex]::new($true, "Local\v17x_watchdog_mutex", [ref]$createdNew)
-} catch {
-    try {
-        $mutex = [System.Threading.Mutex]::new($true, "v17x_watchdog_mutex", [ref]$createdNew)
-    } catch {
-        $mutex = $null
+# Ensure single watchdog instance via PID lock file
+if (Test-Path $wdLockFile) {
+    $existingPid = Get-Content $wdLockFile -ErrorAction SilentlyContinue
+    if ($existingPid) {
+        try {
+            $p = Get-Process -Id ([int]$existingPid) -ErrorAction SilentlyContinue
+            if ($p -and $p.Id -ne $PID) {
+                # Another watchdog instance is already active
+                exit 0
+            }
+        } catch {}
     }
 }
+Set-Content -Path $wdLockFile -Value $PID -Force
 
 try {
-    if (-not [System.IO.Path]::IsPathRooted($BaseDir)) {
-        $BaseDir = [System.IO.Path]::GetFullPath((Join-Path (Get-Location) $BaseDir))
-    }
-    $fullLogs = if ([System.IO.Path]::IsPathRooted($LogsDir)) { $LogsDir } else { Join-Path $BaseDir $LogsDir }
-    $fullData = if ([System.IO.Path]::IsPathRooted($DataDir)) { $DataDir } else { Join-Path $BaseDir $DataDir }
-    $restartsFile = Join-Path $fullLogs "restarts_v17x.txt"
-    $hbFile = Join-Path $fullLogs "heartbeat_v17x.txt"
-
     while ($true) {
         Start-Sleep -Seconds $PollSeconds
 
@@ -96,8 +93,7 @@ try {
     }
 }
 finally {
-    if ($mutex) {
-        try { $mutex.ReleaseMutex() } catch {}
-        $mutex.Dispose()
+    if (Test-Path $wdLockFile) {
+        Remove-Item $wdLockFile -Force -ErrorAction SilentlyContinue
     }
 }
