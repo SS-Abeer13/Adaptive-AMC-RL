@@ -44,7 +44,7 @@ set "LOCKFILE=%DS%\runner.lock"
 if exist "%LOCKFILE%" (
     tasklist /FI "IMAGENAME eq MATLAB.exe" 2>nul | findstr /i "MATLAB.exe" >nul
     if not errorlevel 1 (
-        echo [%date% %time%] ERROR: Another runner instance is already active (MATLAB is running). Refusing to start.
+        echo [%date% %time%] ERROR: Another runner instance is already active with MATLAB running. Refusing to start.
         exit /b 1
     )
 )
