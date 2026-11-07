@@ -42,26 +42,13 @@ if not exist "%DS%" mkdir "%DS%"
 rem Lock file to prevent duplicate runner instances
 set "LOCKFILE=%DS%\runner.lock"
 if exist "%LOCKFILE%" (
-    set /p LOCK_PID=<"%LOCKFILE%"
-    if defined LOCK_PID (
-        set "PID_RUNNING="
-        for /f "tokens=2" %%A in ('tasklist /FI "PID eq !LOCK_PID!" /NH 2^>nul ^| findstr /i "!LOCK_PID!"') do set "PID_RUNNING=%%A"
-        if defined PID_RUNNING (
-            echo [%date% %time%] ERROR: Another runner instance ^(PID !LOCK_PID!^) is already active. Refusing to start.
-            exit /b 1
-        )
+    tasklist /FI "IMAGENAME eq MATLAB.exe" 2>nul | findstr /i "MATLAB.exe" >nul
+    if not errorlevel 1 (
+        echo [%date% %time%] ERROR: Another runner instance is already active (MATLAB is running). Refusing to start.
+        exit /b 1
     )
 )
-rem Acquire lock by recording this runner process ID
-for /f %%A in ('powershell -NoProfile -Command "(Get-CimInstance Win32_Process -Filter \"ProcessId = $PID\").ParentProcessId"') do (
-    set "RUNNER_PID=%%A"
-    echo !RUNNER_PID!> "%LOCKFILE%"
-)
-
-rem If starting a run and requested stages are not all done, clean up stale FINISHED_ALL.marker
-if exist "%DS%\FINISHED_ALL.marker" (
-    powershell -NoProfile -Command "$doneAll = $true; foreach ($s in ('%STAGES%'.Split(','))) { if ($s -and -not (Test-Path '%DS%\stage_$s.done')) { $doneAll = $false; break; } }; if (-not $doneAll) { Remove-Item '%DS%\FINISHED_ALL.marker' -Force -ErrorAction SilentlyContinue }"
-)
+echo [%date% %time%] runner active > "%LOCKFILE%"
 
 if not exist "%MATLAB_EXE%" (
     echo ERROR: MATLAB not found at "%MATLAB_EXE%". Set MATLAB_EXE.
