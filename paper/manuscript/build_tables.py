@@ -24,7 +24,8 @@ ev = {r['comparator']: r['cmp_mean'] for r in rows_of(P('paper/analysis/out/g6_s
 L = []
 for r in tc:
     c = r['comparator']; s = sd.get(c)
-    name = {'Context-joint-500': r'\textbf{Combined table (Context-joint-500)}', 'FixedPU-500': 'FixedPU-500 (class oracle)'}.get(c, c)
+    name = {'Context-joint-500': r'\textbf{Combined table}', 'Context-500': 'Context table (re-cal.)', 'Fixed-500': 'Fixed (re-cal.)',
+            'FixedPU-500': 'FixedPU (re-cal., class oracle)', 'OLLA-tuned-500': 'OLLA (re-tuned)'}.get(c, c)
     seeds = f"{s['seeds_above']}" if s else '--'
     hier = f"[{n(s['hier_boot_ci95_lo'], 2, True)}, {n(s['hier_boot_ci95_hi'], 2, True)}]" if s else '--'
     rob = ('yes' if s['seed_robust_R2'] == '1' else r'\textbf{no}') if s else '--'

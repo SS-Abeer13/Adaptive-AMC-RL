@@ -13,7 +13,7 @@ for j, (k, l) in enumerate(cls):
     ax.bar(j, m, color=col, width=0.62, alpha=0.9); ax.errorbar(j, m, yerr=[[m - lo], [hi - m]], color=INK, capsize=2, lw=0.8)
     ax.text(j, -0.12, f"{100 * float(a1[k]['share_user_traces']):.0f} %", ha='center', va='top', fontsize=6, color=GR, transform=ax.get_xaxis_transform())
 ax.axhline(0, color=INK, lw=0.7); ax.set_xticks(range(len(cls))); ax.set_xticklabels([c[1] for c in cls]); ax.grid(axis='x', visible=False)
-ax.set_ylabel('Margin vs v17 Context table (%)'); ax.set_title('(a) By user speed (A1)', fontsize=7.5, loc='left')
+ax.set_ylabel('Margin vs Context table (%)'); ax.set_title('(a) By user speed', fontsize=7.5, loc='left')
 # (b) G1: share of delta = +1 on scheduled new transmissions, pooled bar, whiskers = min/max over the 10 seeds
 ax = axs[1]
 bins = [('busy_0', 'busy\n0'), ('busy_1_2', 'busy\n1-2'), ('busy_ge3', 'busy\n>=3'), (None, ''), ('slack_gt_0.6', 'slack\n>0.6'),
@@ -26,5 +26,5 @@ for j, (k, l) in enumerate(bins):
 ax.axhline(float(g1['all']['pct_plus1']), color=GR, lw=0.7, ls='--')
 ax.set_xticks([j for j, (k, l) in enumerate(bins) if k]); ax.set_xticklabels([l for k, l in bins if k], fontsize=6.3)
 ax.set_ylim(0, 100); ax.grid(axis='x', visible=False); ax.set_ylabel(r'Share of $\delta=+1$ (%)')
-ax.set_title('(b) Residual action by state (G1, M1)', fontsize=7.5, loc='left', pad=9)
+ax.set_title('(b) Residual action by state', fontsize=7.5, loc='left', pad=9)
 save(fig, 'f7_policy')

@@ -177,3 +177,9 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - Claim-level fixes: the combined-table search had one start at the 6-sweep cap (pending `cap_hit` corrected to yes); comparator tuning was not "cheap" (24.6 h search vs 2.7 h learner); project-wide Bonferroni for M1 vs combined table gives p = 1.00 (now in abstract, protocol, results).
 - Added: probability of improvement (0.55 [0.49, 0.61] vs combined table), Fig. 4 row vs combined table, summary Table VII, definitions of margin/R1/R2/Claim B-500/joint parity, release contents in the data statement.
 - Draft v2: `manuscript/draft_v2.pdf`, 14 pages; gate and 19 tests pass.
+
+## Phase 11 — clarity rewrite; draft v3 (8 Nov 2026, night)
+- Internal codes (stage names, version labels, comparator names such as Context-joint-500) removed from the main text: about 190 occurrences before, none now outside the programme table (Appendix D), which keeps the codes for traceability to the released files.
+- Plain names: original vs re-calibrated rules; re-calibration study, warm-up check, non-oracle base ablation, confirmatory replication, operating-point check, action analysis, speed breakdown, PF-timing demonstration; trace-level and seed-level rules.
+- Results reordered: main case → decisive re-calibration test → seed level → further checks (as questions) → where RL did not help → what the policy does. Intro states three numbered messages; abstract rewritten (217 words); terms table (Table IV) added; calibration findings and programme table moved to appendices.
+- No number, frozen wording slot or pending value changed; gate and 19 tests pass. `manuscript/draft_v3.pdf`, 14 pages.

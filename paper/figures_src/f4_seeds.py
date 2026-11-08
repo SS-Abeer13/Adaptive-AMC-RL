@@ -14,11 +14,11 @@ A = o_['primary']['Deep A2C v17']; A = A[~np.all(np.isnan(A), axis=1)]
 cj = np.asarray(h5py.File(os.path.join(ROOT, 'Optimized/v17x/Dataset/ckpt/g6c/eval.mat'), 'r')['out']['prim_ctxj500']).ravel()
 rows = []
 s, ctx = seeds('M1_dl_rtt8'); r = G[('M1_dl_rtt8', 'Deep A2C v17', 'Context table')]
-rows.append(('M1 vs Context table\n(v17, 10 traces)', 100 * (s / ctx - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), RL))
+rows.append(('M1 vs Context table\n(original, 10 traces)', 100 * (s / ctx - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), RL))
 r = G6['Context-joint-500']
-rows.append(('M1 vs combined table\n(G6, 500 traces)', 100 * (A.mean(axis=1) / cj.mean() - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), OL))
+rows.append(('M1 vs combined table\n(re-cal., 500 traces)', 100 * (A.mean(axis=1) / cj.mean() - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), OL))
 s, ctx = seeds('M2_dl_rtt0'); r = G[('M2_dl_rtt0', 'Deep A2C v17', 'Context table')]
-rows.append(('M2 vs Context table\n(v17, 10 traces)', 100 * (s / ctx - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), GR))
+rows.append(('M2 vs Context table\n(original, 10 traces)', 100 * (s / ctx - 1), float(r['seedmean_boot_ci95_lo']), float(r['seedmean_boot_ci95_hi']), GR))
 fig, ax = plt.subplots(figsize=(3.5, 2.6))
 for j, (lab, d, lo, hi, col) in enumerate(rows):
     ax.plot(d, [j] * len(d) + np.linspace(-0.18, 0.18, len(d)), 'o', color=col, ms=3.5, mec='white', mew=0.4)

@@ -5,7 +5,7 @@ D = os.path.join(ROOT, 'Optimized/v17x/Dataset'); A = os.path.join(ROOT, 'paper/
 tc = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_cal500.csv')))}
 sd = {r['comparator']: r for r in csv.DictReader(open(os.path.join(A, 'g6_seed_stats.csv')))}
 order = ['Context-joint-500', 'Context-500', 'Fixed-500', 'FixedPU-500']
-lab = {'Context-joint-500': 'Combined table\n(Context-joint-500)', 'Context-500': 'Context-500', 'Fixed-500': 'Fixed-500', 'FixedPU-500': 'FixedPU-500\n(class oracle)'}
+lab = {'Context-joint-500': 'Combined table', 'Context-500': 'Context table\n(re-calibrated)', 'Fixed-500': 'Fixed\n(re-calibrated)', 'FixedPU-500': 'FixedPU, class oracle\n(re-calibrated)'}
 fig, axs = plt.subplots(1, 2, figsize=(7.16, 2.35), gridspec_kw={'width_ratios': [1, 1.15], 'wspace': 0.55})
 ax = axs[0]
 for j, c in enumerate(order):
@@ -20,17 +20,17 @@ ax.set_yticks(range(len(order))); ax.set_yticklabels([lab[c] for c in order]); a
 ax.set_xlabel('Margin of residual A2C (M1) over the comparator (%)')
 ax.plot([], [], color=INK, lw=3.2, label='trace level, 90 % CI'); ax.plot([], [], color=INK, lw=0.9, label='seed x trace, 95 % CI')
 ax.set_xlim(-0.6, 5.2); ax.legend(loc='upper right', frameon=False, fontsize=6.3)
-ax.set_title('(a) Re-calibrated comparators (G6)', fontsize=7.5, loc='left')
+ax.set_title('(a) Re-calibrated comparators', fontsize=7.5, loc='left')
 # (b) other checks: W1 (warm-up) and NR1 (non-oracle base), trace level 90 % CI
 tw = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_warmup.csv')))}
 tn = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_nr1.csv')))}
 ng = {r['comparator']: r for r in csv.DictReader(open(os.path.join(A, 'nr1_g6_compare.csv')))}
-rows = [('W1 cold vs Context table', tw['Context table']['cold_margin_pct'], tw['Context table']['cold_ci90_lo'], tw['Context table']['cold_ci90_hi'], RL),
-        ('W1 warm vs Context table', tw['Context table']['warm_margin_pct'], tw['Context table']['warm_ci90_lo'], tw['Context table']['warm_ci90_hi'], RL),
-        ('W1 warm vs Fixed', tw['Fixed']['warm_margin_pct'], tw['Fixed']['warm_ci90_lo'], tw['Fixed']['warm_ci90_hi'], RL),
-        ('NR1 vs Context table', tn['Context table']['nr1_margin_pct'], tn['Context table']['ci90_lo'], tn['Context table']['ci90_hi'], CAL),
-        ('NR1 vs combined table*', ng['Context-joint-500']['margin_pct'], ng['Context-joint-500']['ci90_lo'], ng['Context-joint-500']['ci90_hi'], CAL),
-        ('NR1 vs M1 (oracle base)', tn['M1 (Oracle-base primary)']['nr1_margin_pct'], tn['M1 (Oracle-base primary)']['ci90_lo'], tn['M1 (Oracle-base primary)']['ci90_hi'], CAL)]
+rows = [('Cold OLLA: vs Context table', tw['Context table']['cold_margin_pct'], tw['Context table']['cold_ci90_lo'], tw['Context table']['cold_ci90_hi'], RL),
+        ('Warm-up: vs Context table', tw['Context table']['warm_margin_pct'], tw['Context table']['warm_ci90_lo'], tw['Context table']['warm_ci90_hi'], RL),
+        ('Warm-up: vs Fixed', tw['Fixed']['warm_margin_pct'], tw['Fixed']['warm_ci90_lo'], tw['Fixed']['warm_ci90_hi'], RL),
+        ('Non-oracle base: vs Context table', tn['Context table']['nr1_margin_pct'], tn['Context table']['ci90_lo'], tn['Context table']['ci90_hi'], CAL),
+        ('Non-oracle base: vs combined table*', ng['Context-joint-500']['margin_pct'], ng['Context-joint-500']['ci90_lo'], ng['Context-joint-500']['ci90_hi'], CAL),
+        ('Non-oracle base: vs M1 policy', tn['M1 (Oracle-base primary)']['nr1_margin_pct'], tn['M1 (Oracle-base primary)']['ci90_lo'], tn['M1 (Oracle-base primary)']['ci90_hi'], CAL)]
 ax = axs[1]
 for j, (l, m, lo, hi, col) in enumerate(rows):
     m, lo, hi = float(m), float(lo), float(hi)
@@ -38,6 +38,6 @@ for j, (l, m, lo, hi, col) in enumerate(rows):
 ax.axvline(0, color=INK, lw=0.7)
 ax.set_yticks(range(len(rows))); ax.set_yticklabels([r[0] for r in rows]); ax.invert_yaxis(); ax.grid(axis='y', visible=False)
 ax.set_xlabel('Margin (%), trace level, 90 % CI')
-ax.set_title('(b) Warm-up (W1) and non-oracle base (NR1)', fontsize=7.5, loc='left')
+ax.set_title('(b) Warm-up check and non-oracle base', fontsize=7.5, loc='left')
 ax.text(1.0, -0.30, '* secondary, descriptive', transform=ax.transAxes, ha='right', fontsize=6, color=GR)
 save(fig, 'f6_robust')
