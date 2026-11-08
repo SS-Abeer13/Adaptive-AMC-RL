@@ -1,0 +1,124 @@
+\appendices
+\section{Training details}\label{app:hp}
+Table~\ref{tab:hp} lists the learner's hyper-parameters. They are read from the simulator code by the number-generation script. The same values were used in M1--M4, W1, G6 (which re-uses the M1 policies) and NR1.
+
+\begin{table}[h]
+\caption{Hyper-parameters of the shared multi-user A2C (all cases).}\label{tab:hp}
+\centering\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Item & Value\\
+\midrule
+Actor network & \NInputDim-128-96-3 (residual) \\
+Parameters, MACs per decision & \NParamsActor, \NMacsActor\\
+Actor / critic learning rate & \NHpLrActor{} / \NHpLrCritic\\
+Discount factor $\gamma$ & \NHpGamma\\
+$n$-step return & \NHpNstep\\
+Entropy weight (start $\rightarrow$ end) & \NHpEntStart{} $\rightarrow$ \NHpEntEnd\\
+Validation & every \NHpValEvery{} episodes on \NHpNval{} traces\\
+Initial logit bias on $\delta=0$ & \NCfgResidBias\\
+Deviation penalty & \NCfgResidPen$\,|\delta|$\\
+Shaping constant $c$ & \NCfgShape\\
+Episodes (deadline / goodput) & \NCfgEpDl{} / \NCfgEpGp\\
+Training seeds per case & \NCfgSeeds\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Comparator tables for M2--M4}\label{app:tables}
+Tables~\ref{tab:m2}--\ref{tab:m4} give the margin of the primary residual A2C scheme over each v17 comparator, in the format of Table~\ref{tab:m1}. On-time ratio is the metric in M2, goodput in M3 and M4.
+
+\begin{table}[h]
+\caption{M2 (deadline, RTT~0): residual A2C vs.\ each comparator.}\label{tab:m2}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+\midrule
+\inputtab{gen/tab_m2.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{M3 (goodput, RTT~\NCfgRtt): residual A2C vs.\ each comparator.}\label{tab:m3}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+\midrule
+\inputtab{gen/tab_m3.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{M4 (goodput, RTT~0): residual A2C vs.\ each comparator.}\label{tab:m4}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+\midrule
+\inputtab{gen/tab_m4.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{G6 calibration details}\label{app:g6}
+\emph{Calibration set.} \NGsixCalTraces{} traces (seeds \NGsixCalSeedLo--\NGsixCalSeedHi) with their own CRN draws, disjoint from the M1 evaluation traces. Every table was written to a file and hashed before the evaluation traces were run.
+
+\emph{Single-cue rules.} Fixed-500 selects one global offset of \NGsixFixedOff{} CQI steps (the same value as the v17 Fixed rule). Context-500 is the best of all tables over three slack bins (\NGsixCtxDOffs). The re-tuned OLLA uses target \NGsixOllaTgt{} with a \NGsixOllaStep~dB step. FixedPU-500 is a separable search followed by joint refinement.
+
+\emph{Combined table.} Table~\ref{tab:ctxj} gives the calibrated Context-joint-500 offsets. Cells with fewer than \NGsixSparse{} calibration decisions (marked $^\ast$) were not searched and keep the composite value of Section~\ref{sec:protocol}. The search ran from \NGsixStarts{} starts (the composite table and three random tables) with at most \NGsixSweepCap{} sweeps each; no start reached the cap.
+
+\begin{table}[h]
+\caption{Calibrated combined table (Context-joint-500): CQI offset per slack bin $b$ (1: tightest), delay class $d$, speed class $v$ (1: slowest) and busy-HARQ indicator $u$. $^\ast$: sparse cell, composite value.}\label{tab:ctxj}
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+& & \multicolumn{2}{c}{$v=1$} & \multicolumn{2}{c}{$v=2$} & \multicolumn{2}{c}{$v=3$}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(l){7-8}
+$b$ & $d$ & $u=0$ & $u=1$ & $u=0$ & $u=1$ & $u=0$ & $u=1$\\
+\midrule
+\inputtab{gen/tab_ctxj.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Calibration against evaluation.} Table~\ref{tab:calev} compares each re-calibrated rule's score on the calibration traces with its on-time ratio on the evaluation traces.
+
+\begin{table}[h]
+\caption{G6 rules: calibration objective and evaluation on-time ratio.}\label{tab:calev}
+\centering\footnotesize
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Rule & Calibration & Evaluation\\
+\midrule
+Combined table (Context-joint-500) & \NGsixCalCtxJ & \NGsixEvalCtxJ\\
+Context-500 & \NGsixCalCtxD & \NGsixEvalCtxD\\
+Fixed-500 & \NGsixCalFixedD & \NGsixEvalFixedD\\
+FixedPU-500 & \NGsixCalFPUD & \NGsixEvalFPUD\\
+Composite (start of the search) & \NGsixCalComp & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Registry summary}\label{app:registry}
+Table~\ref{tab:registry} summarises the case registry by campaign version. A case is one configuration evaluated on its own traces; a row is one scheme evaluated in a case. The full registry is in the supplement. The v17x robustness stages (W1, G6, NR1, G10, A6) are not yet included.
+
+\begin{table}[h]
+\caption{Case registry by version: cases, scheme evaluations (rows), cases with a valid WIN, and superseded cases.}\label{tab:registry}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Version & Cases & Rows & WIN & Superseded\\
+\midrule
+\inputtab{gen/tab_registry.tex}
+\bottomrule
+\end{tabular}
+\end{table}

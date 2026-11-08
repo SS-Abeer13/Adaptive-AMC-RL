@@ -5,13 +5,13 @@ Each round of the campaign uses fresh, disjoint seeds and traces: \NCfgEval{} ev
 \subsection{Comparators, calibration and information}
 Nine comparators are evaluated (seven distinct ones in M1, because the tuned-target OLLA equals the default OLLA and the two bandits coincide there). \emph{Baseline}: open-loop CQI. \emph{OLLA}, \emph{OLLA (tuned target)} and \emph{Multi-OLLA} (a fast/slow blend). \emph{Fixed}: one global offset on the OLLA reference. \emph{FixedPU}: one offset per user class on the OLLA reference, where the class is the true delay class (two) and the true mean-speed class (three); this is a \emph{class oracle}, because the true speed is not observable at the gNB. \emph{Context table}: one offset per remaining-slack bin (three bins). Two contextual bandits (global; per delay class) are trained on the learner's episodes.
 
-Table~\ref{tab:info} states what each scheme observes. The learner's state contains only gNB-observable quantities and adds the slack cue and three HARQ-process features. But the residual policy acts on top of FixedPU, so it inherits the class information of that base rule, including the oracle speed class. For this reason we describe the calibrated rules as \emph{built on the learner's cues} (the slack cue in the Context table, the class information in FixedPU). \wordingsel{SI}{G6}{verdict}{unrun}\ifitemrun{G6}{}{ A rule that combines slack, class and HARQ-process state is the subject of the G6 comparator (Section~\ref{sec:results}-G).}
+Table~\ref{tab:info} states what each scheme observes. The learner's state contains only gNB-observable quantities and adds the slack cue and three HARQ-process features. But the residual policy acts on top of FixedPU, so it inherits the class information of that base rule, including the oracle speed class. For this reason we describe the calibrated rules as \emph{built on the learner's cues} (the slack cue in the Context table, the class information in FixedPU). \ifitemrun{G6}{The G6 stage adds a rule that combines slack, class and HARQ-process state (Section~\ref{sec:robust}). \wordingsel{SI}{G6}{verdict}{unrun}}{A rule that combines slack, class and HARQ-process state is the subject of the G6 comparator (Section~\ref{sec:robust}).}
 
 \begin{table*}[t]
 \caption{Information used by each scheme. \checkmark: used; --: not used; ``oracle'': simulator ground truth, not a gNB measurement.}\label{tab:info}
 \centering\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lccccccp{4.3cm}p{3.8cm}@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lccccccp{3.0cm}p{2.9cm}@{}}
 \toprule
 Scheme & CQI & ACK hist. & Slack & Delay cls. & Speed cls. & HARQ state & Other & Calibrated on\\
 \midrule
@@ -26,6 +26,9 @@ Bandit (global) & \checkmark & \checkmark & -- & -- & -- & -- & -- & learner's e
 Bandit (delay class) & \checkmark & \checkmark & -- & \checkmark & -- & -- & -- & learner's episodes\\
 A2C, offset action & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & $\Delta$CQI, observed SINR, OLLA offset, 3 frames & 800 ep.\ $\times$ \NCfgSeeds{} seeds\\
 \textbf{Residual A2C (primary)} & \checkmark & \checkmark & \checkmark & \checkmark\ (base) & \checkmark\ \emph{oracle (base)} & \checkmark & as offset A2C & \NCfgEpDl{} ep.\ $\times$ \NCfgSeeds{} seeds\\
+\midrule
+Combined table (G6) & \checkmark & \checkmark & \checkmark (3 bins) & \checkmark & \checkmark\ \emph{oracle} & \checkmark\ (busy) & -- & coord.\ ascent, \NGsixCalTraces{} traces\\
+Residual A2C, Fixed base (NR1) & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & as offset A2C & \NCfgEpDl{} ep.\ $\times$ \NCfgSeeds{} seeds\\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -35,11 +38,11 @@ A code review before the final comparison showed that the v17 calibration of the
 \begin{enumerate}
 \item \emph{The v17 Context table was found by a two-pass coordinate ascent started from the all-zero table, on \NCfgCalibCtx{} calibration traces.} The search space has $7^3=\NCalCtxTables$ tables (seven offsets in three bins), and the search did not examine all of them.
 \item \emph{The v17 FixedPU table was separable.} For each of the nine global offsets one run was made, and each of the six classes took its own best offset from the per-class metrics. The assembled six-entry table was never evaluated as a whole table.
-\item \emph{A pre-registered correction (G6) removes both limits.} Fixed (9 candidates), the Context table (343 tables) and the tuned-target OLLA (30 settings) are searched exhaustively on 500 fresh calibration traces (seeds 600001--600500). FixedPU is a separable grid followed by joint refinement (at most three sweeps). A combined table over slack $\times$ delay class $\times$ speed class $\times$ busy HARQ processes (0 or $\ge1$; $3\cdot2\cdot3\cdot2=36$ cells) is searched by coordinate ascent from four starts. The first start is the \emph{composite}
+\item \emph{A pre-registered correction (G6) removes both limits.} Fixed (9 candidates), the Context table (343 tables) and the tuned-target OLLA (30 settings) are searched exhaustively on \NGsixCalTraces{} fresh calibration traces (seeds \NGsixCalSeedLo--\NGsixCalSeedHi). FixedPU is a separable grid followed by joint refinement (at most three sweeps). A combined table over slack $\times$ delay class $\times$ speed class $\times$ busy HARQ processes (0 or $\ge1$; $3\cdot2\cdot3\cdot2=36$ cells) is searched by coordinate ascent from \NGsixStarts{} starts. The first start is the \emph{composite} table
 \[
-\mathrm{composite}(b,d,v,u)=\min\!\big(2,\max(-4,\;P(d,v)+X(b)-F)\big),
+\begin{aligned}\mathrm{comp}(b,d,v,u)=\min\!\big(2,\max(&-4,\\[-1pt] &P(d,v)+X(b)-F)\big),\end{aligned}
 \]
-with $F$ the re-calibrated Fixed offset, $P(d,v)$ the re-calibrated FixedPU table and $X(b)$ the re-calibrated Context table, all in integer CQI steps. Cells with fewer than 200 calibration decisions are not searched and keep their composite value. The tables are hashed before any evaluation trace is run, and calibration and evaluation values are reported side by side.
+with $F$ the re-calibrated Fixed offset, $P(d,v)$ the re-calibrated FixedPU table and $X(b)$ the re-calibrated Context table, all in integer CQI steps. Cells with fewer than \NGsixSparse{} calibration decisions are not searched and keep their composite value. The tables are hashed before any evaluation trace is run, and calibration and evaluation values are reported side by side.
 \end{enumerate}
 The G6 outcomes are \ifitemrun{G6}{reported in Section~\ref{sec:results}-G.}{pending at the time of writing; the M1 results in Section~\ref{sec:results} use the v17 tables of findings 1 and 2.}
 
@@ -47,6 +50,29 @@ The G6 outcomes are \ifitemrun{G6}{reported in Section~\ref{sec:results}-G.}{pen
 Calibration traces (seeds from 60001), validation traces (from 80001) and evaluation traces (from 500001) are disjoint. All schemes see the same evaluation traces with common random numbers~\cite{glasserman1992crn}, so comparisons are paired per trace. ``Scheme A beats comparator X'' means a Holm-adjusted~\cite{holm1979} two-sided Wilcoxon signed-rank $p<0.05$~\cite{wilcoxon1945} \emph{and} a lower bound $>0$ for the 90\,\% confidence interval of the paired percentage margin. \emph{Claim A}: beats the OLLA family. \emph{Claim B}: beats Fixed, FixedPU and the Context table. A \emph{WIN} means beating all nine comparators. A fairness guard applies: a Jain-index drop above 0.02 or an edge5 drop above 10\,\% relative to the best calibrated rule must be reported. Two headroom bounds frame the results: a per-trace hindsight bound and a genie bound.
 
 Trace-level intervals treat seeds as fixed. We therefore also report seed-level inference: a hierarchical seed$\times$trace bootstrap~\cite{saravanan2019hierboot} (20,000 resamples), a bootstrap over the ten per-seed means, and a one-sided sign test over seeds. Under the pre-registered rule, a claim that passes at trace level but whose seed-level lower bound is not above zero is reported as ``not robust to seed resampling''.
+
+\subsection{Pre-registered robustness programme}
+After the v17 results, and before any further run, we froze eight short pre-registrations that test the M1 result from different sides (Table~\ref{tab:stages}). Each text fixes the question, the data, the comparator family, the decision rule and the wording for every outcome. The texts and the analysis scripts are hashed, and the freeze commits are recorded with the code. A change after freezing is allowed only before the affected stage starts, and is logged as a dated amendment with its reason; two such amendments changed frozen texts, both before any result of the affected stages had been read, and a third added NR2. Every stage runs a short preflight that measures its cost and pauses the pipeline if the cost exceeds the budget by more than half. Calibration tables are written and hashed before any evaluation trace is touched. Each stage writes its own summary file, and the manuscript reads its numbers from those files through generated macros. A correction to a generated verdict is made in the claims ledger and in the text, never in the generated file (Section~\ref{sec:robust} gives one example).
+
+\begin{table*}[t]
+\caption{Pre-registered robustness programme (frozen before any of these stages ran). ``Fresh'': traces or seeds not used in any earlier round.}\label{tab:stages}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lp{4.4cm}p{4.2cm}p{4.6cm}l@{}}
+\toprule
+Stage & Question & Data & Decision rule & Status\\
+\midrule
+G1 & What does the policy do, and where? & logged M1/M3 decisions, all seeds & descriptive; a mechanism sentence needs a bin $\ge$\,5\,\% of decisions and a pattern in every seed & run\\
+W1 & Is the gap to OLLA a cold-start effect? & M1 traces, OLLA warmed up for \NWoneTTI{} TTIs & Claim~A/B as in M1; the abstract quotes the smaller gain & run\\
+G6 & Does the result survive stronger comparators? & \NGsixCalTraces{} fresh calibration traces; M1 evaluation traces & Holm over \NGsixNcmp{} comparators; Claim~A, B-500, joint parity; Rule~R2 for the best comparator & run\\
+NR1 & Is the class oracle in the base rule needed? & fresh seeds, non-oracle Fixed base; M1 evaluation traces & Holm over nine; WIN = beats all & run\\
+G10 & Does it hold at other operating points? & two neighbouring cells, fresh traces; single-cue rules re-calibrated per cell & Holm over nine per cell; ALL / MIXED / NONE & \ifitemrun{G10}{run}{running}\\
+A1, A3 & By user speed; inference cost & M1 traces; timing on one CPU & descriptive & run\\
+A6 & Is the multi-process HARQ gain a PF-timing artefact? & \NAsixTraces{} fresh traces, three schemes & expectation stated in advance & run\\
+NR2 & Does NR1 replicate on fresh data? & fresh seeds, fresh evaluation traces, frozen G6 tables & trace level (Holm) and seed level (R2) vs.\ the combined table & \ifitemrun{NR2}{run}{frozen, after G10}\\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \subsection{Pre-registration and multiplicity}
 From v12 on, a pre-registration note was written before each run, and failed predictions are reported. In v17 the primary predictions were met in all four cases, and two secondary predictions on M1 were not: the 800-episode offset policy was predicted to win and failed Claim~B, and the 800-episode residual policy was predicted to fail Claim~B and won. Across the registry, \NRegWinCases{} of the \NRegValidCases{} valid cases show a WIN under the corrected verdict. Multiplicity is handled over the whole registry: the M1 comparison against the best rule has Holm-adjusted $p=$~\NBonfPraw{}, and $p=$~\NBonfP{} after a Bonferroni factor of \NBonfTests{} ($\NRegRows\times9$ comparators). We state plainly that the recipe was chosen during the campaign; M1 is a confirmatory test of that recipe on fresh data.

@@ -40,3 +40,16 @@ Run order after the amendment: **G1 → W1 → NR1 → G6 (g6a → report point 
 | `G6`, `W1`, `NR1`, `A6`, `common_rules.md`, `compute_basis.md` | unchanged | G6 is running |
 
 Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md`. If the author prefers (a) or (c), the text can be replaced before any G10 run starts, with a further amendment entry (G10 has not started; the runner stage is a stub).
+
+## Amendment 3: 8 Nov 2026 (new stage NR2; no frozen text changed)
+**Trigger.** The review of the Checkpoint-5 results (`paper/ledger/conflicts.md` §G) found that (i) M1's margin over the G6 combined table passes at trace level but fails Rule R2 (5/10 seeds; hierarchical 95 % CI [−0.30, +1.70] %), and (ii) NR1 (non-oracle Fixed base) beat every comparator, but on M1's evaluation traces, with only a descriptive comparison against the combined table, and without stored per-seed values, so R2 cannot be applied to it. The author asked for a confirmatory replication of NR1.
+
+**What is added.** `NR2_confirmatory_prereg.md` (new, frozen) and its analysis script `paper/analysis/nr2_stats.py` (frozen with it). Fixed base, the residual recipe, 3000 episodes, 10 fresh seeds (base 25042), 500 fresh evaluation traces (1000001–1000500, CRN 1010001+, decision draws 1020000+; disjoint from every earlier range, asserted in code), primary comparator **Context-joint-500 from the frozen G6 tables (hash-checked, not re-searched)**, primary scheme the per-seed mean, decision at trace level (Holm over a family of 8) **and** seed level (R2). Verdicts CONFIRM / TRACE / NULL / REVERSE with a wording row each (`wording.tex`, slot NR2); WIN reported with each. Compute ≈ 4.4 h on the measured NR1 basis (range 3.3–6.3 h). **Runs after G10.**
+
+**What is not changed.** No frozen text changes: G6, W1, NR1, G10, A6, `common_rules.md`, `checkpoint5_list.md` and `compute_basis.md` keep their v3 hashes. NR2 is listed here and in `FREEZE.sha256` rather than by editing `checkpoint5_list.md`. R7 bookkeeping: +1 case (M1-NR2), up to 3 rows.
+
+**Independence.** NR2 was designed after the NR1 and G6 results were read; that is why it uses fresh traces and seeds and fixes the comparator, the scheme, the family and both decision levels in advance. The script was validated before freezing on the M1/G6 data, where it reproduces `table_cal500.csv` and returns TRACE.
+
+**Related decision (not a freeze change).** The G6 stage's summary file marked the claim seed-robust because it evaluated R2 against Context-500 only; G6 §3 and R2 require the best comparator. The manuscript uses the G6 §4 row 2 wording (`ABJ-seed`); the generated file is not edited (ledger G6e).
+
+**Freeze v4:** hashes in `FREEZE.sha256` (v3 hashes kept in `FREEZE_v3.sha256`); the commit is recorded in `paper/STATUS.md`.

@@ -1,0 +1,4 @@
+contrast,seeds_positive,diff_min_pp,diff_max_pp,pooled_a,pooled_b,share_a
+busy_1_2_vs_busy_0,10,18.76,65.3,84.66,37.0,35.55
+slack_le_0.6_vs_gt_0.6,10,19.66,54.66,89.64,48.41,14.96
+burst_vs_calm,10,8.19,24.06,69.61,48.71,28.08

@@ -4,15 +4,19 @@
 \usepackage[hidelinks]{hyperref}
 \input{pending}
 \input{numbers}
-\newcommand{\placeholder}[1]{\par\noindent\fbox{\parbox{0.94\linewidth}{\footnotesize\textcolor{gray}{\textbf{[Draft v0 placeholder]} #1}}}\par}
+\newcommand{\placeholder}[1]{\par\noindent\fbox{\parbox{0.94\linewidth}{\footnotesize\textcolor{gray}{\textbf{[Draft placeholder]} #1}}}\par}
+% \lit{...} marks an intended literal number in a gated file; check_pending.py --final lists every use.
+\newcommand{\lit}[1]{#1}
+% \inputtab{file}: primitive input, so generated table rows can be followed by \bottomrule inside a tabular
+\makeatletter\newcommand{\inputtab}[1]{\@@input #1 }\makeatother
 \newcommand{\OLLA}{OLLA}
 \graphicspath{{figs/}}
 \begin{document}
 \title{When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules}
-\author{Author names (to be completed)\thanks{Draft v0. Sections marked as placeholders wait on runs or on later drafting.}}
+\author{Author names (to be completed)\thanks{Draft v1. Items marked as placeholders wait on runs or on later drafting.}}
 \maketitle
 \begin{abstract}
-We study downlink link adaptation (CQI-offset and MCS selection) in a multi-user LTE/NR-like cell with realistic multi-process HARQ, in simulation. Using a pre-registered protocol with strictly disjoint trace splits, common random numbers, and a public registry of \NRegCases{} cases and \NRegRows{} evaluations, we investigate when deep reinforcement learning outperforms outer loop link adaptation (OLLA) and deterministic rules calibrated on the learner's observation cues. Against standard OLLA, a residual advantage actor-critic (A2C) policy achieves a $+$\Wone{abstract_gain}\,\% on-time delivery gain \wordingsel{W1}{W1}{abstract_cond}{unrun}. Against calibrated rules, the margin narrows: residual A2C \wordingsel{C2}{G6}{verdict}{unrun}. Re-calibration closes about 60\,\% of the margin over the best heuristic, leaving a $+0.66$\,\% advantage ($p = 1.05\times 10^{-3}$) over a combined table tracking deadline slack, user class, and HARQ buffer state. On full-buffer goodput, deep RL provides no gain ($-0.88$\,\% vs.\ Fixed), collapsing to identity decisions. We report three simulation pitfalls that reversed earlier conclusions and release full replication artefacts.
+We study downlink link adaptation (CQI-offset and MCS selection) in a simulated multi-user LTE/NR-like cell with multi-process HARQ, and ask when deep reinforcement learning (RL) beats both outer-loop link adaptation (OLLA) and deterministic rules calibrated on the learner's own cues. The protocol uses pre-registered decision rules and wording, disjoint calibration and evaluation traces, common random numbers, seed-level inference and a public registry of \NRegCases{} cases. For deadline traffic at an HARQ round-trip time of \NCfgRtt{} TTIs, a residual advantage actor-critic (A2C) policy delivers \Wone{abstract_gain}\,\% more packets on time than OLLA \wordingsel{W1}{W1}{abstract_cond}{unrun}. Against rules re-calibrated on \NGsixCalTraces{} fresh traces it still wins on evaluation traces, including over a table that combines deadline slack, user class and HARQ-process state (\NGsixCtxJMar\,\%, \NLevTrace\,\% CI [\NGsixCtxJLo, \NGsixCtxJHi]\,\%). That margin is not robust across training seeds (\NGsixCtxJAbove{} of \NCfgSeeds{} seeds above zero; hierarchical \NLevHier\,\% CI [\NGsixCtxJHierLo, \NGsixCtxJHierHi]\,\%), and re-calibration removes \NGsixClosure\,\% of the earlier margin over the best rule. The gain is uneven: for users slower than \NAoneEdgeLo~m/s the margin over the v17 Context table is \NAoneSlowMar\,\%. On full-buffer goodput the learned policy gives no gain (\NMthreePrimFixedMar\,\% against a calibrated offset). We document three simulation pitfalls that had produced large spurious gains, and release code, traces and the registry.
 \end{abstract}
 \begin{IEEEkeywords}
 link adaptation, reinforcement learning, HARQ, evaluation methodology, pre-registration
@@ -26,6 +30,7 @@ link adaptation, reinforcement learning, HARQ, evaluation methodology, pre-regis
 \input{sec_pitfalls}
 \input{sec_discussion}
 \input{sec_conclusion}
+\input{sec_appendix}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 \end{document}

@@ -64,3 +64,22 @@ The repo README is not a paper source. Fixing it is optional housekeeping and wa
 | # | Where | Error | Resolution |
 |---|---|---|---|
 | F1 🟠 | My Phase 1–5 documents (gap_analysis, venue_decision, outline draft) and the prompt's §2.1 summary: "PF-average timing inflated every scheme by about 40–50 %" | The single-factor diagnostic (6 traces, Baseline, 8 vs 1 process) gives +39.6 %. The full v16 K3 vs v17 M3 re-run shows all 13 schemes higher by 10–26 %, but that comparison is confounded (different traces/seeds, plus drain and useful-bit accounting added in v17) | Quote "+39.6 % (Baseline, 6-trace diagnostic)" and "10–26 % across schemes (confounded)" with ledger H17 and H17a. Never "40 % for every scheme". Corrected in outline.md, gap_analysis.md, venue_decision.md, reviewer_attacks.md |
+
+## G. Checkpoint-5 review of commit `1aae150` (8 Nov 2026)
+
+The manuscript edits made on the PC in `1aae150` were reviewed line by line against the stage outputs. From this date only one writer edits `paper/`.
+
+| # | Where | Error | Resolution |
+|---|---|---|---|
+| G1 🔴 | `Optimized/v17x/Dataset/fill_summary_v17b_cal.txt` (`CLAIMS … seed_robust=1`, `VERDICT`, `WORDING`); `pending_values.csv` G6 verdict `ABJ`; abstract, C2, results | `seed_robust` was computed against **Context-500 only**. R2 and G6 §3 require it for the best comparator of each claim; for JP that is Context-joint-500: 5/10 seeds above 0, hierarchical 95 % CI [−0.30, +1.70] % (`paper/analysis/g6_seed_stats.py`). The margin over the combined table is **not robust to seed resampling** | Generated file not edited. Verdict set to `ABJ-seed` (G6 §4 row 2, now defined in `wording.tex`); "same-information" only with the qualifier; `check_pending.py --final` fails if the verdict and R2 disagree. Ledger G6b, G6e |
+| G2 🟠 | Ledger G6d, STATUS, discussion: "closes about 60 % (+1.64 % → +0.66 %)" | +1.64 % has no source; the v17 margin over the Context table is +1.58 % (R03, `table_core.csv`) | 1 − 0.66/1.58 = 58 % (macro `\NGsixClosure`) |
+| G3 🟠 | Results/abstract-level text: A1 margins "vs Context table" | Comparator not named: it is the **v17 Context table (10-trace calibration)**, not Context-500. CIs had no script behind them | `paper/analysis/a1_speed_stats.py` reproduces the margins and the PC's CIs (hierarchical seed × trace, 95 %); comparator named; slow-user loss reported in the abstract and limitations |
+| G4 🟠 | Results: NR1 vs Context-joint-500 "+2.44 % … Wilcoxon p" | No source file | `paper/analysis/nr1_g6_compare.py` reproduces it (secondary, descriptive, trace level). NR1 has **no seed-level inference** (per-seed values not saved by `stage_nr1.m`); NR2 must save them |
+| G5 🟠 | Pitfalls (A6): "proving that the apparent multi-process HARQ gain was entirely an artefact" | Overclaim; the frozen A6 wording is "the timing of the PF average, not HARQ itself, accounts for the apparent gain in this diagnostic" | Frozen A6 wording used |
+| G6 🟠 | Results (G1, A1), discussion: "the agent aggressively shifts MCS to protect expiring packets"; "rapid Doppler shifts … undermine static lookup rules"; "the optimal offset depends jointly on …" | Mechanism stated as fact; G1/A1 are descriptive | Rephrased as "consistent with" |
+| G7 🟠 | Abstract, discussion, results: hard-coded numbers (0.66, 1.05e-3, 60 %, −0.88, 0.6126, CIs, 200, 500, 10–20 …) | Violates the macro rule (every number from `numbers.tex`) | All routed through macros; `check_pending.py --final` fails on literal numbers in main/intro/results/discussion |
+| G8 🟠 | Conclusion: "genuine gains", "paramount", "Crucially" | Wording rules (outline) | Rewritten |
+| G9 🟠 | Intro ¶1: "improvements ranging from 10 % to over 100 %" | Not traceable to a ledger row; outline flagged it as a literature claim | Removed; replaced by a qualitative statement |
+| G10 🟢 | Abstract: "registry of 67 cases and 108 evaluations" | The v17x stages are not yet in `case_registry.csv` (R7) | Open item REG1; counts update when the rows are added |
+| G11 🟢 | Results (G6): "an exhaustive coordinate-ascent search" | Coordinate ascent is not exhaustive (exhaustive search applies to the single-cue rules) | Corrected |
+| G12 🟢 | Hierarchical CI vs Context-500: MATLAB [+0.46, +2.47] %, python [+0.47, +2.46] % | Bootstrap Monte-Carlo difference (different RNG streams) | The python value (same estimator and RNG as G3) is used in the text; both recorded in G6b |

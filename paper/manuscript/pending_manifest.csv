@@ -19,7 +19,7 @@ W1,warm_ctx_margin,"Warm-up margin vs Context table (%)",0.2f,VI-G; F6,-
 W1,warm_ctx_ci_lo,"Warm margin vs Context, 90% CI lower",0.2f,VI-G,-
 W1,warm_fixed_margin,"Warm-up margin vs Fixed (%)",0.2f,VI-G,-
 W1,warm_claimB,"pass | fail",choice,VI-G; abstract qualifier,-
-G6,verdict,"ABJ | AB | A | none (G6 section 4)",choice,C2; abstract; wording C2 and SI,unrun
+G6,verdict,"ABJ | ABJ-seed | AB | A | none (G6 section 4; ABJ-seed = row 2)",choice,C2; abstract; wording C2 and SI,unrun
 G6,margin_ctx500,"Margin vs Context-500 (%)",0.2f,VI-G; C2,-
 G6,ci_lo_ctx500,"90% CI lower, vs Context-500",0.2f,VI-G,-
 G6,margin_fixed500,"Margin vs Fixed-500 (%)",0.2f,VI-G,-
@@ -67,3 +67,13 @@ A6,baseline_8p_vs_1p_acked,"Baseline goodput ratio 8 vs 1 process, ACK-time PF",
 A6,baseline_8p_vs_1p_sched,"Same ratio, scheduling-time PF",0.3f,VII-C; F8,-
 A6,jain_8p_acked,"Baseline Jain, 8 processes, ACK-time PF",0.3f,VII-C; F8,0.420 (H17)
 A6,jain_8p_sched,"Baseline Jain, 8 processes, scheduling-time PF",0.3f,VII-C; F8,-
+NR2,verdict,"CONFIRM | TRACE | NULL | REVERSE (NR2 section 4)",choice,abstract; I; VI-G; VIII; wording NR2,unrun
+NR2,win,"yes | no: beats all 8 comparators of the NR2 family",choice,VI-G; reframing gate,-
+NR2,margin_ctxj,"NR2 margin vs Context-joint-500, fresh traces (%)",0.2f,VI-G; wording NR2,-
+NR2,ci_lo_ctxj,"90% CI lower, vs Context-joint-500",0.2f,VI-G,-
+NR2,ci_hi_ctxj,"90% CI upper, vs Context-joint-500",0.2f,VI-G,-
+NR2,holm_ctxj,"Holm p (family of 8) vs Context-joint-500",sci,VI-G,-
+NR2,seeds_above,"Seeds with a positive margin vs Context-joint-500 (of 10)",integer,VI-G,-
+NR2,hier_lo,"Hierarchical 95% CI lower vs Context-joint-500",0.2f,VI-G; wording NR2,-
+NR2,hier_hi,"Hierarchical 95% CI upper vs Context-joint-500",0.2f,VI-G; wording NR2,-
+NR2,margin_m1,"NR2 vs M1 oracle-base policies on the fresh traces (%), secondary",0.2f,VI-G,-

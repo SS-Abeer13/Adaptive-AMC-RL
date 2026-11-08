@@ -3,14 +3,20 @@
 % Key = the value stored as the verdict in pending_values.csv.
 
 % ---- Contribution C2 / abstract clause (G6 verdict: ABJ | ABJ-seed | AB | A | none)
-\defwording{C2}{ABJ}{beats all calibrated comparators, including rules re-calibrated by exhaustive search on 500 fresh traces and a table that combines deadline slack, user class and HARQ-process state}
+\defwording{C2}{ABJ}{beats all calibrated comparators, including rules re-calibrated by exhaustive search on \NGsixCalTraces{} fresh traces and a table that combines deadline slack, user class and HARQ-process state}
+% ABJ-seed = G6 section 4 row 2 (A, B-500 and JP pass, but the seed-level lower bound vs the best comparator is <= 0).
+% The best comparator is Context-joint-500 (R2 correction: ledger G6e, conflicts.md G1).
+\defwording{C2}{ABJ-seed}{beats all calibrated comparators on evaluation traces, including rules re-calibrated by exhaustive search on \NGsixCalTraces{} fresh traces and a table that combines deadline slack, user class and HARQ-process state; the margin over that combined table is not robust to seed resampling (hierarchical \NLevHier\,\% CI [\NGsixCtxJHierLo, \NGsixCtxJHierHi]\,\%)}
 \defwording{C2}{AB}{beats the OLLA family and the single-cue calibrated rules; a calibrated rule that combines the learner's cues matched the learned policy}
 \defwording{C2}{A}{beats the OLLA family; against calibrated rules its advantage depends on their calibration budget}
 \defwording{C2}{none}{did not survive re-calibration of the comparators}
 \defwording{C2}{unrun}{beats the OLLA family and the single-cue calibrated rules (calibrated on 10 to 20 traces)}
 
-% ---- "same-information" may be used only after the G6 combined comparator is beaten
-\defwording{SI}{ABJ}{same-information}
+% ---- "same-information" may be used only after the G6 combined comparator is beaten, and for ABJ-seed only with the R2 qualifier.
+% Each row is a full sentence (empty when the term may not be used).
+\defwording{SI}{ABJ}{With the combined table the comparison becomes a same-information comparison, and the learner wins it.}
+% ABJ-seed: the term may appear only together with the R2 qualifier, so the switch carries it.
+\defwording{SI}{ABJ-seed}{With the combined table the comparison becomes a same-information comparison, which the learner wins on evaluation traces but not robustly across training seeds.}
 \defwording{SI}{AB}{}
 \defwording{SI}{A}{}
 \defwording{SI}{none}{}
@@ -26,9 +32,17 @@
 \defwording{G10}{ALL}{The gain held at both tested neighbouring operating points (a higher load at the M1 deadline, and a lower load with a looser deadline), against the OLLA family and the single-cue rules re-calibrated for each cell. The rule combining slack, class and HARQ-process state was tested at the M1 point only. Two further grid corners were not tested.}
 \defwording{G10}{MIXED}{The gain is operating-point dependent: it held at \Gten{cells_win} but not at \Gten{cells_notwin}; comparators were the OLLA family and single-cue rules re-calibrated per cell, and the combined rule was tested at the M1 point only. Two further grid corners were not tested.}
 \defwording{G10}{NONE}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced. Two further grid corners were not tested.}
-\defwording{G10}{unrun}{The result is established at one operating point (12~kbit packets, 10-TTI budget); other loads and deadlines were not tested under the corrected scheduler.}
+\defwording{G10}{unrun}{The result is established at one operating point (\NCfgPktKbit~kbit packets, \NCfgDeadline-TTI budget); other loads and deadlines were not tested under the corrected scheduler.}
 
 % ---- W1: which condition gives the smaller gain over the OLLA family (cold | warm)
 \defwording{W1}{cold}{with loops started at the beginning of each trace}
-\defwording{W1}{warm}{after a 200-TTI warm-up}
+\defwording{W1}{warm}{after a \NWoneTTI-TTI warm-up}
 \defwording{W1}{unrun}{with loops started at the beginning of each trace (cold start)}
+
+% ---- NR2 (confirmatory replication of NR1, paper/proposals/NR2_confirmatory_prereg.md section 4)
+% verdict: CONFIRM | TRACE | NULL | REVERSE ; WIN flag reported separately
+\defwording{NR2}{CONFIRM}{On fresh evaluation traces and fresh training seeds, the residual policy on a non-oracle base beat the frozen combined table at trace level and robustly across training seeds (\NRtwo{margin_ctxj}\,\%, hierarchical \NLevHier\,\% CI [\NRtwo{hier_lo}, \NRtwo{hier_hi}]\,\%).}
+\defwording{NR2}{TRACE}{On fresh evaluation traces and fresh training seeds, the residual policy on a non-oracle base beat the frozen combined table at trace level (\NRtwo{margin_ctxj}\,\%), but not robustly across training seeds (hierarchical \NLevHier\,\% CI [\NRtwo{hier_lo}, \NRtwo{hier_hi}]\,\%).}
+\defwording{NR2}{NULL}{On fresh evaluation traces and fresh training seeds, the margin of the residual policy on a non-oracle base over the frozen combined table was not significant (\NRtwo{margin_ctxj}\,\%, \NLevTrace\,\% CI [\NRtwo{ci_lo_ctxj}, \NRtwo{ci_hi_ctxj}]\,\%); the NR1 margin did not replicate.}
+\defwording{NR2}{REVERSE}{On fresh evaluation traces and fresh training seeds, the frozen combined table beat the residual policy on a non-oracle base (\NRtwo{margin_ctxj}\,\%); the NR1 margin did not replicate.}
+\defwording{NR2}{unrun}{NR2 had not been run at the time of writing.}

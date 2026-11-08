@@ -318,6 +318,225 @@ if not re.search(r'a2c_seed_means=\[0.6102 0.6048 0.6041 0.5969 0.6007 0.6118 0.
     ERR.append('M1 resid-800 seeds_above is no longer 6/10 in the summary file')
 ent = re.search(r'TRAIN\|M1_dl_rtt8\|final_train_tp_mean=([0-9.]+)', T)
 
+# ------------------------------------------------------------------ v17x Checkpoint-5 stages (G6, W1, NR1, A1, A3, A6)
+X = lambda *a: P('Optimized', 'v17x', 'Dataset', *a)
+AN = lambda *a: P('paper', 'analysis', 'out', *a)
+def rows_of(path): return list(csv.DictReader(open(path, newline='', encoding='utf-8')))
+def tag_of(name):
+    return {'Baseline': 'Baseline', 'OLLA': 'OLLA', 'OLLA (tuned target)': 'OLLAT', 'OLLA-tuned-500': 'OLLATD', 'Multi-OLLA': 'Multi',
+            'Fixed': 'Fixed', 'Fixed-500': 'FixedD', 'FixedPU (Oracle)': 'FPU', 'FixedPU-500': 'FPUD', 'Context table': 'Ctx',
+            'Context-500': 'CtxD', 'Context-joint-500': 'CtxJ', 'Bandit (global)': 'BanG', 'Bandit (delay class)': 'BanDel',
+            'M1 (Oracle-base primary)': 'Mone', 'M1 primary (oracle base)': 'Mone'}[name]
+# protocol constants stated in the frozen common rules
+CR = open(P('paper', 'proposals', 'common_rules.md'), encoding='utf-8').read()
+if not re.search(r'the 90 % CI lower bound of the paired % margin > 0', CR): ERR.append('common_rules R1 no longer states the 90 % CI')
+if not re.search(r'B = 20,000; seeds resampled, then traces\) 95 % CI', CR): ERR.append('common_rules R2 no longer states B = 20,000 / 95 %')
+add('NLevTrace', '90', 'P01', 'paper/proposals/common_rules.md', 'R1 90 % CI')
+add('NLevHier', '95', 'P01', 'paper/proposals/common_rules.md', 'R2 95 % CI')
+add('NBoot', r'20\,000', 'P01', 'paper/proposals/common_rules.md', 'R2 B = 20,000')
+m = re.search(r"C\.M1_dl_rtt8\.harq_rtt\s*=\s*(\d+);\s*C\.M1_dl_rtt8\.harq_nproc\s*=\s*(\d+)", VS) or re.search(r"'harq_rtt',\s*(\d+),\s*'harq_nproc',\s*(\d+)", VS)
+if m:
+    add('NCfgRtt', m.group(1), 'S06', 'v17_setup.m', 'M1 harq_rtt'); add('NCfgNproc', m.group(2), 'S06', 'v17_setup.m', 'M1 harq_nproc')
+else:
+    ERR.append('cannot find M1 harq_rtt/harq_nproc in v17_setup.m')
+add('NCfgPktKbit', f(12000 / 1000, 0), 'S09', 'v17_setup.m', 'pkt_bits / 1000')
+add('NVersions', str(max(int(r['version'].lstrip('v')) for r in rows)), 'M01', rel(REG), 'highest version in the registry')
+
+# ---- G6 (trace level: MATLAB stage output, never edited)
+TC5 = X('table_cal500.csv'); FSB = X('fill_summary_v17b_cal.txt'); fsb = open(FSB, encoding='utf-8').read()
+tc5 = rows_of(TC5)
+for r in tc5:
+    t = 'NGsix' + tag_of(r['comparator'])
+    add(t + 'Mar', f(r['margin_pct'], 2, True), 'G6a', rel(TC5), r['comparator'] + ' margin_pct')
+    add(t + 'Lo', f(r['ci90_lo'], 2, True), 'G6a', rel(TC5), 'ci90_lo'); add(t + 'Hi', f(r['ci90_hi'], 2, True), 'G6a', rel(TC5), 'ci90_hi')
+    add(t + 'Holm', sci(r['holm_p']), 'G6a', rel(TC5), 'holm_p'); add(t + 'Beats', 'yes' if r['beats'] == '1' else 'no', 'G6a', rel(TC5), 'beats')
+add('NGsixValPrim', f(re.search(r'PRIMARY_A2C\|ontime=([0-9.]+)', fsb).group(1), 4), 'G6a', rel(FSB), 'PRIMARY_A2C')
+add('NGsixValEns', f(re.search(r'ENS_A2C\|ontime=([0-9.]+)', fsb).group(1), 4), 'G6a', rel(FSB), 'ENS_A2C')
+add('NGsixNcmp', str(len(tc5)), 'G6a', rel(TC5), 'rows')
+cal = open(X('cal500_tables.txt'), encoding='utf-8').read(); sgl = open(X('cal500_single.txt'), encoding='utf-8').read()
+sc = dict(re.findall(r'(\w+)=([0-9.]+)', re.search(r'SCORES: (.*)', cal).group(1)))
+for k, nm in [('Context_joint_500', 'CtxJ'), ('Context_500', 'CtxD'), ('Fixed_500', 'FixedD'), ('FixedPU_500', 'FPUD'), ('Composite', 'Comp')]:
+    add('NGsixCal' + nm, f(sc[k], 4), 'G6c', 'Optimized/v17x/Dataset/cal500_tables.txt', 'SCORES ' + k)
+add('NGsixCtxDOffs', ', '.join(f(x, 0) for x in re.search(r'Context-500: \[([-0-9 ]+)\]', sgl).group(1).split()), 'G6a', 'Optimized/v17x/Dataset/cal500_single.txt', 'Context-500 offsets per slack bin')
+add('NGsixFixedOff', f(re.search(r'Fixed-500: offset = (-?\d+)', sgl).group(1), 0), 'G6a', 'Optimized/v17x/Dataset/cal500_single.txt', 'Fixed-500 offset')
+mo = re.search(r'OLLA-tuned-500: target = ([0-9.]+), step = ([0-9.]+) dB', sgl)
+add('NGsixOllaTgt', f(mo.group(1), 2), 'G6a', 'Optimized/v17x/Dataset/cal500_single.txt', 'OLLA-tuned target')
+add('NGsixOllaStep', f(mo.group(2), 1), 'G6a', 'Optimized/v17x/Dataset/cal500_single.txt', 'OLLA-tuned step')
+cells = rows_of(X('ctxj_cells.csv'))
+add('NGsixCells', str(len(cells)), 'G6a', 'Optimized/v17x/Dataset/ctxj_cells.csv', 'rows')
+add('NGsixSearched', str(sum(1 for c in cells if c['is_sparse'] == '0')), 'G6a', 'Optimized/v17x/Dataset/ctxj_cells.csv', 'is_sparse = 0')
+spmin = min(int(c['decision_count']) for c in cells if c['is_sparse'] == '0'); spmax = max(int(c['decision_count']) for c in cells if c['is_sparse'] == '1')
+G6P = open(P('paper', 'proposals', 'G6_calibration_budget_prereg.md'), encoding='utf-8').read()
+mthr = re.search(r'fewer than N = (\d+)\*\* decisions', G6P)
+thr = int(mthr.group(1)) if mthr else 200
+if not mthr: ERR.append('G6 prereg: sparse threshold sentence not found')
+if not (spmax < thr <= spmin): ERR.append(f'G6 sparse threshold {thr} inconsistent with ctxj_cells.csv ({spmax} < thr <= {spmin})')
+add('NGsixSparse', str(thr), 'G6a', 'paper/proposals/G6_calibration_budget_prereg.md; ctxj_cells.csv', 'sparse threshold (checked against counts)')
+rg = open(X('REPORT_g6a.txt'), encoding='utf-8').read()
+ms = re.search(r'\((\d+) traces (\d+)-(\d+), CRN', rg)
+add('NGsixCalTraces', ms.group(1), 'G6a', 'Optimized/v17x/Dataset/REPORT_g6a.txt', 'scope')
+add('NGsixCalSeedLo', ms.group(2), 'G6a', 'Optimized/v17x/Dataset/REPORT_g6a.txt', 'scope')
+add('NGsixCalSeedHi', ms.group(3), 'G6a', 'Optimized/v17x/Dataset/REPORT_g6a.txt', 'scope')
+add('NGsixStarts', re.search(r'full \((\d+) starts', rg).group(1), 'G6a', 'Optimized/v17x/Dataset/REPORT_g6a.txt', 'profile')
+add('NGsixSweepCap', re.search(r'cap (\d+) sweeps', rg).group(1), 'G6a', 'Optimized/v17x/Dataset/REPORT_g6a.txt', 'profile')
+
+# ---- G6 seed level (paper/analysis/g6_seed_stats.py, same estimators as G3) and the R2 decision vs the best comparator
+G6S = AN('g6_seed_stats.csv'); g6s = {r['comparator']: r for r in rows_of(G6S)}
+for cmpn, r in g6s.items():
+    t = 'NGsix' + tag_of(cmpn)
+    add(t + 'Above', r['seeds_above'].split('/')[0], 'G6b', rel(G6S), 'seeds_above')
+    add(t + 'Sign', f(r['sign_test_p_one_sided'], 3), 'G6b', rel(G6S), 'sign p')
+    add(t + 'BootLo', f(r['seedmean_boot_ci95_lo'], 2, True), 'G6b', rel(G6S), 'seedmean boot 95 lo')
+    add(t + 'BootHi', f(r['seedmean_boot_ci95_hi'], 2, True), 'G6b', rel(G6S), 'seedmean boot 95 hi')
+    add(t + 'HierLo', f(r['hier_boot_ci95_lo'], 2, True), 'G6b', rel(G6S), 'hier 95 lo')
+    add(t + 'HierHi', f(r['hier_boot_ci95_hi'], 2, True), 'G6b', rel(G6S), 'hier 95 hi')
+    add(t + 'SeedMin', f(r['seed_margin_min'], 2, True), 'G6b', rel(G6S), 'seed min')
+    add(t + 'SeedMax', f(r['seed_margin_max'], 2, True), 'G6b', rel(G6S), 'seed max')
+    add(t + 'Robust', 'yes' if r['seed_robust_R2'] == '1' else 'no', 'G6b', rel(G6S), 'R2 seed-robust')
+    if abs(float(r['margin_pct']) - float(next(x for x in tc5 if x['comparator'] == cmpn)['margin_pct'])) > 0.006:
+        ERR.append(f'g6_seed_stats margin vs {cmpn} disagrees with table_cal500.csv')
+best = min(tc5, key=lambda r: float(r['margin_pct']))['comparator']
+if best != 'Context-joint-500': ERR.append(f'best G6 comparator is now {best}; the R2 correction text assumes Context-joint-500')
+add('NGsixRtwoFile', 'yes' if re.search(r'seed_robust=(\d)', fsb).group(1) == '1' else 'no', 'G6e', rel(FSB), 'seed_robust flag as written (computed vs Context-500 only)')
+hc = re.search(r'HIERARCHICAL_CI\|vs=Context-500\|ci95=\[([-0-9.]+) ([-0-9.]+)\]', fsb)
+add('NGsixCtxDHierMatLo', f(hc.group(1), 2, True), 'G6e', rel(FSB), 'HIERARCHICAL_CI lo')
+add('NGsixCtxDHierMatHi', f(hc.group(2), 2, True), 'G6e', rel(FSB), 'HIERARCHICAL_CI hi')
+# margin closure (v17 10-trace Context margin -> combined-table margin) and absolute gap
+v17ctx = float(core[('M1_dl_rtt8', 'Deep A2C v17', 'Context table')]['pct_margin'])
+g6j = float(next(x for x in tc5 if x['comparator'] == 'Context-joint-500')['margin_pct'])
+add('NGsixClosure', f(100 * (1 - g6j / v17ctx), 0), 'G6d', rel(TC5) + '; ' + rel(TC), '1 - margin(CtxJ)/margin(v17 Context)')
+ev = {r['comparator']: float(r['cmp_mean']) for r in rows_of(G6S)}
+for k, nm in [('Context-joint-500', 'CtxJ'), ('Context-500', 'CtxD'), ('Fixed-500', 'FixedD'), ('FixedPU-500', 'FPUD'), ('OLLA-tuned-500', 'OLLATD')]:
+    add('NGsixEval' + nm, f(ev[k], 4), 'G6c', rel(G6S) + ' (from ckpt/g6c/eval.mat)', 'cmp_mean ' + k)
+add('NGsixCalGap', f(abs(float(sc['Context_joint_500']) - ev['Context-joint-500']), 4), 'G6c', 'cal500_tables.txt; g6c/eval.mat', '|cal - eval| CtxJ')
+prim6 = float(re.search(r'PRIMARY_A2C\|ontime=([0-9.]+)', fsb).group(1))
+add('NGsixAbsPpCtxJ', f(100 * (prim6 - ev['Context-joint-500']), 2, True), 'G6a', rel(FSB), 'primary - CtxJ, points')
+add('NGsixBaseGapPct', f(100 * (ev['Fixed-500'] / ev['FixedPU-500'] - 1), 2, True), 'G6c', 'g6c/eval.mat', 'Fixed-500 / FixedPU-500 - 1 (evaluation)')
+
+# ---- W1
+TW = X('table_warmup.csv'); FSW = X('fill_summary_v17w.txt'); fsw = open(FSW, encoding='utf-8').read()
+for r in rows_of(TW):
+    t = 'NWone' + tag_of(r['comparator'])
+    for cond in ['cold', 'warm']:
+        c = t + cond.capitalize()
+        add(c + 'Mar', f(r[cond + '_margin_pct'], 2, True), 'W01', rel(TW), cond + '_margin_pct')
+        add(c + 'Lo', f(r[cond + '_ci90_lo'], 2, True), 'W01', rel(TW), cond + '_ci90_lo')
+        add(c + 'Hi', f(r[cond + '_ci90_hi'], 2, True), 'W01', rel(TW), cond + '_ci90_hi')
+        add(c + 'Beats', 'yes' if r[cond + '_beats'] == '1' else 'no', 'W01', rel(TW), cond + '_beats')
+add('NWoneTTI', re.search(r'olla_warm_ttis=(\d+)', fsw).group(1), 'W01', rel(FSW), 'CONFIG olla_warm_ttis')
+add('NWoneValWarm', f(re.search(r'PRIMARY_WARM\|ontime=([0-9.]+)', fsw).group(1), 4), 'W01', rel(FSW), 'PRIMARY_WARM')
+add('NWoneValCold', f(re.search(r'PRIMARY_COLD\|ontime=([0-9.]+)', fsw).group(1), 4), 'W01', rel(FSW), 'PRIMARY_COLD')
+add('NWoneClaimBWarm', 'passes' if re.search(r'CLAIM_B_WARM\|passes=1', fsw) else 'fails', 'W01', rel(FSW), 'CLAIM_B_WARM')
+
+# ---- NR1
+TN = X('table_nr1.csv'); FSN = X('fill_summary_v17n.txt'); fsn = open(FSN, encoding='utf-8').read()
+for r in rows_of(TN):
+    t = 'NNRone' + tag_of(r['comparator'])
+    add(t + 'Mar', f(r['nr1_margin_pct'], 2, True), 'NR01', rel(TN), 'nr1_margin_pct')
+    add(t + 'Lo', f(r['ci90_lo'], 2, True), 'NR01', rel(TN), 'ci90_lo'); add(t + 'Hi', f(r['ci90_hi'], 2, True), 'NR01', rel(TN), 'ci90_hi')
+    add(t + 'Holm', sci(r['holm_p']), 'NR01', rel(TN), 'holm_p')
+add('NNRoneVal', f(re.search(r'PRIMARY_NR1\|ontime=([0-9.]+)', fsn).group(1), 4), 'NR01', rel(FSN), 'PRIMARY_NR1')
+add('NNRoneValEns', f(re.search(r'ENS_NR1\|ontime=([0-9.]+)', fsn).group(1), 4), 'NR01', rel(FSN), 'ENS_NR1')
+add('NNRoneOff', f(re.search(r'offset=([-+0-9]+)', fsn).group(1), 0), 'NR01', rel(FSN), 'CONFIG offset')
+add('NNRoneSeedBase', re.search(r"base_seed = (\d+);", open(P('Optimized', 'v17x', 'stage_nr1.m'), encoding='utf-8').read()).group(1), 'NR01', 'Optimized/v17x/stage_nr1.m', 'base_seed')
+add('NNRoneWins', str(sum(1 for r in rows_of(TN) if r['comparator'] != 'M1 (Oracle-base primary)' and r['beats'] == '1')), 'NR01', rel(TN), 'beats among the 9')
+NG = AN('nr1_g6_compare.csv')
+for r in rows_of(NG):
+    t = 'NNRoneG' + tag_of(r['comparator'])
+    add(t + 'Mar', f(r['margin_pct'], 2, True), 'NR02', rel(NG), 'margin_pct'); add(t + 'Lo', f(r['ci90_lo'], 2, True), 'NR02', rel(NG), 'ci90_lo')
+    add(t + 'Hi', f(r['ci90_hi'], 2, True), 'NR02', rel(NG), 'ci90_hi'); add(t + 'P', sci(r['wilcoxon_p']), 'NR02', rel(NG), 'wilcoxon_p')
+    add(t + 'Pp', f(r['diff_pp'], 2, True), 'NR02', rel(NG), 'diff_pp')
+
+# ---- A1 (hierarchical 95 % CIs, paper/analysis/a1_speed_stats.py)
+A1S = AN('a1_speed_stats.csv'); a1src = open(P('paper', 'analysis', 'a1_speed_stats.py'), encoding='utf-8').read()
+add('NAoneEdgeLo', re.search(r"\('lo', sp < (\d+)\)", a1src).group(1), 'A01', 'paper/analysis/a1_speed_stats.py', 'slow edge')
+add('NAoneEdgeHi', re.search(r"\('hi', sp > (\d+)\)", a1src).group(1), 'A01', 'paper/analysis/a1_speed_stats.py', 'fast edge')
+for r in rows_of(A1S):
+    t = 'NAone' + {'lo': 'Slow', 'mid': 'Mid', 'hi': 'Fast', 'all': 'All'}[r['speed_class']]
+    add(t + 'Mar', f(r['margin_pct'], 2, True), 'A01', rel(A1S), 'margin_pct')
+    add(t + 'Lo', f(r['hier_ci95_lo'], 2, True), 'A01', rel(A1S), 'hier_ci95_lo'); add(t + 'Hi', f(r['hier_ci95_hi'], 2, True), 'A01', rel(A1S), 'hier_ci95_hi')
+    add(t + 'Share', f(100 * float(r['share_user_traces']), 0), 'A01', rel(A1S), 'share of user-traces x100')
+
+# ---- A3
+RA = X('REPORT_a3.txt'); ra = open(RA, encoding='utf-8').read()
+add('NAthreeLoop', re.search(r'Loop \(100000 passes\) per decision: ([0-9.]+)', ra).group(1), 'A03', rel(RA), 'loop per decision')
+add('NAthreeFwd', re.search(r'Median per decision: ([0-9.]+)', ra).group(1), 'A03', rel(RA), 'median forward pass')
+add('NAthreeTti', re.search(r'Deep A2C v17: ([0-9.]+) us/TTI', ra).group(1), 'A03', rel(RA), 'A2C us/TTI')
+add('NAthreeTtiFpu', re.search(r'FixedPU \(Oracle\): ([0-9.]+) us/TTI', ra).group(1), 'A03', rel(RA), 'FixedPU us/TTI')
+add('NAthreeRatio', re.search(r'Ratio A2C / FixedPU: ([0-9.]+)x', ra).group(1), 'A03', rel(RA), 'ratio')
+add('NAthreeCpu', re.search(r'CPU Model: Intel\(R\) Core\(TM\) (\S+) CPU', ra).group(1), 'A03', rel(RA), 'CPU model (short)')
+
+# ---- A6
+FPF = X('fill_summary_v17pf.txt'); fpf = open(FPF, encoding='utf-8').read()
+add('NAsixTraces', re.search(r'Traces: (\d+)', fpf).group(1), 'A06', rel(FPF), 'Traces')
+if 'Expectation E holds for ALL THREE schemes' not in fpf: ERR.append('A6 verdict changed')
+for sch, nm in [('Baseline', 'Base'), ('OLLA', 'OLLA'), ('Fixed', 'Fixed')]:
+    blk = fpf.split('\n' + sch + ':')[1]
+    ma = re.search(r'pf_avg=acked:\s+np1=([0-9.]+), np8=([0-9.]+), ratio=([0-9.]+), dJain=([-0-9.]+)', blk)
+    mb = re.search(r'pf_avg=scheduled:\s+np1=([0-9.]+), np8=([0-9.]+), ratio=([0-9.]+), dJain=([-0-9.]+)', blk)
+    add(f'NAsix{nm}AckRatio', f(ma.group(3), 3), 'A06', rel(FPF), sch + ' acked ratio')
+    add(f'NAsix{nm}SchedRatio', f(mb.group(3), 3), 'A06', rel(FPF), sch + ' scheduled ratio')
+    add(f'NAsix{nm}AckGain', f(100 * (float(ma.group(3)) - 1), 1, True), 'A06', rel(FPF), 'ratio - 1')
+    add(f'NAsix{nm}SchedGain', f(100 * (float(mb.group(3)) - 1), 1, True), 'A06', rel(FPF), 'ratio - 1')
+    add(f'NAsix{nm}AckDJain', f(ma.group(4), 3, True), 'A06', rel(FPF), 'dJain acked')
+    add(f'NAsix{nm}SchedDJain', f(mb.group(4), 3, True), 'A06', rel(FPF), 'dJain scheduled')
+A6C = {(r['cell'], r['scheme']): r for r in rows_of(X('a6_pf_timing.csv'))}
+for cell, nm in [('acked_rtt8_np1', 'AckOne'), ('acked_rtt8_np8', 'AckEight'), ('scheduled_rtt8_np1', 'SchedOne'), ('scheduled_rtt8_np8', 'SchedEight')]:
+    add(f'NAsixJain{nm}', f(A6C[(cell, 'Baseline')]['jain_mean'], 3), 'A06', 'Optimized/v17x/Dataset/a6_pf_timing.csv', cell + ' Baseline jain')
+    add(f'NAsixGp{nm}', f(A6C[(cell, 'Baseline')]['goodput_mean'], 2), 'A06', 'Optimized/v17x/Dataset/a6_pf_timing.csv', cell + ' Baseline goodput')
+
+# ---- training hyper-parameters (Appendix A), read from the code
+for nm, pat in [('NHpLrActor', r"'lr_actor', ([0-9e.-]+)"), ('NHpLrCritic', r"'lr_critic', ([0-9e.-]+)"), ('NHpEntStart', r"'ent_start', ([0-9.]+)"),
+                ('NHpEntEnd', r"'ent_end', ([0-9.]+)"), ('NHpNstep', r"'n_step', (\d+)"), ('NHpValEvery', r"'val_every', (\d+)"), ('NHpNval', r"'n_val', (\d+)")]:
+    mm = re.search(pat, VS)
+    if not mm: ERR.append(f'{nm}: pattern not found in v17_setup.m'); continue
+    v = mm.group(1)
+    if 'e' in v.lower():
+        mant, ex = v.lower().split('e'); s = rf'\ensuremath{{{float(mant):g}\times10^{{{int(ex)}}}}}'
+    else:
+        s = v
+    add(nm, s, 'S15', 'Optimized/v17/v17_setup.m', pat)
+add('NHpGamma', re.search(r'env\.gamma\s*=\s*([0-9.]+)', DE).group(1), 'S15', 'Optimized/v17/defaultEnv_v17.m', 'gamma')
+
+# ---- G1 seed consistency (paper/analysis/g1_seed_consistency.py)
+G1C = AN('g1_seed_consistency.csv'); G1K = AN('g1_seed_contrasts.csv')
+for r in rows_of(G1C):
+    t = 'NGone' + {'all': 'All', 'busy_0': 'BusyZero', 'busy_1_2': 'BusyOne', 'busy_ge3': 'BusyThree', 'slack_le_0.3': 'SlackTight',
+                   'slack_0.3_0.6': 'SlackMid', 'slack_gt_0.6': 'SlackLoose', 'calm': 'Calm', 'burst': 'Burst', 'base_m3': 'BaseMthree', 'base_m2': 'BaseMtwo'}[r['bin']]
+    add(t + 'Plus', f(r['pct_plus1'], 1), 'G1b', rel(G1C), 'pct_plus1'); add(t + 'Zero', f(r['pct_zero'], 1), 'G1b', rel(G1C), 'pct_zero')
+    add(t + 'Minus', f(r['pct_minus1'], 1), 'G1b', rel(G1C), 'pct_minus1'); add(t + 'Share', f(r['share_of_decisions'], 0), 'G1b', rel(G1C), 'share_of_decisions')
+    add(t + 'SeedMin', f(r['plus1_seed_min'], 0), 'G1b', rel(G1C), 'plus1_seed_min'); add(t + 'SeedMax', f(r['plus1_seed_max'], 0), 'G1b', rel(G1C), 'plus1_seed_max')
+for r in rows_of(G1K):
+    t = 'NGoneK' + {'busy_1_2_vs_busy_0': 'Busy', 'slack_le_0.6_vs_gt_0.6': 'Slack', 'burst_vs_calm': 'Burst'}[r['contrast']]
+    add(t + 'Seeds', r['seeds_positive'], 'G1b', rel(G1K), 'seeds_positive')
+    add(t + 'Min', f(r['diff_min_pp'], 0), 'G1b', rel(G1K), 'diff_min_pp'); add(t + 'Max', f(r['diff_max_pp'], 0), 'G1b', rel(G1K), 'diff_max_pp')
+    add(t + 'A', f(r['pooled_a'], 1), 'G1b', rel(G1K), 'pooled_a'); add(t + 'ShareA', f(r['share_a'], 0), 'G1b', rel(G1K), 'share_a')
+G1A = P('Optimized', 'v17', 'paper', 'g1', 'g1_action_by_state.csv')
+for r in rows_of(G1A):
+    if r['case_tag'] == 'M1_dl_rtt8' and r['condition_type'] == 'speed_class':
+        t = {'<10 m/s': 'Slow', '10-20 m/s': 'Mid', '>20 m/s': 'Fast'}[r['condition_bin']]
+        add(f'NGoneSpeed{t}Plus', f(r['pct_delta_plus1'], 1), 'G1a', rel(G1A), 'speed_class pct_delta_plus1')
+TL0 = open(P('Optimized', 'v17', 'paper', 'table_training_length.csv')).readline()
+add('NCfgEpShort', re.search(r'pct_(\d+)ep', TL0).group(1), 'R25', 'Optimized/v17/paper/table_training_length.csv', 'header pct_<n>ep')
+add('NGoneSlackEdge', '0.6', 'G1b', 'paper/analysis/g1_seed_consistency.py', 'slack fraction edge (G1_SPEC bins 0.3, 0.6)')
+
+# ---- cross-check of the hand-entered pending values against the extracted macros
+PV = {(r['item'], r['key']): r['value'] for r in rows_of(P('paper', 'manuscript', 'pending_values.csv'))}
+XC = {('W1', 'cold_gain'): 'NWoneOLLAColdMar', ('W1', 'warm_gain'): 'NWoneOLLAWarmMar', ('W1', 'warm_ctx_margin'): 'NWoneCtxWarmMar',
+      ('W1', 'warm_fixed_margin'): 'NWoneFixedWarmMar', ('W1', 'warm_ci_lo'): 'NWoneOLLAWarmLo', ('W1', 'warm_ci_hi'): 'NWoneOLLAWarmHi',
+      ('G6', 'margin_ctx500'): 'NGsixCtxDMar', ('G6', 'margin_ctxj'): 'NGsixCtxJMar', ('G6', 'ci_lo_ctxj'): 'NGsixCtxJLo', ('G6', 'ci_hi_ctxj'): 'NGsixCtxJHi',
+      ('G6', 'margin_fixed500'): 'NGsixFixedDMar', ('G6', 'margin_fpu500'): 'NGsixFPUDMar', ('G6', 'seed_lo_best'): 'NGsixCtxJHierLo',
+      ('G6', 'calib_obj_ctxj'): 'NGsixCalCtxJ', ('G6', 'eval_obj_ctxj'): 'NGsixEvalCtxJ', ('G6', 'calib_obj_ctx500'): 'NGsixCalCtxD', ('G6', 'eval_obj_ctx500'): 'NGsixEvalCtxD',
+      ('G6', 'n_searched_cells'): 'NGsixSearched', ('NR', 'best_margin'): 'NNRoneCtxMar', ('NR', 'ci_lo'): 'NNRoneCtxLo',
+      ('A1', 'margin_lo'): 'NAoneSlowMar', ('A1', 'margin_mid'): 'NAoneMidMar', ('A1', 'margin_hi'): 'NAoneFastMar',
+      ('A3', 'us_per_decision'): 'NAthreeLoop', ('A3', 'us_per_tti'): 'NAthreeTti',
+      ('A6', 'baseline_8p_vs_1p_acked'): 'NAsixBaseAckRatio', ('A6', 'baseline_8p_vs_1p_sched'): 'NAsixBaseSchedRatio',
+      ('A6', 'jain_8p_acked'): 'NAsixJainAckEight', ('A6', 'jain_8p_sched'): 'NAsixJainSchedEight'}
+num = lambda s: float(s.replace(MINUS, '-').replace(r'\,', '').replace('$', ''))
+for k, mac in XC.items():
+    if k in PV and mac in M and abs(float(PV[k]) - num(M[mac][0])) > 0.0051:
+        ERR.append(f'pending_values {k} = {PV[k]} disagrees with extracted {mac} = {M[mac][0]}')
+
 # ------------------------------------------------------------------ write
 if ERR:
     print('ERRORS:'); [print('  ', e) for e in ERR]; sys.exit(1)

@@ -19,7 +19,7 @@ W1,warm_ctx_margin,1.75,Optimized/v17x/Dataset/table_warmup.csv,2026-11-05
 W1,warm_ctx_ci_lo,1.41,Optimized/v17x/Dataset/table_warmup.csv,2026-11-05
 W1,warm_fixed_margin,2.08,Optimized/v17x/Dataset/table_warmup.csv,2026-11-05
 W1,warm_claimB,pass,Optimized/v17x/Dataset/table_warmup.csv,2026-11-05
-G6,verdict,ABJ,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,2026-11-08
+G6,verdict,ABJ-seed,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt (ABJ) + paper/analysis/out/g6_seed_stats.csv (R2 vs Context-joint-500: not seed-robust; ledger G6e),2026-11-08
 G6,margin_ctx500,1.43,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,ci_lo_ctx500,1.08,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,margin_fixed500,1.87,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
