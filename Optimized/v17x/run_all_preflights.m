@@ -11,7 +11,7 @@ v17_setup;
 cfg = v17x_cfg();
 cfg.smoke = false;
 
-stages = {'g1', 'w1', 'nr1', 'g6a', 'g6b', 'g6c', 'g10', 'a1', 'a3', 'a6'};
+stages = {'g1', 'w1', 'nr1', 'g6a', 'g6b', 'g6c', 'g10', 'nr2', 'a1', 'a3', 'a6'};
 
 basis_eval = 0.095;    % sec per 200-TTI evaluation
 basis_ep   = 0.140;    % sec per training episode
@@ -41,7 +41,9 @@ for i = 1:numel(stages)
     try
         pf = feval(pf_fcn, ctx);
         
-        if strcmp(pf.unit, 'eval')
+        if isfield(pf, 'basis')
+            b = pf.basis;
+        elseif strcmp(pf.unit, 'eval')
             b = basis_eval;
         else
             b = basis_ep;

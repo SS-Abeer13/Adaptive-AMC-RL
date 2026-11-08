@@ -53,20 +53,22 @@ function run_v17x_all()
             handle_error(cfg, id, ME, hbf);   % exits
             return
         end
-        ratio = pf.sec_per_unit / cfg.basis.(pf.unit);
+        stage_basis = cfg.basis.(pf.unit);
+        if isfield(pf, 'basis'), stage_basis = pf.basis; end
+        ratio = pf.sec_per_unit / stage_basis;
         proj_h = pf.sec_per_unit * pf.n_units_total / 3600;
         hbf(id, sprintf('preflight: %.4f s per %s (basis %.3f, ratio %.2f); projected %.1f h for %d units', ...
-            pf.sec_per_unit, pf.unit, cfg.basis.(pf.unit), ratio, proj_h, pf.n_units_total));
+            pf.sec_per_unit, pf.unit, stage_basis, ratio, proj_h, pf.n_units_total));
         write_text(fullfile(cfg.outdir, ['PREFLIGHT_' id '.txt']), sprintf( ...
             '%s\nstage %s\nunit %s\nmeasured s/unit %.5f\nbasis s/unit %.5f\nratio %.3f (pause above %.2f)\nunits %d\nprojected hours %.2f\nnote: %s\n', ...
-            datestr(now, 31), id, pf.unit, pf.sec_per_unit, cfg.basis.(pf.unit), ratio, cfg.pause_factor, pf.n_units_total, proj_h, pf.note));
+            datestr(now, 31), id, pf.unit, pf.sec_per_unit, stage_basis, ratio, cfg.pause_factor, pf.n_units_total, proj_h, pf.note));
         appr = fullfile(cfg.outdir, ['APPROVE_' id '.txt']);
         if ratio > cfg.pause_factor && ~cfg.smoke
             if ~exist(appr, 'file')
                 write_text(fullfile(cfg.outdir, ['PAUSED_' id '.txt']), sprintf( ...
                     ['Stage %s paused by the 1.5x rule (common_rules.md R5).\nMeasured %.4f s per %s, basis %.3f s (ratio %.2f). Projected %.1f h.\n' ...
                      'To continue, create an empty file named APPROVE_%s.txt in this folder and rerun run_v17x_all.bat.\n'], ...
-                    id, pf.sec_per_unit, pf.unit, cfg.basis.(pf.unit), ratio, proj_h, id));
+                    id, pf.sec_per_unit, pf.unit, stage_basis, ratio, proj_h, id));
                 hbf(id, 'PAUSED by the 1.5x rule; waiting for APPROVE file');
                 v17x_status(cfg, 'PAUSED');
                 quit_(3);
