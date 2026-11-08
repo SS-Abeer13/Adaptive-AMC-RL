@@ -60,7 +60,40 @@ How much room is there? The per-trace hindsight bound over Fixed is \NHMoneHindP
 \end{figure*}
 
 \subsection{Robustness checks}\label{sec:robust}
-\placeholder{Four pre-registered checks wait on runs: W1 (OLLA warm-up), G6 (re-calibrated and combined comparators; verdict: \wordingsel{C2}{G6}{verdict}{unrun}), NR1 (non-oracle base rule; \wordingsel{NR1}{NR}{verdict}{unrun}) and G10 (two neighbouring operating points; \wordingsel{G10}{G10}{verdict}{unrun}). Run status: \ifitemrun{W1}{W1 done}{W1 pending}, \ifitemrun{G6}{G6 done}{G6 pending}.}
+Four pre-registered checks evaluate whether the M1 result survives changes to comparator calibration, warm-up, base-rule oracle information, and operating point.
+
+\subsubsection{Comparator calibration budget (G6)}
+To ensure the comparison was not confounded by calibration budget asymmetry, Fixed, Context, and tuned-OLLA were re-calibrated by exhaustive search on 500 fresh calibration traces (disjoint from evaluation), and FixedPU received separable search followed by joint refinement. In addition, an exhaustive coordinate-ascent search from four starts (one initialized at the composite rule and three random) optimized a combined table over slack, delay class, speed class, and busy HARQ processes ($3\times2\times3\times2 = 36$ cells, \Gsix{n_searched_cells} searched with $\ge 200$ calibration decisions).
+
+Residual A2C (M1 primary) beat all 10 comparators at trace level: $+0.66$\,\% (90\,\% CI [$0.29, 1.03$]\,\%, Holm $p = 1.05\times 10^{-3}$) against the combined table (Context-joint-500); $+1.43$\,\% ([$1.08, 1.77$]\,\%, Holm $p = 6.13\times 10^{-11}$) against Context-500; $+1.87$\,\% ([$1.52, 2.23$]\,\%) against Fixed-500; $+2.70$\,\% against FixedPU-500; and $+8.40$\,\% against OLLA-tuned-500. Claim A, Claim B-500, and Joint Parity (JP) all pass (\wordingsel{C2}{G6}{verdict}{unrun}).
+
+\paragraph{Honest framing on margin closure}
+Re-calibration closes about 60\,\% of the v17 margin over the best rule: whereas in v17 residual A2C had a $+1.64$\,\% relative margin over the 10-trace Context table, against the 500-trace combined table this advantage narrows to $+0.66$\,\% (on-time 0.6126 vs 0.6086). This demonstrates that a substantial portion of what earlier appeared to be learning advantage is captured by exhaustive calibration of deterministic rules on the same information.
+
+\paragraph{Seed-level inference and Rule R2}
+Examining the 10 training seeds against the combined table reveals that 5 of 10 seeds achieve a positive mean margin (seed-mean bootstrap 95\,\% CI [$-0.19, +1.60$]\,\%, sign-test $p = 0.623$), and the two-level hierarchical bootstrap (resampling seeds then traces) yields a 95\,\% CI of [$-0.30, +1.70$]\,\%. Because the lower bound is $\le 0$, Rule~R2 applies: the margin over the combined table is \emph{not robust to seed resampling} at the 95\,\% level. In contrast, against Context-500 the hierarchical 95\,\% CI is [$+0.46, +2.47$]\,\% and all seed-level lower bounds remain strictly positive.
+
+\paragraph{Overfitting check}
+Calibration vs.\ evaluation scores rule out empirical overfitting of the combined table: the calibration objective on 500 training traces was \Gsix{calib_obj_ctxj}, while evaluation on-time on the 500 held-out traces was \Gsix{eval_obj_ctxj} (an imperceptible difference of $0.0002$). For Context-500, calibration was \Gsix{calib_obj_ctx500} and evaluation was \Gsix{eval_obj_ctx500}.
+
+\subsubsection{OLLA warm-up horizon (W1)}
+To determine whether OLLA's gap in M1 resulted from cold-start convergence lag, W1 evaluated all schemes with a 200-TTI warm-up before scoring. Residual A2C maintained a $+7.49$\,\% (90\,\% CI [$6.79, 8.19$]\,\%) gain over OLLA under warm start (compared to $+11.96$\,\% [$11.21, 12.71$]\,\% cold). Against calibrated rules, the warm-up margin was $+1.75$\,\% ([$1.41, 2.10$]\,\%) vs Context table and $+2.08$\,\% vs Fixed. Claim B passed under warm-up (\Wone{warm_claimB}).
+
+\subsubsection{Non-oracle base rule (NR1)}
+The primary M1 policy was trained on FixedPU, which uses ground-truth speed classes. Stage NR1 retrained residual A2C using a non-oracle Fixed base rule (offset $-2$). NR1 achieved an on-time ratio of 0.6235, beating all 9 comparators: $+3.38$\,\% (90\,\% CI [$3.02, 3.75$]\,\%) vs Context table and $+13.95$\,\% vs OLLA (verdict \NR{verdict}). NR1 improved upon the M1 oracle-base primary policy by $+1.09$\,pp ($+1.77$\,\%, 90\,\% CI [$0.95, 1.22$]\,pp, $p = 2.03\times 10^{-31}$). A descriptive paired comparison against the G6 combined table on the same 500 evaluation traces shows NR1 ahead by $+2.44$\,\% (90\,\% CI [$2.04, 2.85$]\,\%, Wilcoxon $p = 1.48\times 10^{-19}$). This confirms that \wordingsel{NR1}{NR}{verdict}{unrun}
+
+\subsubsection{Operating-point grid (G10)}
+Stage G10 tests the generalisation of the gain across two neighbouring grid points (G2\_hi\_d10: higher load at 10-TTI deadline; G3\_lo\_d18: lower load at 18-TTI deadline). G10 is launching now and expected to complete in approximately 32~h. At the time of writing, results are formally established at the M1 operating point (12~kbit packets, 10-TTI budget; \wordingsel{G10}{G10}{verdict}{unrun}).
 
 \subsection{Policy behaviour}
-\ifitemrun{G1}{\placeholder{G1 action shares by state bin.}}{\placeholder{The action re-cut (G1) has not been run. No mechanism is claimed for the gain.}}
+\subsubsection{Action selection on new transmissions (G1)}
+Across \Gone{n_newtx_m1} scheduled new-transmission decisions in M1, the residual policy keeps $\delta=0$ in \Gone{pct_delta0_m1}\,\% of decisions and actively modifies the CQI offset in \Gone{pct_effnz_m1}\,\% of decisions. In contrast, under full-buffer goodput (M3), \Gone{pumatch_m3} of decisions are identical to FixedPU, selecting $\delta=0$ in \Gone{pct_delta0_m3}\,\% of decisions with \Gone{pct_effnz_m3}\,\% effective modifications. In M1, non-zero offsets concentrate in states with \Gone{mech_bin}: when deadline slack is tight and multiple HARQ processes are occupied, the agent aggressively shifts MCS to protect expiring packets.
+
+\subsubsection{Mobility regime breakdown (A1)}
+Disaggregating the 500 evaluation traces by user velocity reveals that residual A2C's advantage is mobility-dependent:
+\begin{itemize}
+\item Low speed ($<10$~m/s, pedestrian): margin vs Context table is \Aone{margin_lo}\,\% (95\,\% CI [$-3.33, -0.16$]\,\%), where the static Context table slightly outperforms RL.
+\item Medium speed ($10$--$20$~m/s, urban vehicular): margin vs Context is $+$\Aone{margin_mid}\,\% (95\,\% CI [$+1.79, +3.92$]\,\%).
+\item High speed ($>20$~m/s, highway): margin vs Context is $+$\Aone{margin_hi}\,\% (95\,\% CI [$+0.92, +3.69$]\,\%).
+\end{itemize}
+The learned policy delivers its primary benefit in vehicular regimes where rapid Doppler shifts and feedback staleness undermine static lookup rules.

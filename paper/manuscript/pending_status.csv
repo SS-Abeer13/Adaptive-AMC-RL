@@ -1,9 +1,9 @@
 item,status
-G1,pending
-W1,pending
-G6,pending
-NR,pending
+G1,run
+W1,run
+G6,run
+NR,run
 G10,pending
-A1,pending
-A3,pending
-A6,pending
+A1,run
+A3,run
+A6,run

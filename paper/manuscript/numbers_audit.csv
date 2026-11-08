@@ -1,20 +1,20 @@
 macro,value,ledger_id,source_file,field
-NADlCtxEight,+1.58,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt8
-NADlCtxSwing,1.15,R28,Optimized/v17/paper/table_harq_ablation.csv,swing_pp
-NADlCtxZero,+0.43,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt0
-NADlFixedEight,+1.87,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt8
-NADlFixedSwing,0.94,R28,Optimized/v17/paper/table_harq_ablation.csv,swing_pp
-NADlFixedZero,+0.93,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt0
-NAGpCtxEight,\ensuremath{-}0.88,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt8
-NAGpCtxSwing,0.85,R28,Optimized/v17/paper/table_harq_ablation.csv,swing_pp
-NAGpCtxZero,\ensuremath{-}1.73,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt0
-NAGpFixedEight,\ensuremath{-}0.88,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt8
-NAGpFixedSwing,0.85,R28,Optimized/v17/paper/table_harq_ablation.csv,swing_pp
-NAGpFixedZero,\ensuremath{-}1.73,R28,Optimized/v17/paper/table_harq_ablation.csv,pct_rtt0
-NActiveHours,6.3,R32,Optimized/v17/README_v17.md,README_v17 s6.1 active compute time
-NBonfP,$8.8\times10^{-10}$,M04,Optimized/v17/paper/table_core.csv,holm_p x tests
-NBonfPraw,$9.1\times10^{-13}$,M04,Optimized/v17/paper/table_core.csv,holm_p
-NBonfTests,972,M04,Optimized/case_registry.csv,rows x 9
+NADlCtxEight,+1.58,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt8
+NADlCtxSwing,1.15,R28,Optimized\v17\paper\table_harq_ablation.csv,swing_pp
+NADlCtxZero,+0.43,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt0
+NADlFixedEight,+1.87,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt8
+NADlFixedSwing,0.94,R28,Optimized\v17\paper\table_harq_ablation.csv,swing_pp
+NADlFixedZero,+0.93,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt0
+NAGpCtxEight,\ensuremath{-}0.88,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt8
+NAGpCtxSwing,0.85,R28,Optimized\v17\paper\table_harq_ablation.csv,swing_pp
+NAGpCtxZero,\ensuremath{-}1.73,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt0
+NAGpFixedEight,\ensuremath{-}0.88,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt8
+NAGpFixedSwing,0.85,R28,Optimized\v17\paper\table_harq_ablation.csv,swing_pp
+NAGpFixedZero,\ensuremath{-}1.73,R28,Optimized\v17\paper\table_harq_ablation.csv,pct_rtt0
+NActiveHours,6.3,R32,Optimized\v17\README_v17.md,README_v17 s6.1 active compute time
+NBonfP,$8.8\times10^{-10}$,M04,Optimized\v17\paper\table_core.csv,holm_p x tests
+NBonfPraw,$9.1\times10^{-13}$,M04,Optimized\v17\paper\table_core.csv,holm_p
+NBonfTests,972,M04,Optimized\case_registry.csv,rows x 9
 NCalClasses,6,S19,Optimized/v17/userClass_v17.m,2 delay x 3 speed classes
 NCalCtxPasses,2,S18,Optimized/v17/calibrateCtx_v17.m,for pass = 1:2
 NCalCtxTables,343,S20,derived,7 offsets ^ 3 slack bins
@@ -51,723 +51,723 @@ NCfgSpeedMax,30,S02,defaultEnv_v17.m,speed_max
 NCfgSpeedMin,3,S02,defaultEnv_v17.m,speed_min
 NCfgTrace,200,S10,v17_setup.m,base.simTime
 NCfgUsers,10,S01,v17_setup.m,base.N
-NEngineGap,10.71,R30,Optimized/v17/README_v17.md,engine gap goodput %
-NEngineJain,0.0228,R30,Optimized/v17/README_v17.md,engine gap Jain
-NFairJain,0.0056,R31,Optimized/v17/README_v17.md,B2.4 Jain diff
-NFairRatio,1.0010,R31,Optimized/v17/README_v17.md,B2.4 ratio
-NGMoneCtxAbove,9,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMoneCtxBootHi,+2.53,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMoneCtxBootLo,+0.72,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMoneCtxHierHi,+2.62,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMoneCtxHierLo,+0.62,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMoneCtxHierNinetyHi,+2.45,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMoneCtxHierNinetyLo,+0.76,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMoneCtxSeedMax,+4.41,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMoneCtxSeedMin,\ensuremath{-}0.80,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMoneCtxSign,0.0107,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMoneCtxTHi,+2.68,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMoneCtxTLo,+0.48,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMoneCtxTraceNinetyHi,+1.95,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMoneCtxTraceNinetyLo,+1.22,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGMoneFPUAbove,10,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMoneFPUBootHi,+3.64,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMoneFPUBootLo,+1.82,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMoneFPUHierHi,+3.76,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMoneFPUHierLo,+1.72,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMoneFPUHierNinetyHi,+3.57,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMoneFPUHierNinetyLo,+1.87,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMoneFPUSeedMax,+5.55,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMoneFPUSeedMin,+0.29,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMoneFPUSign,0.0010,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMoneFPUTHi,+3.81,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMoneFPUTLo,+1.58,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMoneFPUTraceNinetyHi,+3.05,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMoneFPUTraceNinetyLo,+2.35,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGMoneFixedAbove,9,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMoneFixedBootHi,+2.81,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMoneFixedBootLo,+1.01,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMoneFixedHierHi,+2.90,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMoneFixedHierLo,+0.89,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMoneFixedHierNinetyHi,+2.74,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMoneFixedHierNinetyLo,+1.05,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMoneFixedSeedMax,+4.71,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMoneFixedSeedMin,\ensuremath{-}0.52,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMoneFixedSign,0.0107,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMoneFixedTHi,+2.98,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMoneFixedTLo,+0.77,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMoneFixedTraceNinetyHi,+2.24,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMoneFixedTraceNinetyLo,+1.52,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGMoneOffCtxAbove,3,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMoneOffCtxBootHi,\ensuremath{-}0.23,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMoneOffCtxBootLo,\ensuremath{-}1.63,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMoneOffCtxHierHi,\ensuremath{-}0.15,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMoneOffCtxHierLo,\ensuremath{-}1.73,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMoneOffCtxHierNinetyHi,\ensuremath{-}0.27,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMoneOffCtxHierNinetyLo,\ensuremath{-}1.59,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMoneOffCtxSeedMax,+0.68,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMoneOffCtxSeedMin,\ensuremath{-}2.83,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMoneOffCtxSign,0.9450,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMoneOffCtxTHi,\ensuremath{-}0.06,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMoneOffCtxTLo,\ensuremath{-}1.77,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMoneOffCtxTraceNinetyHi,\ensuremath{-}0.63,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMoneOffCtxTraceNinetyLo,\ensuremath{-}1.19,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGMoneRsdCtxAbove,6,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMoneRsdCtxBootHi,+1.18,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMoneRsdCtxBootLo,\ensuremath{-}0.44,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMoneRsdCtxHierHi,+1.25,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMoneRsdCtxHierLo,\ensuremath{-}0.51,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMoneRsdCtxHierNinetyHi,+1.11,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMoneRsdCtxHierNinetyLo,\ensuremath{-}0.40,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMoneRsdCtxSeedMax,+3.07,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMoneRsdCtxSeedMin,\ensuremath{-}1.33,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMoneRsdCtxSign,0.3770,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMoneRsdCtxTHi,+1.33,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMoneRsdCtxTLo,\ensuremath{-}0.66,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMoneRsdCtxTraceNinetyHi,+0.62,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMoneRsdCtxTraceNinetyLo,+0.05,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGMtwoCtxAbove,8,G3a,paper/analysis/out/g3_seed_stats.csv,seeds_above
-NGMtwoCtxBootHi,+0.78,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_hi
-NGMtwoCtxBootLo,+0.06,G3g,paper/analysis/out/g3_seed_stats.csv,seedmean_boot_ci95_lo
-NGMtwoCtxHierHi,+0.87,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_hi
-NGMtwoCtxHierLo,\ensuremath{-}0.03,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci95_lo
-NGMtwoCtxHierNinetyHi,+0.80,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_hi
-NGMtwoCtxHierNinetyLo,+0.04,G3a,paper/analysis/out/g3_seed_stats.csv,hier_boot_ci90_lo
-NGMtwoCtxSeedMax,+1.27,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_max
-NGMtwoCtxSeedMin,\ensuremath{-}0.55,G3g,paper/analysis/out/g3_seed_stats.csv,seed_margin_min
-NGMtwoCtxSign,0.0547,G3a,paper/analysis/out/g3_seed_stats.csv,sign_test_p_one_sided
-NGMtwoCtxTHi,+0.87,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_hi
-NGMtwoCtxTLo,\ensuremath{-}0.02,G3g,paper/analysis/out/g3_seed_stats.csv,seed_t_ci95_lo
-NGMtwoCtxTraceNinetyHi,+0.64,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_hi
-NGMtwoCtxTraceNinetyLo,+0.21,G3c,paper/analysis/out/g3_seed_stats.csv,trace_boot_ci90_lo
-NGWidthRatio,2.3,G3c,paper/analysis/out/g3_seed_stats.csv,hier 90% width / trace-only 90% width
-NHMfourFixed,3.4985,R26,Optimized/v17/paper/headroom.csv,fixed
-NHMfourGenie,5.6615,R26,Optimized/v17/paper/headroom.csv,genie
-NHMfourGeniePct,+61.8,R26,Optimized/v17/paper/headroom.csv,genie/fixed - 1
-NHMfourHind,3.6409,R26,Optimized/v17/paper/headroom.csv,hindsight
-NHMfourHindPct,+4.1,R26,Optimized/v17/paper/headroom.csv,hindsight/fixed - 1
-NHMoneFixed,0.6014,R26,Optimized/v17/paper/headroom.csv,fixed
-NHMoneGenie,0.8289,R26,Optimized/v17/paper/headroom.csv,genie
-NHMoneGeniePct,+37.8,R26,Optimized/v17/paper/headroom.csv,genie/fixed - 1
-NHMoneHind,0.6216,R26,Optimized/v17/paper/headroom.csv,hindsight
-NHMoneHindPct,+3.4,R26,Optimized/v17/paper/headroom.csv,hindsight/fixed - 1
-NHMthreeFixed,3.4989,R26,Optimized/v17/paper/headroom.csv,fixed
-NHMthreeGenie,5.7153,R26,Optimized/v17/paper/headroom.csv,genie
-NHMthreeGeniePct,+63.3,R26,Optimized/v17/paper/headroom.csv,genie/fixed - 1
-NHMthreeHind,3.6445,R26,Optimized/v17/paper/headroom.csv,hindsight
-NHMthreeHindPct,+4.2,R26,Optimized/v17/paper/headroom.csv,hindsight/fixed - 1
-NHMtwoFixed,0.8538,R26,Optimized/v17/paper/headroom.csv,fixed
-NHMtwoGenie,0.9555,R26,Optimized/v17/paper/headroom.csv,genie
-NHMtwoGeniePct,+11.9,R26,Optimized/v17/paper/headroom.csv,genie/fixed - 1
-NHMtwoHind,0.8712,R26,Optimized/v17/paper/headroom.csv,hindsight
-NHMtwoHindPct,+2.0,R26,Optimized/v17/paper/headroom.csv,hindsight/fixed - 1
-NIMfourCells,5000,R19a/R20,paper/analysis/out/m3_identity.txt,cells
-NIMfourIdent,2985,R19a/R20,paper/analysis/out/m3_identity.txt,identical_cells (primary)
-NIMfourMaxDiff,1.559,R19a,paper/analysis/out/m3_identity.txt,max|diff|
-NIMthreeCells,5000,R19a/R20,paper/analysis/out/m3_identity.txt,cells
-NIMthreeIdent,5000,R19a/R20,paper/analysis/out/m3_identity.txt,identical_cells (primary)
-NIMthreeMaxDiff,0.000,R19a,paper/analysis/out/m3_identity.txt,max|diff|
+NEngineGap,10.71,R30,Optimized\v17\README_v17.md,engine gap goodput %
+NEngineJain,0.0228,R30,Optimized\v17\README_v17.md,engine gap Jain
+NFairJain,0.0056,R31,Optimized\v17\README_v17.md,B2.4 Jain diff
+NFairRatio,1.0010,R31,Optimized\v17\README_v17.md,B2.4 ratio
+NGMoneCtxAbove,9,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMoneCtxBootHi,+2.53,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMoneCtxBootLo,+0.72,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMoneCtxHierHi,+2.62,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMoneCtxHierLo,+0.62,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMoneCtxHierNinetyHi,+2.45,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMoneCtxHierNinetyLo,+0.76,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMoneCtxSeedMax,+4.41,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMoneCtxSeedMin,\ensuremath{-}0.80,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMoneCtxSign,0.0107,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMoneCtxTHi,+2.68,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMoneCtxTLo,+0.48,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMoneCtxTraceNinetyHi,+1.95,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMoneCtxTraceNinetyLo,+1.22,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGMoneFPUAbove,10,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMoneFPUBootHi,+3.64,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMoneFPUBootLo,+1.82,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMoneFPUHierHi,+3.76,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMoneFPUHierLo,+1.72,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMoneFPUHierNinetyHi,+3.57,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMoneFPUHierNinetyLo,+1.87,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMoneFPUSeedMax,+5.55,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMoneFPUSeedMin,+0.29,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMoneFPUSign,0.0010,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMoneFPUTHi,+3.81,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMoneFPUTLo,+1.58,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMoneFPUTraceNinetyHi,+3.05,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMoneFPUTraceNinetyLo,+2.35,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGMoneFixedAbove,9,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMoneFixedBootHi,+2.81,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMoneFixedBootLo,+1.01,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMoneFixedHierHi,+2.90,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMoneFixedHierLo,+0.89,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMoneFixedHierNinetyHi,+2.74,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMoneFixedHierNinetyLo,+1.05,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMoneFixedSeedMax,+4.71,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMoneFixedSeedMin,\ensuremath{-}0.52,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMoneFixedSign,0.0107,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMoneFixedTHi,+2.98,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMoneFixedTLo,+0.77,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMoneFixedTraceNinetyHi,+2.24,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMoneFixedTraceNinetyLo,+1.52,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGMoneOffCtxAbove,3,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMoneOffCtxBootHi,\ensuremath{-}0.23,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMoneOffCtxBootLo,\ensuremath{-}1.63,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMoneOffCtxHierHi,\ensuremath{-}0.15,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMoneOffCtxHierLo,\ensuremath{-}1.73,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMoneOffCtxHierNinetyHi,\ensuremath{-}0.27,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMoneOffCtxHierNinetyLo,\ensuremath{-}1.59,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMoneOffCtxSeedMax,+0.68,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMoneOffCtxSeedMin,\ensuremath{-}2.83,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMoneOffCtxSign,0.9450,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMoneOffCtxTHi,\ensuremath{-}0.06,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMoneOffCtxTLo,\ensuremath{-}1.77,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMoneOffCtxTraceNinetyHi,\ensuremath{-}0.63,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMoneOffCtxTraceNinetyLo,\ensuremath{-}1.19,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGMoneRsdCtxAbove,6,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMoneRsdCtxBootHi,+1.18,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMoneRsdCtxBootLo,\ensuremath{-}0.44,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMoneRsdCtxHierHi,+1.25,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMoneRsdCtxHierLo,\ensuremath{-}0.51,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMoneRsdCtxHierNinetyHi,+1.11,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMoneRsdCtxHierNinetyLo,\ensuremath{-}0.40,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMoneRsdCtxSeedMax,+3.07,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMoneRsdCtxSeedMin,\ensuremath{-}1.33,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMoneRsdCtxSign,0.3770,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMoneRsdCtxTHi,+1.33,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMoneRsdCtxTLo,\ensuremath{-}0.66,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMoneRsdCtxTraceNinetyHi,+0.62,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMoneRsdCtxTraceNinetyLo,+0.05,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGMtwoCtxAbove,8,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
+NGMtwoCtxBootHi,+0.78,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
+NGMtwoCtxBootLo,+0.06,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
+NGMtwoCtxHierHi,+0.87,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_hi
+NGMtwoCtxHierLo,\ensuremath{-}0.03,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci95_lo
+NGMtwoCtxHierNinetyHi,+0.80,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_hi
+NGMtwoCtxHierNinetyLo,+0.04,G3a,paper\analysis\out\g3_seed_stats.csv,hier_boot_ci90_lo
+NGMtwoCtxSeedMax,+1.27,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_max
+NGMtwoCtxSeedMin,\ensuremath{-}0.55,G3g,paper\analysis\out\g3_seed_stats.csv,seed_margin_min
+NGMtwoCtxSign,0.0547,G3a,paper\analysis\out\g3_seed_stats.csv,sign_test_p_one_sided
+NGMtwoCtxTHi,+0.87,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_hi
+NGMtwoCtxTLo,\ensuremath{-}0.02,G3g,paper\analysis\out\g3_seed_stats.csv,seed_t_ci95_lo
+NGMtwoCtxTraceNinetyHi,+0.64,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_hi
+NGMtwoCtxTraceNinetyLo,+0.21,G3c,paper\analysis\out\g3_seed_stats.csv,trace_boot_ci90_lo
+NGWidthRatio,2.3,G3c,paper\analysis\out\g3_seed_stats.csv,hier 90% width / trace-only 90% width
+NHMfourFixed,3.4985,R26,Optimized\v17\paper\headroom.csv,fixed
+NHMfourGenie,5.6615,R26,Optimized\v17\paper\headroom.csv,genie
+NHMfourGeniePct,+61.8,R26,Optimized\v17\paper\headroom.csv,genie/fixed - 1
+NHMfourHind,3.6409,R26,Optimized\v17\paper\headroom.csv,hindsight
+NHMfourHindPct,+4.1,R26,Optimized\v17\paper\headroom.csv,hindsight/fixed - 1
+NHMoneFixed,0.6014,R26,Optimized\v17\paper\headroom.csv,fixed
+NHMoneGenie,0.8289,R26,Optimized\v17\paper\headroom.csv,genie
+NHMoneGeniePct,+37.8,R26,Optimized\v17\paper\headroom.csv,genie/fixed - 1
+NHMoneHind,0.6216,R26,Optimized\v17\paper\headroom.csv,hindsight
+NHMoneHindPct,+3.4,R26,Optimized\v17\paper\headroom.csv,hindsight/fixed - 1
+NHMthreeFixed,3.4989,R26,Optimized\v17\paper\headroom.csv,fixed
+NHMthreeGenie,5.7153,R26,Optimized\v17\paper\headroom.csv,genie
+NHMthreeGeniePct,+63.3,R26,Optimized\v17\paper\headroom.csv,genie/fixed - 1
+NHMthreeHind,3.6445,R26,Optimized\v17\paper\headroom.csv,hindsight
+NHMthreeHindPct,+4.2,R26,Optimized\v17\paper\headroom.csv,hindsight/fixed - 1
+NHMtwoFixed,0.8538,R26,Optimized\v17\paper\headroom.csv,fixed
+NHMtwoGenie,0.9555,R26,Optimized\v17\paper\headroom.csv,genie
+NHMtwoGeniePct,+11.9,R26,Optimized\v17\paper\headroom.csv,genie/fixed - 1
+NHMtwoHind,0.8712,R26,Optimized\v17\paper\headroom.csv,hindsight
+NHMtwoHindPct,+2.0,R26,Optimized\v17\paper\headroom.csv,hindsight/fixed - 1
+NIMfourCells,5000,R19a/R20,paper\analysis\out\m3_identity.txt,cells
+NIMfourIdent,2985,R19a/R20,paper\analysis\out\m3_identity.txt,identical_cells (primary)
+NIMfourMaxDiff,1.559,R19a,paper\analysis\out\m3_identity.txt,max|diff|
+NIMthreeCells,5000,R19a/R20,paper\analysis\out\m3_identity.txt,cells
+NIMthreeIdent,5000,R19a/R20,paper\analysis\out\m3_identity.txt,identical_cells (primary)
+NIMthreeMaxDiff,0.000,R19a,paper\analysis\out\m3_identity.txt,max|diff|
 NInputDim,57,S16,Optimized/v17/stateFeat_v17.m,3 frames x 19 features
-NLitCalNo,13,lit,paper/lit/lit_matrix.csv,calibrated_rule_baseline=no
-NLitCalPart,3,lit,paper/lit/lit_matrix.csv,calibrated_rule_baseline=partial
-NLitCalUnc,7,lit,paper/lit/lit_matrix.csv,calibrated_rule_baseline=unclear
-NLitCalYes,0,lit,paper/lit/lit_matrix.csv,calibrated_rule_baseline=yes
-NLitN,23,lit,paper/lit/lit_matrix.csv,rows with calibrated_rule_baseline
-NLitParNo,3,lit,paper/lit/lit_matrix.csv,information_parity=no
-NLitParPart,1,lit,paper/lit/lit_matrix.csv,information_parity=partial
-NLitParUnc,14,lit,paper/lit/lit_matrix.csv,information_parity=unclear
-NLitParYes,5,lit,paper/lit/lit_matrix.csv,information_parity=yes
+NLitCalNo,13,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=no
+NLitCalPart,3,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=partial
+NLitCalUnc,7,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=unclear
+NLitCalYes,0,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=yes
+NLitN,23,lit,paper\lit\lit_matrix.csv,rows with calibrated_rule_baseline
+NLitParNo,3,lit,paper\lit\lit_matrix.csv,information_parity=no
+NLitParPart,1,lit,paper\lit\lit_matrix.csv,information_parity=partial
+NLitParUnc,14,lit,paper\lit\lit_matrix.csv,information_parity=unclear
+NLitParYes,5,lit,paper\lit\lit_matrix.csv,information_parity=yes
 NMacsActor,"19\,872",S16,Optimized/v17/DeepA2C_Shared_v17.m,57*128+128*96+96*3
-NMfourCiBanD,0.1364,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class) ci95
-NMfourCiBanG,0.1368,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global) ci95
-NMfourCiBaseline,0.1283,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline ci95
-NMfourCiBest,0.1347,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val) ci95
-NMfourCiCtx,0.1367,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table ci95
-NMfourCiEns,0.1362,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble) ci95
-NMfourCiFPU,0.1362,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle) ci95
-NMfourCiFixed,0.1367,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed ci95
-NMfourCiMulti,0.1376,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA ci95
-NMfourCiOLLA,0.1368,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA ci95
-NMfourCiOLLAT,0.1387,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target) ci95
-NMfourCiPrim,0.1351,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 ci95
-NMfourPctBanD,342.05,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class) x100
-NMfourPctBanG,343.26,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global) x100
-NMfourPctBaseline,321.09,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline x100
-NMfourPctBest,344.15,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val) x100
-NMfourPctCtx,349.85,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table x100
-NMfourPctEns,347.46,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble) x100
-NMfourPctFPU,347.40,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle) x100
-NMfourPctFixed,349.85,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed x100
-NMfourPctMulti,346.46,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA x100
-NMfourPctOLLA,343.26,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA x100
-NMfourPctOLLAT,346.90,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target) x100
-NMfourPctPrim,343.78,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 x100
-NMfourPrimBanDBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimBanDHi,+1.04,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimBanDHolm,$5.9\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimBanDLo,\ensuremath{-}0.03,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimBanDMar,+0.51,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Bandit (delay class) pct_margin
-NMfourPrimBanGBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimBanGHi,+0.72,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimBanGHolm,$1.0\times10^{0}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimBanGLo,\ensuremath{-}0.41,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimBanGMar,+0.15,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Bandit (global) pct_margin
-NMfourPrimBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimBaselineHi,+7.83,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimBaselineHolm,$1.5\times10^{-38}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimBaselineLo,+6.30,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimBaselineMar,+7.07,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Baseline pct_margin
-NMfourPrimCtxBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimCtxHi,\ensuremath{-}1.24,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimCtxHolm,$1.7\times10^{-8}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimCtxLo,\ensuremath{-}2.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimCtxMar,\ensuremath{-}1.73,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Context table pct_margin
-NMfourPrimFPUBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimFPUHi,\ensuremath{-}0.83,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimFPUHolm,$4.9\times10^{-15}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimFPULo,\ensuremath{-}1.25,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimFPUMar,\ensuremath{-}1.04,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|FixedPU (Oracle) pct_margin
-NMfourPrimFixedBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimFixedHi,\ensuremath{-}1.24,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimFixedHolm,$1.7\times10^{-8}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimFixedLo,\ensuremath{-}2.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimFixedMar,\ensuremath{-}1.73,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Fixed pct_margin
-NMfourPrimMultiBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimMultiHi,\ensuremath{-}0.20,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimMultiHolm,$1.3\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimMultiLo,\ensuremath{-}1.35,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimMultiMar,\ensuremath{-}0.77,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|Multi-OLLA pct_margin
-NMfourPrimOLLABeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimOLLAHi,+0.72,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimOLLAHolm,$1.0\times10^{0}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimOLLALo,\ensuremath{-}0.41,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimOLLAMar,+0.15,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|OLLA pct_margin
-NMfourPrimOLLATBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMfourPrimOLLATHi,\ensuremath{-}0.30,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMfourPrimOLLATHolm,$8.2\times10^{-2}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMfourPrimOLLATLo,\ensuremath{-}1.50,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMfourPrimOLLATMar,\ensuremath{-}0.90,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M4_gp_rtt0|Deep A2C v17|OLLA (tuned target) pct_margin
-NMfourValBanD,3.4205,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class)
-NMfourValBanG,3.4326,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global)
-NMfourValBaseline,3.2109,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline
-NMfourValBest,3.4415,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val)
-NMfourValCtx,3.4985,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table
-NMfourValEns,3.4746,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble)
-NMfourValFPU,3.4740,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle)
-NMfourValFixed,3.4985,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed
-NMfourValMulti,3.4646,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA
-NMfourValOLLA,3.4326,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA
-NMfourValOLLAT,3.4690,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target)
-NMfourValPrim,3.4378,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17
-NMoneAbsPpCtx,+0.95,R34,Optimized/v17/Dataset/fill_summary_v17.txt,"PRIM M1 primary - Context, in points"
-NMoneCalibShareCtx,85,R33,Optimized/v17/Dataset/fill_summary_v17.txt,(Context-OLLA)/(A2C-OLLA)
-NMoneCalibShareFixed,83,R33,Optimized/v17/Dataset/fill_summary_v17.txt,(Fixed-OLLA)/(A2C-OLLA)
-NMoneCiBanD,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) ci95
-NMoneCiBanG,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) ci95
-NMoneCiBaseline,0.0106,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline ci95
-NMoneCiBest,0.0119,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) ci95
-NMoneCiCtx,0.0120,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table ci95
-NMoneCiEns,0.0122,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) ci95
-NMoneCiFPU,0.0123,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) ci95
-NMoneCiFixed,0.0121,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed ci95
-NMoneCiMulti,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA ci95
-NMoneCiOLLA,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA ci95
-NMoneCiOLLAT,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) ci95
-NMoneCiOff,0.0118,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) ci95
-NMoneCiPrim,0.0119,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 ci95
-NMoneCiRsd,0.0118,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) ci95
-NMoneEdgeCtx,0.2122,R12,Optimized/v17/paper/table_core.csv,edge_cmp
-NMoneEdgeFixed,0.2110,R12,Optimized/v17/paper/table_core.csv,edge_cmp vs Fixed
-NMoneEdgeFixedPct,+1.8,R12,Optimized/v17/paper/table_core.csv,edge_rl/edge_cmp vs Fixed
-NMoneEdgePct,+1.2,R12,Optimized/v17/paper/table_core.csv,edge_rl/edge_cmp - 1
-NMoneEdgeRL,0.2148,R12,Optimized/v17/paper/table_core.csv,edge_rl
-NMoneGpBanD,2.7116,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) goodput
-NMoneGpBanG,2.7116,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) goodput
-NMoneGpBaseline,3.5333,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline goodput
-NMoneGpBest,4.4381,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) goodput
-NMoneGpCtx,4.3635,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table goodput
-NMoneGpEns,4.5058,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) goodput
-NMoneGpFPU,4.3706,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) goodput
-NMoneGpFixed,4.3518,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed goodput
-NMoneGpMulti,3.7239,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA goodput
-NMoneGpOLLA,3.7265,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA goodput
-NMoneGpOLLAT,3.7265,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) goodput
-NMoneGpOff,4.3135,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) goodput
-NMoneGpPrim,4.4506,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 goodput
-NMoneGpRsd,4.3620,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) goodput
-NMoneJainCtx,0.7740,R12,Optimized/v17/paper/table_core.csv,jain_cmp
-NMoneJainDiff,\ensuremath{-}0.0025,R12,Optimized/v17/paper/table_core.csv,jain_rl - jain_cmp
-NMoneJainFixed,0.7720,R12,Optimized/v17/paper/table_core.csv,jain_cmp vs Fixed
-NMoneJainRL,0.7715,R12,Optimized/v17/paper/table_core.csv,jain_rl
-NMoneMinutes,160.8,R32,Optimized/v17/Dataset/fill_summary_v17.txt,STEP M1 done elapsed_min
-NMoneOffBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffBanDHi,+44.26,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffBanDLo,+41.65,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffBanDMar,+42.95,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Bandit (delay class) pct_margin
-NMoneOffBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffBanGHi,+44.26,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffBanGLo,+41.65,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffBanGMar,+42.95,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Bandit (global) pct_margin
-NMoneOffBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffBaselineHi,+14.60,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffBaselineHolm,$7.9\times10^{-71}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffBaselineLo,+12.93,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffBaselineMar,+13.76,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Baseline pct_margin
-NMoneOffCtxBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffCtxHi,\ensuremath{-}0.63,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffCtxHolm,$8.6\times10^{-7}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffCtxLo,\ensuremath{-}1.19,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffCtxMar,\ensuremath{-}0.91,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Context table pct_margin
-NMoneOffFPUBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffFPUHi,+0.53,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffFPUHolm,$7.3\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffFPULo,\ensuremath{-}0.18,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffFPUMar,+0.18,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|FixedPU (Oracle) pct_margin
-NMoneOffFixedBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffFixedHi,\ensuremath{-}0.35,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffFixedHolm,$1.1\times10^{-3}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffFixedLo,\ensuremath{-}0.91,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffFixedMar,\ensuremath{-}0.63,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Fixed pct_margin
-NMoneOffMultiBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffMultiHi,+10.11,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffMultiHolm,$3.5\times10^{-58}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffMultiLo,+8.70,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffMultiMar,+9.40,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Multi-OLLA pct_margin
-NMoneOffOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffOLLAHi,+9.91,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffOLLAHolm,$1.5\times10^{-57}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffOLLALo,+8.52,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffOLLAMar,+9.21,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|OLLA pct_margin
-NMoneOffOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneOffOLLATHi,+9.91,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneOffOLLATHolm,$1.5\times10^{-57}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneOffOLLATLo,+8.52,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneOffOLLATMar,+9.21,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|OLLA (tuned target) pct_margin
-NMonePctBanD,41.80,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) x100
-NMonePctBanG,41.80,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) x100
-NMonePctBaseline,52.53,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline x100
-NMonePctBest,61.95,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) x100
-NMonePctCtx,60.31,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table x100
-NMonePctEns,63.06,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) x100
-NMonePctFPU,59.65,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) x100
-NMonePctFixed,60.14,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed x100
-NMonePctMulti,54.62,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA x100
-NMonePctOLLA,54.72,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA x100
-NMonePctOLLAT,54.72,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) x100
-NMonePctOff,59.76,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) x100
-NMonePctPrim,61.26,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 x100
-NMonePctRsd,60.51,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) x100
-NMonePrimBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimBanDHi,+47.88,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimBanDLo,+45.22,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimBanDMar,+46.55,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Bandit (delay class) pct_margin
-NMonePrimBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimBanGHi,+47.88,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimBanGLo,+45.22,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimBanGMar,+46.55,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Bandit (global) pct_margin
-NMonePrimBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimBaselineHi,+17.50,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimBaselineHolm,$2.8\times10^{-76}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimBaselineLo,+15.74,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimBaselineMar,+16.62,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Baseline pct_margin
-NMonePrimCtxBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimCtxHi,+1.94,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimCtxHolm,$9.1\times10^{-13}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimCtxLo,+1.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimCtxMar,+1.58,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Context table pct_margin
-NMonePrimFPUBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimFPUHi,+3.03,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimFPUHolm,$1.3\times10^{-31}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimFPULo,+2.36,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimFPUMar,+2.70,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|FixedPU (Oracle) pct_margin
-NMonePrimFixedBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimFixedHi,+2.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimFixedHolm,$1.3\times10^{-16}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimFixedLo,+1.52,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimFixedMar,+1.87,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Fixed pct_margin
-NMonePrimMultiBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimMultiHi,+12.92,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimMultiHolm,$3.1\times10^{-67}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimMultiLo,+11.40,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimMultiMar,+12.16,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|Multi-OLLA pct_margin
-NMonePrimOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimOLLAHi,+12.71,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimOLLAHolm,$1.2\times10^{-66}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimOLLALo,+11.21,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimOLLAMar,+11.96,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|OLLA pct_margin
-NMonePrimOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMonePrimOLLATHi,+12.71,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMonePrimOLLATHolm,$1.2\times10^{-66}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMonePrimOLLATLo,+11.21,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMonePrimOLLATMar,+11.96,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17|OLLA (tuned target) pct_margin
-NMoneRsdBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdBanDHi,+46.09,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdBanDLo,+43.42,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdBanDMar,+44.75,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Bandit (delay class) pct_margin
-NMoneRsdBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdBanGHi,+46.09,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdBanGLo,+43.42,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdBanGMar,+44.75,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Bandit (global) pct_margin
-NMoneRsdBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdBaselineHi,+16.06,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdBaselineHolm,$1.5\times10^{-72}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdBaselineLo,+14.32,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdBaselineMar,+15.19,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Baseline pct_margin
-NMoneRsdCtxBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdCtxHi,+0.62,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdCtxHolm,$2.4\times10^{-2}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdCtxLo,+0.05,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdCtxMar,+0.34,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Context table pct_margin
-NMoneRsdFPUBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdFPUHi,+1.69,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdFPUHolm,$1.9\times10^{-17}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdFPULo,+1.19,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdFPUMar,+1.44,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|FixedPU (Oracle) pct_margin
-NMoneRsdFixedBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdFixedHi,+0.91,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdFixedHolm,$3.0\times10^{-4}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdFixedLo,+0.34,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdFixedMar,+0.62,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Fixed pct_margin
-NMoneRsdMultiBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdMultiHi,+11.53,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdMultiHolm,$1.9\times10^{-61}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdMultiLo,+10.03,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdMultiMar,+10.78,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Multi-OLLA pct_margin
-NMoneRsdOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdOLLAHi,+11.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdOLLAHolm,$6.0\times10^{-61}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdOLLALo,+9.85,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdOLLAMar,+10.59,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|OLLA pct_margin
-NMoneRsdOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMoneRsdOLLATHi,+11.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMoneRsdOLLATHolm,$6.0\times10^{-61}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMoneRsdOLLATLo,+9.85,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMoneRsdOLLATMar,+10.59,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|OLLA (tuned target) pct_margin
-NMoneRsdSeedsAbove,6,R15,Optimized/v17/Dataset/fill_summary_v17.txt,REPLSEED resid-800 seeds_above 6/10 (verified below)
-NMoneSeedHiVal,0.6297,R09,Optimized/v17/Dataset/fill_summary_v17.txt,max seed mean
-NMoneSeedLoVal,0.5983,R09,Optimized/v17/Dataset/fill_summary_v17.txt,min seed mean
-NMoneSeedsAbove,9,R09,Optimized/v17/Dataset/fill_summary_v17.txt,REPLSEED M1 seeds_above
-NMoneSeedsTotal,10,R09,Optimized/v17/Dataset/fill_summary_v17.txt,REPLSEED total
-NMoneValBanD,0.4180,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class)
-NMoneValBanG,0.4180,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global)
-NMoneValBaseline,0.5253,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline
-NMoneValBest,0.6195,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val)
-NMoneValCtx,0.6031,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table
-NMoneValEns,0.6306,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble)
-NMoneValFPU,0.5965,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle)
-NMoneValFixed,0.6014,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed
-NMoneValMulti,0.5462,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA
-NMoneValOLLA,0.5472,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA
-NMoneValOLLAT,0.5472,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target)
-NMoneValOff,0.5976,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset)
-NMoneValPrim,0.6126,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17
-NMoneValRsd,0.6051,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800)
-NMoneWorstSeed,2,G3g,Optimized/v17/Dataset/fill_summary_v17.txt,index of the lowest seed mean
-NMthreeCiBanD,0.1354,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class) ci95
-NMthreeCiBanG,0.1358,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global) ci95
-NMthreeCiBaseline,0.1289,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline ci95
-NMthreeCiBest,0.1350,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val) ci95
-NMthreeCiCtx,0.1340,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table ci95
-NMthreeCiEns,0.1351,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble) ci95
-NMthreeCiFPU,0.1351,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle) ci95
-NMthreeCiFixed,0.1340,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed ci95
-NMthreeCiMulti,0.1369,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA ci95
-NMthreeCiOLLA,0.1358,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA ci95
-NMthreeCiOLLAT,0.1345,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target) ci95
-NMthreeCiOff,0.1353,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset) ci95
-NMthreeCiPrim,0.1351,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 ci95
-NMthreeOffBanDBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffBanDHi,+0.30,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffBanDHolm,$8.3\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffBanDLo,\ensuremath{-}0.21,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffBanDMar,+0.05,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Bandit (delay class) pct_margin
-NMthreeOffBanGBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffBanGHi,\ensuremath{-}0.05,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffBanGHolm,$3.5\times10^{-2}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffBanGLo,\ensuremath{-}0.61,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffBanGMar,\ensuremath{-}0.33,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Bandit (global) pct_margin
-NMthreeOffBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffBaselineHi,+7.76,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffBaselineHolm,$4.9\times10^{-42}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffBaselineLo,+6.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffBaselineMar,+7.04,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Baseline pct_margin
-NMthreeOffCtxBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffCtxHi,\ensuremath{-}1.92,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffCtxHolm,$9.9\times10^{-12}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffCtxLo,\ensuremath{-}3.07,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffCtxMar,\ensuremath{-}2.50,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Context table pct_margin
-NMthreeOffFPUBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffFPUHi,\ensuremath{-}1.08,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffFPUHolm,$8.0\times10^{-6}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffFPULo,\ensuremath{-}2.18,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffFPUMar,\ensuremath{-}1.63,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|FixedPU (Oracle) pct_margin
-NMthreeOffFixedBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffFixedHi,\ensuremath{-}1.92,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffFixedHolm,$9.9\times10^{-12}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffFixedLo,\ensuremath{-}3.07,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffFixedMar,\ensuremath{-}2.50,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Fixed pct_margin
-NMthreeOffMultiBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffMultiHi,\ensuremath{-}0.95,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffMultiHolm,$2.6\times10^{-6}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffMultiLo,\ensuremath{-}1.92,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffMultiMar,\ensuremath{-}1.44,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Multi-OLLA pct_margin
-NMthreeOffOLLABeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffOLLAHi,\ensuremath{-}0.05,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffOLLAHolm,$3.5\times10^{-2}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffOLLALo,\ensuremath{-}0.61,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffOLLAMar,\ensuremath{-}0.33,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|OLLA pct_margin
-NMthreeOffOLLATBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreeOffOLLATHi,+0.96,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreeOffOLLATHolm,$2.7\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreeOffOLLATLo,\ensuremath{-}0.01,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreeOffOLLATMar,+0.48,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|OLLA (tuned target) pct_margin
-NMthreePctBanD,340.99,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class) x100
-NMthreePctBanG,342.28,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global) x100
-NMthreePctBaseline,318.70,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline x100
-NMthreePctBest,346.75,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val) x100
-NMthreePctCtx,349.89,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table x100
-NMthreePctEns,346.79,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble) x100
-NMthreePctFPU,346.79,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle) x100
-NMthreePctFixed,349.89,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed x100
-NMthreePctMulti,346.11,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA x100
-NMthreePctOLLA,342.28,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA x100
-NMthreePctOLLAT,339.52,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target) x100
-NMthreePctOff,341.14,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset) x100
-NMthreePctPrim,346.79,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 x100
-NMthreePrimBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimBanDHi,+2.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimBanDHolm,$1.0\times10^{-4}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimBanDLo,+1.07,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimBanDMar,+1.70,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Bandit (delay class) pct_margin
-NMthreePrimBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimBanGHi,+1.97,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimBanGHolm,$7.2\times10^{-3}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimBanGLo,+0.67,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimBanGMar,+1.32,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Bandit (global) pct_margin
-NMthreePrimBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimBaselineHi,+9.70,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimBaselineHolm,$3.8\times10^{-44}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimBaselineLo,+7.93,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimBaselineMar,+8.81,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Baseline pct_margin
-NMthreePrimCtxBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimCtxHi,\ensuremath{-}0.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimCtxHolm,$7.2\times10^{-3}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimCtxLo,\ensuremath{-}1.44,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimCtxMar,\ensuremath{-}0.88,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Context table pct_margin
-NMthreePrimFPUBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimFPUHi,0.00,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimFPUHolm,$1.0\times10^{0}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimFPULo,\ensuremath{-}0.00,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimFPUMar,0.00,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|FixedPU (Oracle) pct_margin
-NMthreePrimFixedBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimFixedHi,\ensuremath{-}0.33,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimFixedHolm,$7.2\times10^{-3}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimFixedLo,\ensuremath{-}1.44,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimFixedMar,\ensuremath{-}0.88,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Fixed pct_margin
-NMthreePrimMultiBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimMultiHi,+0.87,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimMultiHolm,$1.0\times10^{0}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimMultiLo,\ensuremath{-}0.48,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimMultiMar,+0.20,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|Multi-OLLA pct_margin
-NMthreePrimOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimOLLAHi,+1.97,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimOLLAHolm,$7.2\times10^{-3}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimOLLALo,+0.67,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimOLLAMar,+1.32,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|OLLA pct_margin
-NMthreePrimOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMthreePrimOLLATHi,+2.84,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMthreePrimOLLATHolm,$1.9\times10^{-5}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMthreePrimOLLATLo,+1.44,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMthreePrimOLLATMar,+2.14,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M3_gp_rtt8|Deep A2C v17|OLLA (tuned target) pct_margin
-NMthreeValBanD,3.4099,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class)
-NMthreeValBanG,3.4228,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global)
-NMthreeValBaseline,3.1870,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline
-NMthreeValBest,3.4675,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val)
-NMthreeValCtx,3.4989,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table
-NMthreeValEns,3.4679,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble)
-NMthreeValFPU,3.4679,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle)
-NMthreeValFixed,3.4989,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed
-NMthreeValMulti,3.4611,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA
-NMthreeValOLLA,3.4228,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA
-NMthreeValOLLAT,3.3952,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target)
-NMthreeValOff,3.4114,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset)
-NMthreeValPrim,3.4679,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17
-NMtwoCalibShareCtx,83,R33,Optimized/v17/Dataset/fill_summary_v17.txt,M2 share
-NMtwoCiBanD,0.0112,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class) ci95
-NMtwoCiBanG,0.0112,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global) ci95
-NMtwoCiBaseline,0.0106,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline ci95
-NMtwoCiBest,0.0102,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val) ci95
-NMtwoCiCtx,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table ci95
-NMtwoCiEns,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble) ci95
-NMtwoCiFPU,0.0104,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle) ci95
-NMtwoCiFixed,0.0107,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed ci95
-NMtwoCiMulti,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA ci95
-NMtwoCiOLLA,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA ci95
-NMtwoCiOLLAT,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target) ci95
-NMtwoCiPrim,0.0102,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 ci95
-NMtwoCiRsd,0.0103,R02,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800) ci95
-NMtwoJainDiff,+0.0024,R16,Optimized/v17/paper/table_core.csv,jain diff M2
-NMtwoPctBanD,76.55,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class) x100
-NMtwoPctBanG,76.55,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global) x100
-NMtwoPctBaseline,82.28,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline x100
-NMtwoPctBest,86.26,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val) x100
-NMtwoPctCtx,85.81,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table x100
-NMtwoPctEns,86.35,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble) x100
-NMtwoPctFPU,85.32,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle) x100
-NMtwoPctFixed,85.38,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed x100
-NMtwoPctMulti,84.24,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA x100
-NMtwoPctOLLA,84.07,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA x100
-NMtwoPctOLLAT,84.07,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target) x100
-NMtwoPctPrim,86.17,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 x100
-NMtwoPctRsd,85.32,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800) x100
-NMtwoPrimBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimBanDHi,+13.06,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimBanDHolm,$3.8\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimBanDLo,+12.09,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimBanDMar,+12.57,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Bandit (delay class) pct_margin
-NMtwoPrimBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimBanGHi,+13.06,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimBanGHolm,$3.8\times10^{-82}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimBanGLo,+12.09,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimBanGMar,+12.57,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Bandit (global) pct_margin
-NMtwoPrimBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimBaselineHi,+5.06,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimBaselineHolm,$2.3\times10^{-63}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimBaselineLo,+4.40,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimBaselineMar,+4.73,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Baseline pct_margin
-NMtwoPrimCtxBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimCtxHi,+0.64,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimCtxHolm,$1.7\times10^{-2}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimCtxLo,+0.21,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimCtxMar,+0.43,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Context table pct_margin
-NMtwoPrimFPUBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimFPUHi,+1.20,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimFPUHolm,$9.4\times10^{-15}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimFPULo,+0.80,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimFPUMar,+1.00,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|FixedPU (Oracle) pct_margin
-NMtwoPrimFixedBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimFixedHi,+1.13,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimFixedHolm,$1.1\times10^{-10}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimFixedLo,+0.72,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimFixedMar,+0.93,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Fixed pct_margin
-NMtwoPrimMultiBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimMultiHi,+2.55,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimMultiHolm,$8.6\times10^{-39}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimMultiLo,+2.05,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimMultiMar,+2.30,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|Multi-OLLA pct_margin
-NMtwoPrimOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimOLLAHi,+2.77,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimOLLAHolm,$8.6\times10^{-39}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimOLLALo,+2.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimOLLAMar,+2.50,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|OLLA pct_margin
-NMtwoPrimOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoPrimOLLATHi,+2.77,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoPrimOLLATHolm,$8.6\times10^{-39}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoPrimOLLATLo,+2.23,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoPrimOLLATMar,+2.50,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17|OLLA (tuned target) pct_margin
-NMtwoRsdBanDBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdBanDHi,+11.93,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdBanDHolm,$1.6\times10^{-81}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdBanDLo,+10.98,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdBanDMar,+11.46,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Bandit (delay class) pct_margin
-NMtwoRsdBanGBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdBanGHi,+11.93,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdBanGHolm,$1.6\times10^{-81}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdBanGLo,+10.98,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdBanGMar,+11.46,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Bandit (global) pct_margin
-NMtwoRsdBaselineBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdBaselineHi,+4.02,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdBaselineHolm,$1.6\times10^{-48}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdBaselineLo,+3.36,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdBaselineMar,+3.69,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Baseline pct_margin
-NMtwoRsdCtxBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdCtxHi,\ensuremath{-}0.36,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdCtxHolm,$4.7\times10^{-6}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdCtxLo,\ensuremath{-}0.78,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdCtxMar,\ensuremath{-}0.57,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Context table pct_margin
-NMtwoRsdFPUBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdFPUHi,+0.09,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdFPUHolm,$8.5\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdFPULo,\ensuremath{-}0.10,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdFPUMar,\ensuremath{-}0.00,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|FixedPU (Oracle) pct_margin
-NMtwoRsdFixedBeats,no,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdFixedHi,+0.12,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdFixedHolm,$8.1\times10^{-1}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdFixedLo,\ensuremath{-}0.27,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdFixedMar,\ensuremath{-}0.07,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Fixed pct_margin
-NMtwoRsdMultiBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdMultiHi,+1.53,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdMultiHolm,$3.1\times10^{-16}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdMultiLo,+1.03,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdMultiMar,+1.28,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Multi-OLLA pct_margin
-NMtwoRsdOLLABeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdOLLAHi,+1.75,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdOLLAHolm,$1.6\times10^{-17}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdOLLALo,+1.22,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdOLLAMar,+1.48,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|OLLA pct_margin
-NMtwoRsdOLLATBeats,yes,R03-R07,Optimized/v17/paper/table_core.csv,beats
-NMtwoRsdOLLATHi,+1.75,R03-R07,Optimized/v17/paper/table_core.csv,ci90_hi
-NMtwoRsdOLLATHolm,$1.6\times10^{-17}$,R03-R07,Optimized/v17/paper/table_core.csv,holm_p
-NMtwoRsdOLLATLo,+1.22,R03-R07,Optimized/v17/paper/table_core.csv,ci90_lo
-NMtwoRsdOLLATMar,+1.48,R03-R07/R19-R21,Optimized/v17/paper/table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|OLLA (tuned target) pct_margin
-NMtwoSeedsAbove,8,R16,Optimized/v17/Dataset/fill_summary_v17.txt,REPLSEED M2 seeds_above
-NMtwoValBanD,0.7655,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class)
-NMtwoValBanG,0.7655,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global)
-NMtwoValBaseline,0.8228,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline
-NMtwoValBest,0.8626,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val)
-NMtwoValCtx,0.8581,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table
-NMtwoValEns,0.8635,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble)
-NMtwoValFPU,0.8532,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle)
-NMtwoValFixed,0.8538,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed
-NMtwoValMulti,0.8424,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA
-NMtwoValOLLA,0.8407,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA
-NMtwoValOLLAT,0.8407,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target)
-NMtwoValPrim,0.8617,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17
-NMtwoValRsd,0.8532,R02/R19/R20,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800)
-NOllaBaseMfour,+6.9,R22,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM M4_gp_rtt0 OLLA/Baseline - 1
-NOllaBaseMthree,+7.4,R22,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM M3_gp_rtt8 OLLA/Baseline - 1
+NMfourCiBanD,0.1364,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class) ci95
+NMfourCiBanG,0.1368,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global) ci95
+NMfourCiBaseline,0.1283,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline ci95
+NMfourCiBest,0.1347,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val) ci95
+NMfourCiCtx,0.1367,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table ci95
+NMfourCiEns,0.1362,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble) ci95
+NMfourCiFPU,0.1362,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle) ci95
+NMfourCiFixed,0.1367,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed ci95
+NMfourCiMulti,0.1376,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA ci95
+NMfourCiOLLA,0.1368,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA ci95
+NMfourCiOLLAT,0.1387,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target) ci95
+NMfourCiPrim,0.1351,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 ci95
+NMfourPctBanD,342.05,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class) x100
+NMfourPctBanG,343.26,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global) x100
+NMfourPctBaseline,321.09,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline x100
+NMfourPctBest,344.15,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val) x100
+NMfourPctCtx,349.85,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table x100
+NMfourPctEns,347.46,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble) x100
+NMfourPctFPU,347.40,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle) x100
+NMfourPctFixed,349.85,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed x100
+NMfourPctMulti,346.46,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA x100
+NMfourPctOLLA,343.26,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA x100
+NMfourPctOLLAT,346.90,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target) x100
+NMfourPctPrim,343.78,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 x100
+NMfourPrimBanDBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimBanDHi,+1.04,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimBanDHolm,$5.9\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimBanDLo,\ensuremath{-}0.03,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimBanDMar,+0.51,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Bandit (delay class) pct_margin
+NMfourPrimBanGBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimBanGHi,+0.72,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimBanGHolm,$1.0\times10^{0}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimBanGLo,\ensuremath{-}0.41,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimBanGMar,+0.15,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Bandit (global) pct_margin
+NMfourPrimBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimBaselineHi,+7.83,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimBaselineHolm,$1.5\times10^{-38}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimBaselineLo,+6.30,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimBaselineMar,+7.07,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Baseline pct_margin
+NMfourPrimCtxBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimCtxHi,\ensuremath{-}1.24,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimCtxHolm,$1.7\times10^{-8}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimCtxLo,\ensuremath{-}2.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimCtxMar,\ensuremath{-}1.73,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Context table pct_margin
+NMfourPrimFPUBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimFPUHi,\ensuremath{-}0.83,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimFPUHolm,$4.9\times10^{-15}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimFPULo,\ensuremath{-}1.25,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimFPUMar,\ensuremath{-}1.04,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|FixedPU (Oracle) pct_margin
+NMfourPrimFixedBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimFixedHi,\ensuremath{-}1.24,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimFixedHolm,$1.7\times10^{-8}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimFixedLo,\ensuremath{-}2.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimFixedMar,\ensuremath{-}1.73,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Fixed pct_margin
+NMfourPrimMultiBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimMultiHi,\ensuremath{-}0.20,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimMultiHolm,$1.3\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimMultiLo,\ensuremath{-}1.35,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimMultiMar,\ensuremath{-}0.77,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|Multi-OLLA pct_margin
+NMfourPrimOLLABeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimOLLAHi,+0.72,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimOLLAHolm,$1.0\times10^{0}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimOLLALo,\ensuremath{-}0.41,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimOLLAMar,+0.15,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|OLLA pct_margin
+NMfourPrimOLLATBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMfourPrimOLLATHi,\ensuremath{-}0.30,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMfourPrimOLLATHolm,$8.2\times10^{-2}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMfourPrimOLLATLo,\ensuremath{-}1.50,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMfourPrimOLLATMar,\ensuremath{-}0.90,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M4_gp_rtt0|Deep A2C v17|OLLA (tuned target) pct_margin
+NMfourValBanD,3.4205,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class)
+NMfourValBanG,3.4326,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (global)
+NMfourValBaseline,3.2109,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Baseline
+NMfourValBest,3.4415,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (best-on-val)
+NMfourValCtx,3.4985,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Context table
+NMfourValEns,3.4746,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17 (ensemble)
+NMfourValFPU,3.4740,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|FixedPU (Oracle)
+NMfourValFixed,3.4985,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Fixed
+NMfourValMulti,3.4646,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Multi-OLLA
+NMfourValOLLA,3.4326,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA
+NMfourValOLLAT,3.4690,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|OLLA (tuned target)
+NMfourValPrim,3.4378,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Deep A2C v17
+NMoneAbsPpCtx,+0.95,R34,Optimized\v17\Dataset\fill_summary_v17.txt,"PRIM M1 primary - Context, in points"
+NMoneCalibShareCtx,85,R33,Optimized\v17\Dataset\fill_summary_v17.txt,(Context-OLLA)/(A2C-OLLA)
+NMoneCalibShareFixed,83,R33,Optimized\v17\Dataset\fill_summary_v17.txt,(Fixed-OLLA)/(A2C-OLLA)
+NMoneCiBanD,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) ci95
+NMoneCiBanG,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) ci95
+NMoneCiBaseline,0.0106,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline ci95
+NMoneCiBest,0.0119,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) ci95
+NMoneCiCtx,0.0120,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table ci95
+NMoneCiEns,0.0122,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) ci95
+NMoneCiFPU,0.0123,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) ci95
+NMoneCiFixed,0.0121,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed ci95
+NMoneCiMulti,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA ci95
+NMoneCiOLLA,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA ci95
+NMoneCiOLLAT,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) ci95
+NMoneCiOff,0.0118,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) ci95
+NMoneCiPrim,0.0119,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 ci95
+NMoneCiRsd,0.0118,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) ci95
+NMoneEdgeCtx,0.2122,R12,Optimized\v17\paper\table_core.csv,edge_cmp
+NMoneEdgeFixed,0.2110,R12,Optimized\v17\paper\table_core.csv,edge_cmp vs Fixed
+NMoneEdgeFixedPct,+1.8,R12,Optimized\v17\paper\table_core.csv,edge_rl/edge_cmp vs Fixed
+NMoneEdgePct,+1.2,R12,Optimized\v17\paper\table_core.csv,edge_rl/edge_cmp - 1
+NMoneEdgeRL,0.2148,R12,Optimized\v17\paper\table_core.csv,edge_rl
+NMoneGpBanD,2.7116,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) goodput
+NMoneGpBanG,2.7116,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) goodput
+NMoneGpBaseline,3.5333,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline goodput
+NMoneGpBest,4.4381,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) goodput
+NMoneGpCtx,4.3635,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table goodput
+NMoneGpEns,4.5058,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) goodput
+NMoneGpFPU,4.3706,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) goodput
+NMoneGpFixed,4.3518,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed goodput
+NMoneGpMulti,3.7239,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA goodput
+NMoneGpOLLA,3.7265,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA goodput
+NMoneGpOLLAT,3.7265,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) goodput
+NMoneGpOff,4.3135,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) goodput
+NMoneGpPrim,4.4506,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 goodput
+NMoneGpRsd,4.3620,R13,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) goodput
+NMoneJainCtx,0.7740,R12,Optimized\v17\paper\table_core.csv,jain_cmp
+NMoneJainDiff,\ensuremath{-}0.0025,R12,Optimized\v17\paper\table_core.csv,jain_rl - jain_cmp
+NMoneJainFixed,0.7720,R12,Optimized\v17\paper\table_core.csv,jain_cmp vs Fixed
+NMoneJainRL,0.7715,R12,Optimized\v17\paper\table_core.csv,jain_rl
+NMoneMinutes,160.8,R32,Optimized\v17\Dataset\fill_summary_v17.txt,STEP M1 done elapsed_min
+NMoneOffBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffBanDHi,+44.26,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffBanDLo,+41.65,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffBanDMar,+42.95,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Bandit (delay class) pct_margin
+NMoneOffBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffBanGHi,+44.26,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffBanGLo,+41.65,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffBanGMar,+42.95,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Bandit (global) pct_margin
+NMoneOffBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffBaselineHi,+14.60,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffBaselineHolm,$7.9\times10^{-71}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffBaselineLo,+12.93,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffBaselineMar,+13.76,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Baseline pct_margin
+NMoneOffCtxBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffCtxHi,\ensuremath{-}0.63,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffCtxHolm,$8.6\times10^{-7}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffCtxLo,\ensuremath{-}1.19,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffCtxMar,\ensuremath{-}0.91,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Context table pct_margin
+NMoneOffFPUBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffFPUHi,+0.53,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffFPUHolm,$7.3\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffFPULo,\ensuremath{-}0.18,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffFPUMar,+0.18,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|FixedPU (Oracle) pct_margin
+NMoneOffFixedBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffFixedHi,\ensuremath{-}0.35,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffFixedHolm,$1.1\times10^{-3}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffFixedLo,\ensuremath{-}0.91,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffFixedMar,\ensuremath{-}0.63,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Fixed pct_margin
+NMoneOffMultiBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffMultiHi,+10.11,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffMultiHolm,$3.5\times10^{-58}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffMultiLo,+8.70,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffMultiMar,+9.40,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|Multi-OLLA pct_margin
+NMoneOffOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffOLLAHi,+9.91,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffOLLAHolm,$1.5\times10^{-57}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffOLLALo,+8.52,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffOLLAMar,+9.21,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|OLLA pct_margin
+NMoneOffOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneOffOLLATHi,+9.91,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneOffOLLATHolm,$1.5\times10^{-57}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneOffOLLATLo,+8.52,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneOffOLLATMar,+9.21,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (offset)|OLLA (tuned target) pct_margin
+NMonePctBanD,41.80,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class) x100
+NMonePctBanG,41.80,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global) x100
+NMonePctBaseline,52.53,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline x100
+NMonePctBest,61.95,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val) x100
+NMonePctCtx,60.31,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table x100
+NMonePctEns,63.06,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble) x100
+NMonePctFPU,59.65,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle) x100
+NMonePctFixed,60.14,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed x100
+NMonePctMulti,54.62,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA x100
+NMonePctOLLA,54.72,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA x100
+NMonePctOLLAT,54.72,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target) x100
+NMonePctOff,59.76,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) x100
+NMonePctPrim,61.26,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 x100
+NMonePctRsd,60.51,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) x100
+NMonePrimBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimBanDHi,+47.88,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimBanDLo,+45.22,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimBanDMar,+46.55,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Bandit (delay class) pct_margin
+NMonePrimBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimBanGHi,+47.88,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimBanGLo,+45.22,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimBanGMar,+46.55,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Bandit (global) pct_margin
+NMonePrimBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimBaselineHi,+17.50,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimBaselineHolm,$2.8\times10^{-76}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimBaselineLo,+15.74,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimBaselineMar,+16.62,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Baseline pct_margin
+NMonePrimCtxBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimCtxHi,+1.94,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimCtxHolm,$9.1\times10^{-13}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimCtxLo,+1.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimCtxMar,+1.58,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Context table pct_margin
+NMonePrimFPUBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimFPUHi,+3.03,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimFPUHolm,$1.3\times10^{-31}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimFPULo,+2.36,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimFPUMar,+2.70,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|FixedPU (Oracle) pct_margin
+NMonePrimFixedBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimFixedHi,+2.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimFixedHolm,$1.3\times10^{-16}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimFixedLo,+1.52,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimFixedMar,+1.87,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Fixed pct_margin
+NMonePrimMultiBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimMultiHi,+12.92,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimMultiHolm,$3.1\times10^{-67}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimMultiLo,+11.40,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimMultiMar,+12.16,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|Multi-OLLA pct_margin
+NMonePrimOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimOLLAHi,+12.71,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimOLLAHolm,$1.2\times10^{-66}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimOLLALo,+11.21,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimOLLAMar,+11.96,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|OLLA pct_margin
+NMonePrimOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMonePrimOLLATHi,+12.71,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMonePrimOLLATHolm,$1.2\times10^{-66}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMonePrimOLLATLo,+11.21,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMonePrimOLLATMar,+11.96,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17|OLLA (tuned target) pct_margin
+NMoneRsdBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdBanDHi,+46.09,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdBanDHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdBanDLo,+43.42,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdBanDMar,+44.75,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Bandit (delay class) pct_margin
+NMoneRsdBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdBanGHi,+46.09,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdBanGHolm,$1.3\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdBanGLo,+43.42,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdBanGMar,+44.75,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Bandit (global) pct_margin
+NMoneRsdBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdBaselineHi,+16.06,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdBaselineHolm,$1.5\times10^{-72}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdBaselineLo,+14.32,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdBaselineMar,+15.19,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Baseline pct_margin
+NMoneRsdCtxBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdCtxHi,+0.62,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdCtxHolm,$2.4\times10^{-2}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdCtxLo,+0.05,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdCtxMar,+0.34,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Context table pct_margin
+NMoneRsdFPUBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdFPUHi,+1.69,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdFPUHolm,$1.9\times10^{-17}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdFPULo,+1.19,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdFPUMar,+1.44,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|FixedPU (Oracle) pct_margin
+NMoneRsdFixedBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdFixedHi,+0.91,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdFixedHolm,$3.0\times10^{-4}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdFixedLo,+0.34,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdFixedMar,+0.62,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Fixed pct_margin
+NMoneRsdMultiBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdMultiHi,+11.53,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdMultiHolm,$1.9\times10^{-61}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdMultiLo,+10.03,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdMultiMar,+10.78,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|Multi-OLLA pct_margin
+NMoneRsdOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdOLLAHi,+11.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdOLLAHolm,$6.0\times10^{-61}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdOLLALo,+9.85,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdOLLAMar,+10.59,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|OLLA pct_margin
+NMoneRsdOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMoneRsdOLLATHi,+11.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMoneRsdOLLATHolm,$6.0\times10^{-61}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMoneRsdOLLATLo,+9.85,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMoneRsdOLLATMar,+10.59,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M1_dl_rtt8|Deep A2C v17 (resid-800)|OLLA (tuned target) pct_margin
+NMoneRsdSeedsAbove,6,R15,Optimized\v17\Dataset\fill_summary_v17.txt,REPLSEED resid-800 seeds_above 6/10 (verified below)
+NMoneSeedHiVal,0.6297,R09,Optimized\v17\Dataset\fill_summary_v17.txt,max seed mean
+NMoneSeedLoVal,0.5983,R09,Optimized\v17\Dataset\fill_summary_v17.txt,min seed mean
+NMoneSeedsAbove,9,R09,Optimized\v17\Dataset\fill_summary_v17.txt,REPLSEED M1 seeds_above
+NMoneSeedsTotal,10,R09,Optimized\v17\Dataset\fill_summary_v17.txt,REPLSEED total
+NMoneValBanD,0.4180,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (delay class)
+NMoneValBanG,0.4180,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Bandit (global)
+NMoneValBaseline,0.5253,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Baseline
+NMoneValBest,0.6195,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (best-on-val)
+NMoneValCtx,0.6031,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Context table
+NMoneValEns,0.6306,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (ensemble)
+NMoneValFPU,0.5965,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|FixedPU (Oracle)
+NMoneValFixed,0.6014,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Fixed
+NMoneValMulti,0.5462,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Multi-OLLA
+NMoneValOLLA,0.5472,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA
+NMoneValOLLAT,0.5472,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|OLLA (tuned target)
+NMoneValOff,0.5976,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset)
+NMoneValPrim,0.6126,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17
+NMoneValRsd,0.6051,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800)
+NMoneWorstSeed,2,G3g,Optimized\v17\Dataset\fill_summary_v17.txt,index of the lowest seed mean
+NMthreeCiBanD,0.1354,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class) ci95
+NMthreeCiBanG,0.1358,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global) ci95
+NMthreeCiBaseline,0.1289,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline ci95
+NMthreeCiBest,0.1350,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val) ci95
+NMthreeCiCtx,0.1340,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table ci95
+NMthreeCiEns,0.1351,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble) ci95
+NMthreeCiFPU,0.1351,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle) ci95
+NMthreeCiFixed,0.1340,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed ci95
+NMthreeCiMulti,0.1369,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA ci95
+NMthreeCiOLLA,0.1358,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA ci95
+NMthreeCiOLLAT,0.1345,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target) ci95
+NMthreeCiOff,0.1353,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset) ci95
+NMthreeCiPrim,0.1351,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 ci95
+NMthreeOffBanDBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffBanDHi,+0.30,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffBanDHolm,$8.3\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffBanDLo,\ensuremath{-}0.21,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffBanDMar,+0.05,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Bandit (delay class) pct_margin
+NMthreeOffBanGBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffBanGHi,\ensuremath{-}0.05,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffBanGHolm,$3.5\times10^{-2}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffBanGLo,\ensuremath{-}0.61,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffBanGMar,\ensuremath{-}0.33,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Bandit (global) pct_margin
+NMthreeOffBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffBaselineHi,+7.76,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffBaselineHolm,$4.9\times10^{-42}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffBaselineLo,+6.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffBaselineMar,+7.04,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Baseline pct_margin
+NMthreeOffCtxBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffCtxHi,\ensuremath{-}1.92,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffCtxHolm,$9.9\times10^{-12}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffCtxLo,\ensuremath{-}3.07,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffCtxMar,\ensuremath{-}2.50,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Context table pct_margin
+NMthreeOffFPUBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffFPUHi,\ensuremath{-}1.08,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffFPUHolm,$8.0\times10^{-6}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffFPULo,\ensuremath{-}2.18,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffFPUMar,\ensuremath{-}1.63,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|FixedPU (Oracle) pct_margin
+NMthreeOffFixedBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffFixedHi,\ensuremath{-}1.92,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffFixedHolm,$9.9\times10^{-12}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffFixedLo,\ensuremath{-}3.07,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffFixedMar,\ensuremath{-}2.50,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Fixed pct_margin
+NMthreeOffMultiBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffMultiHi,\ensuremath{-}0.95,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffMultiHolm,$2.6\times10^{-6}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffMultiLo,\ensuremath{-}1.92,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffMultiMar,\ensuremath{-}1.44,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|Multi-OLLA pct_margin
+NMthreeOffOLLABeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffOLLAHi,\ensuremath{-}0.05,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffOLLAHolm,$3.5\times10^{-2}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffOLLALo,\ensuremath{-}0.61,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffOLLAMar,\ensuremath{-}0.33,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|OLLA pct_margin
+NMthreeOffOLLATBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreeOffOLLATHi,+0.96,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreeOffOLLATHolm,$2.7\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreeOffOLLATLo,\ensuremath{-}0.01,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreeOffOLLATMar,+0.48,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17 (offset)|OLLA (tuned target) pct_margin
+NMthreePctBanD,340.99,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class) x100
+NMthreePctBanG,342.28,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global) x100
+NMthreePctBaseline,318.70,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline x100
+NMthreePctBest,346.75,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val) x100
+NMthreePctCtx,349.89,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table x100
+NMthreePctEns,346.79,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble) x100
+NMthreePctFPU,346.79,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle) x100
+NMthreePctFixed,349.89,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed x100
+NMthreePctMulti,346.11,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA x100
+NMthreePctOLLA,342.28,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA x100
+NMthreePctOLLAT,339.52,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target) x100
+NMthreePctOff,341.14,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset) x100
+NMthreePctPrim,346.79,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 x100
+NMthreePrimBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimBanDHi,+2.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimBanDHolm,$1.0\times10^{-4}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimBanDLo,+1.07,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimBanDMar,+1.70,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Bandit (delay class) pct_margin
+NMthreePrimBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimBanGHi,+1.97,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimBanGHolm,$7.2\times10^{-3}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimBanGLo,+0.67,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimBanGMar,+1.32,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Bandit (global) pct_margin
+NMthreePrimBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimBaselineHi,+9.70,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimBaselineHolm,$3.8\times10^{-44}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimBaselineLo,+7.93,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimBaselineMar,+8.81,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Baseline pct_margin
+NMthreePrimCtxBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimCtxHi,\ensuremath{-}0.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimCtxHolm,$7.2\times10^{-3}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimCtxLo,\ensuremath{-}1.44,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimCtxMar,\ensuremath{-}0.88,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Context table pct_margin
+NMthreePrimFPUBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimFPUHi,0.00,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimFPUHolm,$1.0\times10^{0}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimFPULo,\ensuremath{-}0.00,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimFPUMar,0.00,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|FixedPU (Oracle) pct_margin
+NMthreePrimFixedBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimFixedHi,\ensuremath{-}0.33,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimFixedHolm,$7.2\times10^{-3}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimFixedLo,\ensuremath{-}1.44,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimFixedMar,\ensuremath{-}0.88,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Fixed pct_margin
+NMthreePrimMultiBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimMultiHi,+0.87,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimMultiHolm,$1.0\times10^{0}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimMultiLo,\ensuremath{-}0.48,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimMultiMar,+0.20,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|Multi-OLLA pct_margin
+NMthreePrimOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimOLLAHi,+1.97,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimOLLAHolm,$7.2\times10^{-3}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimOLLALo,+0.67,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimOLLAMar,+1.32,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|OLLA pct_margin
+NMthreePrimOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMthreePrimOLLATHi,+2.84,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMthreePrimOLLATHolm,$1.9\times10^{-5}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMthreePrimOLLATLo,+1.44,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMthreePrimOLLATMar,+2.14,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M3_gp_rtt8|Deep A2C v17|OLLA (tuned target) pct_margin
+NMthreeValBanD,3.4099,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (delay class)
+NMthreeValBanG,3.4228,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Bandit (global)
+NMthreeValBaseline,3.1870,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Baseline
+NMthreeValBest,3.4675,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (best-on-val)
+NMthreeValCtx,3.4989,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Context table
+NMthreeValEns,3.4679,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (ensemble)
+NMthreeValFPU,3.4679,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|FixedPU (Oracle)
+NMthreeValFixed,3.4989,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Fixed
+NMthreeValMulti,3.4611,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Multi-OLLA
+NMthreeValOLLA,3.4228,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA
+NMthreeValOLLAT,3.3952,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|OLLA (tuned target)
+NMthreeValOff,3.4114,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17 (offset)
+NMthreeValPrim,3.4679,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M3_gp_rtt8|Deep A2C v17
+NMtwoCalibShareCtx,83,R33,Optimized\v17\Dataset\fill_summary_v17.txt,M2 share
+NMtwoCiBanD,0.0112,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class) ci95
+NMtwoCiBanG,0.0112,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global) ci95
+NMtwoCiBaseline,0.0106,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline ci95
+NMtwoCiBest,0.0102,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val) ci95
+NMtwoCiCtx,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table ci95
+NMtwoCiEns,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble) ci95
+NMtwoCiFPU,0.0104,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle) ci95
+NMtwoCiFixed,0.0107,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed ci95
+NMtwoCiMulti,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA ci95
+NMtwoCiOLLA,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA ci95
+NMtwoCiOLLAT,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target) ci95
+NMtwoCiPrim,0.0102,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 ci95
+NMtwoCiRsd,0.0103,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800) ci95
+NMtwoJainDiff,+0.0024,R16,Optimized\v17\paper\table_core.csv,jain diff M2
+NMtwoPctBanD,76.55,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class) x100
+NMtwoPctBanG,76.55,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global) x100
+NMtwoPctBaseline,82.28,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline x100
+NMtwoPctBest,86.26,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val) x100
+NMtwoPctCtx,85.81,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table x100
+NMtwoPctEns,86.35,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble) x100
+NMtwoPctFPU,85.32,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle) x100
+NMtwoPctFixed,85.38,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed x100
+NMtwoPctMulti,84.24,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA x100
+NMtwoPctOLLA,84.07,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA x100
+NMtwoPctOLLAT,84.07,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target) x100
+NMtwoPctPrim,86.17,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 x100
+NMtwoPctRsd,85.32,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800) x100
+NMtwoPrimBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimBanDHi,+13.06,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimBanDHolm,$3.8\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimBanDLo,+12.09,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimBanDMar,+12.57,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Bandit (delay class) pct_margin
+NMtwoPrimBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimBanGHi,+13.06,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimBanGHolm,$3.8\times10^{-82}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimBanGLo,+12.09,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimBanGMar,+12.57,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Bandit (global) pct_margin
+NMtwoPrimBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimBaselineHi,+5.06,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimBaselineHolm,$2.3\times10^{-63}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimBaselineLo,+4.40,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimBaselineMar,+4.73,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Baseline pct_margin
+NMtwoPrimCtxBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimCtxHi,+0.64,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimCtxHolm,$1.7\times10^{-2}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimCtxLo,+0.21,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimCtxMar,+0.43,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Context table pct_margin
+NMtwoPrimFPUBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimFPUHi,+1.20,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimFPUHolm,$9.4\times10^{-15}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimFPULo,+0.80,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimFPUMar,+1.00,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|FixedPU (Oracle) pct_margin
+NMtwoPrimFixedBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimFixedHi,+1.13,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimFixedHolm,$1.1\times10^{-10}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimFixedLo,+0.72,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimFixedMar,+0.93,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Fixed pct_margin
+NMtwoPrimMultiBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimMultiHi,+2.55,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimMultiHolm,$8.6\times10^{-39}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimMultiLo,+2.05,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimMultiMar,+2.30,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|Multi-OLLA pct_margin
+NMtwoPrimOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimOLLAHi,+2.77,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimOLLAHolm,$8.6\times10^{-39}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimOLLALo,+2.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimOLLAMar,+2.50,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|OLLA pct_margin
+NMtwoPrimOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoPrimOLLATHi,+2.77,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoPrimOLLATHolm,$8.6\times10^{-39}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoPrimOLLATLo,+2.23,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoPrimOLLATMar,+2.50,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17|OLLA (tuned target) pct_margin
+NMtwoRsdBanDBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdBanDHi,+11.93,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdBanDHolm,$1.6\times10^{-81}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdBanDLo,+10.98,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdBanDMar,+11.46,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Bandit (delay class) pct_margin
+NMtwoRsdBanGBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdBanGHi,+11.93,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdBanGHolm,$1.6\times10^{-81}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdBanGLo,+10.98,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdBanGMar,+11.46,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Bandit (global) pct_margin
+NMtwoRsdBaselineBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdBaselineHi,+4.02,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdBaselineHolm,$1.6\times10^{-48}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdBaselineLo,+3.36,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdBaselineMar,+3.69,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Baseline pct_margin
+NMtwoRsdCtxBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdCtxHi,\ensuremath{-}0.36,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdCtxHolm,$4.7\times10^{-6}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdCtxLo,\ensuremath{-}0.78,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdCtxMar,\ensuremath{-}0.57,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Context table pct_margin
+NMtwoRsdFPUBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdFPUHi,+0.09,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdFPUHolm,$8.5\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdFPULo,\ensuremath{-}0.10,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdFPUMar,\ensuremath{-}0.00,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|FixedPU (Oracle) pct_margin
+NMtwoRsdFixedBeats,no,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdFixedHi,+0.12,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdFixedHolm,$8.1\times10^{-1}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdFixedLo,\ensuremath{-}0.27,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdFixedMar,\ensuremath{-}0.07,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Fixed pct_margin
+NMtwoRsdMultiBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdMultiHi,+1.53,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdMultiHolm,$3.1\times10^{-16}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdMultiLo,+1.03,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdMultiMar,+1.28,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|Multi-OLLA pct_margin
+NMtwoRsdOLLABeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdOLLAHi,+1.75,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdOLLAHolm,$1.6\times10^{-17}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdOLLALo,+1.22,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdOLLAMar,+1.48,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|OLLA pct_margin
+NMtwoRsdOLLATBeats,yes,R03-R07,Optimized\v17\paper\table_core.csv,beats
+NMtwoRsdOLLATHi,+1.75,R03-R07,Optimized\v17\paper\table_core.csv,ci90_hi
+NMtwoRsdOLLATHolm,$1.6\times10^{-17}$,R03-R07,Optimized\v17\paper\table_core.csv,holm_p
+NMtwoRsdOLLATLo,+1.22,R03-R07,Optimized\v17\paper\table_core.csv,ci90_lo
+NMtwoRsdOLLATMar,+1.48,R03-R07/R19-R21,Optimized\v17\paper\table_core.csv,M2_dl_rtt0|Deep A2C v17 (resid-800)|OLLA (tuned target) pct_margin
+NMtwoSeedsAbove,8,R16,Optimized\v17\Dataset\fill_summary_v17.txt,REPLSEED M2 seeds_above
+NMtwoValBanD,0.7655,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (delay class)
+NMtwoValBanG,0.7655,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Bandit (global)
+NMtwoValBaseline,0.8228,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Baseline
+NMtwoValBest,0.8626,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (best-on-val)
+NMtwoValCtx,0.8581,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Context table
+NMtwoValEns,0.8635,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (ensemble)
+NMtwoValFPU,0.8532,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|FixedPU (Oracle)
+NMtwoValFixed,0.8538,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Fixed
+NMtwoValMulti,0.8424,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Multi-OLLA
+NMtwoValOLLA,0.8407,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA
+NMtwoValOLLAT,0.8407,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|OLLA (tuned target)
+NMtwoValPrim,0.8617,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17
+NMtwoValRsd,0.8532,R02/R19/R20,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M2_dl_rtt0|Deep A2C v17 (resid-800)
+NOllaBaseMfour,+6.9,R22,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM M4_gp_rtt0 OLLA/Baseline - 1
+NOllaBaseMthree,+7.4,R22,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM M3_gp_rtt8 OLLA/Baseline - 1
 NParamsActor,"20\,099",S16,Optimized/v17/DeepA2C_Shared_v17.m,57x128 + 128x96 + 96x3 weights and biases
-NPfEightProc,4.837,H17,Optimized/v17/README_v17.md,README_v17 s1 table rtt8/8proc Baseline Mbps
-NPfGain,+39.6,H17,Optimized/v17/README_v17.md,8proc/1proc - 1
-NPfJainEight,0.420,H17,Optimized/v17/README_v17.md,Jain rtt8/8proc
-NPfJainZero,0.503,H17,Optimized/v17/README_v17.md,Jain rtt0
-NPfNSchemes,13,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,schemes compared
-NPfOneProc,3.466,H17,Optimized/v17/README_v17.md,README_v17 s1 table rtt8/1proc Baseline Mbps
-NPfRangeHi,26,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,max ratio
-NPfRangeLo,10,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,min v16 K3 / v17 M3 - 1 over schemes
-NRegCases,67,M01,Optimized/case_registry.csv,unique case_id
-NRegRows,108,M01,Optimized/case_registry.csv,rows
-NRegSinceTen,49,M02,Optimized/case_registry.csv,cases with version != v9
-NRegSupCases,7,H19,Optimized/case_registry.csv,status superseded (cases)
-NRegSupRows,18,H19,Optimized/case_registry.csv,status superseded (rows)
-NRegValidCases,60,M03,Optimized/case_registry.csv,valid cases
-NRegWinCases,9,M03,Optimized/case_registry.csv,valid cases with win=1 excluding corrected X1 row
-NSlotFixOLLA,2.9233,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train_b OLLA tp
-NSlotFixRL,2.9191,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train_b A2C tp
+NPfEightProc,4.837,H17,Optimized\v17\README_v17.md,README_v17 s1 table rtt8/8proc Baseline Mbps
+NPfGain,+39.6,H17,Optimized\v17\README_v17.md,8proc/1proc - 1
+NPfJainEight,0.420,H17,Optimized\v17\README_v17.md,Jain rtt8/8proc
+NPfJainZero,0.503,H17,Optimized\v17\README_v17.md,Jain rtt0
+NPfNSchemes,13,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,schemes compared
+NPfOneProc,3.466,H17,Optimized\v17\README_v17.md,README_v17 s1 table rtt8/1proc Baseline Mbps
+NPfRangeHi,26,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,max ratio
+NPfRangeLo,10,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,min v16 K3 / v17 M3 - 1 over schemes
+NRegCases,67,M01,Optimized\case_registry.csv,unique case_id
+NRegRows,108,M01,Optimized\case_registry.csv,rows
+NRegSinceTen,49,M02,Optimized\case_registry.csv,cases with version != v9
+NRegSupCases,7,H19,Optimized\case_registry.csv,status superseded (cases)
+NRegSupRows,18,H19,Optimized\case_registry.csv,status superseded (rows)
+NRegValidCases,60,M03,Optimized\case_registry.csv,valid cases
+NRegWinCases,9,M03,Optimized\case_registry.csv,valid cases with win=1 excluding corrected X1 row
+NSlotFixOLLA,2.9233,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train_b OLLA tp
+NSlotFixRL,2.9191,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train_b A2C tp
 NSlotMinusThree,58,H07,Optimized/v10/logs/matlab_v10b_check.log,actions% at -3
-NSlotOLLA,2.92,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train OLLA tp
+NSlotOLLA,2.92,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train OLLA tp
 NSlotPlusTwo,35.8,H07,Optimized/v10/logs/matlab_v10b_check.log,actions% at +2
-NSlotRL,1.38,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train A2C tp
-NTMoneLong,+1.87,R25,Optimized/v17/paper/table_training_length.csv,pct_3000ep
-NTMoneLongHi,+2.23,R25,Optimized/v17/paper/table_training_length.csv,ci90_3000ep_hi
-NTMoneLongLo,+1.52,R25,Optimized/v17/paper/table_training_length.csv,ci90_3000ep_lo
-NTMoneShort,+0.62,R25,Optimized/v17/paper/table_training_length.csv,pct_800ep
-NTMoneShortHi,+0.91,R25,Optimized/v17/paper/table_training_length.csv,ci90_800ep_hi
-NTMoneShortLo,+0.34,R25,Optimized/v17/paper/table_training_length.csv,ci90_800ep_lo
-NTMtwoLong,+0.93,R25,Optimized/v17/paper/table_training_length.csv,pct_3000ep
-NTMtwoLongHi,+1.13,R25,Optimized/v17/paper/table_training_length.csv,ci90_3000ep_hi
-NTMtwoLongLo,+0.72,R25,Optimized/v17/paper/table_training_length.csv,ci90_3000ep_lo
-NTMtwoShort,\ensuremath{-}0.07,R25,Optimized/v17/paper/table_training_length.csv,pct_800ep
-NTMtwoShortHi,+0.12,R25,Optimized/v17/paper/table_training_length.csv,ci90_800ep_hi
-NTMtwoShortLo,\ensuremath{-}0.27,R25,Optimized/v17/paper/table_training_length.csv,ci90_800ep_lo
-NVnineBase,3.0554,H05,Optimized/v9/Dataset/fill_summary_v9.txt,SCHEME gp_O Baseline
-NVnineBaseGain,+4.5,H05,Optimized/v9/Dataset/fill_summary_v9.txt,Baseline/OLLA - 1
-NVnineCases,18,H06,Optimized/case_registry.csv,v9 cases
-NVnineOLLA,2.9233,H05,Optimized/v9/Dataset/fill_summary_v9.txt,SCHEME gp_O OLLA
-NVnineVsOLLA,\ensuremath{-}4.08,H04,Optimized/v9/Dataset/fill_summary_v9.txt,CMP|gp_O|A2C vs OLLA pct
-NVnineWins,0,H06,Optimized/case_registry.csv,v9 win rows
+NSlotRL,1.38,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train A2C tp
+NTMoneLong,+1.87,R25,Optimized\v17\paper\table_training_length.csv,pct_3000ep
+NTMoneLongHi,+2.23,R25,Optimized\v17\paper\table_training_length.csv,ci90_3000ep_hi
+NTMoneLongLo,+1.52,R25,Optimized\v17\paper\table_training_length.csv,ci90_3000ep_lo
+NTMoneShort,+0.62,R25,Optimized\v17\paper\table_training_length.csv,pct_800ep
+NTMoneShortHi,+0.91,R25,Optimized\v17\paper\table_training_length.csv,ci90_800ep_hi
+NTMoneShortLo,+0.34,R25,Optimized\v17\paper\table_training_length.csv,ci90_800ep_lo
+NTMtwoLong,+0.93,R25,Optimized\v17\paper\table_training_length.csv,pct_3000ep
+NTMtwoLongHi,+1.13,R25,Optimized\v17\paper\table_training_length.csv,ci90_3000ep_hi
+NTMtwoLongLo,+0.72,R25,Optimized\v17\paper\table_training_length.csv,ci90_3000ep_lo
+NTMtwoShort,\ensuremath{-}0.07,R25,Optimized\v17\paper\table_training_length.csv,pct_800ep
+NTMtwoShortHi,+0.12,R25,Optimized\v17\paper\table_training_length.csv,ci90_800ep_hi
+NTMtwoShortLo,\ensuremath{-}0.27,R25,Optimized\v17\paper\table_training_length.csv,ci90_800ep_lo
+NVnineBase,3.0554,H05,Optimized\v9\Dataset\fill_summary_v9.txt,SCHEME gp_O Baseline
+NVnineBaseGain,+4.5,H05,Optimized\v9\Dataset\fill_summary_v9.txt,Baseline/OLLA - 1
+NVnineCases,18,H06,Optimized\case_registry.csv,v9 cases
+NVnineOLLA,2.9233,H05,Optimized\v9\Dataset\fill_summary_v9.txt,SCHEME gp_O OLLA
+NVnineVsOLLA,\ensuremath{-}4.08,H04,Optimized\v9\Dataset\fill_summary_v9.txt,CMP|gp_O|A2C vs OLLA pct
+NVnineWins,0,H06,Optimized\case_registry.csv,v9 win rows

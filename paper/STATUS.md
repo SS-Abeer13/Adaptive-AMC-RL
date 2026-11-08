@@ -144,3 +144,20 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 ## Amendment 2 / FREEZE v3 (5 Nov 2026)
 - G10 no longer runs the combined comparator (compute, about 100 h extra at two cells); it is tested at the M1 point only (G6). G10 compares against single-cue rules re-calibrated per cell (200 traces); family of 9, WIN = beats all 9. Options (a), (b), (c) and the reasoning are in `paper/proposals/AMENDMENTS.md`.
 - Freeze v3 commit: `d08807f425a6cfa4b07fbebf6a2b3485216cbf98`. Changed: G10, checkpoint5_list, AMENDMENTS; G6, W1, NR1, A6, common_rules, compute_basis hashes unchanged from v2 (v2 hashes kept in `FREEZE_v2.sha256`). No G6 output had been read.
+
+## Phase 8 — Checkpoint-5 Stage Completions (8 Nov 2026)
+- **Completed stages:** G1, W1, NR1, G6 (g6a, g6b, g6c), A1, A3, A6 all finished cleanly and verified against pre-registered gates (commit `0386055`).
+- **G6c (re-calibration on 500 traces & combined table):**
+  - Residual A2C (M1 primary) beats all 10 comparators at trace level: vs Context-joint-500 $+0.66$\,\% [0.29, 1.03]\,\% (Holm $p = 1.05\times 10^{-3}$); vs Context-500 $+1.43$\,\%; vs Fixed-500 $+1.87$\,\%; vs FixedPU-500 $+2.70$\,\%; vs OLLA-tuned-500 $+8.40$\,\%.
+  - Claims A, B-500, and JP all pass (`verdict = ABJ`).
+  - Frozen C2 wording applied: *"beats all calibrated comparators, including rules re-calibrated by exhaustive search on 500 fresh traces and a table that combines deadline slack, user class and HARQ-process state"*, with *"same-information"*.
+  - Seed-level statistics vs Context-joint-500: 5/10 seeds above 0 (sign-test $p = 0.623$), seed-mean bootstrap 95\,\% CI [$-0.19, +1.60$]\,\%, hierarchical seed $\times$ trace 95\,\% CI [$-0.30, +1.70$]\,\%. Rule~R2 applies: not robust to seed resampling vs the combined table (vs Context-500 hier 95\,\% CI is [$+0.46, +2.47$]\,\%, seed-robust).
+  - Margin closure: exhaustive 500-trace calibration closes about 60\,\% of the v17 margin over the best rule (+1.64\,\% down to +0.66\,\%).
+  - Calibration vs evaluation scores: combined table 0.6088 vs 0.6086, Context-500 0.5982 vs 0.6040 (no empirical overfitting).
+- **W1 (OLLA warm-up):** 200-TTI warm-up margin over OLLA is $+7.49$\,\% [$6.79, 8.19$]\,\% (cold: $+11.96$\,\%); vs Context table $+1.75$\,\% [$1.41, 2.10$]\,\% (Claim B passes).
+- **NR1 (non-oracle base rule):** Fixed base rule (offset $-2$) achieves 0.6235 on-time, beating all 9 comparators (WIN; $+3.38$\,\% vs Context table). Diff vs M1 oracle-base $+1.09$\,pp ($+1.77$\,\%, $p = 2.03\times 10^{-31}$). Descriptive paired margin vs Context-joint-500 $+2.44$\,\% [$2.04, 2.85$]\,\% ($p = 1.48\times 10^{-19}$).
+- **A1 (speed classes):** low ($<10$~m/s) $-1.71$\,\%, mid ($10$--$20$~m/s) $+2.82$\,\%, high ($>20$~m/s) $+2.25$\,\% vs Context table.
+- **A3 (inference cost):** 2.03~$\mu$s loop (9.01~$\mu$s median forward pass) per decision on Intel Core i5-8350U CPU @ 1.70GHz; 830.3~$\mu$s per 200-TTI trace (10 users, $2.40\times$ FixedPU).
+- **A6 (PF-timing demonstration):** Expectation E holds for all 3 schemes; 8-to-1 process goodput ratio is 1.447 (Jain 0.436) under ACK-time PF, and 0.976 (Jain 0.498) under scheduling-time PF.
+- **G10 status:** Launching now, expected to complete in $\approx 32$~h.
+- **Manuscript:** `numbers.tex` (772 macros), `pending_values.csv` (54 values), `pending_status.csv` (8 items), abstract, introduction, discussion, conclusions, and robustness/policy subsections updated. Ready for PDF compilation.
