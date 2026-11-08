@@ -183,3 +183,14 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - Plain names: original vs re-calibrated rules; re-calibration study, warm-up check, non-oracle base ablation, confirmatory replication, operating-point check, action analysis, speed breakdown, PF-timing demonstration; trace-level and seed-level rules.
 - Results reordered: main case → decisive re-calibration test → seed level → further checks (as questions) → where RL did not help → what the policy does. Intro states three numbered messages; abstract rewritten (217 words); terms table (Table IV) added; calibration findings and programme table moved to appendices.
 - No number, frozen wording slot or pending value changed; gate and 19 tests pass. `manuscript/draft_v3.pdf`, 14 pages.
+
+## Phase 12 — Amendment 4, FixedPU bug fix, G6c re-evaluation, Freeze v5 (9 Nov 2026)
+- **Code review finding:** A systematic audit identified that `evalPolicy_v17_g6.m` was reading `env.fixed_class_tab` while calibration/evaluation scripts assigned `env.class_tab`. In G6c, this had evaluated M1's historical 20-trace FixedPU table instead of the calibrated 500-trace table (`[-1 -2 -2; -1 -2 -2]`). In G10, coordinate ascent sweeps and base-rule choice were affected. In addition, G10 stalled against the 30-min watchdog due to absence of heartbeat calls during the 343 Context table evaluations.
+- **Fixes applied:**
+  - `evalPolicy_v17_g6.m`: reads `env.class_tab` with fallback to `env.fixed_class_tab`.
+  - `stage_g6a.m`, `stage_g6c.m`, `stage_g10.m`, `stage_nr2.m`: explicitly assign both `fixed_class_tab` and `class_tab`.
+  - `stage_g10.m`: throttled `ctx.hb(...)` added to Context search, OLLA search, and coordinate ascent sweeps.
+  - Checkpoints for G10 cleared for clean restart.
+- **G6c re-evaluated:** Evaluated on the 500 held-out traces with true FixedPU-500. True FixedPU-500 margin is $+1.73$\,\% [$1.31, 2.14$]\,\% (Holm $p = 2.79\times 10^{-12}$, hierarchical 95\,\% CI [$+0.72, +2.80$]\,\%, 9/10 seeds $> 0$). Monotonic calibrated hierarchy confirmed: Fixed-500 ($+1.87$\,\%) > FixedPU-500 ($+1.73$\,\%) > Context-500 ($+1.43$\,\%) > Context-joint-500 ($+0.66$\,\%). M1 beats all 10 comparators.
+- **Amendment 4 & Freeze v5:** Recorded in `paper/proposals/AMENDMENTS.md` and `FREEZE.sha256` (11/11 files bit-exact match). `pending_values.csv` updated (margin_fpu500 = 1.73), macros and tables regenerated. `check_pending.py` passes.
+- **Status:** G10 ready to launch cleanly detached; NR2 smoke test and execution to follow after G10 completes.

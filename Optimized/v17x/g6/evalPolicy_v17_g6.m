@@ -82,7 +82,11 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_g6(ptype, policy, SINR_
     if any(strcmpi(ptype, {'fixed_class', 'fixed_oracle'}))
         for i = 1:N
             [dc, vc] = userClass_v17(delays(i), mean(speeds(:, i)));
-            fco(i) = env.fixed_class_tab(dc, vc);
+            if isfield(env, 'class_tab') && ~isempty(env.class_tab)
+                fco(i) = env.class_tab(dc, vc);
+            else
+                fco(i) = env.fixed_class_tab(dc, vc);
+            end
         end
     end
 
@@ -170,7 +174,11 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_g6(ptype, policy, SINR_
         if strcmpi(base_kind, 'fixed_class') || strcmpi(base_kind, 'fixedpu')
             for i = 1:N
                 [dc, vc] = userClass_v17(delays(i), mean(speeds(:, i)));
-                b_i(i) = env.fixed_class_tab(dc, vc);
+                if isfield(env, 'class_tab') && ~isempty(env.class_tab)
+                    b_i(i) = env.class_tab(dc, vc);
+                else
+                    b_i(i) = env.fixed_class_tab(dc, vc);
+                end
             end
         else
             b_i(:) = env.fixed_offset;
@@ -346,7 +354,12 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_g6(ptype, policy, SINR_
                     est_v = mean(speeds(max(t-20,1):t, i));
                     est_d = delays(i); % Available from ACK feedback latency
                     [dc_on, vc_on] = userClass_v17(est_d, est_v);
-                    cqiAll(i) = max(minC, min(maxC, ref(i) + env.fixed_class_tab(dc_on, vc_on)));
+                    if isfield(env, 'class_tab') && ~isempty(env.class_tab)
+                        tab_val = env.class_tab(dc_on, vc_on);
+                    else
+                        tab_val = env.fixed_class_tab(dc_on, vc_on);
+                    end
+                    cqiAll(i) = max(minC, min(maxC, ref(i) + tab_val));
                 end
             case {'fixed_class', 'fixed_oracle'}
                 cqiAll = max(minC, min(maxC, ref + fco));

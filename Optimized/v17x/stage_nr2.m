@@ -200,7 +200,7 @@ function out = unit_repro(R_M1, env_M1, n_repro, o, ctx)
     ctxj_tab = read_ctxj_from_tables(fullfile(ctx.root, 'Dataset', 'cal500_tables.txt'));
 
     e_f = e; e_f.fixed_offset = f_off;
-    e_pu = e; e_pu.class_tab = pu_tab;
+    e_pu = e; e_pu.fixed_class_tab = pu_tab; e_pu.class_tab = pu_tab;
     e_ctx = e; e_ctx.ctx_tab = ctx_tab;
     e_olla = e; e_olla.olla_target = olla_set(1); e_olla.olla_target_tuned = olla_set(1); e_olla.olla_step_down = olla_set(2);
     e_ctxj = e; e_ctxj.ctxj_tab = ctxj_tab;
@@ -408,7 +408,7 @@ function out = unit_eval(R_M1, envN2, train_outs, o, n_eval, n_seeds, ep_deep, c
     ctxj_tab = read_ctxj_from_tables(fullfile(ctx.root, 'Dataset', 'cal500_tables.txt'));
 
     e_f = envE; e_f.fixed_offset = f_off;
-    e_pu = envE; e_pu.class_tab = pu_tab;
+    e_pu = envE; e_pu.fixed_class_tab = pu_tab; e_pu.class_tab = pu_tab;
     e_ctx = envE; e_ctx.ctx_tab = ctx_tab;
     e_olla = envE; e_olla.olla_target = olla_set(1); e_olla.olla_target_tuned = olla_set(1); e_olla.olla_step_down = olla_set(2);
     e_ctxj = envE; e_ctxj.ctxj_tab = ctxj_tab;

@@ -165,6 +165,9 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
     acc = zeros(2, 3, nC); cnt = zeros(2, 3, nC);
     
     for j = 1:nT
+        if mod(j, 50) == 0 || j == nT
+            ctx.hb(sprintf('calib_single_%s: Fixed/PU trace %d/%d', cName, j, nT));
+        end
         for c = 1:nC
             e = env; e.fixed_offset = cands(c);
             rng(61000 + 100*traces(j).meta.trace_id + c);
@@ -194,7 +197,7 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
     
     % Joint refinement of FixedPU
     cur_pu = fixedpu_sep_tab;
-    e = env; e.class_tab = cur_pu;
+    e = env; e.fixed_class_tab = cur_pu; e.class_tab = cur_pu;
     cur_pu_score = score_tab(traces, e, 'fixed_class');
     for s = 1:ternary(ctx.smoke, 1, 3)
         improved = false;
@@ -203,7 +206,7 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
                 for c = 1:nC
                     if cands(c) == cur_pu(d, v), continue; end
                     t2 = cur_pu; t2(d, v) = cands(c);
-                    e = env; e.class_tab = t2;
+                    e = env; e.fixed_class_tab = t2; e.class_tab = t2;
                     sc_cand = score_tab(traces, e, 'fixed_class');
                     if sc_cand > cur_pu_score + 1e-6
                         cur_pu_score = sc_cand;
@@ -217,6 +220,7 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
     end
     fixedpu_tab = cur_pu;
     fixedpu_score = cur_pu_score;
+    env.fixed_class_tab = fixedpu_tab;
     env.class_tab = fixedpu_tab;
     
     % Base rule selection (auto-selected between Fixed and FixedPU)
@@ -247,6 +251,10 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
             best_ctx_sc = csc;
             best_ctx_tab = ctx_tabs(k, :);
         end
+        if mod(k, 10) == 0 || k == size(ctx_tabs, 1)
+            ctx.hb(sprintf('calib_single_%s: Context tab %d/%d (best=%.4f)', ...
+                cName, k, size(ctx_tabs, 1), best_ctx_sc));
+        end
     end
     env.ctx_tab = best_ctx_tab;
     
@@ -263,6 +271,10 @@ function out = unit_calib_single(cName, traces, cCfg, o, ctx)
         if osc > best_olla_sc + 1e-12
             best_olla_sc = osc;
             best_olla_set = olla_settings(k, :);
+        end
+        if mod(k, 5) == 0 || k == size(olla_settings, 1)
+            ctx.hb(sprintf('calib_single_%s: OLLA setting %d/%d (best=%.4f)', ...
+                cName, k, size(olla_settings, 1), best_olla_sc));
         end
     end
     env.olla_target_tuned = best_olla_set(1);
@@ -390,6 +402,7 @@ function out = run_one_sweep_g10(traces, cur_tab, cur_score, is_sparse, cands, e
         if best_cand_score > score + 1e-6
             improved = true; score = best_cand_score; tab(b, d, v, u) = best_cand_off;
         end
+        ctx.hb(sprintf('calib_comb: cell (%d,%d,%d,%d) score=%.4f', b, d, v, u, score));
     end, end, end, end
     out = struct('tab', tab, 'score', score, 'improved', improved);
 end
@@ -456,7 +469,7 @@ function out = unit_eval_cell(cName, cCfg, envCal, calib_s, ctxj_tab, train_outs
     e_f = e; e_f.fixed_offset = calib_s.fixed_offset;
     cmp_vals{5} = eval_det_traces(traces, e_f, 'fixed', b0);
     % 6: FixedPU
-    e_pu = e; e_pu.class_tab = calib_s.fixedpu_tab;
+    e_pu = e; e_pu.fixed_class_tab = calib_s.fixedpu_tab; e_pu.class_tab = calib_s.fixedpu_tab;
     cmp_vals{6} = eval_det_traces(traces, e_pu, 'fixed_class', b0);
     % 7: Context table
     e_ctx = e; e_ctx.ctx_tab = calib_s.ctx_tab;

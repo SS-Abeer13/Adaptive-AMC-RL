@@ -1,4 +1,4 @@
-G6 CALIBRATION BUDGET SUMMARY (2026-11-08 02:02:51, MATLAB 9.14.0.2206163 (R2023a))
+G6 CALIBRATION BUDGET SUMMARY (2026-11-09 00:46:46, MATLAB 9.14.0.2206163 (R2023a))
 
 PRIMARY_A2C|ontime=0.6126
 ENS_A2C|ontime=0.6306
@@ -11,8 +11,8 @@ REPLCMP_CAL500|pf|A2C vs Baseline|pct=+16.62|ci90pct=[15.74 17.50]|p=4.04e-77|ho
 REPLCMP_CAL500|pf|A2C vs OLLA|pct=+11.96|ci90pct=[11.21 12.71]|p=2.50e-67|holm=1.50e-66|beats=1
 REPLCMP_CAL500|pf|A2C vs OLLA-tuned-500|pct=+8.40|ci90pct=[7.74 9.07]|p=1.19e-55|holm=5.97e-55|beats=1
 REPLCMP_CAL500|pf|A2C vs Multi-OLLA|pct=+12.16|ci90pct=[11.40 12.92]|p=5.18e-68|holm=3.63e-67|beats=1
-REPLCMP_CAL500|pf|A2C vs Fixed-500|pct=+1.87|ci90pct=[1.52 2.23]|p=6.74e-17|holm=2.02e-16|beats=1
-REPLCMP_CAL500|pf|A2C vs FixedPU-500|pct=+2.70|ci90pct=[2.36 3.03]|p=4.28e-32|holm=1.71e-31|beats=1
+REPLCMP_CAL500|pf|A2C vs Fixed-500|pct=+1.87|ci90pct=[1.52 2.23]|p=6.74e-17|holm=2.70e-16|beats=1
+REPLCMP_CAL500|pf|A2C vs FixedPU-500|pct=+1.73|ci90pct=[1.31 2.14]|p=9.31e-13|holm=2.79e-12|beats=1
 REPLCMP_CAL500|pf|A2C vs Context-500|pct=+1.43|ci90pct=[1.08 1.77]|p=3.07e-11|holm=6.13e-11|beats=1
 REPLCMP_CAL500|pf|A2C vs Bandit (global)|pct=+46.55|ci90pct=[45.22 47.88]|p=1.46e-83|holm=1.46e-82|beats=1
 REPLCMP_CAL500|pf|A2C vs Bandit (delay class)|pct=+46.55|ci90pct=[45.22 47.88]|p=1.46e-83|holm=1.46e-82|beats=1

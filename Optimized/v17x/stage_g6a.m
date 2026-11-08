@@ -173,7 +173,7 @@ function [f_off, f_score, pu_tab, pu_score] = merge_sep_grid(chunks, cands, envE
     end
     
     % Evaluate separable table jointly to get joint score
-    e = envE; e.class_tab = pu_tab;
+    e = envE; e.fixed_class_tab = pu_tab; e.class_tab = pu_tab;
     pu_score = score_table(traces, e, 'fixed_class');
 end
 
@@ -192,7 +192,7 @@ function out = eval_fixedpu_joint_sweep(traces, cur_tab, cur_score, cands, envE,
                 cand_off = cands(c);
                 if cand_off == cur_off, continue; end
                 t2 = best_tab; t2(d, v) = cand_off;
-                e = envE; e.class_tab = t2;
+                e = envE; e.fixed_class_tab = t2; e.class_tab = t2;
                 sc = score_table(traces, e, 'fixed_class');
                 if sc > best_score + 1e-6
                     best_score = sc;

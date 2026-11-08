@@ -23,7 +23,7 @@ G6,verdict,ABJ-seed,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt (ABJ) + pap
 G6,margin_ctx500,1.43,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,ci_lo_ctx500,1.08,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,margin_fixed500,1.87,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
-G6,margin_fpu500,2.70,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
+G6,margin_fpu500,1.73,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,margin_ctxj,0.66,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,ci_lo_ctxj,0.29,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08
 G6,ci_hi_ctxj,1.03,Optimized/v17x/Dataset/table_cal500.csv,2026-11-08

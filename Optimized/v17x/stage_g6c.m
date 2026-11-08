@@ -123,7 +123,7 @@ function out = unit_eval_recal(traces, env_M1, ctx)
     
     % 2. FixedPU-500
     prim_pu500 = zeros(1, nT);
-    e_pu = e; e_pu.class_tab = pu_tab;
+    e_pu = e; e_pu.fixed_class_tab = pu_tab; e_pu.class_tab = pu_tab;
     for j = 1:nT
         rng(77000 + 100*j + 10*6 + 1);
         [tp, ~, ~, ~, inf] = evalPolicy_v17_g6('fixed_class', [], traces(j).SINR, traces(j).obsS, e_pu, traces(j).meta, traces(j).U);

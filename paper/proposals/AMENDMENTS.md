@@ -53,3 +53,18 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 **Related decision (not a freeze change).** The G6 stage's summary file marked the claim seed-robust because it evaluated R2 against Context-500 only; G6 §3 and R2 require the best comparator. The manuscript uses the G6 §4 row 2 wording (`ABJ-seed`); the generated file is not edited (ledger G6e).
 
 **Freeze v4:** hashes in `FREEZE.sha256` (v3 hashes kept in `FREEZE_v3.sha256`); the commit is recorded in `paper/STATUS.md`.
+
+## Amendment 4: 9 Nov 2026 (Code review finding: fixed_class_tab bug in comparator evaluation and calibration; watchdog heartbeat in G10; before any valid G10 or NR2 run)
+**Trigger.** A systematic code review of the live v17/v17x pipeline (`claude/amc_code_review_2026-11-08.md`) identified that `evalPolicy_v17_g6.m` evaluated policy `'fixed_class'` exclusively by reading `env.fixed_class_tab`, whereas the calibration and evaluation stages (`stage_g6a.m`, `stage_g6c.m`, `stage_g10.m`, and `stage_nr2.m`) wrote the calibrated table to `env.class_tab`. Consequently, the G6c evaluation evaluated M1's historical 20-trace table (`[-2 -2 -2; -3 -2 -3]`) under the label `FixedPU-500` instead of the calibrated 500-trace table (`[-1 -2 -2; -1 -2 -2]`). In G10, the same mismatch prevented per-cell FixedPU refinement and corrupted FixedPU base-rule selection. In addition, G10 was repeatedly terminated by `watchdog_v17x.ps1` (14 times) due to a 30-minute watchdog timeout during the exhaustive 343-candidate Context search because heartbeats were not emitted during long optimization loops.
+
+**What is fixed.**
+1. `evalPolicy_v17_g6.m`: updated so that policies `'fixed_class'`, `'fixed_oracle'`, `'fixed_online'`, and residual base selection inspect `env.class_tab` first, falling back to `env.fixed_class_tab`.
+2. `stage_g6a.m`, `stage_g6c.m`, `stage_g10.m`, and `stage_nr2.m`: explicitly assign both `env.fixed_class_tab` and `env.class_tab` across all calibration and evaluation units.
+3. `stage_g10.m`: added throttled heartbeat calls (`ctx.hb(...)`) within Context candidate search (every 10 candidates), OLLA search (every 5 candidates), and coordinate ascent sweeps (every cell).
+4. `stage_g6c.m`: re-evaluated on the 500 held-out traces with the corrected FixedPU-500 table. The true FixedPU-500 margin is +1.73 % [1.31, 2.14] % (Holm p = 2.79e-12; hierarchical 95 % CI [+0.72, +2.80] %, 9/10 seeds > 0). Residual A2C beats all 10 comparators. Calibrated rule order is strictly monotonic: Fixed-500 (+1.87 %) > FixedPU-500 (+1.73 %) > Context-500 (+1.43 %) > Context-joint-500 (+0.66 %).
+5. `stage_nr2.m`: inherits the fix so that the REPRO gate and fresh evaluations correctly evaluate the true calibrated FixedPU-500 table.
+6. G10 checkpoints were reset so G10 begins cleanly from the start before any valid results are produced.
+
+**What is not changed.** The pre-registration specifications (`G6_calibration_budget_prereg.md`, `G10_operating_grid_prereg.md`, `NR2_confirmatory_prereg.md`, `common_rules.md`, `checkpoint5_list.md`, `compute_basis.md`) are completely unchanged. They specify the methodology and mathematical formulations; this amendment corrects an implementation variable-name disconnect.
+
+**Freeze v5:** hashes recorded in `paper/proposals/FREEZE.sha256`; commit recorded in `paper/STATUS.md`.
