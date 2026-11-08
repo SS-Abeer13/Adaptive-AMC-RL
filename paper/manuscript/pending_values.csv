@@ -35,7 +35,7 @@ G6,eval_obj_ctxj,0.6086,Optimized/v17x/Dataset/ckpt/g6c/eval.mat,2026-11-08
 G6,calib_obj_ctx500,0.5982,Optimized/v17x/Dataset/cal500_tables.txt,2026-11-08
 G6,eval_obj_ctx500,0.6040,Optimized/v17x/Dataset/ckpt/g6c/eval.mat,2026-11-08
 G6,n_searched_cells,21,Optimized/v17x/Dataset/ctxj_cells.csv,2026-11-08
-G6,cap_hit,no,Optimized/v17x/Dataset/cal500_tables.txt,2026-11-08
+G6,cap_hit,yes,Optimized/v17x/logs/heartbeat_v17x.txt (start S3 reached the 6-sweep cap still improving; selected start S2 converged; audit 8 Nov),2026-11-08
 G6,profile,full,Optimized/v17x/Dataset/cal500_tables.txt,2026-11-08
 NR,verdict,WIN,Optimized/v17x/Dataset/fill_summary_v17n.txt,2026-11-06
 NR,best_margin,3.38,Optimized/v17x/Dataset/table_nr1.csv,2026-11-06

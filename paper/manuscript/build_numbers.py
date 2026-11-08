@@ -537,6 +537,32 @@ for k, mac in XC.items():
     if k in PV and mac in M and abs(float(PV[k]) - num(M[mac][0])) > 0.0051:
         ERR.append(f'pending_values {k} = {PV[k]} disagrees with extracted {mac} = {M[mac][0]}')
 
+# ---- audit additions (8 Nov 2026): probability of improvement, G6 compute and cap status, project-wide Bonferroni vs the combined table
+for cmpn, r in g6s.items():
+    t = 'NGsix' + tag_of(cmpn)
+    add(t + 'PoI', f(r['prob_improve'], 2), 'G6g', rel(G6S), 'prob_improve (seed x trace pairs)')
+    add(t + 'PoILo', f(r['poi_ci95_lo'], 2), 'G6g', rel(G6S), 'poi_ci95_lo'); add(t + 'PoIHi', f(r['poi_ci95_hi'], 2), 'G6g', rel(G6S), 'poi_ci95_hi')
+HB = P('Optimized', 'v17x', 'logs', 'heartbeat_v17x.txt'); hb = open(HB, encoding='utf-8', errors='ignore').read()
+units = {}
+for m in re.finditer(r'\| g6b +\| unit (start_(\d)_sweep_(\d)): done in ([0-9.]+) s', hb): units[m.group(1)] = (int(m.group(2)), int(m.group(3)), float(m.group(4)))
+conv = set(int(x) for x in re.findall(r'\| g6b +\| Start S(\d) converged at sweep', hb))
+cap = int(re.search(r'cap (\d+) sweeps', open(X('REPORT_g6a.txt'), encoding='utf-8').read()).group(1))
+starts = sorted({u[0] for u in units.values()})
+capped = [s for s in starts if s not in conv and max(u[1] for u in units.values() if u[0] == s) >= cap]
+add('NGsixSearchHours', f(sum(u[2] for u in units.values()) / 3600, 1), 'G6h', rel(HB), 'sum of g6b sweep-unit durations')
+add('NGsixSweeps', str(len(units)), 'G6h', rel(HB), 'g6b sweep units')
+add('NGsixSingleHours', f(re.search(r'\| g6a +\| stage DONE in ([0-9.]+) h', hb).group(1), 1), 'G6h', rel(HB), 'g6a stage DONE')
+add('NGsixConvStarts', str(len(conv)), 'G6h', rel(HB), 'starts with a "converged" line')
+add('NGsixCapStarts', str(len(capped)), 'G6h', rel(HB), 'starts that reached the sweep cap without converging')
+add('NGsixCapStartScore', f(re.findall(r'Start S%d sweep %d: checking convergence \(improved=1, score=([0-9.]+)\)' % (capped[0], cap), hb)[-1], 4) if capped else '--', 'G6h', rel(HB), 'score of the capped start at the cap')
+sel = re.search(r'\| g6b +\| Selected start: S(\d) with score ([0-9.]+)', hb)
+add('NGsixSelStart', 'S' + sel.group(1), 'G6h', rel(HB), 'selected start'); add('NGsixSelScore', f(sel.group(2), 4), 'G6h', rel(HB), 'selected score')
+add('NMoneHours', f(el['M1_dl_rtt8'] / 60, 1), 'R32', rel(FS17), 'STEP M1 done elapsed_min / 60 (10 seeds training + evaluation)')
+pj = float(next(x for x in tc5 if x['comparator'] == 'Context-joint-500')['holm_p']) * tests
+add('NBonfPCtxJ', f(min(1.0, pj), 2) if pj >= 0.01 else sci(pj), 'M07', rel(TC5) + '; ' + rel(REG), 'Holm p (CtxJ) x registry tests, capped at 1')
+if capped and PV.get(('G6', 'cap_hit')) == 'no':
+    ERR.append('pending_values G6 cap_hit = no, but the heartbeat log shows a start that reached the cap without converging')
+
 # ------------------------------------------------------------------ write
 if ERR:
     print('ERRORS:'); [print('  ', e) for e in ERR]; sys.exit(1)

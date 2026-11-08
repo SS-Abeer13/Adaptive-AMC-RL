@@ -64,6 +64,7 @@ NAthreeRatio,2.40,A03,Optimized/v17x/Dataset/REPORT_a3.txt,ratio
 NAthreeTti,830.3,A03,Optimized/v17x/Dataset/REPORT_a3.txt,A2C us/TTI
 NAthreeTtiFpu,346.2,A03,Optimized/v17x/Dataset/REPORT_a3.txt,FixedPU us/TTI
 NBonfP,$8.8\times10^{-10}$,M04,Optimized/v17/paper/table_core.csv,holm_p x tests
+NBonfPCtxJ,1.00,M07,Optimized/v17x/Dataset/table_cal500.csv; Optimized/case_registry.csv,"Holm p (CtxJ) x registry tests, capped at 1"
 NBonfPraw,$9.1\times10^{-13}$,M04,Optimized/v17/paper/table_core.csv,holm_p
 NBonfTests,972,M04,Optimized/case_registry.csv,rows x 9
 NBoot,"20\,000",P01,paper/proposals/common_rules.md,"R2 B = 20,000"
@@ -307,8 +308,11 @@ NGsixCalGap,0.0002,G6c,cal500_tables.txt; g6c/eval.mat,|cal - eval| CtxJ
 NGsixCalSeedHi,600500,G6a,Optimized/v17x/Dataset/REPORT_g6a.txt,scope
 NGsixCalSeedLo,600001,G6a,Optimized/v17x/Dataset/REPORT_g6a.txt,scope
 NGsixCalTraces,500,G6a,Optimized/v17x/Dataset/REPORT_g6a.txt,scope
+NGsixCapStartScore,0.6087,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,score of the capped start at the cap
+NGsixCapStarts,1,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,starts that reached the sweep cap without converging
 NGsixCells,36,G6a,Optimized/v17x/Dataset/ctxj_cells.csv,rows
 NGsixClosure,58,G6d,Optimized/v17x/Dataset/table_cal500.csv; Optimized/v17/paper/table_core.csv,1 - margin(CtxJ)/margin(v17 Context)
+NGsixConvStarts,3,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,"starts with a ""converged"" line"
 NGsixCtxDAbove,9,G6b,paper/analysis/out/g6_seed_stats.csv,seeds_above
 NGsixCtxDBeats,yes,G6a,Optimized/v17x/Dataset/table_cal500.csv,beats
 NGsixCtxDBootHi,+2.38,G6b,paper/analysis/out/g6_seed_stats.csv,seedmean boot 95 hi
@@ -322,6 +326,9 @@ NGsixCtxDHolm,$6.1\times10^{-11}$,G6a,Optimized/v17x/Dataset/table_cal500.csv,ho
 NGsixCtxDLo,+1.08,G6a,Optimized/v17x/Dataset/table_cal500.csv,ci90_lo
 NGsixCtxDMar,+1.43,G6a,Optimized/v17x/Dataset/table_cal500.csv,Context-500 margin_pct
 NGsixCtxDOffs,"\ensuremath{-}4, \ensuremath{-}4, \ensuremath{-}2",G6a,Optimized/v17x/Dataset/cal500_single.txt,Context-500 offsets per slack bin
+NGsixCtxDPoI,0.59,G6g,paper/analysis/out/g6_seed_stats.csv,prob_improve (seed x trace pairs)
+NGsixCtxDPoIHi,0.65,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_hi
+NGsixCtxDPoILo,0.54,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_lo
 NGsixCtxDRobust,yes,G6b,paper/analysis/out/g6_seed_stats.csv,R2 seed-robust
 NGsixCtxDSeedMax,+4.25,G6b,paper/analysis/out/g6_seed_stats.csv,seed max
 NGsixCtxDSeedMin,\ensuremath{-}0.95,G6b,paper/analysis/out/g6_seed_stats.csv,seed min
@@ -336,6 +343,9 @@ NGsixCtxJHierLo,\ensuremath{-}0.30,G6b,paper/analysis/out/g6_seed_stats.csv,hier
 NGsixCtxJHolm,$1.0\times10^{-3}$,G6a,Optimized/v17x/Dataset/table_cal500.csv,holm_p
 NGsixCtxJLo,+0.29,G6a,Optimized/v17x/Dataset/table_cal500.csv,ci90_lo
 NGsixCtxJMar,+0.66,G6a,Optimized/v17x/Dataset/table_cal500.csv,Context-joint-500 margin_pct
+NGsixCtxJPoI,0.55,G6g,paper/analysis/out/g6_seed_stats.csv,prob_improve (seed x trace pairs)
+NGsixCtxJPoIHi,0.61,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_hi
+NGsixCtxJPoILo,0.49,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_lo
 NGsixCtxJRobust,no,G6b,paper/analysis/out/g6_seed_stats.csv,R2 seed-robust
 NGsixCtxJSeedMax,+3.46,G6b,paper/analysis/out/g6_seed_stats.csv,seed max
 NGsixCtxJSeedMin,\ensuremath{-}1.70,G6b,paper/analysis/out/g6_seed_stats.csv,seed min
@@ -355,6 +365,9 @@ NGsixFPUDHierLo,+1.74,G6b,paper/analysis/out/g6_seed_stats.csv,hier 95 lo
 NGsixFPUDHolm,$1.7\times10^{-31}$,G6a,Optimized/v17x/Dataset/table_cal500.csv,holm_p
 NGsixFPUDLo,+2.36,G6a,Optimized/v17x/Dataset/table_cal500.csv,ci90_lo
 NGsixFPUDMar,+2.70,G6a,Optimized/v17x/Dataset/table_cal500.csv,FixedPU-500 margin_pct
+NGsixFPUDPoI,0.66,G6g,paper/analysis/out/g6_seed_stats.csv,prob_improve (seed x trace pairs)
+NGsixFPUDPoIHi,0.72,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_hi
+NGsixFPUDPoILo,0.61,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_lo
 NGsixFPUDRobust,yes,G6b,paper/analysis/out/g6_seed_stats.csv,R2 seed-robust
 NGsixFPUDSeedMax,+5.55,G6b,paper/analysis/out/g6_seed_stats.csv,seed max
 NGsixFPUDSeedMin,+0.29,G6b,paper/analysis/out/g6_seed_stats.csv,seed min
@@ -369,6 +382,9 @@ NGsixFixedDHierLo,+0.91,G6b,paper/analysis/out/g6_seed_stats.csv,hier 95 lo
 NGsixFixedDHolm,$2.0\times10^{-16}$,G6a,Optimized/v17x/Dataset/table_cal500.csv,holm_p
 NGsixFixedDLo,+1.52,G6a,Optimized/v17x/Dataset/table_cal500.csv,ci90_lo
 NGsixFixedDMar,+1.87,G6a,Optimized/v17x/Dataset/table_cal500.csv,Fixed-500 margin_pct
+NGsixFixedDPoI,0.62,G6g,paper/analysis/out/g6_seed_stats.csv,prob_improve (seed x trace pairs)
+NGsixFixedDPoIHi,0.68,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_hi
+NGsixFixedDPoILo,0.56,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_lo
 NGsixFixedDRobust,yes,G6b,paper/analysis/out/g6_seed_stats.csv,R2 seed-robust
 NGsixFixedDSeedMax,+4.71,G6b,paper/analysis/out/g6_seed_stats.csv,seed max
 NGsixFixedDSeedMin,\ensuremath{-}0.52,G6b,paper/analysis/out/g6_seed_stats.csv,seed min
@@ -395,6 +411,9 @@ NGsixOLLATDHierLo,+7.15,G6b,paper/analysis/out/g6_seed_stats.csv,hier 95 lo
 NGsixOLLATDHolm,$6.0\times10^{-55}$,G6a,Optimized/v17x/Dataset/table_cal500.csv,holm_p
 NGsixOLLATDLo,+7.74,G6a,Optimized/v17x/Dataset/table_cal500.csv,ci90_lo
 NGsixOLLATDMar,+8.40,G6a,Optimized/v17x/Dataset/table_cal500.csv,OLLA-tuned-500 margin_pct
+NGsixOLLATDPoI,0.80,G6g,paper/analysis/out/g6_seed_stats.csv,prob_improve (seed x trace pairs)
+NGsixOLLATDPoIHi,0.84,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_hi
+NGsixOLLATDPoILo,0.76,G6g,paper/analysis/out/g6_seed_stats.csv,poi_ci95_lo
 NGsixOLLATDRobust,yes,G6b,paper/analysis/out/g6_seed_stats.csv,R2 seed-robust
 NGsixOLLATDSeedMax,+11.42,G6b,paper/analysis/out/g6_seed_stats.csv,seed max
 NGsixOLLATDSeedMin,+5.86,G6b,paper/analysis/out/g6_seed_stats.csv,seed min
@@ -402,10 +421,15 @@ NGsixOLLATDSign,0.001,G6b,paper/analysis/out/g6_seed_stats.csv,sign p
 NGsixOllaStep,1.0,G6a,Optimized/v17x/Dataset/cal500_single.txt,OLLA-tuned step
 NGsixOllaTgt,0.01,G6a,Optimized/v17x/Dataset/cal500_single.txt,OLLA-tuned target
 NGsixRtwoFile,yes,G6e,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,seed_robust flag as written (computed vs Context-500 only)
+NGsixSearchHours,24.6,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,sum of g6b sweep-unit durations
 NGsixSearched,21,G6a,Optimized/v17x/Dataset/ctxj_cells.csv,is_sparse = 0
+NGsixSelScore,0.6088,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,selected score
+NGsixSelStart,S2,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,selected start
+NGsixSingleHours,2.9,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,g6a stage DONE
 NGsixSparse,200,G6a,paper/proposals/G6_calibration_budget_prereg.md; ctxj_cells.csv,sparse threshold (checked against counts)
 NGsixStarts,4,G6a,Optimized/v17x/Dataset/REPORT_g6a.txt,profile
 NGsixSweepCap,6,G6a,Optimized/v17x/Dataset/REPORT_g6a.txt,profile
+NGsixSweeps,21,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,g6b sweep units
 NGsixValEns,0.6306,G6a,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,ENS_A2C
 NGsixValPrim,0.6126,G6a,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,PRIMARY_A2C
 NHMfourFixed,3.4985,R26,Optimized/v17/paper/headroom.csv,fixed
@@ -572,6 +596,7 @@ NMoneGpOLLAT,3.7265,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rt
 NMoneGpOff,4.3135,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (offset) goodput
 NMoneGpPrim,4.4506,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 goodput
 NMoneGpRsd,4.3620,R13,Optimized/v17/Dataset/fill_summary_v17.txt,PRIM|M1_dl_rtt8|Deep A2C v17 (resid-800) goodput
+NMoneHours,2.7,R32,Optimized/v17/Dataset/fill_summary_v17.txt,STEP M1 done elapsed_min / 60 (10 seeds training + evaluation)
 NMoneJainCtx,0.7740,R12,Optimized/v17/paper/table_core.csv,jain_cmp
 NMoneJainDiff,\ensuremath{-}0.0025,R12,Optimized/v17/paper/table_core.csv,jain_rl - jain_cmp
 NMoneJainFixed,0.7720,R12,Optimized/v17/paper/table_core.csv,jain_cmp vs Fixed

@@ -15,7 +15,8 @@ def fmt(value, f):
     if f.endswith('f') and f.startswith('0.'):
         return format(float(v), f[1:])
     if f == 'integer':
-        return str(int(float(v)))
+        n = int(float(v))
+        return f'{n:,}'.replace(',', r'\,') if abs(n) >= 10000 else str(n)
     if f == 'sci':
         m, e = format(float(v), '.1e').split('e')
         return f'${m}\\times10^{{{int(e)}}}$'

@@ -171,3 +171,9 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - **TWC revisit rule** (Checkpoint 3): not met (G6 seed-level bound vs the combined table is ≤ 0).
 - **Open:** registry rows for the v17x stages (ledger REG1); G10 running; NR2 after G10.
 - **Draft v1:** 14 pages (IEEEtran journal, incl. references and appendices A–D). Build note: the Linux VM on the PC has no `IEEEtran.cls`; the PDF was built elsewhere with IEEEtran V1.8b / IEEEtran.bst 1.14. `latexmk -pdf main.tex` on the PC (MiKTeX) is unchanged.
+
+## Phase 10 — audit of draft v1 against award-paper criteria; draft v2 (8 Nov 2026, evening)
+- Yardstick: ComSoc Outstanding Paper Award winners in OJ-COMS (Björnson & Sanguinetti 2020; Di Renzo et al. 2020), Agarwal et al. (NeurIPS 2021 Outstanding Paper), Ferrari Dacrema et al. (RecSys 2019 Best Paper). Report: `ledger/audit_2026-11-08.md`; findings `ledger/conflicts.md` §H (H1–H11).
+- Claim-level fixes: the combined-table search had one start at the 6-sweep cap (pending `cap_hit` corrected to yes); comparator tuning was not "cheap" (24.6 h search vs 2.7 h learner); project-wide Bonferroni for M1 vs combined table gives p = 1.00 (now in abstract, protocol, results).
+- Added: probability of improvement (0.55 [0.49, 0.61] vs combined table), Fig. 4 row vs combined table, summary Table VII, definitions of margin/R1/R2/Claim B-500/joint parity, release contents in the data statement.
+- Draft v2: `manuscript/draft_v2.pdf`, 14 pages; gate and 19 tests pass.

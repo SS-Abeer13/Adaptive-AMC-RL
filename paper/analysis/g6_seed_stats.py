@@ -2,6 +2,7 @@
 re-calibrated comparators of stage G6 (Optimized/v17x/Dataset/ckpt/g6c/eval.mat), same 500
 evaluation traces with common random numbers.  Same estimators and RNG seeds as g3_seed_stats.py.
 Rule R2: margin is seed-robust iff the hierarchical (seed x trace) 95% CI lower bound > 0.
+Also the probability of improvement (Agarwal et al., NeurIPS 2021) over seed x trace pairs.
 Output: paper/analysis/out/g6_seed_stats.csv and .txt
 """
 import sys, os, csv, numpy as np, h5py
@@ -30,16 +31,24 @@ for name, key in CMPS:
         si = rng.integers(0, S, S); ti = rng.integers(0, T, T)
         hb[b] = 100 * (A[np.ix_(si, ti)].mean() / c[ti].mean() - 1)
     lo95, hi95 = np.percentile(hb, [2.5, 97.5])
+    # probability of improvement (Agarwal et al. 2021): P(A[s,t] > c[t]) over seed x trace pairs, ties count 1/2,
+    # with a hierarchical bootstrap 95% CI (same resampling scheme as the margin)
+    poi = float(np.mean((A > c[None, :]) + 0.5 * (A == c[None, :])))
+    rng_p = np.random.default_rng(20261108); pb = np.empty(B // 4)
+    for b in range(B // 4):
+        si = rng_p.integers(0, S, S); ti = rng_p.integers(0, T, T); Ab = A[np.ix_(si, ti)]; cb = c[ti][None, :]
+        pb[b] = np.mean((Ab > cb) + 0.5 * (Ab == cb))
     r = dict(comparator=name, n_seeds=S, n_traces=T, cmp_mean=round(c.mean(), 4), rl_mean=round(A.mean(), 4),
              margin_pct=round(point, 3), seeds_above=f'{n_pos}/{S}', sign_test_p_one_sided=f'{p_sign:.3g}',
              seed_margin_min=round(seed_m.min(), 3), seed_margin_max=round(seed_m.max(), 3),
              seedmean_boot_ci95_lo=round(np.percentile(sb, 2.5), 3), seedmean_boot_ci95_hi=round(np.percentile(sb, 97.5), 3),
              hier_boot_ci95_lo=round(lo95, 3), hier_boot_ci95_hi=round(hi95, 3),
-             hier_boot_p_le0=f'{(np.sum(hb <= 0) + 1) / (B + 1):.3g}', seed_robust_R2=int(lo95 > 0))
+             hier_boot_p_le0=f'{(np.sum(hb <= 0) + 1) / (B + 1):.3g}', seed_robust_R2=int(lo95 > 0),
+             prob_improve=round(poi, 4), poi_ci95_lo=round(np.percentile(pb, 2.5), 4), poi_ci95_hi=round(np.percentile(pb, 97.5), 4))
     rows.append(r)
     log.append(f"M1 primary vs {name}: margin {point:+.2f}% | seeds>0 {n_pos}/{S} (sign p={p_sign:.3g}) | "
                f"seed-mean boot 95% [{r['seedmean_boot_ci95_lo']:+.2f},{r['seedmean_boot_ci95_hi']:+.2f}] | "
-               f"hier 95% [{lo95:+.2f},{hi95:+.2f}] | R2 seed-robust={r['seed_robust_R2']}")
+               f"hier 95% [{lo95:+.2f},{hi95:+.2f}] | R2 seed-robust={r['seed_robust_R2']} | P(improve)={poi:.3f} [{r['poi_ci95_lo']:.3f},{r['poi_ci95_hi']:.3f}]")
 os.makedirs(os.path.join(here, 'out'), exist_ok=True)
 with open(os.path.join(here, 'out', 'g6_seed_stats.csv'), 'w', newline='') as fh:
     w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)

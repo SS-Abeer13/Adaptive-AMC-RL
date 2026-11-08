@@ -72,7 +72,7 @@ Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 
 \emph{Single-cue rules.} Fixed-500 selects one global offset of \NGsixFixedOff{} CQI steps (the same value as the v17 Fixed rule). Context-500 is the best of all tables over three slack bins (\NGsixCtxDOffs). The re-tuned OLLA uses target \NGsixOllaTgt{} with a \NGsixOllaStep~dB step. FixedPU-500 is a separable search followed by joint refinement.
 
-\emph{Combined table.} Table~\ref{tab:ctxj} gives the calibrated Context-joint-500 offsets. Cells with fewer than \NGsixSparse{} calibration decisions (marked $^\ast$) were not searched and keep the composite value of Section~\ref{sec:protocol}. The search ran from \NGsixStarts{} starts (the composite table and three random tables) with at most \NGsixSweepCap{} sweeps each; no start reached the cap.
+\emph{Combined table.} Table~\ref{tab:ctxj} gives the calibrated Context-joint-500 offsets. Cells with fewer than \NGsixSparse{} calibration decisions (marked $^\ast$) were not searched and keep the composite value of Section~\ref{sec:protocol}. The search ran from \NGsixStarts{} starts (the composite table and three random tables) with at most \NGsixSweepCap{} sweeps each. \NGsixConvStarts{} starts converged; one reached the cap while still improving (score \NGsixCapStartScore), and the selected start \NGsixSelStart{} scored \NGsixSelScore. The search took \NGsixSearchHours~h over \NGsixSweeps{} sweeps.
 
 \begin{table}[h]
 \caption{Calibrated combined table (Context-joint-500): CQI offset per slack bin $b$ (1: tightest), delay class $d$, speed class $v$ (1: slowest) and busy-HARQ indicator $u$. $^\ast$: sparse cell, composite value.}\label{tab:ctxj}

@@ -83,3 +83,21 @@ The manuscript edits made on the PC in `1aae150` were reviewed line by line agai
 | G10 🟢 | Abstract: "registry of 67 cases and 108 evaluations" | The v17x stages are not yet in `case_registry.csv` (R7) | Open item REG1; counts update when the rows are added |
 | G11 🟢 | Results (G6): "an exhaustive coordinate-ascent search" | Coordinate ascent is not exhaustive (exhaustive search applies to the single-cue rules) | Corrected |
 | G12 🟢 | Hierarchical CI vs Context-500: MATLAB [+0.46, +2.47] %, python [+0.47, +2.46] % | Bootstrap Monte-Carlo difference (different RNG streams) | The python value (same estimator and RNG as G3) is used in the text; both recorded in G6b |
+
+## H. Audit of draft v1 against award-paper criteria (8 Nov 2026, evening)
+
+Reference papers: Björnson & Sanguinetti (OJ-COMS 2020; ComSoc Outstanding Paper Award 2023), Di Renzo et al. (OJ-COMS 2020; same award 2022), Agarwal et al. (NeurIPS 2021 Outstanding Paper), Ferrari Dacrema et al. (RecSys 2019 Best Paper). Full report: `paper/ledger/audit_2026-11-08.md`.
+
+| # | Where | Error | Resolution |
+|---|---|---|---|
+| H1 🔴 | `pending_values.csv` G6 `cap_hit = no` (source given as `cal500_tables.txt`, which has no cap information); Appendix C "no start reached the cap" | Start S3 reached the 6-sweep cap still improving (heartbeat log); G6 §2 requires a capped start to be reported | Value set to `yes` with the log as source; appendix and results report it; `build_numbers.py` now fails if the log shows a capped start and the value says `no`. Ledger G6h |
+| H2 🔴 | Discussion: "each step is cheap compared with training ten deep policies"; Cost: "a table search that needs no gradient steps" | The combined-table search took 24.6 h of simulation against 2.7 h to train and evaluate the ten M1 policies | Rewritten with the measured budgets; tuning budgets reported for comparators (Ferrari Dacrema lesson) |
+| H3 🔴 | Protocol (multiplicity): project-wide Bonferroni reported only for M1 vs the best v17 rule | Applied to the G6 combined-table comparison it gives p = 1.00 | Added to protocol, results and abstract ("does not survive correction over all tests in the project"). Ledger M07 |
+| H4 🟠 | Results (headroom): "margin of 0.95 points … small against these bounds" | Compares percentage points with relative-percent bounds | Compared on the same scale (margin over Fixed vs bound over Fixed); noted that the per-trace bound can be exceeded by an adaptive policy |
+| H5 🟠 | Protocol: "Rule R2", "Claim B-500", "joint parity" and the margin/CI definitions used but never defined | — | Margin, pp vs %, t-interval, R1 and R2 defined in V-D; Claim B-500 and joint parity defined in VI-G |
+| H6 🟠 | Protocol: "we froze eight pre-registrations before any further run"; Table IV caption "frozen before any of these stages ran" | NR2 was added after the other results | Corrected (seven, plus NR2 by amendment) |
+| H7 🟠 | Fig. 4 showed per-seed margins only against the v17 Context table (9/10 seeds) | Hid the R2 failure against the combined table (5/10) | Middle row added; caption updated (Agarwal: show the distribution over runs) |
+| H8 🟢 | Abstract, method: internal version labels ("v17 Context table", "pre-registered from v14") | Undefined jargon | "v17 rules" defined once in V-A; abstract and method reworded |
+| H9 🟢 | Results: "Section VI-G" written as `\ref{sec:results}-G` in the protocol | — | `\ref{sec:robust}` |
+| H10 🟢 | Integers ≥ 10,000 printed without separators (587016) | IEEE style | thin-space separators in `build_pending.py` |
+| H11 🟢 | Conclusion "rarely, and by little" | Vague; award papers state conditions | Rewritten as three explicit conditions |
