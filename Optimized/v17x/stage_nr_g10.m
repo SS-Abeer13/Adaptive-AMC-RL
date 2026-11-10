@@ -38,7 +38,12 @@ function stage_nr_g10(ctx)
         % Load frozen single-cue calibrations from G10
         calib_file = fullfile(ctx.ckptdir, 'g10', sprintf('calib_single_%s.mat', cName));
         if ~exist(calib_file, 'file')
-            error('v17x:nr_g10:missingCalib', 'Missing G10 calibration file: %s', calib_file);
+            fallback_c = fullfile(ctx.root, 'Dataset', 'ckpt', 'g10', sprintf('calib_single_%s.mat', cName));
+            if exist(fallback_c, 'file')
+                calib_file = fallback_c;
+            else
+                error('v17x:nr_g10:missingCalib', 'Missing G10 calibration file: %s', calib_file);
+            end
         end
         calib_data = load(calib_file);
         calib_s = calib_data.out;
@@ -62,6 +67,12 @@ function stage_nr_g10(ctx)
         
         % Load bandits from G10 or train if missing
         bandit_file = fullfile(ctx.ckptdir, 'g10', sprintf('bandit_%s.mat', cName));
+        if ~exist(bandit_file, 'file')
+            fallback_b = fullfile(ctx.root, 'Dataset', 'ckpt', 'g10', sprintf('bandit_%s.mat', cName));
+            if exist(fallback_b, 'file')
+                bandit_file = fallback_b;
+            end
+        end
         if exist(bandit_file, 'file')
             bdata = load(bandit_file);
             bandit_out = bdata.out;
