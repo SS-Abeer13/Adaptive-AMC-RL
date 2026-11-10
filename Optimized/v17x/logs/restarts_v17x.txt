@@ -31,3 +31,84 @@
 [Sun 11/08/2026  0:00:48.51] launch 1 (STAGES=g6b,g6c,a1,a3,a6 workers=2 G6B_PROFILE=full) 
 [Sun 11/08/2026  0:10:11.41] launch 1 (STAGES=g6b,g6c,a1,a3,a6 workers=2 G6B_PROFILE=full) 
 [Sun 11/08/2026  2:26:29.23] launch 1 exit code 0 
+[Sun 11/08/2026  9:44:09.82] launch 1 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 10:28:12.75] WATCHDOG kill
+[Sun 11/08/2026 10:28:12.95] launch 1 exit code 1 
+[Sun 11/08/2026 10:29:13.49] launch 2 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 11:12:15.02] WATCHDOG kill
+[Sun 11/08/2026 11:12:15.16] launch 2 exit code 1 
+[Sun 11/08/2026 11:13:15.66] launch 3 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 11:55:16.70] WATCHDOG kill
+[Sun 11/08/2026 11:55:16.87] launch 3 exit code 1 
+[Sun 11/08/2026 11:56:17.38] launch 4 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 12:38:33.69] WATCHDOG kill
+[Sun 11/08/2026 12:38:33.84] launch 4 exit code 1 
+[Sun 11/08/2026 12:39:34.36] launch 5 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 13:21:50.93] WATCHDOG kill
+[Sun 11/08/2026 13:21:51.08] launch 5 exit code 1 
+[Sun 11/08/2026 13:22:51.54] launch 6 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 14:05:53.29] WATCHDOG kill
+[Sun 11/08/2026 14:05:53.46] launch 6 exit code 1 
+[Sun 11/08/2026 14:06:53.93] launch 7 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 14:50:55.91] WATCHDOG kill
+[Sun 11/08/2026 14:50:56.11] launch 7 exit code 1 
+[Sun 11/08/2026 14:51:56.62] launch 8 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 15:37:28.44] WATCHDOG kill
+[Sun 11/08/2026 15:37:28.63] launch 8 exit code 1 
+[Sun 11/08/2026 15:38:29.14] launch 9 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 16:22:45.95] WATCHDOG kill
+[Sun 11/08/2026 16:22:46.10] launch 9 exit code 1 
+[Sun 11/08/2026 16:23:46.59] launch 10 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 17:08:18.46] WATCHDOG kill
+[Sun 11/08/2026 17:08:18.61] launch 10 exit code 1 
+[Sun 11/08/2026 17:09:19.06] launch 11 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 17:54:51.58] WATCHDOG kill
+[Sun 11/08/2026 17:54:51.89] launch 11 exit code 1 
+[Sun 11/08/2026 17:55:52.38] launch 12 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 18:40:39.21] WATCHDOG kill
+[Sun 11/08/2026 18:40:39.37] launch 12 exit code 1 
+[Sun 11/08/2026 18:41:39.84] launch 13 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 19:23:26.02] WATCHDOG kill
+[Sun 11/08/2026 19:23:26.16] launch 13 exit code 1 
+[Sun 11/08/2026 19:24:26.65] launch 14 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 20:06:42.83] WATCHDOG kill
+[Sun 11/08/2026 20:06:42.97] launch 14 exit code 1 
+[Sun 11/08/2026 20:07:43.44] launch 15 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 20:49:45.06] WATCHDOG kill
+[Sun 11/08/2026 20:49:45.19] launch 15 exit code 1 
+[Sun 11/08/2026 20:50:45.72] launch 16 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 21:32:47.02] WATCHDOG kill
+[Sun 11/08/2026 21:32:47.16] launch 16 exit code 1 
+[Sun 11/08/2026 21:33:47.65] launch 17 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 22:16:04.06] WATCHDOG kill
+[Sun 11/08/2026 22:16:04.21] launch 17 exit code 1 
+[Sun 11/08/2026 22:17:04.69] launch 18 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Sun 11/08/2026 22:26:58.54] launch 18 exit code 1 
+[Mon 11/09/2026  0:56:11.94] launch 1 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Mon 11/09/2026  9:14:52.75] launch 1 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  0:36:31.66] launch 1 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  1:08:20.10] launch 1 (STAGES=g10 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  3:38:27.16] launch 1 exit code 0 
+[Tue 11/10/2026  3:52:23.24] launch 1 (STAGES=nr2  workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  3:55:59.61] launch 1 exit code 3 
+[Tue 11/10/2026  3:57:07.22] launch 1 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  4:02:53.60] launch 1 exit code -1073740940 
+[Tue 11/10/2026  4:03:54.10] launch 2 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026  4:11:53.33] launch 2 exit code -1073740940 
+[Tue 11/10/2026  4:12:53.81] launch 3 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 07:22:09.42] WATCHDOG kill
+[Tue 11/10/2026  7:22:09.67] launch 3 exit code 1 
+[Tue 11/10/2026  7:23:10.20] launch 4 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 09:14:02.71] WATCHDOG kill
+[Tue 11/10/2026  9:14:02.95] launch 4 exit code 1 
+[Tue 11/10/2026  9:15:03.45] launch 5 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 10:51:25.89] WATCHDOG kill
+[Tue 11/10/2026 10:51:26.06] launch 5 exit code 1 
+[Tue 11/10/2026 10:52:26.54] launch 6 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 11:37:45.38] WATCHDOG kill
+[Tue 11/10/2026 11:37:45.62] launch 6 exit code 1 
+[Tue 11/10/2026 11:38:46.12] launch 7 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 12:25:19.49] WATCHDOG kill
+[Tue 11/10/2026 12:25:19.66] launch 7 exit code 1 
+[Tue 11/10/2026 12:26:20.14] launch 8 (STAGES=nr2 workers=2 G6B_PROFILE=full) 
+[Tue 11/10/2026 13:19:25.52] launch 8 exit code 0 

@@ -1,0 +1,17 @@
+REPORT G10: Operating Grid (2026-11-10 03:37:44)
+
+--- Base Rule by Cell ---
+cell,base_rule_kind,base_rule_name,fixed_offset,is_class_oracle
+G2_hi_d10,fixed_class,FixedPU (Oracle),-2,1
+G3_lo_d18,fixed_class,FixedPU (Oracle),-3,1
+
+
+--- Cell Summary ---
+G10 OPERATING GRID SUMMARY (2026-11-10 03:37:43, MATLAB 9.14.0.2206163 (R2023a))
+
+CELL|name=G2_hi_d10|win=0|claimA=1|claimB=0|claimJP=0|primary_ontime=0.5406
+CELL|name=G3_lo_d18|win=0|claimA=1|claimB=0|claimJP=1|primary_ontime=0.9045
+
+VERDICT|No tested cell WINs
+WORDING|The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced. Two further grid corners were not tested.
+

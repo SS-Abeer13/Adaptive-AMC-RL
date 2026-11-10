@@ -1,0 +1,9 @@
+2026-11-10 12:26:31
+stage nr2
+unit episode
+measured s/unit 2.59952
+basis s/unit 0.64000
+ratio 4.062 (pause above 1.50)
+units 39839
+projected hours 28.77
+note: NR2 confirmatory replication (30k ep training + 14.5k evals; 20 ep benchmarked; basis 0.64 s/ep)

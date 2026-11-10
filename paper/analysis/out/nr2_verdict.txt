@@ -1,0 +1,3 @@
+NR2 verdict: CONFIRM | WIN=yes | reframing gate (CONFIRM and WIN): OPEN
+vs Context-joint-500: margin +3.35% 90% CI [+2.93, +3.76] Holm p=3.68e-30; seeds>0 9/10; hierarchical 95% [+2.22, +4.40]
+secondary vs M1 (oracle base): +2.58% [+2.32, +2.84]

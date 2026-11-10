@@ -1,0 +1,9 @@
+  [base-rule] Calib on-time score: Fixed = 0.6054 (offset -2), FixedPU = 0.6190 -> chosen base rule: FixedPU (Oracle)
+  [base-rule] Calib on-time score: Fixed = 0.6054 (offset -2), FixedPU = 0.6190 -> chosen base rule: FixedPU (Oracle)
+  [base-rule-forced] Forced base rule: Fixed (kind=fixed)
+  [base-rule-forced] Forced base rule: Fixed (kind=fixed)
+  Deep A2C v17 ep  25/3000 | CellTp =  3.52 Mbps | Policy Entropy = 0.430 | entW = 0.030
+  Deep A2C v17 ep  50/3000 | CellTp =  4.70 Mbps | Policy Entropy = 0.534 | entW = 0.030
+  Deep A2C v17 ep  75/3000 | CellTp =  4.75 Mbps | Policy Entropy = 0.591 | entW = 0.029
+  Deep A2C v17 ep 100/3000 | CellTp =  3.69 Mbps | Policy Entropy = 0.612 | entW = 0.029
+  Deep A2C v17 ep 125/3000 | CellTp =  4.43 Mbps | Policy Entropy = 0.663 | entW = 0.029

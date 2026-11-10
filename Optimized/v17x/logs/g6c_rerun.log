@@ -1,0 +1,3 @@
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to parallel pool with 2 workers.
+Parallel pool using the 'Processes' profile is shutting down.

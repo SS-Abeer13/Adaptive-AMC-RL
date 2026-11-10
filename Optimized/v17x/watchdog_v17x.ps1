@@ -2,7 +2,7 @@ param(
     [string]$BaseDir = "D:\Adaptive AMC A2C+QL\Optimized\v17x",
     [string]$LogsDir = "logs",
     [string]$DataDir = "Dataset",
-    [double]$TimeoutMinutes = 30.0,
+    [double]$TimeoutMinutes = 120.0,
     [int]$PollSeconds = 15
 )
 

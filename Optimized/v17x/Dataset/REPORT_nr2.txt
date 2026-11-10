@@ -1,0 +1,37 @@
+REPORT NR2: Confirmatory Replication (2026-11-10 13:19:14)
+
+--- Summary ---
+NR2 CONFIRMATORY REPLICATION SUMMARY (2026-11-10 13:19:02, MATLAB 9.14.0.2206163 (R2023a))
+
+CONFIG|NR2|base_rule=fixed|offset=-2|n_seeds=10|ep_deep=3000|n_eval=500|trace_base=1000000|crn_base=1010000|dec_base=1020000
+HASHES|cal500_tables=94140b8c3405dc7107c2ef1b3d833fd2811fde47b2046516b8547ca331257f89|cal500_single=8ec52905dce4a61dcc9da329f9bd113068147fa0472ae5941ad0c43ec5821998
+REPRO|comparators_m1_diff=0|m1_policies_diff=0
+PRIMARY_NR2|ontime=0.6201
+ENS_NR2|ontime=0.6332
+PRIMARY_M1_ORACLE|ontime=0.6045
+DIFF_VS_M1|diff_pct=+2.58%|ci90=[2.32 2.84]|p=5.19e-42
+SECONDARY_ENS_VS_CTXJ|diff_pct=+5.53%|ci90=[4.99 6.06]|p=1.13e-43
+CLAIMS|beats_ctxj500=1|win=1
+
+REPLCMP_NR2|pf|NR2 vs Baseline|pct=+18.19|ci90pct=[17.31 19.07]|p=5.83e-79|holm=4.66e-78|beats=1
+REPLCMP_NR2|pf|NR2 vs OLLA|pct=+14.68|ci90pct=[13.92 15.45]|p=5.59e-77|holm=3.91e-76|beats=1
+REPLCMP_NR2|pf|NR2 vs OLLA-tuned-500|pct=+10.54|ci90pct=[9.94 11.14]|p=3.06e-74|holm=1.53e-73|beats=1
+REPLCMP_NR2|pf|NR2 vs Multi-OLLA|pct=+14.71|ci90pct=[13.93 15.49]|p=7.09e-77|holm=4.25e-76|beats=1
+REPLCMP_NR2|pf|NR2 vs Fixed-500|pct=+4.85|ci90pct=[4.45 5.24]|p=1.11e-54|holm=4.43e-54|beats=1
+REPLCMP_NR2|pf|NR2 vs FixedPU-500|pct=+4.58|ci90pct=[4.17 4.98]|p=3.87e-49|holm=1.16e-48|beats=1
+REPLCMP_NR2|pf|NR2 vs Context-500|pct=+4.33|ci90pct=[3.94 4.73]|p=5.94e-48|holm=1.19e-47|beats=1
+REPLCMP_NR2|pf|NR2 vs Context-joint-500|pct=+3.35|ci90pct=[2.93 3.76]|p=3.83e-30|holm=3.83e-30|beats=1
+
+
+--- Trace-Level Results ---
+comparator,margin_pct,ci90_lo,ci90_hi,wilcoxon_p,holm_p,beats
+Baseline,+18.19,17.31,19.07,5.828e-79,4.662e-78,1
+OLLA,+14.68,13.92,15.45,5.585e-77,3.910e-76,1
+OLLA-tuned-500,+10.54,9.94,11.14,3.057e-74,1.528e-73,1
+Multi-OLLA,+14.71,13.93,15.49,7.088e-77,4.253e-76,1
+Fixed-500,+4.85,4.45,5.24,1.107e-54,4.427e-54,1
+FixedPU-500,+4.58,4.17,4.98,3.868e-49,1.160e-48,1
+Context-500,+4.33,3.94,4.73,5.943e-48,1.189e-47,1
+Context-joint-500,+3.35,2.93,3.76,3.830e-30,3.830e-30,1
+M1 (Oracle-base primary),+2.58,2.32,2.84,5.191e-42,5.191e-42,1
+

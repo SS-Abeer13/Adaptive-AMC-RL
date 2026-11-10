@@ -1,0 +1,11 @@
+item,key,value,source_file,date
+NR2,verdict,CONFIRM,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,win,yes,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,margin_ctxj,3.35,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,ci_lo_ctxj,2.93,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,ci_hi_ctxj,3.76,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,holm_ctxj,3.68e-30,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,seeds_above,9,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,hier_lo,2.22,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,hier_hi,4.40,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,margin_m1,2.58,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,
