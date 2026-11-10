@@ -6,9 +6,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 OUT = os.path.join(ROOT, 'paper', 'manuscript', 'figs')
 RL, OL, CAL, GR, INK = '#2a78d6', '#eb6834', '#1baf7a', '#8a8f98', '#222222'
 plt.rcParams.update({'font.family': 'serif', 'font.serif': ['Times New Roman', 'Liberation Serif', 'DejaVu Serif'],
-    'font.size': 7.5, 'axes.labelsize': 7.5, 'xtick.labelsize': 7, 'ytick.labelsize': 7, 'legend.fontsize': 7,
+    'font.size': 8, 'axes.labelsize': 8, 'axes.titlesize': 8, 'xtick.labelsize': 7.5, 'ytick.labelsize': 7.5, 'legend.fontsize': 7.5,
     'axes.linewidth': 0.6, 'pdf.fonttype': 42, 'axes.spines.top': False, 'axes.spines.right': False,
-    'axes.grid': True, 'grid.color': '#dddddd', 'grid.linewidth': 0.4, 'axes.axisbelow': True})
+    'axes.grid': True, 'grid.color': '#dddddd', 'grid.linewidth': 0.4, 'axes.axisbelow': True, 'mathtext.fontset': 'stix'})
 # role -> (colour, marker)
 STYLE = {'Baseline': (GR, 's'), 'OLLA': (OL, 'o'), 'OLLA (tuned target)': (OL, 'D'), 'Multi-OLLA': (OL, '^'),
          'Fixed': (CAL, 's'), 'FixedPU (Oracle)': (CAL, 'P'), 'Context table': (CAL, 'D'),
@@ -27,5 +27,22 @@ def prim():
     return out
 def core():
     return {(r['case_tag'], r['scheme'], r['comparator']): r for r in csv.DictReader(open(os.path.join(ROOT, 'Optimized/v17/paper/table_core.csv')))}
+# IEEE two-column: column 3.5 in, text width 7.16 in. Figures are exported at exactly
+# these widths so that LaTeX includes them at scale 1 and font sizes print as set
+# (minimum 7 pt). The figure canvas is adjusted until the tight bounding box has
+# the target width; the height is kept as designed.
+COL_IN, FULL_IN, PAD_IN = 3.5, 7.16, 0.02
 def save(fig, name):
-    fig.savefig(os.path.join(OUT, name + '.pdf'), bbox_inches='tight'); plt.close(fig)
+    w0, h0 = fig.get_size_inches()
+    target = FULL_IN if w0 > 5 else COL_IN
+    for _ in range(6):
+        fig.canvas.draw()
+        bb = fig.get_tightbbox(fig.canvas.get_renderer())
+        tw, th = bb.width + 2 * PAD_IN, bb.height + 2 * PAD_IN
+        w, h = fig.get_size_inches()
+        if abs(tw - target) < 0.005 and abs(th - h0) < 0.01:
+            break
+        fig.set_size_inches(w + (target - tw), h + (h0 - th))
+    fig.savefig(os.path.join(OUT, name + '.pdf'), bbox_inches='tight', pad_inches=PAD_IN)
+    fig.savefig(os.path.join(OUT, name + '-1.png'), bbox_inches='tight', pad_inches=PAD_IN, dpi=200)
+    plt.close(fig)

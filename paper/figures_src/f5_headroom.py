@@ -9,10 +9,10 @@ for i, c in enumerate(cases):
     for k, (key, col, mk, nm) in enumerate([('genie', GR, 's', 'genie'), ('hindsight', OL, 'D', 'hindsight')]):
         v = 100 * (float(H[c][key]) / fx - 1)
         a.plot(i + (k - 0.5) * 0.18, v, mk, color=col, ms=5, label=nm if i == 0 else None)
-a.axhline(0, color=INK, lw=0.7); a.set_xticks(range(4)); a.set_xticklabels(lab); a.set_ylabel('Headroom over Fixed (%)'); a.legend(frameon=False); a.grid(axis='x', visible=False)
+a.axhline(0, color=INK, lw=0.7); a.set_xticks(range(4)); a.set_xticklabels(lab); a.set_ylabel('Headroom over Fixed (%)'); a.legend(frameon=False); a.set_title('(a) Headroom over Fixed', loc='left'); a.grid(axis='x', visible=False)
 for i, c in enumerate(['M1_dl_rtt8', 'M2_dl_rtt0']):
     r = TL[c]; y = [float(r['pct_800ep']), float(r['pct_3000ep'])]
     b.plot([0, 1], y, '-o', color=RL if i == 0 else GR, ms=4.5, lw=1.2, label=['M1', 'M2'][i])
 b.axhline(0, color=INK, lw=0.7); b.set_xticks([0, 1]); b.set_xticklabels(['800 ep.', '3000 ep.']); b.set_xlim(-0.3, 1.3); b.grid(axis='x', visible=False)
-b.set_ylabel('A2C margin vs Fixed (%)'); b.legend(frameon=False)
+b.set_ylabel('A2C margin vs Fixed (%)'); b.legend(frameon=False); b.set_title('(b) Training length', loc='left')
 save(fig, 'f5_headroom')

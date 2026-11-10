@@ -1,0 +1,19 @@
+flowchart TB
+  S["<b>NR2</b>: fresh seeds and traces"] --> A["<b>R1</b> vs combined table?"]
+  A -- yes --> B["<b>R2</b>: hier. 95% CI &gt; 0?"]
+  A -- no --> R["Table better?<br/>Holm p &lt; 0.05, CI &lt; 0"]
+  B -- yes --> C["<b>CONFIRM</b>"]
+  B -- no --> T["<b>TRACE</b>"]
+  R -- yes --> RV["<b>REVERSE</b>"]
+  R -- no --> N["<b>NULL</b>"]
+  C --> W["<b>WIN</b>: beats all 8?"]
+  W -- yes --> RF["Reframe"]
+  W -- no --> NO["Keep framing"]
+  classDef q fill:#fdf0e8,stroke:#eb6834,color:#222;
+  classDef good fill:#e9f7f1,stroke:#1baf7a,color:#222;
+  classDef mid fill:#fff7e0,stroke:#d9a400,color:#222;
+  classDef bad fill:#fdecea,stroke:#d64545,color:#222;
+  class A,B,R,W q
+  class C,RF good
+  class T,NO mid
+  class RV,N bad

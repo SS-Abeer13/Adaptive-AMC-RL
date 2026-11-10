@@ -6,7 +6,7 @@ tc = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_cal
 sd = {r['comparator']: r for r in csv.DictReader(open(os.path.join(A, 'g6_seed_stats.csv')))}
 order = ['Context-joint-500', 'Context-500', 'Fixed-500', 'FixedPU-500']
 lab = {'Context-joint-500': 'Combined table', 'Context-500': 'Context table\n(re-calibrated)', 'Fixed-500': 'Fixed\n(re-calibrated)', 'FixedPU-500': 'FixedPU, class oracle\n(re-calibrated)'}
-fig, axs = plt.subplots(1, 2, figsize=(7.16, 2.35), gridspec_kw={'width_ratios': [1, 1.15], 'wspace': 0.55})
+fig, axs = plt.subplots(1, 2, figsize=(7.16, 2.35), gridspec_kw={'width_ratios': [1, 1.15], 'wspace': 0.9})
 ax = axs[0]
 for j, c in enumerate(order):
     m, lo, hi = float(tc[c]['margin_pct']), float(tc[c]['ci90_lo']), float(tc[c]['ci90_hi'])
@@ -18,9 +18,9 @@ for j, c in enumerate(order):
 ax.axvline(0, color=INK, lw=0.7)
 ax.set_yticks(range(len(order))); ax.set_yticklabels([lab[c] for c in order]); ax.invert_yaxis(); ax.grid(axis='y', visible=False)
 ax.set_xlabel('Margin of residual A2C (M1) over the comparator (%)')
-ax.plot([], [], color=INK, lw=3.2, label='trace level, 90 % CI'); ax.plot([], [], color=INK, lw=0.9, label='seed x trace, 95 % CI')
-ax.set_xlim(-0.6, 5.2); ax.legend(loc='upper right', frameon=False, fontsize=6.3)
-ax.set_title('(a) Re-calibrated comparators', fontsize=7.5, loc='left')
+ax.plot([], [], color=INK, lw=3.2, label='trace level, 90 % CI'); ax.plot([], [], color=INK, lw=0.9, label='seed$\\times$trace, 95 % CI')
+ax.set_xlim(-0.6, 5.2); ax.legend(loc='upper right', frameon=False, fontsize=7)
+ax.set_title('(a) Re-calibrated comparators', fontsize=8, loc='left')
 # (b) other checks: W1 (warm-up) and NR1 (non-oracle base), trace level 90 % CI
 tw = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_warmup.csv')))}
 tn = {r['comparator']: r for r in csv.DictReader(open(os.path.join(D, 'table_nr1.csv')))}
@@ -38,6 +38,6 @@ for j, (l, m, lo, hi, col) in enumerate(rows):
 ax.axvline(0, color=INK, lw=0.7)
 ax.set_yticks(range(len(rows))); ax.set_yticklabels([r[0] for r in rows]); ax.invert_yaxis(); ax.grid(axis='y', visible=False)
 ax.set_xlabel('Margin (%), trace level, 90 % CI')
-ax.set_title('(b) Warm-up check and non-oracle base', fontsize=7.5, loc='left')
-ax.text(1.0, -0.30, '* secondary, descriptive', transform=ax.transAxes, ha='right', fontsize=6, color=GR)
+ax.set_title('(b) Warm-up check and non-oracle base', fontsize=8, loc='left')
+ax.text(1.0, -0.30, '* secondary, descriptive', transform=ax.transAxes, ha='right', fontsize=7, color=GR)
 save(fig, 'f6_robust')
