@@ -1,4 +1,4 @@
-# FREEZE v5 (amendment 4, 9 Nov 2026: code review finding fixed_class_tab bug fix, G10 watchdog heartbeat, G6c re-evaluation; before any valid G10 or NR2 run). Unchanged since v4: all 10 prereg documents and analysis script. Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
+# FREEZE v7 (amendments 5 & 6, 10 Nov 2026: pre-registered NR-G10, equivalence test for DeepA2C_Shared_v17 memory optimization; before any NR-G10 run). Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
 c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd  G6_calibration_budget_prereg.md
 3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d  W1_warmup_prereg.md
 ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258  NR1_nonoracle_residual_prereg.md
@@ -9,4 +9,5 @@ f8382b866c5b51131d4185f4fe2920efabe46b6f7ed81963ec5759472fed664f  common_rules.m
 d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a  compute_basis.md
 1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c  NR2_confirmatory_prereg.md
 c73b4157438f3f91397c6ba32159b494dd9e57dade0917052bca3f112656f71f  ../analysis/nr2_stats.py
-f417c1b77b03ad95922cfcbcc852353e11529d775b8ff70870f407c4602ccfa6  AMENDMENTS.md
+1b370c55fb899ef2769bbdbe7f5436b709a5ca31b3b501fbf67283e375fc7017  AMENDMENTS.md
+bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08  NR_G10_operating_grid_prereg.md

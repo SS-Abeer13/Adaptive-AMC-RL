@@ -90,3 +90,23 @@ M1 vs Fixed (+1.87 %, p = 6.74 × 10⁻¹⁷) survives by a wider margin.
 > Every case run in this study is listed in a public registry (supplementary Table S1). We define a *case* as one environment and training recipe evaluated on one set of traces, and a *scheme evaluation* as one RL variant compared against the nine non-RL comparators within a case. Over the whole project (v9–v17) we registered 67 cases and 108 scheme evaluations. Seven cases (18 scheme evaluations) were later superseded because of a scheduler-timing artefact (Section VIII) and are not used as evidence. Forty-nine cases were run from v10 onward, under the current protocol of calibrated same-information comparators and pre-stated decision rules. Nine valid cases met the all-comparator criterion for at least one RL variant. The primary claim of this paper (M1) is a pre-registered confirmatory test on fresh traces and seeds. Its comparison against the strongest calibrated rule remains significant after a Bonferroni correction over every test in the project (972 = 108 × 9; adjusted p ≈ 8.8 × 10⁻¹⁰), and its hierarchical seed × trace bootstrap 95 % CI excludes zero ([+0.62, +2.62] %). The RTT-0 result (M2) is reported only as a replication of an effect first seen in exploratory and earlier pre-registered cases; it does not survive project-wide correction on its own.
 
 Numbers: ledger M01–M06, G3a.
+
+## 7. Checkpoint-5 and Amendments Multiplicity Additions
+
+The Checkpoint-5 campaign and subsequent amendments added pre-registered confirmatory, robustness, and diagnostic cases evaluated under the same rigorous protocols:
+
+| Stage / Amendment | Description | Cases Added | Scheme Eval Rows Added | Cumulative Cases | Cumulative Rows |
+|---|---|---|---|---|---|
+| Main round (v9–v17) | Historical baseline | 67 | 108 | 67 | 108 |
+| W1 | Warm-up check (cold vs warm) | +1 | +2 | 68 | 110 |
+| G6 | Calibration budget & combined table | +1 | +2 | 69 | 112 |
+| NR1 | Non-oracle base design ablation | +1 | +3 | 70 | 115 |
+| G10 | Operating grid check (G2, G3) | +2 | +4 | 72 | 119 |
+| A6 | PF timing diagnostic | +1 | +1 | 73 | 120 |
+| NR2 (Amendment 3) | Confirmatory non-oracle replication | +1 | +2 | 74 | 122 |
+| **NR-G10 (Amendment 5)** | **Non-oracle operating grid (G2, G3)** | **+2** | **+4** | **76** | **126** |
+
+- **Total Cases:** 76 cases.
+- **Total Scheme Evaluations:** 126 evaluations.
+- **Total Project-Wide Tests (Bonferroni pool):** $\le 126 \times 10 = 1,260$ tests.
+- **Survives Bonferroni?** M1 vs Context table raw $p = 9.06 \times 10^{-13}$; Bonferroni adjusted over 1,260 tests: $p_{\text{adj}} \approx 1.14 \times 10^{-9} \ll 0.05$. M1 remains highly significant under the most conservative project-wide correction.

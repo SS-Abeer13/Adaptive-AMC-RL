@@ -34,7 +34,7 @@ function cfg = v17x_cfg()
     elseif strcmp(st, '3')
         cfg.stages = {'st_slow'};
     else
-        allst = {'g1', 'w1', 'nr1', 'g6a', 'g6b', 'g6c', 'g10', 'nr2', 'a1', 'a3', 'a6'};   % approved order (Checkpoint 5b + NR2)
+        allst = {'g1', 'w1', 'nr1', 'g6a', 'g6b', 'g6c', 'g10', 'nr2', 'nr_g10', 'a1', 'a3', 'a6'};   % approved order (Checkpoint 5b + NR2 + NR-G10)
         req = strtrim(strsplit(envstr('STAGES', strjoin(allst, ',')), ','));
         cfg.stages = req(ismember(req, allst));
     end
