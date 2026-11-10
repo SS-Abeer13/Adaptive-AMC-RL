@@ -1058,7 +1058,7 @@ function [aGrad, cGrad] = a2c_grads_v17(actorNet, criticNet, S, Aacts, R, entW, 
     entropy = -sum(p .* logp_all, 1);
     aLoss = -sum(logp .* advD) / nP - entW * mean(entropy);
 
-    cGrad = dlgradient(cLoss, criticNet.Learnables, 'RetainData', true);
+    cGrad = dlgradient(cLoss, criticNet.Learnables);
     aGrad = dlgradient(aLoss, actorNet.Learnables);
 end
 

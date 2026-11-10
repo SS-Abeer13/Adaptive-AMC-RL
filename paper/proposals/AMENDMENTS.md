@@ -68,3 +68,35 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 **What is not changed.** The pre-registration specifications (`G6_calibration_budget_prereg.md`, `G10_operating_grid_prereg.md`, `NR2_confirmatory_prereg.md`, `common_rules.md`, `checkpoint5_list.md`, `compute_basis.md`) are completely unchanged. They specify the methodology and mathematical formulations; this amendment corrects an implementation variable-name disconnect.
 
 **Freeze v5:** hashes recorded in `paper/proposals/FREEZE.sha256`; commit recorded in `paper/STATUS.md`.
+
+## Amendment 5: 10 Nov 2026 (Pre-registered NR-G10: non-oracle residual recipe at the two neighbouring operating cells; before any NR-G10 run)
+**Trigger.** The operating-grid evaluation G10 evaluated the M1 recipe, which auto-selected the base rule on 20 calibration traces. In both cells (G2_hi_d10 and G3_lo_d18), the selector chose `FixedPU (Oracle)` (offset -2 in G2, -3 in G3). G10 yielded no WIN in either cell (Claim A passed in both cells, but Claim B failed against Context table in G2, and against FixedPU and Context table in G3), triggering the pre-registered limitation sentence that the M1 result was observed at the M1 operating point only. Meanwhile, the non-oracle residual recipe (`Fixed` base with calibrated offset) demonstrated clear superiority over the oracle base in NR1 and was confirmed on fresh traces and seeds in NR2 (+3.35 % over Context-joint-500, hierarchical 95 % CI [+2.22, +4.40] %, 9/10 seeds positive). Because the non-oracle recipe is now the recommended configuration, testing whether the non-oracle recipe generalizes across the operating grid is a natural and necessary pre-registered step.
+
+**What is added.** `NR_G10_operating_grid_prereg.md` (new, frozen).
+1. **Cells & Recipe:** The non-oracle residual recipe (residual A2C with `Fixed` base rule, one global calibrated offset) evaluated at the two tested neighbouring cells:
+   - `G2_hi_d10` (16,000 bits, 10 TTI, base offset `Fixed -2`)
+   - `G3_lo_d18` (8,000 bits, 18 TTI, base offset `Fixed -3`)
+2. **Calibrations:** Frozen single-cue calibrated comparator tables from G10 (Fixed, FixedPU, Context, OLLA tuned; calibrated on 200 traces per cell; hash-checked).
+3. **Training & Seeds:** 5 seeds $\times$ 3,000 episodes per cell. Base seeds: `33042` for G2, `34042` for G3 (seeds 33042+201..205 and 34042+201..205; asserted disjoint from all prior rounds, including G10's 31042 and 32042). Primary scheme: 5-seed mean. Secondary scheme: ensemble.
+4. **Evaluation Traces:** 300 evaluation traces per cell (G2: seeds 720001+, CRN 730001+; G3: seeds 740001+, CRN 750001+; identical evaluation set to G10).
+5. **Comparators & Decision Rules:** Family of 9 single-cue comparators per cell. Rule R1: Holm over 9 per cell; Claim A, Claim B; cell WIN if primary scheme beats all 9. Rule R2: Hierarchical seed $\times$ trace 95 % CI vs best comparator.
+6. **Multiplicity Accounting:** Adds 2 cases (`G2_hi_d10_NR`, `G3_lo_d18_NR`), 4 scheme evaluations (primary + ensemble per cell). Total cases in study increase from 74 to 76; scheme evaluations increase from 122 to 126.
+7. **Pre-registered Wording:** Explicit wording rows for Both WIN, One WINs, Neither WINs, and unrun.
+
+**What is not changed.** All prior frozen texts (`G6`, `W1`, `NR1`, `G10`, `A6`, `NR2`, `common_rules.md`, `checkpoint5_list.md`, `compute_basis.md`) maintain their specifications. G10 results stand as reported (M1 recipe fails Claim B at both neighbouring cells). NR-G10 evaluates the non-oracle recipe as a separate, distinct pre-registered stage.
+
+**Freeze v6:** hashes recorded in `paper/proposals/FREEZE.sha256`.
+
+## Amendment 6: 10 Nov 2026 (Implementation-only: removal of redundant 'RetainData', true in dlgradient; memory optimization; verified bit-identical)
+**Trigger.** A working-tree change in `Optimized/v17/DeepA2C_Shared_v17.m` and `Optimized/v17/release/code/DeepA2C_Shared_v17.m` removed the redundant `'RetainData', true` argument from `dlgradient(cLoss, criticNet.Learnables, 'RetainData', true)`. In MATLAB's automatic differentiation, `RetainData` preserves intermediate activations on the computation graph for subsequent gradient calls. Because actor loss (`aLoss`) and critic loss (`cLoss`) are computed on separate network objects (`actorNet` and `criticNet`), `aLoss` gradients never traverse the critic's computation graph. Removing `RetainData` frees intermediate memory immediately after critic backpropagation, preventing RAM accumulation and accelerating training.
+
+**Verification test (PASS: bit-identical).** An equivalence test was run training one M1 seed (seed 25243) for 20 episodes under both the committed HEAD version and the working-tree version on the identical channel traces:
+- Loss trace max absolute difference: 0.00e+00 (`isequal: 1`)
+- Entropy trace max absolute difference: 0.00e+00 (`isequal: 1`)
+- Actor weights overall max difference: 0.00e+00 (all 6 weight and bias tensors bit-identical)
+- Critic weights overall max difference: 0.00e+00 (all 6 weight and bias tensors bit-identical)
+- Best episode identical: 1 (HEAD=20, WORK=20)
+- Execution speedup: 20.37 s (working-tree) vs 38.22 s (HEAD)
+- Timestamp verification: `DeepA2C_Shared_v17.m` was modified at Tue Nov 10 01:03:25 2026, prior to NR2 training (04:42:51–10:06:07). Thus NR2 was trained with the working-tree version, which is verified bit-identical to HEAD.
+
+**Freeze v7:** Hashes recorded in `paper/proposals/FREEZE.sha256`.
