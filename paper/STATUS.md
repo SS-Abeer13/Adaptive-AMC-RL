@@ -194,3 +194,31 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - **G6c re-evaluated:** Evaluated on the 500 held-out traces with true FixedPU-500. True FixedPU-500 margin is $+1.73$\,\% [$1.31, 2.14$]\,\% (Holm $p = 2.79\times 10^{-12}$, hierarchical 95\,\% CI [$+0.72, +2.80$]\,\%, 9/10 seeds $> 0$). Monotonic calibrated hierarchy confirmed: Fixed-500 ($+1.87$\,\%) > FixedPU-500 ($+1.73$\,\%) > Context-500 ($+1.43$\,\%) > Context-joint-500 ($+0.66$\,\%). M1 beats all 10 comparators.
 - **Amendment 4 & Freeze v5:** Recorded in `paper/proposals/AMENDMENTS.md` and `FREEZE.sha256` (11/11 files bit-exact match). `pending_values.csv` updated (margin_fpu500 = 1.73), macros and tables regenerated. `check_pending.py` passes.
 - **Status:** G10 ready to launch cleanly detached; NR2 smoke test and execution to follow after G10 completes.
+
+## Phase 13 — G10 & NR2 verified, reframing applied, Amendment 5 & Freeze v6 (10 Nov 2026)
+- **G10 verified (no tested cell WINs):**
+  - Evaluated M1 recipe with auto-selected base rule: `FixedPU (Oracle)` selected in both cells (-2 in G2, -3 in G3).
+  - In `G2_hi_d10`: Claim A passes (+9.43 % vs OLLA), Claim B fails (Context table +0.38 %, p = 0.290, `beats = 0`).
+  - In `G3_lo_d18`: Claim A passes (+9.04 % vs OLLA), Claim B fails (FixedPU +0.55 %, p = 0.035, Holm p = 0.070, `beats = 0`; Context table +0.43 %, p = 0.035, Holm p = 0.070, `beats = 0`).
+  - Verdict `NONE`; pre-registered wording applied: *"The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced. Two further grid corners were not tested."* Scope sentence placeholders updated across abstract, results, and limitations.
+- **NR2 verified (CONFIRM / WIN):**
+  - Confirmatory replication on fresh traces (1,000,001+) and seeds (25,042+) of non-oracle residual recipe (`Fixed -2` base).
+  - Primary comparator Context-joint-500: margin $+3.35$\,\% [2.93, 3.76]\,\% (Holm $p = 3.68\times 10^{-30}$, `beats = 1`).
+  - Robust across seeds: 9/10 seeds positive ($p = 0.0107$), hierarchical 95\,\% CI [$+2.22, +4.40$]\,\%.
+  - Beats all 8 comparators in the pre-registered family (`win = yes`).
+  - Beats M1 oracle-base policies on the fresh traces by $+2.58$\,\% [2.32, 2.84]\,\%.
+- **Reframing proposal applied:**
+  - Strictly avoids the word "definitive" everywhere.
+  - M1 preserved as pre-registered primary result, reported first with its R2 qualifier.
+  - Non-oracle residual configuration recommended based on NR1 (exploratory ablation) + NR2 (confirmatory replication).
+  - Non-oracle policy uses no oracle information at all; comparator it beats (combined table) does.
+  - Abstract, contributions C2, results VI-G, and discussion VIII-B updated.
+- **Amendment 5 & Freeze v6 (NR-G10 pre-registration):**
+  - Evaluates the recommended non-oracle residual recipe (`Fixed` base with frozen offsets $-2$ for G2, $-3$ for G3) at the two neighbouring operating cells.
+  - 5 seeds $\times$ 3,000 episodes per cell (disjoint seeds 33042 and 34042), evaluated on 300 traces per cell against 9 single-cue comparators frozen from G10. Decision rules: Rule R1 + Rule R2; wording rows for all outcomes.
+  - Multiplicity accounting: +2 cases (`G2_hi_d10_NR`, `G3_lo_d18_NR`), +4 scheme evaluations. Total cases in study: 76 (scheme evaluations: 126). Project-wide Bonferroni pool: $\le 1,260$ tests.
+  - Runner stage `stage_nr_g10.m`, `stage_nr_g10_preflight.m`, and `stage_nr_g10_report.m` authored and registered in `v17x_cfg.m`.
+  - `paper/proposals/FREEZE.sha256` updated to Freeze v6; all 12 files verified bit-exact match before any NR-G10 run starts.
+- **Manuscript validation:**
+  - `pending_status.csv` and `pending_values.csv` updated (G10=run, NR2=run; 78 pending values written across 9 items).
+  - `build_pending.py`, `build_numbers.py`, `check_pending.py` all pass cleanly with 0 unresolved placeholders and 0 literal gate violations.

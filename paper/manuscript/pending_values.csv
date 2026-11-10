@@ -53,3 +53,27 @@ A6,baseline_8p_vs_1p_acked,1.447,Optimized/v17x/Dataset/fill_summary_v17pf.txt,2
 A6,baseline_8p_vs_1p_sched,0.976,Optimized/v17x/Dataset/fill_summary_v17pf.txt,2026-11-08
 A6,jain_8p_acked,0.436,Optimized/v17x/Dataset/a6_pf_timing.csv,2026-11-08
 A6,jain_8p_sched,0.498,Optimized/v17x/Dataset/a6_pf_timing.csv,2026-11-08
+G10,verdict,NONE,Optimized/v17x/Dataset/table_cells.csv; REPORT_g10.txt,2026-11-10
+G10,n_tested,2,Optimized/v17x/Dataset/table_cells.csv; REPORT_g10.txt,2026-11-10
+G10,n_win,0,Optimized/v17x/Dataset/table_cells.csv; REPORT_g10.txt,2026-11-10
+G10,cells_win,none,Optimized/v17x/Dataset/table_cells.csv; REPORT_g10.txt,2026-11-10
+G10,cells_notwin,G2_hi_d10 and G3_lo_d18,Optimized/v17x/Dataset/table_cells.csv; REPORT_g10.txt,2026-11-10
+G10,margin_min,0.38,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,margin_max,0.43,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,bases,FixedPU in G2 (oracle); FixedPU in G3 (oracle),Optimized/v17x/Dataset/base_rule_by_cell.csv,2026-11-10
+G10,margin_G2,0.38,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,ci_lo_G2,-0.11,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,margin_G3,0.43,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,ci_lo_G3,0.19,Optimized/v17x/Dataset/table_cells.csv,2026-11-10
+G10,base_G2,FixedPU (oracle),Optimized/v17x/Dataset/base_rule_by_cell.csv,2026-11-10
+G10,base_G3,FixedPU (oracle),Optimized/v17x/Dataset/base_rule_by_cell.csv,2026-11-10
+NR2,verdict,CONFIRM,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,win,yes,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,margin_ctxj,3.35,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,ci_lo_ctxj,2.93,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,ci_hi_ctxj,3.76,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,holm_ctxj,3.68e-30,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,seeds_above,9,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,hier_lo,2.22,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,hier_hi,4.40,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
+NR2,margin_m1,2.58,paper/analysis/out/nr2_stats.csv; nr2_seed_stats.csv,2026-11-10
