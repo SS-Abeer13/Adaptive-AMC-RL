@@ -1,0 +1,18 @@
+flowchart TB
+  S["<b>Confirmatory replication (NR2)</b><br/>non-oracle residual, 10 fresh seeds,<br/>500 fresh traces, frozen combined table"]
+  S --> A{"Beats combined table<br/>at trace level?<br/>(Holm over 8, 90 % CI)"}
+  A -- yes --> B{"Hierarchical 95 % CI<br/>lower bound &gt; 0?"}
+  B -- yes --> C["<b>CONFIRM</b>"]
+  B -- no --> T["<b>TRACE</b><br/>R2 qualifier kept"]
+  A -- no --> R{"Table significantly better?<br/>Holm p &lt; 0.05 and<br/>90 % CI upper &lt; 0"}
+  R -- yes --> RV["<b>REVERSE</b><br/>NR1 not replicated"]
+  R -- no --> N["<b>NULL</b><br/>NR1 not replicated"]
+  C --> W{"WIN: beats all 8?<br/>(reported with every verdict;<br/>gate needs CONFIRM + WIN)"}
+  W -- yes --> RF["Reframing proposal:<br/>non-oracle residual becomes the<br/>recommended configuration"]
+  W -- no --> C2["One C2 sentence;<br/>no reframing"]
+  classDef good fill:#e9f7f1,stroke:#1baf7a,color:#222;
+  classDef mid fill:#fff7e0,stroke:#d9a400,color:#222;
+  classDef bad fill:#fdecea,stroke:#d64545,color:#222;
+  class C,RF good
+  class T,C2 mid
+  class RV,N bad

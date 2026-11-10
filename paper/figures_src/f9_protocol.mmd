@@ -1,0 +1,21 @@
+flowchart LR
+  subgraph PREP["Fixed before evaluation"]
+    direction TB
+    PR["<b>Pre-registration</b><br/>rules and wording"]
+    HASH["<b>Calibrate, freeze, hash</b><br/>rule tables"]
+    TR["<b>Train learner</b><br/>independent seeds"]
+  end
+  EV["<b>Evaluate all schemes</b><br/>fresh disjoint traces,<br/>common random numbers"]
+  PR --> EV
+  HASH --> EV
+  TR --> EV
+  EV --> R1{"<b>R1</b>: trace level<br/>Holm p &lt; 0.05,<br/>90% CI &gt; 0"}
+  R1 -- no --> W0["does not beat"]
+  R1 -- yes --> R2{"<b>R2</b>: seed level<br/>hier. 95% CI &gt; 0"}
+  R2 -- yes --> W1["beats"]
+  R2 -- no --> W2["beats on traces,<br/>not seed-robust"]
+  classDef rule fill:#fdf0e8,stroke:#eb6834,color:#222;
+  classDef out fill:#e9f7f1,stroke:#1baf7a,color:#222;
+  class R1,R2 rule
+  class W0,W1,W2 out
+  style PREP fill:#fafafa,stroke:#bbbbbb

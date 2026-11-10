@@ -20,6 +20,35 @@ Every new experiment below follows the project's existing discipline: a pre-regi
 
 ---
 
+### Dependency map
+
+```mermaid
+flowchart LR
+  G10["Operating-point check<br/>(G10, running)"] --> NR2["Plan 6<br/>Confirmatory replication<br/>(NR2, ≈ 4.4 h)"]
+  NR2 --> V{"Verdict"}
+  V -- "CONFIRM + WIN" --> RF["Reframe: non-oracle<br/>residual recommended"]
+  V -- "other" --> KEEP["Keep current framing"]
+  RF -.-> NR3["Optional NR3:<br/>non-oracle recipe at<br/>G10 cells"]
+  TH["Plan 4<br/>Theory: learnable headroom<br/>(3–5 weeks)"]
+  RF --> PA
+  KEEP --> PA
+  TH --> PA["<b>Paper A</b><br/>current paper + NR2 + theory<br/>(TMLCN, ≈ 4–6 weeks)"]
+  SI["Plan 2<br/>Sionna platform + HARQ manager<br/>(4–6 weeks)"] --> RP["Plan 1<br/>Reproduce ARIADNE, LOLLA,<br/>LTS vs calibrated rules<br/>(6–9 weeks)"]
+  SI --> LE["5G-LENA:<br/>PF-timing check"]
+  RF -. "recipe to port" .-> SI
+  RP --> BM["Plan 3<br/>Benchmark release<br/>(3–5 weeks)"]
+  LE --> PB
+  BM --> PB["<b>Paper B</b><br/>reproducibility study<br/>+ benchmark (≈ 3–4 months)"]
+  classDef paper fill:#e9f7f1,stroke:#1baf7a,color:#222,stroke-width:2px;
+  classDef gate fill:#fdf0e8,stroke:#eb6834,color:#222;
+  class PA,PB paper
+  class V gate
+```
+
+![Roadmap dependency diagram](figs/roadmap.png)
+
+Source: `paper/figures_src/roadmap.mmd`.
+
 ## Plan 6 — Let the confirmatory replication decide the story
 
 **Goal.** Test, on fresh traces and fresh seeds, whether the non-oracle residual policy beats the frozen combined table at trace level *and* seed level. Everything is already pre-registered (`paper/proposals/NR2_confirmatory_prereg.md`, Amendment 3, FREEZE v4); the PC runner implements it (`stage_nr2.m`, commit `d1f63fc`) and runs it after G10.
@@ -55,6 +84,33 @@ Every new experiment below follows the project's existing discipline: a pre-regi
 G10 tested the oracle-or-selected base at the two neighbouring operating points, not the non-oracle recipe. If NR2 confirms, a small **NR3** (non-oracle recipe at the two G10 cells, ≈ 9 h) can be pre-registered *after* NR2, never before, and only if the authors want the recommendation to extend beyond the M1 point.
 
 ---
+
+### NR2 verdict tree (as pre-registered)
+
+```mermaid
+flowchart TB
+  S["<b>Confirmatory replication (NR2)</b><br/>non-oracle residual, 10 fresh seeds,<br/>500 fresh traces, frozen combined table"]
+  S --> A{"Beats combined table<br/>at trace level?<br/>(Holm over 8, 90 % CI)"}
+  A -- yes --> B{"Hierarchical 95 % CI<br/>lower bound &gt; 0?"}
+  B -- yes --> C["<b>CONFIRM</b>"]
+  B -- no --> T["<b>TRACE</b><br/>R2 qualifier kept"]
+  A -- no --> R{"Table significantly better?<br/>Holm p &lt; 0.05 and<br/>90 % CI upper &lt; 0"}
+  R -- yes --> RV["<b>REVERSE</b><br/>NR1 not replicated"]
+  R -- no --> N["<b>NULL</b><br/>NR1 not replicated"]
+  C --> W{"WIN: beats all 8?<br/>(reported with every verdict;<br/>gate needs CONFIRM + WIN)"}
+  W -- yes --> RF["Reframing proposal:<br/>non-oracle residual becomes the<br/>recommended configuration"]
+  W -- no --> C2["One C2 sentence;<br/>no reframing"]
+  classDef good fill:#e9f7f1,stroke:#1baf7a,color:#222;
+  classDef mid fill:#fff7e0,stroke:#d9a400,color:#222;
+  classDef bad fill:#fdecea,stroke:#d64545,color:#222;
+  class C,RF good
+  class T,C2 mid
+  class RV,N bad
+```
+
+![NR2 verdict decision tree](figs/nr2_verdicts.png)
+
+Source: `paper/figures_src/nr2_verdicts.mmd`.
 
 ## Plan 4 — Theory: how much can any learner add over a table built on the same information?
 

@@ -1,0 +1,20 @@
+flowchart LR
+  G10["Operating-point check<br/>(G10, running)"] --> NR2["Plan 6<br/>Confirmatory replication<br/>(NR2, ≈ 4.4 h)"]
+  NR2 --> V{"Verdict"}
+  V -- "CONFIRM + WIN" --> RF["Reframe: non-oracle<br/>residual recommended"]
+  V -- "other" --> KEEP["Keep current framing"]
+  RF -.-> NR3["Optional NR3:<br/>non-oracle recipe at<br/>G10 cells"]
+  TH["Plan 4<br/>Theory: learnable headroom<br/>(3–5 weeks)"]
+  RF --> PA
+  KEEP --> PA
+  TH --> PA["<b>Paper A</b><br/>current paper + NR2 + theory<br/>(TMLCN, ≈ 4–6 weeks)"]
+  SI["Plan 2<br/>Sionna platform + HARQ manager<br/>(4–6 weeks)"] --> RP["Plan 1<br/>Reproduce ARIADNE, LOLLA,<br/>LTS vs calibrated rules<br/>(6–9 weeks)"]
+  SI --> LE["5G-LENA:<br/>PF-timing check"]
+  RF -. "recipe to port" .-> SI
+  RP --> BM["Plan 3<br/>Benchmark release<br/>(3–5 weeks)"]
+  LE --> PB
+  BM --> PB["<b>Paper B</b><br/>reproducibility study<br/>+ benchmark (≈ 3–4 months)"]
+  classDef paper fill:#e9f7f1,stroke:#1baf7a,color:#222,stroke-width:2px;
+  classDef gate fill:#fdf0e8,stroke:#eb6834,color:#222;
+  class PA,PB paper
+  class V gate

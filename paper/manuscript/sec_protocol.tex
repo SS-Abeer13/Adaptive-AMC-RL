@@ -36,7 +36,13 @@ Table~\ref{tab:info} states what each scheme observes. The learner's state conta
 \emph{Original and re-calibrated rules.} We call the rules calibrated in the main round the \emph{original rules}. A code review before the final comparison showed that their calibration was weaker than ``calibrated on the learner's cues'' suggests. The Context table came from a two-pass coordinate ascent on \NCfgCalibCtx{} traces that did not examine all \NCalCtxTables{} candidate tables, and the FixedPU table was assembled from per-class optima without ever being evaluated as a whole. A pre-registered re-calibration study removes both limits: every rule is searched again on \NGsixCalTraces{} fresh traces, and a \emph{combined table} that uses slack, class and HARQ-process state together is added (Section~\ref{sec:robust}; details in Appendix~\ref{app:g6}). \ifitemrun{G6}{\wordingsel{SI}{G6}{verdict}{unrun}}{}
 
 \subsection{Splits, common random numbers and decision rules}\label{sec:rules}
-Calibration traces (seeds from 60001), validation traces (from 80001) and evaluation traces (from 500001) are disjoint. All schemes see the same evaluation traces with common random numbers~\cite{glasserman1992crn}, so comparisons are paired per trace. Table~\ref{tab:terms} defines the terms used for the comparisons.
+Calibration traces (seeds from 60001), validation traces (from 80001) and evaluation traces (from 500001) are disjoint. All schemes see the same evaluation traces with common random numbers~\cite{glasserman1992crn}, so comparisons are paired per trace. Table~\ref{tab:terms} defines the terms used for the comparisons. Figure~\ref{fig:protocol} shows how the pieces fit together.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figs/f9_protocol.pdf}
+\caption{Evaluation protocol. Everything on the left is fixed before any evaluation trace is drawn: the pre-registration, the calibrated and hashed rule tables, and the trained policies. All schemes are then evaluated on the same fresh traces. The trace-level rule R1 and the seed-level rule R2 (Table~\ref{tab:terms}) only select pre-registered wording; numbers and wording reach the text solely through generated macros.}\label{fig:protocol}
+\end{figure*}
 
 \begin{table}[t]
 \caption{Terms used in the comparisons.}\label{tab:terms}
