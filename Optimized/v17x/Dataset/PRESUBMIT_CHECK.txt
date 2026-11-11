@@ -1,0 +1,88 @@
+======================================================================
+RL-AMC PRE-SUBMISSION CONSISTENCY RUN REPORT
+Timestamp: 2026-11-12T01:31:30+06:00
+Target Commit: 3454e1b2bc9c8935860e0a10dd3dfa463f707ed9
+======================================================================
+
+1. FREEZE PRE-REGISTRATION INTEGRITY
+Command: cd paper/proposals && sha256sum -c FREEZE.sha256
+Status: PASS (14/14 files verified)
+Details:
+  - G6_calibration_budget_prereg.md: OK
+  - W1_warmup_prereg.md: OK
+  - NR1_nonoracle_residual_prereg.md: OK
+  - G10_operating_grid_prereg.md: OK
+  - A6_pf_timing_prereg.md: OK
+  - common_rules.md: OK
+  - checkpoint5_list.md: OK
+  - compute_basis.md: OK
+  - NR2_confirmatory_prereg.md: OK
+  - ../analysis/nr2_stats.py: OK
+  - NR_G10_operating_grid_prereg.md: OK
+  - AMENDMENTS.md: OK
+  - HR1_headroom_prereg.md: OK
+  - ../analysis/hr_stats.py: OK
+
+2. AUTOMATED TEST SUITES
+A. bench/calla_stats/tests
+   Command: pytest bench/calla_stats/tests
+   Result: 14 passed in 48.76s
+   Status: PASS (100%)
+   Tests:
+     - test_cal500_reproduction: PASSED
+     - test_g3_reproduction: PASSED
+     - test_nr2_reproduction_table_nr2: PASSED
+     - test_nr2_reproduction_seed_stats: PASSED
+     - test_nr_g10_report_18_rows: PASSED
+     - test_nr_g10_ctxj_descriptive: PASSED
+     - test_warmup_reproduction: PASSED
+     - test_paired_margin_identical: PASSED
+     - test_paired_margin_known_offset: PASSED
+     - test_wilcoxon_identical: PASSED
+     - test_holm_adjust: PASSED
+     - test_seed_sign_test: PASSED
+     - test_verdict_rules: PASSED
+     - test_strict_tolerance_guard: PASSED
+
+B. sionna_env/tests
+   Command: pytest sionna_env/tests
+   Result: 14 passed in 8.61s
+   Status: PASS (100%)
+   Tests:
+     - test_gymnasium_api: PASSED
+     - test_user_speeds_and_classes: PASSED
+     - test_deadline_traffic_run: PASSED
+     - test_full_buffer_traffic_run: PASSED
+     - test_cqi_delay_and_noise: PASSED
+     - test_channel_time_correlation: PASSED (3.5 GHz / 0.5 ms and 2.0 GHz / 1.0 ms)
+     - test_measured_time_per_slot: PASSED
+     - test_harq: 7 unit tests covering ACK timing, process limits, Chase combining, bit conservation, per-slot reduction, PF definitions, max retries drop: ALL PASSED
+
+3. PUBLICATION TABLE REPRODUCTION
+Command: python release/reproduce_tables.py
+Status: PASS (100%)
+Tables Strictly Verified:
+  1. table_core.csv (72 comparisons across M1, M2, M3, M4): 100% PASS
+  2. table_cal500.csv (G6c 500-trace rule recalibration, 10 rows): 100% PASS
+  3. table_nr2.csv (NR2 confirmatory replication, 8 rows): 100% PASS
+  4. REPORT_nr_g10.txt (NR-G10 18-row operating grid table): 100% PASS
+  5. table_warmup.csv (W1 OLLA warm-up effect, 9 comparators cold vs warm): 100% PASS
+  6. hr_predictions.csv (HR1 learnable headroom P1-P4): 100% PASS
+Verification Criteria:
+  - Margins and CIs <= 0.01 percentage points
+  - Wilcoxon and Holm p-values <= 1.0% relative or <= 1e-12 absolute
+  - Rule R1/R2 verdicts and booleans exact match
+
+4. GIT BRANCH CONSISTENCY & TREE STATUS
+Status: PASS (Clean & Synchronized)
+Details:
+  - Local HEAD: 3454e1b2bc9c8935860e0a10dd3dfa463f707ed9
+  - origin/paper: 3454e1b2bc9c8935860e0a10dd3dfa463f707ed9
+  - origin/paper-draft: 3454e1b2bc9c8935860e0a10dd3dfa463f707ed9
+  - origin/claude/magical-heisenberg-iek5sg: 3454e1b2bc9c8935860e0a10dd3dfa463f707ed9
+  - Working tree: Clean on all tracked repository files across all three branches.
+  - Release archive release_v1.zip prepared locally (179.90 MB, SHA-256: bd64aef32a74edd9249fe4603d972ca3b8fd0382d734e1ccea5d06ca728631d6).
+
+======================================================================
+ALL PRE-SUBMISSION CHECKS PASSED SUCCESSFULLY.
+======================================================================
