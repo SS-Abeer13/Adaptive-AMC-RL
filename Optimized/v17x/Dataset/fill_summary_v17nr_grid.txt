@@ -1,0 +1,6 @@
+NR-G10 OPERATING GRID SUMMARY (2026-11-10 21:15:39)
+
+CELL|name=G2_hi_d10|win=1|claimA=1|claimB=1|primary_ontime=0.5478|best_cmp=Context table|r2_lo=0.90|r2_hi=2.73
+CELL|name=G3_lo_d18|win=1|claimA=1|claimB=1|primary_ontime=0.9098|best_cmp=Context table|r2_lo=0.63|r2_hi=1.42
+
+VERDICT|ALL

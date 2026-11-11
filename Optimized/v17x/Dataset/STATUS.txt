@@ -1,2 +1,2 @@
-2026-11-10 13:19:14 | FINISHED
-nr2        done
+2026-11-10 21:15:40 | FINISHED
+nr_g10     done

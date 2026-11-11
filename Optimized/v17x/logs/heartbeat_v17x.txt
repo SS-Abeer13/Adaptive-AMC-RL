@@ -2386,3 +2386,111 @@
 2026-11-10 13:19:14 | nr2            | stage DONE in 0.88 h
 2026-11-10 13:19:14 | nr2            | REPORT READY: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_nr2.txt
 2026-11-10 13:19:14 | runner         | ALL REQUESTED STAGES FINISHED
+2026-11-10 15:53:31 | runner         | start (stages: nr_g10; workers 2; G6B_PROFILE full)
+2026-11-10 15:54:38 | runner         | parpool open with 2 workers
+2026-11-10 15:54:39 | nr_g10         | preflight start (20 traces)
+2026-11-10 15:55:01 | nr_g10         | preflight: 0.2951 s per eval (basis 0.095, ratio 3.11); projected 4.4 h for 53811 units
+2026-11-10 15:55:02 | nr_g10         | PAUSED by the 1.5x rule; waiting for APPROVE file
+2026-11-10 15:58:21 | runner         | start (stages: nr_g10; workers 2; G6B_PROFILE full)
+2026-11-10 15:59:35 | runner         | parpool open with 2 workers
+2026-11-10 15:59:35 | nr_g10         | preflight: 0.2951 s per eval (basis 0.095, ratio 3.11); projected 4.4 h for 53811 units
+2026-11-10 15:59:35 | nr_g10         | APPROVE file found: continuing despite the 1.5x rule
+2026-11-10 15:59:35 | nr_g10         | stage start
+2026-11-10 15:59:55 | nr_g10         | === Running NR-G10 cell G2_hi_d10 (1/2) ===
+2026-11-10 15:59:55 | nr_g10         | Cell G2_hi_d10 NR recipe: base_rule=Fixed, offset=-2 (non-oracle)
+2026-11-10 15:59:55 | nr_g10         | unit train_seed_G2_hi_d10_1: start
+2026-11-10 15:59:55 | nr_g10         | train_seed_G2_hi_d10_1: training Deep A2C v17 on G2_hi_d10 (ep=3000, seed=33243)
+2026-11-10 16:29:26 | nr_g10         | train_seed_G2_hi_d10_1: finished in 1771.3 s, final lc=4.32
+2026-11-10 16:29:27 | nr_g10         | unit train_seed_G2_hi_d10_1: saving checkpoint
+2026-11-10 16:29:27 | nr_g10         | unit train_seed_G2_hi_d10_1: checkpoint saved
+2026-11-10 16:29:27 | nr_g10         | unit train_seed_G2_hi_d10_1: done in 1772.1 s
+2026-11-10 16:29:27 | nr_g10         | unit train_seed_G2_hi_d10_2: start
+2026-11-10 16:29:27 | nr_g10         | train_seed_G2_hi_d10_2: training Deep A2C v17 on G2_hi_d10 (ep=3000, seed=33244)
+2026-11-10 16:59:41 | nr_g10         | train_seed_G2_hi_d10_2: finished in 1814.1 s, final lc=4.37
+2026-11-10 16:59:41 | nr_g10         | unit train_seed_G2_hi_d10_2: saving checkpoint
+2026-11-10 16:59:42 | nr_g10         | unit train_seed_G2_hi_d10_2: checkpoint saved
+2026-11-10 16:59:42 | nr_g10         | unit train_seed_G2_hi_d10_2: done in 1814.5 s
+2026-11-10 16:59:42 | nr_g10         | unit train_seed_G2_hi_d10_3: start
+2026-11-10 16:59:42 | nr_g10         | train_seed_G2_hi_d10_3: training Deep A2C v17 on G2_hi_d10 (ep=3000, seed=33245)
+2026-11-10 17:34:56 | nr_g10         | train_seed_G2_hi_d10_3: finished in 2114.6 s, final lc=4.15
+2026-11-10 17:34:56 | nr_g10         | unit train_seed_G2_hi_d10_3: saving checkpoint
+2026-11-10 17:34:57 | nr_g10         | unit train_seed_G2_hi_d10_3: checkpoint saved
+2026-11-10 17:34:57 | nr_g10         | unit train_seed_G2_hi_d10_3: done in 2114.9 s
+2026-11-10 17:34:57 | nr_g10         | unit train_seed_G2_hi_d10_4: start
+2026-11-10 17:34:57 | nr_g10         | train_seed_G2_hi_d10_4: training Deep A2C v17 on G2_hi_d10 (ep=3000, seed=33246)
+2026-11-10 18:08:26 | nr_g10         | train_seed_G2_hi_d10_4: finished in 2009.1 s, final lc=5.83
+2026-11-10 18:08:26 | nr_g10         | unit train_seed_G2_hi_d10_4: saving checkpoint
+2026-11-10 18:08:26 | nr_g10         | unit train_seed_G2_hi_d10_4: checkpoint saved
+2026-11-10 18:08:26 | nr_g10         | unit train_seed_G2_hi_d10_4: done in 2009.4 s
+2026-11-10 18:08:26 | nr_g10         | unit train_seed_G2_hi_d10_5: start
+2026-11-10 18:08:26 | nr_g10         | train_seed_G2_hi_d10_5: training Deep A2C v17 on G2_hi_d10 (ep=3000, seed=33247)
+2026-11-10 18:38:35 | nr_g10         | train_seed_G2_hi_d10_5: finished in 1809.0 s, final lc=3.93
+2026-11-10 18:38:35 | nr_g10         | unit train_seed_G2_hi_d10_5: saving checkpoint
+2026-11-10 18:38:36 | nr_g10         | unit train_seed_G2_hi_d10_5: checkpoint saved
+2026-11-10 18:38:36 | nr_g10         | unit train_seed_G2_hi_d10_5: done in 1809.6 s
+2026-11-10 18:38:36 | nr_g10         | unit eval_G2_hi_d10: start
+2026-11-10 18:38:36 | nr_g10         | eval_G2_hi_d10: evaluating 9 comparators on 300 traces
+2026-11-10 18:47:39 | nr_g10         | Cell G2_hi_d10 NR eval: WIN=1 (Claim A=1, B=1), best cmp=Context table (mar=+1.73%, R2=[+0.90, +2.73]%)
+2026-11-10 18:47:39 | nr_g10         | unit eval_G2_hi_d10: saving checkpoint
+2026-11-10 18:47:39 | nr_g10         | unit eval_G2_hi_d10: checkpoint saved
+2026-11-10 18:47:39 | nr_g10         | unit eval_G2_hi_d10: done in 543.2 s
+2026-11-10 18:47:39 | nr_g10         | === Running NR-G10 cell G3_lo_d18 (2/2) ===
+2026-11-10 18:47:39 | nr_g10         | Cell G3_lo_d18 NR recipe: base_rule=Fixed, offset=-3 (non-oracle)
+2026-11-10 18:47:39 | nr_g10         | unit train_seed_G3_lo_d18_1: start
+2026-11-10 18:47:39 | nr_g10         | train_seed_G3_lo_d18_1: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34243)
+2026-11-10 19:11:50 | nr_g10         | train_seed_G3_lo_d18_1: finished in 1450.6 s, final lc=3.77
+2026-11-10 19:11:50 | nr_g10         | unit train_seed_G3_lo_d18_1: saving checkpoint
+2026-11-10 19:11:50 | nr_g10         | unit train_seed_G3_lo_d18_1: checkpoint saved
+2026-11-10 19:11:50 | nr_g10         | unit train_seed_G3_lo_d18_1: done in 1450.8 s
+2026-11-10 19:11:50 | nr_g10         | unit train_seed_G3_lo_d18_2: start
+2026-11-10 19:11:50 | nr_g10         | train_seed_G3_lo_d18_2: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34244)
+2026-11-10 19:33:22 | runner         | start (stages: nr_g10; workers 2; G6B_PROFILE full)
+2026-11-10 19:34:11 | runner         | parpool open with 2 workers
+2026-11-10 19:34:11 | nr_g10         | preflight: 0.2951 s per eval (basis 0.095, ratio 3.11); projected 4.4 h for 53811 units
+2026-11-10 19:34:11 | nr_g10         | APPROVE file found: continuing despite the 1.5x rule
+2026-11-10 19:34:11 | nr_g10         | stage start
+2026-11-10 19:34:21 | nr_g10         | === Running NR-G10 cell G2_hi_d10 (1/2) ===
+2026-11-10 19:34:21 | nr_g10         | Cell G2_hi_d10 NR recipe: base_rule=Fixed, offset=-2 (non-oracle)
+2026-11-10 19:34:21 | nr_g10         | unit train_seed_G2_hi_d10_1: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | unit train_seed_G2_hi_d10_2: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | unit train_seed_G2_hi_d10_3: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | unit train_seed_G2_hi_d10_4: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | unit train_seed_G2_hi_d10_5: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | unit eval_G2_hi_d10: loaded checkpoint, skipped
+2026-11-10 19:34:22 | nr_g10         | === Running NR-G10 cell G3_lo_d18 (2/2) ===
+2026-11-10 19:34:22 | nr_g10         | Cell G3_lo_d18 NR recipe: base_rule=Fixed, offset=-3 (non-oracle)
+2026-11-10 19:34:23 | nr_g10         | unit train_seed_G3_lo_d18_1: loaded checkpoint, skipped
+2026-11-10 19:34:23 | nr_g10         | unit train_seed_G3_lo_d18_2: start
+2026-11-10 19:34:23 | nr_g10         | train_seed_G3_lo_d18_2: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34244)
+2026-11-10 19:52:20 | nr_g10         | train_seed_G3_lo_d18_2: finished in 1076.8 s, final lc=3.48
+2026-11-10 19:52:20 | nr_g10         | unit train_seed_G3_lo_d18_2: saving checkpoint
+2026-11-10 19:52:20 | nr_g10         | unit train_seed_G3_lo_d18_2: checkpoint saved
+2026-11-10 19:52:20 | nr_g10         | unit train_seed_G3_lo_d18_2: done in 1077.2 s
+2026-11-10 19:52:20 | nr_g10         | unit train_seed_G3_lo_d18_3: start
+2026-11-10 19:52:20 | nr_g10         | train_seed_G3_lo_d18_3: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34245)
+2026-11-10 20:11:00 | nr_g10         | train_seed_G3_lo_d18_3: finished in 1119.6 s, final lc=3.88
+2026-11-10 20:11:00 | nr_g10         | unit train_seed_G3_lo_d18_3: saving checkpoint
+2026-11-10 20:11:00 | nr_g10         | unit train_seed_G3_lo_d18_3: checkpoint saved
+2026-11-10 20:11:00 | nr_g10         | unit train_seed_G3_lo_d18_3: done in 1119.8 s
+2026-11-10 20:11:00 | nr_g10         | unit train_seed_G3_lo_d18_4: start
+2026-11-10 20:11:00 | nr_g10         | train_seed_G3_lo_d18_4: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34246)
+2026-11-10 20:31:57 | nr_g10         | train_seed_G3_lo_d18_4: finished in 1257.1 s, final lc=3.80
+2026-11-10 20:31:57 | nr_g10         | unit train_seed_G3_lo_d18_4: saving checkpoint
+2026-11-10 20:31:57 | nr_g10         | unit train_seed_G3_lo_d18_4: checkpoint saved
+2026-11-10 20:31:57 | nr_g10         | unit train_seed_G3_lo_d18_4: done in 1257.4 s
+2026-11-10 20:31:57 | nr_g10         | unit train_seed_G3_lo_d18_5: start
+2026-11-10 20:31:57 | nr_g10         | train_seed_G3_lo_d18_5: training Deep A2C v17 on G3_lo_d18 (ep=3000, seed=34247)
+2026-11-10 21:02:47 | nr_g10         | train_seed_G3_lo_d18_5: finished in 1849.2 s, final lc=3.25
+2026-11-10 21:02:47 | nr_g10         | unit train_seed_G3_lo_d18_5: saving checkpoint
+2026-11-10 21:02:47 | nr_g10         | unit train_seed_G3_lo_d18_5: checkpoint saved
+2026-11-10 21:02:47 | nr_g10         | unit train_seed_G3_lo_d18_5: done in 1849.5 s
+2026-11-10 21:02:47 | nr_g10         | unit eval_G3_lo_d18: start
+2026-11-10 21:02:47 | nr_g10         | eval_G3_lo_d18: evaluating 9 comparators on 300 traces
+2026-11-10 21:15:39 | nr_g10         | Cell G3_lo_d18 NR eval: WIN=1 (Claim A=1, B=1), best cmp=Context table (mar=+1.02%, R2=[+0.63, +1.42]%)
+2026-11-10 21:15:39 | nr_g10         | unit eval_G3_lo_d18: saving checkpoint
+2026-11-10 21:15:39 | nr_g10         | unit eval_G3_lo_d18: checkpoint saved
+2026-11-10 21:15:39 | nr_g10         | unit eval_G3_lo_d18: done in 772.5 s
+2026-11-10 21:15:39 | nr_g10         | nr_g10 done successfully
+2026-11-10 21:15:40 | nr_g10         | stage DONE in 1.69 h
+2026-11-10 21:15:40 | nr_g10         | REPORT READY: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_nr_g10.txt
+2026-11-10 21:15:40 | runner         | ALL REQUESTED STAGES FINISHED

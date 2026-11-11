@@ -1,0 +1,9 @@
+2026-11-10 19:34:11
+stage nr_g10
+unit eval
+measured s/unit 0.29507
+basis s/unit 0.09500
+ratio 3.106 (pause above 1.50)
+units 53811
+projected hours 4.41
+note: NR-G10 2 cells (30k ep training + 9.6k evals; 20 traces benchmarked)
