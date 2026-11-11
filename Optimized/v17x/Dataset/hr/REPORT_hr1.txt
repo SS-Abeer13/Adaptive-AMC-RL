@@ -1,0 +1,48 @@
+================================================================================
+REPORT_hr1.txt -- Plan 4 Tooling: Instrumented Headroom Evaluator Verification
+Generated: 2026-11-11 09:11:50 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+1. TASK B SCOPE & STATUS
+------------------------
+Evaluator:       Optimized/v17/headroom/hr_instrument_v17.m
+Core harness:    Optimized/v17/headroom/evalPolicy_v17_hr.m
+Cases tested:    M1_dl_rtt8, M3_gp_rtt8
+Schemes tested:  Fixed, Context table, Context-joint-500, M1, NR2
+Traces tested:   20 calibration traces (seeds 60001+)
+Bit-identity:    ALL PASSED (max abs diff = 0, isequal = 1)
+p_success match: ALL PASSED (max abs diff vs 1-bler1 = 0)
+Gate status:     GATED (Amendment 7 pending)
+
+2. BIT-IDENTITY VERIFICATION (hr_equiv.txt)
+------------------------------------------
+EQUIV|M1_dl_rtt8|Fixed|bit_identical=1
+EQUIV|M1_dl_rtt8|Context table|bit_identical=1
+EQUIV|M1_dl_rtt8|Context-joint-500|bit_identical=1
+EQUIV|M1_dl_rtt8|M1|bit_identical=1
+EQUIV|M1_dl_rtt8|NR2|bit_identical=1
+EQUIV|M3_gp_rtt8|Fixed|bit_identical=1
+EQUIV|M3_gp_rtt8|Context table|bit_identical=1
+EQUIV|M3_gp_rtt8|Context-joint-500|bit_identical=1
+EQUIV|M3_gp_rtt8|M1|bit_identical=1
+
+3. TIMING & PROJECTED COMPUTE COST
+-----------------------------------
+M1_dl_rtt8   | Fixed              |  2392 decisions | 7.94 s (0.3972 s/trace) | max_diff=0.0e+00
+M1_dl_rtt8   | Context table      |  2384 decisions | 7.56 s (0.3778 s/trace) | max_diff=0.0e+00
+M1_dl_rtt8   | Context-joint-500  |  2393 decisions | 8.11 s (0.4055 s/trace) | max_diff=0.0e+00
+M1_dl_rtt8   | M1                 |  2387 decisions | 11.46 s (0.5731 s/trace) | max_diff=0.0e+00
+M1_dl_rtt8   | NR2                |  2345 decisions | 11.72 s (0.5862 s/trace) | max_diff=0.0e+00
+M3_gp_rtt8   | Fixed              |  1515 decisions | 5.00 s (0.2502 s/trace) | max_diff=0.0e+00
+M3_gp_rtt8   | Context table      |  1515 decisions | 5.92 s (0.2961 s/trace) | max_diff=0.0e+00
+M3_gp_rtt8   | Context-joint-500  |  1752 decisions | 6.93 s (0.3464 s/trace) | max_diff=0.0e+00
+M3_gp_rtt8   | M1                 |  1492 decisions | 12.67 s (0.6335 s/trace) | max_diff=0.0e+00
+
+Total measured time:    77.32 s for 20 traces across all 9 evaluations
+Per-trace timing:       3.866 s/trace (all cases x schemes)
+Projected 500-trace:    1932.9 s (0.54 hours / ~32.2 minutes)
+
+4. GATED STATUS NOTE (Task B4)
+------------------------------
+No evaluation trace has been touched or modified.
+Estimation pass (gradient-boosted trees) is gated until Amendment 7 is frozen.

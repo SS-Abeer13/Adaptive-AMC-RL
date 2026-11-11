@@ -1,0 +1,9 @@
+EQUIV|M1_dl_rtt8|Fixed|bit_identical=1
+EQUIV|M1_dl_rtt8|Context table|bit_identical=1
+EQUIV|M1_dl_rtt8|Context-joint-500|bit_identical=1
+EQUIV|M1_dl_rtt8|M1|bit_identical=1
+EQUIV|M1_dl_rtt8|NR2|bit_identical=1
+EQUIV|M3_gp_rtt8|Fixed|bit_identical=1
+EQUIV|M3_gp_rtt8|Context table|bit_identical=1
+EQUIV|M3_gp_rtt8|Context-joint-500|bit_identical=1
+EQUIV|M3_gp_rtt8|M1|bit_identical=1
