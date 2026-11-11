@@ -1,0 +1,63 @@
+================================================================================
+REPORT_hr1.txt -- Plan 4: Learnable Myopic Headroom Over Calibrated Tables
+Generated: 2026-11-11 13:13:45 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+1. TASK B / HR1 SCOPE & STATUS
+------------------------------
+Pre-registration: paper/proposals/HR1_headroom_prereg.md (Amendment 7, Freeze v8)
+Evaluator:        Optimized/v17/headroom/hr_instrument_v17.m
+Core harness:     Optimized/v17/headroom/evalPolicy_v17_hr.m
+Cases evaluated:  M1_dl_rtt8, M3_gp_rtt8
+Schemes:          Fixed, Context table, Context-joint-500, M1 (10 seeds), NR2 (10 seeds, M1), A2C_case (10 seeds, M3)
+Traces:           500 evaluation traces per run
+Bit-identity:     ALL PASSED (re-checked on first 20 evaluation traces vs evalPolicy_v17_g6, diff = 0)
+p_success match:  ALL PASSED (max abs diff vs 1 - bler1 = 0)
+tbs(a*) match:    ALL PASSED (max abs diff vs simulator TBS = 0)
+Gate status:      OPEN (Amendment 7, Freeze v8, 25b7279 verified)
+
+2. EVALUATION TRACE BASES ASSERTION
+------------------------------------
+M1_dl_rtt8: trace_seed_base = 500000, crn_seed_base = 510000 (asserted OK)
+M3_gp_rtt8: trace_seed_base = 540000, crn_seed_base = 550000 (asserted OK)
+Learned schemes evaluated across seeds s = 1..10 with draws rng(77000 + 100*j + 80 + s)
+
+3. BIT-IDENTITY & EQUIVALENCE VERIFICATION (hr_equiv.txt)
+--------------------------------------------------------
+EQUIV|M1_dl_rtt8|Fixed|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|Context table|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|Context-joint-500|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|M1|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|NR2|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Fixed|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Context table|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Context-joint-500|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|A2C_case|bit_identical=1
+NOTE|M3_gp_rtt8|NR2|not_applicable (NR2 trained for M1_dl_rtt8 with 57 features vs 48 features in M3)
+
+4. DECISION COUNTS & EXECUTION TIMING
+------------------------------------
+M1_dl_rtt8   | Fixed              |   58528 decisions |    0.00 s (0.0000 s/trace)
+M1_dl_rtt8   | Context table      |   58401 decisions |    0.00 s (0.0000 s/trace)
+M1_dl_rtt8   | Context-joint-500  |   58337 decisions |    0.00 s (0.0000 s/trace)
+M1_dl_rtt8   | M1                 |  587016 decisions |    0.00 s (0.0000 s/trace)
+M1_dl_rtt8   | NR2                |  566932 decisions |    0.00 s (0.0000 s/trace)
+M3_gp_rtt8   | Fixed              |   38455 decisions |    0.00 s (0.0000 s/trace)
+M3_gp_rtt8   | Context table      |   38455 decisions |    0.00 s (0.0000 s/trace)
+M3_gp_rtt8   | Context-joint-500  |   44484 decisions |    0.00 s (0.0000 s/trace)
+M3_gp_rtt8   | A2C_case           |  379380 decisions |  329.68 s (0.6594 s/trace)
+
+Total decisions logged: 1829988 across 9 evaluations
+Total measured time:    329.68 s (0.09 hours)
+
+5. OUTPUT DATASET FILES (Dataset/hr/full/)
+-----------------------------------------
+  hr_log_M1_dl_rtt8_Fixed.mat              |    5.8 MB
+  hr_log_M1_dl_rtt8_ContextTable.mat       |    5.7 MB
+  hr_log_M1_dl_rtt8_Context_joint_500.mat  |    5.9 MB
+  hr_log_M1_dl_rtt8_M1.mat                 |   57.4 MB
+  hr_log_M1_dl_rtt8_NR2.mat                |   54.1 MB
+  hr_log_M3_gp_rtt8_Fixed.mat              |    3.5 MB
+  hr_log_M3_gp_rtt8_ContextTable.mat       |    3.5 MB
+  hr_log_M3_gp_rtt8_Context_joint_500.mat  |    4.0 MB
+  hr_log_M3_gp_rtt8_A2C_case.mat           |   25.0 MB

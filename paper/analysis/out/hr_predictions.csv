@@ -1,0 +1,5 @@
+id,statement,estimate,lo,hi,verdict
+P1,M3 residual-restricted learnable headroom over Fixed (A2C_case run) has 95 % upper bound < 0.5 %,2.382,1.883,2.887,not supported
+P2,M1 residual-restricted learnable headroom over the combined table around the non-oracle base (NR2 run) has 95 % lower bound > 0,5.837,5.620,6.053,supported
+P3,M1: residual-restricted headroom over the combined table is larger around the non-oracle base (NR2 run) than around the oracle base (M1 run): 95 % lower bound of the difference > 0,0.245,0.110,0.380,supported
+P4,M1: learnable headroom over the Context table (Context-table run) is larger for users in speed classes 2-3 than in speed class 1 (< 10 m/s): 95 % lower bound of the difference > 0,4.678,4.012,5.356,supported

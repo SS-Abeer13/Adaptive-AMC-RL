@@ -1,10 +1,10 @@
-EQUIV|M1_dl_rtt8|Fixed|bit_identical=1
-EQUIV|M1_dl_rtt8|Context table|bit_identical=1
-EQUIV|M1_dl_rtt8|Context-joint-500|bit_identical=1
-EQUIV|M1_dl_rtt8|M1|bit_identical=1
-EQUIV|M1_dl_rtt8|NR2|bit_identical=1
-EQUIV|M3_gp_rtt8|Fixed|bit_identical=1
-EQUIV|M3_gp_rtt8|Context table|bit_identical=1
-EQUIV|M3_gp_rtt8|Context-joint-500|bit_identical=1
+EQUIV|M1_dl_rtt8|Fixed|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|Context table|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|Context-joint-500|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|M1|bit_identical=1 (from cached log)
+EQUIV|M1_dl_rtt8|NR2|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Fixed|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Context table|bit_identical=1 (from cached log)
+EQUIV|M3_gp_rtt8|Context-joint-500|bit_identical=1 (from cached log)
 EQUIV|M3_gp_rtt8|A2C_case|bit_identical=1
 NOTE|M3_gp_rtt8|NR2|not_applicable (NR2 trained for M1_dl_rtt8 with 57 features vs 48 features in M3)
