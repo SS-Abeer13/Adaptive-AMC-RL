@@ -24,6 +24,7 @@ Desktop.ini
 # Local development tools and ephemeral sockets/logs
 tools/
 *.sock
+*.zip
 paper/manuscript/main.aux
 paper/manuscript/main.bbl
 paper/manuscript/main.blg
