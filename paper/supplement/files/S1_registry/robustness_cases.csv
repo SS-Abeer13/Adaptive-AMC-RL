@@ -1,0 +1,8 @@
+stage,description,cases,rows,prereg,source
+W1,Warm-up check (cold vs warm OLLA),1,2,paper/proposals/W1_warmup_prereg.md,ledger/multiplicity.md section 7
+G6,Calibration budget and combined table,1,2,paper/proposals/G6_calibration_budget_prereg.md,ledger/multiplicity.md section 7
+NR1,Non-oracle base design ablation,1,3,paper/proposals/NR1_nonoracle_residual_prereg.md,ledger/multiplicity.md section 7
+G10,Operating-grid check with the M1 recipe (G2; G3),2,4,paper/proposals/G10_operating_grid_prereg.md,ledger/multiplicity.md section 7
+A6,PF-timing diagnostic,1,1,paper/proposals/A6_pf_timing_prereg.md,ledger/multiplicity.md section 7
+NR2,Confirmatory non-oracle replication (Amendment 3),1,2,paper/proposals/NR2_confirmatory_prereg.md,ledger/multiplicity.md section 7
+NR-G10,Operating-grid check with the non-oracle recipe (G2_hi_d10_NR; G3_lo_d18_NR; Amendment 5),2,4,paper/proposals/NR_G10_operating_grid_prereg.md section 6,Optimized/v17x/Dataset/REPORT_nr_g10.txt

@@ -1,0 +1,28 @@
+users,scheme,runtime,median_us,p99_us,p99_9_us,max_us
+10,Noise floor (empty loop),Python,0.10,0.30,0.50,31.50
+10,Fixed AMC,NumPy,12.30,37.70,58.80,1091.00
+10,Context-joint,NumPy,31.90,92.10,150.40,1127.10
+10,OLLA,NumPy,33.00,91.40,177.40,1240.40
+10,NR2 (State Construction),NumPy,106.30,263.00,402.40,2656.30
+10,NR2 (Forward Pass),NumPy,69.90,190.60,244.70,1709.00
+10,NR2 (Forward Pass),onnxruntime,68.00,175.70,268.00,2606.80
+10,NR2 (Full Policy Step),NumPy,180.40,413.80,632.60,2290.70
+10,NR2 (Full Policy Step),onnxruntime,186.10,464.90,679.50,2623.20
+50,Noise floor (empty loop),Python,0.10,0.30,0.50,31.50
+50,Fixed AMC,NumPy,11.50,28.80,48.20,1073.10
+50,Context-joint,NumPy,39.10,122.60,163.30,1158.90
+50,OLLA,NumPy,33.70,88.80,173.50,2428.90
+50,NR2 (State Construction),NumPy,112.20,237.70,332.50,1884.30
+50,NR2 (Forward Pass),NumPy,124.60,289.50,382.00,1456.00
+50,NR2 (Forward Pass),onnxruntime,97.50,234.40,426.60,11884.70
+50,NR2 (Full Policy Step),NumPy,255.30,669.40,973.10,3027.30
+50,NR2 (Full Policy Step),onnxruntime,237.80,695.60,927.60,2160.20
+100,Noise floor (empty loop),Python,0.10,0.30,0.50,31.50
+100,Fixed AMC,NumPy,13.10,46.90,106.80,1067.50
+100,Context-joint,NumPy,35.00,136.20,183.10,1845.50
+100,OLLA,NumPy,37.20,97.00,157.20,2591.20
+100,NR2 (State Construction),NumPy,124.20,276.90,473.90,2703.30
+100,NR2 (Forward Pass),NumPy,164.60,429.80,561.60,1625.80
+100,NR2 (Forward Pass),onnxruntime,136.25,298.90,410.30,11805.50
+100,NR2 (Full Policy Step),NumPy,297.90,724.20,1062.11,11999.20
+100,NR2 (Full Policy Step),onnxruntime,284.90,898.90,1204.70,3722.60

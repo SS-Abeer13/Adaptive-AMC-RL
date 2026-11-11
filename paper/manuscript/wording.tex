@@ -53,8 +53,9 @@
 \defwording{NRG10}{MIXED}{With the non-oracle residual recipe, the gain is operating-point dependent: residual A2C on a calibrated static offset beat the OLLA family and the single-cue rules at \NRGten{cells_win} but not at \NRGten{cells_notwin} (per-cell table). Two further grid corners were not tested.}
 \defwording{NRG10}{NONE}{With the non-oracle residual recipe, the result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced (per-cell table). Two further grid corners were not tested.}
 \defwording{NRG10}{unrun}{The non-oracle residual recipe was confirmed at the M1 operating point only; neighbouring operating points were not tested under this recipe.}
-% Abstract clause (shortened from the row above; no claim beyond it).
-\defwording{NRG10abs}{ALL}{The oracle-base recipe did not reproduce at two neighbouring operating points, but the non-oracle recipe did: there it beat the OLLA family and the single-cue rules re-calibrated for each point (+\NRGten{margin_G2}\,\% and +\NRGten{margin_G3}\,\% over the best rule); the combined table was pre-registered at the M1 point only, and two further grid corners were not tested.}
-\defwording{NRG10abs}{MIXED}{At two neighbouring operating points the non-oracle recipe held at one and not at the other; two further grid corners were not tested.}
-\defwording{NRG10abs}{NONE}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced.}
-\defwording{NRG10abs}{unrun}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced.}
+% Abstract clause (shortened from the row above; no claim beyond it). The combined-table scope and the untested corners are stated in the body.
+% ALL row valid only together with G10 = NONE (the original recipe failed at both points; pending_values.csv G10,verdict).
+\defwording{NRG10abs}{ALL}{With this recipe, unlike the original one, the gain also held at two neighbouring operating points, against the single-cue rules re-calibrated for each point.}
+\defwording{NRG10abs}{MIXED}{With this recipe the gain held at one of two neighbouring operating points and not at the other.}
+\defwording{NRG10abs}{NONE}{The result was observed at one operating point only; at two neighbouring points it was not reproduced.}
+\defwording{NRG10abs}{unrun}{Other operating points were not tested with this recipe.}

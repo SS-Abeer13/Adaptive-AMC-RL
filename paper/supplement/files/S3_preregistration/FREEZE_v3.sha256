@@ -1,0 +1,10 @@
+# FREEZE v3 (amendment 2, 5 Nov 2026, G10 only; before any G10 run and before any G6 result; commit recorded in paper/STATUS.md). Unchanged since v2: G6, W1, NR1, A6, common_rules, compute_basis. Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
+c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd  G6_calibration_budget_prereg.md
+3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d  W1_warmup_prereg.md
+ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258  NR1_nonoracle_residual_prereg.md
+ceecd80b8224a21d1665b45136413ad02871d4ae5cc7f356a6af671a9419131e  G10_operating_grid_prereg.md
+35ffa58f563c5e184b5429acafcdbbcb4fa92f78d1ee4970c2609af4dca1a8d8  A6_pf_timing_prereg.md
+f8382b866c5b51131d4185f4fe2920efabe46b6f7ed81963ec5759472fed664f  common_rules.md
+9debb4c685cf84a2af6afd787a6c84b3f95f061ccf8f0e58b80321b3b002909c  checkpoint5_list.md
+d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a  compute_basis.md
+53b3a71e63bb69f9f5624d9e4ec20a91dcbb7742d143e01c3d1cad3dd0871f49  AMENDMENTS.md

@@ -375,6 +375,7 @@ NGsixFPUDRobust,yes,G6b,paper\analysis\out\g6_seed_stats.csv,R2 seed-robust
 NGsixFPUDSeedMax,+4.56,G6b,paper\analysis\out\g6_seed_stats.csv,seed max
 NGsixFPUDSeedMin,\ensuremath{-}0.66,G6b,paper\analysis\out\g6_seed_stats.csv,seed min
 NGsixFPUDSign,0.011,G6b,paper\analysis\out\g6_seed_stats.csv,sign p
+NGsixFPUOverFixedPct,0.13,G6c,g6c/eval.mat,"FixedPU-500 / Fixed-500 - 1 (evaluation), class-oracle base over non-oracle base"
 NGsixFixedDAbove,9,G6b,paper\analysis\out\g6_seed_stats.csv,seeds_above
 NGsixFixedDBeats,yes,G6a,Optimized\v17x\Dataset\table_cal500.csv,beats
 NGsixFixedDBootHi,+2.83,G6b,paper\analysis\out\g6_seed_stats.csv,seedmean boot 95 hi

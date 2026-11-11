@@ -429,6 +429,9 @@ add('NGsixCalGap', f(abs(float(sc['Context_joint_500']) - ev['Context-joint-500'
 prim6 = float(re.search(r'PRIMARY_A2C\|ontime=([0-9.]+)', fsb).group(1))
 add('NGsixAbsPpCtxJ', f(100 * (prim6 - ev['Context-joint-500']), 2, True), 'G6a', rel(FSB), 'primary - CtxJ, points')
 add('NGsixBaseGapPct', f(100 * (ev['Fixed-500'] / ev['FixedPU-500'] - 1), 2, True), 'G6c', 'g6c/eval.mat', 'Fixed-500 / FixedPU-500 - 1 (evaluation)')
+gap = 100 * (ev['FixedPU-500'] / ev['Fixed-500'] - 1)
+if gap < 0: ERR.append('text in sec:calfirst assumes FixedPU-500 >= Fixed-500 on evaluation traces; it no longer holds')
+add('NGsixFPUOverFixedPct', f(gap, 2), 'G6c', 'g6c/eval.mat', 'FixedPU-500 / Fixed-500 - 1 (evaluation), class-oracle base over non-oracle base')
 
 # ---- W1
 TW = X('table_warmup.csv'); FSW = X('fill_summary_v17w.txt'); fsw = open(FSW, encoding='utf-8').read()

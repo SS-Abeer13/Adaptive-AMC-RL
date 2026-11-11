@@ -1,0 +1,11 @@
+comparator,nr1_margin_pct,ci90_lo,ci90_hi,wilcoxon_p,holm_p,beats
+Baseline,+18.69,17.81,19.57,1.07e-80,7.52e-80,1
+OLLA,+13.95,13.21,14.68,2.40e-76,1.44e-75,1
+OLLA (tuned target),+13.95,13.21,14.68,2.40e-76,1.44e-75,1
+Multi-OLLA,+14.15,13.40,14.89,4.51e-76,1.80e-75,1
+Fixed,+3.68,3.31,4.05,1.94e-41,3.87e-41,1
+FixedPU (Oracle),+4.52,4.09,4.95,2.95e-46,8.85e-46,1
+Context table,+3.38,3.02,3.75,1.51e-37,1.51e-37,1
+Bandit (global),+49.15,47.79,50.51,1.38e-83,1.25e-82,1
+Bandit (delay class),+49.15,47.79,50.51,1.38e-83,1.25e-82,1
+M1 (Oracle-base primary),+1.77,1.55,2.00,2.03e-31,2.03e-31,1

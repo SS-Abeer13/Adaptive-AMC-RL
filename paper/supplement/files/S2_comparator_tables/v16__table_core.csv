@@ -1,0 +1,127 @@
+case_tag,scheme,comparator,pct_margin,ci90_lo,ci90_hi,wilcoxon_p,holm_p,beats
+K1_dl_rtt8,Deep A2C v16,Baseline,+13.98,13.06,14.90,1.53e-66,1.07e-65,1
+K1_dl_rtt8,Deep A2C v16,OLLA,+9.25,8.43,10.06,2.35e-50,1.41e-49,1
+K1_dl_rtt8,Deep A2C v16,OLLA (tuned target),+9.25,8.43,10.06,2.35e-50,1.41e-49,1
+K1_dl_rtt8,Deep A2C v16,Multi-OLLA,+8.90,8.10,9.70,1.36e-48,5.45e-48,1
+K1_dl_rtt8,Deep A2C v16,Fixed,-1.94,-2.43,-1.44,8.66e-11,1.73e-10,0
+K1_dl_rtt8,Deep A2C v16,FixedPU (Oracle),+0.68,0.49,0.88,1.9e-07,1.9e-07,1
+K1_dl_rtt8,Deep A2C v16,Context table,-2.65,-3.13,-2.18,3.83e-19,1.15e-18,0
+K1_dl_rtt8,Deep A2C v16,Bandit (global),+47.85,46.45,49.25,1.26e-83,1.14e-82,1
+K1_dl_rtt8,Deep A2C v16,Bandit (delay class),+48.02,46.62,49.42,1.26e-83,1.14e-82,1
+K1_dl_rtt8,Deep A2C v16 (offset),Baseline,+18.14,17.16,19.13,2.71e-75,1.9e-74,1
+K1_dl_rtt8,Deep A2C v16 (offset),OLLA,+13.24,12.34,14.13,6.15e-64,3.69e-63,1
+K1_dl_rtt8,Deep A2C v16 (offset),OLLA (tuned target),+13.24,12.34,14.13,6.15e-64,3.69e-63,1
+K1_dl_rtt8,Deep A2C v16 (offset),Multi-OLLA,+12.87,11.99,13.76,2.28e-63,9.13e-63,1
+K1_dl_rtt8,Deep A2C v16 (offset),Fixed,+1.64,1.19,2.09,3.67e-09,7.34e-09,1
+K1_dl_rtt8,Deep A2C v16 (offset),FixedPU (Oracle),+4.36,3.75,4.97,9.17e-26,2.75e-25,1
+K1_dl_rtt8,Deep A2C v16 (offset),Context table,+0.90,0.47,1.33,0.00103,0.00103,1
+K1_dl_rtt8,Deep A2C v16 (offset),Bandit (global),+53.24,51.77,54.72,1.27e-83,1.14e-82,1
+K1_dl_rtt8,Deep A2C v16 (offset),Bandit (delay class),+53.43,51.95,54.90,1.27e-83,1.14e-82,1
+K1_dl_rtt8,Deep PPO v16,Baseline,+11.46,10.37,12.54,5.51e-45,3.86e-44,1
+K1_dl_rtt8,Deep PPO v16,OLLA,+6.83,5.84,7.82,4.31e-24,1.73e-23,1
+K1_dl_rtt8,Deep PPO v16,OLLA (tuned target),+6.83,5.84,7.82,4.31e-24,1.73e-23,1
+K1_dl_rtt8,Deep PPO v16,Multi-OLLA,+6.49,5.50,7.48,3.5e-22,7e-22,1
+K1_dl_rtt8,Deep PPO v16,Fixed,-4.11,-4.71,-3.51,2.75e-25,1.37e-24,0
+K1_dl_rtt8,Deep PPO v16,FixedPU (Oracle),-1.55,-2.21,-0.89,0.000125,0.000125,0
+K1_dl_rtt8,Deep PPO v16,Context table,-4.81,-5.40,-4.21,2.73e-32,1.64e-31,0
+K1_dl_rtt8,Deep PPO v16,Bandit (global),+44.57,43.10,46.04,1.9e-83,1.52e-82,1
+K1_dl_rtt8,Deep PPO v16,Bandit (delay class),+44.74,43.28,46.21,1.69e-83,1.52e-82,1
+K3_gp_rtt8,Deep A2C v16,Baseline,+1.80,0.83,2.78,0.0153,0.107,0
+K3_gp_rtt8,Deep A2C v16,OLLA,-0.01,-0.03,0.01,0.512,1,0
+K3_gp_rtt8,Deep A2C v16,OLLA (tuned target),+0.58,-0.00,1.17,0.195,1,0
+K3_gp_rtt8,Deep A2C v16,Multi-OLLA,+1.44,0.76,2.12,0.000354,0.00283,1
+K3_gp_rtt8,Deep A2C v16,Fixed,-0.01,-0.03,0.01,0.512,1,0
+K3_gp_rtt8,Deep A2C v16,FixedPU (Oracle),+6.58,5.42,7.75,3.09e-18,2.78e-17,1
+K3_gp_rtt8,Deep A2C v16,Context table,-0.01,-0.03,0.01,0.512,1,0
+K3_gp_rtt8,Deep A2C v16,Bandit (global),-0.01,-0.03,0.01,0.512,1,0
+K3_gp_rtt8,Deep A2C v16,Bandit (delay class),-0.01,-0.03,0.01,0.512,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),Baseline,+1.81,0.83,2.79,0.0162,0.113,0
+K3_gp_rtt8,Deep A2C v16 (offset),OLLA,-0.00,-0.00,0.00,1,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),OLLA (tuned target),+0.59,0.01,1.18,0.174,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),Multi-OLLA,+1.45,0.77,2.13,0.000331,0.00265,1
+K3_gp_rtt8,Deep A2C v16 (offset),Fixed,-0.00,-0.00,0.00,1,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),FixedPU (Oracle),+6.59,5.42,7.76,3.45e-18,3.11e-17,1
+K3_gp_rtt8,Deep A2C v16 (offset),Context table,-0.00,-0.00,0.00,1,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),Bandit (global),-0.00,-0.00,0.00,1,1,0
+K3_gp_rtt8,Deep A2C v16 (offset),Bandit (delay class),-0.00,-0.00,0.00,1,1,0
+K3_gp_rtt8,Deep PPO v16,Baseline,-15.69,-16.65,-14.72,8.5e-74,1.7e-73,0
+K3_gp_rtt8,Deep PPO v16,OLLA,-17.19,-18.22,-16.16,3.33e-77,2.67e-76,0
+K3_gp_rtt8,Deep PPO v16,OLLA (tuned target),-16.70,-17.67,-15.72,1.23e-77,1.11e-76,0
+K3_gp_rtt8,Deep PPO v16,Multi-OLLA,-15.99,-16.99,-14.99,1.2e-74,3.6e-74,0
+K3_gp_rtt8,Deep PPO v16,Fixed,-17.19,-18.22,-16.16,3.33e-77,2.67e-76,0
+K3_gp_rtt8,Deep PPO v16,FixedPU (Oracle),-11.73,-12.75,-10.71,1.22e-53,1.22e-53,0
+K3_gp_rtt8,Deep PPO v16,Context table,-17.19,-18.22,-16.16,3.33e-77,2.67e-76,0
+K3_gp_rtt8,Deep PPO v16,Bandit (global),-17.19,-18.22,-16.16,3.33e-77,2.67e-76,0
+K3_gp_rtt8,Deep PPO v16,Bandit (delay class),-17.19,-18.22,-16.16,3.33e-77,2.67e-76,0
+K2_dl_rtt0,Deep A2C v16,Baseline,+4.02,3.63,4.40,7.92e-46,5.54e-45,1
+K2_dl_rtt0,Deep A2C v16,OLLA,+1.61,1.31,1.91,4.32e-17,1.73e-16,1
+K2_dl_rtt0,Deep A2C v16,OLLA (tuned target),+1.70,1.41,1.99,4.82e-20,2.41e-19,1
+K2_dl_rtt0,Deep A2C v16,Multi-OLLA,+1.59,1.32,1.85,4.53e-21,2.72e-20,1
+K2_dl_rtt0,Deep A2C v16,Fixed,+0.28,0.14,0.41,0.00109,0.00109,1
+K2_dl_rtt0,Deep A2C v16,FixedPU (Oracle),+0.58,0.36,0.80,2e-05,6.01e-05,1
+K2_dl_rtt0,Deep A2C v16,Context table,+0.90,0.60,1.19,4.07e-05,8.14e-05,1
+K2_dl_rtt0,Deep A2C v16,Bandit (global),+12.17,11.59,12.74,1.73e-81,1.39e-80,1
+K2_dl_rtt0,Deep A2C v16,Bandit (delay class),+12.59,12.00,13.19,9.83e-82,8.85e-81,1
+K2_dl_rtt0,Deep A2C v16 (offset),Baseline,+3.90,3.51,4.29,2.51e-43,1.76e-42,1
+K2_dl_rtt0,Deep A2C v16 (offset),OLLA,+1.50,1.18,1.81,5.68e-15,2.27e-14,1
+K2_dl_rtt0,Deep A2C v16 (offset),OLLA (tuned target),+1.59,1.29,1.90,2.05e-17,1.03e-16,1
+K2_dl_rtt0,Deep A2C v16 (offset),Multi-OLLA,+1.47,1.20,1.75,1.19e-17,7.12e-17,1
+K2_dl_rtt0,Deep A2C v16 (offset),Fixed,+0.17,0.03,0.30,0.0502,0.0502,0
+K2_dl_rtt0,Deep A2C v16 (offset),FixedPU (Oracle),+0.47,0.24,0.70,0.000307,0.000615,1
+K2_dl_rtt0,Deep A2C v16 (offset),Context table,+0.79,0.50,1.07,0.000114,0.000343,1
+K2_dl_rtt0,Deep A2C v16 (offset),Bandit (global),+12.04,11.46,12.62,4.81e-81,3.85e-80,1
+K2_dl_rtt0,Deep A2C v16 (offset),Bandit (delay class),+12.47,11.88,13.07,3.89e-81,3.51e-80,1
+K2_dl_rtt0,Deep PPO v16,Baseline,+0.53,0.02,1.03,0.00985,0.00985,1
+K2_dl_rtt0,Deep PPO v16,OLLA,-1.80,-2.26,-1.34,1.11e-07,3.34e-07,0
+K2_dl_rtt0,Deep PPO v16,OLLA (tuned target),-1.71,-2.16,-1.26,4.47e-07,8.94e-07,0
+K2_dl_rtt0,Deep PPO v16,Multi-OLLA,-1.82,-2.26,-1.39,2.23e-08,8.91e-08,0
+K2_dl_rtt0,Deep PPO v16,Fixed,-3.09,-3.45,-2.73,3.63e-34,2.18e-33,0
+K2_dl_rtt0,Deep PPO v16,FixedPU (Oracle),-2.80,-3.14,-2.45,6.15e-32,3.08e-31,0
+K2_dl_rtt0,Deep PPO v16,Context table,-2.49,-2.77,-2.21,2.77e-38,1.94e-37,0
+K2_dl_rtt0,Deep PPO v16,Bandit (global),+8.40,7.76,9.04,2.67e-59,2.13e-58,1
+K2_dl_rtt0,Deep PPO v16,Bandit (delay class),+8.82,8.16,9.47,4.01e-61,3.61e-60,1
+K4_gp_rtt0,Deep A2C v16,Baseline,-5.52,-6.04,-5.01,2.96e-49,2.67e-48,0
+K4_gp_rtt0,Deep A2C v16,OLLA,-0.26,-0.43,-0.09,0.0163,0.0813,0
+K4_gp_rtt0,Deep A2C v16,OLLA (tuned target),-2.47,-2.88,-2.07,8.95e-25,6.27e-24,0
+K4_gp_rtt0,Deep A2C v16,Multi-OLLA,+2.35,1.89,2.81,9.09e-19,5.45e-18,1
+K4_gp_rtt0,Deep A2C v16,Fixed,-0.26,-0.43,-0.09,0.0163,0.0813,0
+K4_gp_rtt0,Deep A2C v16,FixedPU (Oracle),+3.43,2.95,3.90,4.93e-30,3.95e-29,1
+K4_gp_rtt0,Deep A2C v16,Context table,-0.26,-0.43,-0.09,0.0163,0.0813,0
+K4_gp_rtt0,Deep A2C v16,Bandit (global),-0.26,-0.43,-0.09,0.0163,0.0813,0
+K4_gp_rtt0,Deep A2C v16,Bandit (delay class),-0.26,-0.43,-0.09,0.0163,0.0813,0
+K4_gp_rtt0,Deep A2C v16 (offset),Baseline,-5.28,-5.84,-4.71,1.16e-42,1.04e-41,0
+K4_gp_rtt0,Deep A2C v16 (offset),OLLA,+0.00,-0.00,0.01,0.312,1,0
+K4_gp_rtt0,Deep A2C v16 (offset),OLLA (tuned target),-2.22,-2.67,-1.77,1.92e-18,1.21e-17,0
+K4_gp_rtt0,Deep A2C v16 (offset),Multi-OLLA,+2.62,2.10,3.13,1.73e-18,1.21e-17,1
+K4_gp_rtt0,Deep A2C v16 (offset),Fixed,+0.00,-0.00,0.01,0.312,1,0
+K4_gp_rtt0,Deep A2C v16 (offset),FixedPU (Oracle),+3.70,3.15,4.25,2.12e-27,1.7e-26,1
+K4_gp_rtt0,Deep A2C v16 (offset),Context table,+0.00,-0.00,0.01,0.312,1,0
+K4_gp_rtt0,Deep A2C v16 (offset),Bandit (global),+0.00,-0.00,0.01,0.312,1,0
+K4_gp_rtt0,Deep A2C v16 (offset),Bandit (delay class),+0.00,-0.00,0.01,0.312,1,0
+K4_gp_rtt0,Deep PPO v16,Baseline,-24.98,-25.82,-24.13,6.58e-83,5.26e-82,0
+K4_gp_rtt0,Deep PPO v16,OLLA,-20.80,-21.58,-20.01,7.6e-83,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,OLLA (tuned target),-22.56,-23.38,-21.73,8.93e-83,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,Multi-OLLA,-18.73,-19.51,-17.94,1.2e-82,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,Fixed,-20.80,-21.58,-20.01,7.6e-83,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,FixedPU (Oracle),-17.87,-18.51,-17.24,1.51e-83,1.35e-82,0
+K4_gp_rtt0,Deep PPO v16,Context table,-20.80,-21.58,-20.01,7.6e-83,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,Bandit (global),-20.80,-21.58,-20.01,7.6e-83,5.32e-82,0
+K4_gp_rtt0,Deep PPO v16,Bandit (delay class),-20.80,-21.58,-20.01,7.6e-83,5.32e-82,0
+L1_dl_rtt8_long,Deep A2C v16,Baseline,+19.29,18.09,20.50,1.01e-48,7.05e-48,1
+L1_dl_rtt8_long,Deep A2C v16,OLLA,+14.21,13.11,15.31,1.52e-43,9.1e-43,1
+L1_dl_rtt8_long,Deep A2C v16,OLLA (tuned target),+14.21,13.11,15.31,1.52e-43,9.1e-43,1
+L1_dl_rtt8_long,Deep A2C v16,Multi-OLLA,+13.79,12.68,14.90,4.82e-42,1.93e-41,1
+L1_dl_rtt8_long,Deep A2C v16,Fixed,+1.74,1.14,2.34,4.48e-06,8.96e-06,1
+L1_dl_rtt8_long,Deep A2C v16,FixedPU (Oracle),+3.90,3.21,4.60,2.04e-16,6.13e-16,1
+L1_dl_rtt8_long,Deep A2C v16,Context table,+1.18,0.56,1.81,0.00218,0.00218,1
+L1_dl_rtt8_long,Deep A2C v16,Bandit (global),+55.15,53.10,57.21,6.14e-51,5.53e-50,1
+L1_dl_rtt8_long,Deep A2C v16,Bandit (delay class),+55.15,53.10,57.21,6.14e-51,5.53e-50,1
+L3_gp_rtt8_long,Deep A2C v16,Baseline,-1.10,-2.34,0.14,0.0206,0.165,0
+L3_gp_rtt8_long,Deep A2C v16,OLLA,-0.16,-0.39,0.07,0.468,1,0
+L3_gp_rtt8_long,Deep A2C v16,OLLA (tuned target),-0.65,-1.48,0.18,0.124,0.87,0
+L3_gp_rtt8_long,Deep A2C v16,Multi-OLLA,+0.27,-0.56,1.10,0.532,1,0
+L3_gp_rtt8_long,Deep A2C v16,Fixed,-0.16,-0.39,0.07,0.468,1,0
+L3_gp_rtt8_long,Deep A2C v16,FixedPU (Oracle),+5.18,3.68,6.69,2.7e-07,2.43e-06,1
+L3_gp_rtt8_long,Deep A2C v16,Context table,-0.16,-0.39,0.07,0.468,1,0
+L3_gp_rtt8_long,Deep A2C v16,Bandit (global),-0.16,-0.39,0.07,0.468,1,0
+L3_gp_rtt8_long,Deep A2C v16,Bandit (delay class),-0.16,-0.39,0.07,0.468,1,0

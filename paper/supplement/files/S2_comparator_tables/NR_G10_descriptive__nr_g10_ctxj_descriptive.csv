@@ -1,0 +1,3 @@
+cell,comparator,label,n_traces,n_seeds,ctxj_mean,primary_mean,margin_pct,ci90_lo,ci90_hi,wilcoxon_p,hier_ci95_lo,hier_ci95_hi,seeds_above,ctx_vs_ctxj_pct
+G2_hi_d10,Context-joint (G10 per-cell combined table),"descriptive, not pre-registered",300,5,0.5422,0.5478,1.04,0.49,1.59,1.92e-03,0.14,2.08,5,0.68
+G3_lo_d18,Context-joint (G10 per-cell combined table),"descriptive, not pre-registered",300,5,0.8993,0.9098,1.17,0.87,1.47,2.82e-10,0.75,1.6,5,-0.15
