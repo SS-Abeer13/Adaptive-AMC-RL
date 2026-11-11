@@ -75,6 +75,126 @@ def compute_nr_tbs(mcs: int, n_rb: int, n_symbols: int = 14) -> int:
     return tbs
 
 
+class ContinuousTDLChannel:
+    """
+    Continuous-time 3GPP TR 38.901 TDL Channel Generator with Sum-of-Sinusoids (SoS).
+
+    Maintains persistent random phases, angles of arrival, and maximum Doppler shifts
+    across batches for each user. This guarantees exact time-continuity and the Clarke/Jakes
+    autocorrelation J_0(2*pi*f_d*tau) across cache-batch boundaries without reset or
+    decorrelation jumps.
+    """
+
+    def __init__(
+        self,
+        speeds: Union[List[float], np.ndarray],
+        carrier_frequency: float = 2.0e9,
+        model: str = "A",
+        delay_spread: float = 30e-9,
+        num_sinusoids: int = 20,
+        slot_duration_s: float = 1e-3,
+        seed: Optional[int] = None,
+        device: str = "cpu",
+    ):
+        self.speeds = np.asarray(speeds, dtype=np.float32)
+        self.num_users = len(self.speeds)
+        self.carrier_frequency = float(carrier_frequency)
+        self.slot_duration_s = float(slot_duration_s)
+        self.model = model
+        self.delay_spread = delay_spread
+        self.num_sinusoids = num_sinusoids
+        self.device = device
+
+        # Instantiate Sionna TDL for structural parameters (delays, power profile, alpha_const)
+        self.tdl = tr38901.TDL(
+            model=model,
+            carrier_frequency=self.carrier_frequency,
+            delay_spread=delay_spread,
+            min_speed=float(np.min(self.speeds)),
+            max_speed=float(np.max(self.speeds)),
+            num_sinusoids=num_sinusoids,
+            device=device,
+        )
+        self.num_clusters = self.tdl._num_clusters
+
+        c = 299792458.0
+        self.omega_d = (
+            2.0
+            * np.pi
+            * torch.as_tensor(self.speeds, dtype=torch.float32, device=device)
+            * self.carrier_frequency
+            / c
+        ).reshape(-1, 1, 1, 1, 1, 1, 1, 1)
+
+        self.rng = torch.Generator(device=device)
+        if seed is not None:
+            self.rng.manual_seed(seed)
+
+        theta = (
+            torch.rand(
+                self.num_users,
+                1,
+                1,
+                1,
+                1,
+                self.num_clusters,
+                1,
+                self.num_sinusoids,
+                generator=self.rng,
+                device=device,
+            )
+            * (2.0 * np.pi / self.num_sinusoids)
+            - (np.pi / self.num_sinusoids)
+        )
+        self.alpha = self.tdl._alpha_const + theta
+        self.phi = (
+            torch.rand(
+                self.num_users,
+                1,
+                1,
+                1,
+                1,
+                self.num_clusters,
+                1,
+                self.num_sinusoids,
+                generator=self.rng,
+                device=device,
+            )
+            * (2.0 * np.pi)
+            - np.pi
+        )
+        self.mean_powers = self.tdl._mean_powers.reshape(
+            1, 1, 1, 1, 1, self.num_clusters, 1
+        ).to(device)
+
+    def generate_block(
+        self, start_slot: int, num_slots: int
+    ) -> Tuple[torch.Tensor, np.ndarray]:
+        """
+        Generate continuous channel coefficients and fading powers for slots
+        [start_slot, start_slot + num_slots).
+
+        Returns:
+            h: complex channel tensor [num_users, num_clusters, num_slots]
+            p_norm: normalized instantaneous fading powers [num_users, num_slots]
+        """
+        times = (
+            torch.arange(num_slots, dtype=torch.float32, device=self.device)
+            + start_slot
+        ) * self.slot_duration_s
+        times = times.reshape(1, 1, 1, 1, 1, 1, num_slots, 1)
+        arg = self.omega_d * times * torch.cos(self.alpha) + self.phi
+        h = torch.complex(torch.cos(arg), torch.sin(arg))
+        h = h.sum(dim=-1) * (1.0 / np.sqrt(self.num_sinusoids))
+        h = torch.sqrt(self.mean_powers) * h
+        h_squeezed = h.squeeze(1).squeeze(1).squeeze(1).squeeze(1)
+
+        p = torch.sum(torch.abs(h_squeezed) ** 2, dim=1)
+        p_mean = torch.mean(p, dim=-1, keepdim=True)
+        p_norm = (p / (p_mean + 1e-12)).cpu().numpy()
+        return h_squeezed, p_norm
+
+
 @dataclass
 class Packet:
     arrival_slot: int
@@ -112,6 +232,8 @@ class SingleCellEnv(gym.Env):
         episode_length: int = 200,
         seed: Optional[int] = None,
         use_sionna_phy: bool = False,
+        carrier_frequency: float = 3.5e9,
+        cache_batch_size: int = 200,
     ):
         super().__init__()
 
@@ -119,6 +241,7 @@ class SingleCellEnv(gym.Env):
         self.num_rbs = num_rbs
         self.slot_duration_ms = slot_duration_ms
         self.channel_model = channel_model
+        self.carrier_frequency = carrier_frequency
         self.min_speed = min_speed
         self.max_speed = max_speed
         self.traffic_type = traffic_type
@@ -129,6 +252,7 @@ class SingleCellEnv(gym.Env):
         self.cqi_noise_std = cqi_noise_std
         self.episode_length = episode_length
         self.use_sionna_phy = use_sionna_phy
+        self.cache_batch_size = cache_batch_size
 
         # User speeds linearly spaced from min_speed (3 m/s) to max_speed (30 m/s)
         self.user_speeds = np.linspace(min_speed, max_speed, num_users)
@@ -161,13 +285,15 @@ class SingleCellEnv(gym.Env):
         # Delayed CQI history buffer: stores true SINR_dB per user for past slots
         self.sinr_history: List[np.ndarray] = []
 
-        # TDL Channel generator (Sionna 3GPP TR 38.901)
-        self.tdl = tr38901.TDL(
+        # Continuous TDL Channel generator (Sionna 3GPP TR 38.901 with persistent phases)
+        self.channel_gen = ContinuousTDLChannel(
+            speeds=self.user_speeds,
+            carrier_frequency=self.carrier_frequency,
             model=channel_model,
             delay_spread=30e-9,
-            carrier_frequency=3.5e9,
-            min_speed=min_speed,
-            max_speed=max_speed,
+            num_sinusoids=20,
+            slot_duration_s=self.slot_duration_ms * 1e-3,
+            seed=seed,
         )
 
         # Action space: offset a in {-4..+2} for each of the 10 users
@@ -192,23 +318,18 @@ class SingleCellEnv(gym.Env):
 
         self.rng = np.random.default_rng(seed)
         self.current_slot = 0
+        self.global_channel_slot = 0
         self.channel_block_idx = 0
         self.channel_powers = None
 
-    def _generate_channel_block(self, num_slots: int = 500):
-        """Generate a block of channel fading realizations using Sionna TDL."""
-        h, _ = self.tdl(
-            batch_size=self.num_users,
-            num_time_steps=num_slots,
-            sampling_frequency=1.0 / (self.slot_duration_ms * 1e-3),
+    def _generate_channel_block(self, num_slots: int = 200):
+        """Generate a block of channel fading realizations using ContinuousTDLChannel."""
+        _, p_norm = self.channel_gen.generate_block(
+            start_slot=self.global_channel_slot,
+            num_slots=num_slots,
         )
-        # h shape: [num_users, 1, 1, 1, 1, num_paths, num_time_steps]
-        # Instantaneous power = sum over multipath components
-        p = torch.sum(torch.abs(h) ** 2, dim=(-2)).squeeze() # [num_users, num_time_steps]
-        # Normalize average fading power to 1.0 per user
-        p_mean = torch.mean(p, dim=-1, keepdim=True)
-        p_norm = (p / (p_mean + 1e-12)).cpu().numpy()
         self.channel_powers = p_norm
+        self.global_channel_slot += num_slots
         self.channel_block_idx = 0
 
     def reset(
@@ -220,14 +341,25 @@ class SingleCellEnv(gym.Env):
         super().reset(seed=seed)
         if seed is not None:
             self.rng = np.random.default_rng(seed)
+            self.channel_gen = ContinuousTDLChannel(
+                speeds=self.user_speeds,
+                carrier_frequency=self.carrier_frequency,
+                model=self.channel_model,
+                delay_spread=30e-9,
+                num_sinusoids=20,
+                slot_duration_s=self.slot_duration_ms * 1e-3,
+                seed=seed,
+            )
 
         self.current_slot = 0
+        self.global_channel_slot = 0
+        self.channel_block_idx = 0
         self.harq.reset()
         self.user_queues = [[] for _ in range(self.num_users)]
         self.sinr_history.clear()
 
         # Generate fresh channel fading block
-        self._generate_channel_block(num_slots=self.episode_length + 20)
+        self._generate_channel_block(num_slots=self.cache_batch_size)
 
         # Warm up CQI history buffer for cqi_delay slots
         for s in range(self.cqi_delay + 1):
@@ -316,7 +448,7 @@ class SingleCellEnv(gym.Env):
 
         # 2. Channel update & true SINR calculation for this slot
         if self.channel_block_idx >= self.channel_powers.shape[1]:
-            self._generate_channel_block(num_slots=200)
+            self._generate_channel_block(num_slots=self.cache_batch_size)
 
         fading_lin = self.channel_powers[:, self.channel_block_idx]
         self.channel_block_idx += 1
