@@ -1,0 +1,5 @@
+users,scheme,column,median_us_raw,p99_9_us_raw,floor_us_empty_loop_p99_9,p99_9_us_floor_corrected,share_le_15kHz_pct_raw,share_le_30kHz_pct_raw,share_le_60kHz_pct_raw,share_le_120kHz_pct_raw
+10,Residual A2C,NR2_full_NumPy_us,180.4,632.6,0.5,632.1,99.9,99.6,93.4,0.0
+10,Fixed,Fixed_NumPy_us,12.3,58.8,0.5,58.3,100.0,100.0,100.0,100.0
+10,Context-joint,Context_joint_NumPy_us,31.9,150.4,0.5,149.9,100.0,100.0,100.0,99.8
+10,OLLA,OLLA_NumPy_us,33.0,177.4,0.5,176.9,100.0,100.0,99.9,99.7

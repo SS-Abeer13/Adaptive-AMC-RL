@@ -108,11 +108,11 @@ NRG10,cj_hier_hi_G3,"DESCRIPTIVE: hierarchical 95% CI upper vs per-cell combined
 NRG10,cj_seeds_G3,"DESCRIPTIVE: seeds with positive margin vs per-cell combined table (of 5), cell G3",integer,VI-G,-
 A3c,platform,"Benchmark platform (CPU/accelerator, OS, runtime)",text,VIII Placement; Fig. a3c,-
 A3c,users,Users per TTI in the benchmark,integer,VIII Placement; Fig. a3c,-
-A3c,med_resid,"Median per-TTI decision time, residual A2C (us)",0.1f,VIII Placement; Fig. a3c,-
+A3c,med_resid,"Median per-TTI decision time, residual A2C full policy step incl. state construction, NumPy (us)",0.1f,VIII Placement; Fig. a3c,-
 A3c,med_fixed,"Median per-TTI decision time, Fixed (us)",0.1f,VIII Placement; Fig. a3c,-
 A3c,med_ctxj,"Median per-TTI decision time, Context-joint (us)",0.1f,VIII Placement; Fig. a3c,-
 A3c,med_olla,"Median per-TTI decision time, OLLA (us)",0.1f,VIII Placement; Fig. a3c,-
-A3c,floor,Timer/OS noise floor subtracted from tails (us),0.1f,VIII Placement; Fig. a3c,-
+A3c,floor,Timer noise floor subtracted from tails: p99.9 of an empty timed loop (us),0.1f,VIII Placement; Fig. a3c,-
 A3c,tail_resid,"Noise-floor-corrected p99.9 per-TTI time, residual A2C (us)",0.1f,VIII Placement; Fig. a3c,-
 A3c,frac15,"Share of TTIs under the 1 ms slot (15 kHz), residual A2C (%)",0.1f,VIII Placement; Fig. a3c,-
 A3c,frac30,"Share under the 0.5 ms slot (30 kHz), residual A2C (%)",0.1f,VIII Placement; Fig. a3c,-
