@@ -55,15 +55,9 @@ def build_report():
     df_sorted = df_all.sort_values(by=['users', 'm_rank', 's_rank', 'r_rank']).reset_index(drop=True)
     df_sorted = df_sorted.drop(columns=['s_rank', 'r_rank', 'm_rank'])
     
-    # Save table_a3b.csv in Optimized/v17x/Dataset/ and Dataset/
+    # Save table_a3b.csv in Optimized/v17x/Dataset/
     csv_path1 = os.path.join(dataset_dir, "table_a3b.csv")
     df_sorted.to_csv(csv_path1, index=False, float_format='%.2f')
-    
-    # Root Dataset/ directory
-    root_dataset = os.path.join(os.path.dirname(os.path.dirname(here)), "Dataset")
-    os.makedirs(root_dataset, exist_ok=True)
-    csv_path2 = os.path.join(root_dataset, "table_a3b.csv")
-    df_sorted.to_csv(csv_path2, index=False, float_format='%.2f')
     
     # Also load export to get exact test vector metrics
     export_mat = sio.loadmat(os.path.join(dataset_dir, "a3b_export.mat"))
@@ -165,12 +159,8 @@ def build_report():
     with open(rep_path1, "w", encoding="utf-8") as f:
         f.write(report_text)
         
-    rep_path2 = os.path.join(root_dataset, "REPORT_a3b.txt")
-    with open(rep_path2, "w", encoding="utf-8") as f:
-        f.write(report_text)
-        
-    print(f"Report written to {rep_path1} and {rep_path2}")
-    print(f"Table written to {csv_path1} and {csv_path2}")
+    print(f"Report written to {rep_path1}")
+    print(f"Table written to {csv_path1}")
 
 if __name__ == "__main__":
     build_report()
