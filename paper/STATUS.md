@@ -222,3 +222,9 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - **Manuscript validation:**
   - `pending_status.csv` and `pending_values.csv` updated (G10=run, NR2=run; 78 pending values written across 9 items).
   - `build_pending.py`, `build_numbers.py`, `check_pending.py` all pass cleanly with 0 unresolved placeholders and 0 literal gate violations.
+
+## Phase 14 — HR1 pre-registered, Amendment 7 & Freeze v8 (11 Nov 2026)
+- **HR1 (Plan 4, stage `hr1`) frozen:** `proposals/HR1_headroom_prereg.md` with `analysis/hr_stats.py`. Freeze v8 commit: `25b7279`. All 14 files in `FREEZE.sha256` verify; v7 kept as `FREEZE_v7.sha256`.
+- Author decisions (a) clipped offsets with the same MCS are one action, (b) residual set = base offset ±1 per decision, table set −4…+2, (c) full buffer ubits = tbs are in §3 of the frozen text.
+- **B4 gate may be lifted** for the full pass on the M1 and M3 evaluation traces (all 10 seeds per learned scheme, decision draws rng(77000 + 100 j + 10 k + s)), then `python3 paper/analysis/hr_stats.py`.
+- Tooling: instrumented evaluator `fc78cc7`, per-candidate TBS/useful bits `5f2659e`; bit-identity on 20 calibration traces (`Optimized/v17x/Dataset/hr/hr_equiv.txt`).
