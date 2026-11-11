@@ -100,3 +100,19 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 - Timestamp verification: `DeepA2C_Shared_v17.m` was modified at Tue Nov 10 01:03:25 2026, prior to NR2 training (04:42:51–10:06:07). Thus NR2 was trained with the working-tree version, which is verified bit-identical to HEAD.
 
 **Freeze v7:** Hashes recorded in `paper/proposals/FREEZE.sha256`.
+
+## Amendment 7: 11 Nov 2026 (new stage HR1 / `hr1`, Plan 4: learnable myopic headroom; before any instrumented run on evaluation traces)
+**What is added.** `HR1_headroom_prereg.md` (new, frozen) and its analysis script `paper/analysis/hr_stats.py` (frozen with it). The instrumented evaluator (`Optimized/v17/headroom/`, commits `fc78cc7`, `5f2659e`) logs 65 columns per scheduled new transmission and is bit-identical to the frozen evaluator on 20 calibration traces (`Dataset/hr/hr_equiv.txt`). The full pass runs the main-round **evaluation** traces of M1 (500001–500500, CRN 510001+) and M3 (540001–540500, CRN 550001+) for Fixed, the Context table, the frozen combined table Context-joint-500 and the stored learned policies (M1, NR2 on M1; the M3 policies on M3), all 10 seeds per learned scheme.
+
+**Decisions fixed by the author (11 Nov 2026), now part of the frozen text (§3):**
+- (a) candidate offsets that map to the same MCS because of clipping are treated as one action;
+- (b) the residual-restricted headroom uses the base offset ±1 per decision (`base_rule_offset`), and the table headroom uses −4…+2;
+- (c) the full-buffer case uses ubits = tbs.
+
+**Predictions** P1–P4 with decision rules and wording rows (§§5–6). HR1 adds no scheme evaluations, so the registry, the robustness ledger and the Bonferroni pool are unchanged (§7).
+
+**Independence.** Written after all main results were known. No headroom quantity has been computed on any trace: `hr_stats.py` was tested on synthetic logs only (rules (a)–(c), determinism, genie ≥ learnable), and the 20-trace calibration logs were not analysed.
+
+**What is not changed.** All earlier frozen texts and scripts keep their hashes.
+
+**Freeze v8:** hashes in `paper/proposals/FREEZE.sha256` (v7 kept as `FREEZE_v7.sha256`). The B4 gate of `stage_hr1.m` opens when this entry and the `hr1` freeze line are present and `sha256sum -c FREEZE.sha256` passes.
