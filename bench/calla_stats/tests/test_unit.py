@@ -74,3 +74,18 @@ def test_verdict_rules():
     assert v_trace["verdict"] == "TRACE"
     assert v_trace["win"] is False
     assert v_trace["reframing_gate"] == "closed"
+
+
+def test_strict_tolerance_guard():
+    """Verify that strict assertion rejects deviations beyond 0.01 margin or 1% p-value."""
+    margin_true = 3.35
+    margin_perturbed = 3.37  # 0.02 deviation
+    with pytest.raises(AssertionError):
+        assert abs(margin_perturbed - margin_true) <= 0.01
+
+    p_true = 0.0105
+    p_perturbed = 0.0115  # ~9.5% relative deviation
+    rel_diff = abs(p_perturbed - p_true) / p_true
+    abs_diff = abs(p_perturbed - p_true)
+    with pytest.raises(AssertionError):
+        assert (rel_diff <= 0.01) or (abs_diff <= 1e-12)

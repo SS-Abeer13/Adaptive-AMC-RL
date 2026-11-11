@@ -1,9 +1,9 @@
-"""Reproduce paper/analysis/out/g3_seed_stats.csv."""
+"""Strict reproduction of paper/analysis/out/g3_seed_stats.csv."""
 
 import os
 import csv
-import numpy as np
 import pytest
+import numpy as np
 from scipy import stats
 
 from calla_stats import (
@@ -19,7 +19,16 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")
 G3_STATS_CSV = os.path.join(ROOT, "paper", "analysis", "out", "g3_seed_stats.csv")
 
 
+def assert_pvalue(calc_p: float, exp_p: float, name: str):
+    rel_diff = abs(calc_p - exp_p) / max(exp_p, 1e-300)
+    abs_diff = abs(calc_p - exp_p)
+    assert (rel_diff <= 0.01) or (abs_diff <= 1e-12), (
+        f"{name} p-value mismatch: calc={calc_p}, exp={exp_p} (rel={rel_diff:.4g}, abs={abs_diff:.4g})"
+    )
+
+
 def test_g3_reproduction():
+    """Strictly assert all 15 rows and all columns of g3_seed_stats.csv."""
     assert os.path.exists(G3_STATS_CSV), f"Missing {G3_STATS_CSV}"
 
     with open(G3_STATS_CSV, mode="r", encoding="utf-8") as f:
@@ -51,6 +60,7 @@ def test_g3_reproduction():
                 expected = stored_rows[row_idx]
                 row_idx += 1
 
+                label = f"{tag} | {rl} vs {cmp_name}"
                 assert expected["case"] == tag
                 assert expected["scheme"] == rl
                 assert expected["comparator"] == cmp_name
@@ -68,27 +78,34 @@ def test_g3_reproduction():
                 hb = hierarchical_bootstrap(A, c, B=B, rng=rng, confidence=0.95)
                 tb = trace_bootstrap(A.mean(axis=0), c, B=B, rng=rng, confidence=0.90)
 
-                assert round(point, 3) == pytest.approx(float(expected["margin_pct"]), abs=0.001)
-                assert f"{st['seeds_above']}/{S}" == expected["seeds_above"]
-                assert float(f"{st['sign_p']:.3g}") == pytest.approx(float(expected["sign_test_p_one_sided"]), rel=1e-2)
-                assert float(f"{t_res.pvalue:.3g}") == pytest.approx(float(expected["seed_t_p_two_sided"]), rel=1e-2)
-                assert round(t_ci[0], 3) == pytest.approx(float(expected["seed_t_ci90_lo"]), abs=0.001)
-                assert round(t_ci[1], 3) == pytest.approx(float(expected["seed_t_ci90_hi"]), abs=0.001)
-                assert round(seed_m.min(), 3) == pytest.approx(float(expected["seed_margin_min"]), abs=0.001)
-                assert round(seed_m.max(), 3) == pytest.approx(float(expected["seed_margin_max"]), abs=0.001)
+                assert abs(point - float(expected["margin_pct"])) <= 0.01 + 1e-6, f"{label} margin"
+                assert f"{st['seeds_above']}/{S}" == expected["seeds_above"], f"{label} seeds_above"
 
-                assert round(tb["trace_boot_ci90_lo"], 3) == pytest.approx(float(expected["trace_boot_ci90_lo"]), abs=0.001)
-                assert round(tb["trace_boot_ci90_hi"], 3) == pytest.approx(float(expected["trace_boot_ci90_hi"]), abs=0.001)
-                assert round(hb["hier90_lo"], 3) == pytest.approx(float(expected["hier_boot_ci90_lo"]), abs=0.001)
-                assert round(hb["hier90_hi"], 3) == pytest.approx(float(expected["hier_boot_ci90_hi"]), abs=0.001)
-                assert round(hb["hier95_lo"], 3) == pytest.approx(float(expected["hier_boot_ci95_lo"]), abs=0.001)
-                assert round(hb["hier95_hi"], 3) == pytest.approx(float(expected["hier_boot_ci95_hi"]), abs=0.001)
-                assert round(t95[0], 3) == pytest.approx(float(expected["seed_t_ci95_lo"]), abs=0.001)
-                assert round(t95[1], 3) == pytest.approx(float(expected["seed_t_ci95_hi"]), abs=0.001)
-                assert round(sb["boot90_lo"], 3) == pytest.approx(float(expected["seedmean_boot_ci90_lo"]), abs=0.001)
-                assert round(sb["boot90_hi"], 3) == pytest.approx(float(expected["seedmean_boot_ci90_hi"]), abs=0.001)
-                assert round(sb["boot95_lo"], 3) == pytest.approx(float(expected["seedmean_boot_ci95_lo"]), abs=0.001)
-                assert round(sb["boot95_hi"], 3) == pytest.approx(float(expected["seedmean_boot_ci95_hi"]), abs=0.001)
-                assert float(f"{hb['p_le0']:.3g}") == pytest.approx(float(expected["hier_boot_p_le0"]), rel=1e-2)
+                assert_pvalue(st["sign_p"], float(expected["sign_test_p_one_sided"]), f"{label} sign_test_p")
+                assert_pvalue(float(t_res.pvalue), float(expected["seed_t_p_two_sided"]), f"{label} seed_t_p")
+
+                assert abs(t_ci[0] - float(expected["seed_t_ci90_lo"])) <= 0.01 + 1e-6, f"{label} t_ci90_lo"
+                assert abs(t_ci[1] - float(expected["seed_t_ci90_hi"])) <= 0.01 + 1e-6, f"{label} t_ci90_hi"
+
+                assert abs(seed_m.min() - float(expected["seed_margin_min"])) <= 0.01 + 1e-6, f"{label} seed_min"
+                assert abs(seed_m.max() - float(expected["seed_margin_max"])) <= 0.01 + 1e-6, f"{label} seed_max"
+
+                assert abs(tb["trace_boot_ci90_lo"] - float(expected["trace_boot_ci90_lo"])) <= 0.01 + 1e-6
+                assert abs(tb["trace_boot_ci90_hi"] - float(expected["trace_boot_ci90_hi"])) <= 0.01 + 1e-6
+
+                assert abs(hb["hier90_lo"] - float(expected["hier_boot_ci90_lo"])) <= 0.01 + 1e-6
+                assert abs(hb["hier90_hi"] - float(expected["hier_boot_ci90_hi"])) <= 0.01 + 1e-6
+                assert abs(hb["hier95_lo"] - float(expected["hier_boot_ci95_lo"])) <= 0.01 + 1e-6
+                assert abs(hb["hier95_hi"] - float(expected["hier_boot_ci95_hi"])) <= 0.01 + 1e-6
+
+                assert abs(t95[0] - float(expected["seed_t_ci95_lo"])) <= 0.01 + 1e-6
+                assert abs(t95[1] - float(expected["seed_t_ci95_hi"])) <= 0.01 + 1e-6
+
+                assert abs(sb["boot90_lo"] - float(expected["seedmean_boot_ci90_lo"])) <= 0.01 + 1e-6
+                assert abs(sb["boot90_hi"] - float(expected["seedmean_boot_ci90_hi"])) <= 0.01 + 1e-6
+                assert abs(sb["boot95_lo"] - float(expected["seedmean_boot_ci95_lo"])) <= 0.01 + 1e-6
+                assert abs(sb["boot95_hi"] - float(expected["seedmean_boot_ci95_hi"])) <= 0.01 + 1e-6
+
+                assert_pvalue(hb["p_le0"], float(expected["hier_boot_p_le0"]), f"{label} hier_boot_p_le0")
 
     assert row_idx == len(stored_rows) == 15

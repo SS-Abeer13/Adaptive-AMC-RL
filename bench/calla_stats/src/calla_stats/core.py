@@ -76,6 +76,7 @@ def wilcoxon_test(
     zero_method: str = "wilcox",
     correction: bool = False,
     method: str = "approx",
+    engine: str = "scipy",
 ) -> Dict[str, float]:
     """Compute two-sided Wilcoxon signed-rank test on paired trace samples.
 
@@ -86,6 +87,10 @@ def wilcoxon_test(
     zero_method : str, default 'wilcox'
     correction : bool, default False
     method : str, default 'approx'
+    engine : str, default 'scipy'
+        'scipy' uses scipy.stats.wilcoxon (matching paper/analysis/nr2_stats.py).
+        'matlab' uses tie-adjusted normal approximation with machine-precision
+        tie clustering (matching MATLAB signrank bit-identically).
 
     Returns
     -------
@@ -102,11 +107,29 @@ def wilcoxon_test(
     if np.all(d == 0.0):
         return {"statistic": 0.0, "pvalue": 1.0}
 
-    res = stats.wilcoxon(a, b, zero_method=zero_method, correction=correction, method=method)
-    return {
-        "statistic": float(res.statistic),
-        "pvalue": float(res.pvalue),
-    }
+    if engine == "matlab":
+        d_round = np.round(d, decimals=12)
+        d_nz = d_round[d_round != 0.0]
+        n = len(d_nz)
+        if n == 0:
+            return {"statistic": 0.0, "pvalue": 1.0}
+        r = stats.rankdata(np.abs(d_nz))
+        w = min(float(np.sum(r[d_nz > 0])), float(np.sum(r[d_nz < 0])))
+        mean_w = n * (n + 1) / 4.0
+        _, tie_counts = np.unique(np.abs(d_nz), return_counts=True)
+        tieadj = float(np.sum(tie_counts**3 - tie_counts) / 2.0)
+        var_w = (n * (n + 1) * (2 * n + 1) - tieadj) / 24.0
+        if var_w <= 0.0:
+            return {"statistic": w, "pvalue": 1.0}
+        z = (w - mean_w) / np.sqrt(var_w)
+        pvalue = float(2.0 * stats.norm.cdf(-abs(z)))
+        return {"statistic": w, "pvalue": pvalue}
+    else:
+        res = stats.wilcoxon(a, b, zero_method=zero_method, correction=correction, method=method)
+        return {
+            "statistic": float(res.statistic),
+            "pvalue": float(res.pvalue),
+        }
 
 
 def holm_adjust(pvalues: Union[np.ndarray, Sequence[float]]) -> np.ndarray:
