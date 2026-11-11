@@ -82,6 +82,9 @@ function res = unit_hr_equiv(ctx, out_hr)
     if ~res.all_psucc_matched
         error('stage_hr1:psucc_fail', 'p_success matching check failed in unit_hr_equiv');
     end
+    if ~res.all_tbs_matched
+        error('stage_hr1:tbs_fail', 'tbs matching check failed in unit_hr_equiv');
+    end
     ctx.hbf('unit_hr_equiv: all checks passed bit-identically');
 end
 
@@ -105,20 +108,41 @@ function rep = unit_hr_report(ctx, out_hr, equiv_res, gate_open)
     fprintf(fid, 'Evaluator:       Optimized/v17/headroom/hr_instrument_v17.m\n');
     fprintf(fid, 'Core harness:    Optimized/v17/headroom/evalPolicy_v17_hr.m\n');
     fprintf(fid, 'Cases tested:    M1_dl_rtt8, M3_gp_rtt8\n');
-    fprintf(fid, 'Schemes tested:  Fixed, Context table, Context-joint-500, M1, NR2\n');
+    fprintf(fid, 'Schemes tested:  Fixed, Context table, Context-joint-500, M1, NR2 (M1 only), A2C_case (M3 only)\n');
     fprintf(fid, 'Traces tested:   %d calibration traces (seeds 60001+)\n', equiv_res.n_traces);
     fprintf(fid, 'Bit-identity:    ALL PASSED (max abs diff = 0, isequal = 1)\n');
     fprintf(fid, 'p_success match: ALL PASSED (max abs diff vs 1-bler1 = 0)\n');
+    fprintf(fid, 'tbs(a*) match:   ALL PASSED (max abs diff vs simulator TBS = 0)\n');
     fprintf(fid, 'Gate status:     %s\n\n', ternary(gate_open, 'OPEN', 'GATED (Amendment 7 pending)'));
 
-    fprintf(fid, '2. BIT-IDENTITY VERIFICATION (hr_equiv.txt)\n');
-    fprintf(fid, '------------------------------------------\n');
+    fprintf(fid, '2. LOGGED FEATURES & COUNTERFACTUAL SPECIFICATION\n');
+    fprintf(fid, '-------------------------------------------------\n');
+    fprintf(fid, 'Total columns: 65 per logged new transmission\n');
+    fprintf(fid, 'Feature mapping in 19-dim observation vector (obs_1..obs_19):\n');
+    fprintf(fid, '  - obs_11: normalized slack_remaining = min(slack, Dm) / Dm\n');
+    fprintf(fid, '  - obs_12: has_packet flag (1 if user has active packet)\n');
+    fprintf(fid, '  - obs_13: normalized bits_remaining = max(0, Q.rem) / pkt_bits\n');
+    fprintf(fid, 'Explicit physical state variables:\n');
+    fprintf(fid, '  - Col 29 (n_rb): allocated resource blocks\n');
+    fprintf(fid, '  - Col 30 (bits_remaining): untransmitted bits in queue at decision time (Q.tx_rem, Inf for full-buffer)\n');
+    fprintf(fid, '  - Col 31 (slack_remaining): deadline slack in TTIs (Q.dl - t + 1, Inf for full-buffer)\n');
+    fprintf(fid, 'Per-candidate quantities for a in {-4, -3, -2, -1, 0, +1, +2}:\n');
+    fprintf(fid, '  - Cols 32-38: cand_mcs_m4..cand_mcs_p2\n');
+    fprintf(fid, '  - Cols 39-45: cand_tbs_m4..cand_tbs_p2 = tbsFromMCSandRB_v17(cand_mcs, n_rb)\n');
+    fprintf(fid, '  - Cols 46-52: cand_ubits_m4..cand_ubits_p2 = min(cand_tbs, bits_remaining)\n');
+    fprintf(fid, '  - Cols 53-59: cand_psucc_m4..cand_psucc_p2 = 1 - estimateBLER_v17(sinr_eff, cand_mcs)\n');
+    fprintf(fid, 'Action-taken attributes:\n');
+    fprintf(fid, '  - Col 60 (tbs_act), Col 61 (ubits_act), Col 62 (bler1), Col 63 (psucc_act)\n');
+    fprintf(fid, '  - Col 64 (sent_cqi), Col 65 (ref_cqi)\n\n');
+
+    fprintf(fid, '3. BIT-IDENTITY & EQUIVALENCE VERIFICATION (hr_equiv.txt)\n');
+    fprintf(fid, '--------------------------------------------------------\n');
     for i = 1:numel(equiv_res.equiv_lines)
         fprintf(fid, '%s\n', equiv_res.equiv_lines{i});
     end
     fprintf(fid, '\n');
 
-    fprintf(fid, '3. TIMING & PROJECTED COMPUTE COST\n');
+    fprintf(fid, '4. TIMING & PROJECTED COMPUTE COST\n');
     fprintf(fid, '-----------------------------------\n');
     fn = fieldnames(equiv_res.results);
     tot_s = 0;
@@ -138,7 +162,7 @@ function rep = unit_hr_report(ctx, out_hr, equiv_res, gate_open)
     fprintf(fid, 'Projected 500-trace:    %.1f s (%.2f hours / ~%.1f minutes)\n\n', ...
         proj_500_s, proj_500_s / 3600, proj_500_s / 60);
 
-    fprintf(fid, '4. GATED STATUS NOTE (Task B4)\n');
+    fprintf(fid, '5. GATED STATUS NOTE (Task B4)\n');
     fprintf(fid, '------------------------------\n');
     fprintf(fid, 'No evaluation trace has been touched or modified.\n');
     fprintf(fid, 'Estimation pass (gradient-boosted trees) is gated until Amendment 7 is frozen.\n');

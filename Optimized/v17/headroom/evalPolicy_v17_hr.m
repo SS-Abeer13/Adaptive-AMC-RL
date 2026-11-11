@@ -223,6 +223,14 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
     if ~isempty(sIdx), ctx(sIdx, :) = 1; end
 
     % Headroom logger initialization
+    % Logged observation features correspondence:
+    %   obs_1..obs_10:  base and temporal features (ref, dRef, obs_SINR, dS, off, slope4, nk, pend, nret, r_norm)
+    %   obs_11:         normalized slack_remaining = min(slack, Dm) / Dm
+    %   obs_12:         has_packet flag
+    %   obs_13:         normalized bits_remaining = max(0, Q.rem) / pkt_bits
+    %   obs_14..obs_16: HARQ extended cues (busy_frac, retx_ready, flight_frac)
+    %   obs_17..obs_19: scheduler candidate cues
+    % Columns 29..31 log raw unnormalized n_rb, bits_remaining, and slack_remaining explicitly.
     COLS = { ...
         'trace_id', 't', 'u', ...
         'obs_1', 'obs_2', 'obs_3', 'obs_4', 'obs_5', ...
@@ -231,9 +239,12 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
         'obs_16', 'obs_17', 'obs_18', 'obs_19', ...
         'slack_bin', 'delay_class', 'speed_class', 'busy_harq_bin', ...
         'base_rule_offset', 'action_taken', ...
+        'n_rb', 'bits_remaining', 'slack_remaining', ...
         'mcs_m4', 'mcs_m3', 'mcs_m2', 'mcs_m1', 'mcs_0', 'mcs_p1', 'mcs_p2', ...
+        'tbs_m4', 'tbs_m3', 'tbs_m2', 'tbs_m1', 'tbs_0', 'tbs_p1', 'tbs_p2', ...
+        'ubits_m4', 'ubits_m3', 'ubits_m2', 'ubits_m1', 'ubits_0', 'ubits_p1', 'ubits_p2', ...
         'psucc_m4', 'psucc_m3', 'psucc_m2', 'psucc_m1', 'psucc_0', 'psucc_p1', 'psucc_p2', ...
-        'bler1', 'p_success_actual', 'sent_cqi', 'ref_cqi' ...
+        'tbs_act', 'ubits_act', 'bler1', 'p_success_actual', 'sent_cqi', 'ref_cqi' ...
     };
     nCols = numel(COLS);
     hr_log = zeros(max(T * N, 100), nCols);
@@ -525,7 +536,15 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
                         if sum(H.proc_busy(u, :)) == 0, u_u = 1; else, u_u = 2; end
                         b_off = b_i(u);
                         act_taken = sent(u) - ref(u);
-                        new_tx_list = [new_tx_list; u, b_u, d_u, v_u, u_u, b_off, act_taken]; %#ok<AGROW>
+                        n_rb_u = rb(u);
+                        if Q.on && isfield(Q, 'tx_rem')
+                            bits_rem_u = max(0, Q.tx_rem(u));
+                            slack_rem_u = sl_u;
+                        else
+                            bits_rem_u = Inf;
+                            slack_rem_u = Inf;
+                        end
+                        new_tx_list = [new_tx_list; u, b_u, d_u, v_u, u_u, b_off, act_taken, n_rb_u, bits_rem_u, slack_rem_u]; %#ok<AGROW>
                     end
                 end
             end
@@ -537,26 +556,47 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
             if ~isempty(new_tx_list)
                 cand_offsets = -4:2;
                 for idx = 1:size(new_tx_list, 1)
-                    u         = new_tx_list(idx, 1);
-                    b_u       = new_tx_list(idx, 2);
-                    d_u       = new_tx_list(idx, 3);
-                    v_u       = new_tx_list(idx, 4);
-                    u_u       = new_tx_list(idx, 5);
-                    b_off     = new_tx_list(idx, 6);
-                    act_taken = new_tx_list(idx, 7);
-                    obs_raw   = double(s_step(:, u)');
-                    obs_u     = zeros(1, 19);
+                    u           = new_tx_list(idx, 1);
+                    b_u         = new_tx_list(idx, 2);
+                    d_u         = new_tx_list(idx, 3);
+                    v_u         = new_tx_list(idx, 4);
+                    u_u         = new_tx_list(idx, 5);
+                    b_off       = new_tx_list(idx, 6);
+                    act_taken   = new_tx_list(idx, 7);
+                    n_rb_u      = new_tx_list(idx, 8);
+                    bits_rem_u  = new_tx_list(idx, 9);
+                    slack_rem_u = new_tx_list(idx, 10);
+                    obs_raw     = double(s_step(:, u)');
+                    obs_u       = zeros(1, 19);
                     obs_u(1:min(19, numel(obs_raw))) = obs_raw(1:min(19, numel(obs_raw)));
 
                     % Effective SINR for 1st tx is SINR_true(t, u) with 0 combining
                     sinr_eff = SINR_true(t, u);
-                    c_mcs = zeros(1, 7);
+                    c_mcs   = zeros(1, 7);
+                    c_tbs   = zeros(1, 7);
+                    c_ubits = zeros(1, 7);
                     c_psucc = zeros(1, 7);
                     for ka = 1:7
                         cq = max(minC, min(maxC, ref(u) + cand_offsets(ka)));
                         mc = max(0, min(14, cq - 1));
-                        c_mcs(ka) = mc;
+                        tb = tbsFromMCSandRB_v17(mc, n_rb_u);
+                        if isfinite(bits_rem_u)
+                            ub = min(tb, bits_rem_u);
+                        else
+                            ub = tb;
+                        end
+                        c_mcs(ka)   = mc;
+                        c_tbs(ka)   = tb;
+                        c_ubits(ka) = ub;
                         c_psucc(ka) = 1 - estimateBLER_v17(sinr_eff, mc);
+                    end
+
+                    tx_mcs = max(0, min(14, sent(u) - 1));
+                    tbs_act = tbsFromMCSandRB_v17(tx_mcs, n_rb_u);
+                    if isfinite(bits_rem_u)
+                        ubits_act = min(tbs_act, bits_rem_u);
+                    else
+                        ubits_act = tbs_act;
                     end
 
                     bl_act = bl1(u);
@@ -567,7 +607,9 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
                         hr_log = [hr_log; zeros(size(hr_log, 1), nCols)];
                     end
                     hr_log(n_hr, :) = [tr_id, t, u, obs_u, b_u, d_u, v_u, u_u, ...
-                                       b_off, act_taken, c_mcs, c_psucc, bl_act, psucc_act, sent(u), ref(u)];
+                                       b_off, act_taken, n_rb_u, bits_rem_u, slack_rem_u, ...
+                                       c_mcs, c_tbs, c_ubits, c_psucc, ...
+                                       tbs_act, ubits_act, bl_act, psucc_act, sent(u), ref(u)];
                 end
             end
 
@@ -655,7 +697,15 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
                         u_u = 1;
                         b_off = b_i(u);
                         act_taken = sent(u) - ref(u);
-                        new_tx_list = [new_tx_list; u, b_u, d_u, v_u, u_u, b_off, act_taken]; %#ok<AGROW>
+                        n_rb_u = rb(u);
+                        if isfield(env, 'useful_bits') && env.useful_bits && Q.on && isfield(Q, 'rem')
+                            bits_rem_u = max(0, Q.rem(u));
+                            slack_rem_u = sl_u;
+                        else
+                            bits_rem_u = Inf;
+                            slack_rem_u = Inf;
+                        end
+                        new_tx_list = [new_tx_list; u, b_u, d_u, v_u, u_u, b_off, act_taken, n_rb_u, bits_rem_u, slack_rem_u]; %#ok<AGROW>
                     end
                 end
             end
@@ -675,25 +725,46 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
             if ~isempty(new_tx_list)
                 cand_offsets = -4:2;
                 for idx = 1:size(new_tx_list, 1)
-                    u         = new_tx_list(idx, 1);
-                    b_u       = new_tx_list(idx, 2);
-                    d_u       = new_tx_list(idx, 3);
-                    v_u       = new_tx_list(idx, 4);
-                    u_u       = new_tx_list(idx, 5);
-                    b_off     = new_tx_list(idx, 6);
-                    act_taken = new_tx_list(idx, 7);
-                    obs_raw   = double(s_step(:, u)');
-                    obs_u     = zeros(1, 19);
+                    u           = new_tx_list(idx, 1);
+                    b_u         = new_tx_list(idx, 2);
+                    d_u         = new_tx_list(idx, 3);
+                    v_u         = new_tx_list(idx, 4);
+                    u_u         = new_tx_list(idx, 5);
+                    b_off       = new_tx_list(idx, 6);
+                    act_taken   = new_tx_list(idx, 7);
+                    n_rb_u      = new_tx_list(idx, 8);
+                    bits_rem_u  = new_tx_list(idx, 9);
+                    slack_rem_u = new_tx_list(idx, 10);
+                    obs_raw     = double(s_step(:, u)');
+                    obs_u       = zeros(1, 19);
                     obs_u(1:min(19, numel(obs_raw))) = obs_raw(1:min(19, numel(obs_raw)));
 
                     sinr_eff = SINR_true(t, u);
-                    c_mcs = zeros(1, 7);
+                    c_mcs   = zeros(1, 7);
+                    c_tbs   = zeros(1, 7);
+                    c_ubits = zeros(1, 7);
                     c_psucc = zeros(1, 7);
                     for ka = 1:7
                         cq = max(minC, min(maxC, ref(u) + cand_offsets(ka)));
                         mc = max(0, min(14, cq - 1));
-                        c_mcs(ka) = mc;
+                        tb = tbsFromMCSandRB_v17(mc, n_rb_u);
+                        if isfinite(bits_rem_u)
+                            ub = min(tb, bits_rem_u);
+                        else
+                            ub = tb;
+                        end
+                        c_mcs(ka)   = mc;
+                        c_tbs(ka)   = tb;
+                        c_ubits(ka) = ub;
                         c_psucc(ka) = 1 - estimateBLER_v17(sinr_eff, mc);
+                    end
+
+                    tx_mcs = max(0, min(14, sent(u) - 1));
+                    tbs_act = tbsFromMCSandRB_v17(tx_mcs, n_rb_u);
+                    if isfinite(bits_rem_u)
+                        ubits_act = min(tbs_act, bits_rem_u);
+                    else
+                        ubits_act = tbs_act;
                     end
 
                     bl_act = bl1(u);
@@ -704,7 +775,9 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_v17_hr(ptype, policy, SINR_
                         hr_log = [hr_log; zeros(size(hr_log, 1), nCols)];
                     end
                     hr_log(n_hr, :) = [tr_id, t, u, obs_u, b_u, d_u, v_u, u_u, ...
-                                       b_off, act_taken, c_mcs, c_psucc, bl_act, psucc_act, sent(u), ref(u)];
+                                       b_off, act_taken, n_rb_u, bits_rem_u, slack_rem_u, ...
+                                       c_mcs, c_tbs, c_ubits, c_psucc, ...
+                                       tbs_act, ubits_act, bl_act, psucc_act, sent(u), ref(u)];
                 end
             end
 

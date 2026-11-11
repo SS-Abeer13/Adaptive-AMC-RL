@@ -97,6 +97,7 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
     results_all = struct();
     all_bit_identical = true;
     all_psucc_matched = true;
+    all_tbs_matched   = true;
 
     for cIdx = 1:numel(cases)
         tag = cases{cIdx};
@@ -134,11 +135,22 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
 
             % NR2 was trained specifically for M1_dl_rtt8 (57 features)
             if strcmp(sch_name, 'NR2') && ~strcmp(tag, 'M1_dl_rtt8')
-                opts.hbf(sprintf('Skipping scheme %s on %s (NR2 model is defined for M1_dl_rtt8 only)', sch_name, tag));
+                opts.hbf(sprintf('Note: Scheme %s on %s is not applicable (NR2 model is defined for M1_dl_rtt8 only)', sch_name, tag));
+                equiv_lines{end+1} = sprintf('NOTE|%s|%s|not_applicable (NR2 trained for M1_dl_rtt8 with 57 features vs 48 features in M3)', tag, sch_name);
                 continue;
             end
 
-            opts.hbf(sprintf('Evaluating scheme: %s on %s...', sch_name, tag));
+            % Rename deep policy scheme for M3 to A2C_case
+            sch_label = sch_name;
+            if ismember(sch_name, {'M1', 'A2C', 'A2C_case'})
+                if strcmp(tag, 'M3_gp_rtt8')
+                    sch_label = 'A2C_case';
+                else
+                    sch_label = 'M1';
+                end
+            end
+
+            opts.hbf(sprintf('Evaluating scheme: %s on %s...', sch_label, tag));
 
             % Configure scheme
             e_sch = envE;
@@ -161,7 +173,7 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
                     e_sch.ctxj_tab = ctxj_tab;
                     k_sch = 99;
 
-                case {'M1', 'A2C'}
+                case {'M1', 'A2C', 'A2C_case'}
                     ptype = 'a2c_v17';
                     if isfield(R, 'policies') && isfield(R.policies, 'A2C') && ~isempty(R.policies.A2C)
                         pol = R.policies.A2C{1};
@@ -187,9 +199,11 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
 
             sch_bit_identical = true;
             sch_psucc_matched = true;
+            sch_tbs_matched   = true;
             max_abs_tp = 0;
             max_abs_bler = 0;
             max_abs_psucc = 0;
+            max_abs_tbs = 0;
             total_logged_decisions = 0;
             logs_cell = cell(1, n_traces);
 
@@ -223,15 +237,48 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
                 max_abs_tp = max(max_abs_tp, d_tp);
                 max_abs_bler = max(max_abs_bler, d_bler);
 
-                % Check logged p_success vs 1 - bler1
+                % Check logged p_success vs 1 - bler1, and logged tbs(a*) vs frozen path's TBS
                 L = inf_hr.hr_log;
                 if ~isempty(L)
                     total_logged_decisions = total_logged_decisions + size(L, 1);
-                    % Column 43: bler1, Column 44: p_success_actual
-                    d_psucc = max(abs(L(:, 44) - (1 - L(:, 43))));
+
+                    % Column 62: bler1, Column 63: p_success_actual
+                    d_psucc = max(abs(L(:, 63) - (1 - L(:, 62))));
                     max_abs_psucc = max(max_abs_psucc, d_psucc);
                     if d_psucc > 0
                         sch_psucc_matched = false;
+                    end
+
+                    % Column 28: action_taken
+                    % Column 29: n_rb
+                    % Column 39..45: tbs_m4 .. tbs_p2 (offsets -4:2)
+                    % Column 60: tbs_act
+                    % Column 64: sent_cqi
+                    cand_offs = -4:2;
+                    act_col = L(:, 28);
+                    tbs_cand_star = zeros(size(L, 1), 1);
+                    for rIdx = 1:size(L, 1)
+                        k_star = find(cand_offs == act_col(rIdx), 1);
+                        if ~isempty(k_star)
+                            tbs_cand_star(rIdx) = L(rIdx, 38 + k_star);
+                        else
+                            tbs_cand_star(rIdx) = L(rIdx, 60);
+                        end
+                    end
+                    d_tbs_star = max(abs(tbs_cand_star - L(:, 60)));
+                    max_abs_tbs = max(max_abs_tbs, d_tbs_star);
+
+                    % Also verify tbs_act against direct calculation from (sent_cqi, n_rb)
+                    tbs_direct = zeros(size(L, 1), 1);
+                    for rIdx = 1:size(L, 1)
+                        mcs_direct = max(0, min(14, L(rIdx, 64) - 1));
+                        tbs_direct(rIdx) = tbsFromMCSandRB_v17(mcs_direct, L(rIdx, 29));
+                    end
+                    d_tbs_direct = max(abs(L(:, 60) - tbs_direct));
+                    max_abs_tbs = max(max_abs_tbs, d_tbs_direct);
+
+                    if d_tbs_star > 0 || d_tbs_direct > 0
+                        sch_tbs_matched = false;
                     end
                 end
                 logs_cell{j} = L;
@@ -240,21 +287,24 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
 
             all_bit_identical = all_bit_identical && sch_bit_identical;
             all_psucc_matched = all_psucc_matched && sch_psucc_matched;
+            all_tbs_matched   = all_tbs_matched && sch_tbs_matched;
 
-            eq_line = sprintf('EQUIV|%s|%s|bit_identical=%d', tag, sch_name, sch_bit_identical);
+            eq_line = sprintf('EQUIV|%s|%s|bit_identical=%d', tag, sch_label, sch_bit_identical);
             equiv_lines{end+1} = eq_line; %#ok<AGROW>
 
-            opts.hbf(sprintf('  %s | max_abs_diff(tp)=%.1e | max_abs_diff(psucc)=%.1e | decisions=%d | time=%.2fs', ...
-                eq_line, max_abs_tp, max_abs_psucc, total_logged_decisions, elapsed_sch));
+            opts.hbf(sprintf('  %s | max_abs_diff(tp)=%.1e | max_abs_diff(psucc)=%.1e | max_abs_diff(tbs)=%.1e | decisions=%d | time=%.2fs', ...
+                eq_line, max_abs_tp, max_abs_psucc, max_abs_tbs, total_logged_decisions, elapsed_sch));
 
-            key = sprintf('%s_%s', tag, matlab.lang.makeValidName(sch_name));
+            key = sprintf('%s_%s', tag, matlab.lang.makeValidName(sch_label));
             results_all.(key) = struct( ...
-                'case', tag, 'scheme', sch_name, ...
+                'case', tag, 'scheme', sch_label, ...
                 'bit_identical', sch_bit_identical, ...
                 'psucc_matched', sch_psucc_matched, ...
+                'tbs_matched', sch_tbs_matched, ...
                 'max_abs_tp', max_abs_tp, ...
                 'max_abs_bler', max_abs_bler, ...
                 'max_abs_psucc', max_abs_psucc, ...
+                'max_abs_tbs', max_abs_tbs, ...
                 'total_decisions', total_logged_decisions, ...
                 'elapsed_s', elapsed_sch, ...
                 'sec_per_trace', elapsed_sch / n_traces ...
@@ -263,8 +313,9 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
             if opts.save_logs
                 L_all = vertcat(logs_cell{:});
                 COLS = inf_hr.hr_cols;
-                mat_f = fullfile(opts.log_dir, sprintf('hr_log_%s_%s.mat', tag, matlab.lang.makeValidName(sch_name)));
-                save(mat_f, 'L_all', 'COLS', 'tag', 'sch_name', '-v7.3');
+                mat_f = fullfile(opts.log_dir, sprintf('hr_log_%s_%s.mat', tag, matlab.lang.makeValidName(sch_label)));
+                sch_saved_name = sch_label;
+                save(mat_f, 'L_all', 'COLS', 'tag', 'sch_saved_name', '-v7.3');
             end
         end
     end
@@ -284,6 +335,7 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
     out.equiv_lines = equiv_lines;
     out.all_bit_identical = all_bit_identical;
     out.all_psucc_matched = all_psucc_matched;
+    out.all_tbs_matched = all_tbs_matched;
     out.results = results_all;
     out.equiv_file = opts.equiv_file;
     out.n_traces = n_traces;
@@ -293,6 +345,9 @@ function out = hr_instrument_v17(cases, schemes, trace_set, opts)
     end
     if ~all_psucc_matched
         error('hr_instrument_v17:psucc_fail', 'p_success matching check FAILED: max abs diff > 0');
+    end
+    if ~all_tbs_matched
+        error('hr_instrument_v17:tbs_fail', 'tbs(a*) matching check FAILED: max abs diff > 0');
     end
 end
 
