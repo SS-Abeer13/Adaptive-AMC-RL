@@ -228,3 +228,5 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - Author decisions (a) clipped offsets with the same MCS are one action, (b) residual set = base offset ±1 per decision, table set −4…+2, (c) full buffer ubits = tbs are in §3 of the frozen text.
 - **B4 gate may be lifted** for the full pass on the M1 and M3 evaluation traces (all 10 seeds per learned scheme, decision draws rng(77000 + 100 j + 10 k + s)), then `python3 paper/analysis/hr_stats.py`.
 - Tooling: instrumented evaluator `fc78cc7`, per-candidate TBS/useful bits `5f2659e`; bit-identity on 20 calibration traces (`Optimized/v17x/Dataset/hr/hr_equiv.txt`).
+- 11 Nov: 244c085 was replaced on all branches by b0e43b8 (code) + de040ec (results) via force-push; content unchanged; freeze commit 25b7279 predates both.
+
