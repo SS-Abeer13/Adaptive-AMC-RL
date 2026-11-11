@@ -27,16 +27,17 @@ A3c CLEAN INFERENCE-LATENCY BENCHMARK REPORT (HIGH PERFORMANCE & SINGLE-THREADED
 
 3. ACTOR NEURAL NETWORK COMPLEXITY & FLOP ACCOUNTING
 --------------------------------------------------------------------------------
-  Architecture: Dense(57->64) + ReLU -> Dense(64->64) + ReLU -> Dense(64->3)
-    - Layer 1 (fc1 57->64 + ReLU)    :  3,648 MACs |   7,424 FLOPs
-    - Layer 2 (fc2 64->64 + ReLU)    :  4,096 MACs |   8,320 FLOPs
-    - Layer 3 (logits 64->3 + argmax):    192 MACs |     389 FLOPs
-    - Total Actor Compute per User   :  7,936 MACs | 16,133 FLOPs (~16.1 kFLOPs)
+  Architecture: Dense(57->128) + ReLU -> Dense(128->96) + ReLU -> Dense(96->3)
+    - Layer 1 (fc1 57->128 + ReLU)   :  7,296 MACs |  14,848 FLOPs  (Params:  7,424)
+    - Layer 2 (fc2 128->96 + ReLU)   : 12,288 MACs |  24,768 FLOPs  (Params: 12,384)
+    - Layer 3 (logits 96->3)         :    288 MACs |     579 FLOPs  (Params:    291)
+    - Total per user (excl. argmax)  : 19,872 MACs |  40,195 FLOPs  (Params: 20,099)
+    - Total per user (incl. argmax)  : 19,872 MACs |  40,197 FLOPs (+2 comparisons)
 
-  Total Compute per TTI by Scheduled User Batch Size:
-    - N =  10 users:    79,360 MACs  |   161,330 FLOPs  (0.16 MFLOPs)
-    - N =  50 users:   396,800 MACs  |   806,650 FLOPs  (0.81 MFLOPs)
-    - N = 100 users:   793,600 MACs  | 1,613,300 FLOPs  (1.61 MFLOPs)
+  Total Compute per TTI by Scheduled User Batch Size (excl. argmax):
+    - N =  10 users:    198,720 MACs  |     401,950 FLOPs  (0.40 MFLOPs)
+    - N =  50 users:    993,600 MACs  |   2,009,750 FLOPs  (2.01 MFLOPs)
+    - N = 100 users:  1,987,200 MACs  |   4,019,500 FLOPs  (4.02 MFLOPs)
 
 4. LATENCY BENCHMARK RESULTS (100,000 TTIs, SINGLE-THREADED)
 --------------------------------------------------------------------------------
@@ -71,27 +72,36 @@ Users | Scheme / Component           | Runtime      | Median (us) |   p99 (us) |
   100 | NR2 (Full Policy Step)       | onnxruntime  |      284.90 |     898.90 |     1204.70 |    3722.60
 --------------------------------------------------------------------------------------------------
 
-5. KEY FINDINGS & LATENCY BUDGET COMPLIANCE
+5. DESCRIPTIVE LATENCY DISTRIBUTIONS & SHARES
 --------------------------------------------------------------------------------
-  1. Clean Apples-to-Apples Runtime Environment:
-     Benchmarking all baselines (Fixed, Context-joint, OLLA) alongside NR2 within
-     a single-threaded Python/NumPy runtime eliminates interpreter overhead disparities.
-     The empty loop noise floor is negligible (median 0.10 us, p99 0.30 us, p99.9 0.50 us).
+  1. Measurement Protocol:
+     All baselines (Fixed, Context-joint, OLLA) and NR2 were benchmarked within
+     a single-threaded Python/NumPy runtime (alongside ONNX Runtime for NR2).
+     The empty loop noise floor is: median 0.100 us, p99 0.300 us, p99.9 0.500 us.
 
-  2. Disaggregation of NR2 Execution:
-     Splitting NR2 into State Construction vs Forward Pass reveals:
-     - State Construction takes ~106 us (N=10) to ~124 us (N=100) median latency.
-     - Forward Pass (pure inference) takes ~68 us (N=10) to ~136 us (N=100) in ONNX Runtime,
-       and ~70 us (N=10) to ~165 us (N=100) in plain NumPy.
-     - When combined (Full Policy Step: State + Forward + Action Selection), total median latency is:
-       * N =  10: 186.10 us (ONNX) / 180.40 us (NumPy)
-       * N =  50: 237.80 us (ONNX) / 255.30 us (NumPy)
-       * N = 100: 284.90 us (ONNX) / 297.90 us (NumPy)
+  2. Descriptive Latency Statistics per User Batch (NR2 Full Policy Step):
+     Evaluated from the empirical CDF distributions (cdf_data_N<N>.csv) over 100,000 TTIs.
 
-  3. 3GPP 5G NR TTI Budget Compliance:
-     In 5G NR, typical subframe / slot durations are 1,000 us (15 kHz SCS), 500 us (30 kHz SCS),
-     and 250 us (60 kHz SCS). On a commodity 1.7 GHz laptop CPU executing on a single thread:
-     - NR2 full policy inference for 100 users (~285 us ONNX, ~298 us NumPy) easily completes
-       within a 500 us slot (30 kHz SCS) or 1,000 us subframe (15 kHz SCS), utilizing < 30% of a 1 ms TTI.
-     - For N = 10 users, full inference takes ~186 us, fitting comfortably within a 250 us slot budget.
+     - N = 10 scheduled users:
+       * NumPy : median 180.4 us | p99.9 632.6 us | p99.9 minus noise floor 632.1 us
+                 Shares <= [1000, 500, 250, 125] us: 99.9% / 99.6% / 93.4% / 0.0%
+       * ONNX  : median 186.1 us | p99.9 679.5 us | p99.9 minus noise floor 679.0 us
+                 Shares <= [1000, 500, 250, 125] us: 99.9% / 99.3% / 92.0% / 0.0%
+
+     - N = 50 scheduled users:
+       * NumPy : median 255.3 us | p99.9 973.1 us | p99.9 minus noise floor 972.6 us
+                 Shares <= [1000, 500, 250, 125] us: 99.9% / 96.5% / 45.6% / 0.0%
+       * ONNX  : median 237.8 us | p99.9 927.6 us | p99.9 minus noise floor 927.1 us
+                 Shares <= [1000, 500, 250, 125] us: 99.9% / 96.3% / 64.8% / 0.0%
+
+     - N = 100 scheduled users:
+       * NumPy : median 297.9 us | p99.9 1062.1 us | p99.9 minus noise floor 1061.6 us
+                 Shares <= [1000, 500, 250, 125] us: 99.9% / 95.2% / 0.1% / 0.0%
+       * ONNX  : median 284.9 us | p99.9 1204.7 us | p99.9 minus noise floor 1204.2 us
+                 Shares <= [1000, 500, 250, 125] us: 99.5% / 95.6% / 3.7% / 0.0%
+
+  3. Platform Caveat & Scope:
+     All measurements were conducted on one laptop core (Intel Core i5-8350U @ 1.70 GHz),
+     Windows 10, Python/NumPy, outside a real MAC scheduler.
+     No real-time feasibility claim is made.
 ================================================================================
