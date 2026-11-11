@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sionna_env"
+version = "0.1.0"
+description = "Plan 2 prototype: Single-cell 5G NR Gymnasium environment with multi-process HARQ manager"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.0",
+    "sionna>=2.2.0",
+    "gymnasium>=1.0.0",
+    "numpy>=1.22",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools]
+packages = ["sionna_env"]
+package-dir = {"sionna_env" = "."}
