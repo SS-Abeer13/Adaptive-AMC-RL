@@ -65,6 +65,8 @@ NAthreeTti,830.3,A03,Optimized\v17x\Dataset\REPORT_a3.txt,A2C us/TTI
 NAthreeTtiFpu,346.2,A03,Optimized\v17x\Dataset\REPORT_a3.txt,FixedPU us/TTI
 NBonfP,$8.8\times10^{-10}$,M04,Optimized\v17\paper\table_core.csv,holm_p x tests
 NBonfPCtxJ,1.00,M07,Optimized\v17x\Dataset\table_cal500.csv; Optimized\case_registry.csv,"Holm p (CtxJ) x registry tests, capped at 1"
+NBonfPCtxJProj,1.00,M08,Optimized/v17x/Dataset/table_cal500.csv; paper/ledger/robustness_cases.csv,"Holm p (CtxJ) x project tests, capped at 1"
+NBonfPProj,$1.1\times10^{-9}$,M08,Optimized/v17/paper/table_core.csv,holm_p x project tests
 NBonfPraw,$9.1\times10^{-13}$,M04,Optimized\v17\paper\table_core.csv,holm_p
 NBonfTests,972,M04,Optimized\case_registry.csv,rows x 9
 NBoot,"20\,000",P01,paper/proposals/common_rules.md,"R2 B = 20,000"
@@ -112,6 +114,7 @@ NEngineGap,10.71,R30,Optimized\v17\README_v17.md,engine gap goodput %
 NEngineJain,0.0228,R30,Optimized\v17\README_v17.md,engine gap Jain
 NFairJain,0.0056,R31,Optimized\v17\README_v17.md,B2.4 Jain diff
 NFairRatio,1.0010,R31,Optimized\v17\README_v17.md,B2.4 ratio
+NFlopsActor,"40\,195",S16,paper/analysis/out/actor_flops.csv,"2 x MACs + bias adds + ReLUs, one user decision (ONNX export, equivalence in REPORT_a3b.txt)"
 NGMoneCtxAbove,9,G3a,paper\analysis\out\g3_seed_stats.csv,seeds_above
 NGMoneCtxBootHi,+2.53,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_hi
 NGMoneCtxBootLo,+0.72,G3g,paper\analysis\out\g3_seed_stats.csv,seedmean_boot_ci95_lo
@@ -1118,6 +1121,9 @@ NPfNSchemes,13,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,schemes compared
 NPfOneProc,3.466,H17,Optimized\v17\README_v17.md,README_v17 s1 table rtt8/1proc Baseline Mbps
 NPfRangeHi,26,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,max ratio
 NPfRangeLo,10,H17a,Optimized\v16\Dataset\fill_summary_v16.txt,min v16 K3 / v17 M3 - 1 over schemes
+NProjCases,76,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry cases + robustness cases
+NProjRows,126,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry rows + robustness rows
+NProjTests,"1\,260",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound)
 NRegCases,67,M01,Optimized\case_registry.csv,unique case_id
 NRegRows,108,M01,Optimized\case_registry.csv,rows
 NRegSinceTen,49,M02,Optimized\case_registry.csv,cases with version != v9
@@ -1125,6 +1131,8 @@ NRegSupCases,7,H19,Optimized\case_registry.csv,status superseded (cases)
 NRegSupRows,18,H19,Optimized\case_registry.csv,status superseded (rows)
 NRegValidCases,60,M03,Optimized\case_registry.csv,valid cases
 NRegWinCases,9,M03,Optimized\case_registry.csv,valid cases with win=1 excluding corrected X1 row
+NRobCases,9,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
+NRobRows,18,M08,paper/ledger/robustness_cases.csv,sum of rows over robustness stages
 NSlotFixOLLA,2.9233,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train_b OLLA tp
 NSlotFixRL,2.9191,H07,Optimized\v10\Dataset\fill_summary_v10.txt,E1_train_b A2C tp
 NSlotMinusThree,58,H07,Optimized/v10/logs/matlab_v10b_check.log,actions% at -3

@@ -14,7 +14,7 @@ ns-3 are not numbers.  A literal that is intended (for example the action value 
 """
 import csv, glob, re, sys, os
 
-MACRO = {'Gone': 'G1', 'Wone': 'W1', 'Gsix': 'G6', 'NR': 'NR', 'Gten': 'G10', 'NRtwo': 'NR2', 'Aone': 'A1', 'Athree': 'A3', 'Asix': 'A6'}
+MACRO = {'Gone': 'G1', 'Wone': 'W1', 'Gsix': 'G6', 'NR': 'NR', 'Gten': 'G10', 'NRtwo': 'NR2', 'Aone': 'A1', 'Athree': 'A3', 'Asix': 'A6', 'NRGten': 'NRG10', 'Athreec': 'A3c'}
 SKIP = {'pending.tex', 'wording.tex', 'pending_values.tex', 'pending_status.tex', 'numbers.tex'}
 LITERAL_GATED = ['main.tex', 'sec_intro.tex', 'sec_results.tex', 'sec_discussion.tex']
 LITERAL_REPORTED = ['sec_related.tex', 'sec_system.tex', 'sec_method.tex', 'sec_protocol.tex', 'sec_pitfalls.tex',
@@ -115,13 +115,15 @@ def main():
     vrows = list(csv.DictReader(open('pending_values.csv', newline='')))
     values = {(r['item'], r['key']) for r in vrows}
     errs, warns, used, used_word = [], [], set(), set()
+    switched = set()   # items referenced only through \ifitemrun switches (e.g. a placeholder figure)
     lit_report = []
     for f in sorted(glob.glob('*.tex') + glob.glob('sections/*.tex')):
         if os.path.basename(f) in SKIP: continue
         raw = open(f, encoding='utf-8').read()
+        switched |= {x.strip() for x in re.findall(r'\\ifitemrun\s*\{([^}]*)\}', re.sub(r'(?<!\\)%.*', '', raw))}
         s = resolve_ifitemrun(raw, status)
         s = re.sub(r'(?<!\\)%.*', '', s)
-        for m, key in re.findall(r'\\(Gone|Wone|Gsix|NRtwo|NR|Gten|Aone|Athree|Asix)\s*\{([^}]*)\}', s):
+        for m, key in re.findall(r'\\(' + '|'.join(sorted(MACRO, key=len, reverse=True)) + r')\s*\{([^}]*)\}', s):
             it = MACRO[m]
             if (it, key) not in man: errs.append(f'{f}: \\{m}{{{key}}} is not in pending_manifest.csv (typo?)')
             used.add((it, key))
@@ -140,7 +142,7 @@ def main():
     # a wording switch on an item that was not run resolves to its pre-registered default by design
     need = set(used) | {k for k in used_word if status.get(k[0], 'pending') != 'not_run'}
     unresolved = sorted(k for k in need if k not in values)
-    for it in sorted({i for i, _ in used | used_word}):
+    for it in sorted({i for i, _ in used | used_word} | (switched & set(items))):
         stt = status.get(it, 'pending')
         if stt == 'not_run':
             leaked = sorted(k for i, k in used if i == it)

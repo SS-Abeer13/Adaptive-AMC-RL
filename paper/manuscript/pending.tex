@@ -1,7 +1,7 @@
 % pending.tex -- placeholders for every number and wording that waits on a run.
 % Input once in the preamble:  \input{pending}
 %
-% Numbers:   \Gone{key} \Wone{key} \Gsix{key} \NR{key} \Gten{key} \NRtwo{key} \Aone{key} \Athree{key} \Asix{key}
+% Numbers:   \Gone{key} \Wone{key} \Gsix{key} \NR{key} \Gten{key} \NRtwo{key} \Aone{key} \Athree{key} \Asix{key} \NRGten{key} \Athreec{key}
 %   -> the value from pending_values.tex (generated from pending_values.csv),
 %      or a RED bold placeholder [[ITEM:key]] when the value is not yet known.
 % Switches:  \ifitemrun{ITEM}{text if the run is done}{text if it was not run / is pending}
@@ -16,7 +16,7 @@
 \def\statusrun{run}
 % ---- run status of each item (overridden by pending_status.tex): run | not_run | pending
 \def\status@G1{pending}\def\status@W1{pending}\def\status@G6{pending}\def\status@NR{pending}
-\def\status@G10{pending}\def\status@NR2{pending}\def\status@A1{pending}\def\status@A3{pending}\def\status@A6{pending}
+\def\status@G10{pending}\def\status@NR2{pending}\def\status@A1{pending}\def\status@A3{pending}\def\status@A6{pending}\def\status@NRG10{pending}\def\status@A3c{pending}
 \newcommand{\pendingdef}[3]{\expandafter\gdef\csname pend@#1@#2\endcsname{#3}}
 \newcommand{\pendingstatus}[2]{\expandafter\gdef\csname status@#1\endcsname{#2}}
 \newcommand{\pendingnum}[2]{%
@@ -53,6 +53,8 @@
 \newcommand{\Aone}[1]{\pendingnum{A1}{#1}}
 \newcommand{\Athree}[1]{\pendingnum{A3}{#1}}
 \newcommand{\Asix}[1]{\pendingnum{A6}{#1}}
+\newcommand{\NRGten}[1]{\pendingnum{NRG10}{#1}}
+\newcommand{\Athreec}[1]{\pendingnum{A3c}{#1}}
 % ---- generated values and statuses, if present
 \IfFileExists{pending_values.tex}{\input{pending_values.tex}}{}
 \IfFileExists{pending_status.tex}{\input{pending_status.tex}}{}

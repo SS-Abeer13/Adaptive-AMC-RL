@@ -1,0 +1,3 @@
+actor,layers,macs,flops,params
+m1,57x128x96x3,19872,40195,20099
+nr2,57x128x96x3,19872,40195,20099

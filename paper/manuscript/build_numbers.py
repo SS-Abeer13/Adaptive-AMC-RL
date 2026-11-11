@@ -188,6 +188,18 @@ tests = len(rows) * 9
 add('NBonfTests', f'{tests:,}'.replace(',', r'\,'), 'M04', rel(REG), 'rows x 9')
 add('NBonfP', sci(p1 * tests), 'M04', rel(TC), 'holm_p x tests')
 add('NBonfPraw', sci(p1), 'M04', rel(TC), 'holm_p')
+# project-wide count: registry (main round) + pre-registered robustness stages (ledger/robustness_cases.csv,
+# from ledger/multiplicity.md section 7). Upper bound on tests: rows x 10 (largest comparator family + 1).
+ROB = P('paper', 'ledger', 'robustness_cases.csv')
+rob = list(csv.DictReader(open(ROB, newline='')))
+rc, rr = sum(int(x['cases']) for x in rob), sum(int(x['rows']) for x in rob)
+add('NRobCases', str(rc), 'M08', rel(ROB), 'sum of cases over robustness stages')
+add('NRobRows', str(rr), 'M08', rel(ROB), 'sum of rows over robustness stages')
+add('NProjCases', str(len(ids) + rc), 'M08', rel(REG) + '; ' + rel(ROB), 'registry cases + robustness cases')
+add('NProjRows', str(len(rows) + rr), 'M08', rel(REG) + '; ' + rel(ROB), 'registry rows + robustness rows')
+ptests = (len(rows) + rr) * 10
+add('NProjTests', f'{ptests:,}'.replace(',', r'\,'), 'M08', rel(REG) + '; ' + rel(ROB), 'project rows x 10 (upper bound)')
+add('NBonfPProj', sci(p1 * ptests), 'M08', rel(TC), 'holm_p x project tests')
 
 # ------------------------------------------------------------------ literature counts
 LM = P('paper', 'lit', 'lit_matrix.csv')
@@ -294,6 +306,11 @@ add('NCalFixedCands', '9', 'S19', 'Optimized/v17/defaultEnv_v17.m', 'fixed_cands
 add('NCalClasses', '6', 'S19', 'Optimized/v17/userClass_v17.m', '2 delay x 3 speed classes')
 add('NParamsActor', '20,099'.replace(',', r'\,'), 'S16', 'Optimized/v17/DeepA2C_Shared_v17.m', '57x128 + 128x96 + 96x3 weights and biases')
 add('NMacsActor', '19,872'.replace(',', r'\,'), 'S16', 'Optimized/v17/DeepA2C_Shared_v17.m', '57*128+128*96+96*3')
+AF = P('paper', 'analysis', 'out', 'actor_flops.csv')
+af = list(csv.DictReader(open(AF, newline='')))
+if any(int(r['macs']) != 19872 for r in af):
+    ERR.append('actor_flops.csv MACs disagree with the analytic count 19,872 (NMacsActor)')
+add('NFlopsActor', f"{int(af[0]['flops']):,}".replace(',', r'\,'), 'S16', rel(AF), '2 x MACs + bias adds + ReLUs, one user decision (ONNX export, equivalence in REPORT_a3b.txt)')
 add('NInputDim', '57', 'S16', 'Optimized/v17/stateFeat_v17.m', '3 frames x 19 features')
 # check the S16 arithmetic
 assert 57 * 128 + 128 * 96 + 96 * 3 == 19872 and (57 * 128 + 128) + (128 * 96 + 96) + (96 * 3 + 3) == 20099
@@ -560,6 +577,8 @@ add('NGsixSelStart', 'S' + sel.group(1), 'G6h', rel(HB), 'selected start'); add(
 add('NMoneHours', f(el['M1_dl_rtt8'] / 60, 1), 'R32', rel(FS17), 'STEP M1 done elapsed_min / 60 (10 seeds training + evaluation)')
 pj = float(next(x for x in tc5 if x['comparator'] == 'Context-joint-500')['holm_p']) * tests
 add('NBonfPCtxJ', f(min(1.0, pj), 2) if pj >= 0.01 else sci(pj), 'M07', rel(TC5) + '; ' + rel(REG), 'Holm p (CtxJ) x registry tests, capped at 1')
+pjp = float(next(x for x in tc5 if x['comparator'] == 'Context-joint-500')['holm_p']) * ptests
+add('NBonfPCtxJProj', f(min(1.0, pjp), 2) if pjp >= 0.01 else sci(pjp), 'M08', rel(TC5) + '; ' + rel(ROB), 'Holm p (CtxJ) x project tests, capped at 1')
 if capped and PV.get(('G6', 'cap_hit')) == 'no':
     ERR.append('pending_values G6 cap_hit = no, but the heartbeat log shows a start that reached the cap without converging')
 

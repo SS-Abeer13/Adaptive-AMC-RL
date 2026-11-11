@@ -143,12 +143,13 @@ Operating-point check (G10) & Does it hold at other operating points? & two neig
 Speed breakdown, timing (A1, A3) & By user speed; inference cost & M1 traces; timing on one CPU & descriptive & run\\
 PF-timing demonstration (A6) & Is the multi-process HARQ gain a PF-timing artefact? & \NAsixTraces{} fresh traces, three schemes & expectation stated in advance & run\\
 Confirmatory replication (NR2) & Does the ablation replicate on fresh data? & fresh seeds, fresh evaluation traces, frozen re-calibrated tables & trace-level and seed-level rules against the combined table & \ifitemrun{NR2}{run}{frozen, after G10}\\
+Operating points, non-oracle recipe (NR-G10) & Does the recommended recipe hold at other operating points? & the two G10 cells and traces, fresh seeds; single-cue rules frozen from G10 & Holm over nine per cell; ALL / MIXED / NONE & \ifitemrun{NRG10}{run}{frozen, after NR2}\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 \section{Registry summary}\label{app:registry}
-Table~\ref{tab:registry} summarises the case registry by campaign version. A case is one configuration evaluated on its own traces; a row is one scheme evaluated in a case. The full registry is in the supplement. The robustness checks of Appendix~\ref{app:programme} are not yet included.
+Table~\ref{tab:registry} summarises the case registry by campaign version. A case is one configuration evaluated on its own traces; a row is one scheme evaluated in a case. The full registry is in the supplement. The \NRobCases{} cases of the robustness checks (Appendix~\ref{app:programme}) are kept in a separate ledger and counted in the project-wide correction (\NProjCases{} cases, \NProjRows{} scheme evaluations in total).
 
 \begin{table}[h]
 \caption{Case registry by version: cases, scheme evaluations (rows), cases with a valid WIN, and superseded cases.}\label{tab:registry}

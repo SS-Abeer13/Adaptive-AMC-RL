@@ -1,5 +1,5 @@
 % wording.tex -- pre-registered wording variants, selected by the verdict of each run.
-% Source of truth: paper/proposals/G6 section 4, W1 section 3, NR1 section 4, G10 section 4.
+% Source of truth: paper/proposals/G6 section 4, W1 section 3, NR1 section 4, G10 section 4, NR-G10 section 4.
 % Key = the value stored as the verdict in pending_values.csv.
 
 % ---- Contribution C2 / abstract clause (G6 verdict: ABJ | ABJ-seed | AB | A | none)
@@ -46,3 +46,15 @@
 \defwording{NR2}{NULL}{On fresh evaluation traces and fresh training seeds, the margin of the residual policy on a non-oracle base over the frozen combined table was not significant (\NRtwo{margin_ctxj}\,\%, \NLevTrace\,\% CI [\NRtwo{ci_lo_ctxj}, \NRtwo{ci_hi_ctxj}]\,\%); the NR1 margin did not replicate.}
 \defwording{NR2}{REVERSE}{On fresh evaluation traces and fresh training seeds, the frozen combined table beat the residual policy on a non-oracle base (\NRtwo{margin_ctxj}\,\%); the NR1 margin did not replicate.}
 \defwording{NR2}{unrun}{NR2 had not been run at the time of writing.}
+
+% ---- NR-G10 verdict: ALL | MIXED | NONE   (paper/proposals/NR_G10_operating_grid_prereg.md section 4, frozen under Amendment 5)
+% Full-sentence rows are verbatim from section 4; "+a %" and "+b %" are the margins vs the best rule per cell.
+\defwording{NRG10}{ALL}{With the non-oracle residual recipe, the gain held at both tested neighbouring operating points (a higher load at the M1 deadline, and a lower load with a looser deadline): residual A2C on a calibrated static offset beat the OLLA family and the single-cue calibrated rules re-calibrated for each cell (margins +\NRGten{margin_G2}\,\% and +\NRGten{margin_G3}\,\% vs the best rule). Two further grid corners were not tested.}
+\defwording{NRG10}{MIXED}{With the non-oracle residual recipe, the gain is operating-point dependent: residual A2C on a calibrated static offset beat the OLLA family and the single-cue rules at \NRGten{cells_win} but not at \NRGten{cells_notwin} (per-cell table). Two further grid corners were not tested.}
+\defwording{NRG10}{NONE}{With the non-oracle residual recipe, the result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced (per-cell table). Two further grid corners were not tested.}
+\defwording{NRG10}{unrun}{The non-oracle residual recipe was confirmed at the M1 operating point only; neighbouring operating points were not tested under this recipe.}
+% Abstract clause (shortened from the row above; no claim beyond it).
+\defwording{NRG10abs}{ALL}{The oracle-base recipe did not reproduce at two neighbouring operating points, but the non-oracle recipe did: there it beat the OLLA family and the single-cue rules re-calibrated for each point (+\NRGten{margin_G2}\,\% and +\NRGten{margin_G3}\,\% over the best rule); the combined table was pre-registered at the M1 point only, and two further grid corners were not tested.}
+\defwording{NRG10abs}{MIXED}{At two neighbouring operating points the non-oracle recipe held at one and not at the other; two further grid corners were not tested.}
+\defwording{NRG10abs}{NONE}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced.}
+\defwording{NRG10abs}{unrun}{The result was observed at the M1 operating point only; at the two tested neighbouring points it was not reproduced.}
