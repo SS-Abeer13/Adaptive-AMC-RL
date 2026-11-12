@@ -67,6 +67,7 @@ NBonfP,$8.8\times10^{-10}$,M04,Optimized\v17\paper\table_core.csv,holm_p x tests
 NBonfPCtxJ,1.00,M07,Optimized\v17x\Dataset\table_cal500.csv; Optimized\case_registry.csv,"Holm p (CtxJ) x registry tests, capped at 1"
 NBonfPCtxJProj,1.00,M08,Optimized/v17x/Dataset/table_cal500.csv; paper/ledger/robustness_cases.csv,"Holm p (CtxJ) x project tests, capped at 1"
 NBonfPProj,$1.1\times10^{-9}$,M08,Optimized/v17/paper/table_core.csv,holm_p x project tests
+NBonfPProjNR,$4.6\times10^{-27}$,M08,paper/analysis/out/nr2_stats.csv; paper/ledger/robustness_cases.csv,NR2 Holm p (CtxJ) x project tests
 NBonfPraw,$9.1\times10^{-13}$,M04,Optimized\v17\paper\table_core.csv,holm_p
 NBonfTests,972,M04,Optimized\case_registry.csv,rows x 9
 NBoot,"20\,000",P01,paper/proposals/common_rules.md,"R2 B = 20,000"
@@ -456,6 +457,66 @@ NHMtwoGenie,0.9555,R26,Optimized\v17\paper\headroom.csv,genie
 NHMtwoGeniePct,+11.9,R26,Optimized\v17\paper\headroom.csv,genie/fixed - 1
 NHMtwoHind,0.8712,R26,Optimized\v17\paper\headroom.csv,hindsight
 NHMtwoHindPct,+2.0,R26,Optimized\v17\paper\headroom.csv,hindsight/fixed - 1
+NHRBoot,"20\,000",HR1,paper/analysis/out/hr_report.txt,bootstrap replicates
+NHRDecisions,"1\,829\,988",HR1,paper/analysis/out/hr_report.txt,decisions over the nine HR1 runs
+NHRFolds,5,HR1,paper/analysis/out/hr_report.txt,cross-fitting folds
+NHRGenieMoneHi,21,HR1,paper/analysis/out/hr_values.csv,"max genie headroom, table runs vs own table"
+NHRGenieMoneLo,21,HR1,paper/analysis/out/hr_values.csv,"min genie headroom, table runs vs own table"
+NHRGenieMthreeHi,38,HR1,paper/analysis/out/hr_values.csv,"max genie headroom, table runs vs own table"
+NHRGenieMthreeLo,37,HR1,paper/analysis/out/hr_values.csv,"min genie headroom, table runs vs own table"
+NHRMoneComb,+5.59,HR1,paper/analysis/out/hr_values.csv,M1_dl_rtt8|M1|Combined table|residual|gbt_a
+NHRMoneCombHi,5.80,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRMoneCombLo,5.38,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRMthreeComb,+0.96,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|Combined table|residual|gbt_a
+NHRMthreeCombHi,1.49,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRMthreeCombLo,0.43,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRMthreeFPU,+1.22,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|FixedPU|residual|gbt_a
+NHRMthreeFPUHi,1.78,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRMthreeFPULo,0.68,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRMthreeFixedFull,+2.60,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|Fixed|full|gbt_a
+NHRMthreeFixedFullHi,3.19,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRMthreeFixedFullLo,2.02,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRPfourEst,+4.68,HR1,paper/analysis/out/hr_predictions.csv,P4 estimate
+NHRPfourHi,5.36,HR1,paper/analysis/out/hr_predictions.csv,P4 95 % CI hi
+NHRPfourLo,4.01,HR1,paper/analysis/out/hr_predictions.csv,P4 95 % CI lo
+NHRPoneEst,+2.38,HR1,paper/analysis/out/hr_predictions.csv,P1 estimate
+NHRPoneHi,2.89,HR1,paper/analysis/out/hr_predictions.csv,P1 95 % CI hi
+NHRPoneLo,1.88,HR1,paper/analysis/out/hr_predictions.csv,P1 95 % CI lo
+NHRPthreeEst,+0.24,HR1,paper/analysis/out/hr_predictions.csv,P3 estimate
+NHRPthreeHi,0.38,HR1,paper/analysis/out/hr_predictions.csv,P3 95 % CI hi
+NHRPthreeLo,0.11,HR1,paper/analysis/out/hr_predictions.csv,P3 95 % CI lo
+NHRPtwoEst,+5.84,HR1,paper/analysis/out/hr_predictions.csv,P2 estimate
+NHRPtwoHi,6.05,HR1,paper/analysis/out/hr_predictions.csv,P2 95 % CI hi
+NHRPtwoLo,5.62,HR1,paper/analysis/out/hr_predictions.csv,P2 95 % CI lo
+NHRRealDiff,2.7,HR1,paper/analysis/out/nr2_stats.csv; Optimized/v17x/Dataset/table_cal500.csv,NR2 margin - M1 margin over the combined table (points)
+NHRTabFullHi,9.6,HR1,paper/analysis/out/hr_values.csv,"max over M1 table runs vs own table, full, gbt_a"
+NHRTabFullLo,9.5,HR1,paper/analysis/out/hr_values.csv,"min over M1 table runs vs own table, full, gbt_a"
+NHRTabResHi,5.7,HR1,paper/analysis/out/hr_values.csv,"max over M1 table runs vs own table, residual, gbt_a"
+NHRTabResLo,5.4,HR1,paper/analysis/out/hr_values.csv,"min over M1 table runs vs own table, residual, gbt_a"
+NHRbMoneComb,+5.37,HR1,paper/analysis/out/hr_values.csv,M1_dl_rtt8|M1|Combined table|residual|gbt_b
+NHRbMoneCombHi,5.58,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRbMoneCombLo,5.17,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRbMthreeComb,+0.39,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|Combined table|residual|gbt_b
+NHRbMthreeCombHi,0.93,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRbMthreeCombLo,\ensuremath{-}0.15,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRbMthreeFPU,+0.65,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|FixedPU|residual|gbt_b
+NHRbMthreeFPUHi,1.19,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRbMthreeFPULo,0.11,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRbMthreeFixedFull,+1.60,HR1,paper/analysis/out/hr_values.csv,M3_gp_rtt8|A2C_case|Fixed|full|gbt_b
+NHRbMthreeFixedFullHi,2.19,HR1,paper/analysis/out/hr_values.csv,ci95_hi
+NHRbMthreeFixedFullLo,1.00,HR1,paper/analysis/out/hr_values.csv,ci95_lo
+NHRbPfourEst,+4.28,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P4 estimate
+NHRbPfourHi,4.94,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P4 95 % CI hi
+NHRbPfourLo,3.61,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P4 95 % CI lo
+NHRbPoneEst,+1.80,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P1 estimate
+NHRbPoneHi,2.31,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P1 95 % CI hi
+NHRbPoneLo,1.30,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P1 95 % CI lo
+NHRbPthreeEst,+0.19,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P3 estimate
+NHRbPthreeHi,0.33,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P3 95 % CI hi
+NHRbPthreeLo,0.04,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P3 95 % CI lo
+NHRbPtwoEst,+5.55,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P2 estimate
+NHRbPtwoHi,5.77,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P2 95 % CI hi
+NHRbPtwoLo,5.34,HR1,paper/analysis/out/hr_gbtb_sensitivity.csv,P2 95 % CI lo
 NHpEntEnd,0.001,S15,Optimized/v17/v17_setup.m,"'ent_end', ([0-9.]+)"
 NHpEntStart,0.03,S15,Optimized/v17/v17_setup.m,"'ent_start', ([0-9.]+)"
 NHpGamma,0.95,S15,Optimized/v17/defaultEnv_v17.m,gamma
@@ -475,12 +536,12 @@ NLevHier,95,P01,paper/proposals/common_rules.md,R2 95 % CI
 NLevTrace,90,P01,paper/proposals/common_rules.md,R1 90 % CI
 NLitCalNo,13,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=no
 NLitCalPart,3,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=partial
-NLitCalUnc,7,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=unclear
+NLitCalUnc,8,lit,paper/lit/lit_matrix.csv,calibrated_rule_baseline=unclear
 NLitCalYes,0,lit,paper\lit\lit_matrix.csv,calibrated_rule_baseline=yes
-NLitN,23,lit,paper\lit\lit_matrix.csv,rows with calibrated_rule_baseline
+NLitN,24,lit,paper/lit/lit_matrix.csv,rows with calibrated_rule_baseline
 NLitParNo,3,lit,paper\lit\lit_matrix.csv,information_parity=no
 NLitParPart,1,lit,paper\lit\lit_matrix.csv,information_parity=partial
-NLitParUnc,14,lit,paper\lit\lit_matrix.csv,information_parity=unclear
+NLitParUnc,15,lit,paper/lit/lit_matrix.csv,information_parity=unclear
 NLitParYes,5,lit,paper\lit\lit_matrix.csv,information_parity=yes
 NMacsActor,"19\,872",S16,Optimized/v17/DeepA2C_Shared_v17.m,57*128+128*96+96*3
 NMfourCiBanD,0.1364,R02,Optimized\v17\Dataset\fill_summary_v17.txt,PRIM|M4_gp_rtt0|Bandit (delay class) ci95

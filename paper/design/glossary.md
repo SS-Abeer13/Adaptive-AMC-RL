@@ -73,3 +73,7 @@ The first column is the term as used in the manuscript. "Never" lists wordings t
 | **M2** | Deadline traffic, RTT 0, 1 process (replication) |
 | **M3 / M4** | Full-buffer goodput, RTT 8 / RTT 0 |
 | **v9 … v17** | Campaign rounds; only v17 results are valid evidence for realistic HARQ |
+| **HR1 (learnable one-step headroom)** | Per decision, for the first transmission, in expected useful bits through the link abstraction: relative gain of a cross-fitted gradient-boosted predictor (gbt_a, gbt_b; larger reported) over a calibrated table, on logged decisions (prereg HR1, Amendment 7) |
+| **Residual set (HR1)** | The distinct MCS reachable from the base offset ±1, i.e. what the residual policy can choose |
+| **NR-G10** | The non-oracle residual recipe at the two G10 operating points (G2, G3), pre-registered after NR2 |
+| **Stage codes** | G6 re-calibration, W1 warm-up, NR1/NR2 non-oracle ablation/replication, G10/NR-G10 operating points, A1 speed breakdown, A3c decision time, HR1 headroom (Table of the robustness programme) |

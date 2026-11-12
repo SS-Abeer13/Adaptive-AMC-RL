@@ -1,0 +1,5 @@
+id,estimator,estimate,lo,hi,verdict,source
+P1,gbt_b,1.800,1.298,2.305,not supported,hr_values.csv
+P2,gbt_b,5.554,5.336,5.770,supported,hr_values.csv
+P3,gbt_b,0.186,0.043,0.328,supported,recomputed
+P4,gbt_b,4.282,3.606,4.943,supported,recomputed

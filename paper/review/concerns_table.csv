@@ -1,0 +1,17 @@
+concern,alfa,bravo,charlie,delta
+'Pre-registered/confirmatory' framing exceeds design; only NR2 is a clean confirmatory test,true,true,true,true
+Trace-level p-values (e.g. 4.6e-27) over-read; Bonferroni factors 972 vs 1260 and case counts 67/76 inconsistent,true,true,true,true
+"HR1 headroom analysis over-interpreted (abstract causal sentence, unvalidated 'estimate headroom first' recommendation, 0.24 vs 2.7 points)",true,true,true,false
+"Comparator quality: degenerate bandits (41.8%), duplicated rows, combined table under-searched/grid-clipped/not information-matched",true,true,true,true
+No non-RL learned control on the same features (deployed GBT predictor or hand-written busy/slack/burst rule),true,true,true,false
+Single simulator with SINR-to-BLER abstraction; no second environment or link-level validation,true,false,true,true
+"Operating-point generality thin (5 seeds, single-cue comparators, recipe changed after failure)",true,true,true,true
+"Recommended NR2 configuration lacks speed breakdown, warm-up, fairness and action diagnostics",true,true,true,true
+"Release DOI, disclosures and authors are placeholders",true,true,true,true
+Seed-level estimand: ensemble result (0.6306) contradicts single-seed framing,true,false,true,false
+Hierarchical percentile bootstrap with 5-10 clusters may under-cover; no power analysis; R1/R2 level mismatch,true,false,true,false
+"Missing component ablation of the recipe (features, logit bias, deviation penalty, reward shaping)",false,true,true,false
+'58 % removed by re-calibration' conflates re-calibration with a richer comparator,true,false,true,false
+"Decision latency: recommended policy untimed, Python laptop only, no DU/dApp/E3 feature plumbing",false,false,true,true
+"Deployment robustness: distribution shift, guardrails, which seed to deploy",false,false,false,true
+Literature screening (24 papers) not auditable,true,true,true,true

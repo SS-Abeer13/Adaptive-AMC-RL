@@ -38,3 +38,39 @@ Started at Checkpoint 4 (4 Nov 2026). It is extended in Phases 7–8. Sources: `
 - [ ] M2 is described only as a replication.
 - [ ] LOLLA: cite arXiv 2606.23110v1 Table V(a) for 254/185/171 Mbps. Frame it as a reporting recommendation.
 - [ ] The gain vs OLLA is quoted with the warm-up result if W1 changes it materially.
+
+## G. Desk-reject checklist (checked 12 Nov 2026 on the v10b build)
+| Check | Status | Note |
+|---|---|---|
+| Scope sentence in the first lines of the abstract | ✅ | "We study downlink link adaptation in a simulated multi-user NR-like cell…" |
+| Contributions visible on p. 1 | ✅ | One-sentence C1–C4 preview on p. 1; full list on p. 2 |
+| Abstract ≤ 250 words | ✅ | 243 words (pdftotext count) |
+| Figures legible in grayscale | ✅ | Checked pp. 9–13 rendered in gray; series differ by marker shape and fill, not colour alone |
+| Length 13–15 pp | ⚠️ | Main text ends on p. 14 (Conclusion); references and Appendices A–E bring the PDF to 18 pp. **Confirm the portal limit.** If the limit counts all pages, move Appendices B–E (full tables, calibrated tables, programme table, registry) to the supplement → about 15–16 pp |
+| Recent references, TMLCN references | ✅ | 47 references; about half of the cited years are 2022 or later; Cyrus+ (TMLCN 2025) cited |
+| Minimal self-citation | ✅ | None (author list still to be completed — re-check after) |
+| Data and code statement | ⚠️ | Section present; **Zenodo DOI placeholder** |
+| AI-use disclosure | ⚠️ | Placeholder in Acknowledgments; wording in Section C above |
+| arXiv notice | ⚠️ | Only if posted; exact IEEE text in Section B |
+| Numbers audit | ✅ | `audit_numbers.csv`: 1 315 numeric tokens, 924 from macros, 46 from pending values, 8 intended literals, 6 checked by hand (actor 57-128-96-3; learning rates), 0 unmatched |
+| Citations vs bibliography | ✅ | 47 cited keys, all in refs.bib, all VERIFIED in lit/verification_report.csv; no UNVERIFIED entries; 0 BibTeX warnings |
+| No withdrawn or superseded result presented as valid | ✅ | v7/v8 withdrawn, v15/v16 RTT>0 superseded, G10 M1-recipe negative and NR-G10 reported together |
+| check_pending --final | ✅ | "OK (final gate passed)" |
+| Freeze hashes | ✅ | FREEZE.sha256 v8, 14/14 OK at session start; HR1 logs 9/9 OK |
+
+## H. Placeholders the authors must fill
+- [ ] Author names, affiliations, ORCID iDs (`main.tex` \author).
+- [ ] Funding and grant numbers (Acknowledgments).
+- [ ] Conflicts of interest (Acknowledgments and portal).
+- [ ] AI-assistance disclosure text (Acknowledgments; Section C).
+- [ ] Zenodo DOI (availability statement in `sec_conclusion.tex`, cover letter, README of the release).
+- [ ] Cover letter: date, corresponding author, optional exclusions.
+
+## I. Portal upload set (`paper/submission/`)
+- `manuscript.pdf` — main PDF (18 pp, IEEEtran journal).
+- `latex_source.zip` — compiles stand-alone with pdflatex (main.tex, sections, generated numbers, tables, figures, refs.bib and main.bbl, IEEEtran class).
+- `supplementary_material.pdf` — supplement (registry, full tables, freeze timeline). Note: built before HR1; HR1 values are in the main text and in `paper/analysis/out/hr_*.csv`.
+- `cover_letter.md` → paste or convert to PDF.
+- `response_letter_skeleton.md` — for the revision round.
+- `audit_numbers.csv` — internal, not for upload.
+Confirm on the portal: file types accepted, whether a separate graphical abstract or highlights are required, the page-count rule, and keywords from the IEEE taxonomy.

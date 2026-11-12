@@ -24,6 +24,7 @@ Results from v7 and v8 are withdrawn. A v10 exploratory win (E4c) used overlappi
 \item Compare against rules calibrated on the learner's cues, state the calibration budget, and give an information table such as Table~\ref{tab:info}.
 \item Use common random numbers, disjoint calibration, validation and evaluation traces, and a public case registry.
 \item Report seed-level intervals next to trace-level ones.
-\item Report results by mobility regime, HARQ timing and observation set. The observation-set ablation in LOLLA (Table~V(a) of~\cite{wang2026lolla}, 254, 185 and 171~Mbps) shows how much a result can depend on what the learner sees.
+\item Report results by mobility regime, HARQ timing and observation set. The observation-set ablation in LOLLA (Table~V(a) of the arXiv version of~\cite{wang2026lolla}, 254, 185 and 171~Mbps) shows how much a result can depend on what the learner sees.
 \item State the PF-averaging definition and report the complexity of the learner.
+\item Before training a deep policy, estimate the one-step headroom of a learner over the best calibrated table, as in Section~\ref{sec:hr1}. It is cheap and uses logged decisions. Little headroom means little to learn; positive headroom does not guarantee that a policy captures it (on goodput it did not).
 \end{enumerate}

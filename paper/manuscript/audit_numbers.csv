@@ -1,0 +1,1316 @@
+page,token,status,source,context
+1,1,figure-axis,figure text,1
+1,76,macro,NProjCases [M08],all 76 cases are registered. For deadline traf
+1,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"round-trip time of 8 TTIs, a residual advantage actor-critic"
+1,7.49,macro,NGsixOLLATDBootLo [G6b]; NWoneOLLATWarmMar [W01]; NWoneOLLAWarmMar [W01],(A2C) policy delivers 7.49 % more packets on time than OLLA
+1,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],after a 200-TTI warm-up. Against calibrated rules t
+1,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],narrows: re-calibrating them on 500 traces removes 58 % of the
+1,58,macro,NGsixClosure [G6d]; NSlotMinusThree [H07],-calibrating them on 500 traces removes 58 % of the
+1,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,the policy gains +0.66 % on traces but not robustly across see
+1,+3.35,pending,NR2:margin_ctxj,"robustly (+3.35 %, hierarchical 95 % CI [2.22, 4.40] %)"
+1,95,macro,NLevHier [P01],"robustly (+3.35 %, hierarchical 95 % CI [2.22, 4.40] %). With"
+1,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"obustly (+3.35 %, hierarchical 95 % CI [2.22, 4.40] %). With"
+1,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"y (+3.35 %, hierarchical 95 % CI [2.22, 4.40] %). With"
+1,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],adds nothing (−0.88 %). We document three simulation pitfal
+1,1,structural,citation,link adaptation (OLLA) [1]: an additive offset on the reported
+1,2,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,3,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,4,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,5,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,6,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,7,structural,citation,"over it [2], [3], [4], [5], [6], [7]."
+1,24,macro,NGoneKBurstMax [G1b]; NLitN [lit],"arner’s cues, separates the two. Of the 24 learningbased LA papers we screened (ab"
+1,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"0 compared against such a rule, 3 did so"
+1,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"0 compared against such a rule, 3 did so partly, 13 did not,"
+1,13,macro,NLitCalNo [lit]; NPfNSchemes [H17a],"d against such a rule, 3 did so partly, 13 did not,"
+1,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],and for 8 the text did not allow a determination.
+1,17,macro,NGoneBurstSeedMin [G1b]; NVersions [M01],over 17 versions of the campaign and fixed befo
+1,8,structural,citation,common random numbers (CRN) [8]; ten training seeds; nine
+1,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1) The comparator decides the size of the
+1,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],c with an HARQ round-trip time (RTT) of 8
+1,7.49,macro,NGsixOLLATDBootLo [G6b]; NWoneOLLATWarmMar [W01]; NWoneOLLAWarmMar [W01],a calibrated base rule beats OLLA by 7.49 % in ontime delivery after a 200-TTI wa
+1,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],LA by 7.49 % in ontime delivery after a 200-TTI warm-up. Against rules
+1,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],re-calibrated by exhaustive search on 500 fresh traces
+1,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,"HARQ-process state, the margin is only +0.66 % (90 %"
+1,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"cess state, the margin is only +0.66 % (90 %"
+1,+0.29,macro,NGMoneFPUSeedMin [G3g]; NGsixCtxJLo [G6a]; G6:ci_lo_ctxj,"CI [+0.29, +1.03] %). Re-calibration removes 58 %"
+1,+1.03,macro,NGsixCtxJHi [G6a]; NMtwoRsdMultiLo [R03-R07]; G6:ci_hi_ctxj,"CI [+0.29, +1.03] %). Re-calibration removes 58 % of"
+1,58,macro,NGsixClosure [G6d]; NSlotMinusThree [H07],"0.29, +1.03] %). Re-calibration removes 58 % of"
+1,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],2) Seed variance decides whether the rema
+1,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],this policy it is not established: only 5 of 10
+1,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],policy it is not established: only 5 of 10
+1,95,macro,NLevHier [P01],"seed×trace 95 % interval is [−0.30, +1.70] %, and a"
+1,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"seed×trace 95 % interval is [−0.30, +1.70] %, and a"
+1,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"seed×trace 95 % interval is [−0.30, +1.70] %, and a"
+1,0.55,macro,NGsixCtxJPoI [G6g]; NGsixFPUDPoILo [G6g]; NRG10:ontime_G2,trace with probability 0.55. A residual policy on a nonoracle base
+1,+3.35,pending,NR2:margin_ctxj,"combined table by +3.35 % (hierarchical 95 % CI [2.22,"
+1,95,macro,NLevHier [P01],"combined table by +3.35 % (hierarchical 95 % CI [2.22,"
+1,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"table by +3.35 % (hierarchical 95 % CI [2.22,"
+1,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"4.40] %), although that table uses the true"
+2,2,figure-axis,figure text,2
+2,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],than 10 m/s the margin over the original Contex
+2,−1.71,macro,NAoneSlowMar [A01]; A1:margin_lo,negative (−1.71 %); this breakdown was not computed
+2,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3) Where the decision has no structure to
+2,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],"−0.88 % against a single calibrated offset, a"
+2,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"a single calibrated offset, and at RTT 8"
+2,76,macro,NProjCases [M08],ce and multiplicity accounting over all 76 cases
+2,126,macro,NProjRows [M08],and 126 scheme evaluations of the project (a re
+2,67,macro,NGoneBaseMtwoShare [G1b]; NGoneBusyZeroSeedMax [G1b]; NRegCases [M01],the 67 main-round cases plus a ledger of the 9
+2,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],7 main-round cases plus a ledger of the 9 robustness
+2,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],s re-calibrated by exhaustive search on 500 fresh
+2,95,macro,NLevHier [P01],robust to seed resampling (hierarchical 95 %
+2,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"CI [−0.30, +1.70] %). The trace-level margin over"
+2,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"CI [−0.30, +1.70] %). The trace-level margin over that"
+2,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,table is +0.66 %. We recommend the non-oracle residual
+2,95,macro,NLevHier [P01],"tly across training seeds (hierarchical 95 % CI [2.22,"
+2,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"s training seeds (hierarchical 95 % CI [2.22,"
+2,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,4.40] %). At two neighbouring operating poin
+2,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],es not beat a calibrated static offset (−0.88 % and
+2,−1.73,macro,NAGpCtxZero [R28]; NAGpFixedZero [R28]; NGMoneOffCtxHierLo [G3a],"−1.73 % vs. Fixed in M3 and M4), and for user"
+2,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10 m/s the original policy loses −1.71 % a
+2,−1.71,macro,NAoneSlowMar [A01]; A1:margin_lo,10 m/s the original policy loses −1.71 % against the original Context table. A
+2,+2.38,macro,NGsixCtxDBootHi [G6b]; NHRPoneEst [HR1],"zero (+2.38 % around the base rule), so the collaps"
+2,+0.24,macro,NHRPthreeEst [HR1],+0.24 points larger than around the oracle ba
+2,2.7,macro,NHRRealDiff [HR1]; NMoneHours [R32],"a realised advantage of 2.7 points, so one-step headroom"
+2,1,structural,citation,"block-error rate approaches a target [1], [9]. Variants adapt"
+2,9,structural,citation,"ck-error rate approaches a target [1], [9]. Variants adapt"
+2,10,structural,citation,"the target [10], the step sizes [11], [12], [13], the"
+2,11,structural,citation,"the target [10], the step sizes [11], [12], [13], the offset"
+2,12,structural,citation,"the target [10], the step sizes [11], [12], [13], the offset"
+2,13,structural,citation,"arget [10], the step sizes [11], [12], [13], the offset"
+2,14,structural,citation,"estimator [14], [15], or the feedback used under URLL"
+2,15,structural,citation,"estimator [14], [15], or the feedback used under URLLC soft"
+2,16,structural,citation,the feedback used under URLLC softACK [16]. Ahsen et al. use a rank-dependent mul
+2,17,structural,citation,rule [17]; this is a different design from the M
+2,18,structural,citation,without learning [18].
+2,19,structural,citation,"scheme (MCS) or the offset directly [19], [2], [20], [21]."
+2,2,structural,citation,"eme (MCS) or the offset directly [19], [2], [20], [21]."
+2,20,structural,citation,"MCS) or the offset directly [19], [2], [20], [21]."
+2,21,structural,citation,"r the offset directly [19], [2], [20], [21]."
+2,3,structural,citation,"actor-critic, TD3 and PPO agents [3], [22], [4], [23], [7]."
+2,22,structural,citation,"actor-critic, TD3 and PPO agents [3], [22], [4], [23], [7]."
+2,4,structural,citation,"-critic, TD3 and PPO agents [3], [22], [4], [23], [7]."
+2,23,structural,citation,"ic, TD3 and PPO agents [3], [22], [4], [23], [7]."
+2,7,structural,citation,"3 and PPO agents [3], [22], [4], [23], [7]."
+2,24,structural,citation,against an EESMbased baseline (DELUXE) [24]; it addresses a different impairment a
+2,6,structural,citation,"an OLLA loop is studied by Kela et al. [6], and learning"
+2,25,structural,citation,"LLA by Pulliyakode and Kalyanasundaram [25],"
+2,22,structural,citation,Pang et al. [22] and Wang et al. (LOLLA) [5]. These wor
+2,5,structural,citation,ng et al. [22] and Wang et al. (LOLLA) [5]. These works are
+2,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"10 ms to 1 s, and re-partitions resource b"
+2,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"10 ms to 1 s, and re-partitions resource blocks be"
+2,26,structural,citation,"over the air [26], whereas LOLLA runs as a dApp [27] ins"
+2,27,structural,citation,"air [26], whereas LOLLA runs as a dApp [27] inside"
+2,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],end-to-end control latency below 500 µs at 30 kHz subcarrier
+2,30,macro,NCfgSpeedMax [S02],-to-end control latency below 500 µs at 30 kHz subcarrier
+2,5,structural,citation,spacing [5]. Cyrus+ spreads one learned control fu
+2,28,structural,citation,and executed in the O-DU [28]. Our question is a different
+2,24,macro,NGoneKBurstMax [G1b]; NLitN [lit],"at matter for that question. Across the 24 learningbased papers we screened, 0 com"
+2,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"he 24 learningbased papers we screened, 0 compared against a calibrated"
+2,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"rule built on the learner’s cues, 3 did so partly, 13 did not,"
+2,13,macro,NLitCalNo [lit]; NPfNSchemes [H17a],"on the learner’s cues, 3 did so partly, 13 did not,"
+2,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],and 8 could not be determined. These counts r
+3,3,figure-axis,figure text,3
+3,2,structural,citation,Saxena [2]
+3,3,structural,citation,Ye [3]
+3,6,structural,citation,Kela [6]
+3,22,structural,citation,Pang [22]
+3,4,structural,citation,You [4]
+3,5,structural,citation,(LOLLA) [5]
+3,7,structural,citation,"Demirel [7] system-level, multi- system-level"
+3,18,structural,citation,(SALAD) [18]
+3,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],Each user reports a 15-level channel quality indicator (CQI)
+3,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],with a delay drawn from 2–8 TTIs and Gaussian report noise
+3,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],with a delay drawn from 2–8 TTIs and Gaussian report noise
+3,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],of σ = 1 dB. Block errors follow an SINR-to-BLER
+3,0.5,macro,NCfgOllaDown [S11]; NCfgShape [S14]; A3c:floor,"e reported CQI. A NACK lowers ∆ by ∆↓ = 0.5 dB, and"
+3,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"an ACK raises it by ∆↑ = ∆↓ Ptgt /(1 − Ptgt ) ≈ 0.056 dB,"
+3,0.056,macro,NCfgOllaUp [S11],"aises it by ∆↑ = ∆↓ Ptgt /(1 − Ptgt ) ≈ 0.056 dB,"
+3,0.1,macro,NCfgOllaTarget [S11],"for a target Ptgt = 0.1, with |∆| ≤ 10 dB. The corrected"
+3,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"for a target Ptgt = 0.1, with |∆| ≤ 10 dB. The corrected"
+3,2.5,macro,NCfgChase [S05],Retransmissions use chase combining (2.5 dB gain per
+3,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"retransmission, at most 3 retransmissions) and reuse the stored"
+3,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"8 TTIs and 8 processes per user, and inst"
+3,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"8 TTIs and 8 processes per user, and instantaneous f"
+3,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"(RTT 0, one process)."
+3,29,structural,citation,RL results on optical-network problems [29]; this
+3,30,structural,citation,"eaten by simple, well-tuned heuristics [30]."
+3,31,structural,citation,"in [31], [32], [33]. For RL specifically, vari"
+3,32,structural,citation,"in [31], [32], [33]. For RL specifically, variance a"
+3,33,structural,citation,"in [31], [32], [33]. For RL specifically, variance across"
+3,34,structural,citation,"eporting of intervals are discussed in [34], [35];"
+3,35,structural,citation,"ng of intervals are discussed in [34], [35];"
+3,36,structural,citation,"point estimates [36], and we follow these recommendations."
+3,37,structural,citation,"Pre-registration is advocated in [37], [38], and credibility of"
+3,38,structural,citation,"Pre-registration is advocated in [37], [38], and credibility of"
+3,39,structural,citation,"simulation studies in [39], [40]. We apply these ideas to one"
+3,40,structural,citation,"simulation studies in [39], [40]. We apply these ideas to one"
+3,0.05,macro,NCfgPfAlpha [S07]; NGMoneRsdCtxTraceNinetyLo [G3c]; NMoneRsdCtxLo [R03-R07],α = 0.05 and is updated at scheduling time with
+3,12 000,macro,NCfgPkt [S09],Deadline traffic: 12 000 bit packets arrive every 20 TTIs
+3,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],raffic: 12 000 bit packets arrive every 20 TTIs
+3,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],with a budget of 10 TTIs. The primary metric is the ontime
+3,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],"goodput. Each trace lasts 200 TTIs, of which the first 50"
+3,50,macro,NCfgBurnIn [S10]; NCfgDcorr [S02]; NHpValEvery [S15],"race lasts 200 TTIs, of which the first 50"
+3,150,macro,NCfgScored [S10],"are burn-in, leaving 150 scored TTIs. We also report the"
+3,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"(deadline, RTT 8), M2 (deadline, RTT 0), M3 (goodput, RT"
+3,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"(deadline, RTT 8), M2 (deadline, RTT 0), M3 (goodput, RTT"
+3,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"8) and M4 (goodput, RTT 0)."
+3,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"8) and M4 (goodput, RTT 0)."
+3,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],A single macro cell serves N = 10 users on a 20 MHz
+3,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],gle macro cell serves N = 10 users on a 20 MHz
+3,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"carrier at 2 GHz with 100 resource blocks (RBs), 15"
+3,100,macro,NAoneAllShare [A01]; NAsixTraces [A06]; NCfgRB [S01],"carrier at 2 GHz with 100 resource blocks (RBs), 15 kHz"
+3,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],"t 2 GHz with 100 resource blocks (RBs), 15 kHz"
+3,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],subcarrier spacing and a 1 ms transmission time interval (TTI).
+3,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],fading is log-normal shadowing with σ = 6 dB
+3,50,macro,NCfgBurnIn [S10]; NCfgDcorr [S02]; NHpValEvery [S15],and 50 m decorrelation distance; small-scale f
+3,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"User speeds are drawn from 3–30 m/s, which gives Doppler"
+3,30,macro,NCfgSpeedMax [S02],"User speeds are drawn from 3–30 m/s, which gives Doppler"
+3,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],frequencies of about 20 Hz to 200 Hz. A two-state Markov
+3,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],frequencies of about 20 Hz to 200 Hz. A two-state Markov
+3,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],process adds interference bursts of 9 dB with mean dwell times
+3,250,macro,NCfgDwellCalm [S04],of 250 TTIs (calm) and 120 TTIs (burst).
+3,120,macro,NCfgDwellBurst [S04],of 250 TTIs (calm) and 120 TTIs (burst).
+3,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"part. In the offset formulation bi = 0 and δ ∈ [−4, +2]. In the"
+3,−4,structural,citation,"the offset formulation bi = 0 and δ ∈ [−4, +2]. In the"
+3,+2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"offset formulation bi = 0 and δ ∈ [−4, +2]. In the"
+3,−1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"residual formulation δ ∈ {−1, 0, +1} and the base rule is the"
+3,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"residual formulation δ ∈ {−1, 0, +1} and the base rule is the"
+3,+1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"residual formulation δ ∈ {−1, 0, +1} and the base rule is the"
+4,4,figure-axis,figure text,4
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],between t and t + 8 user i still looks
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],t+8
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],(b) PF average timing at RTT 8
+4,1,structural,label/identifier/unit-free code,Fig. 1. (a) Decision path: the learner (shaded
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],he two PF-average definitions on an RTT-8 timeline.
+4,17,macro,NGoneBurstSeedMin [G1b]; NVersions [M01],CHECKED AGAINST D E F A U L T E N V _ V 17. M
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"10, 20 MHz, 100"
+4,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],"10, 20 MHz, 100"
+4,100,macro,NAoneAllShare [A01]; NAsixTraces [A06]; NCfgRB [S01],"10, 20 MHz, 100"
+4,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"2 GHz, 15 kHz, 1 ms"
+4,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],"2 GHz, 15 kHz, 1 ms"
+4,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"2 GHz, 15 kHz, 1 ms"
+4,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],"6 dB, 50 m"
+4,50,macro,NCfgBurnIn [S10]; NCfgDcorr [S02]; NHpValEvery [S15],"6 dB, 50 m"
+4,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3–30 m/s (20–200 Hz)
+4,30,macro,NCfgSpeedMax [S02],3–30 m/s (20–200 Hz)
+4,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],3–30 m/s (20–200 Hz)
+4,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],3–30 m/s (20–200 Hz)
+4,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9 dB; dwell 250/120 TTI
+4,250,macro,NCfgDwellCalm [S04],9 dB; dwell 250/120 TTI
+4,120,macro,NCfgDwellBurst [S04],9 dB; dwell 250/120 TTI
+4,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"2–8 TTI, 1 dB"
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"2–8 TTI, 1 dB"
+4,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"2–8 TTI, 1 dB"
+4,0.1,macro,NCfgOllaTarget [S11],"0.1, 0.5/0.056 dB, 10 dB"
+4,0.5,macro,NCfgOllaDown [S11]; NCfgShape [S14]; A3c:floor,"0.1, 0.5/0.056 dB, 10 dB"
+4,0.056,macro,NCfgOllaUp [S11],"0.1, 0.5/0.056 dB, 10 dB"
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"0.1, 0.5/0.056 dB, 10 dB"
+4,2.5,macro,NCfgChase [S05],"chase, 2.5 dB, ≤ 3 retx; RTT 8/8 proc."
+4,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"chase, 2.5 dB, ≤ 3 retx; RTT 8/8 proc."
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"chase, 2.5 dB, ≤ 3 retx; RTT 8/8 proc."
+4,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"chase, 2.5 dB, ≤ 3 retx; RTT 8/8 proc."
+4,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,or RTT 0/1 proc.
+4,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],or RTT 0/1 proc.
+4,0.05,macro,NCfgPfAlpha [S07]; NGMoneRsdCtxTraceNinetyLo [G3c]; NMoneRsdCtxLo [R03-R07],"scheduling time, α = 0.05"
+4,12000,macro,NCfgPkt [S09],"12000 bit / 20 TTI, budget 10 TTI"
+4,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],"12000 bit / 20 TTI, budget 10 TTI"
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"12000 bit / 20 TTI, budget 10 TTI"
+4,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],"200, 50 TTI"
+4,50,macro,NCfgBurnIn [S10]; NCfgDcorr [S02]; NHpValEvery [S15],"200, 50 TTI"
+4,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],500 per case
+4,+1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],For deadline traffic the reward is +1 for an on-time and
+4,−1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"−1 for a missed packet, with potential-bas"
+4,−0.5,macro,NCfgOllaDown [S11]; NCfgShape [S14]; A3c:floor,−0.5 r/B for r remaining bits of a B-bit pac
+4,41,structural,citation,for r remaining bits of a B-bit packet [41] and
+4,0.02,macro,NCfgResidPen [S13],a deviation penalty of 0.02|δ|. For goodput the reward is
+4,42,structural,citation,ulti-user advantage actor-critic (A2C) [42] uses
+4,57,macro,NInputDim [S16],a 57-128-96-3 actor on three stacked frames
+4,128,manual,"checked by hand: actor architecture 57-128-96-3 (assert in build_numbers.py, S16)",a 57-128-96-3 actor on three stacked frames of 1
+4,96,manual,"checked by hand: actor architecture 57-128-96-3 (assert in build_numbers.py, S16)",a 57-128-96-3 actor on three stacked frames of 19 f
+4,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],a 57-128-96-3 actor on three stacked frames of 19 fea
+4,19,macro,NGoneKBusyMin [G1b],8-96-3 actor on three stacked frames of 19 features.
+4,20 099,macro,NParamsActor [S16],It has 20 099 parameters and 19 872 multiply-accumula
+4,19 872,macro,NMacsActor [S16],It has 20 099 parameters and 19 872 multiply-accumulates per
+4,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,user decision. The logit of δ = 0 starts with a bias of 3. We
+4,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],he logit of δ = 0 starts with a bias of 3. We
+4,3000,macro,NCfgEpDl [S15],train for 3000 episodes (deadline) or 800 (goodput) wi
+4,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],train for 3000 episodes (deadline) or 800 (goodput) with 10
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],isodes (deadline) or 800 (goodput) with 10
+4,40 195,macro,NFlopsActor [S16],r-parameters are in Appendix A. That is 40 195 floatingpoint operations per user decis
+4,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"uses fresh, disjoint seeds and traces: 500 evaluation traces and"
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10 training seeds for the headline cases.
+4,67,macro,NGoneBaseMtwoShare [G1b]; NGoneBusyZeroSeedMax [G1b]; NRegCases [M01],in a public registry of 67 cases and 108 scheme evaluations
+4,108,macro,NRegRows [M01],in a public registry of 67 cases and 108 scheme evaluations
+4,2026,structural,label/identifier/unit-free code,"(v9 to v17, Aug–Nov 2026). Of these, 7 cases (18 evaluations)"
+4,7,macro,NRegSupCases [H19],"(v9 to v17, Aug–Nov 2026). Of these, 7 cases (18 evaluations)"
+4,18,macro,NRegSupRows [H19]; NRobRows [M08]; NVnineCases [H06],"v17, Aug–Nov 2026). Of these, 7 cases (18 evaluations)"
+4,49,macro,NRegSinceTen [M02],"and 49 cases date from v10, when the present p"
+4,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],me from a two-pass coordinate ascent on 10 traces that
+4,343,macro,NCalCtxTables [S20],"did not examine all 343 candidate tables, and the FixedPU"
+5,5,figure-axis,figure text,5
+5,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],✓(3 bins)
+5,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],✓(3 bins)
+5,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],limits: every rule is searched again on 500
+5,60001,lit,literal in source,"Calibration traces (seeds from 60001), validation traces"
+5,80001,lit,literal in source,(from 80001) and evaluation traces (from 500001) ar
+5,500001,lit,literal in source,from 80001) and evaluation traces (from 500001) are disjoint.
+5,8,structural,citation,"random numbers [8], so comparisons are paired per trace."
+5,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],terms used for the comparisons. Figure 2
+5,45,structural,citation,"es a hierarchical seed×trace bootstrap [45] (20 000 resamples), a bootstrap over t"
+5,20 000,macro,NBoot [P01]; NHRBoot [HR1],"hierarchical seed×trace bootstrap [45] (20 000 resamples), a bootstrap over the ten pe"
+5,36,structural,citation,y rather than through a binary verdict [36]. A
+5,0.02,macro,NCfgResidPen [S13],guard applies: a Jain-index drop above 0.02 or an
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],edge5 drop above 10 % relative to the best calibrated rule
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"target grid, 10 traces"
+5,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],"offset grid, 20 traces"
+5,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],"per-class grid, 20 traces"
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"coord. ascent, 10 traces"
+5,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],"∆CQI, observed SINR, 800 ep. × 10 seeds"
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"∆CQI, observed SINR, 800 ep. × 10 seeds"
+5,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],"OLLA offset, 3 frames"
+5,3000,macro,NCfgEpDl [S15],3000 ep. × 10 seeds
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],3000 ep. × 10 seeds
+5,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"coord. ascent, 500 traces"
+5,3000,macro,NCfgEpDl [S15],3000 ep. × 10 seeds
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],3000 ep. × 10 seeds
+5,100,macro,NAoneAllShare [A01]; NAsixTraces [A06]; NCfgRB [S01],"Relative difference 100 d/x in percent, with d the"
+5,43,structural,citation,“Beats X”: Holm-adjusted [43] two-sided Wilcoxon
+5,0.05,macro,NCfgPfAlpha [S07]; NGMoneRsdCtxTraceNinetyLo [G3c]; NMoneRsdCtxLo [R03-R07],"signed-rank p < 0.05 [44] over the case’s comparator family,"
+5,44,structural,citation,"signed-rank p < 0.05 [44] over the case’s comparator family, and"
+5,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"ator family, and the lower bound of the 90 % t-interval"
+5,95,macro,NLevHier [P01],seed×trace 95 % lower bound against the strongest
+5,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],Rules calibrated in the main round on 10–20 traces
+5,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],ules calibrated in the main round on 10–20 traces
+5,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],/ on 500 fresh traces (Section VI-B).
+5,36,structural,citation,trace [36].
+5,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],predictions on M1 were not: the 800-episode offset policy
+5,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],"cted to win and failed Claim B, and the 800-episode"
+5,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],"the registry, 9 of the 60 valid cases show a WIN under"
+5,60,macro,NRegValidCases [M03],"the registry, 9 of the 60 valid cases show a WIN under"
+5,9.1 × 10−13,macro,NBonfPraw [M04]; NMonePrimCtxHolm [R03-R07],"has Holm-adjusted p = 9.1 × 10−13 , and p = 8.8 × 10−10"
+5,8.8 × 10−10,macro,NBonfP [M04],"Holm-adjusted p = 9.1 × 10−13 , and p = 8.8 × 10−10"
+5,972,macro,NBonfTests [M04],after a Bonferroni factor of 972 (108 × 9 comparators). The
+5,108,macro,NRegRows [M01],after a Bonferroni factor of 972 (108 × 9 comparators). The
+5,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],after a Bonferroni factor of 972 (108 × 9 comparators). The
+5,1.00,macro,NBonfPCtxJ [M07]; NBonfPCtxJProj [M08]; NHRbMthreeFixedFullLo [HR1],table gives p = 1.00: that margin passes within its pre-
+6,6,figure-axis,figure text,6
+6,0.05,macro,NCfgPfAlpha [S07]; NGMoneRsdCtxTraceNinetyLo [G3c]; NMoneRsdCtxLo [R03-R07],"Holm p < 0.05,"
+6,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90% CI > 0
+6,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,90% CI > 0
+6,95,macro,NLevHier [P01],hier. 95% CI > 0
+6,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,hier. 95% CI > 0
+6,2,structural,label/identifier/unit-free code,Fig. 2. Evaluation protocol. Everything on the
+6,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],the main round; with the 9 pre-registered robustness cases
+6,76,macro,NProjCases [M08],of Appendix D the project has 76 cases and 126 scheme
+6,126,macro,NProjRows [M08],Appendix D the project has 76 cases and 126 scheme
+6,1 260,macro,NProjTests [M08],"evaluations, at most 1 260 tests, and the two corrected pvalues be"
+6,1.1 × 10−9,macro,NBonfPProj [M08],"s, and the two corrected pvalues become 1.1 × 10−9 and 1.00. The confirmatory NR2"
+6,1.00,macro,NBonfPCtxJ [M07]; NBonfPCtxJProj [M08]; NHRbMthreeFixedFullLo [HR1],corrected pvalues become 1.1 × 10−9 and 1.00. The confirmatory NR2
+6,4.6 × 10−27,macro,NBonfPProjNR [M08],rison with the combined table keeps p = 4.6 × 10−27
+6,61.26,macro,NMonePctPrim [R02/R19/R20],The residual A2C policy delivers 61.26 % of packets on
+6,60.31,macro,NMonePctCtx [R02/R19/R20],"time in M1, against 60.31 % for the Context table, 60.14 %"
+6,60.14,macro,NMonePctFixed [R02/R19/R20],"against 60.31 % for the Context table, 60.14 %"
+6,54.72,macro,NMonePctOLLA [R02/R19/R20]; NMonePctOLLAT [R02/R19/R20],"for Fixed and 54.72 % for OLLA (Fig. 3, Table V). Its margi"
+6,3,structural,label/identifier/unit-free code,"for Fixed and 54.72 % for OLLA (Fig. 3, Table V). Its margin"
+6,+11.96,macro,NGsixOLLAMar [G6a]; NMonePrimOLLAMar [R03-R07/R19-R21]; NMonePrimOLLATMar [R03-R07/R19-R21],"is +11.96 % over OLLA, +1.87 % over Fixed and +1."
+6,+1.87,macro,NADlFixedEight [R28]; NGMoneFPUHierNinetyLo [G3a]; NGsixFixedDMar [G6a],"is +11.96 % over OLLA, +1.87 % over Fixed and +1.58 % over"
+6,+1.58,macro,NADlCtxEight [R28]; NGMoneFPUTLo [G3g]; NMonePrimCtxMar [R03-R07/R19-R21],".96 % over OLLA, +1.87 % over Fixed and +1.58 % over"
+6,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"the Context table (90 % CI [+1.23, +1.94] %), the strongest o"
+6,+1.23,macro,NMonePrimCtxLo [R03-R07]; NWoneCtxColdLo [W01]; NRG10:ci_lo_G2,"the Context table (90 % CI [+1.23, +1.94] %), the strongest of"
+6,+1.94,macro,NMonePrimCtxHi [R03-R07]; NWoneCtxColdHi [W01],"the Context table (90 % CI [+1.23, +1.94] %), the strongest of"
+6,+0.95,macro,NHpGamma [S15]; NMoneAbsPpCtx [R34]; NR:diff_ci_lo,s. In absolute terms the last margin is +0.95
+6,−0.0025,macro,NMoneJainDiff [R12],Jain index changes by −0.0025 and the 5th-percentile user
+6,+1.2,macro,NMoneEdgePct [R12],improves by +1.2 % against the Context table.
+6,+11.96,structural,label/identifier/unit-free code,A2C +11.96 %
+6,+1.58,structural,label/identifier/unit-free code,A2C +1.58 %
+6,50.0,figure-axis,figure text,50.0
+6,52.5,figure-axis,figure text,52.5
+6,55.0,figure-axis,figure text,55.0
+6,57.5,figure-axis,figure text,57.5
+6,60.0,figure-axis,figure text,60.0
+6,62.5,figure-axis,figure text,62.5
+6,65.0,figure-axis,figure text,65.0
+6,3,structural,label/identifier/unit-free code,Fig. 3. M1 on-time delivery ratio by scheme (m
+6,95,macro,NLevHier [P01],time delivery ratio by scheme (mean and 95 % CI over 500
+6,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],ratio by scheme (mean and 95 % CI over 500
+6,83,macro,NMoneCalibShareFixed [R33]; NMtwoCalibShareCtx [R33],"83 % of the learner’s gain over OLLA, and"
+6,85,macro,NGoneSlackLooseShare [G1b]; NMoneCalibShareCtx [R33],85 %. A comparison against OLLA alone woul
+6,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],calibrated on only 20 or 10 traces; the next subsection repla
+6,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],calibrated on only 20 or 10 traces; the next subsection replaces
+6,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],them with rules calibrated on 500 traces.
+6,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"study gives every rule 500 fresh calibration traces, disjoint"
+6,36,macro,NGoneBusyOneShare [G1b]; NGoneKBusyShareA [G1b]; NGsixCells [G6a],"busy HARQ processes (36 cells, Appendix C). The combined"
+7,7,figure-axis,figure text,7
+7,90,structural,label/identifier/unit-free code,"DUAL A2C OVER THE COMPARATOR , WITH THE 90 % CI"
+7,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90 % CI (%)
+7,52.53,figure-axis,figure text,52.53
+7,54.72,figure-axis,figure text,54.72
+7,54.72,figure-axis,figure text,54.72
+7,54.62,figure-axis,figure text,54.62
+7,41.80,figure-axis,figure text,41.80
+7,41.80,figure-axis,figure text,41.80
+7,60.14,figure-axis,figure text,60.14
+7,59.65,figure-axis,figure text,59.65
+7,60.31,figure-axis,figure text,60.31
+7,+16.62,figure-axis,figure text,+16.62
+7,+11.96,figure-axis,figure text,+11.96
+7,+11.96,figure-axis,figure text,+11.96
+7,+12.16,figure-axis,figure text,+12.16
+7,+46.55,figure-axis,figure text,+46.55
+7,+46.55,figure-axis,figure text,+46.55
+7,+1.87,figure-axis,figure text,+1.87
+7,+2.70,figure-axis,figure text,+2.70
+7,+1.58,figure-axis,figure text,+1.58
+7,+15.74,macro,NGsixBaselineLo [G6a]; NMonePrimBaselineLo [R03-R07]; NWoneBaselineColdLo [W01],"[+15.74, +17.50]"
+7,+17.50,macro,NGsixBaselineHi [G6a]; NMonePrimBaselineHi [R03-R07]; NWoneBaselineColdHi [W01],"[+15.74, +17.50]"
+7,+11.21,macro,NGsixOLLALo [G6a]; NMonePrimOLLALo [R03-R07]; NMonePrimOLLATLo [R03-R07],"[+11.21, +12.71]"
+7,+12.71,macro,NGsixOLLAHi [G6a]; NMonePrimOLLAHi [R03-R07]; NMonePrimOLLATHi [R03-R07],"[+11.21, +12.71]"
+7,+11.21,macro,NGsixOLLALo [G6a]; NMonePrimOLLALo [R03-R07]; NMonePrimOLLATLo [R03-R07],"[+11.21, +12.71]"
+7,+12.71,macro,NGsixOLLAHi [G6a]; NMonePrimOLLAHi [R03-R07]; NMonePrimOLLATHi [R03-R07],"[+11.21, +12.71]"
+7,+11.40,macro,NGsixMultiLo [G6a]; NMonePrimMultiLo [R03-R07]; NWoneMultiColdLo [W01],"[+11.40, +12.92]"
+7,+12.92,macro,NGsixMultiHi [G6a]; NMonePrimMultiHi [R03-R07]; NWoneMultiColdHi [W01],"[+11.40, +12.92]"
+7,+45.22,macro,NGsixBanDelLo [G6a]; NGsixBanGLo [G6a]; NMonePrimBanDLo [R03-R07],"[+45.22, +47.88]"
+7,+47.88,macro,NGsixBanDelHi [G6a]; NGsixBanGHi [G6a]; NMonePrimBanDHi [R03-R07],"[+45.22, +47.88]"
+7,+45.22,macro,NGsixBanDelLo [G6a]; NGsixBanGLo [G6a]; NMonePrimBanDLo [R03-R07],"[+45.22, +47.88]"
+7,+47.88,macro,NGsixBanDelHi [G6a]; NGsixBanGHi [G6a]; NMonePrimBanDHi [R03-R07],"[+45.22, +47.88]"
+7,+1.52,macro,NGMoneFixedTraceNinetyLo [G3c]; NGsixFixedDLo [G6a]; NMonePrimFixedLo [R03-R07],"[+1.52, +2.23]"
+7,+2.23,macro,NGsixFixedDHi [G6a]; NMonePrimFixedHi [R03-R07]; NMtwoPrimOLLALo [R03-R07],"[+1.52, +2.23]"
+7,+2.36,macro,NMonePrimFPULo [R03-R07]; NWoneFPUColdLo [W01],"[+2.36, +3.03]"
+7,+3.03,macro,NMonePrimFPUHi [R03-R07]; NWoneFPUColdHi [W01],"[+2.36, +3.03]"
+7,+1.23,macro,NMonePrimCtxLo [R03-R07]; NWoneCtxColdLo [W01]; NRG10:ci_lo_G2,"[+1.23, +1.94]"
+7,+1.94,macro,NMonePrimCtxHi [R03-R07]; NWoneCtxColdHi [W01],"[+1.23, +1.94]"
+7,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"M1 deadline, RTT 8"
+7,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M2 deadline, RTT 0"
+7,2.8 × 10−76,macro,NMonePrimBaselineHolm [R03-R07],2.8 × 10−76
+7,1.2 × 10−66,macro,NMonePrimOLLAHolm [R03-R07]; NMonePrimOLLATHolm [R03-R07],1.2 × 10−66
+7,1.2 × 10−66,macro,NMonePrimOLLAHolm [R03-R07]; NMonePrimOLLATHolm [R03-R07],1.2 × 10−66
+7,3.1 × 10−67,macro,NMonePrimMultiHolm [R03-R07],3.1 × 10−67
+7,1.3 × 10−82,macro,NMoneOffBanDHolm [R03-R07]; NMoneOffBanGHolm [R03-R07]; NMonePrimBanDHolm [R03-R07],1.3 × 10−82
+7,1.3 × 10−82,macro,NMoneOffBanDHolm [R03-R07]; NMoneOffBanGHolm [R03-R07]; NMonePrimBanDHolm [R03-R07],1.3 × 10−82
+7,1.3 × 10−16,macro,NMonePrimFixedHolm [R03-R07],1.3 × 10−16
+7,1.3 × 10−31,macro,NMonePrimFPUHolm [R03-R07],1.3 × 10−31
+7,9.1 × 10−13,macro,NBonfPraw [M04]; NMonePrimCtxHolm [R03-R07],9.1 × 10−13
+7,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"M3 goodput, RTT 8"
+7,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M4 goodput, RTT 0"
+7,0,figure-axis,figure text,0
+7,5,figure-axis,figure text,5
+7,10,figure-axis,figure text,10
+7,0,figure-axis,figure text,0
+7,1,figure-axis,figure text,1
+7,2,figure-axis,figure text,2
+7,−1,figure-axis,figure text,−1
+7,0,figure-axis,figure text,0
+7,1,figure-axis,figure text,1
+7,2,figure-axis,figure text,2
+7,−2,figure-axis,figure text,−2
+7,−1,figure-axis,figure text,−1
+7,0,figure-axis,figure text,0
+7,4,structural,label/identifier/unit-free code,Fig. 4. Margin of residual A2C over each origi
+7,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],original comparator in the four cases (90 % CI over traces). Filled markers: the
+7,0.6088,macro,NGsixCalCtxJ [G6c]; NGsixSelScore [G6h]; G6:calib_obj_ctxj,over-fitting: the combined table scores 0.6088 on
+7,0.6086,macro,NGsixEvalCtxJ [G6c]; G6:eval_obj_ctxj,the calibration traces and 0.6086 on the evaluation traces.
+7,+1.43,macro,NGsixCtxDMar [G6a]; G6:margin_ctx500,+1.43 % over the re-calibrated Context table
+7,+1.87,macro,NADlFixedEight [R28]; NGMoneFPUHierNinetyLo [G3a]; NGsixFixedDMar [G6a],ver the re-calibrated Context table and +1.87 % over
+7,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,"ined table, however, the margin is only +0.66 % (90 % CI [+0.29, +1.03] %),"
+7,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"e, however, the margin is only +0.66 % (90 % CI [+0.29, +1.03] %),"
+7,+0.29,macro,NGMoneFPUSeedMin [G3g]; NGsixCtxJLo [G6a]; G6:ci_lo_ctxj,"r, the margin is only +0.66 % (90 % CI [+0.29, +1.03] %),"
+7,+1.03,macro,NGsixCtxJHi [G6a]; NMtwoRsdMultiLo [R03-R07]; G6:ci_hi_ctxj,"margin is only +0.66 % (90 % CI [+0.29, +1.03] %),"
+7,+0.40,macro,NGsixAbsPpCtxJ [G6a],or +0.40 percentage points. Compared with the +1
+7,+1.58,macro,NADlCtxEight [R28]; NGMoneFPUTLo [G3g]; NMonePrimCtxMar [R03-R07/R19-R21],40 percentage points. Compared with the +1.58 % over
+7,58,macro,NGsixClosure [G6d]; NSlotMinusThree [H07],table remove 58 % of the learner’s margin over the best
+7,24.6,macro,NGsixSearchHours [G6h],"find: the coordinate-ascent search took 24.6 h of simulation,"
+7,2.7,macro,NHRRealDiff [HR1]; NMoneHours [R32],against 2.7 h to train and evaluate the ten learned
+7,4,macro,NGsixStarts [G6a],And one of its 4 search starts stopped at the safety cap
+7,5,structural,label/identifier/unit-free code,rgin varies across training seeds (Fig. 5).
+7,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],original Context table 9 of 10 seeds are above zero (onesided si
+7,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],original Context table 9 of 10 seeds are above zero (onesided sign tes
+7,0.0107,macro,NGMoneCtxSign [G3a]; NGMoneFixedSign [G3a]; NMtwoCiFixed [R02],"are above zero (onesided sign test p = 0.0107), and the hierarchical seed×trace"
+7,95,macro,NLevHier [P01],"95 % interval is [+0.62, +2.62] %. Against"
+7,+0.62,macro,NAoneAllLo [A01]; NGMoneCtxHierLo [G3a]; NGMoneRsdCtxTraceNinetyHi [G3c],"95 % interval is [+0.62, +2.62] %. Against Fixed it is [+0.89,"
+7,+2.62,macro,NAoneAllHi [A01]; NGMoneCtxHierHi [G3a],"95 % interval is [+0.62, +2.62] %. Against Fixed it is [+0.89,"
+7,+0.89,macro,NGMoneFixedHierLo [G3a],"[+0.62, +2.62] %. Against Fixed it is [+0.89,"
+7,+2.90,macro,NGMoneFixedHierHi [G3a],+2.90] %. The same holds against every re-cal
+7,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],inst the combined table it is not. Only 5 of 10 seeds beat
+7,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],the combined table it is not. Only 5 of 10 seeds beat
+7,0.623,macro,NGsixCtxJSign [G6b],"the combined table (sign test p = 0.623), and the hierarchical"
+7,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"interval is [−0.30, +1.70] %. Under the pre-registered see"
+7,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"interval is [−0.30, +1.70] %. Under the pre-registered seedlevel"
+7,36,structural,citation,"table on a randomly chosen trace [36] is 0.55 (95 % CI [0.49,"
+7,0.55,macro,NGsixCtxJPoI [G6g]; NGsixFPUDPoILo [G6g]; NRG10:ontime_G2,"able on a randomly chosen trace [36] is 0.55 (95 % CI [0.49,"
+7,95,macro,NLevHier [P01],"n a randomly chosen trace [36] is 0.55 (95 % CI [0.49,"
+7,0.49,macro,NGsixCtxJPoILo [G6g]; NRG10:cj_lo_G2,"mly chosen trace [36] is 0.55 (95 % CI [0.49,"
+7,0.61,macro,NGsixCtxJPoIHi [G6g]; NGsixFPUDPoI [G6g],"0.61]), close to a coin flip. The trace-leve"
+7,1.00,macro,NBonfPCtxJ [M07]; NBonfPCtxJProj [M08]; NHRbMthreeFixedFullLo [HR1],"tion over all tests in the project (p = 1.00,"
+7,2.3,macro,NGWidthRatio [G3c],The hierarchical intervals are about 2.3 times wider than
+7,0.6306,macro,NGsixValEns [G6a]; NMoneValEns [R02/R19/R20],"scheme) reaches 0.6306 on time, which shows how much of"
+8,8,figure-axis,figure text,8
+8,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"AGAINST COMPARATORS RE - CALIBRATED ON 500 FRESH TRACES , ON THE 500 M1 EVALUATION"
+8,500,structural,label/identifier/unit-free code,"CALIBRATED ON 500 FRESH TRACES , ON THE 500 M1 EVALUATION TRACES . T RACE LEVEL :"
+8,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"MARGIN , 90 % CI AND H OLM - ADJUSTED p OVER THESE"
+8,10,structural,label/identifier/unit-free code,% CI AND H OLM - ADJUSTED p OVER THESE 10 COMPARATORS . S EED LEVEL : SEEDS WITH
+8,95,structural,label/identifier/unit-free code,"SEED × TRACE 95 % CI, AND WHETHER THE SEED - LEVEL RULE"
+8,+16.62,figure-axis,figure text,+16.62
+8,+11.96,figure-axis,figure text,+11.96
+8,+8.40,figure-axis,figure text,+8.40
+8,+12.16,figure-axis,figure text,+12.16
+8,+1.87,figure-axis,figure text,+1.87
+8,+1.73,figure-axis,figure text,+1.73
+8,+1.43,figure-axis,figure text,+1.43
+8,+46.55,figure-axis,figure text,+46.55
+8,+46.55,figure-axis,figure text,+46.55
+8,+0.66,figure-axis,figure text,+0.66
+8,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,Seeds > 0
+8,95,macro,NLevHier [P01],Hier. 95 % CI (%)
+8,+15.74,macro,NGsixBaselineLo [G6a]; NMonePrimBaselineLo [R03-R07]; NWoneBaselineColdLo [W01],"[+15.74, +17.50]"
+8,+17.50,macro,NGsixBaselineHi [G6a]; NMonePrimBaselineHi [R03-R07]; NWoneBaselineColdHi [W01],"[+15.74, +17.50]"
+8,+11.21,macro,NGsixOLLALo [G6a]; NMonePrimOLLALo [R03-R07]; NMonePrimOLLATLo [R03-R07],"[+11.21, +12.71]"
+8,+12.71,macro,NGsixOLLAHi [G6a]; NMonePrimOLLAHi [R03-R07]; NMonePrimOLLATHi [R03-R07],"[+11.21, +12.71]"
+8,+7.74,macro,NGsixOLLATDLo [G6a],"[+7.74, +9.07]"
+8,+9.07,macro,NGsixOLLATDHi [G6a],"[+7.74, +9.07]"
+8,+11.40,macro,NGsixMultiLo [G6a]; NMonePrimMultiLo [R03-R07]; NWoneMultiColdLo [W01],"[+11.40, +12.92]"
+8,+12.92,macro,NGsixMultiHi [G6a]; NMonePrimMultiHi [R03-R07]; NWoneMultiColdHi [W01],"[+11.40, +12.92]"
+8,+1.52,macro,NGMoneFixedTraceNinetyLo [G3c]; NGsixFixedDLo [G6a]; NMonePrimFixedLo [R03-R07],"[+1.52, +2.23]"
+8,+2.23,macro,NGsixFixedDHi [G6a]; NMonePrimFixedHi [R03-R07]; NMtwoPrimOLLALo [R03-R07],"[+1.52, +2.23]"
+8,+1.31,macro,NGsixFPUDLo [G6a],"[+1.31, +2.14]"
+8,+2.14,macro,NGsixFPUDHi [G6a]; NMthreePrimOLLATMar [R03-R07/R19-R21],"[+1.31, +2.14]"
+8,+1.08,macro,NGsixCtxDLo [G6a]; G6:ci_lo_ctx500,"[+1.08, +1.77]"
+8,+1.77,macro,NGsixCtxDHi [G6a]; NNRoneGMoneMar [NR02]; NNRoneMoneMar [NR01],"[+1.08, +1.77]"
+8,+45.22,macro,NGsixBanDelLo [G6a]; NGsixBanGLo [G6a]; NMonePrimBanDLo [R03-R07],"[+45.22, +47.88]"
+8,+47.88,macro,NGsixBanDelHi [G6a]; NGsixBanGHi [G6a]; NMonePrimBanDHi [R03-R07],"[+45.22, +47.88]"
+8,+45.22,macro,NGsixBanDelLo [G6a]; NGsixBanGLo [G6a]; NMonePrimBanDLo [R03-R07],"[+45.22, +47.88]"
+8,+47.88,macro,NGsixBanDelHi [G6a]; NGsixBanGHi [G6a]; NMonePrimBanDHi [R03-R07],"[+45.22, +47.88]"
+8,+0.29,macro,NGMoneFPUSeedMin [G3g]; NGsixCtxJLo [G6a]; G6:ci_lo_ctxj,"[+0.29, +1.03]"
+8,+1.03,macro,NGsixCtxJHi [G6a]; NMtwoRsdMultiLo [R03-R07]; G6:ci_hi_ctxj,"[+0.29, +1.03]"
+8,3.2 × 10−76,macro,NGsixBaselineHolm [G6a],3.2 × 10−76
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10/10
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10/10
+8,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9/10
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],9/10
+8,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9/10
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],9/10
+8,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9/10
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],9/10
+8,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],5/10
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],5/10
+8,+7.15,macro,NGsixOLLATDHierLo [G6b],"[+7.15, +9.66]"
+8,+9.66,macro,NGsixOLLATDHierHi [G6b],"[+7.15, +9.66]"
+8,+0.91,macro,NAoneFastLo [A01]; NGsixFixedDHierLo [G6b]; NMoneRsdFixedHi [R03-R07],"[+0.91, +2.92]"
+8,+2.92,macro,NAsixGpAckOne [A06]; NGsixFixedDHierHi [G6b]; NSlotOLLA [H07],"[+0.91, +2.92]"
+8,+0.72,macro,NGMoneCtxBootLo [G3g]; NGsixFPUDHierLo [G6b]; NMfourPrimBanGHi [R03-R07],"[+0.72, +2.80]"
+8,+2.80,macro,NGsixFPUDHierHi [G6b],"[+0.72, +2.80]"
+8,+0.47,macro,NGsixCtxDHierLo [G6b],"[+0.47, +2.46]"
+8,+2.46,macro,NGsixCtxDHierHi [G6b],"[+0.47, +2.46]"
+8,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"[−0.30, +1.70]"
+8,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"[−0.30, +1.70]"
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"(original, 10 traces)"
+8,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9/10 > 0
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],9/10 > 0
+8,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,9/10 > 0
+8,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"(re-cal., 500 traces)"
+8,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],5/10 > 0
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],5/10 > 0
+8,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,5/10 > 0
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"(original, 10 traces)"
+8,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],8/10 > 0
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],8/10 > 0
+8,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,8/10 > 0
+8,−2,figure-axis,figure text,−2
+8,0,figure-axis,figure text,0
+8,2,figure-axis,figure text,2
+8,4,figure-axis,figure text,4
+8,6,figure-axis,figure text,6
+8,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90 % CI (%)
+8,95,macro,NLevHier [P01],"mean, 95 % CI"
+8,5,structural,label/identifier/unit-free code,Fig. 5. Per-seed margins (one dot per training
+8,95,macro,NLevHier [P01],its 95 % bootstrap interval over seed means (d
+8,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1) Does OLLA just need time to converge?:
+8,150,macro,NCfgScored [S10],"each trace cold, and only 150 TTIs are scored. In the warm-up"
+8,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],check all loops run for 200 TTIs before scoring. The margin
+8,+11.96,macro,NGsixOLLAMar [G6a]; NMonePrimOLLAMar [R03-R07/R19-R21]; NMonePrimOLLATMar [R03-R07/R19-R21],"over OLLA falls from +11.96 % to +7.49 % (90 % CI [+6.79,"
+8,+7.49,macro,NGsixOLLATDBootLo [G6b]; NWoneOLLATWarmMar [W01]; NWoneOLLAWarmMar [W01],"over OLLA falls from +11.96 % to +7.49 % (90 % CI [+6.79,"
+8,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"er OLLA falls from +11.96 % to +7.49 % (90 % CI [+6.79,"
+8,+6.79,macro,NWoneOLLATWarmLo [W01]; NWoneOLLAWarmLo [W01]; W1:warm_ci_lo,"alls from +11.96 % to +7.49 % (90 % CI [+6.79,"
+8,+8.19,macro,NWoneOLLATWarmHi [W01]; NWoneOLLAWarmHi [W01]; W1:warm_ci_hi,"+8.19] %), so part of the gap to OLLA was its"
+8,0.6126,macro,NGsixValPrim [G6a]; NMoneValPrim [R02/R19/R20]; NWoneValCold [W01],"ime. The learner itself barely changes (0.6126 cold, 0.6116"
+8,0.6116,macro,NWoneValWarm [W01],"ner itself barely changes (0.6126 cold, 0.6116"
+8,+1.75,macro,NMtwoRsdOLLAHi [R03-R07]; NMtwoRsdOLLATHi [R03-R07]; NWoneCtxWarmMar [W01],+1.75 % over the Context table and +2.08 % ov
+8,+2.08,macro,NWoneFixedWarmMar [W01]; W1:warm_fixed_margin; NRG10:cj_hier_hi_G2,+1.75 % over the Context table and +2.08 % over Fixed. As
+8,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"2) A non-oracle configuration (NR1, NR2):"
+8,−2,macro,NGsixCtxDOffs [G6a]; NGsixFixedOff [G6a]; NNRoneOff [NR01],"Fixed base (one global offset of −2 CQI steps, the same value"
+8,1.5 × 10−66,macro,NGsixOLLAHolm [G6a],1.5 × 10−66
+8,6.0 × 10−55,macro,NGsixOLLATDHolm [G6a],6.0 × 10−55
+8,3.6 × 10−67,macro,NGsixMultiHolm [G6a],3.6 × 10−67
+8,2.7 × 10−16,macro,NGsixFixedDHolm [G6a],2.7 × 10−16
+8,2.8 × 10−12,macro,NGsixFPUDHolm [G6a],2.8 × 10−12
+8,6.1 × 10−11,macro,NGsixCtxDHolm [G6a],6.1 × 10−11
+8,1.5 × 10−82,macro,NGsixBanDelHolm [G6a]; NGsixBanGHolm [G6a],1.5 × 10−82
+8,1.5 × 10−82,macro,NGsixBanDelHolm [G6a]; NGsixBanGHolm [G6a],1.5 × 10−82
+8,1.0 × 10−3,macro,NGsixCtxJHolm [G6a]; G6:holm_ctxj,1.0 × 10−3
+8,0.6235,macro,NNRoneVal [NR01],"oracle information at all. It delivers 0.6235 on time,"
+8,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],beats all 9 original comparators (+3.38 % over the
+8,+3.38,macro,NNRoneCtxMar [NR01]; NR:best_margin,beats all 9 original comparators (+3.38 % over the Context
+8,+1.77,macro,NGsixCtxDHi [G6a]; NNRoneGMoneMar [NR02]; NNRoneMoneMar [NR01],"table) and is +1.77 % above the M1 policy ([+1.55, +2.00] %"
+8,+1.55,macro,NNRoneGMoneLo [NR02]; NNRoneMoneLo [NR01],"e) and is +1.77 % above the M1 policy ([+1.55, +2.00] %;"
+8,+2.00,macro,NNRoneGMoneHi [NR02]; NNRoneMoneHi [NR01],"is +1.77 % above the M1 policy ([+1.55, +2.00] %;"
+8,+2.44,macro,NNRoneGCtxJMar [NR02],"puts it +2.44 % above the combined table ([+2.04, +2."
+8,+2.04,macro,NNRoneGCtxJLo [NR02],"s it +2.44 % above the combined table ([+2.04, +2.85] %)."
+8,+2.85,macro,NNRoneGCtxJHi [NR02],".44 % above the combined table ([+2.04, +2.85] %)."
+8,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"(NR2) was conducted with 500 fresh evaluation traces, 10"
+8,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"ucted with 500 fresh evaluation traces, 10"
+8,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],the frozen combined table Contextjoint-500 as primary comparator. On fresh evaluat
+8,3.35,pending,NR2:margin_ctxj,"across training seeds (3.35 %, hierarchical 95 % CI [2.22,"
+8,95,macro,NLevHier [P01],"ss training seeds (3.35 %, hierarchical 95 % CI [2.22,"
+8,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"ng seeds (3.35 %, hierarchical 95 % CI [2.22,"
+8,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"4.40] %). On the fresh traces, the non-oracl"
+8,2.58,pending,NR2:margin_m1,exceeded the M1 oracle-base policies by 2.58 %.
+8,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3) Does it hold at other operating points
+8,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"mpute reasons before any run (Amendment 2), so “beats"
+8,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],"h the point’s calibrated static offset, 5"
+8,300,pending,NRG10:n_traces,"resh training seeds per point, the same 300 evaluation traces"
+9,9,figure-axis,figure text,9
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"trace level, 90 % CI"
+9,95,macro,NLevHier [P01],"seed×trace, 95 % CI"
+9,0,figure-axis,figure text,0
+9,1,figure-axis,figure text,1
+9,2,figure-axis,figure text,2
+9,3,figure-axis,figure text,3
+9,4,figure-axis,figure text,4
+9,5,figure-axis,figure text,5
+9,0,figure-axis,figure text,0
+9,1,figure-axis,figure text,1
+9,2,figure-axis,figure text,2
+9,3,figure-axis,figure text,3
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"Margin (%), trace level, 90 % CI"
+9,6,structural,label/identifier/unit-free code,Fig. 6. (a) Margin of the learned policy over
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],ed comparators; thick bars: trace-level 90 % CI; thin bars: hierarchical seed×trac
+9,95,macro,NLevHier [P01],CI; thin bars: hierarchical seed×trace 95 % CI.
+9,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],. (b) Warm-up check (OLLA warmed up for 200 TTIs) and non-oracle base ablation; tra
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],d non-oracle base ablation; trace-level 90 % CIs. The
+9,+1.73,macro,NGsixFPUDMar [G6a]; G6:margin_fpu500; NRG10:margin_G2,re-calibrated for each cell (margins +1.73 % and +1.02 % vs
+9,+1.02,pending,NRG10:margin_G3,ated for each cell (margins +1.73 % and +1.02 % vs
+9,95,macro,NLevHier [P01],"hierarchical 95 % CIs [0.90, 2.73] % in G2 and [0.63, 1"
+9,0.90,pending,NRG10:hier_lo_G2,"hierarchical 95 % CIs [0.90, 2.73] % in G2 and [0.63, 1.42] %"
+9,2.73,pending,NRG10:hier_hi_G2,"hierarchical 95 % CIs [0.90, 2.73] % in G2 and [0.63, 1.42] %"
+9,0.63,pending,NRG10:hier_lo_G3,"ical 95 % CIs [0.90, 2.73] % in G2 and [0.63, 1.42] %"
+9,1.42,pending,NRG10:hier_hi_G3,"5 % CIs [0.90, 2.73] % in G2 and [0.63, 1.42] %"
+9,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],in G3; with 5 seeds this is indicative. In G3 the lea
+9,0.91,macro,NAoneFastLo [A01]; NGsixFixedDHierLo [G6b]; NMoneRsdFixedHi [R03-R07],"reaches an on-time ratio of 0.91, close to the ceiling, so the"
+9,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],"search than at M1 (200 calibration traces per point, 4 starts,"
+9,4,macro,NGsixStarts [G6a],"t M1 (200 calibration traces per point, 4 starts, instead of 500 traces), althoug"
+9,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"traces per point, 4 starts, instead of 500 traces), although it was outside the pr"
+9,+1.04,macro,NMfourPrimBanDHi [R03-R07]; NRG10:cj_margin_G2,nst this table the non-oracle policy is +1.04 % in G2 (90 %
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],the non-oracle policy is +1.04 % in G2 (90 %
+9,0.49,macro,NGsixCtxJPoILo [G6g]; NRG10:cj_lo_G2,"CI [0.49, 1.59] %, hierarchical 95 % CI [0.14, 2"
+9,1.59,macro,NAoneAllMar [A01]; NRG10:cj_hi_G2,"CI [0.49, 1.59] %, hierarchical 95 % CI [0.14, 2.08] %"
+9,95,macro,NLevHier [P01],"CI [0.49, 1.59] %, hierarchical 95 % CI [0.14, 2.08] %) and"
+9,0.14,pending,NRG10:cj_hier_lo_G2,"I [0.49, 1.59] %, hierarchical 95 % CI [0.14, 2.08] %) and"
+9,2.08,macro,NWoneFixedWarmMar [W01]; W1:warm_fixed_margin; NRG10:cj_hier_hi_G2,"9, 1.59] %, hierarchical 95 % CI [0.14, 2.08] %) and"
+9,+1.17,pending,NRG10:cj_margin_G3,"+1.17 % in G3 ([0.87, 1.47] %; [0.75, 1.60] %"
+9,0.87,macro,NGMtwoCtxHierHi [G3a]; NGMtwoCtxTHi [G3g]; NGsixFPUDBootLo [G6b],"+1.17 % in G3 ([0.87, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,1.47,pending,NRG10:cj_hi_G3,"+1.17 % in G3 ([0.87, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,0.75,pending,NRG10:ci_lo_G3; NRG10:cj_hier_lo_G3,"+1.17 % in G3 ([0.87, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,1.60,macro,NGsixCtxJBootHi [G6b]; NHRbMthreeFixedFull [HR1]; NRG10:cj_hier_hi_G3,"+1.17 % in G3 ([0.87, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],"([0.87, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],"7, 1.47] %; [0.75, 1.60] %), with 5 and 5"
+9,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],of 5 seeds above zero. No decision rule is a
+9,+0.43,macro,NADlCtxZero [R28]; NHRMthreeCombLo [HR1]; NMtwoPrimCtxMar [R03-R07/R19-R21],argin over the Context table shrinks to +0.43 % (90 % lower
+9,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],r the Context table shrinks to +0.43 % (90 % lower
+9,+0.21,macro,NGMtwoCtxTraceNinetyLo [G3c]; NMtwoPrimCtxLo [R03-R07],"bound +0.21 %), and the hierarchical interval [−0.0"
+9,−0.03,macro,NGMtwoCtxHierLo [G3a]; NMfourPrimBanDLo [R03-R07],"0.21 %), and the hierarchical interval [−0.03, +0.87] %"
+9,+0.87,macro,NGMtwoCtxHierHi [G3a]; NGMtwoCtxTHi [G3g]; NGsixFPUDBootLo [G6b],", and the hierarchical interval [−0.03, +0.87] %"
+9,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"includes zero; 8 of ten seeds are above zero (Fig. 5, bo"
+9,5,structural,label/identifier/unit-free code,"ro; 8 of ten seeds are above zero (Fig. 5, bottom)."
+9,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],beat a single calibrated offset: −0.88 % (M3) and −1.73 %
+9,−1.73,macro,NAGpCtxZero [R28]; NAGpFixedZero [R28]; NGMoneOffCtxHierLo [G3a],gle calibrated offset: −0.88 % (M3) and −1.73 %
+9,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],(M4) against Fixed. At RTT 8 it is bit-identical to its base rule
+9,5000,macro,NIMfourCells [R19a/R20]; NIMthreeCells [R19a/R20]; NIMthreeIdent [R19a/R20],in 5000 of 5000 seed×trace cells: on all 379 38
+9,5000,macro,NIMfourCells [R19a/R20]; NIMthreeCells [R19a/R20]; NIMthreeIdent [R19a/R20],in 5000 of 5000 seed×trace cells: on all 379 380 schedu
+9,379 380,pending,G1:n_newtx_m3,n 5000 of 5000 seed×trace cells: on all 379 380 scheduled
+9,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"new transmissions it chose δ = 0, so it learned to leave the"
+9,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,base rule alone. At RTT 0 it did act (2985 of 5000 cells are
+9,2985,macro,NIMfourIdent [R19a/R20],base rule alone. At RTT 0 it did act (2985 of 5000 cells are
+9,5000,macro,NIMfourCells [R19a/R20]; NIMthreeCells [R19a/R20]; NIMthreeIdent [R19a/R20],ule alone. At RTT 0 it did act (2985 of 5000 cells are
+9,+3.4,macro,NHMoneHindPct [R26],"the best single offset per trace, lies +3.4 % above Fixed in"
+9,+2.0,macro,NHMtwoHindPct [R26],"M1 (+2.0 % in M2), and a genie bound +37.8 % (Fi"
+9,+37.8,macro,NHMoneGeniePct [R26],"M1 (+2.0 % in M2), and a genie bound +37.8 % (Fig. 7a)."
+9,+1.87,macro,NADlFixedEight [R28]; NGMoneFPUHierNinetyLo [G3a]; NGsixFixedDMar [G6a],und. Against these bounds the learner’s +1.87 % over Fixed
+9,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],f the room. Training length matters: at 800
+9,+0.62,macro,NAoneAllLo [A01]; NGMoneCtxHierLo [G3a]; NGMoneRsdCtxTraceNinetyHi [G3c],"episodes the margin over Fixed is +0.62 %, at 3000 episodes"
+9,3000,macro,NCfgEpDl [S15],"es the margin over Fixed is +0.62 %, at 3000 episodes"
+9,+1.87,macro,NADlFixedEight [R28]; NGMoneFPUHierNinetyLo [G3a]; NGsixFixedDMar [G6a],"+1.87 % (Fig. 7b), and the shorter variant ha"
+9,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],". 7b), and the shorter variant has only 6 of ten"
+9,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1) Actions: On 587 016 scheduled new tran
+9,587 016,pending,G1:n_newtx_m1,1) Actions: On 587 016 scheduled new transmissions in
+9,+1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],policy raises the CQI by one step (δ = +1) in
+9,54.6,macro,NGoneAllPlus [G1b],"54.6 % of decisions, keeps the base rule in"
+9,26.4,macro,NGoneAllZero [G1b]; G1:pct_delta0_m1,"% of decisions, keeps the base rule in 26.4 % and lowers"
+9,19.0,macro,NGoneAllMinus [G1b],it in 19.0 % (Fig. 8b). The ten policies differ wi
+9,11,macro,NGoneAllSeedMin [G1b]; NGoneBaseMtwoSeedMin [G1b],"share of upward steps ranges from 11 to 78 % across seeds,"
+9,78,macro,NGoneAllSeedMax [G1b]; NGoneBaseMthreeSeedMax [G1b]; NGoneBaseMtwoSeedMax [G1b],"share of upward steps ranges from 11 to 78 % across seeds,"
+9,84.7,macro,NGoneBusyOnePlus [G1b]; NGoneKBusyA [G1b],two busy HARQ processes than with none (84.7 % against
+9,37.0,macro,NGoneBusyZeroPlus [G1b],"37.0 %), when at most 0.6 of the deadline bu"
+9,0.6,macro,NGoneSlackEdge [G1b],"37.0 %), when at most 0.6 of the deadline budget remains"
+9,89.6,macro,NGoneKSlackA [G1b],"(89.6 % against 48.4 %), and during interfere"
+9,48.4,macro,NGoneSlackLoosePlus [G1b],"(89.6 % against 48.4 %), and during interference bursts (69."
+9,69.6,macro,NGoneBurstPlus [G1b]; NGoneKBurstA [G1b],"8.4 %), and during interference bursts (69.6 %"
+9,48.7,macro,NGoneCalmPlus [G1b],against 48.7 %). This is consistent with a policy th
+9,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],2) Users at different speeds: Splitting M
+9,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],an uneven gain (Fig. 8a). Users between 10 and 20 m/s
+9,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],en gain (Fig. 8a). Users between 10 and 20 m/s
+9,+2.82,macro,NAoneMidMar [A01]; A1:margin_mid,"gain +2.82 % (hierarchical 95 % CI [+1.80, +3.89]"
+9,95,macro,NLevHier [P01],"gain +2.82 % (hierarchical 95 % CI [+1.80, +3.89] %) and"
+9,+1.80,macro,NAoneMidLo [A01]; NHRbPoneEst [HR1],"gain +2.82 % (hierarchical 95 % CI [+1.80, +3.89] %) and"
+9,+3.89,macro,NAoneMidHi [A01],"n +2.82 % (hierarchical 95 % CI [+1.80, +3.89] %) and"
+9,+2.25,macro,NAoneFastMar [A01]; A1:margin_hi,"faster users +2.25 %. For users slower than 10 m/s, 21 %"
+9,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"er users +2.25 %. For users slower than 10 m/s, 21 %"
+9,21,macro,NAoneSlowShare [A01]; NGsixSearched [G6a]; NGsixSweeps [G6h],"+2.25 %. For users slower than 10 m/s, 21 %"
+9,−1.71,macro,NAoneSlowMar [A01]; A1:margin_lo,"of user-traces, the margin is negative: −1.71 % ([−3.32,"
+9,−3.32,macro,NAoneSlowLo [A01],"aces, the margin is negative: −1.71 % ([−3.32,"
+9,−0.15,macro,NAoneSlowHi [A01]; NGMoneOffCtxHierHi [G3a]; NHRbMthreeCombLo [HR1],−0.15] %). The policy’s actions hardly depend
+9,51.9,macro,NGoneSpeedSlowPlus [G1a],"olicy’s actions hardly depend on speed (51.9,"
+9,54.3,macro,NGoneSpeedMidPlus [G1a],54.3 and 56.7 % upward steps from the slowes
+9,56.7,macro,NGoneSpeedFastPlus [G1a],54.3 and 56.7 % upward steps from the slowest to the
+10,10,figure-axis,figure text,10
+10,60,figure-axis,figure text,60
+10,1.75,figure-axis,figure text,1.75
+10,50,figure-axis,figure text,50
+10,40,figure-axis,figure text,40
+10,30,figure-axis,figure text,30
+10,20,figure-axis,figure text,20
+10,1.50,figure-axis,figure text,1.50
+10,1.25,figure-axis,figure text,1.25
+10,1.00,figure-axis,figure text,1.00
+10,0.75,figure-axis,figure text,0.75
+10,0.50,figure-axis,figure text,0.50
+10,0.25,figure-axis,figure text,0.25
+10,10,figure-axis,figure text,10
+10,0.00,figure-axis,figure text,0.00
+10,0,figure-axis,figure text,0
+10,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],800 ep.
+10,3000,macro,NCfgEpDl [S15],3000 ep.
+10,7,structural,label/identifier/unit-free code,Fig. 7. (a) Headroom over Fixed in the four ca
+10,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],Margin of residual A2C over Fixed after 800 and 3000 training
+10,3000,macro,NCfgEpDl [S15],f residual A2C over Fixed after 800 and 3000 training
+10,100,figure-axis,figure text,100
+10,+1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],Share of δ = +1 (%)
+10,4,figure-axis,figure text,4
+10,2,figure-axis,figure text,2
+10,0,figure-axis,figure text,0
+10,−2,figure-axis,figure text,−2
+10,63 %,figure-axis,figure text,63 %
+10,36 %,figure-axis,figure text,36 %
+10,1%,figure-axis,figure text,1%
+10,85 %,figure-axis,figure text,85 %
+10,12 %,figure-axis,figure text,12 %
+10,3%,figure-axis,figure text,3%
+10,72 %,figure-axis,figure text,72 %
+10,28 %,figure-axis,figure text,28 %
+10,0,figure-axis,figure text,0
+10,1-2,figure-axis,figure text,1-2
+10,>=3,figure-axis,figure text,>=3
+10,>0.6,figure-axis,figure text,>0.6
+10,0.3-0.6 <=0.3,figure-axis,figure text,0.3-0.6 <=0.3
+10,80,figure-axis,figure text,80
+10,60,figure-axis,figure text,60
+10,40,figure-axis,figure text,40
+10,20,figure-axis,figure text,20
+10,0,figure-axis,figure text,0
+10,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],< 10 m/s
+10,21 %,figure-axis,figure text,21 %
+10,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10-20 m/s
+10,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],10-20 m/s
+10,47 %,figure-axis,figure text,47 %
+10,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],> 20 m/s
+10,32 %,figure-axis,figure text,32 %
+10,100 %,figure-axis,figure text,100 %
+10,8,structural,label/identifier/unit-free code,Fig. 8. What the policy does in M1. (a) Margin
+10,95,macro,NLevHier [P01],"e by user mean speed, with hierarchical 95 % CIs; gray labels give the share of"
+10,+1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],Table V. (b) Share of upward steps (δ = +1) on scheduled new transmissions by
+10,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],the policy sees. Both are cross-fitted (5
+10,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"offset ±1, which is what the residual policy can"
+10,95,macro,NLevHier [P01],"true SINR) over the table, with 95 % intervals from 20 000"
+10,20 000,macro,NBoot [P01]; NHRBoot [HR1],"ver the table, with 95 % intervals from 20 000"
+10,1 829 988,macro,NHRDecisions [HR1],trace-level bootstrap replicates over 1 829 988 decisions. The
+10,21,macro,NAoneSlowShare [A01]; NGsixSearched [G6a]; NGsixSweeps [G6h],true SINR would gain about 21 % over each calibrated table.
+10,9.5,macro,NHRTabFullLo [HR1],the gNB-observable features could gain 9.5–9.6 % with
+10,9.6,macro,NHRTabFullHi [HR1],gNB-observable features could gain 9.5–9.6 % with
+10,5.4,macro,NHRTabResLo [HR1],"free choice of offset, and 5.4–5.7 % when restricted to the"
+10,5.7,macro,NHRTabResHi [HR1],"free choice of offset, and 5.4–5.7 % when restricted to the"
+10,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"base offset ±1. Around the decisions of the M1 policy,"
+10,+5.59,macro,NHRMoneComb [HR1],"ual headroom over the combined table is +5.59 % ([5.38,"
+10,5.38,macro,NHRMoneCombLo [HR1],"om over the combined table is +5.59 % ([5.38,"
+10,5.80,macro,NHRMoneCombHi [HR1],5.80] %). Fig. 9 sets these values beside th
+10,9,structural,label/identifier/unit-free code,5.80] %). Fig. 9 sets these values beside the observed m
+11,11,figure-axis,figure text,11
+11,0,figure-axis,figure text,0
+11,2,figure-axis,figure text,2
+11,4,figure-axis,figure text,4
+11,6,figure-axis,figure text,6
+11,0,figure-axis,figure text,0
+11,2,figure-axis,figure text,2
+11,4,figure-axis,figure text,4
+11,6,figure-axis,figure text,6
+11,95,macro,NLevHier [P01],"Headroom, gbt_a (95 % CI)"
+11,−1,figure-axis,figure text,−1
+11,0,figure-axis,figure text,0
+11,1,figure-axis,figure text,1
+11,2,figure-axis,figure text,2
+11,3,figure-axis,figure text,3
+11,95,macro,NLevHier [P01],"Headroom, gbt_b (95 % CI)"
+11,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],Observed margin (90 % CI)
+11,9,structural,label/identifier/unit-free code,Fig. 9. Learnable one-step headroom (residual
+11,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"ep headroom (residual set, base offset ±1) over each calibrated table, around the"
+11,95,macro,NLevHier [P01],"licy, for both prespecified estimators (95 % bootstrap CI), beside the observed tr"
+11,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],f that policy over the same comparator (90 % CI). M1 and NR2: comparators
+11,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"re-calibrated on 500 traces; M3: original comparators, no co"
+11,+2.38,macro,NGsixCtxDBootHi [G6b]; NHRPoneEst [HR1],cision headroom around the base rule is +2.38 % (95 %
+11,95,macro,NLevHier [P01],adroom around the base rule is +2.38 % (95 %
+11,1.88,macro,NHRPoneLo [HR1],"CI [1.88, 2.89] %); the collapse of the learned"
+11,2.89,macro,NHRPoneHi [HR1],"CI [1.88, 2.89] %); the collapse of the learned policy"
+11,+1.22,macro,NGMoneCtxTraceNinetyLo [G3c]; NHRMthreeFPU [HR1]; NMtwoRsdOLLALo [R03-R07],"the base rule itself (FixedPU: +1.22 %, [0.68, 1.78] %). This"
+11,0.68,macro,NGMoneOffCtxSeedMax [G3g]; NGsixFixedDPoIHi [G6g]; NHRMthreeFPULo [HR1],"he base rule itself (FixedPU: +1.22 %, [0.68, 1.78] %). This"
+11,1.78,macro,NHRMthreeFPUHi [HR1],"e rule itself (FixedPU: +1.22 %, [0.68, 1.78] %). This"
+11,+5.84,macro,NHRPtwoEst [HR1]; NNRoneGOLLATDPp [NR02],"ision headroom over the combined table (+5.84 %, 95 % CI [5.62,"
+11,95,macro,NLevHier [P01],"droom over the combined table (+5.84 %, 95 % CI [5.62,"
+11,5.62,macro,NHRPtwoLo [HR1],"r the combined table (+5.84 %, 95 % CI [5.62,"
+11,6.05,macro,NHRPtwoHi [HR1],6.05] %). The headroom is larger around the
+11,+0.24,macro,NHRPthreeEst [HR1],"than around the oracle base (difference +0.24 points, 95 % CI"
+11,95,macro,NLevHier [P01],"e oracle base (difference +0.24 points, 95 % CI"
+11,0.11,macro,NHRPthreeLo [HR1]; NHRbMthreeFPULo [HR1],"[0.11, 0.38]), in line with the NR2 result. T"
+11,0.38,macro,NHRPthreeHi [HR1]; G10:margin_min; G10:margin_G2,"[0.11, 0.38]), in line with the NR2 result. The dif"
+11,+0.24,macro,NHRPthreeEst [HR1],"small, however: +0.24 points of headroom, against a realised"
+11,2.7,macro,NHRRealDiff [HR1]; NMoneHours [R32],difference of 2.7 points between the NR2 and M1 margins o
+11,+3.35,pending,NR2:margin_ctxj,the combined table (+3.35 against +0.66 %). The non-oracle
+11,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,the combined table (+3.35 against +0.66 %). The non-oracle
+11,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],Slow users. Users slower than 10 m/s have less learnable
+11,+4.68,macro,NHRPfourEst [HR1],"+4.68 points, 95 % CI [4.01, 5.36]), consiste"
+11,95,macro,NLevHier [P01],"+4.68 points, 95 % CI [4.01, 5.36]), consistent with the"
+11,4.01,macro,NHRPfourLo [HR1],"+4.68 points, 95 % CI [4.01, 5.36]), consistent with the slowuser l"
+11,5.36,macro,NHRPfourHi [HR1],"+4.68 points, 95 % CI [4.01, 5.36]), consistent with the slowuser loss. T"
+11,+1.80,macro,NAoneMidLo [A01]; NHRbPoneEst [HR1],"the same: +1.80 % ([1.30, 2.31] %) for P1, +5.55 % ([5."
+11,1.30,macro,NHRbPoneLo [HR1],"the same: +1.80 % ([1.30, 2.31] %) for P1, +5.55 % ([5.34,"
+11,2.31,macro,NHRbPoneHi [HR1],"the same: +1.80 % ([1.30, 2.31] %) for P1, +5.55 % ([5.34,"
+11,+5.55,macro,NGMoneFPUSeedMax [G3g]; NHRbPtwoEst [HR1],"same: +1.80 % ([1.30, 2.31] %) for P1, +5.55 % ([5.34,"
+11,5.34,macro,NHRbPtwoLo [HR1],"80 % ([1.30, 2.31] %) for P1, +5.55 % ([5.34,"
+11,5.77,macro,NHRbPtwoHi [HR1],"5.77] %) for P2, +0.19 points ([0.04, 0.33])"
+11,+0.19,macro,NHRbPthreeEst [HR1]; G10:ci_lo_G3,"5.77] %) for P2, +0.19 points ([0.04, 0.33]) for P3 and +4.28"
+11,0.04,macro,NGMtwoCtxHierNinetyLo [G3a]; NHRbPthreeLo [HR1],"5.77] %) for P2, +0.19 points ([0.04, 0.33]) for P3 and +4.28"
+11,0.33,macro,NHRbPthreeHi [HR1],"5.77] %) for P2, +0.19 points ([0.04, 0.33]) for P3 and +4.28"
+11,+4.28,macro,NHRbPfourEst [HR1],"+0.19 points ([0.04, 0.33]) for P3 and +4.28"
+11,3.61,macro,NHRbPfourLo [HR1],"points ([3.61, 4.94]) for P4. Its estimates are lower"
+11,4.94,macro,NHRbPfourHi [HR1],"points ([3.61, 4.94]) for P4. Its estimates are lower throu"
+11,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"r the correction, the v9 registry shows 0 wins in"
+11,18,macro,NRegSupRows [H19]; NRobRows [M08]; NVnineCases [H06],"18 cases, and the A2C policy was −4.08 % a"
+11,−4.08,macro,NVnineVsOLLA [H04],"18 cases, and the A2C policy was −4.08 % against OLLA on"
+11,58,macro,NGsixClosure [G6d]; NSlotMinusThree [H07],"slots. The learned policy was bimodal (58 % of actions at −3 and 35.8 % at +2), a"
+11,−3,macro,NHpLrCritic [S15],"policy was bimodal (58 % of actions at −3 and 35.8 % at +2), and goodput"
+11,35.8,macro,NSlotPlusTwo [H07],"was bimodal (58 % of actions at −3 and 35.8 % at +2), and goodput"
+11,+2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"al (58 % of actions at −3 and 35.8 % at +2), and goodput"
+11,1.38,macro,NSlotRL [H07],was 1.38 Mbps against 2.92 for OLLA. An opportun
+11,2.92,macro,NAsixGpAckOne [A06]; NGsixFixedDHierHi [G6b]; NSlotOLLA [H07],was 1.38 Mbps against 2.92 for OLLA. An opportunity-cost
+11,2.9191,macro,NSlotFixRL [H07],"reward removed the effect (2.9191 against 2.9233 Mbps, a"
+11,2.9233,macro,NSlotFixOLLA [H07]; NVnineOLLA [H05],"ward removed the effect (2.9191 against 2.9233 Mbps, a"
+11,−0.14,pending,NRG10:cj_hier_lo_G2,−0.14 % difference that is not significant).
+11,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],8 rose from 3.466 to 4.837 Mbps when goin
+11,3.466,macro,NPfOneProc [H17],8 rose from 3.466 to 4.837 Mbps when going from one
+11,4.837,macro,NPfEightProc [H17],8 rose from 3.466 to 4.837 Mbps when going from one
+11,+39.6,macro,NPfGain [H17],to eight processes (+39.6 %) while the Jain index fell from
+11,0.503,macro,NPfJainZero [H17],0.503 to 0.420. Re-running all 13 schemes wit
+11,0.420,macro,NPfJainEight [H17],0.503 to 0.420. Re-running all 13 schemes with the oth
+11,13,macro,NLitCalNo [lit]; NPfNSchemes [H17a],0.503 to 0.420. Re-running all 13 schemes with the other PF
+11,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"definition changed goodput by 10–26 %, but that comparison"
+11,26,macro,NPfRangeHi [H17a],"definition changed goodput by 10–26 %, but that comparison"
+11,10.71,structural,label/identifier/unit-free code,it is quoted only as a range. A 10.71 % engine discontinuity
+11,+4.5,macro,NVnineBaseGain [H05],the definition: open-loop Baseline was +4.5 % above OLLA
+11,+7.4,macro,NOllaBaseMthree [R22],elivered-throughput PF (v9) but OLLA is +7.4 % above
+11,+6.9,macro,NOllaBaseMfour [R22],ine under scheduling-time PF in M3 (and +6.9 % in
+11,100,macro,NAoneAllShare [A01]; NAsixTraces [A06]; NCfgRB [S01],M4). A controlled demonstration on 100 fresh traces (Fig. 10)
+11,10,structural,label/identifier/unit-free code,demonstration on 100 fresh traces (Fig. 10)
+11,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],to eight processes at RTT 8 raises Baseline goodput by a factor
+12,12,figure-axis,figure text,12
+12,4,figure-axis,figure text,4
+12,3,figure-axis,figure text,3
+12,2,figure-axis,figure text,2
+12,1,figure-axis,figure text,1
+12,0,figure-axis,figure text,0
+12,0.60,figure-axis,figure text,0.60
+12,0.55,figure-axis,figure text,0.55
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],base rule alone at RTT 8 and did worse than it at RTT 0. With
+12,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,e at RTT 8 and did worse than it at RTT 0. With
+12,+0.66,macro,NGsixCtxJMar [G6a]; NGsixFPUDPoIHi [G6g]; G6:margin_ctxj,"calibrated rule is small: +0.66 %, or +0.40 percentage points"
+12,+0.40,macro,NGsixAbsPpCtxJ [G6a],"calibrated rule is small: +0.66 %, or +0.40 percentage points"
+12,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],"seeds: only 5 of 10 seeds beat the combined table, an"
+12,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"seeds: only 5 of 10 seeds beat the combined table, and the"
+12,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"hierarchical interval [−0.30, +1.70] % includes zero. The ten"
+12,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"hierarchical interval [−0.30, +1.70] % includes zero. The ten"
+12,11,macro,NGoneAllSeedMin [G1b]; NGoneBaseMtwoSeedMin [G1b],share of upward corrections ranges from 11 to 78 % across seeds). A practitioner
+12,78,macro,NGoneAllSeedMax [G1b]; NGoneBaseMthreeSeedMax [G1b]; NGoneBaseMtwoSeedMax [G1b],of upward corrections ranges from 11 to 78 % across seeds). A practitioner
+12,0.55,macro,NGsixCtxJPoI [G6g]; NGsixFPUDPoILo [G6g]; NRG10:ontime_G2,able: the probability of improvement is 0.55
+12,0.49,macro,NGsixCtxJPoILo [G6g]; NRG10:cj_lo_G2,"([0.49, 0.61]). Third, the gain is not uniform"
+12,0.61,macro,NGsixCtxJPoIHi [G6g]; NGsixFPUDPoI [G6g],"([0.49, 0.61]). Third, the gain is not uniform acros"
+12,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"the original Context table, users above 10 m/s gain"
+12,+2.82,macro,NAoneMidMar [A01]; A1:margin_mid,"(+2.82 % and +2.25 %), while users below it ha"
+12,+2.25,macro,NAoneFastMar [A01]; A1:margin_hi,"(+2.82 % and +2.25 %), while users below it have a margin"
+12,−1.71,macro,NAoneSlowMar [A01]; A1:margin_lo,"−1.71 % (hierarchical 95 % CI [−3.32, −0.15]"
+12,95,macro,NLevHier [P01],"−1.71 % (hierarchical 95 % CI [−3.32, −0.15] %), and these"
+12,−3.32,macro,NAoneSlowLo [A01],"−1.71 % (hierarchical 95 % CI [−3.32, −0.15] %), and these"
+12,−0.15,macro,NAoneSlowHi [A01]; NGMoneOffCtxHierHi [G3a]; NHRbMthreeCombLo [HR1],"−1.71 % (hierarchical 95 % CI [−3.32, −0.15] %), and these"
+12,21,macro,NAoneSlowShare [A01]; NGsixSearched [G6a]; NGsixSweeps [G6h],slow users make up 21 % of user-traces. The policy’s actions
+12,0.50,figure-axis,figure text,0.50
+12,0.45,figure-axis,figure text,0.45
+12,0.40,figure-axis,figure text,0.40
+12,0.35,figure-axis,figure text,0.35
+12,0.30,figure-axis,figure text,0.30
+12,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,RTT 0
+12,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1 proc.
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],RTT 8
+12,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1 proc.
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],RTT 8
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],8 proc.
+12,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,RTT 0
+12,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1 proc.
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],RTT 8
+12,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1 proc.
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],RTT 8
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],8 proc.
+12,10,structural,label/identifier/unit-free code,Fig. 10. PF-timing demonstration: Baseline good
+12,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"two PF-average definitions, for RTT 0 with one process and RTT 8 with one"
+12,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"ons, for RTT 0 with one process and RTT 8 with one"
+12,95,macro,NLevHier [P01],or eight processes (mean and 95 % CI over 100 traces).
+12,100,macro,NAoneAllShare [A01]; NAsixTraces [A06]; NCfgRB [S01],eight processes (mean and 95 % CI over 100 traces).
+12,1.447,macro,NAsixBaseAckRatio [A06]; A6:baseline_8p_vs_1p_acked,of 1.447 (2.92 to 4.23 Mbps) and lowers the Jain
+12,2.92,macro,NAsixGpAckOne [A06]; NGsixFixedDHierHi [G6b]; NSlotOLLA [H07],of 1.447 (2.92 to 4.23 Mbps) and lowers the Jain index
+12,4.23,macro,NAsixGpAckEight [A06],of 1.447 (2.92 to 4.23 Mbps) and lowers the Jain index from
+12,0.534,macro,NAsixJainAckOne [A06],0.534 to 0.436. Under scheduling-time averagi
+12,0.436,macro,NAsixJainAckEight [A06]; A6:jain_8p_acked,0.534 to 0.436. Under scheduling-time averaging the fa
+12,0.976,macro,NAsixBaseSchedRatio [A06]; NAsixOLLASchedRatio [A06]; A6:baseline_8p_vs_1p_sched,0.976 and the Jain index stays at 0.498 (from
+12,0.498,macro,NAsixJainSchedEight [A06]; A6:jain_8p_sched,0.976 and the Jain index stays at 0.498 (from 0.494). OLLA
+12,0.494,macro,NAsixJainSchedOne [A06],and the Jain index stays at 0.498 (from 0.494). OLLA
+12,1.433,macro,NAsixOLLAAckRatio [A06],and Fixed behave the same way (factors 1.433 and 1.420 under
+12,1.420,macro,NAsixFixedAckRatio [A06],behave the same way (factors 1.433 and 1.420 under
+12,0.976,macro,NAsixBaseSchedRatio [A06]; NAsixOLLASchedRatio [A06]; A6:baseline_8p_vs_1p_sched,"ACK-time averaging, 0.976 and 1.007 under scheduling-time"
+12,1.007,macro,NAsixFixedSchedRatio [A06],"ACK-time averaging, 0.976 and 1.007 under scheduling-time"
+12,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"The v15 and v16 RTT>0 cases (7 cases, 18 evaluations) are"
+12,7,macro,NRegSupCases [H19],"The v15 and v16 RTT>0 cases (7 cases, 18 evaluations) are"
+12,18,macro,NRegSupRows [H19]; NRobRows [M08]; NVnineCases [H06],"The v15 and v16 RTT>0 cases (7 cases, 18 evaluations) are"
+12,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1) Compare against rules calibrated on th
+12,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"2) Use common random numbers, disjoint ca"
+12,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3) Report seed-level intervals next to tr
+12,4,macro,NGsixStarts [G6a],"4) Report results by mobility regime, HAR"
+12,5,structural,citation,"(Table V(a) of the arXiv version of [5], 254, 185 and"
+12,254,lit,literal in source,"Table V(a) of the arXiv version of [5], 254, 185 and"
+12,185,lit,literal in source,"V(a) of the arXiv version of [5], 254, 185 and"
+12,171,lit,literal in source,171 Mbps) shows how much a result can depen
+12,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],5) State the PF-averaging definition and
+12,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],"6) Before training a deep policy, estimat"
+12,+11.96,macro,NGsixOLLAMar [G6a]; NMonePrimOLLAMar [R03-R07/R19-R21]; NMonePrimOLLATMar [R03-R07/R19-R21],+11.96 %; a warm-up of 200 TTIs reduces this t
+12,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],+11.96 %; a warm-up of 200 TTIs reduces this to +7.49 %.
+12,+7.49,macro,NGsixOLLATDBootLo [G6b]; NWoneOLLATWarmMar [W01]; NWoneOLLAWarmMar [W01],; a warm-up of 200 TTIs reduces this to +7.49 %.
+12,83,macro,NMoneCalibShareFixed [R33]; NMtwoCalibShareCtx [R33],One calibrated offset (Fixed) captures 83 % of the learner’s
+12,85,macro,NGoneSlackLooseShare [G1b]; NMoneCalibShareCtx [R33],and the original Context table captures 85 %.
+12,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],Exhaustive re-calibration on 500 traces and a combined table
+12,58,macro,NGsixClosure [G6d]; NSlotMinusThree [H07],remove a further 58 % of the remaining margin. Most of that
+12,+1.58,macro,NADlCtxEight [R28]; NGMoneFPUTLo [G3g]; NMonePrimCtxMar [R03-R07/R19-R21],+1.58 % to +1.43 %. Each step changes the con
+12,+1.43,macro,NGsixCtxDMar [G6a]; G6:margin_ctx500,+1.58 % to +1.43 %. Each step changes the conclusion a r
+12,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],"eap. Calibrating the singlecue rules on 500 traces took 2.9 h of simulation, but th"
+12,2.9,macro,NGsixSingleHours [G6h],"the singlecue rules on 500 traces took 2.9 h of simulation, but the"
+12,24.6,macro,NGsixSearchHours [G6h],"cent search for the combined table took 24.6 h,"
+12,2.7,macro,NHRRealDiff [HR1]; NMoneHours [R32],against 2.7 h to train and evaluate the ten M1 poli
+13,13,figure-axis,figure text,13
+13,95,macro,NLevHier [P01],95 % CI AGAINST THE SAME COMPARATOR WHERE
+13,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"M1: deadline, RTT 8"
+13,+11.96,macro,NGsixOLLAMar [G6a]; NMonePrimOLLAMar [R03-R07/R19-R21]; NMonePrimOLLATMar [R03-R07/R19-R21],+11.96 / +7.49
+13,+7.49,macro,NGsixOLLATDBootLo [G6b]; NWoneOLLATWarmMar [W01]; NWoneOLLAWarmMar [W01],+11.96 / +7.49
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"best original rule (Context table, 10 traces)"
+13,+1.58,figure-axis,figure text,+1.58
+13,1.43,macro,NGsixCtxDMar [G6a]; G6:margin_ctx500,-calibrated single-cue rule (Context ta+1.43
+13,+0.66,figure-axis,figure text,+0.66
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"M1, users < 10 m/s"
+13,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M2: deadline, RTT 0"
+13,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"M3: goodput, RTT 8"
+13,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M4: goodput, RTT 0"
+13,30,structural,citation,learner [30]. We therefore read the M1 result as: c
+13,0.6306,macro,NGsixValEns [G6a]; NMoneValEns [R02/R19/R20],does better (0.6306 on time against 0.6126 for the per-seed
+13,0.6126,macro,NGsixValPrim [G6a]; NMoneValPrim [R02/R19/R20]; NWoneValCold [W01],does better (0.6306 on time against 0.6126 for the per-seed
+13,20,macro,NAoneEdgeHi [A01]; NCfgCalib [S12]; NCfgPeriod [S09],"table, the base rule selected for M1 on 20 calibration"
+13,0.13,macro,NGsixFPUOverFixedPct [G6c],"traces, scores only 0.13 % above the re-calibrated non-oracle"
+13,3.35,pending,NR2:margin_ctxj,"3.35 % (90 % CI [2.93, 3.76] %, hierarchical"
+13,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],"3.35 % (90 % CI [2.93, 3.76] %, hierarchical 95 %"
+13,2.93,pending,NR2:ci_lo_ctxj,"3.35 % (90 % CI [2.93, 3.76] %, hierarchical 95 % CI [2.22,"
+13,3.76,macro,NGMoneFPUHierHi [G3a]; NR2:ci_hi_ctxj,"3.35 % (90 % CI [2.93, 3.76] %, hierarchical 95 % CI [2.22,"
+13,95,macro,NLevHier [P01],"% (90 % CI [2.93, 3.76] %, hierarchical 95 % CI [2.22,"
+13,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"I [2.93, 3.76] %, hierarchical 95 % CI [2.22,"
+13,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"4.40] %), with 9 of 10 seeds positive, despi"
+13,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],"4.40] %), with 9 of 10 seeds positive, despite the combi"
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"4.40] %), with 9 of 10 seeds positive, despite the combined"
+13,20 099,macro,NParamsActor [S16],The actor has 20 099 parameters and needs 19 872 multiplyacc
+13,19 872,macro,NMacsActor [S16],e actor has 20 099 parameters and needs 19 872 multiplyaccumulates (40 195 floating-po
+13,40 195,macro,NFlopsActor [S16],s and needs 19 872 multiplyaccumulates (40 195 floating-point operations) per user dec
+13,3000,macro,NCfgEpDl [S15],ment below. Training is not negligible (3000 episodes per
+13,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],grant is built. An NR slot lasts 1 ms at 15 kHz subcarrier
+13,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],rant is built. An NR slot lasts 1 ms at 15 kHz subcarrier
+13,95,macro,NLevHier [P01],Seed level: hier. 95 % CI (%)
+13,+7.15,macro,NGsixOLLATDHierLo [G6b],"[+7.15, +9.66]†"
+13,+9.66,macro,NGsixOLLATDHierHi [G6b],"[+7.15, +9.66]†"
+13,+0.62,macro,NAoneAllLo [A01]; NGMoneCtxHierLo [G3a]; NGMoneRsdCtxTraceNinetyHi [G3c],"[+0.62, +2.62]"
+13,+2.62,macro,NAoneAllHi [A01]; NGMoneCtxHierHi [G3a],"[+0.62, +2.62]"
+13,+0.47,macro,NGsixCtxDHierLo [G6b],"[+0.47, +2.46]"
+13,+2.46,macro,NGsixCtxDHierHi [G6b],"[+0.47, +2.46]"
+13,−1.71,figure-axis,figure text,−1.71
+13,+3.35,figure-axis,figure text,+3.35
+13,+1.73,macro,NGsixFPUDMar [G6a]; G6:margin_fpu500; NRG10:margin_G2,+1.73 / +1.02 yes / yes
+13,+1.02,pending,NRG10:margin_G3,+1.73 / +1.02 yes / yes
+13,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"[−0.30, +1.70]"
+13,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"[−0.30, +1.70]"
+13,+0.43,figure-axis,figure text,+0.43
+13,−0.88,figure-axis,figure text,−0.88
+13,−1.73,figure-axis,figure text,−1.73
+13,−3.32,macro,NAoneSlowLo [A01],"[−3.32, −0.15]"
+13,−0.15,macro,NAoneSlowHi [A01]; NGMoneOffCtxHierHi [G3a]; NHRbMthreeCombLo [HR1],"[−3.32, −0.15]"
+13,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"[2.22, 4.40]"
+13,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"[2.22, 4.40]"
+13,0.90,pending,NRG10:hier_lo_G2,"[0.90, 2.73] / [0.63, 1.42]"
+13,2.73,pending,NRG10:hier_hi_G2,"[0.90, 2.73] / [0.63, 1.42]"
+13,0.63,pending,NRG10:hier_lo_G3,"[0.90, 2.73] / [0.63, 1.42]"
+13,1.42,pending,NRG10:hier_hi_G3,"[0.90, 2.73] / [0.63, 1.42]"
+13,−0.03,macro,NGMtwoCtxHierLo [G3a]; NMfourPrimBanDLo [R03-R07],"[−0.03, +0.87]"
+13,+0.87,macro,NGMtwoCtxHierHi [G3a]; NGMtwoCtxTHi [G3g]; NGsixFPUDBootLo [G6b],"[−0.03, +0.87]"
+13,0.5,macro,NCfgOllaDown [S11]; NCfgShape [S14]; A3c:floor,"nd halves with each numerology step, to 0.5, 0.25"
+13,0.25,lit,literal in source,"lves with each numerology step, to 0.5, 0.25"
+13,0.125,lit,literal in source,"and 0.125 ms at 30, 60 and 120 kHz [46]. The near"
+13,30,macro,NCfgSpeedMax [S02],"and 0.125 ms at 30, 60 and 120 kHz [46]. The near-realtime"
+13,60,macro,NRegValidCases [M03],"and 0.125 ms at 30, 60 and 120 kHz [46]. The near-realtime RIC"
+13,120,macro,NCfgDwellBurst [S04],"and 0.125 ms at 30, 60 and 120 kHz [46]. The near-realtime RIC closes"
+13,46,structural,citation,"and 0.125 ms at 30, 60 and 120 kHz [46]. The near-realtime RIC closes its loop"
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"he near-realtime RIC closes its loop in 10 ms to 1 s, which suits slicing"
+13,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"ealtime RIC closes its loop in 10 ms to 1 s, which suits slicing"
+13,26,structural,citation,decisions such as those of xSlice [26] but not a per-slot choice
+13,27,structural,citation,"MAC scheduler or in a dApp next to it [27],"
+13,5,structural,citation,"which is where LOLLA runs [5], and not in a near-realtime xApp. Whet"
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"10, Python/NumPy), with 10 users per slot,"
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"10, Python/NumPy), with 10 users per slot, the median perTTI decis"
+13,180.4,pending,A3c:med_resid,"perTTI decision time of residual A2C is 180.4 µs, against 12.3,"
+13,12.3,pending,A3c:med_fixed,"me of residual A2C is 180.4 µs, against 12.3,"
+13,31.9,pending,A3c:med_ctxj,"31.9 and 33.0 µs for Fixed, the combined tab"
+13,33.0,pending,A3c:med_olla,"31.9 and 33.0 µs for Fixed, the combined table and OL"
+13,11,structural,label/identifier/unit-free code,(Fig. 11). The policy time includes building the
+13,0.5,macro,NCfgOllaDown [S11]; NCfgShape [S14]; A3c:floor,"(the p99.9 of an empty timed loop, 0.5 µs), its p99.9 is"
+13,632.1,pending,A3c:tail_resid,632.1 µs; operating-system scheduling jitter
+13,99.9,pending,A3c:frac15,"by this correction. Of the TTIs, 99.9, 99.6, 93.4 and 0.0 %"
+13,99.6,pending,A3c:frac30,"by this correction. Of the TTIs, 99.9, 99.6, 93.4 and 0.0 %"
+13,93.4,pending,A3c:frac60,"is correction. Of the TTIs, 99.9, 99.6, 93.4 and 0.0 %"
+13,0.0,pending,G1:pct_effnz_m3; A3c:frac120,"tion. Of the TTIs, 99.9, 99.6, 93.4 and 0.0 %"
+13,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],"finish within the slot at 15, 30, 60 and 120 kHz. These times"
+13,30,macro,NCfgSpeedMax [S02],"finish within the slot at 15, 30, 60 and 120 kHz. These times"
+13,60,macro,NRegValidCases [M03],"finish within the slot at 15, 30, 60 and 120 kHz. These times"
+13,120,macro,NCfgDwellBurst [S04],"inish within the slot at 15, 30, 60 and 120 kHz. These times"
+13,120,macro,NCfgDwellBurst [S04],"in particular not at 120 kHz, where no measured TTI met the"
+13,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],"1) Simulator. One macro cell, N = 10 user"
+13,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"1) Simulator. One macro cell, N = 10 users and one user"
+13,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],no cross-validation in ns-3 or Sionna. All results come
+14,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],15 kHz: 99.9 %
+14,99.9,pending,A3c:frac15,15 kHz: 99.9 %
+14,30,macro,NCfgSpeedMax [S02],30 kHz: 99.6 %
+14,99.6,pending,A3c:frac30,30 kHz: 99.6 %
+14,1.0,figure-axis,figure text,1.0
+14,60,macro,NRegValidCases [M03],60 kHz: 93.4 %
+14,93.4,pending,A3c:frac60,60 kHz: 93.4 %
+14,120,macro,NCfgDwellBurst [S04],120 kHz: 0.0 %
+14,0.0,pending,G1:pct_effnz_m3; A3c:frac120,120 kHz: 0.0 %
+14,14,figure-axis,figure text,14
+14,0.8,figure-axis,figure text,0.8
+14,0.6,figure-axis,figure text,0.6
+14,0.4,figure-axis,figure text,0.4
+14,0.2,figure-axis,figure text,0.2
+14,0.0,figure-axis,figure text,0.0
+14,101,figure-axis,figure text,101
+14,102,figure-axis,figure text,102
+14,103,figure-axis,figure text,103
+14,11,structural,label/identifier/unit-free code,Fig. 11. Per-TTI decision time for 10 users on
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],Fig. 11. Per-TTI decision time for 10 users on one thread of a laptop
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],"CPU (Intel Core i5-8350U, Windows 10, Python/NumPy): empirical CDF"
+14,15,macro,NGoneKSlackShareA [G1b]; NLitParUnc [lit],"length at 15, 30, 60 and 120 kHz subcarrier spacing"
+14,30,macro,NCfgSpeedMax [S02],"length at 15, 30, 60 and 120 kHz subcarrier spacing [46]"
+14,60,macro,NRegValidCases [M03],"length at 15, 30, 60 and 120 kHz subcarrier spacing [46]; la"
+14,120,macro,NCfgDwellBurst [S04],"length at 15, 30, 60 and 120 kHz subcarrier spacing [46]; labels giv"
+14,46,structural,citation,"30, 60 and 120 kHz subcarrier spacing [46]; labels give the share"
+14,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],2) No over-the-air validation. All result
+14,26,structural,citation,"ere. Over-theair results, as in xSlice [26] or LOLLA [5], answer"
+14,5,structural,citation,"ir results, as in xSlice [26] or LOLLA [5], answer"
+14,47,structural,citation,"(openair2/LAYER2/NR_MAC_gNB) [47], as MAC"
+14,27,structural,citation,code or as a dApp [27].
+14,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3) Seed robustness. The margin of M1 over
+14,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],n (NR2) passed the seed-level rule with 9
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],of 10 seeds positive and hierarchical 95 % CI
+14,95,macro,NLevHier [P01],"of 10 seeds positive and hierarchical 95 % CI [2.22,"
+14,2.22,pending,NR2:hier_lo; NRG10:ci_hi_G2,"eeds positive and hierarchical 95 % CI [2.22,"
+14,4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,4.40] %.
+14,4,macro,NGsixStarts [G6a],4) Heterogeneous gain. For users below 10
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],4) Heterogeneous gain. For users below 10 m/s the margin
+14,−1.71,macro,NAoneSlowMar [A01]; A1:margin_lo,−1.71 %. The speed breakdown was not repeated
+14,5,macro,NAthreeCpu [A03]; NGsixCtxJAbove [G6b]; NHRFolds [HR1],5) Operating point. With the M1 recipe: T
+14,+1.73,macro,NGsixFPUDMar [G6a]; G6:margin_fpu500; NRG10:margin_G2,(margins +1.73 % and +1.02 % vs the best rule). Two
+14,+1.02,pending,NRG10:margin_G3,(margins +1.73 % and +1.02 % vs the best rule). Two
+14,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],6) Oracle information. The M1 base rule F
+14,7,macro,NRegSupCases [H19],7) Headroom analysis. HR1 (Section VI-G)
+14,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],8) Scoring window. Traces score 150 TTIs
+14,150,macro,NCfgScored [S10],8) Scoring window. Traces score 150 TTIs after a burn-in.
+14,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],9) Selection over versions. The residual
+14,17,macro,NGoneBurstSeedMin [G1b]; NVersions [M01],over 17 versions of the campaign. M1 is a confi
+14,67,macro,NGoneBaseMtwoShare [G1b]; NGoneBusyZeroSeedMax [G1b]; NRegCases [M01],the main round (67 cases); the 9 robustness cases are
+14,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],the main round (67 cases); the 9 robustness cases are
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10) Definitions. Conclusions about multi-p
+14,11,macro,NGoneAllSeedMin [G1b]; NGoneBaseMtwoSeedMin [G1b],11) Seed-level intervals. The hierarchical
+14,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],percentile bootstrap over 10 seeds (five in NR-G10).
+14,95,macro,NLevHier [P01],"indicative, not as exact 95 % statements."
+14,12,macro,NCfgPktKbit [S09]; NGoneSlackMidShare [G1b],12) Learned baselines. No non-RL learned s
+15,15,figure-axis,figure text,15
+15,256,structural,label/identifier/unit-free code,n pre-registration texts with their SHA-256
+15,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,Initial logit bias on δ = 0
+15,57,macro,NInputDim [S16],57-128-96-3 (residual)
+15,128,manual,"checked by hand: actor architecture 57-128-96-3 (assert in build_numbers.py, S16)",57-128-96-3 (residual)
+15,96,manual,"checked by hand: actor architecture 57-128-96-3 (assert in build_numbers.py, S16)",57-128-96-3 (residual)
+15,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],57-128-96-3 (residual)
+15,"20 099, 19 872",figure-axis,figure text,"20 099, 19 872"
+15,3 × 10−4,manual,checked by hand: Appendix A learning rates (reported-literal section),3 × 10−4 / 1 × 10−3
+15,1 × 10−3,manual,checked by hand: Appendix A learning rates (reported-literal section),3 × 10−4 / 1 × 10−3
+15,0.95,figure-axis,figure text,0.95
+15,10,figure-axis,figure text,10
+15,0.03,macro,NHpEntStart [S15],0.03 → 0.001
+15,0.001,macro,NAsixFixedSchedDJain [A06]; NGsixOLLATDSign [G6b]; NHpEntEnd [S15],0.03 → 0.001
+15,50,macro,NCfgBurnIn [S10]; NCfgDcorr [S02]; NHpValEvery [S15],every 50 episodes on 10 traces
+15,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],every 50 episodes on 10 traces
+15,3,figure-axis,figure text,3
+15,0.02,macro,NCfgResidPen [S13],0.02 |δ|
+15,0.5,figure-axis,figure text,0.5
+15,3000,macro,NCfgEpDl [S15],3000 / 800
+15,800,macro,NCfgEpGp [S15]; NCfgEpShort [R25],3000 / 800
+15,10,figure-axis,figure text,10
+15,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M2 ( DEADLINE , RTT 0): RESIDUAL A2C VS . EACH COMPARATOR ."
+15,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90 % CI
+15,+4.73,figure-axis,figure text,+4.73
+15,+4.40,macro,NMtwoPrimBaselineLo [R03-R07]; NR2:hier_hi,"[+4.40, +5.06]"
+15,+5.06,macro,NMtwoPrimBaselineHi [R03-R07],"[+4.40, +5.06]"
+15,+2.50,figure-axis,figure text,+2.50
+15,+2.23,macro,NGsixFixedDHi [G6a]; NMonePrimFixedHi [R03-R07]; NMtwoPrimOLLALo [R03-R07],"[+2.23, +2.77]"
+15,+2.77,macro,NMtwoPrimOLLAHi [R03-R07]; NMtwoPrimOLLATHi [R03-R07],"[+2.23, +2.77]"
+15,+2.50,figure-axis,figure text,+2.50
+15,+2.23,macro,NGsixFixedDHi [G6a]; NMonePrimFixedHi [R03-R07]; NMtwoPrimOLLALo [R03-R07],"[+2.23, +2.77]"
+15,+2.77,macro,NMtwoPrimOLLAHi [R03-R07]; NMtwoPrimOLLATHi [R03-R07],"[+2.23, +2.77]"
+15,+2.30,figure-axis,figure text,+2.30
+15,+2.05,macro,NMtwoPrimMultiLo [R03-R07],"[+2.05, +2.55]"
+15,+2.55,macro,NMtwoPrimMultiHi [R03-R07],"[+2.05, +2.55]"
+15,+0.93,figure-axis,figure text,+0.93
+15,+0.72,macro,NGMoneCtxBootLo [G3g]; NGsixFPUDHierLo [G6b]; NMfourPrimBanGHi [R03-R07],"[+0.72, +1.13]"
+15,+1.13,macro,NMtwoPrimFixedHi [R03-R07]; NTMtwoLongHi [R25],"[+0.72, +1.13]"
+15,+1.00,macro,NBonfPCtxJ [M07]; NBonfPCtxJProj [M08]; NHRbMthreeFixedFullLo [HR1],FixedPU (class oracle) +1.00
+15,+0.80,macro,NGMtwoCtxHierNinetyHi [G3a]; NGsixOLLATDPoI [G6g]; NMtwoPrimFPULo [R03-R07],"[+0.80, +1.20]"
+15,+1.20,macro,NMtwoPrimFPUHi [R03-R07],"[+0.80, +1.20]"
+15,+0.43,figure-axis,figure text,+0.43
+15,+0.21,macro,NGMtwoCtxTraceNinetyLo [G3c]; NMtwoPrimCtxLo [R03-R07],"[+0.21, +0.64]"
+15,+0.64,macro,NGMtwoCtxTraceNinetyHi [G3c]; NMtwoPrimCtxHi [R03-R07],"[+0.21, +0.64]"
+15,+12.57,macro,NMtwoPrimBanDMar [R03-R07/R19-R21]; NMtwoPrimBanGMar [R03-R07/R19-R21],"+12.57 [+12.09, +13.06]"
+15,+12.09,macro,NMtwoPrimBanDLo [R03-R07]; NMtwoPrimBanGLo [R03-R07],"+12.57 [+12.09, +13.06]"
+15,+13.06,macro,NMtwoPrimBanDHi [R03-R07]; NMtwoPrimBanGHi [R03-R07],"+12.57 [+12.09, +13.06]"
+15,+12.57,macro,NMtwoPrimBanDMar [R03-R07/R19-R21]; NMtwoPrimBanGMar [R03-R07/R19-R21],"+12.57 [+12.09, +13.06]"
+15,+12.09,macro,NMtwoPrimBanDLo [R03-R07]; NMtwoPrimBanGLo [R03-R07],"+12.57 [+12.09, +13.06]"
+15,+13.06,macro,NMtwoPrimBanDHi [R03-R07]; NMtwoPrimBanGHi [R03-R07],"+12.57 [+12.09, +13.06]"
+15,2.3 × 10−63,macro,NMtwoPrimBaselineHolm [R03-R07],2.3 × 10−63
+15,8.6 × 10−39,macro,NMtwoPrimMultiHolm [R03-R07]; NMtwoPrimOLLAHolm [R03-R07]; NMtwoPrimOLLATHolm [R03-R07],8.6 × 10−39
+15,8.6 × 10−39,macro,NMtwoPrimMultiHolm [R03-R07]; NMtwoPrimOLLAHolm [R03-R07]; NMtwoPrimOLLATHolm [R03-R07],8.6 × 10−39
+15,8.6 × 10−39,macro,NMtwoPrimMultiHolm [R03-R07]; NMtwoPrimOLLAHolm [R03-R07]; NMtwoPrimOLLATHolm [R03-R07],8.6 × 10−39
+15,1.1 × 10−10,macro,NMtwoPrimFixedHolm [R03-R07],1.1 × 10−10
+15,9.4 × 10−15,macro,NMtwoPrimFPUHolm [R03-R07],9.4 × 10−15
+15,1.7 × 10−2,macro,NMtwoPrimCtxHolm [R03-R07],1.7 × 10−2
+15,3.8 × 10−82,macro,NMtwoPrimBanDHolm [R03-R07]; NMtwoPrimBanGHolm [R03-R07],3.8 × 10−82
+15,3.8 × 10−82,macro,NMtwoPrimBanDHolm [R03-R07]; NMtwoPrimBanGHolm [R03-R07],3.8 × 10−82
+15,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],1) The original Context table was found b
+15,10,macro,NAoneEdgeLo [A01]; NCfgCalibCtx [S18]; NCfgDeadline [S09],10 calibration traces. The search space ha
+15,73,macro,NGoneCalmSeedMax [G1b],alibration traces. The search space has 73 = 343
+15,343,macro,NCalCtxTables [S20],ation traces. The search space has 73 = 343
+15,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],2) The original FixedPU table was separab
+15,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3) The re-calibration study removes both
+15,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],ation study removes both limits. Fixed (9
+15,343,macro,NCalCtxTables [S20],"candidates), the Context table (343 tables) and the tunedtarget OLLA (30 se"
+15,30,structural,label/identifier/unit-free code,(343 tables) and the tunedtarget OLLA (30 settings) are searched exhaustively
+15,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],on 500 fresh calibration traces (seeds 600001–
+15,600001,macro,NGsixCalSeedLo [G6a],on 500 fresh calibration traces (seeds 600001–600500).
+15,600500,macro,NGsixCalSeedHi [G6a],fresh calibration traces (seeds 600001–600500).
+15,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,ss × speed class × busy HARQ processes (0
+15,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched
+15,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched by
+15,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched by coor
+15,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched by coordina
+15,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched by coordinate
+15,36,macro,NGoneBusyOneShare [G1b]; NGoneKBusyShareA [G1b]; NGsixCells [G6a],or ≥ 1; 3 · 2 · 3 · 2 = 36 cells) is searched by coordinate
+15,4,macro,NGsixStarts [G6a],ascent from 4 starts. The first start is the composit
+15,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],"comp(b, d, v, u) = min 2, max( − 4,"
+15,4,macro,NGsixStarts [G6a],"comp(b, d, v, u) = min 2, max( − 4,"
+16,16,figure-axis,figure text,16
+16,8,macro,NCfgNproc [S06]; NCfgRtt [S06]; NGMtwoCtxAbove [G3a],"M3 ( GOODPUT, RTT 8): RESIDUAL A2C VS . EACH COMPARATOR ."
+16,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90 % CI
+16,+8.81,macro,NMthreePrimBaselineMar [R03-R07/R19-R21],"+8.81 [+7.93, +9.70]"
+16,+7.93,macro,NMthreePrimBaselineLo [R03-R07],"+8.81 [+7.93, +9.70]"
+16,+9.70,macro,NMthreePrimBaselineHi [R03-R07],"+8.81 [+7.93, +9.70]"
+16,+1.32,macro,NMthreePrimBanGMar [R03-R07/R19-R21]; NMthreePrimOLLAMar [R03-R07/R19-R21],"+1.32 [+0.67, +1.97]"
+16,+0.67,macro,NMthreePrimBanGLo [R03-R07]; NMthreePrimOLLALo [R03-R07],"+1.32 [+0.67, +1.97]"
+16,+1.97,macro,NMthreePrimBanGHi [R03-R07]; NMthreePrimOLLAHi [R03-R07],"+1.32 [+0.67, +1.97]"
+16,+2.14,macro,NGsixFPUDHi [G6a]; NMthreePrimOLLATMar [R03-R07/R19-R21],"+2.14 [+1.44, +2.84]"
+16,+1.44,macro,NMoneRsdFPUMar [R03-R07/R19-R21]; NMthreePrimOLLATLo [R03-R07],"+2.14 [+1.44, +2.84]"
+16,+2.84,macro,NMthreePrimOLLATHi [R03-R07],"+2.14 [+1.44, +2.84]"
+16,+0.20,macro,NMthreePrimMultiMar [R03-R07/R19-R21],"+0.20 [−0.48, +0.87]"
+16,−0.48,macro,NMthreePrimMultiLo [R03-R07],"+0.20 [−0.48, +0.87]"
+16,+0.87,macro,NGMtwoCtxHierHi [G3a]; NGMtwoCtxTHi [G3g]; NGsixFPUDBootLo [G6b],"+0.20 [−0.48, +0.87]"
+16,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],"−0.88 [−1.44, −0.33]"
+16,−1.44,macro,NMthreeOffMultiMar [R03-R07/R19-R21]; NMthreePrimCtxLo [R03-R07]; NMthreePrimFixedLo [R03-R07],"−0.88 [−1.44, −0.33]"
+16,−0.33,macro,NMthreeOffBanGMar [R03-R07/R19-R21]; NMthreeOffOLLAMar [R03-R07/R19-R21]; NMthreePrimCtxHi [R03-R07],"−0.88 [−1.44, −0.33]"
+16,0.00,macro,NMthreePrimFPUHi [R03-R07]; NMthreePrimFPUMar [R03-R07/R19-R21],FixedPU (class oracle) 0.00
+16,−0.00,macro,NMthreePrimFPULo [R03-R07]; NMtwoRsdFPUMar [R03-R07/R19-R21],"[−0.00, 0.00]"
+16,0.00,macro,NMthreePrimFPUHi [R03-R07]; NMthreePrimFPUMar [R03-R07/R19-R21],"[−0.00, 0.00]"
+16,−0.88,macro,NAGpCtxEight [R28]; NAGpFixedEight [R28]; NMthreePrimCtxMar [R03-R07/R19-R21],"−0.88 [−1.44, −0.33]"
+16,−1.44,macro,NMthreeOffMultiMar [R03-R07/R19-R21]; NMthreePrimCtxLo [R03-R07]; NMthreePrimFixedLo [R03-R07],"−0.88 [−1.44, −0.33]"
+16,−0.33,macro,NMthreeOffBanGMar [R03-R07/R19-R21]; NMthreeOffOLLAMar [R03-R07/R19-R21]; NMthreePrimCtxHi [R03-R07],"−0.88 [−1.44, −0.33]"
+16,+1.32,macro,NMthreePrimBanGMar [R03-R07/R19-R21]; NMthreePrimOLLAMar [R03-R07/R19-R21],"+1.32 [+0.67, +1.97]"
+16,+0.67,macro,NMthreePrimBanGLo [R03-R07]; NMthreePrimOLLALo [R03-R07],"+1.32 [+0.67, +1.97]"
+16,+1.97,macro,NMthreePrimBanGHi [R03-R07]; NMthreePrimOLLAHi [R03-R07],"+1.32 [+0.67, +1.97]"
+16,+1.70,macro,NGsixCtxJHierHi [G6b]; NMthreePrimBanDMar [R03-R07/R19-R21]; A3:cpu,"+1.70 [+1.07, +2.33]"
+16,+1.07,macro,NMthreePrimBanDLo [R03-R07],"+1.70 [+1.07, +2.33]"
+16,+2.33,macro,NMthreePrimBanDHi [R03-R07],"+1.70 [+1.07, +2.33]"
+16,3.8 × 10−44,macro,NMthreePrimBaselineHolm [R03-R07],3.8 × 10−44
+16,7.2 × 10−3,macro,NMthreePrimBanGHolm [R03-R07]; NMthreePrimCtxHolm [R03-R07]; NMthreePrimFixedHolm [R03-R07],7.2 × 10−3
+16,1.9 × 10−5,macro,NMthreePrimOLLATHolm [R03-R07],1.9 × 10−5
+16,1.0 × 100,macro,NMfourPrimBanGHolm [R03-R07]; NMfourPrimOLLAHolm [R03-R07]; NMthreePrimFPUHolm [R03-R07],1.0 × 100
+16,7.2 × 10−3,macro,NMthreePrimBanGHolm [R03-R07]; NMthreePrimCtxHolm [R03-R07]; NMthreePrimFixedHolm [R03-R07],7.2 × 10−3
+16,1.0 × 100,macro,NMfourPrimBanGHolm [R03-R07]; NMfourPrimOLLAHolm [R03-R07]; NMthreePrimFPUHolm [R03-R07],1.0 × 100
+16,7.2 × 10−3,macro,NMthreePrimBanGHolm [R03-R07]; NMthreePrimCtxHolm [R03-R07]; NMthreePrimFixedHolm [R03-R07],7.2 × 10−3
+16,7.2 × 10−3,macro,NMthreePrimBanGHolm [R03-R07]; NMthreePrimCtxHolm [R03-R07]; NMthreePrimFixedHolm [R03-R07],7.2 × 10−3
+16,1.0 × 10−4,macro,NMthreePrimBanDHolm [R03-R07],1.0 × 10−4
+16,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,"M4 ( GOODPUT, RTT 0): RESIDUAL A2C VS . EACH COMPARATOR ."
+16,+7.07,figure-axis,figure text,+7.07
+16,+0.15,figure-axis,figure text,+0.15
+16,−0.90,figure-axis,figure text,−0.90
+16,−0.77,figure-axis,figure text,−0.77
+16,−1.73,figure-axis,figure text,−1.73
+16,−1.04,figure-axis,figure text,−1.04
+16,−1.73,figure-axis,figure text,−1.73
+16,+0.15,figure-axis,figure text,+0.15
+16,+0.51,figure-axis,figure text,+0.51
+16,90,macro,NGoneBurstSeedMax [G1b]; NLevTrace [P01],90 % CI
+16,+6.30,macro,NMfourPrimBaselineLo [R03-R07],"[+6.30, +7.83]"
+16,+7.83,macro,NMfourPrimBaselineHi [R03-R07],"[+6.30, +7.83]"
+16,−0.41,macro,NMfourPrimBanGLo [R03-R07]; NMfourPrimOLLALo [R03-R07],"[−0.41, +0.72]"
+16,+0.72,macro,NGMoneCtxBootLo [G3g]; NGsixFPUDHierLo [G6b]; NMfourPrimBanGHi [R03-R07],"[−0.41, +0.72]"
+16,−1.50,macro,NMfourPrimOLLATLo [R03-R07],"[−1.50, −0.30]"
+16,−0.30,macro,NGsixCtxJHierLo [G6b]; NMfourPrimOLLATHi [R03-R07]; G6:seed_lo_best,"[−1.50, −0.30]"
+16,−1.35,macro,NMfourPrimMultiLo [R03-R07],"[−1.35, −0.20]"
+16,−0.20,macro,NMfourPrimMultiHi [R03-R07],"[−1.35, −0.20]"
+16,−2.23,macro,NMfourPrimCtxLo [R03-R07]; NMfourPrimFixedLo [R03-R07],"[−2.23, −1.24]"
+16,−1.24,macro,NMfourPrimCtxHi [R03-R07]; NMfourPrimFixedHi [R03-R07],"[−2.23, −1.24]"
+16,−1.25,macro,NMfourPrimFPULo [R03-R07],"[−1.25, −0.83]"
+16,−0.83,macro,NMfourPrimFPUHi [R03-R07],"[−1.25, −0.83]"
+16,−2.23,macro,NMfourPrimCtxLo [R03-R07]; NMfourPrimFixedLo [R03-R07],"[−2.23, −1.24]"
+16,−1.24,macro,NMfourPrimCtxHi [R03-R07]; NMfourPrimFixedHi [R03-R07],"[−2.23, −1.24]"
+16,−0.41,macro,NMfourPrimBanGLo [R03-R07]; NMfourPrimOLLALo [R03-R07],"[−0.41, +0.72]"
+16,+0.72,macro,NGMoneCtxBootLo [G3g]; NGsixFPUDHierLo [G6b]; NMfourPrimBanGHi [R03-R07],"[−0.41, +0.72]"
+16,−0.03,macro,NGMtwoCtxHierLo [G3a]; NMfourPrimBanDLo [R03-R07],"[−0.03, +1.04]"
+16,+1.04,macro,NMfourPrimBanDHi [R03-R07]; NRG10:cj_margin_G2,"[−0.03, +1.04]"
+16,1.5 × 10−38,macro,NMfourPrimBaselineHolm [R03-R07],1.5 × 10−38
+16,1.0 × 100,macro,NMfourPrimBanGHolm [R03-R07]; NMfourPrimOLLAHolm [R03-R07]; NMthreePrimFPUHolm [R03-R07],1.0 × 100
+16,8.2 × 10−2,macro,NMfourPrimOLLATHolm [R03-R07],8.2 × 10−2
+16,1.3 × 10−1,macro,NMfourPrimMultiHolm [R03-R07],1.3 × 10−1
+16,1.7 × 10−8,macro,NMfourPrimCtxHolm [R03-R07]; NMfourPrimFixedHolm [R03-R07],1.7 × 10−8
+16,4.9 × 10−15,macro,NMfourPrimFPUHolm [R03-R07],4.9 × 10−15
+16,1.7 × 10−8,macro,NMfourPrimCtxHolm [R03-R07]; NMfourPrimFixedHolm [R03-R07],1.7 × 10−8
+16,1.0 × 100,macro,NMfourPrimBanGHolm [R03-R07]; NMfourPrimOLLAHolm [R03-R07]; NMthreePrimFPUHolm [R03-R07],1.0 × 100
+16,5.9 × 10−1,macro,NMfourPrimBanDHolm [R03-R07],5.9 × 10−1
+16,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],than 200 calibration decisions are not searched
+16,500,macro,NCfgEval [S10]; NGsixCalTraces [G6a],Calibration set. 500 traces (seeds 600001–600500) with
+16,600001,macro,NGsixCalSeedLo [G6a],Calibration set. 500 traces (seeds 600001–600500) with
+16,600500,macro,NGsixCalSeedHi [G6a],libration set. 500 traces (seeds 600001–600500) with
+16,−2,macro,NGsixCtxDOffs [G6a]; NGsixFixedOff [G6a]; NNRoneOff [NR01],global offset of −2 CQI steps (the same value as the origin
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],"tables over three slack bins (−4, −4, −2). The re-tuned OLLA"
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],"tables over three slack bins (−4, −4, −2). The re-tuned OLLA"
+16,−2,macro,NGsixCtxDOffs [G6a]; NGsixFixedOff [G6a]; NNRoneOff [NR01],"tables over three slack bins (−4, −4, −2). The re-tuned OLLA"
+16,0.01,macro,NGsixOllaTgt [G6a],uses target 0.01 with a 1.0 dB step. The re-calibrated F
+16,1.0,macro,NGsixOllaStep [G6a],uses target 0.01 with a 1.0 dB step. The re-calibrated FixedPU
+16,200,macro,NCfgTrace [S10]; NGsixSparse [G6a]; NWoneTTI [W01],e combined table. Cells with fewer than 200 calibration decisions (marked ∗ ) were
+16,4,macro,NGsixStarts [G6a],value of Section V. The search ran from 4 starts (the composite
+16,6,macro,NCalClasses [S19]; NCfgSigmaSF [S02]; NGMoneRsdCtxAbove [G3a],e and three random tables) with at most 6 sweeps each.
+16,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],3 starts converged; one reached the cap w
+16,0.6087,macro,NGsixCapStartScore [G6h],"(score 0.6087), and the selected start S2 scored 0.60"
+16,0.6088,macro,NGsixCalCtxJ [G6c]; NGsixSelScore [G6h]; G6:calib_obj_ctxj,"6087), and the selected start S2 scored 0.6088. The"
+16,24.6,macro,NGsixSearchHours [G6h],search took 24.6 h over 21 sweeps.
+16,21,macro,NAoneSlowShare [A01]; NGsixSearched [G6a]; NGsixSweeps [G6h],search took 24.6 h over 21 sweeps.
+16,12,macro,NCfgPktKbit [S09]; NGoneSlackMidShare [G1b],the claims ledger and the code. Figure 12 shows how the
+16,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],NED TABLE : CQI OFFSET PER SLACK BIN b (1:
+16,1,structural,label/identifier/unit-free code,"GHTEST ), DELAY CLASS d, SPEED CLASS v (1: SLOWEST ) AND"
+16,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],v=1
+16,1,figure-axis,figure text,1
+16,1,figure-axis,figure text,1
+16,2,figure-axis,figure text,2
+16,2,figure-axis,figure text,2
+16,3,figure-axis,figure text,3
+16,3,figure-axis,figure text,3
+16,2,macro,NCalCtxPasses [S18]; NGsixSelStart [G6h]; NMoneWorstSeed [G3g],v=2
+16,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,u=0
+16,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],u=1
+16,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,u=0
+16,1,figure-axis,figure text,1
+16,2,figure-axis,figure text,2
+16,1,figure-axis,figure text,1
+16,2,figure-axis,figure text,2
+16,1,figure-axis,figure text,1
+16,2,figure-axis,figure text,2
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−3,macro,NHpLrCritic [S15],−3∗
+16,−1,figure-axis,figure text,−1
+16,−2,figure-axis,figure text,−2
+16,−4,figure-axis,figure text,−4
+16,−4,figure-axis,figure text,−4
+16,−1,figure-axis,figure text,−1
+16,−1,figure-axis,figure text,−1
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−2,figure-axis,figure text,−2
+16,−2,figure-axis,figure text,−2
+16,3,macro,NCfgMaxRetx [S05]; NCfgResidBias [S13]; NCfgSpeedMin [S02],v=3
+16,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],u=1
+16,0,macro,NLitCalYes [lit]; NVnineWins [H06]; G10:n_win,u=0
+16,1,macro,NCfgSigmaMeas [S03]; NGoneBusyThreeShare [G1b]; NGsixCapStarts [G6h],u=1
+16,−3,figure-axis,figure text,−3
+16,−4,figure-axis,figure text,−4
+16,−4,figure-axis,figure text,−4
+16,−3,figure-axis,figure text,−3
+16,−1,figure-axis,figure text,−1
+16,−1,figure-axis,figure text,−1
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,figure-axis,figure text,−4
+16,−2,figure-axis,figure text,−2
+16,−3,figure-axis,figure text,−3
+16,−1,figure-axis,figure text,−1
+16,−2,figure-axis,figure text,−2
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−4,macro,NGsixCtxDOffs [G6a]; NGsixCtxDOffs [G6a]; NHpLrActor [S15],−4∗
+16,−2,figure-axis,figure text,−2
+16,−3,figure-axis,figure text,−3
+16,0.6088,figure-axis,figure text,0.6088
+16,0.5982,figure-axis,figure text,0.5982
+16,0.5953,figure-axis,figure text,0.5953
+16,0.5914,figure-axis,figure text,0.5914
+16,0.6003,figure-axis,figure text,0.6003
+16,0.6086,figure-axis,figure text,0.6086
+16,0.6040,figure-axis,figure text,0.6040
+16,0.6014,figure-axis,figure text,0.6014
+16,0.6022,figure-axis,figure text,0.6022
+16,9,macro,NCalFixedCands [S19]; NCfgBurstDb [S04]; NGMoneCtxAbove [G3a],is in the supplement. The 9 cases of the robustness checks
+16,76,macro,NProjCases [M08],"project-wide correction (76 cases, 126 scheme evaluations in"
+16,126,macro,NProjRows [M08],"project-wide correction (76 cases, 126 scheme evaluations in"

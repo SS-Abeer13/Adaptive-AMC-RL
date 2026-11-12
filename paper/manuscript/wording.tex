@@ -59,3 +59,19 @@
 \defwording{NRG10abs}{MIXED}{With this recipe the gain held at one of two neighbouring operating points and not at the other.}
 \defwording{NRG10abs}{NONE}{The result was observed at one operating point only; at two neighbouring points it was not reproduced.}
 \defwording{NRG10abs}{unrun}{Other operating points were not tested with this recipe.}
+% ---- HR1 (Plan 4) learnable myopic headroom: verbatim from paper/proposals/HR1_headroom_prereg.md section 6.
+% Key = verdict of each prediction (supported | not-supported); estimates from paper/analysis/out/hr_predictions.csv.
+\defwording{HR1P1}{supported}{On full-buffer goodput the learnable per-decision headroom around the base rule is below 0.5\,\% (\NHRPoneEst\,\%, 95\,\% CI [\NHRPoneLo, \NHRPoneHi]\,\%), consistent with the learned policy leaving its base rule alone.}
+\defwording{HR1P1}{not-supported}{On full-buffer goodput the learnable per-decision headroom around the base rule is \NHRPoneEst\,\% (95\,\% CI [\NHRPoneLo, \NHRPoneHi]\,\%); the collapse of the learned policy to its base rule is not explained by a lack of such headroom.}
+\defwording{HR1P2}{supported}{Around the non-oracle base, a learner that sees the gNB-observable features has per-decision headroom over the combined table (\NHRPtwoEst\,\%, 95\,\% CI [\NHRPtwoLo, \NHRPtwoHi]\,\%).}
+\defwording{HR1P2}{not-supported}{Around the non-oracle base, the per-decision headroom over the combined table is not distinguishable from zero (\NHRPtwoEst\,\%, 95\,\% CI [\NHRPtwoLo, \NHRPtwoHi]\,\%); the NR2 margin is not explained by myopic headroom.}
+\defwording{HR1P3}{supported}{The headroom is larger around the non-oracle base than around the oracle base (difference \NHRPthreeEst{} points, 95\,\% CI [\NHRPthreeLo, \NHRPthreeHi]), in line with the NR2 result.}
+\defwording{HR1P3}{not-supported}{The headroom around the non-oracle base is not larger than around the oracle base (difference \NHRPthreeEst{} points, 95\,\% CI [\NHRPthreeLo, \NHRPthreeHi]); the NR2 advantage is not explained by myopic headroom.}
+\defwording{HR1P4}{supported}{Users slower than 10~m/s have less learnable headroom over the Context table than faster users (difference \NHRPfourEst{} points, 95\,\% CI [\NHRPfourLo, \NHRPfourHi]), consistent with the slow-user loss.}
+\defwording{HR1P4}{not-supported}{Learnable headroom over the Context table does not differ detectably between slow and faster users (difference \NHRPfourEst{} points, 95\,\% CI [\NHRPfourLo, \NHRPfourHi]); the slow-user loss is not explained by it.}
+\defwording{HR1scope}{run}{The headroom is per decision, for the first transmission, in expected useful bits, computed through the simulator's link abstraction; effects on later decisions are not included.}
+\defwording{HR1scope}{unrun}{The headroom of a learner over calibrated tables was not measured.}
+\defwording{HR1P1}{unrun}{}
+\defwording{HR1P2}{unrun}{}
+\defwording{HR1P3}{unrun}{}
+\defwording{HR1P4}{unrun}{}

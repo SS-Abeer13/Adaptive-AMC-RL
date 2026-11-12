@@ -121,3 +121,8 @@ A3c,frac120,"Share under the 0.125 ms slot (120 kHz), residual A2C (%)",0.1f,VII
 NRG10,cells_win,List of winning cells,text,VI-G; wording NRG10,-
 NRG10,cells_notwin,List of non-winning cells,text,VI-G; wording NRG10,-
 NRG10,cj_calib_traces,DESCRIPTIVE: calibration traces of the G10 per-cell combined-table search,integer,VI-G,-
+HR1,verdict_P1,supported | not-supported (HR1 prereg section 5 P1),choice,VI-I; wording HR1P1,unrun
+HR1,verdict_P2,supported | not-supported (HR1 prereg section 5 P2),choice,VI-I; wording HR1P2,unrun
+HR1,verdict_P3,supported | not-supported (HR1 prereg section 5 P3),choice,VI-I; wording HR1P3,unrun
+HR1,verdict_P4,supported | not-supported (HR1 prereg section 5 P4),choice,VI-I; wording HR1P4,unrun
+HR1,scope,run (HR1 prereg section 6 scope sentence),choice,VI-I; wording HR1scope,unrun

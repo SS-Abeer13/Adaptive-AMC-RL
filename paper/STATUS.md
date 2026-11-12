@@ -230,3 +230,12 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - Tooling: instrumented evaluator `fc78cc7`, per-candidate TBS/useful bits `5f2659e`; bit-identity on 20 calibration traces (`Optimized/v17x/Dataset/hr/hr_equiv.txt`).
 - 11 Nov: 244c085 was replaced on all branches by b0e43b8 (code) + de040ec (results) via force-push; content unchanged; freeze commit 25b7279 predates both.
 
+
+## Phase 15 — Writing session, Part 2 (12 Nov 2026) — Checkpoint 8
+- **HR1 integrated:** new subsection "How much can learning add over a table?" (sec:hr1) with the frozen §6 wording rows (P1 not supported; P2–P4 supported) via pending item HR1; Fig. 9 `f12_hr1_headroom` (headroom, both estimators, vs observed margins). HR1 adds no case.
+- **gbt_b sensitivity** (not a decision rule): `analysis/hr_gbtb_sensitivity.py` imports the frozen `hr_stats.py`; same verdicts (P1 1.80 [1.30, 2.31]; P2 5.55; P3 0.19 [0.04, 0.33]; P4 4.28 [3.61, 4.94]); gbt_b point estimates reproduce `hr_values.csv`. Build guard fails if any verdict changes.
+- **References:** DELUXE (JSAC 40(1):143–162) and Cyrus+ (TMLCN 3:1178–1196) verified and added; LOLLA (TMC early access, pp. 1–18), Hype or Hope (JOCN 17(9):D1), MO-OLLA (OJ-COMS 7:8362–8374), xSlice notes updated; MOGUL not found, not cited. No UNVERIFIED entry. NLitN 23 → 24.
+- **Abstract** rebuilt in the 10-item order (243 words); C1–C4 updated; NR2 project-wide Bonferroni `\NBonfPProjNR` = 4.6e-27, qualified as trace-level.
+- **Simulated review** (`paper/review/`): four reviewers incl. an O-RAN systems reviewer, all Major revision; meta-review and concerns table. Text-only fix round applied; runs proposed in `proposals/R1_revision_runs_proposal.md` (nothing run).
+- **Audit:** `manuscript/audit_numbers.py` → `audit_numbers.csv` (0 unmatched; 6 checked by hand); citations 47/47 verified; check_pending --final OK.
+- **Package:** `paper/submission/` (manuscript.pdf, latex_source.zip, supplementary_material.pdf, cover letter, response skeleton); checklist sections G–I in `manuscript/submission_checklist.md`. Placeholders left for authors, affiliations, funding, conflicts, AI disclosure and Zenodo DOI.

@@ -120,7 +120,7 @@ Composite (start of the search) & \NGsixCalComp & --\\
 \end{table}
 
 \section{Pre-registered robustness programme}\label{app:programme}
-Table~\ref{tab:stages} lists the pre-registered checks of Sections~\ref{sec:robust}--\ref{sec:behaviour} with the short codes used in the released pre-registration files, the claims ledger and the code. Figure~\ref{fig:nr2} shows how the verdict of the confirmatory replication (NR2) is determined.
+Table~\ref{tab:stages} lists the pre-registered checks of Sections~\ref{sec:robust}--\ref{sec:hr1} with the short codes used in the released pre-registration files, the claims ledger and the code. Figure~\ref{fig:nr2} shows how the verdict of the confirmatory replication (NR2) is determined.
 
 \begin{figure}[t]
 \centering\includegraphics[width=\columnwidth]{f10_nr2}
@@ -144,6 +144,7 @@ Speed breakdown, timing (A1, A3) & By user speed; inference cost & M1 traces; ti
 PF-timing demonstration (A6) & Is the multi-process HARQ gain a PF-timing artefact? & \NAsixTraces{} fresh traces, three schemes & expectation stated in advance & run\\
 Confirmatory replication (NR2) & Does the ablation replicate on fresh data? & fresh seeds, fresh evaluation traces, frozen re-calibrated tables & trace-level and seed-level rules against the combined table & \ifitemrun{NR2}{run}{frozen, after G10}\\
 Operating points, non-oracle recipe (NR-G10) & Does the recommended recipe hold at other operating points? & the two G10 cells and traces, fresh seeds; single-cue rules frozen from G10 & Holm over nine per cell; ALL / MIXED / NONE & \ifitemrun{NRG10}{run}{frozen, after NR2}\\
+Learnable headroom (HR1) & How much could a learner add over a calibrated table in one step? & logged decisions of the M1 and M3 evaluation runs (tables, M1, NR2, goodput policy) & four predictions P1--P4, each with a 95\,\% interval; descriptive, no case added & \ifitemrun{HR1}{run}{frozen, after NR-G10}\\
 \bottomrule
 \end{tabular}
 \end{table*}

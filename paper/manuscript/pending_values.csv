@@ -121,3 +121,8 @@ A3c,frac15,99.9,paper/analysis/out/a3c_summary.csv (from Optimized/v17x/Dataset/
 A3c,frac30,99.6,paper/analysis/out/a3c_summary.csv (from Optimized/v17x/Dataset/cdf_data_N10.csv; table_a3c.csv),2026-11-11
 A3c,frac60,93.4,paper/analysis/out/a3c_summary.csv (from Optimized/v17x/Dataset/cdf_data_N10.csv; table_a3c.csv),2026-11-11
 A3c,frac120,0.0,paper/analysis/out/a3c_summary.csv (from Optimized/v17x/Dataset/cdf_data_N10.csv; table_a3c.csv),2026-11-11
+HR1,verdict_P1,not-supported,paper/analysis/out/hr_predictions.csv,2026-11-11
+HR1,verdict_P2,supported,paper/analysis/out/hr_predictions.csv,2026-11-11
+HR1,verdict_P3,supported,paper/analysis/out/hr_predictions.csv,2026-11-11
+HR1,verdict_P4,supported,paper/analysis/out/hr_predictions.csv,2026-11-11
+HR1,scope,run,paper/analysis/out/hr_report.txt,2026-11-11

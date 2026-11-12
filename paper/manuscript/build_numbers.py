@@ -585,6 +585,57 @@ add('NBonfPCtxJProj', f(min(1.0, pjp), 2) if pjp >= 0.01 else sci(pjp), 'M08', r
 if capped and PV.get(('G6', 'cap_hit')) == 'no':
     ERR.append('pending_values G6 cap_hit = no, but the heartbeat log shows a start that reached the cap without converging')
 
+# ---- HR1 (Plan 4): learnable myopic headroom over calibrated tables (paper/proposals/HR1_headroom_prereg.md)
+HRV = P('paper', 'analysis', 'out', 'hr_values.csv'); HRP = P('paper', 'analysis', 'out', 'hr_predictions.csv')
+HRB = P('paper', 'analysis', 'out', 'hr_gbtb_sensitivity.csv'); HRR = P('paper', 'analysis', 'out', 'hr_report.txt')
+hv = rows_of(HRV); hp = {r['id']: r for r in rows_of(HRP)}; hb = {r['id']: r for r in rows_of(HRB)}
+def hval(case, run, table, aset, est):
+    r = [x for x in hv if (x['case'], x['run'], x['table'], x['action_set']) == (case, run, table, aset) and x['estimator'].startswith(est)]
+    if len(r) != 1: ERR.append(f'hr_values: no unique row {case}|{run}|{table}|{aset}|{est}'); return None
+    return r[0]
+EXPECT = {'P1': 'not supported', 'P2': 'supported', 'P3': 'supported', 'P4': 'supported'}   # the verdicts the prose states
+for pid, nm in [('P1', 'Pone'), ('P2', 'Ptwo'), ('P3', 'Pthree'), ('P4', 'Pfour')]:
+    if hp[pid]['verdict'] != EXPECT[pid]: ERR.append(f'HR1 {pid} verdict is {hp[pid]["verdict"]}; the text states {EXPECT[pid]}')
+    if hb[pid]['verdict'] != EXPECT[pid]: ERR.append(f'HR1 {pid} gbt_b verdict is {hb[pid]["verdict"]}; the text states that gbt_b gives the same verdicts')
+    for src, t, d in [(hp, 'NHR', HRP), (hb, 'NHRb', HRB)]:
+        add(f'{t}{nm}Est', f(src[pid]['estimate'], 2, True), 'HR1', rel(d), f'{pid} estimate')
+        add(f'{t}{nm}Lo', f(src[pid]['lo'], 2), 'HR1', rel(d), f'{pid} 95 % CI lo'); add(f'{t}{nm}Hi', f(src[pid]['hi'], 2), 'HR1', rel(d), f'{pid} 95 % CI hi')
+# primary = the larger of the two pre-specified estimators in every row (prereg section 3)
+if any(r['estimator'] == 'gbt_b (primary)' for r in hv): ERR.append('hr_values: gbt_b is primary in some row; the text says gbt_a was the larger estimator throughout')
+own = [('M1_dl_rtt8', 'Fixed', 'Fixed'), ('M1_dl_rtt8', 'Context table', 'Context table'), ('M1_dl_rtt8', 'Context-joint-500', 'Combined table')]
+for aset, nm in [('full', 'Full'), ('residual', 'Res')]:
+    vs = [float(hval(*o, aset, 'gbt_a')['headroom_pct']) for o in own]
+    add(f'NHRTab{nm}Lo', f(min(vs), 1), 'HR1', rel(HRV), f'min over M1 table runs vs own table, {aset}, gbt_a')
+    add(f'NHRTab{nm}Hi', f(max(vs), 1), 'HR1', rel(HRV), f'max over M1 table runs vs own table, {aset}, gbt_a')
+for case, runs, nm in [('M1_dl_rtt8', own, 'Mone'), ('M3_gp_rtt8', [('M3_gp_rtt8', 'Fixed', 'Fixed'), ('M3_gp_rtt8', 'Context table', 'Context table'), ('M3_gp_rtt8', 'Context-joint-500', 'Combined table')], 'Mthree')]:
+    gs = [float(hval(*o, 'genie (true SINR)', 'genie')['headroom_pct']) for o in runs]
+    add(f'NHRGenie{nm}Lo', f(min(gs), 0), 'HR1', rel(HRV), 'min genie headroom, table runs vs own table')
+    add(f'NHRGenie{nm}Hi', f(max(gs), 0), 'HR1', rel(HRV), 'max genie headroom, table runs vs own table')
+for key, nm in [(('M1_dl_rtt8', 'M1', 'Combined table', 'residual'), 'MoneComb'), (('M3_gp_rtt8', 'A2C_case', 'FixedPU', 'residual'), 'MthreeFPU'),
+                (('M3_gp_rtt8', 'A2C_case', 'Combined table', 'residual'), 'MthreeComb'), (('M3_gp_rtt8', 'A2C_case', 'Fixed', 'full'), 'MthreeFixedFull')]:
+    for est, t in [('gbt_a', 'NHR'), ('gbt_b', 'NHRb')]:
+        r = hval(*key, est)
+        add(f'{t}{nm}', f(r['headroom_pct'], 2, True), 'HR1', rel(HRV), '|'.join(key) + '|' + est)
+        add(f'{t}{nm}Lo', f(r['ci95_lo'], 2), 'HR1', rel(HRV), 'ci95_lo'); add(f'{t}{nm}Hi', f(r['ci95_hi'], 2), 'HR1', rel(HRV), 'ci95_hi')
+# realised advantage of NR2 over M1, both against the combined table (trace level): NR2 margin - M1 margin
+N2S = P('paper', 'analysis', 'out', 'nr2_stats.csv')
+n2c = float(next(x for x in rows_of(N2S) if x['comparator'] == 'Context-joint-500')['margin_pct'])
+m1c = float(next(x for x in tc5 if x['comparator'] == 'Context-joint-500')['margin_pct'])
+add('NHRRealDiff', f(n2c - m1c, 1), 'HR1', rel(N2S) + '; ' + rel(TC5), 'NR2 margin - M1 margin over the combined table (points)')
+rep = open(HRR, encoding='utf-8').read()
+hdr = re.search(r'B=(\d+), rng (\d+), (\d+)-fold', rep)
+add('NHRBoot', f"{int(hdr.group(1)):,}".replace(',', r'\,'), 'HR1', rel(HRR), 'bootstrap replicates'); add('NHRFolds', hdr.group(3), 'HR1', rel(HRR), 'cross-fitting folds')
+ndec = sum(int(m) for m in re.findall(r': (\d+) decisions', rep))
+add('NHRDecisions', f'{ndec:,}'.replace(',', r'\,'), 'HR1', rel(HRR), 'decisions over the nine HR1 runs')
+# project-wide Bonferroni for the NR2 confirmatory test (Holm p vs the combined table x project tests)
+pnr = float(next(x for x in rows_of(N2S) if x['comparator'] == 'Context-joint-500')['holm_p']) * ptests
+add('NBonfPProjNR', sci(pnr) if pnr < 0.01 else f(min(1.0, pnr), 2), 'M08', rel(N2S) + '; ' + rel(ROB), 'NR2 Holm p (CtxJ) x project tests')
+
+# the HR1 verdicts entered in pending_values.csv must equal the frozen script's output
+for pid in ['P1', 'P2', 'P3', 'P4']:
+    want = hp[pid]['verdict'].replace(' ', '-')
+    if PV.get(('HR1', 'verdict_' + pid)) != want: ERR.append(f'pending_values HR1 verdict_{pid} = {PV.get(("HR1", "verdict_" + pid))}; hr_predictions.csv says {want}')
+
 # ------------------------------------------------------------------ write
 if ERR:
     print('ERRORS:'); [print('  ', e) for e in ERR]; sys.exit(1)
