@@ -153,7 +153,7 @@ Learnable headroom (HR1) & How much could a learner add over a calibrated table 
 Table~\ref{tab:registry} summarises the case registry by campaign version. A case is one configuration evaluated on its own traces; a row is one scheme evaluated in a case. The full registry is in the supplement. The \NRobCases{} cases of the robustness checks (Appendix~\ref{app:programme}) are kept in a separate ledger and counted in the project-wide correction (\NProjCases{} cases, \NProjRows{} scheme evaluations in total).
 
 \begin{table}[h]
-\caption{Case registry by version: cases, scheme evaluations (rows), cases with a valid WIN, and superseded cases.}\label{tab:registry}
+\caption{Case registry by version: cases, scheme evaluations (rows), cases with a valid WIN, and superseded cases. A valid WIN is a WIN of the pre-registered scheme in a case that is not superseded. The v13 X1 case is not counted: its WIN row is the per-seed mean, while the pre-registered scheme (the ensemble) failed.}\label{tab:registry}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}

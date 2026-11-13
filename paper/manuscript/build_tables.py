@@ -64,14 +64,16 @@ for case, fn in [('M2_dl_rtt0', 'tab_m2.tex'), ('M3_gp_rtt8', 'tab_m3.tex'), ('M
 # ---- registry summary by version (Appendix D)
 reg = rows_of(P('Optimized/case_registry.csv'))
 vers = sorted({r['version'] for r in reg}, key=lambda v: int(v.lstrip('v')))
+# valid WIN: a non-superseded case whose WIN row is the pre-registered scheme (same rule as NRegWinCases in build_numbers.py)
+vwin = lambda r: r['win'] == '1' and r['status'] == 'valid' and not r.get('correction', '').startswith('pre-registered scheme')
 L = []
 for v in vers:
     rr = [r for r in reg if r['version'] == v]; ids = {r['case_id'] for r in rr}
     sup = len({r['case_id'] for r in rr if r['status'].startswith('superseded')})
-    win = len({r['case_id'] for r in rr if r['win'] == '1' and r['status'] == 'valid'})
+    win = len({r['case_id'] for r in rr if vwin(r)})
     L.append(f"{v} & {len(ids)} & {len(rr)} & {win} & {sup}\\\\")
 L.append(r'\midrule')
 ids = {r['case_id'] for r in reg}
-L.append(f"all & {len(ids)} & {len(reg)} & {len({r['case_id'] for r in reg if r['win'] == '1' and r['status'] == 'valid'})} & {len({r['case_id'] for r in reg if r['status'].startswith('superseded')})}\\\\")
+L.append(f"all & {len(ids)} & {len(reg)} & {len({r['case_id'] for r in reg if vwin(r)})} & {len({r['case_id'] for r in reg if r['status'].startswith('superseded')})}\\\\")
 write('tab_registry.tex', 'Optimized/case_registry.csv', '\n'.join(L) + '\n')
 print('tables written to', OUT)

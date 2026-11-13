@@ -10,5 +10,5 @@ ax.set_xlabel('On-time delivery in M1 (% of packets)')
 ax.set_xlim(50, 66); ax.grid(axis='y', visible=False)
 for s, dy in [('OLLA', 'OLLA'), ('Context table', 'Context table')]:
     r = C[(case, 'Deep A2C v17', s)]
-    i = order.index(s); ax.annotate(f"A2C {float(r['pct_margin']):+.2f} %", (100 * P[(case, s)][0] + 100 * P[(case, s)][1] + 0.4, i), va='center', fontsize=7, color=RL)
+    i = order.index(s); ax.annotate(f"A2C {float(r['pct_margin']):+.2f} %" + (' (cold start)' if s == 'OLLA' else ''), (100 * P[(case, s)][0] + 100 * P[(case, s)][1] + 0.4, i), va='center', fontsize=7, color=RL)
 save(fig, 'f1_thesis')

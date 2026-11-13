@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 P = lambda *a: os.path.join(ROOT, *a)
 OUT = os.path.join(HERE, 'files')
 if os.path.isdir(OUT): shutil.rmtree(OUT)
-for d in ['S1_registry', 'S2_comparator_tables', 'S3_preregistration']: os.makedirs(os.path.join(OUT, d))
+for d in ['S1_registry', 'S2_comparator_tables', 'S3_preregistration', 'S4_literature']: os.makedirs(os.path.join(OUT, d))
 GIT_ENV = dict(os.environ, TZ='Asia/Dhaka')   # the run PC's time zone (UTC+6); the runner heartbeat is written in local time
 git = lambda *a: subprocess.run(['git', '-C', ROOT, *a], capture_output=True, text=True, env=GIT_ENV).stdout.strip()
 sha = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
@@ -77,6 +77,15 @@ bad = [r['file'] for r in rows3 if r['verifies'] != 'yes']
 late = [r['file'] for r in rows3 if r['first_runner_start_utc6'] and r['freeze_time_utc6'] and r['first_runner_start_utc6'][:16] < r['freeze_time_utc6']]
 if bad or late: raise SystemExit(f'freeze check failed: hash mismatch {bad}, run before freeze {late}')
 
+# ---------------- S4 literature screening list (the learning-based LA papers counted in Sec. I)
+LM = list(csv.DictReader(open(P('paper', 'lit', 'lit_matrix.csv'), newline='', encoding='utf-8')))
+S4C = ['citation_key', 'year', 'venue', 'rl_method', 'baselines_used', 'baselines_tuned', 'calibrated_rule_baseline', 'information_parity', 'read_depth']
+scr = [r for r in LM if r['calibrated_rule_baseline'] != 'n/a']
+s4 = os.path.join(OUT, 'S4_literature', 'screened_learning_LA_papers.csv')
+with open(s4, 'w', newline='', encoding='utf-8') as fh:
+    w = csv.DictWriter(fh, fieldnames=S4C, extrasaction='ignore'); w.writeheader(); w.writerows(scr)
+cnt = {v: sum(1 for r in scr if r['calibrated_rule_baseline'] == v) for v in ['yes', 'partial', 'no', 'unclear']}
+
 # ---------------- LaTeX
 def esc(s):
     s = str(s)
@@ -100,6 +109,7 @@ tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geom
        'All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \\texttt{MANIFEST.sha256}. '
        f'S1 is the case registry: {n_cases} cases and {n_rows} scheme evaluations of the main round (v9--v17), plus the ledger of the {rc} cases and {rr} scheme evaluations of the pre-registered robustness checks ({n_cases + rc} cases, {n_rows + rr} scheme evaluations in total). '
        'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
+       'S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. '
        'S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \\texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. '
        'Margins are relative differences in percent, paired per trace; ``beats'' follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\\,\\% CI lower bound above zero).',
        r'\clearpage', r'\begin{landscape}', r'\section{S1. Case registry}',
@@ -115,6 +125,9 @@ for tag, path, title, src in s2:
 tex += [r'\section{S3. Pre-registrations, hashes and freeze timeline}',
         longtable(os.path.join(OUT, 'S3_preregistration', 'freeze_timeline.csv'), ['file', 'stage', 'verifies', 'freeze_commit', 'freeze_time_utc6', 'first_runner_start_utc6', 'results_commit', 'results_time_utc6'],
                   'Every frozen file verifies against \\texttt{FREEZE.sha256}. For each stage the hash entered the freeze file before the first runner start and before the results commit. Full hashes are in \\texttt{freeze\\_timeline.csv}.', r'\scriptsize'),
+        r'\section{S4. Literature screening list}',
+        longtable(s4, ['citation_key', 'year', 'venue', 'rl_method', 'baselines_tuned', 'calibrated_rule_baseline', 'information_parity', 'read_depth'],
+                  f'The {len(scr)} learning-based link-adaptation papers screened for Section I, with the codes used there (calibrated-rule baseline: yes {cnt["yes"]}, partial {cnt["partial"]}, no {cnt["no"]}, unclear {cnt["unclear"]}). Codes were assigned by one coder from the abstract and the accessible text (column read\\_depth); a second coding was not done. Source: \\texttt{{paper/lit/lit\\_matrix.csv}}, which also gives baselines, setting and relevance.', r'\tiny', '2pt'),
         r'\end{landscape}']
 for h, f in fz:
     b = os.path.basename(f)
@@ -130,6 +143,7 @@ open(os.path.join(OUT, 'README.md'), 'w', encoding='utf-8', newline='\n').write(
 - `S1_registry/robustness_cases.csv`: pre-registered robustness checks, {rc} cases, {rr} scheme evaluations. Project total: {n_cases + rc} cases, {n_rows + rr} scheme evaluations.
 - `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c). For v9--v15 the registry row gives the margin over the best rule.
 - `S3_preregistration/`: every frozen pre-registration and analysis script listed in `FREEZE.sha256`, the earlier freeze files, and `freeze_timeline.csv` (hash, freeze commit, first runner start, results commit).
+- `S4_literature/screened_learning_LA_papers.csv`: the {len(scr)} learning-based LA papers screened for the introduction, with their codes (calibrated-rule baseline yes {cnt['yes']} / partial {cnt['partial']} / no {cnt['no']} / unclear {cnt['unclear']}).
 - `MANIFEST.sha256`: SHA-256 of every file in this archive. Verify with `sha256sum -c MANIFEST.sha256` from this folder.
 
 Generated by `paper/supplement/build_supplement.py` at repository commit {git('rev-parse', '--short', 'HEAD')}.

@@ -6,7 +6,7 @@ The campaign ran in numbered rounds (v9 to v17). The main round, v17, provides t
 Nine comparators are evaluated (seven distinct ones in M1, because the tuned-target OLLA equals the default OLLA and the two bandits coincide there). \emph{Baseline}: open-loop CQI. \emph{OLLA}, \emph{OLLA (tuned target)} and \emph{Multi-OLLA} (a fast/slow blend). \emph{Fixed}: one global offset on the OLLA reference. \emph{FixedPU}: one offset per user class on the OLLA reference, where the class is the true delay class (two) and the true mean-speed class (three); this is a \emph{class oracle}, because the true speed is not observable at the gNB. \emph{Context table}: one offset per remaining-slack bin (three bins). Two contextual bandits (global; per delay class) are trained on the learner's episodes.
 
 \begin{table*}[t]
-\caption{Information used by each scheme. \checkmark: used; --: not used; ``oracle'': simulator ground truth, not a gNB measurement.}\label{tab:info}
+\caption{Information used by each scheme. \checkmark: used; --: not used; ``oracle'': simulator ground truth, not a gNB measurement. No scheme observes the interference state: the A2C state sees interference only through the delayed reported SINR, its recent changes and the NACK average. The burst/calm bins of the action and speed analyses (Section~\ref{sec:behaviour}) use the simulator's burst state as an analysis variable, not as a policy input.}\label{tab:info}
 \centering\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \begin{tabular}{@{}lccccccp{3.0cm}p{2.9cm}@{}}
@@ -22,7 +22,7 @@ FixedPU (class oracle) & \checkmark & \checkmark & -- & \checkmark & \checkmark\
 Context table & \checkmark & \checkmark & \checkmark (3 bins) & -- & -- & -- & -- & coord.\ ascent, \NCfgCalibCtx{} traces\\
 Bandit (global) & \checkmark & \checkmark & -- & -- & -- & -- & -- & learner's episodes\\
 Bandit (delay class) & \checkmark & \checkmark & -- & \checkmark & -- & -- & -- & learner's episodes\\
-A2C, offset action & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & $\Delta$CQI, observed SINR, OLLA offset, 3 frames & 800 ep.\ $\times$ \NCfgSeeds{} seeds\\
+A2C, offset action & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & $\Delta$CQI; reported SINR and its 1- and 4-TTI change; NACK average; OLLA offset; 3 frames & 800 ep.\ $\times$ \NCfgSeeds{} seeds\\
 \textbf{Residual A2C (primary)} & \checkmark & \checkmark & \checkmark & \checkmark\ (base) & \checkmark\ \emph{oracle (base)} & \checkmark & as offset A2C & \NCfgEpDl{} ep.\ $\times$ \NCfgSeeds{} seeds\\
 \midrule
 Combined table (re-cal.) & \checkmark & \checkmark & \checkmark (3 bins) & \checkmark & \checkmark\ \emph{oracle} & \checkmark\ (busy) & -- & coord.\ ascent, \NGsixCalTraces{} traces\\
