@@ -1,4 +1,4 @@
-# FREEZE v8 (amendment 7, 11 Nov 2026: pre-registered HR1, stage hr1 (Plan 4 learnable headroom) with analysis script hr_stats.py; before any instrumented run on evaluation traces). Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
+# FREEZE v9 (amendment 8, 13 Nov 2026: pre-registered R1-R5 pre-submission runs, stages r3_nr2diag, r1_gbt, r2_rule, r5_seeds, with analysis script presub_stats.py; before any of their runs). Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
 c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd  G6_calibration_budget_prereg.md
 3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d  W1_warmup_prereg.md
 ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258  NR1_nonoracle_residual_prereg.md
@@ -10,6 +10,8 @@ d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a  compute_basis.
 1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c  NR2_confirmatory_prereg.md
 c73b4157438f3f91397c6ba32159b494dd9e57dade0917052bca3f112656f71f  ../analysis/nr2_stats.py
 bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08  NR_G10_operating_grid_prereg.md
-c0c23c2735b737a9dc2e6d07959ae901e47e216a22be92382a1d69ab5a00f30b  AMENDMENTS.md
+bbb25229bd8c273b0c3e5dc6d003c774ccef51321d7b55af68d70cde7c014353  AMENDMENTS.md
 ba7978b105408813f3f4dfb92d73f93757c64e43c30a5a40925ea018ee26eed9  HR1_headroom_prereg.md
 83f53ca0d67ec5267936e0f8fbc86b9be1c54a43eb08eb6a7dfec96847ad212b  ../analysis/hr_stats.py
+3e6c079f15bc9226ccf0e4cdd336f1af64c55d7778676246218815f5e022ea3a  R_presub_prereg.md
+29db049160602f21b0406276ccbfb15241a28552f00e67bd43e54667decc7058  ../analysis/presub_stats.py

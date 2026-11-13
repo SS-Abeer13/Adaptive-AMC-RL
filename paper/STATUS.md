@@ -239,3 +239,8 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - **Simulated review** (`paper/review/`): four reviewers incl. an O-RAN systems reviewer, all Major revision; meta-review and concerns table. Text-only fix round applied; runs proposed in `proposals/R1_revision_runs_proposal.md` (nothing run).
 - **Audit:** `manuscript/audit_numbers.py` → `audit_numbers.csv` (0 unmatched; 6 checked by hand); citations 47/47 verified; check_pending --final OK.
 - **Package:** `paper/submission/` (manuscript.pdf, latex_source.zip, supplementary_material.pdf, cover letter, response skeleton); checklist sections G–I in `manuscript/submission_checklist.md`. Placeholders left for authors, affiliations, funding, conflicts, AI disclosure and Zenodo DOI.
+
+## Phase 16 — Amendment 8 & Freeze v9 (13 Nov 2026), Part C1 of the pre-submission plan
+- **Text fixes A1–A5** (`e1bf3b1`): valid-WIN rule in the registry table (9 of 60; v13 X1 footnoted); Fig. 3 "cold start" label; LOLLA re-checked (uplink, immediate CRC at the gNB); S4 screening list in the supplement generator; four references re-verified; information table states interference observability.
+- **Amendment 8 / Freeze v9:** `proposals/R_presub_prereg.md` (R1 GBT one-step learner on calibration traces; R2 designed rule + 160-point calibrated version; R3 NR2 diagnostics; R4 seed-level sensitivity; R5 +10 NR2 / +5 NR-G10 seeds) with `analysis/presub_stats.py` (imports the frozen `nr2_stats` functions; `--selftest` on synthetic data passes). 16/16 hashes verify; v8 kept as `FREEZE_v8.sha256`.
+- **Next (C2, PC):** implement `r3_nr2diag`, `r1_gbt`, `r2_rule`, `r5_seeds` per §12, run, then `presub_stats.py` unchanged. No evaluation data were touched in this phase.

@@ -116,3 +116,22 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 **What is not changed.** All earlier frozen texts and scripts keep their hashes.
 
 **Freeze v8:** hashes in `paper/proposals/FREEZE.sha256` (v7 kept as `FREEZE_v7.sha256`). The B4 gate of `stage_hr1.m` opens when this entry and the `hr1` freeze line are present and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 8: 13 Nov 2026 (new stages R1–R5, pre-submission attribution and robustness runs; before any of their runs)
+**Trigger.** The simulated review of draft v10 (`paper/review/`, four reviewers, all "major revision") asked whether the NR2 gain needs reinforcement learning or would be captured by any learner, or a designed rule, that sees the same gNB-observable features. It also asked for NR2 diagnostics, a seed-level sensitivity analysis and more seeds. The author approved runs R1–R5 of `R1_revision_runs_proposal.md` (R6–R10 stay for the revision round).
+
+**What is added.** `R_presub_prereg.md` (new, frozen) and its analysis script `paper/analysis/presub_stats.py` (frozen with it; it imports the frozen `r1`, `holm` and `seed_level` of `nr2_stats.py`). Stages `r3_nr2diag`, `r1_gbt`, `r2_rule`, `r5_seeds`:
+- **R1:** a one-step gradient-boosted predictor (gbt_a settings of HR1) trained only on G6 calibration-trace logs (600001–600500) with the Fixed-500 rule as the behaviour policy; labels q = psucc × ubits (true SINR, training targets only); inputs `obs_1..19` only; deployed as GBT-res (base ±1) and GBT-full (−4…+2).
+- **R2:** a designed rule on the Fixed-500 base (δ = +1 if busy ≥ 1, or slack ≤ 0.6 with a packet, or a reported-SINR drop of at least 1 dB/TTI over 4 TTIs), and a calibrated version (160-point grid on the G6 calibration traces; thresholds hashed before evaluation).
+- **Evaluation:** primary on the NR2 evaluation traces against NR2 (Holm over 4, R2 at seed level; outcomes BEATS / BEATS-TRACE / LOSES / MATCH / INCONCLUSIVE with wording rows and consequences for C2); secondary on the M1 traces and against Context-joint-500, Fixed-500 and Context-500.
+- **R3:** NR2 diagnostics (speed breakdown, warm-up, fairness guard, action shares), descriptive.
+- **R4:** t, BCa and exact sign-flip analyses and power on the seed margins (M1, NR2, NR-G10), sensitivity only.
+- **R5:** +10 NR2 seeds (25253–25262) and +5 NR-G10 seeds per cell (33248–33252, 34248–34252), reported next to the frozen verdicts, which stand.
+
+**Multiplicity.** +7 cases / +11 scheme evaluations (R1, R2 on two trace sets; R5 three analyses). Project totals become 83 cases / 137 scheme evaluations, Bonferroni pool ≤ 1 370 (added to `ledger/robustness_cases.csv` at integration).
+
+**Independence.** Written after all results of the paper were known. No R1–R5 trace, model, threshold or output exists. `presub_stats.py --selftest` was run on synthetic data only (outcome classes, exact sign-flip, BCa, power, end-to-end R3–R5); no evaluation-trace data were opened by the writing session.
+
+**What is not changed.** All earlier frozen texts and scripts keep their hashes; all earlier verdicts stand.
+
+**Freeze v9:** hashes in `paper/proposals/FREEZE.sha256` (v8 kept as `FREEZE_v8.sha256`). The stages may run once this entry and the v9 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
