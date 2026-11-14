@@ -111,6 +111,7 @@ function out = unit_train_seed(env, simTime, ep_deep, seed, s_idx, ctx)
         DeepA2C_Shared_v17(simTime, ep_deep, seed, env);
     ctx.hbf(sprintf('train_seed: finished in %.1f s, final lc=%.2f', toc(t0), lc(end)));
     out = struct('a2c', a2c, 'critic', critic, 'lc', lc, 'ent', ent, 'abest', abest, 'bestEp', bestEp, 'seed', seed);
+    try java.lang.System.gc(); catch, end
 end
 
 % =========================================================================

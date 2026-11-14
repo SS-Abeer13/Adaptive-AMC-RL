@@ -118,3 +118,11 @@
 [Tue 11/10/2026 19:31:37.23] launch 1 exit code 1 
 [Tue 11/10/2026 19:32:37.91] launch 2 (STAGES=nr_g10 workers=2 G6B_PROFILE=full) 
 [Tue 11/10/2026 21:16:30.47] launch 2 exit code 0 
+[Fri 11/13/2026 16:57:45.13] launch 1 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
+[Fri 11/13/2026 16:58:45.70] launch 1 exit code 3 
+[Fri 11/13/2026 16:59:24.42] launch 1 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
+[Fri 11/13/2026 23:48:51.63] launch 1 exit code 1 
+[Fri 11/13/2026 23:49:52.22] launch 2 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
+[Sat 11/14/2026  1:26:10.86] launch 2 exit code 1 
+[Sat 11/14/2026  1:27:11.35] launch 3 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
+[Sat 11/14/2026  3:11:05.29] launch 3 exit code 2 

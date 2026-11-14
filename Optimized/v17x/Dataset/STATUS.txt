@@ -1,2 +1,5 @@
-2026-11-11 13:13:45 | FINISHED
-hr1        done
+2026-11-14 03:10:15 | HALTED
+r3_nr2diag done
+r1_gbt     done
+r2_rule    done
+r5_seeds   ERROR (see ERROR file)

@@ -1,5 +1,5 @@
-timestamp: 2026-11-10 21:02:47
+timestamp: 2026-11-14 03:10:14
 case: unknown
-scheme: Deep A2C v17
-seed: 5
-episode: 3000/3000
+scheme: Deep A2C v17 (G2_hi_d10 non-oracle)
+seed: 33251
+episode: 50/3000

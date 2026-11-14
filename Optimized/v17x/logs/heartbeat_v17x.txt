@@ -2494,3 +2494,340 @@
 2026-11-10 21:15:40 | nr_g10         | stage DONE in 1.69 h
 2026-11-10 21:15:40 | nr_g10         | REPORT READY: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_nr_g10.txt
 2026-11-10 21:15:40 | runner         | ALL REQUESTED STAGES FINISHED
+2026-11-13 16:57:53 | runner         | start (stages: r3_nr2diag,r1_gbt,r2_rule,r5_seeds; workers 2; G6B_PROFILE full)
+2026-11-13 16:58:26 | runner         | parpool open with 2 workers
+2026-11-13 16:58:26 | r3_nr2diag     | preflight start (20 traces)
+2026-11-13 16:58:37 | r3_nr2diag     | preflight: 0.8198 s per eval (basis 0.540, ratio 1.52); projected 1.3 h for 5500 units
+2026-11-13 16:58:37 | r3_nr2diag     | PAUSED by the 1.5x rule; waiting for APPROVE file
+2026-11-13 16:59:33 | runner         | start (stages: r3_nr2diag,r1_gbt,r2_rule,r5_seeds; workers 2; G6B_PROFILE full)
+2026-11-13 17:00:08 | runner         | parpool open with 2 workers
+2026-11-13 17:00:08 | r3_nr2diag     | preflight: 0.8198 s per eval (basis 0.540, ratio 1.52); projected 1.3 h for 5500 units
+2026-11-13 17:00:08 | r3_nr2diag     | APPROVE file found: continuing despite the 1.5x rule
+2026-11-13 17:00:08 | r3_nr2diag     | stage start
+2026-11-13 17:00:19 | r3_nr2diag     | r3_nr2diag start: n_seeds=10, n_eval=500, n_repro=20
+2026-11-13 17:00:19 | r3_nr2diag     | unit repro: start
+2026-11-13 17:00:19 | r3_nr2diag     | repro: checking bit-identity on first 20 NR2 traces
+2026-11-13 17:00:40 | r3_nr2diag     | repro: bit-identity verified (max_abs_diff = 0)
+2026-11-13 17:00:40 | r3_nr2diag     | unit repro: saving checkpoint
+2026-11-13 17:00:40 | r3_nr2diag     | unit repro: checkpoint saved
+2026-11-13 17:00:40 | r3_nr2diag     | unit repro: done in 21.1 s
+2026-11-13 17:00:40 | r3_nr2diag     | unit instr_seed_1: start
+2026-11-13 17:00:40 | r3_nr2diag     | instr_seed_1: instrumented eval on 500 traces
+2026-11-13 17:01:58 | r3_nr2diag     | unit instr_seed_1: saving checkpoint
+2026-11-13 17:01:58 | r3_nr2diag     | unit instr_seed_1: checkpoint saved
+2026-11-13 17:01:58 | r3_nr2diag     | unit instr_seed_1: done in 78.1 s
+2026-11-13 17:01:58 | r3_nr2diag     | unit instr_seed_2: start
+2026-11-13 17:01:58 | r3_nr2diag     | instr_seed_2: instrumented eval on 500 traces
+2026-11-13 17:03:00 | r3_nr2diag     | unit instr_seed_2: saving checkpoint
+2026-11-13 17:03:00 | r3_nr2diag     | unit instr_seed_2: checkpoint saved
+2026-11-13 17:03:00 | r3_nr2diag     | unit instr_seed_2: done in 62.0 s
+2026-11-13 17:03:00 | r3_nr2diag     | unit instr_seed_3: start
+2026-11-13 17:03:00 | r3_nr2diag     | instr_seed_3: instrumented eval on 500 traces
+2026-11-13 17:04:04 | r3_nr2diag     | unit instr_seed_3: saving checkpoint
+2026-11-13 17:04:04 | r3_nr2diag     | unit instr_seed_3: checkpoint saved
+2026-11-13 17:04:04 | r3_nr2diag     | unit instr_seed_3: done in 64.2 s
+2026-11-13 17:04:04 | r3_nr2diag     | unit instr_seed_4: start
+2026-11-13 17:04:04 | r3_nr2diag     | instr_seed_4: instrumented eval on 500 traces
+2026-11-13 17:05:07 | r3_nr2diag     | unit instr_seed_4: saving checkpoint
+2026-11-13 17:05:07 | r3_nr2diag     | unit instr_seed_4: checkpoint saved
+2026-11-13 17:05:07 | r3_nr2diag     | unit instr_seed_4: done in 62.5 s
+2026-11-13 17:05:07 | r3_nr2diag     | unit instr_seed_5: start
+2026-11-13 17:05:07 | r3_nr2diag     | instr_seed_5: instrumented eval on 500 traces
+2026-11-13 17:06:10 | r3_nr2diag     | unit instr_seed_5: saving checkpoint
+2026-11-13 17:06:10 | r3_nr2diag     | unit instr_seed_5: checkpoint saved
+2026-11-13 17:06:10 | r3_nr2diag     | unit instr_seed_5: done in 63.3 s
+2026-11-13 17:06:10 | r3_nr2diag     | unit instr_seed_6: start
+2026-11-13 17:06:10 | r3_nr2diag     | instr_seed_6: instrumented eval on 500 traces
+2026-11-13 17:07:12 | r3_nr2diag     | unit instr_seed_6: saving checkpoint
+2026-11-13 17:07:12 | r3_nr2diag     | unit instr_seed_6: checkpoint saved
+2026-11-13 17:07:12 | r3_nr2diag     | unit instr_seed_6: done in 62.5 s
+2026-11-13 17:07:12 | r3_nr2diag     | unit instr_seed_7: start
+2026-11-13 17:07:12 | r3_nr2diag     | instr_seed_7: instrumented eval on 500 traces
+2026-11-13 17:08:15 | r3_nr2diag     | unit instr_seed_7: saving checkpoint
+2026-11-13 17:08:15 | r3_nr2diag     | unit instr_seed_7: checkpoint saved
+2026-11-13 17:08:15 | r3_nr2diag     | unit instr_seed_7: done in 62.7 s
+2026-11-13 17:08:15 | r3_nr2diag     | unit instr_seed_8: start
+2026-11-13 17:08:15 | r3_nr2diag     | instr_seed_8: instrumented eval on 500 traces
+2026-11-13 17:09:17 | r3_nr2diag     | unit instr_seed_8: saving checkpoint
+2026-11-13 17:09:17 | r3_nr2diag     | unit instr_seed_8: checkpoint saved
+2026-11-13 17:09:17 | r3_nr2diag     | unit instr_seed_8: done in 61.8 s
+2026-11-13 17:09:17 | r3_nr2diag     | unit instr_seed_9: start
+2026-11-13 17:09:17 | r3_nr2diag     | instr_seed_9: instrumented eval on 500 traces
+2026-11-13 17:10:52 | r3_nr2diag     | unit instr_seed_9: saving checkpoint
+2026-11-13 17:10:52 | r3_nr2diag     | unit instr_seed_9: checkpoint saved
+2026-11-13 17:10:52 | r3_nr2diag     | unit instr_seed_9: done in 94.7 s
+2026-11-13 17:10:52 | r3_nr2diag     | unit instr_seed_10: start
+2026-11-13 17:10:52 | r3_nr2diag     | instr_seed_10: instrumented eval on 500 traces
+2026-11-13 17:12:23 | r3_nr2diag     | unit instr_seed_10: saving checkpoint
+2026-11-13 17:12:23 | r3_nr2diag     | unit instr_seed_10: checkpoint saved
+2026-11-13 17:12:23 | r3_nr2diag     | unit instr_seed_10: done in 91.3 s
+2026-11-13 17:12:23 | r3_nr2diag     | unit warm_olla: start
+2026-11-13 17:12:23 | r3_nr2diag     | warm_olla: running warm OLLA and comparators on 500 traces
+2026-11-13 17:14:13 | r3_nr2diag     | unit warm_olla: saving checkpoint
+2026-11-13 17:14:13 | r3_nr2diag     | unit warm_olla: checkpoint saved
+2026-11-13 17:14:13 | r3_nr2diag     | unit warm_olla: done in 109.6 s
+2026-11-13 17:14:13 | r3_nr2diag     | unit export: start
+2026-11-13 17:14:13 | r3_nr2diag     | export: exporting peruser.csv, actions.csv, and REPORT_r3_nr2diag.txt
+2026-11-13 17:14:15 | r3_nr2diag     | peruser.csv written (D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\presub\peruser.csv)
+2026-11-13 17:14:36 | r3_nr2diag     | actions.csv written (571784 decisions, D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\presub\actions.csv)
+2026-11-13 17:14:36 | r3_nr2diag     | unit export: saving checkpoint
+2026-11-13 17:14:36 | r3_nr2diag     | unit export: checkpoint saved
+2026-11-13 17:14:36 | r3_nr2diag     | unit export: done in 23.5 s
+2026-11-13 17:14:36 | r3_nr2diag     | r3_nr2diag done successfully
+2026-11-13 17:14:36 | r3_nr2diag     | stage DONE in 0.24 h
+2026-11-13 17:14:36 | r1_gbt         | preflight start (20 traces)
+2026-11-13 17:14:42 | r1_gbt         | preflight: 0.3527 s per eval (basis 0.540, ratio 0.65); projected 0.7 h for 7500 units
+2026-11-13 17:14:42 | r1_gbt         | stage start
+2026-11-13 17:14:48 | r1_gbt         | r1_gbt start: n_calib=500, n_eval=500, n_repro=20
+2026-11-13 17:14:48 | r1_gbt         | unit log_calib: start
+2026-11-13 17:14:48 | r1_gbt         | log_calib: logging calibration decisions from 500 traces
+2026-11-13 17:15:49 | r1_gbt         | log_calib: 58453 decisions logged. Saving to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1_gbt\calib_log.mat
+2026-11-13 17:15:49 | r1_gbt         | unit log_calib: saving checkpoint
+2026-11-13 17:15:49 | r1_gbt         | unit log_calib: checkpoint saved
+2026-11-13 17:15:49 | r1_gbt         | unit log_calib: done in 61.2 s
+2026-11-13 17:15:49 | r1_gbt         | unit fit: start
+2026-11-13 17:15:50 | r1_gbt         | fit: calling python train_r1_gbt.py...
+2026-11-13 17:16:42 | r1_gbt         | fit: python GBT training successful:
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1_gbt.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  'baseline': float(m._baseline_prediction),
+Loading calibration data from D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1_gbt\calib_log.mat...
+Training data shape: X=(58453, 19), Y=(58453, 7)
+Fitting model 1/7 for offset -4...
+Fitting model 2/7 for offset -3...
+Fitting model 3/7 for offset -2...
+Fitting model 4/7 for offset -1...
+Fitting model 5/7 for offset +0...
+Fitting model 6/7 for offset +1...
+Fitting model 7/7 for offset +2...
+Saving joblib models to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\gbt_models.joblib...
+SHA-256: 5de113224b87154c1c5ff439a9c41be2de8393140d442e8f490cc09a7ff01c01
+Saving trees struct to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1_gbt\gbt_trees.mat...
+GBT training and export complete.
+2026-11-13 17:16:42 | r1_gbt         | fit: GBT models SHA-256 = 5de113224b87154c1c5ff439a9c41be2de8393140d442e8f490cc09a7ff01c01  gbt_models.joblib
+2026-11-13 17:16:42 | r1_gbt         | unit fit: saving checkpoint
+2026-11-13 17:16:42 | r1_gbt         | unit fit: checkpoint saved
+2026-11-13 17:16:42 | r1_gbt         | unit fit: done in 52.3 s
+2026-11-13 17:16:42 | r1_gbt         | unit equiv: start
+2026-11-13 17:16:42 | r1_gbt         | equiv: verifying tree prediction equivalence with scikit-learn (1e-9 gate)
+2026-11-13 17:16:47 | r1_gbt         | equiv: max abs difference between MATLAB and scikit-learn = 0.000e+00
+2026-11-13 17:16:47 | r1_gbt         | equiv: EQUIVALENCE GATE PASS (max abs diff <= 1e-9)
+2026-11-13 17:16:47 | r1_gbt         | unit equiv: saving checkpoint
+2026-11-13 17:16:48 | r1_gbt         | unit equiv: checkpoint saved
+2026-11-13 17:16:48 | r1_gbt         | unit equiv: done in 6.1 s
+2026-11-13 17:16:48 | r1_gbt         | unit repro: start
+2026-11-13 17:16:48 | r1_gbt         | repro: checking bit-identity on first 20 traces of NR2 and M1
+2026-11-13 17:16:53 | r1_gbt         | repro: bit-identity verified on NR2 and M1 traces (max_abs_diff = 0)
+2026-11-13 17:16:53 | r1_gbt         | unit repro: saving checkpoint
+2026-11-13 17:16:53 | r1_gbt         | unit repro: checkpoint saved
+2026-11-13 17:16:53 | r1_gbt         | unit repro: done in 4.9 s
+2026-11-13 17:16:53 | r1_gbt         | unit eval_NR2: start
+2026-11-13 17:16:53 | r1_gbt         | eval_NR2: evaluating GBT-res and GBT-full on 500 NR2 traces
+2026-11-13 18:48:49 | r1_gbt         | eval_NR2: GBT-res mean ontime=0.6373, GBT-full mean ontime=0.6565
+2026-11-13 18:48:49 | r1_gbt         | unit eval_NR2: saving checkpoint
+2026-11-13 18:48:49 | r1_gbt         | unit eval_NR2: checkpoint saved
+2026-11-13 18:48:49 | r1_gbt         | unit eval_NR2: done in 5516.3 s
+2026-11-13 18:48:49 | r1_gbt         | unit eval_M1: start
+2026-11-13 18:48:49 | r1_gbt         | eval_M1: evaluating GBT-res, GBT-full, and NR2 policies on 500 M1 traces
+2026-11-13 20:39:19 | r1_gbt         | eval_M1: GBT-res=0.6457, GBT-full=0.6676, NR2 (mean over 10 seeds)=0.6275
+2026-11-13 20:39:19 | r1_gbt         | unit eval_M1: saving checkpoint
+2026-11-13 20:39:20 | r1_gbt         | unit eval_M1: checkpoint saved
+2026-11-13 20:39:20 | r1_gbt         | unit eval_M1: done in 6630.3 s
+2026-11-13 20:39:20 | r1_gbt         | unit export: start
+2026-11-13 20:39:20 | r1_gbt         | export: exporting r1_gbt_eval.mat and REPORT_r1_gbt.txt
+2026-11-13 20:39:20 | r1_gbt         | unit export: saving checkpoint
+2026-11-13 20:39:20 | r1_gbt         | unit export: checkpoint saved
+2026-11-13 20:39:20 | r1_gbt         | unit export: done in 0.2 s
+2026-11-13 20:39:20 | r1_gbt         | r1_gbt done successfully
+2026-11-13 20:39:20 | r1_gbt         | stage DONE in 3.41 h
+2026-11-13 20:39:20 | r2_rule        | preflight start (20 traces)
+2026-11-13 20:39:24 | r2_rule        | preflight: 0.3830 s per eval (basis 0.095, ratio 4.03); projected 8.7 h for 82000 units
+2026-11-13 20:39:24 | r2_rule        | APPROVE file found: continuing despite the 1.5x rule
+2026-11-13 20:39:24 | r2_rule        | stage start
+2026-11-13 20:39:29 | r2_rule        | r2_rule start: n_calib=500, n_eval=500, n_repro=20
+2026-11-13 20:39:29 | r2_rule        | unit grid_chunk_1: start
+2026-11-13 20:39:29 | r2_rule        | grid_chunk: evaluating grid points 1..40 on 500 calib traces
+2026-11-13 21:03:54 | r2_rule        | unit grid_chunk_1: saving checkpoint
+2026-11-13 21:03:54 | r2_rule        | unit grid_chunk_1: checkpoint saved
+2026-11-13 21:03:54 | r2_rule        | unit grid_chunk_1: done in 1465.0 s
+2026-11-13 21:03:54 | r2_rule        | unit grid_chunk_2: start
+2026-11-13 21:03:54 | r2_rule        | grid_chunk: evaluating grid points 41..80 on 500 calib traces
+2026-11-13 21:28:02 | r2_rule        | unit grid_chunk_2: saving checkpoint
+2026-11-13 21:28:02 | r2_rule        | unit grid_chunk_2: checkpoint saved
+2026-11-13 21:28:02 | r2_rule        | unit grid_chunk_2: done in 1448.2 s
+2026-11-13 21:28:02 | r2_rule        | unit grid_chunk_3: start
+2026-11-13 21:28:02 | r2_rule        | grid_chunk: evaluating grid points 81..120 on 500 calib traces
+2026-11-13 21:51:57 | r2_rule        | unit grid_chunk_3: saving checkpoint
+2026-11-13 21:51:57 | r2_rule        | unit grid_chunk_3: checkpoint saved
+2026-11-13 21:51:57 | r2_rule        | unit grid_chunk_3: done in 1435.3 s
+2026-11-13 21:51:57 | r2_rule        | unit grid_chunk_4: start
+2026-11-13 21:51:57 | r2_rule        | grid_chunk: evaluating grid points 121..160 on 500 calib traces
+2026-11-13 22:15:39 | r2_rule        | unit grid_chunk_4: saving checkpoint
+2026-11-13 22:15:39 | r2_rule        | unit grid_chunk_4: checkpoint saved
+2026-11-13 22:15:39 | r2_rule        | unit grid_chunk_4: done in 1422.1 s
+2026-11-13 22:15:39 | r2_rule        | unit select: start
+2026-11-13 22:15:39 | r2_rule        | select: finding optimal threshold combination and exporting r2_thresholds.txt
+2026-11-13 22:15:39 | r2_rule        | select: optimal thresholds: B=1, S=off, theta=1.0 (objective=0.6055)
+2026-11-13 22:15:39 | r2_rule        | select: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\r2_thresholds.txt written
+2026-11-13 22:15:44 | r2_rule        | select: SHA-256 hash: f7c7db0001edc53d2e214996f341e0ec6d4d9acb46a4f92d4176c834ba583c58
+2026-11-13 22:15:44 | r2_rule        | unit select: saving checkpoint
+2026-11-13 22:15:44 | r2_rule        | unit select: checkpoint saved
+2026-11-13 22:15:44 | r2_rule        | unit select: done in 5.0 s
+2026-11-13 22:15:44 | r2_rule        | unit repro: start
+2026-11-13 22:15:44 | r2_rule        | repro: checking bit-identity on first 20 traces of NR2 and M1
+2026-11-13 22:15:46 | r2_rule        | repro: bit-identity verified (max_abs_diff = 0)
+2026-11-13 22:15:46 | r2_rule        | unit repro: saving checkpoint
+2026-11-13 22:15:46 | r2_rule        | unit repro: checkpoint saved
+2026-11-13 22:15:46 | r2_rule        | unit repro: done in 2.0 s
+2026-11-13 22:15:46 | r2_rule        | unit eval_NR2: start
+2026-11-13 22:15:46 | r2_rule        | eval_NR2: evaluating Rule and Rule-cal on 500 NR2 traces
+2026-11-13 22:17:31 | r2_rule        | eval_NR2: Rule mean ontime=0.6008, Rule-cal mean ontime=0.6008
+2026-11-13 22:17:31 | r2_rule        | unit eval_NR2: saving checkpoint
+2026-11-13 22:17:31 | r2_rule        | unit eval_NR2: checkpoint saved
+2026-11-13 22:17:31 | r2_rule        | unit eval_NR2: done in 104.4 s
+2026-11-13 22:17:31 | r2_rule        | unit eval_M1: start
+2026-11-13 22:17:31 | r2_rule        | eval_M1: evaluating Rule and Rule-cal on 500 M1 traces
+2026-11-13 22:19:24 | r2_rule        | eval_M1: Rule mean ontime=0.6102, Rule-cal mean ontime=0.6103
+2026-11-13 22:19:24 | r2_rule        | unit eval_M1: saving checkpoint
+2026-11-13 22:19:24 | r2_rule        | unit eval_M1: checkpoint saved
+2026-11-13 22:19:24 | r2_rule        | unit eval_M1: done in 113.2 s
+2026-11-13 22:19:24 | r2_rule        | unit export: start
+2026-11-13 22:19:24 | r2_rule        | export: exporting r2_rule_eval.mat and REPORT_r2_rule.txt
+2026-11-13 22:19:24 | r2_rule        | unit export: saving checkpoint
+2026-11-13 22:19:24 | r2_rule        | unit export: checkpoint saved
+2026-11-13 22:19:24 | r2_rule        | unit export: done in 0.1 s
+2026-11-13 22:19:24 | r2_rule        | r2_rule done successfully
+2026-11-13 22:19:24 | r2_rule        | stage DONE in 1.67 h
+2026-11-13 22:19:24 | r5_seeds       | preflight start (20 traces)
+2026-11-13 22:19:39 | r5_seeds       | preflight: 5.6172 s per episode (basis 0.140, ratio 40.12); projected 93.6 h for 60000 units
+2026-11-13 22:19:39 | r5_seeds       | APPROVE file found: continuing despite the 1.5x rule
+2026-11-13 22:19:39 | r5_seeds       | stage start
+2026-11-13 22:19:43 | r5_seeds       | r5_seeds start: n_nr2_extra=10, n_g10_extra=5, ep_deep=3000
+2026-11-13 22:19:44 | r5_seeds       | unit train_nr2_11: start
+2026-11-13 22:19:44 | r5_seeds       | train_seed: training seed 25253 (index 11, 3000 episodes)
+2026-11-13 22:37:47 | r5_seeds       | train_seed: finished in 1083.8 s, final lc=5.01
+2026-11-13 22:37:47 | r5_seeds       | unit train_nr2_11: saving checkpoint
+2026-11-13 22:37:48 | r5_seeds       | unit train_nr2_11: checkpoint saved
+2026-11-13 22:37:48 | r5_seeds       | unit train_nr2_11: done in 1084.2 s
+2026-11-13 22:37:48 | r5_seeds       | unit train_nr2_12: start
+2026-11-13 22:37:48 | r5_seeds       | train_seed: training seed 25254 (index 12, 3000 episodes)
+2026-11-13 22:56:36 | r5_seeds       | train_seed: finished in 1128.2 s, final lc=4.43
+2026-11-13 22:56:36 | r5_seeds       | unit train_nr2_12: saving checkpoint
+2026-11-13 22:56:36 | r5_seeds       | unit train_nr2_12: checkpoint saved
+2026-11-13 22:56:36 | r5_seeds       | unit train_nr2_12: done in 1128.4 s
+2026-11-13 22:56:36 | r5_seeds       | unit train_nr2_13: start
+2026-11-13 22:56:36 | r5_seeds       | train_seed: training seed 25255 (index 13, 3000 episodes)
+2026-11-13 23:16:51 | r5_seeds       | train_seed: finished in 1215.1 s, final lc=4.68
+2026-11-13 23:16:51 | r5_seeds       | unit train_nr2_13: saving checkpoint
+2026-11-13 23:16:51 | r5_seeds       | unit train_nr2_13: checkpoint saved
+2026-11-13 23:16:51 | r5_seeds       | unit train_nr2_13: done in 1215.2 s
+2026-11-13 23:16:51 | r5_seeds       | unit train_nr2_14: start
+2026-11-13 23:16:51 | r5_seeds       | train_seed: training seed 25256 (index 14, 3000 episodes)
+2026-11-13 23:37:30 | r5_seeds       | train_seed: finished in 1238.5 s, final lc=4.35
+2026-11-13 23:37:30 | r5_seeds       | unit train_nr2_14: saving checkpoint
+2026-11-13 23:37:30 | r5_seeds       | unit train_nr2_14: checkpoint saved
+2026-11-13 23:37:30 | r5_seeds       | unit train_nr2_14: done in 1238.7 s
+2026-11-13 23:37:30 | r5_seeds       | unit train_nr2_15: start
+2026-11-13 23:37:30 | r5_seeds       | train_seed: training seed 25257 (index 15, 3000 episodes)
+2026-11-13 23:48:10 | r5_seeds       | ERROR (attempt 1): Error using dlnetwork/forward
+2026-11-13 23:50:31 | runner         | start (stages: r3_nr2diag,r1_gbt,r2_rule,r5_seeds; workers 2; G6B_PROFILE full)
+2026-11-13 23:51:20 | runner         | parpool open with 2 workers
+2026-11-13 23:51:20 | r3_nr2diag     | already done, skipped
+2026-11-13 23:51:20 | r1_gbt         | already done, skipped
+2026-11-13 23:51:20 | r2_rule        | already done, skipped
+2026-11-13 23:51:20 | r5_seeds       | preflight: 5.6172 s per episode (basis 0.140, ratio 40.12); projected 93.6 h for 60000 units
+2026-11-13 23:51:20 | r5_seeds       | APPROVE file found: continuing despite the 1.5x rule
+2026-11-13 23:51:20 | r5_seeds       | stage start
+2026-11-13 23:51:31 | r5_seeds       | r5_seeds start: n_nr2_extra=10, n_g10_extra=5, ep_deep=3000
+2026-11-13 23:51:31 | r5_seeds       | unit train_nr2_11: loaded checkpoint, skipped
+2026-11-13 23:51:31 | r5_seeds       | unit train_nr2_12: loaded checkpoint, skipped
+2026-11-13 23:51:31 | r5_seeds       | unit train_nr2_13: loaded checkpoint, skipped
+2026-11-13 23:51:32 | r5_seeds       | unit train_nr2_14: loaded checkpoint, skipped
+2026-11-13 23:51:32 | r5_seeds       | unit train_nr2_15: start
+2026-11-13 23:51:32 | r5_seeds       | train_seed: training seed 25257 (index 15, 3000 episodes)
+2026-11-14 00:08:21 | r5_seeds       | train_seed: finished in 1009.3 s, final lc=4.37
+2026-11-14 00:08:21 | r5_seeds       | unit train_nr2_15: saving checkpoint
+2026-11-14 00:08:21 | r5_seeds       | unit train_nr2_15: checkpoint saved
+2026-11-14 00:08:21 | r5_seeds       | unit train_nr2_15: done in 1009.6 s
+2026-11-14 00:08:21 | r5_seeds       | unit train_nr2_16: start
+2026-11-14 00:08:21 | r5_seeds       | train_seed: training seed 25258 (index 16, 3000 episodes)
+2026-11-14 00:25:53 | r5_seeds       | train_seed: finished in 1051.9 s, final lc=4.72
+2026-11-14 00:25:53 | r5_seeds       | unit train_nr2_16: saving checkpoint
+2026-11-14 00:25:53 | r5_seeds       | unit train_nr2_16: checkpoint saved
+2026-11-14 00:25:53 | r5_seeds       | unit train_nr2_16: done in 1052.1 s
+2026-11-14 00:25:53 | r5_seeds       | unit train_nr2_17: start
+2026-11-14 00:25:53 | r5_seeds       | train_seed: training seed 25259 (index 17, 3000 episodes)
+2026-11-14 00:45:11 | r5_seeds       | train_seed: finished in 1157.4 s, final lc=4.14
+2026-11-14 00:45:11 | r5_seeds       | unit train_nr2_17: saving checkpoint
+2026-11-14 00:45:11 | r5_seeds       | unit train_nr2_17: checkpoint saved
+2026-11-14 00:45:11 | r5_seeds       | unit train_nr2_17: done in 1157.5 s
+2026-11-14 00:45:11 | r5_seeds       | unit train_nr2_18: start
+2026-11-14 00:45:11 | r5_seeds       | train_seed: training seed 25260 (index 18, 3000 episodes)
+2026-11-14 01:06:14 | r5_seeds       | train_seed: finished in 1262.7 s, final lc=4.39
+2026-11-14 01:06:14 | r5_seeds       | unit train_nr2_18: saving checkpoint
+2026-11-14 01:06:14 | r5_seeds       | unit train_nr2_18: checkpoint saved
+2026-11-14 01:06:14 | r5_seeds       | unit train_nr2_18: done in 1262.8 s
+2026-11-14 01:06:14 | r5_seeds       | unit train_nr2_19: start
+2026-11-14 01:06:14 | r5_seeds       | train_seed: training seed 25261 (index 19, 3000 episodes)
+2026-11-14 01:27:23 | runner         | start (stages: r3_nr2diag,r1_gbt,r2_rule,r5_seeds; workers 2; G6B_PROFILE full)
+2026-11-14 01:27:55 | runner         | parpool open with 2 workers
+2026-11-14 01:27:55 | r3_nr2diag     | already done, skipped
+2026-11-14 01:27:55 | r1_gbt         | already done, skipped
+2026-11-14 01:27:55 | r2_rule        | already done, skipped
+2026-11-14 01:27:55 | r5_seeds       | preflight: 5.6172 s per episode (basis 0.140, ratio 40.12); projected 93.6 h for 60000 units
+2026-11-14 01:27:55 | r5_seeds       | APPROVE file found: continuing despite the 1.5x rule
+2026-11-14 01:27:55 | r5_seeds       | stage start
+2026-11-14 01:28:03 | r5_seeds       | r5_seeds start: n_nr2_extra=10, n_g10_extra=5, ep_deep=3000
+2026-11-14 01:28:03 | r5_seeds       | unit train_nr2_11: loaded checkpoint, skipped
+2026-11-14 01:28:03 | r5_seeds       | unit train_nr2_12: loaded checkpoint, skipped
+2026-11-14 01:28:04 | r5_seeds       | unit train_nr2_13: loaded checkpoint, skipped
+2026-11-14 01:28:04 | r5_seeds       | unit train_nr2_14: loaded checkpoint, skipped
+2026-11-14 01:28:04 | r5_seeds       | unit train_nr2_15: loaded checkpoint, skipped
+2026-11-14 01:28:04 | r5_seeds       | unit train_nr2_16: loaded checkpoint, skipped
+2026-11-14 01:28:05 | r5_seeds       | unit train_nr2_17: loaded checkpoint, skipped
+2026-11-14 01:28:05 | r5_seeds       | unit train_nr2_18: loaded checkpoint, skipped
+2026-11-14 01:28:05 | r5_seeds       | unit train_nr2_19: start
+2026-11-14 01:28:05 | r5_seeds       | train_seed: training seed 25261 (index 19, 3000 episodes)
+2026-11-14 01:45:28 | r5_seeds       | train_seed: finished in 1043.4 s, final lc=3.65
+2026-11-14 01:45:28 | r5_seeds       | unit train_nr2_19: saving checkpoint
+2026-11-14 01:45:29 | r5_seeds       | unit train_nr2_19: checkpoint saved
+2026-11-14 01:45:29 | r5_seeds       | unit train_nr2_19: done in 1043.8 s
+2026-11-14 01:45:29 | r5_seeds       | unit train_nr2_20: start
+2026-11-14 01:45:29 | r5_seeds       | train_seed: training seed 25262 (index 20, 3000 episodes)
+2026-11-14 02:03:58 | r5_seeds       | train_seed: finished in 1108.9 s, final lc=3.77
+2026-11-14 02:03:58 | r5_seeds       | unit train_nr2_20: saving checkpoint
+2026-11-14 02:03:58 | r5_seeds       | unit train_nr2_20: checkpoint saved
+2026-11-14 02:03:58 | r5_seeds       | unit train_nr2_20: done in 1109.1 s
+2026-11-14 02:03:58 | r5_seeds       | unit train_G2_hi_d10_6: start
+2026-11-14 02:03:58 | r5_seeds       | train_seed: training seed 33248 (index 6, 3000 episodes)
+2026-11-14 02:24:07 | r5_seeds       | train_seed: finished in 1208.8 s, final lc=4.20
+2026-11-14 02:24:07 | r5_seeds       | unit train_G2_hi_d10_6: saving checkpoint
+2026-11-14 02:24:07 | r5_seeds       | unit train_G2_hi_d10_6: checkpoint saved
+2026-11-14 02:24:07 | r5_seeds       | unit train_G2_hi_d10_6: done in 1209.0 s
+2026-11-14 02:24:07 | r5_seeds       | unit train_G2_hi_d10_7: start
+2026-11-14 02:24:07 | r5_seeds       | train_seed: training seed 33249 (index 7, 3000 episodes)
+2026-11-14 02:45:51 | r5_seeds       | train_seed: finished in 1304.4 s, final lc=4.06
+2026-11-14 02:45:51 | r5_seeds       | unit train_G2_hi_d10_7: saving checkpoint
+2026-11-14 02:45:51 | r5_seeds       | unit train_G2_hi_d10_7: checkpoint saved
+2026-11-14 02:45:51 | r5_seeds       | unit train_G2_hi_d10_7: done in 1304.5 s
+2026-11-14 02:45:51 | r5_seeds       | unit train_G2_hi_d10_8: start
+2026-11-14 02:45:51 | r5_seeds       | train_seed: training seed 33250 (index 8, 3000 episodes)
+2026-11-14 03:09:44 | r5_seeds       | train_seed: finished in 1432.9 s, final lc=6.33
+2026-11-14 03:09:44 | r5_seeds       | unit train_G2_hi_d10_8: saving checkpoint
+2026-11-14 03:09:44 | r5_seeds       | unit train_G2_hi_d10_8: checkpoint saved
+2026-11-14 03:09:44 | r5_seeds       | unit train_G2_hi_d10_8: done in 1433.1 s
+2026-11-14 03:09:44 | r5_seeds       | unit train_G2_hi_d10_9: start
+2026-11-14 03:09:44 | r5_seeds       | train_seed: training seed 33251 (index 9, 3000 episodes)
+2026-11-14 03:10:15 | r5_seeds       | ERROR (attempt 2): Out of memory.
+2026-11-14 03:10:15 | runner         | HALTED at stage r5_seeds (no finished marker written)
