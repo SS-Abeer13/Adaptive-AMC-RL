@@ -114,16 +114,28 @@ Exact bit-level reproduction is confirmed across all comparators.
 
 ## 4. Audit Metrics on All 500 NR2 Evaluation Traces
 
-Evaluated across all 500 evaluation traces ($N=500$, with NR2 evaluated across all 10 independent RL seeds = 5,000 trace evaluations):
+Evaluated across all 500 evaluation traces ($N=500$, with NR2 evaluated across all 10 independent RL seeds = 5,000 trace evaluations). Every scheme reproduces its frozen stored on-time ratio bit-identically ($\max |p - p_{\text{stored}}| = 0.000000\times 10^0$):
 
 | Metric | NR2 (RL Policy) | GBT-res (3 actions) | GBT-full (7 actions) | Context-joint-500 |
 | :--- | :---: | :---: | :---: | :---: |
-| **On-Time Ratio** | **0.6201** (stored) / 0.6224 | **0.6373** (stored) / 0.6395 | **0.6565** (stored) / 0.6600 | **0.6000** (stored) / 0.6036 |
-| **Goodput** | 4.44 Mbps | 4.55 Mbps | 4.63 Mbps | 4.37 Mbps |
-| **1st-Tx BLER** | 18.72% | 15.71% | 18.63% | 17.40% |
-| **Jain Fairness Index**| 0.7826 | 0.7853 | 0.7896 | 0.7763 |
+| **On-Time Ratio** | **0.6201** | **0.6373** | **0.6565** | **0.6000** |
+| **Goodput** | 4.44 Mbps | 4.54 Mbps | 4.63 Mbps | 4.37 Mbps |
+| **1st-Tx BLER** | 18.72% | 16.17% | 18.80% | 17.40% |
+| **Jain Fairness Index**| 0.7768 | 0.7796 | 0.7827 | 0.7673 |
 | **Edge-5 On-Time** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| **Edge-10 On-Time** | 0.1250 | 0.1250 | 0.1250 | 0.1250 |
+| **Edge-10 On-Time** | **0.0750** | 0.0000 | 0.0000 | 0.0000 |
+| **Bottom-Decile Mean**| **0.0073** | 0.0000 | 0.0000 | 0.0000 |
+
+### 4.1 Explanation of Discrepancies in Initial `run_audit_500.m`
+The initial background run `run_audit_500.m` produced slight discrepancies ($0.6224$, $0.6395$, $0.6600$, $0.6036$):
+1. **Parallel Stream Generator Mismatch (`parfor`):** MATLAB's Parallel Computing Toolbox defaults workers to the `Combined Multiple Recursive (mrg32k3a)` generator rather than the client session's `Mersenne Twister (twister)`. Calling `rng(seed)` without generator specification inside worker threads initializes the worker's `mrg32k3a` stream, creating a diverging random draw sequence from the single-threaded serial evaluators (`stage_r1_gbt.m`, `stage_nr2.m`). Specifying `rng(seed, 'twister')` inside worker loops restores exact bit-identity ($\max |p - p_{\text{stored}}| = 0.000000\times 10^0$).
+2. **Context-Joint Comparator Seed Offset:** In `stage_nr2.m:464`, Context-joint was evaluated with comparator index $k=99$ (`rng(1020000 + 100*j + 10*99 + 1)`). Line 67 of `run_audit_500.m` inadvertently used index $8$ (`10*8 + 1`), introducing an execution seed difference.
+
+### 4.2 Edge Metric Granularity Analysis
+- **Traffic Model:** Periodic arrivals with 1 packet every 20 TTIs under a 10-TTI deadline. Over the 800-TTI post-burn-in evaluation horizon, users resolve an empirical mean of **7.3 packets** per trace.
+- **Discrete Quantum:** Per-user on-time ratios on an individual trace are constrained to integer quanta $k / n_{\text{resolved}}$, giving an empirical resolution quantum of $\approx 1/7.3 \approx 0.137$ (typically $0, 1/8=0.125, 1/7=0.143, \dots$).
+- **Zero-Delivery Tail:** In severe deep fades, cell-edge users fail all resolved packets ($0/k = 0.0000$). For Context-joint, GBT-res, and GBT-full, more than 10% of user-trace instances result in zero delivered packets, resulting in Edge-5 = 0.0000, Edge-10 = 0.0000, and Bottom-Decile Mean = 0.0000.
+- **RL Edge Advantage:** NR2's urgency throttle shifts to aggressive MCS under tight slack, rescuing packets for cell-edge users that passive or greedy one-step rules drop, lifting Edge-10 to **0.0750** and the bottom-decile mean to **0.0073**.
 
 ### 4.1 Action & Offset Distributions (Correct Mechanism Direction)
 - Base rule offset is $-2$.
@@ -213,6 +225,38 @@ The empirical cross-evaluation was executed via `Optimized/v17x/cross_check_g2.m
    - Structural comparison of `stage_nr_g10.m:119` vs `stage_r5_seeds.m:110`: Both call `DeepA2C_Shared_v17(simTime, ep_deep, seed, env)` with identical hyperparameters (`lr_actor=3e-4`, `lr_critic=1e-3`, `ent_start=0.03`, `ent_end=0.001`, `n_step=10`, `ep_deep=3000`). Both passed `envCal` (`pkt_bits = 14000`).
    - Training was completely sound; the discrepancy was strictly an evaluation environment config mismatch.
 
-### 6.3 Recommendation (Per Instructions: Documented Only, Not Rerun)
-Documented as an evaluation environment configuration deviation. If re-evaluated with the correct G10 calibrated environment (`pkt_bits = 14000`), the 10-seed pooled mean for G2 is **0.5462** (vs Context Table 0.5385, margin $+1.43\%$), maintaining the positive margin across all 10 seeds.
-Per user instructions: **no files have been overwritten and no re-runs have been initiated**.
+### 6.3 Config Check: G3 and NR2-20 Field-by-Field Verification
+Executed via `Optimized/v17x/compare_configs.m`:
+- **NR2-20 Evaluation Env vs Frozen NR2 Env:**
+  - `pkt_bits`: 12000 (MATCH)
+  - `pkt_deadline`: 10 (MATCH)
+  - `pkt_period`: 20 (MATCH)
+  - `base_rule_kind`: 'fixed' (MATCH)
+  - `fixed_offset`: -2 (MATCH)
+  - `action_mode`: 'resid' (MATCH)
+  - `N`: 10 (MATCH), `total_RB`: 100 (MATCH), `scheduler`: 'pf' (MATCH)
+  - **Differences:** **0** field differences.
+- **G3 Evaluation Env vs Frozen G3 Calib Env (`calib_single_G3_lo_d18.mat`):**
+  - `pkt_bits`: 8000 (MATCH)
+  - `pkt_deadline`: 18 (MATCH)
+  - `pkt_period`: 20 (MATCH)
+  - `fixed_offset`: -3 (MATCH)
+  - `action_mode`: 'resid' (MATCH)
+  - `N`: 10 (MATCH), `total_RB`: 100 (MATCH), `scheduler`: 'pf' (MATCH)
+  - **Differences:** **0** physics/channel/traffic differences. (Stored auxiliary table artifacts from calibration comparators differ as expected, but the operational A2C evaluation environment is identical).
+
+### 6.4 G2 Re-evaluation & R5 Verdict Comparison
+`Dataset/presub/pertrace_corrected.csv` was written next to the original `pertrace.csv` without overwriting it, substituting only the rows for `(G2, NRG10, seeds 6..10)` with the frozen `stage_nr_g10` evaluation at `pkt_bits = 14000`. `paper/analysis/presub_stats.py` was executed unchanged into `paper/analysis/out_corrected/`.
+
+**Comparison of `presub_R5.csv` Verdict Rows:**
+
+| Version | Analysis | Verdict | Holds? | Margin (%) | 90% CI | Holm p-value | Hierarchical 95% CI | Seeds Above | Win? | Best Rule |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Original** (`out/`) | NR2-20 | CONFIRM | yes | +2.81% | [+2.42, +3.20] | 4.18e-26 | [+1.82, +3.82] | 19 / 20 | yes | — |
+| | **NRG10-10 G2** | **WEAKENS** | **no** | **-9.42%** | **[-10.03, -8.80]** | **6.74e-47** | **[-16.35, -2.55]** | **5 / 10** | **no** | Context table |
+| | NRG10-10 G3 | PASS | yes | +0.66% | [+0.43, +0.89] | 1.01e-04 | [+0.24, +1.09] | 9 / 10 | yes | Context table |
+| **Corrected** (`out_corrected/`) | NR2-20 | CONFIRM | yes | +2.81% | [+2.42, +3.20] | 4.18e-26 | [+1.82, +3.82] | 19 / 20 | yes | — |
+| | **NRG10-10 G2** | **PASS** | **yes** | **+2.14%** | **[+1.69, +2.60]** | **1.48e-12** | **[+1.13, +3.19]** | **9 / 10** | **yes** | Context table |
+| | NRG10-10 G3 | PASS | yes | +0.66% | [+0.43, +0.89] | 1.01e-04 | [+0.24, +1.09] | 9 / 10 | yes | Context table |
+
+With the evaluation packet size properly aligned with calibration and training (`pkt_bits = 14000`), NRG10-10 G2 achieves **+2.14% margin** over the best single rule (Context table), with 9 of 10 seeds outperforming the baseline and the hierarchical bootstrap lower bound strictly positive (+1.13%). All three pre-registered R5 analyses hold.
