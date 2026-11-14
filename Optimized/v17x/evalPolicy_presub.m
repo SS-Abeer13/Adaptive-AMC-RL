@@ -468,6 +468,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
                     chosen_mcs = gbt_predict_best_mcs(policy, obs19, ref(ii), minC, maxC, lower(ptype));
                     cqiAll(ii) = chosen_mcs + 1;
                 end
+                act(t, :) = cqiAll - ref;
             case 'rule'
                 for ii = 1:N
                     obs_ii = double(s_now(:, ii)');
