@@ -1,0 +1,10 @@
+================================================================================
+REPORT_r5_seeds.txt -- Additional Training Seeds (Stage r5_seeds)
+Generated: 2026-11-14 10:49:51 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+NR2 fresh 10 seeds mean on-time: 0.6137
+G2 fresh 5 seeds mean on-time:  0.4278
+G3 fresh 5 seeds mean on-time:  0.9033
+
+Master pertrace.csv written to: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\presub\pertrace.csv

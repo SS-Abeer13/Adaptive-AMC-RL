@@ -1,0 +1,16 @@
+================================================================================
+REPORT_r1_gbt.txt -- One-Step Supervised Learner (Stage r1_gbt)
+Generated: 2026-11-13 20:39:20 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+GBT model hash: 5de113224b87154c1c5ff439a9c41be2de8393140d442e8f490cc09a7ff01c01  gbt_models.joblib
+Evaluation traces: n_eval=500
+
+NR2 traces:
+  GBT-res  mean on-time: 0.6373
+  GBT-full mean on-time: 0.6565
+
+M1 traces (secondary):
+  GBT-res  mean on-time: 0.6457
+  GBT-full mean on-time: 0.6676
+  NR2 (re-evaluated, 10 seeds) mean on-time: 0.6275

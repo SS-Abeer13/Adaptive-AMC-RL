@@ -1,0 +1,5 @@
+comparison,n_seeds,mean_seed_margin,sd,t95_lo,t95_hi,bca95_lo,bca95_hi,signflip_p,hier95_lo,hier95_hi,power_at_observed,mde80_n10,mde80_n5,category
+M1 vs Context-joint-500,10,0.6585,1.525,-0.4323,1.749,-0.1434,1.658,0.2422,-0.3016,1.703,0.2313,1.519,2.565,unchanged
+NR2 vs Context-joint-500,10,3.345,1.631,2.179,4.512,2.181,4.137,0.003906,2.224,4.401,0.9999,1.624,2.743,unchanged
+NR-G10 G2 vs Context table,5,1.726,0.8591,0.6594,2.793,1.268,2.791,0.0625,0.8569,2.716,0.9112,0.8557,1.445,unchanged
+NR-G10 G3 vs Context table,5,1.016,0.2587,0.6945,1.337,0.8265,1.213,0.0625,0.6276,1.405,1,0.2577,0.4351,unchanged

@@ -1,0 +1,1 @@
+Approved: additional seeds 11..20 for NR2, 6..10 for G2 and G3. 3000 episodes per seed. Projected time ~3-4 h on 2 workers.

@@ -1,0 +1,9 @@
+2026-11-14 07:35:23
+stage r5_seeds
+unit episode
+measured s/unit 5.61724
+basis s/unit 0.14000
+ratio 40.123 (pause above 1.50)
+units 60000
+projected hours 93.62
+note: r5_seeds preflight: 5.6172 s/episode (basis 0.1400 s), projected 93.62 h for 60000 units

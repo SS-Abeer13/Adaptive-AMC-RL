@@ -1,0 +1,1 @@
+Approved: grid search over 160 points on 500 calibration traces. Preflight timing ~0.27 s/eval. Projected time ~1-1.5 h.

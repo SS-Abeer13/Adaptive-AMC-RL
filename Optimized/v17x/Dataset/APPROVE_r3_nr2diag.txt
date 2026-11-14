@@ -1,0 +1,1 @@
+Approved: measured 0.8198 s/eval (basis 0.5403 s, ratio 1.517), projected 1.25 h for 5500 units. Within 1.5 h budget.

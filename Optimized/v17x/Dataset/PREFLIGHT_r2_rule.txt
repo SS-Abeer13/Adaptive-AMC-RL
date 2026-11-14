@@ -1,0 +1,9 @@
+2026-11-13 20:39:24
+stage r2_rule
+unit eval
+measured s/unit 0.38297
+basis s/unit 0.09500
+ratio 4.031 (pause above 1.50)
+units 82000
+projected hours 8.72
+note: r2_rule preflight: 0.3830 s/eval (basis 0.0950 s), projected 8.72 h for 82000 units

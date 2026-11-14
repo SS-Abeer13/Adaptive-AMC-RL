@@ -1,0 +1,9 @@
+2026-11-13 17:14:42
+stage r1_gbt
+unit eval
+measured s/unit 0.35266
+basis s/unit 0.54030
+ratio 0.653 (pause above 1.50)
+units 7500
+projected hours 0.73
+note: r1_gbt preflight: 0.3527 s/eval (basis 0.5403 s), projected 0.73 h for 7500 units

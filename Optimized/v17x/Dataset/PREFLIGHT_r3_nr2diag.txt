@@ -1,0 +1,9 @@
+2026-11-13 17:00:08
+stage r3_nr2diag
+unit eval
+measured s/unit 0.81978
+basis s/unit 0.54030
+ratio 1.517 (pause above 1.50)
+units 5500
+projected hours 1.25
+note: r3_nr2diag preflight: 0.8198 s/eval (basis 0.5403 s), projected 1.25 h for 5500 units

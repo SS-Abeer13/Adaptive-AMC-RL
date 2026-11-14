@@ -1,5 +1,5 @@
-2026-11-14 03:10:15 | HALTED
+2026-11-14 10:49:52 | FINISHED
 r3_nr2diag done
 r1_gbt     done
 r2_rule    done
-r5_seeds   ERROR (see ERROR file)
+r5_seeds   done

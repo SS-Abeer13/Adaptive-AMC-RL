@@ -1,0 +1,15 @@
+================================================================================
+REPORT_r2_rule.txt -- Hand-Designed and Calibrated State Rules (Stage r2_rule)
+Generated: 2026-11-13 22:19:24 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+Threshold hash: f7c7db0001edc53d2e214996f341e0ec6d4d9acb46a4f92d4176c834ba583c58  r2_thresholds.txt
+Evaluation traces: n_eval=500
+
+NR2 traces:
+  Rule     mean on-time: 0.6008
+  Rule-cal mean on-time: 0.6008
+
+M1 traces (secondary):
+  Rule     mean on-time: 0.6102
+  Rule-cal mean on-time: 0.6103
