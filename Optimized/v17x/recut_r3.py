@@ -30,8 +30,8 @@ def run():
     ]
 
     print('=== UNCLIPPED DELTA SHARES (SUMMING TO 100%) ===')
-    print('{:<15} | {:<12} | {:<15} | {:<15} | {:<15}'.format('Bin', 'N decisions', 'delta = -1 (%)', 'delta = 0 (%)', 'delta = +1 (%)'))
-    print('-'*80)
+    print('{:<15} | {:<12} | {:<18} | {:<15} | {:<18}'.format('Bin', 'N decisions', 'delta = -1 (Cons)', 'delta = 0 (Neut)', 'delta = +1 (Aggr)'))
+    print('-'*85)
 
     results = []
     for name, cond in bins:

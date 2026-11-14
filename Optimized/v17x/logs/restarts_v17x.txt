@@ -126,3 +126,5 @@
 [Sat 11/14/2026  1:26:10.86] launch 2 exit code 1 
 [Sat 11/14/2026  1:27:11.35] launch 3 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
 [Sat 11/14/2026  3:11:05.29] launch 3 exit code 2 
+[Sat 11/14/2026  7:34:11.07] launch 1 (STAGES=r3_nr2diag,r1_gbt,r2_rule,r5_seeds workers=2 G6B_PROFILE=full) 
+[Sat 11/14/2026 10:51:28.83] launch 1 exit code 0 
