@@ -23,6 +23,7 @@ function cfg = v17x_cfg()
     cfg.g6b_profile = lower(envstr('G6B_PROFILE', 'full'));
     cfg.g10_cells   = strtrim(strsplit(envstr('G10_CELLS', 'G2_hi_d10,G3_lo_d18'), ','));
     cfg.g10_cells   = cfg.g10_cells(ismember(cfg.g10_cells, {'G2_hi_d10', 'G3_lo_d18'}));
+    cfg.python      = envstr('PYTHON_EXE', 'D:\miniconda\python.exe');
     cfg.use_pool    = ~strcmp(envstr('V17X_NO_POOL', '0'), '1');
     st = strtrim(envstr('V17X_SELFTEST', '0'));
     cfg.selftest = st;

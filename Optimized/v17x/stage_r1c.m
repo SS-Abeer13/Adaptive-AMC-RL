@@ -37,6 +37,23 @@ function stage_r1c(ctx)
     ctx.hbf(sprintf('r1c start: n_calib=%d, n_eval_nr2=%d, n_eval_cell=%d, n_repro=%d', ...
         n_calib, n_eval_nr2, n_eval_cell, n_repro));
 
+    if isfield(ctx, 'python') && ~isempty(ctx.python)
+        py_exe = ctx.python;
+    elseif isfield(ctx, 'cfg') && isfield(ctx.cfg, 'python') && ~isempty(ctx.cfg.python)
+        py_exe = ctx.cfg.python;
+    else
+        py_exe = 'D:\miniconda\python.exe';
+    end
+
+    % Assert pinned Python interpreter and required packages
+    check_cmd = sprintf('"%s" -c "import numpy, scipy, sklearn, h5py, joblib; print(\''OK\'')"', py_exe);
+    [py_st, py_out] = system(check_cmd);
+    if py_st ~= 0 || ~contains(py_out, 'OK')
+        error('v17x:r1c:python_packages_missing', ...
+            'Python interpreter %s failed package assertion (numpy, scipy, sklearn, h5py, joblib):\n%s', py_exe, py_out);
+    end
+    ctx.hbf(sprintf('r1c python interpreter verified: %s', py_exe));
+
     ckpt_r1c = fullfile(ctx.ckptdir, 'r1c');
     if ~exist(ckpt_r1c, 'dir'), mkdir(ckpt_r1c); end
 
@@ -88,7 +105,7 @@ function stage_r1c(ctx)
     end
 
     % ---- 4. Unit: fit ----
-    models = ctx.unit('fit', @() unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx));
+    models = ctx.unit('fit', @() unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx, py_exe));
 
     % ---- 5. Unit: equiv ----
     trees = ctx.unit('equiv', @() unit_equiv(models, ctx));
@@ -240,8 +257,17 @@ function out = unit_log_explore(envFixed, n_calib, o, tr_base, crn_base, exp_bas
 end
 
 % =========================================================================
-function out = unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx)
-    ctx.hbf('fit: training all 11 models via Python train_r1c_ack.py');
+function out = unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx, py_exe)
+    if nargin < 6 || isempty(py_exe)
+        if isfield(ctx, 'python') && ~isempty(ctx.python)
+            py_exe = ctx.python;
+        elseif isfield(ctx, 'cfg') && isfield(ctx.cfg, 'python') && ~isempty(ctx.cfg.python)
+            py_exe = ctx.cfg.python;
+        else
+            py_exe = 'D:\miniconda\python.exe';
+        end
+    end
+    ctx.hbf(sprintf('fit: training all 11 models via Python (%s)', py_exe));
     py_script = fullfile(ctx.root, 'train_r1c_ack.py');
 
     % Manifest collection
@@ -268,7 +294,7 @@ function out = unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx)
         h_out = fullfile(ckpt_r1c, sprintf('r1c_hash_m1_%d.txt', k));
         x_csv = fullfile(ckpt_r1c, sprintf('r1c_xfit_m1_%d.csv', k));
 
-        cmd = sprintf('python "%s" "%s" "%s" "%s" "%s" "%s"', py_script, c_mat, j_out, t_mat, h_out, x_csv);
+        cmd = sprintf('"%s" "%s" "%s" "%s" "%s" "%s" "%s"', py_exe, py_script, c_mat, j_out, t_mat, h_out, x_csv);
         [status, cmdout] = system(cmd);
         if status ~= 0, error('v17x:r1c:fit_m1_failed', 'Python fit M1_%d failed:\n%s', k, cmdout); end
         sha_k = strtrim(fileread(h_out));
@@ -285,7 +311,7 @@ function out = unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx)
         h_out = fullfile(ckpt_r1c, sprintf('r1c_hash_g2_%d.txt', k));
         x_csv = fullfile(ckpt_r1c, sprintf('r1c_xfit_g2_%d.csv', k));
 
-        cmd = sprintf('python "%s" "%s" "%s" "%s" "%s" "%s"', py_script, c_mat, j_out, t_mat, h_out, x_csv);
+        cmd = sprintf('"%s" "%s" "%s" "%s" "%s" "%s" "%s"', py_exe, py_script, c_mat, j_out, t_mat, h_out, x_csv);
         [status, cmdout] = system(cmd);
         if status ~= 0, error('v17x:r1c:fit_g2_failed', 'Python fit G2_%d failed:\n%s', k, cmdout); end
         sha_k = strtrim(fileread(h_out));
@@ -302,7 +328,7 @@ function out = unit_fit(calib_m1, calib_g2, calib_g3, ckpt_r1c, ctx)
         h_out = fullfile(ckpt_r1c, sprintf('r1c_hash_g3_%d.txt', k));
         x_csv = fullfile(ckpt_r1c, sprintf('r1c_xfit_g3_%d.csv', k));
 
-        cmd = sprintf('python "%s" "%s" "%s" "%s" "%s" "%s"', py_script, c_mat, j_out, t_mat, h_out, x_csv);
+        cmd = sprintf('"%s" "%s" "%s" "%s" "%s" "%s" "%s"', py_exe, py_script, c_mat, j_out, t_mat, h_out, x_csv);
         [status, cmdout] = system(cmd);
         if status ~= 0, error('v17x:r1c:fit_g3_failed', 'Python fit G3_%d failed:\n%s', k, cmdout); end
         sha_k = strtrim(fileread(h_out));

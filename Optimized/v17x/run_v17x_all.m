@@ -141,6 +141,7 @@ function ctx = make_ctx(cfg, id)
     ctx.smoke = cfg.smoke;
     ctx.g6b_profile = cfg.g6b_profile;
     ctx.g10_cells = cfg.g10_cells;
+    ctx.python = cfg.python;
     ctx.hb  = @(msg) v17x_hb(cfg, id, msg, false);   % throttled
     ctx.hbf = @(msg) v17x_hb(cfg, id, msg, true);    % always written
     ctx.unit = [];                                    % set below (needs ctx itself)
