@@ -259,3 +259,9 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
   - Pre-registered wording rows: "holds across all 4 fits and both cells" / "fit-dependent" / "operating-point dependent".
   - Totals: 96 cases / 163 scheme evaluations, Bonferroni pool ≤ 1 630. Compute: ≈ 12.3 h.
 - **Freeze v11:** 20/20 verify; v10 kept as `FREEZE_v10.sha256`. Manuscript untouched.
+
+## Phase 19 — Amendment 10a / Freeze v12 (15 Nov 2026): R1c revised before any run
+- Primary cell test = 4 per-cell GBT-ACK fits on fresh cell calibration draws (G2 4100000+/4200000+/4300000+, G3 4400000+/4500000+/4600000+); M1 fits in the cells = secondary transfer.
+- Cell envs from `ckpt/g10/calib_single_<cell>.mat` with assertions (G2 pkt_bits 14000); `get_cell_cfg` not used.
+- RL per cell = 10 seeds (G2 6–10 corrected, D1). MATCH = Holm n.s. and |margin| < 0.5 %; "beats rules" = R1 vs all 9, Holm over 9; six wording rows, per scheme.
+- ≈ 20.5 h; +19 cases / +38 evaluations → 104 / 179. `r1c_stats.py --selftest` passes (synthetic). 20/20 hashes verify; v11 kept.

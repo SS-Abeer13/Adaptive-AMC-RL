@@ -1,467 +1,203 @@
-"""R1c statistics: calibration-set replication and operating-cell generalization
-of the ACK-trained supervised learner (FROZEN with paper/proposals/R1c_ack_prereg.md, Amendment 10).
+"""R1c statistics: calibration-draw replication and per-cell test of the ACK-trained one-step learner
+(FROZEN with paper/proposals/R1c_ack_prereg.md, Amendment 10a, Freeze v12).
 
-Inputs : Optimized/v17x/Dataset/presub/pertrace.csv            (NR2, M1, comparators; unchanged)
-         Optimized/v17x/Dataset/presub/r1b/pertrace_r1b.csv    (Fit 1: GBT-res-ACK, GBT-full-ACK)
-         Optimized/v17x/Dataset/presub/r1c/pertrace_r1c_nr2.csv(Fits 2, 3, 4 on NR2 traces)
-         Optimized/v17x/Dataset/presub/r1c/pertrace_r1c_g2.csv (Fits 1-4, comparators, RL on G2_hi_d10 14kbit)
-         Optimized/v17x/Dataset/presub/r1c/pertrace_r1c_g3.csv (Fits 1-4, comparators, RL on G3_lo_d18)
-Outputs: paper/analysis/out/r1c_replication.csv, r1c_cells.csv, r1c_verdicts.txt, r1c_pending_values.csv
-Run    : python3 paper/analysis/r1c_stats.py [--indir DIR] [--out DIR]
-Test   : python3 paper/analysis/r1c_stats.py --selftest      (synthetic data only)
+Inputs (Optimized/v17x/Dataset/presub/):
+  pertrace_G2corrected.csv   NR2, M1 and cell comparators, RL policies (NR2 seeds 1-10; NRG10 seeds 1-10 per cell,
+                             G2 seeds 6-10 = the corrected 14 kbit re-evaluation of Deviation D1). Must exist.
+  r1b/pertrace_r1b.csv       M1 fit 1 (R1b) on the NR2 traces: GBT-res-ACK, GBT-full-ACK (seed 0)
+  r1c/pertrace_r1c.csv       trace_set in {NR2, G2, G3}; schemes <S>-M1fit<k> (k = 2..4 on NR2; k = 1..4 in the cells,
+                             transfer) and <S>-cellfit<k> (k = 1..4, cells only), S in {GBT-res-ACK, GBT-full-ACK}; seed 0
+Outputs (paper/analysis/out/): r1c_fits.csv, r1c_rules.csv, r1c_summary.csv, r1c_verdicts.txt, r1c_pending_values.csv
+Run : python3 paper/analysis/r1c_stats.py [--indir DIR] [--out DIR]
+Test: python3 paper/analysis/r1c_stats.py --selftest     (synthetic data only)
 """
 import argparse, csv, os, sys
 import numpy as np
-from scipy import stats
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
-from nr2_stats import r1, holm, seed_level                                    # frozen (NR2)
-from presub_stats import classify, load_pertrace, get, check_pairing, write  # frozen (Amendment 8)
+from nr2_stats import r1, holm, seed_level                         # frozen (NR2)
+from presub_stats import load_pertrace, get, check_pairing, write  # frozen (Amendment 8)
 
 SCHEMES = ['GBT-res-ACK', 'GBT-full-ACK']
-CELLS = ['G2_hi_d10', 'G3_lo_d18']
+FITS = [1, 2, 3, 4]
+CELLS = ['G2', 'G3']
 G_FAMILY = ['Baseline', 'OLLA', 'OLLA (tuned target)', 'Multi-OLLA', 'Fixed', 'FixedPU (Oracle)', 'Context table', 'Bandit (global)', 'Bandit (delay class)']
-G_SINGLE = ['Fixed', 'FixedPU (Oracle)', 'Context table']
+MATCH_TOL = 0.5
+FAV = ('LOSES', 'MATCH')          # outcomes favourable to the learner (margin = RL vs learner; LOSES = the learner beats RL)
 
-WORDING_ROWS = {
-    'holds across all 4 fits and both cells': 'The superiority of the one-step supervised learner over the RL policy holds across all 4 calibration fits and across both operating cells (G2 at 14 kbit and G3): the advantage does not depend on calibration-trace chance or on the specific operating point.',
-    'fit-dependent': 'The comparison between the one-step supervised learner and the RL policy is fit-dependent: performance varies across calibration sets, so the advantage observed in R1b was an artifact of the particular calibration trace draw.',
-    'operating-point dependent': 'The advantage of the one-step supervised learner over the RL policy is operating-point dependent: it holds consistently across calibration fits at the primary M1 operating point, but does not generalize to neighbouring operating cells (G2 / G3), where the RL policy and calibrated rules prevail.',
-    'neither': 'The one-step supervised learner neither reliably replicates across calibration sets nor generalizes across operating cells.',
-    'not_run': 'No calibration replication or operating-cell generalization run was performed.'
+WORDING = {
+    'holds across all fits and both cells': 'Across four independent calibration draws, the one-step learner trained on observed ACK/NACK beat or matched the RL policy on the NR2 traces, and, trained on each neighbouring cell\'s own calibration traces, beat or matched the cell\'s RL policy and beat all nine calibrated comparators in both cells.',
+    'replicates across fits, cell-dependent': 'The result was consistent across the four calibration draws in every trace set, but cell-dependent: the learner beat or matched the RL policy on the NR2 traces and in [cell], not in [other cell].',
+    'operating-point dependent': 'The result was consistent across the four calibration draws, but held only at the M1 operating point: in neither neighbouring cell did the cell-trained learner both beat or match the RL policy and beat all nine calibrated comparators.',
+    'cells hold, fit-dependent': 'In both neighbouring cells the cell-trained learner held across all four calibration draws, but on the NR2 traces the comparison with the RL policy depends on the calibration draw.',
+    'depends on the calibration draw': 'The comparison between the one-step learner and the RL policy depends on the calibration draw: the four independent draws gave different outcomes.',
+    'neither': 'The one-step learner trained on observed ACK/NACK neither held against the RL policy across calibration draws nor generalized to the neighbouring cells.',
+    'not run': 'No calibration-draw replication or per-cell test of the ACK-trained learner was run.',
 }
 
-def merge_dict(P, Q):
-    for k, v in Q.items():
-        if k in P:
-            # If same key exists, check if seeds are non-overlapping or identical
-            p_seeds, q_seeds = P[k]['seeds'], v['seeds']
-            if set(p_seeds).isdisjoint(set(q_seeds)):
-                new_seeds = sorted(p_seeds + q_seeds)
-                seed_map = {s: P[k]['M'][p_seeds.index(s)] for s in p_seeds}
-                seed_map.update({s: v['M'][q_seeds.index(s)] for s in q_seeds})
-                P[k] = dict(seeds=new_seeds, traces=P[k]['traces'], M=np.array([seed_map[s] for s in new_seeds]))
-            else:
-                pass # keep existing
-        else:
-            P[k] = v
+def classify_r1c(r, holm_p, hier_lo):
+    """Amendment 10a: MATCH = Holm not significant and |margin| < 0.5 %."""
+    if holm_p < 0.05 and r['ci90_lo'] > 0: return 'BEATS' if hier_lo > 0 else 'BEATS-TRACE'
+    if holm_p < 0.05 and r['ci90_hi'] < 0: return 'LOSES'
+    if holm_p >= 0.05 and abs(r['margin_pct']) < MATCH_TOL: return 'MATCH'
+    return 'INCONCLUSIVE'
+
+def load(indir):
+    main = os.path.join(indir, 'pertrace_G2corrected.csv')
+    if not os.path.exists(main): raise SystemExit('pertrace_G2corrected.csv missing: the G2 RL comparator must be the corrected (D1) one')
+    P = load_pertrace(main)
+    for f in [os.path.join(indir, 'r1b', 'pertrace_r1b.csv'), os.path.join(indir, 'r1c', 'pertrace_r1c.csv')]:
+        if os.path.exists(f):
+            for k, v in load_pertrace(f).items():
+                if k in P: raise SystemExit(f'duplicate (trace_set, scheme) {k}')
+                P[k] = v
+    for s in SCHEMES:                                    # R1b's model is M1 fit 1
+        if ('NR2', s) in P: P[('NR2', f'{s}-M1fit1')] = P.pop(('NR2', s))
     return P
 
-def load_data(indir):
-    f_main = os.path.join(indir, 'pertrace.csv')
-    f_r1b = os.path.join(indir, 'r1b', 'pertrace_r1b.csv')
-    f_r1c_nr2 = os.path.join(indir, 'r1c', 'pertrace_r1c_nr2.csv')
-    f_r1c_g2 = os.path.join(indir, 'r1c', 'pertrace_r1c_g2.csv')
-    f_r1c_g3 = os.path.join(indir, 'r1c', 'pertrace_r1c_g3.csv')
+def rl_matrix(P, ts):
+    return get(P, ts, 'NR2' if ts == 'NR2' else 'NRG10', list(range(1, 11)))
 
-    P = {}
-    for fp in [f_main, f_r1b, f_r1c_nr2, f_r1c_g2, f_r1c_g3]:
-        if os.path.isfile(fp):
-            Q = load_pertrace(fp)
-            merge_dict(P, Q)
-    return P
+def fits_vs_rl(P, ts, kind):
+    """All fits x schemes of one kind ('M1fit' or 'cellfit') in one trace set vs the 10-seed RL policy; Holm over the family."""
+    A = rl_matrix(P, ts)
+    names = [(s, k, f'{s}-{kind}{k}') for s in SCHEMES for k in FITS if get(P, ts, f'{s}-{kind}{k}') is not None]
+    if A is None or not names: return []
+    check_pairing(P, ts, ['NR2' if ts == 'NR2' else 'NRG10'] + [n for _, _, n in names])
+    a = A.mean(axis=0); rows = []
+    for s, k, n in names:
+        x = get(P, ts, n); r = r1(a, x)
+        rows.append(dict(trace_set=ts, kind=kind, scheme=s, fit=k, ontime=float(x.mean()), rl_ontime=float(a.mean()), **r))
+    for r, h in zip(rows, holm(np.array([r['p'] for r in rows]))):
+        sl = seed_level(A, get(P, ts, f"{r['scheme']}-{kind}{r['fit']}"))
+        r.update(holm_p=h, hier95_lo=sl['hier95_lo'], hier95_hi=sl['hier95_hi'], seeds_above=sl['seeds_above'], n_seeds=sl['n_seeds'])
+        r['outcome_vs_rl'] = classify_r1c(r, h, sl['hier95_lo'])
+    return rows
 
-def get_fit_vector(P, trace_set, scheme, fit_idx):
-    """Retrieve trace-level 1-D vector (length T) for a given scheme and fit index (1..4)."""
-    # 1. Try scheme-fit name directly: e.g. GBT-res-ACK-fit1
-    v = get(P, trace_set, f'{scheme}-fit{fit_idx}')
-    if v is not None:
-        v = np.asarray(v)
-        return v[0] if v.ndim == 2 else v
-    # 2. Try base scheme with seed = fit_idx or seed = 0 for fit 1
-    e = P.get((trace_set, scheme))
-    if e is not None:
-        if fit_idx in e['seeds']:
-            idx = e['seeds'].index(fit_idx)
-            return e['M'][idx]
-        elif fit_idx == 1 and e['seeds'] == [0]:
-            return e['M'][0]
-    return None
+def beats_rules(P, ts, name):
+    """'beats rules' = R1 against every member of the cell's family of 9, Holm over 9."""
+    x = get(P, ts, name); cs = [c for c in G_FAMILY if get(P, ts, c) is not None]
+    if x is None or len(cs) != len(G_FAMILY): return None, []
+    check_pairing(P, ts, [name] + cs)
+    rr = [dict(r1(x, get(P, ts, c)), trace_set=ts, scheme=name, comparator=c) for c in cs]
+    for r, h in zip(rr, holm(np.array([r['p'] for r in rr]))): r['holm_p'] = h; r['beats'] = int(h < 0.05 and r['ci90_lo'] > 0)
+    return all(r['beats'] == 1 for r in rr), rr
 
-def analyze_replication(P):
-    """Analyze the 4 calibration fits on NR2 evaluation traces against NR2."""
-    A_nr2 = get(P, 'NR2', 'NR2', list(range(1, 11)))
-    if A_nr2 is None:
-        return [], {}, {}
+def state(fav):
+    """Fit consistency within a trace set and scheme: 'holds' (all 4 favourable), 'fails' (none), 'split' (otherwise)."""
+    if len(fav) != len(FITS): return 'incomplete'
+    return 'holds' if all(fav) else ('fails' if not any(fav) else 'split')
 
-    rows = []
-    summary = {}
-    worst_fits = {}
+def verdict(st):
+    n, g2, g3 = st.get('NR2'), st.get('G2'), st.get('G3')
+    if n is None and g2 is None and g3 is None: return 'not run'
+    if 'incomplete' in (n, g2, g3) or None in (n, g2, g3): return 'not run'
+    if n == 'holds' and g2 == 'holds' and g3 == 'holds': return 'holds across all fits and both cells'
+    if n == 'split' and g2 == 'holds' and g3 == 'holds': return 'cells hold, fit-dependent'
+    if 'split' in (n, g2, g3): return 'depends on the calibration draw'
+    if n == 'holds' and (g2 == 'holds') != (g3 == 'holds'): return 'replicates across fits, cell-dependent'
+    if n == 'holds': return 'operating-point dependent'
+    return 'neither'
 
-    for sch in SCHEMES:
-        fit_vecs = []
-        for k in range(1, 5):
-            fv = get_fit_vector(P, 'NR2', sch, k)
-            if fv is not None:
-                fit_vecs.append((k, fv))
+def run(indir, out):
+    os.makedirs(out, exist_ok=True)
+    P = load(indir); fit_rows, rule_rows, summ, txt, pv = [], [], [], [], []
+    states = {s: {} for s in SCHEMES}
+    for ts, kind, role in [('NR2', 'M1fit', 'primary: replication'), ('G2', 'cellfit', 'primary: cell'), ('G3', 'cellfit', 'primary: cell'),
+                           ('G2', 'M1fit', 'secondary: transfer'), ('G3', 'M1fit', 'secondary: transfer')]:
+        rows = fits_vs_rl(P, ts, kind)
+        for r in rows:
+            r['role'] = role
+            if ts in CELLS:
+                b, rr = beats_rules(P, ts, f"{r['scheme']}-{kind}{r['fit']}")
+                r['beats_rules'] = '' if b is None else ('yes' if b else 'no'); rule_rows += [dict(x, role=role) for x in rr]
+            else: r['beats_rules'] = 'n/a'
+            r['favourable'] = (r['outcome_vs_rl'] in FAV) and (ts == 'NR2' or r['beats_rules'] == 'yes')
+        fit_rows += rows
+        for s in SCHEMES:
+            sr = [r for r in rows if r['scheme'] == s]
+            if not sr: continue
+            o = np.array([r['ontime'] for r in sr]); st = state([r['favourable'] for r in sr])
+            worst = min(sr, key=lambda r: r['ontime'])
+            summ.append(dict(role=role, trace_set=ts, kind=kind, scheme=s, n_fits=len(sr), state=st, mean_ontime=o.mean(), min_ontime=o.min(), max_ontime=o.max(),
+                             rl_ontime=sr[0]['rl_ontime'], worst_fit=worst['fit'], worst_margin=worst['margin_pct'], worst_outcome=worst['outcome_vs_rl'],
+                             outcomes=' '.join(f"{r['fit']}:{r['outcome_vs_rl']}" for r in sr)))
+            if role.startswith('primary'): states[s][ts] = st
+    write(os.path.join(out, 'r1c_fits.csv'), fit_rows); write(os.path.join(out, 'r1c_rules.csv'), rule_rows); write(os.path.join(out, 'r1c_summary.csv'), summ)
+    for s in SCHEMES:
+        v = verdict(states[s]); txt.append(f'{s}: {v} | states {states[s]}'); txt.append(f'  statement: {WORDING[v]}')
+        pv.append((f"verdict_{s.replace('-', '').lower()}", v))
+    for r in summ:
+        txt.append(f"  [{r['role']}] {r['trace_set']} {r['scheme']}: {r['state']}; mean on-time {r['mean_ontime']:.4f} (min {r['min_ontime']:.4f}, max {r['max_ontime']:.4f}) vs RL {r['rl_ontime']:.4f}; outcomes {r['outcomes']}")
+    open(os.path.join(out, 'r1c_verdicts.txt'), 'w', encoding='utf-8').write('\n'.join(txt) + '\n')
+    with open(os.path.join(out, 'r1c_pending_values.csv'), 'w', newline='', encoding='utf-8') as fh:
+        w = csv.writer(fh); w.writerow(['item', 'key', 'value', 'source_file', 'date'])
+        for k, v in pv: w.writerow(['R1C', k, v, 'paper/analysis/out/r1c_*.csv', ''])
+    print('\n'.join(txt)); return states
 
-        if not fit_vecs:
-            continue
-
-        a_mean = A_nr2.mean(axis=0)
-        sch_rows = []
-        means = []
-
-        for k, fv in fit_vecs:
-            means.append(fv.mean())
-            res = r1(a_mean, fv)
-            sl = seed_level(A_nr2, fv)
-            row = dict(
-                trace_set='NR2',
-                scheme=sch,
-                fit=k,
-                ontime_mean=float(fv.mean()),
-                margin_pct=float(res['margin_pct']),
-                margin_vs_nr2=float(res['margin_pct']),
-                ci90_lo=float(res['ci90_lo']),
-                ci90_hi=float(res['ci90_hi']),
-                p=float(res['p']),
-                hier95_lo=float(sl['hier95_lo']),
-                hier95_hi=float(sl['hier95_hi']),
-                seeds_above=int(sl['seeds_above']),
-                n_seeds=int(sl['n_seeds']),
-                worst_holm_p='',
-                worst_outcome=''
-            )
-            row['outcome'] = classify(row, row['p'], row['hier95_lo'])
-            sch_rows.append(row)
-
-        # Fit-level statistics
-        M = np.array(means)
-        m_mean = float(M.mean())
-        m_sd = float(M.std(ddof=1)) if len(M) > 1 else 0.0
-        t_crit = float(stats.t.ppf(0.975, len(M) - 1)) if len(M) > 1 else 0.0
-        se = m_sd / np.sqrt(len(M)) if len(M) > 0 else 0.0
-        ci_lo, ci_hi = m_mean - t_crit * se, m_mean + t_crit * se
-        min_ontime, max_ontime = float(M.min()), float(M.max())
-
-        # Worst fit = lowest on-time
-        worst_idx = int(np.argmin(M))
-        worst_fit_num = fit_vecs[worst_idx][0]
-        worst_row = sch_rows[worst_idx]
-
-        summary[sch] = dict(
-            mean_4fits=m_mean,
-            sd_4fits=m_sd,
-            ci95_t_lo=ci_lo,
-            ci95_t_hi=ci_hi,
-            min_ontime=min_ontime,
-            max_ontime=max_ontime,
-            worst_fit=worst_fit_num,
-            worst_ontime=worst_row['ontime_mean'],
-            worst_margin=worst_row['margin_vs_nr2'],
-            worst_outcome=worst_row['outcome']
-        )
-        worst_fits[sch] = worst_row
-        rows.extend(sch_rows)
-
-    # Apply Holm over the worst fits of tested schemes
-    if worst_fits:
-        worst_p_vals = np.array([worst_fits[s]['p'] for s in worst_fits])
-        worst_holm = holm(worst_p_vals)
-        for (s, wf), hp in zip(worst_fits.items(), worst_holm):
-            wf['worst_holm_p'] = float(hp)
-            wf['worst_outcome'] = classify(wf, hp, wf['hier95_lo'])
-
-    return rows, summary, worst_fits
-
-def analyze_cells(P):
-    """Analyze the 4 calibration fits on G2 (14kbit) and G3 cells against RL and rules."""
-    cell_rows = []
-    cell_summaries = {}
-
-    for c in CELLS:
-        A_rl = get(P, c, 'NRG10', list(range(1, 11)))
-        if A_rl is None:
-            A_rl = get(P, c, 'NRG10', list(range(1, 6)))
-        if A_rl is None:
-            A_rl = get(P, c, 'NR-G10')
-
-        # Best single-cue heuristic rule
-        rules_present = [r for r in G_SINGLE if get(P, c, r) is not None]
-        best_rule_name = max(rules_present, key=lambda k: get(P, c, k).mean()) if rules_present else None
-        v_best_rule = get(P, c, best_rule_name) if best_rule_name else None
-
-        cell_summaries[c] = {}
-
-        for sch in SCHEMES:
-            fit_vecs = []
-            for k in range(1, 5):
-                fv = get_fit_vector(P, c, sch, k)
-                if fv is not None:
-                    fit_vecs.append((k, fv))
-
-            if not fit_vecs:
-                continue
-
-            means = []
-            sch_rows = []
-
-            for k, fv in fit_vecs:
-                means.append(fv.mean())
-                # Comparison vs RL policy
-                if A_rl is not None:
-                    a_rl_mean = A_rl.mean(axis=0) if A_rl.ndim > 1 else A_rl
-                    res_rl = r1(a_rl_mean, fv)
-                    sl_rl = seed_level(A_rl, fv) if A_rl.ndim > 1 else dict(hier95_lo=res_rl['ci90_lo'], hier95_hi=res_rl['ci90_hi'], seeds_above=0, n_seeds=1)
-                    out_rl = classify(res_rl, res_rl['p'], sl_rl['hier95_lo'])
-                else:
-                    res_rl = dict(margin_pct=0.0, ci90_lo=0.0, ci90_hi=0.0, p=1.0)
-                    sl_rl = dict(hier95_lo=0.0, hier95_hi=0.0, seeds_above=0, n_seeds=0)
-                    out_rl = 'not run'
-
-                # Comparison vs best heuristic rule
-                if v_best_rule is not None:
-                    res_rule = r1(v_best_rule, fv) # positive favors best rule, negative favors learner
-                    out_rule = 'BEATS_RULE' if res_rule['p'] < 0.05 and res_rule['ci90_hi'] < 0 else ('LOSES_TO_RULE' if res_rule['p'] < 0.05 and res_rule['ci90_lo'] > 0 else 'MATCH_RULE')
-                    m_rule = float(-res_rule['margin_pct']) # positive favors learner
-                else:
-                    m_rule, out_rule = 0.0, 'not run'
-
-                row = dict(
-                    cell=c,
-                    scheme=sch,
-                    fit=k,
-                    ontime_mean=float(fv.mean()),
-                    margin_vs_rl=float(res_rl['margin_pct']),
-                    ci90_lo=float(res_rl['ci90_lo']),
-                    ci90_hi=float(res_rl['ci90_hi']),
-                    p=float(res_rl['p']),
-                    hier95_lo=float(sl_rl['hier95_lo']),
-                    hier95_hi=float(sl_rl['hier95_hi']),
-                    seeds_above=int(sl_rl['seeds_above']),
-                    n_seeds=int(sl_rl['n_seeds']),
-                    outcome_vs_rl=out_rl,
-                    best_rule=best_rule_name if best_rule_name else 'none',
-                    margin_vs_bestrule=m_rule,
-                    outcome_vs_rule=out_rule
-                )
-                sch_rows.append(row)
-
-            M = np.array(means)
-            m_mean = float(M.mean())
-            worst_idx = int(np.argmin(M))
-            worst_fit_num = fit_vecs[worst_idx][0]
-            worst_row = sch_rows[worst_idx]
-
-            cell_summaries[c][sch] = dict(
-                mean_4fits=m_mean,
-                min_ontime=float(M.min()),
-                max_ontime=float(M.max()),
-                worst_fit=worst_fit_num,
-                worst_ontime=worst_row['ontime_mean'],
-                worst_outcome_vs_rl=worst_row['outcome_vs_rl'],
-                worst_outcome_vs_rule=worst_row['outcome_vs_rule']
-            )
-            cell_rows.extend(sch_rows)
-
-    return cell_rows, cell_summaries
-
-def synthesize_verdict(rep_rows, rep_summaries, cell_rows, cell_summaries):
-    """Determine the pre-registered wording row:
-    - 'holds across all 4 fits and both cells'
-    - 'fit-dependent'
-    - 'operating-point dependent'
-    """
-    if not rep_rows and not cell_rows:
-        return 'not_run', WORDING_ROWS['not_run']
-
-    # 1. Check replication across fits on NR2
-    # Does any scheme beat NR2 across all 4 fits?
-    res_fits = [r for r in rep_rows if r['scheme'] == 'GBT-res-ACK']
-    full_fits = [r for r in rep_rows if r['scheme'] == 'GBT-full-ACK']
-
-    res_all_beat = len(res_fits) == 4 and all(r['outcome'] == 'LOSES' for r in res_fits)
-    full_all_beat = len(full_fits) == 4 and all(r['outcome'] == 'LOSES' for r in full_fits)
-
-    # Are outcomes mixed across fits on NR2?
-    res_mixed = len(res_fits) == 4 and len(set(r['outcome'] for r in res_fits)) > 1
-    full_mixed = len(full_fits) == 4 and len(set(r['outcome'] for r in full_fits)) > 1
-
-    # 2. Check operating cells G2 and G3
-    # In each cell, do the fits beat the RL policy and rules?
-    def cell_all_beat(c_tag, sch):
-        c_fits = [r for r in cell_rows if r['cell'] == c_tag and r['scheme'] == sch]
-        if len(c_fits) != 4: return False
-        return all(r['outcome_vs_rl'] == 'LOSES' and r['outcome_vs_rule'] == 'BEATS_RULE' for r in c_fits)
-
-    g2_res_beat = cell_all_beat('G2_hi_d10', 'GBT-res-ACK')
-    g2_full_beat = cell_all_beat('G2_hi_d10', 'GBT-full-ACK')
-    g3_res_beat = cell_all_beat('G3_lo_d18', 'GBT-res-ACK')
-    g3_full_beat = cell_all_beat('G3_lo_d18', 'GBT-full-ACK')
-
-    # Condition: holds across all 4 fits and both cells
-    if (res_all_beat and g2_res_beat and g3_res_beat) or (full_all_beat and g2_full_beat and g3_full_beat):
-        return 'holds across all 4 fits and both cells', WORDING_ROWS['holds across all 4 fits and both cells']
-
-    # Condition: fit-dependent (performance varies qualitatively across calibration sets on NR2)
-    if (res_mixed and full_mixed) or (not res_all_beat and not full_all_beat and any(r['outcome'] == 'LOSES' for r in rep_rows)):
-        return 'fit-dependent', WORDING_ROWS['fit-dependent']
-
-    # Condition: operating-point dependent (replicates on NR2 across fits, but fails on G2 or G3)
-    if (res_all_beat or full_all_beat) and not (g2_res_beat and g3_res_beat) and not (g2_full_beat and g3_full_beat):
-        return 'operating-point dependent', WORDING_ROWS['operating-point dependent']
-
-    return 'neither', WORDING_ROWS['neither']
-
-def write_pending(outdir, rep_sum, cell_sum, verdict_key):
-    pending_rows = []
-    pending_rows.append(['R1C', 'verdict_key', verdict_key, 'paper/analysis/out/r1c_*.csv', ''])
-    for sch in SCHEMES:
-        if sch in rep_sum:
-            s_tag = 'gbtresack' if 'res' in sch else 'gbtfullack'
-            pending_rows.append(['R1C', f'mean_ontime_{s_tag}', f"{rep_sum[sch]['mean_4fits']:.4f}", 'paper/analysis/out/r1c_*.csv', ''])
-            pending_rows.append(['R1C', f'worst_fit_{s_tag}', str(rep_sum[sch]['worst_fit']), 'paper/analysis/out/r1c_*.csv', ''])
-            pending_rows.append(['R1C', f'worst_margin_{s_tag}', f"{rep_sum[sch]['worst_margin']:.2f}", 'paper/analysis/out/r1c_*.csv', ''])
-    
-    with open(os.path.join(outdir, 'r1c_pending_values.csv'), 'w', newline='', encoding='utf-8') as fh:
-        w = csv.writer(fh)
-        w.writerow(['item', 'key', 'value', 'source_file', 'date'])
-        w.writerows(pending_rows)
-
-def run(indir, outdir):
-    os.makedirs(outdir, exist_ok=True)
-    P = load_data(indir)
-    rep_rows, rep_sum, worst_fits = analyze_replication(P)
-    cell_rows, cell_sum = analyze_cells(P)
-    v_key, v_text = synthesize_verdict(rep_rows, rep_sum, cell_rows, cell_sum)
-
-    # Write r1c_replication.csv
-    if rep_rows:
-        fields = ['trace_set', 'scheme', 'fit', 'ontime_mean', 'margin_pct', 'margin_vs_nr2', 'ci90_lo', 'ci90_hi', 'p', 'hier95_lo', 'hier95_hi', 'seeds_above', 'n_seeds', 'outcome', 'worst_holm_p', 'worst_outcome']
-        with open(os.path.join(outdir, 'r1c_replication.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.DictWriter(fh, fieldnames=fields)
-            w.writeheader()
-            w.writerows(rep_rows)
-
-    # Write r1c_cells.csv
-    if cell_rows:
-        fields = ['cell', 'scheme', 'fit', 'ontime_mean', 'margin_vs_rl', 'ci90_lo', 'ci90_hi', 'p', 'hier95_lo', 'hier95_hi', 'seeds_above', 'n_seeds', 'outcome_vs_rl', 'best_rule', 'margin_vs_bestrule', 'outcome_vs_rule']
-        with open(os.path.join(outdir, 'r1c_cells.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.DictWriter(fh, fieldnames=fields)
-            w.writeheader()
-            w.writerows(cell_rows)
-
-    # Write r1c_verdicts.txt
-    with open(os.path.join(outdir, 'r1c_verdicts.txt'), 'w', encoding='utf-8') as fh:
-        fh.write(f"R1c verdict: {v_key}\n")
-        fh.write(f"Statement: {v_text}\n\n")
-        fh.write("Replication summary (NR2 traces):\n")
-        for s, d in rep_sum.items():
-            fh.write(f"  {s}: 4-fit mean={d['mean_4fits']:.4f} [{d['ci95_t_lo']:.4f}, {d['ci95_t_hi']:.4f}] (min={d['min_ontime']:.4f}, max={d['max_ontime']:.4f}); worst fit {d['worst_fit']} margin={d['worst_margin']:.2f}% ({d['worst_outcome']})\n")
-        fh.write("\nCell generalization summary:\n")
-        for c, cd in cell_sum.items():
-            fh.write(f"  Cell {c}:\n")
-            for s, d in cd.items():
-                fh.write(f"    {s}: 4-fit mean={d['mean_4fits']:.4f} (min={d['min_ontime']:.4f}, max={d['max_ontime']:.4f}); worst fit {d['worst_fit']} vs RL={d['worst_outcome_vs_rl']}, vs rule={d['worst_outcome_vs_rule']}\n")
-
-    # Write r1c_pending_values.csv
-    write_pending(outdir, rep_sum, cell_sum, v_key)
-
-    print(f"R1c verdict: {v_key}")
-    print(f"Statement: {v_text}")
-
-# ------------------------------------------------------------------ selftest
+# ------------------------------------------------------------------ self-test (synthetic data only)
 def selftest():
     import tempfile
     rng = np.random.default_rng(20261115)
-    with tempfile.TemporaryDirectory() as d:
-        ind = os.path.join(d, 'presub')
-        os.makedirs(os.path.join(ind, 'r1b'), exist_ok=True)
-        os.makedirs(os.path.join(ind, 'r1c'), exist_ok=True)
-        out = os.path.join(d, 'out')
-
-        # Generate synthetic pertrace.csv (NR2 on NR2 traces: 10 seeds, 500 traces, mean ~0.62)
-        T_nr2 = 500
-        with open(os.path.join(ind, 'pertrace.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.writer(fh)
-            w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
+    def make(d, nr2_lvls, cell_lvls, rule_lvl=0.53):
+        ind = os.path.join(d, 'presub'); os.makedirs(os.path.join(ind, 'r1b'), exist_ok=True); os.makedirs(os.path.join(ind, 'r1c'), exist_ok=True)
+        with open(os.path.join(ind, 'pertrace_G2corrected.csv'), 'w', newline='') as fh:
+            w = csv.writer(fh); w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
             for s in range(1, 11):
-                base_s = 0.62 + 0.005 * (s - 5.5)
-                for t in range(1, T_nr2 + 1):
-                    w.writerow(['NR2', 'NR2', s, t, f"{base_s + rng.normal(0, 0.02):.4f}"])
-
-        # Test case 1: "holds across all 4 fits and both cells"
-        # Fits 1-4 on NR2: all ~0.66 (beats NR2)
-        with open(os.path.join(ind, 'r1b', 'pertrace_r1b.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.writer(fh)
-            w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
-            for t in range(1, T_nr2 + 1):
-                w.writerow(['NR2', 'GBT-res-ACK', 0, t, f"{0.65 + rng.normal(0, 0.01):.4f}"])
-                w.writerow(['NR2', 'GBT-full-ACK', 0, t, f"{0.67 + rng.normal(0, 0.01):.4f}"])
-
-        with open(os.path.join(ind, 'r1c', 'pertrace_r1c_nr2.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.writer(fh)
-            w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
-            for fit_k in range(2, 5):
-                for t in range(1, T_nr2 + 1):
-                    w.writerow(['NR2', f'GBT-res-ACK-fit{fit_k}', 0, t, f"{0.645 + 0.005 * fit_k + rng.normal(0, 0.01):.4f}"])
-                    w.writerow(['NR2', f'GBT-full-ACK-fit{fit_k}', 0, t, f"{0.665 + 0.005 * fit_k + rng.normal(0, 0.01):.4f}"])
-
-        # Cell G2 and G3: 300 traces
-        T_cell = 300
-        for c, f_name in [('G2_hi_d10', 'pertrace_r1c_g2.csv'), ('G3_lo_d18', 'pertrace_r1c_g3.csv')]:
-            with open(os.path.join(ind, 'r1c', f_name), 'w', newline='', encoding='utf-8') as fh:
-                w = csv.writer(fh)
-                w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
-                # RL policy (NRG10): 5 seeds, mean ~0.55
-                for s in range(1, 6):
-                    for t in range(1, T_cell + 1):
-                        w.writerow([c, 'NRG10', s, t, f"{0.55 + rng.normal(0, 0.02):.4f}"])
-                # Comparators
-                for cmp_name in G_FAMILY:
-                    for t in range(1, T_cell + 1):
-                        w.writerow([c, cmp_name, 0, t, f"{0.53 + rng.normal(0, 0.02):.4f}"])
-                # Fits 1-4: mean ~0.60 (beats RL and rules)
-                for fit_k in range(1, 5):
-                    for t in range(1, T_cell + 1):
-                        w.writerow([c, f'GBT-res-ACK-fit{fit_k}', 0, t, f"{0.60 + rng.normal(0, 0.01):.4f}"])
-                        w.writerow([c, f'GBT-full-ACK-fit{fit_k}', 0, t, f"{0.62 + rng.normal(0, 0.01):.4f}"])
-
-        run(ind, out)
-        v_txt = open(os.path.join(out, 'r1c_verdicts.txt')).read()
-        assert 'holds across all 4 fits and both cells' in v_txt, v_txt
-        rep = list(csv.DictReader(open(os.path.join(out, 'r1c_replication.csv'))))
-        assert len(rep) == 8, len(rep) # 4 fits x 2 schemes
-
-        # Test case 2: "operating-point dependent" (G2 fails)
-        with open(os.path.join(ind, 'r1c', 'pertrace_r1c_g2.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.writer(fh)
-            w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
-            for s in range(1, 6):
-                for t in range(1, T_cell + 1):
-                    w.writerow(['G2_hi_d10', 'NRG10', s, t, f"{0.65 + rng.normal(0, 0.02):.4f}"]) # RL is strong
-            for cmp_name in G_FAMILY:
-                for t in range(1, T_cell + 1):
-                    w.writerow(['G2_hi_d10', cmp_name, 0, t, f"{0.53 + rng.normal(0, 0.02):.4f}"])
-            for fit_k in range(1, 5):
-                for t in range(1, T_cell + 1):
-                    w.writerow(['G2_hi_d10', f'GBT-res-ACK-fit{fit_k}', 0, t, f"{0.50 + rng.normal(0, 0.01):.4f}"]) # Learner fails
-                    w.writerow(['G2_hi_d10', f'GBT-full-ACK-fit{fit_k}', 0, t, f"{0.52 + rng.normal(0, 0.01):.4f}"])
-
-        run(ind, out)
-        v_txt = open(os.path.join(out, 'r1c_verdicts.txt')).read()
-        assert 'operating-point dependent' in v_txt, v_txt
-
-        # Test case 3: "fit-dependent" (on NR2, fits disagree)
-        with open(os.path.join(ind, 'r1c', 'pertrace_r1c_nr2.csv'), 'w', newline='', encoding='utf-8') as fh:
-            w = csv.writer(fh)
-            w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
-            # fit 2 beats, fit 3 loses badly, fit 4 matches
-            for t in range(1, T_nr2 + 1):
-                w.writerow(['NR2', 'GBT-res-ACK-fit2', 0, t, f"{0.66 + rng.normal(0, 0.01):.4f}"])
-                w.writerow(['NR2', 'GBT-res-ACK-fit3', 0, t, f"{0.55 + rng.normal(0, 0.01):.4f}"]) # loses
-                w.writerow(['NR2', 'GBT-res-ACK-fit4', 0, t, f"{0.62 + rng.normal(0, 0.01):.4f}"])
-                w.writerow(['NR2', 'GBT-full-ACK-fit2', 0, t, f"{0.68 + rng.normal(0, 0.01):.4f}"])
-                w.writerow(['NR2', 'GBT-full-ACK-fit3', 0, t, f"{0.57 + rng.normal(0, 0.01):.4f}"])
-                w.writerow(['NR2', 'GBT-full-ACK-fit4', 0, t, f"{0.62 + rng.normal(0, 0.01):.4f}"])
-
-        run(ind, out)
-        v_txt = open(os.path.join(out, 'r1c_verdicts.txt')).read()
-        assert 'fit-dependent' in v_txt, v_txt
-
-    print("SELFTEST PASS: all wording conditions and statistical aggregations verified.")
+                v = 0.62 + rng.normal(0, 0.003) + rng.normal(0, 0.01, 500)
+                for t in range(500): w.writerow(['NR2', 'NR2', s, t + 1, v[t]])
+            for c in CELLS:
+                for s in range(1, 11):
+                    v = 0.55 + rng.normal(0, 0.003) + rng.normal(0, 0.01, 300)
+                    for t in range(300): w.writerow([c, 'NRG10', s, t + 1, v[t]])
+                for k in G_FAMILY:
+                    v = rule_lvl + rng.normal(0, 0.01, 300)
+                    for t in range(300): w.writerow([c, k, 0, t + 1, v[t]])
+        with open(os.path.join(ind, 'r1b', 'pertrace_r1b.csv'), 'w', newline='') as fh:
+            w = csv.writer(fh); w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
+            for s in SCHEMES:
+                v = nr2_lvls[0] + rng.normal(0, 0.01, 500)
+                for t in range(500): w.writerow(['NR2', s, 0, t + 1, v[t]])
+        with open(os.path.join(ind, 'r1c', 'pertrace_r1c.csv'), 'w', newline='') as fh:
+            w = csv.writer(fh); w.writerow(['trace_set', 'scheme', 'seed', 'trace', 'value'])
+            for s in SCHEMES:
+                for k in [2, 3, 4]:
+                    v = nr2_lvls[k - 1] + rng.normal(0, 0.01, 500)
+                    for t in range(500): w.writerow(['NR2', f'{s}-M1fit{k}', 0, t + 1, v[t]])
+                for c in CELLS:
+                    for k in FITS:
+                        for kind in ['cellfit', 'M1fit']:
+                            v = cell_lvls[c][k - 1] + rng.normal(0, 0.01, 300)
+                            for t in range(300): w.writerow([c, f'{s}-{kind}{k}', 0, t + 1, v[t]])
+        return ind
+    cases = [([0.66] * 4, {'G2': [0.60] * 4, 'G3': [0.60] * 4}, 'holds across all fits and both cells'),
+             ([0.66] * 4, {'G2': [0.60] * 4, 'G3': [0.50] * 4}, 'replicates across fits, cell-dependent'),
+             ([0.66] * 4, {'G2': [0.50] * 4, 'G3': [0.50] * 4}, 'operating-point dependent'),
+             ([0.66, 0.58, 0.66, 0.58], {'G2': [0.60] * 4, 'G3': [0.60] * 4}, 'cells hold, fit-dependent'),
+             ([0.66] * 4, {'G2': [0.60, 0.50, 0.60, 0.60], 'G3': [0.60] * 4}, 'depends on the calibration draw'),
+             ([0.58] * 4, {'G2': [0.50] * 4, 'G3': [0.50] * 4}, 'neither'),
+             ([0.6201] * 4, {'G2': [0.5501] * 4, 'G3': [0.5501] * 4}, None)]   # MATCH with RL everywhere (MATCH counts as favourable)
+    for nr2_l, cell_l, want in cases:
+        with tempfile.TemporaryDirectory() as d:
+            st = run(make(d, nr2_l, cell_l), os.path.join(d, 'out'))
+            got = {s: verdict(st[s]) for s in SCHEMES}
+            if want is not None: assert all(g == want for g in got.values()), (want, got)
+            else:
+                rows = list(csv.DictReader(open(os.path.join(d, 'out', 'r1c_fits.csv'))))
+                assert all(r['outcome_vs_rl'] == 'MATCH' for r in rows if r['trace_set'] == 'NR2'), [r['outcome_vs_rl'] for r in rows]
+    # MATCH definition and classification order
+    assert classify_r1c(dict(margin_pct=0.3, ci90_lo=-0.1, ci90_hi=0.7), 0.20, -0.5) == 'MATCH'
+    assert classify_r1c(dict(margin_pct=0.3, ci90_lo=0.05, ci90_hi=0.55), 0.04, 0.01) == 'BEATS'
+    assert classify_r1c(dict(margin_pct=0.6, ci90_lo=-0.2, ci90_hi=1.4), 0.30, -0.5) == 'INCONCLUSIVE'
+    assert classify_r1c(dict(margin_pct=-3.0, ci90_lo=-3.5, ci90_hi=-2.5), 1e-6, -4.0) == 'LOSES'
+    # the D1 rule: without the corrected file the script refuses to run
+    with tempfile.TemporaryDirectory() as d:
+        try: load(d); raise AssertionError('load() must refuse without pertrace_G2corrected.csv')
+        except SystemExit: pass
+    import nr2_stats, presub_stats
+    assert r1 is nr2_stats.r1 and holm is nr2_stats.holm and seed_level is nr2_stats.seed_level and load_pertrace is presub_stats.load_pertrace
+    print('SELFTEST PASS: all six wording rows, the MATCH definition and the D1 input rule verified')
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()

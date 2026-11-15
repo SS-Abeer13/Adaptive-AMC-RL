@@ -189,3 +189,36 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 **What is not changed.** All earlier frozen texts and scripts maintain their hashes, apart from this file (`AMENDMENTS.md`), to which this entry is appended. All earlier results and verdicts stand as recorded.
 
 **Freeze v11:** hashes in `paper/proposals/FREEZE.sha256` (v10 kept as `FREEZE_v10.sha256`). Stage `r1c` may run once this entry and the v11 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 10a: 15 Nov 2026 (revision of R1c before any of its runs)
+**Trigger.** Review of the Amendment 10 text (`85b0518`, Freeze v11) before stage `r1c` ran. The weaknesses were:
+- the cells were tested only with M1-trained models;
+- the cell parameters were typed into the text, which is the class of error behind Deviation D1;
+- the RL comparator in the cells used 5 seeds;
+- "match" was not defined;
+- the "fit-dependent" wording over-interpreted the outcome.
+
+No R1c draw, log, model or output exists. `R1c_ack_prereg.md` and `paper/analysis/r1c_stats.py` are replaced; the v11 versions stay in git history.
+
+**Changes.**
+1. **Primary cell test = per-cell fits.** Four GBT-ACK fits per cell, on fresh disjoint calibration traces of that cell, with the same ε-greedy logging (ε = 0.5) around the cell's frozen base offset and the same gbt_a settings. Ranges:
+   - G2 fit k: traces 4100000 + 1000(k−1) + j, CRN 4200000 + …, stream `rng(4300000 + …)`;
+   - G3 fit k: traces 4400000 + …, CRN 4500000 + …, stream `rng(4600000 + …)`;
+   - j = 1…500, all asserted disjoint.
+
+   The M1-trained fits evaluated in the cells become a secondary **transfer** analysis.
+2. **Cell environments are loaded from `Optimized/v17x/Dataset/ckpt/g10/calib_single_<cell>.mat`, never hard-coded.** The stage asserts pkt_bits (G2 = 14 000), deadline, period, N, offered load and base offset against the file. `get_cell_cfg` is not used. The typed G3 parameters are removed; the values read from the file on 15 Nov are given for reference only.
+3. **RL comparator per cell = 10 seeds.** G2 seeds 6–10 are the corrected 14 kbit re-evaluation of Deviation D1 (`pertrace_G2corrected.csv`; the script refuses to run without it). R1 (Holm over the 8 fit × scheme comparisons per trace set) and R2 apply as for NR2.
+4. **Wording:**
+   - **"match"** = Holm not significant and |margin| < 0.5 %;
+   - **"beats rules"** = R1 against every member of the cell's family of 9, with Holm over 9;
+   - "fit-dependent" is reworded to **"depends on the calibration draw"**;
+   - rows are added for **"replicates across fits, cell-dependent"** and **"cells hold, fit-dependent"**;
+   - the verdict is given per scheme.
+5. **Compute** about 20.5 h, including per-cell logging (8 draws) and 8 cell fits. The stage specification is updated. **Multiplicity** becomes +19 cases / +38 scheme evaluations, giving project totals of 104 / 179 and a Bonferroni pool ≤ 1 790.
+
+**Validation.** `r1c_stats.py --selftest` (synthetic data only) passes. It produces each of the six wording rows from a pattern built for it, checks the MATCH definition and the order of the outcome classes, checks the refusal without the corrected G2 file, and checks that the statistics functions are the frozen ones.
+
+**Independence.** No evaluation data were opened. The writing session read only the frozen G10 calibration files (`calib_single_<cell>.mat`, `out.env` field names and values) to state §4.1.
+
+**Freeze v12:** hashes in `paper/proposals/FREEZE.sha256` (v11 kept as `FREEZE_v11.sha256`). Stage `r1c` may run once this entry and the v12 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
