@@ -154,3 +154,38 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 **What is not changed.** All earlier frozen texts and scripts keep their hashes, apart from this file (`AMENDMENTS.md`), to which D1 and this entry are appended.
 
 **Freeze v10:** hashes in `paper/proposals/FREEZE.sha256` (v9 kept as `FREEZE_v9.sha256`). Stage `r1b_ack` may run once this entry and the v10 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 10: 15 Nov 2026 (new stage R1c / `r1c`: calibration-set replication and operating-cell generalization of the ACK-trained learner; before any of its runs)
+**Trigger.** Stage R1b (`5183a89`) demonstrated that a one-step supervised learner trained purely on observed first-transmission ACK/NACK feedback beat NR2 across all 10 policy seeds on the NR2 confirmatory traces (GBT-res-ACK on-time 0.6420, margin −3.40 % [−3.75, −3.05] %, hier [−4.43, −2.47] %; GBT-full-ACK on-time 0.6710, margin −7.58 % [−8.09, −7.07] %, hier [−8.64, −6.61] %; twins over simulator true-SINR labels +0.73 % and +2.21 %; all ECE ≤ 0.021). Two critical scientific questions arise immediately:
+(a) **Calibration-set replication:** was this advantage dependent on the specific 500 calibration traces used (draw chance), or does it hold across independent calibration sets?
+(b) **Operating-cell generalization:** does the ACK-trained learner maintain its advantage at neighbouring operating points across the NR-G10 grid (G2 at 14 kbit and G3) against the RL policy and calibrated heuristic baselines?
+
+**What is added.** `R1c_ack_prereg.md` (new, frozen) and `paper/analysis/r1c_stats.py` (frozen with it; validated on synthetic data):
+- **Replication across 4 fits:** 3 additional fresh, disjoint calibration trace sets (500 traces each, M1 setup, ε-greedy logging with ε = 0.5):
+  - Fit 1: traces 600001–600500, CRN 610001+, exploration stream `rng(3050000 + j)` (from R1b);
+  - Fit 2: traces 620001–620500, CRN 630001+, exploration stream `rng(3060000 + j)`;
+  - Fit 3: traces 640001–640500, CRN 650001+, exploration stream `rng(3070000 + j)`;
+  - Fit 4: traces 660001–660500, CRN 670001+, exploration stream `rng(3080000 + j)`.
+  All 4 fits trained with `HistGradientBoostingClassifier` under `gbt_a` settings (`max_iter=300, lr=0.05, 31 leaves, min 40 per leaf`).
+  Each fit deployed as `GBT-res-ACK` (base ±1) and `GBT-full-ACK` (−4…+2) on the 500 NR2 confirmatory evaluation traces (traces 1000001–1000500).
+  Reporting: fit-level mean, min, max, Student-t 95 % CI across fits, and the worst fit evaluated against NR2 under Rule R1 (Holm over the 2 schemes) and Rule R2 (hierarchical 95 % CI over 10 NR2 seeds).
+- **Operating-cell generalization:** The 4 ACK fits evaluated on the 300 held-out evaluation traces of the two neighbouring cells from the pre-registered NR-G10 operating grid:
+  - `G2_hi_d10`: 14,000 bits (corrected per Deviation D1), 10 TTI deadline, base offset `Fixed -2` (traces 720001–720300, CRN 730001+);
+  - `G3_lo_d18`: 8,000 bits, 18 TTI deadline, base offset `Fixed -3` (traces 740001–740300, CRN 750001+).
+  Evaluated against the frozen per-cell single-cue comparators (`G_FAMILY`, Holm over 9 per cell) and the cell's RL policies from NR-G10 (`NRG10`, Rule R1 and Rule R2).
+- **Pre-registered wording rows (§5):**
+  - "holds across all 4 fits and both cells"
+  - "fit-dependent"
+  - "operating-point dependent"
+  - "neither holds nor generalizes"
+  - "not run"
+
+**Multiplicity.** Adds **11 cases / 22 scheme evaluations** (3 new fits on NR2 = +3 cases / +6 evaluations; 4 fits on G2 = +4 cases / +8 evaluations; 4 fits on G3 = +4 cases / +8 evaluations; alternatively +5 cases grouped by cell). With Amendment 9 the project totals become **96 cases / 163 scheme evaluations**, Bonferroni pool ≤ 1 630 tests.
+
+**Compute estimate.** 3 calibration logs (≈ 4 min), 3 model trainings (≈ 3 min), gates (≈ 1 min), NR2 evaluations for 3 fits (≈ 4.9 h), cell G2 evaluations for 4 fits (≈ 3.7 h), cell G3 evaluations for 4 fits (≈ 3.7 h). Total: **≈ 12.3 h** (roughly 12–14 h).
+
+**Independence.** Written after the R1b results were known. No R1c exploration draw, calibration log, model or evaluation output exists. `r1c_stats.py --selftest` was validated on synthetic data only; no evaluation data were opened by the writing session.
+
+**What is not changed.** All earlier frozen texts and scripts maintain their hashes, apart from this file (`AMENDMENTS.md`), to which this entry is appended. All earlier results and verdicts stand as recorded.
+
+**Freeze v11:** hashes in `paper/proposals/FREEZE.sha256` (v10 kept as `FREEZE_v10.sha256`). Stage `r1c` may run once this entry and the v11 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.

@@ -249,3 +249,13 @@ Phase 7 (drafting) after Checkpoint 6: numbers macros, figures from repo data, s
 - **D1 (R5, G2):** evaluation at pkt_bits 16000 instead of 14000 (`stage_r5_seeds.m:159`); training unaffected; corrected re-evaluation of seeds 6–10 through the frozen `stage_nr_g10` path into `pertrace_G2corrected.csv` and `paper/analysis/out/presub_G2corrected/`, reported beside the frozen verdict.
 - **Amendment 9 (R1b):** `proposals/R1b_ack_prereg.md` + `analysis/r1b_stats.py` (synthetic self-test passes). ε-greedy logging (ε = 0.5, uniform −4…+2) on the calibration traces; p̂(ACK | obs, MCS) from observed first-transmission outcomes only; GBT-res-ACK and GBT-full-ACK; same NR2-trace family and wording as R1; reliability curve. Totals 85 cases / 141 evaluations.
 - **Freeze v10:** 18/18 verify; v9 kept as `FREEZE_v9.sha256`. Manuscript unchanged until R1b and the corrected R5 are in.
+
+## Phase 18 — R1b Completed, Amendment 10 & Freeze v11 (15 Nov 2026)
+- **R1b completed (`5183a89`):** both one-step ACK-trained learners beat NR2 on the 500 NR2 confirmatory traces (GBT-res-ACK on-time 0.6420, margin −3.40 % [−3.75, −3.05] %, hier [−4.43, −2.47] %, 0/10 seeds; GBT-full-ACK on-time 0.6710, margin −7.58 % [−8.09, −7.07] %, hier [−8.64, −6.61] %, 0/10 seeds). Twin comparisons vs true-SINR labels: +0.73 % (`res`) and +2.21 % (`full`). Calibration well within threshold (ECE ≤ 0.021 across cross-fitted calibration and deployment).
+- **Amendment 10 / Freeze v11:** `proposals/R1c_ack_prereg.md` + `analysis/r1c_stats.py` (synthetic self-test passes).
+  - 3 additional disjoint calibration sets (500 traces each, streams `rng(3060000 + j)`, `rng(3070000 + j)`, `rng(3080000 + j)`).
+  - Replication across 4 fits deployed on 500 NR2 evaluation traces: fit-level mean, interval (Student-t 95 % CI), and worst fit vs NR2.
+  - Generalization across 2 neighbouring operating cells (G2 at 14 kbit and G3, 300 held-out traces each) evaluated against frozen comparators and cell RL policies.
+  - Pre-registered wording rows: "holds across all 4 fits and both cells" / "fit-dependent" / "operating-point dependent".
+  - Totals: 96 cases / 163 scheme evaluations, Bonferroni pool ≤ 1 630. Compute: ≈ 12.3 h.
+- **Freeze v11:** 20/20 verify; v10 kept as `FREEZE_v10.sha256`. Manuscript untouched.
