@@ -164,6 +164,10 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
     nFeat = nSingle * L_seq;
     histS = zeros(nSingle, N, L_seq, 'single');
     sch_log = zeros(T, 5); n_sch = 0;
+    r1b_log_buf = zeros(T, 41); n_r1b_log = 0;
+    r1b_deploy_buf = zeros(T, 4); n_r1b_deploy = 0;
+    p_hat_users = zeros(1, N); log_explored_u = zeros(1, N); log_off_u = zeros(1, N);
+    trace_id_val = 0; if isfield(meta, 'trace_id'), trace_id_val = meta.trace_id; end
     b0 = min(env.burn_in, T - 1);
 
 
@@ -285,7 +289,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
         t0   = max(t-4, 1);
         slope4 = (obs_SINR(t, :) - obs_SINR(t0, :)) / max(t - t0, 1);
 
-        if isDeep || isEns || any(strcmpi(ptype, {'gbt_res', 'gbt_full', 'rule', 'rule_cal'}))
+        if isDeep || isEns || any(strcmpi(ptype, {'gbt_res', 'gbt_full', 'gbt_res_ack', 'gbt_full_ack', 'log_explore', 'rule', 'rule_cal'}))
             s_now = stateFeat_v17(env.state_tier, ref, dRef, obs_SINR(t, :), dS, off, ...
                                  slope4, nk, H, speeds(t, :), burstObsM(t, :), ...
                                  delays, R_emas, ctx, featExtra_v17(env, X));
@@ -469,6 +473,20 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
                     cqiAll(ii) = chosen_mcs + 1;
                 end
                 act(t, :) = cqiAll - ref;
+            case {'gbt_res_ack', 'gbt_full_ack'}
+                for ii = 1:N
+                    obs_ii = double(s_now(:, ii)');
+                    obs19 = zeros(1, 19);
+                    obs19(1:min(19, numel(obs_ii))) = obs_ii(1:min(19, numel(obs_ii)));
+                    rem_bits_ii = max(0, Q.tx_rem(ii));
+                    [chosen_mcs, p_hat_chosen] = gbt_ack_predict_best_mcs(policy, obs19, ref(ii), minC, maxC, lower(ptype), rem_bits_ii, env.total_RB);
+                    cqiAll(ii) = chosen_mcs + 1;
+                    p_hat_users(ii) = p_hat_chosen;
+                end
+                act(t, :) = cqiAll - ref;
+            case 'log_explore'
+                cqiAll = max(minC, min(maxC, ref - 2)); % Fixed-500 base for scheduling
+                act(t, :) = cqiAll - ref;
             case 'rule'
                 for ii = 1:N
                     obs_ii = double(s_now(:, ii)');
@@ -537,6 +555,27 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
 
             % Scheduled transmission rate recorded BEFORE transmission physics clear state
             sch_u = find(rb > 0);
+            if strcmpi(ptype, 'log_explore') && ~isempty(sch_u)
+                for u = sch_u(:)'
+                    if ~retxReady(u)
+                        u_eps = rand(policy.s_exp);
+                        u_off = rand(policy.s_exp);
+                        if u_eps < 0.5
+                            off_taken = -2;
+                            explored = 0;
+                        else
+                            cand_7 = -4:2;
+                            idx_off = min(7, floor(u_off * 7) + 1);
+                            off_taken = cand_7(idx_off);
+                            explored = 1;
+                        end
+                        sent(u) = max(minC, min(maxC, ref(u) + off_taken));
+                        log_explored_u(u) = explored;
+                        log_off_u(u) = off_taken;
+                    end
+                end
+            end
+
             r_sched = zeros(1, N);
             if ~isempty(sch_u)
                 if retxReady(sch_u)
@@ -563,6 +602,53 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
 
             if isempty(U), uRow = []; else, uRow = U(t, :); end
             [H, Q, bl1, isRetxTx] = harqTransmit_v17(sent, SINR_true(t, :), rb, H, Q, env, t, uRow);
+
+            if strcmpi(ptype, 'log_explore') && ~isempty(sch_u) && t > b0
+                for u = sch_u(:)'
+                    if ~retxReady(u)
+                        obs_raw = double(s_now(:, u)');
+                        obs19 = zeros(1, 19);
+                        obs19(1:min(19, numel(obs_raw))) = obs_raw(1:min(19, numel(obs_raw)));
+                        bits_rem = max(0, Q.tx_rem(u));
+                        tx_mcs = max(0, min(14, sent(u) - 1));
+                        ack1 = double(uRow(u) > bl1(u));
+                        ubits_taken = min(tbsFromMCSandRB_v17(tx_mcs, rb(u)), bits_rem);
+
+                        cand_all = -4:2;
+                        c_mcs = zeros(1, 7);
+                        c_ubits = zeros(1, 7);
+                        for ka = 1:7
+                            cq_a = max(minC, min(maxC, ref(u) + cand_all(ka)));
+                            mc_a = max(0, min(14, cq_a - 1));
+                            tb_a = tbsFromMCSandRB_v17(mc_a, rb(u));
+                            c_mcs(ka) = mc_a;
+                            c_ubits(ka) = min(tb_a, bits_rem);
+                        end
+
+                        n_r1b_log = n_r1b_log + 1;
+                        if n_r1b_log > size(r1b_log_buf, 1)
+                            r1b_log_buf = [r1b_log_buf; zeros(T, 41)];
+                        end
+                        r1b_log_buf(n_r1b_log, :) = [ ...
+                            trace_id_val, t, u, obs19, log_off_u(u), tx_mcs, ack1, ubits_taken, ...
+                            c_mcs, c_ubits, log_explored_u(u) ...
+                        ];
+                    end
+                end
+            end
+            if any(strcmpi(ptype, {'gbt_res_ack', 'gbt_full_ack'})) && ~isempty(sch_u) && t > b0
+                for u = sch_u(:)'
+                    if ~retxReady(u)
+                        tx_mcs = max(0, min(14, sent(u) - 1));
+                        ack1 = double(uRow(u) > bl1(u));
+                        n_r1b_deploy = n_r1b_deploy + 1;
+                        if n_r1b_deploy > size(r1b_deploy_buf, 1)
+                            r1b_deploy_buf = [r1b_deploy_buf; zeros(T, 4)];
+                        end
+                        r1b_deploy_buf(n_r1b_deploy, :) = [trace_id_val, tx_mcs, p_hat_users(u), ack1];
+                    end
+                end
+            end
 
             if useDrain
                 t_tx = t - env.harq_rtt;
@@ -728,6 +814,12 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
     end
 
     info = struct('okU', Q.okU, 'resU', Q.resU, 'sch_log', sch_log(1:n_sch, :));
+    if strcmpi(ptype, 'log_explore')
+        info.r1b_log = r1b_log_buf(1:n_r1b_log, :);
+    end
+    if any(strcmpi(ptype, {'gbt_res_ack', 'gbt_full_ack'}))
+        info.r1b_deploy = r1b_deploy_buf(1:n_r1b_deploy, :);
+    end
     % Strip warm-up phase if applied
     if W > 0
         tp = tp(W+1:end, :);
@@ -805,4 +897,53 @@ end
 
 function out = ternary(cond, a, b)
     if cond, out = a; else, out = b; end
+end
+
+% =========================================================================
+function [chosen_mcs, chosen_p_hat] = gbt_ack_predict_best_mcs(model, obs19, ref_u, minC, maxC, mode, bits_rem, n_rb)
+    if strcmp(mode, 'gbt_res_ack')
+        cand_offsets = -3:-1;
+    else
+        cand_offsets = -4:2;
+    end
+
+    cand_cqi = max(minC, min(maxC, ref_u + cand_offsets));
+    cand_mcs = max(0, min(14, cand_cqi - 1));
+    distinct_mcs = sort(unique(cand_mcs), 'ascend');
+
+    max_q = -Inf;
+    chosen_mcs = distinct_mcs(1);
+    chosen_p_hat = 0;
+
+    for k = 1:numel(distinct_mcs)
+        mc = distinct_mcs(k);
+        tb = tbsFromMCSandRB_v17(mc, n_rb);
+        ub = min(tb, bits_rem);
+        p_hat = gbt_predict_prob_val(model, [obs19, mc]);
+        q = p_hat * ub;
+        if q > max_q + 1e-12
+            max_q = q;
+            chosen_mcs = mc;
+            chosen_p_hat = p_hat;
+        end
+    end
+end
+
+function p = gbt_predict_prob_val(model, x)
+    raw = model.baseline;
+    trees = model.trees;
+    n_t = numel(trees);
+    for k = 1:n_t
+        t = trees{k};
+        idx = 1;
+        while ~t.is_leaf(idx)
+            if x(t.feat(idx)) <= t.th(idx)
+                idx = t.left(idx);
+            else
+                idx = t.right(idx);
+            end
+        end
+        raw = raw + t.val(idx);
+    end
+    p = 1.0 / (1.0 + exp(-raw));
 end
