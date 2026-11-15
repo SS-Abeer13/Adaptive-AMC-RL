@@ -1,0 +1,15 @@
+================================================================================
+REPORT_r1b_ack.txt -- ACK-Trained Supervised Learner (Stage r1b_ack)
+Generated: 2026-11-15 13:40:08 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+Deployed model SHA-256: 82bfdbc4f80de9adb11f021ba765649bcffa6da23ab7c05316ee47ad3b7cf93d  r1b_model.joblib
+Evaluation traces: n_eval=500
+
+NR2 traces:
+  GBT-res-ACK  mean on-time: 0.6420
+  GBT-full-ACK mean on-time: 0.6710
+
+M1 traces (secondary):
+  GBT-res-ACK  mean on-time: 0.6523
+  GBT-full-ACK mean on-time: 0.6797

@@ -2912,3 +2912,74 @@ GBT training and export complete.
 2026-11-14 10:49:51 | r5_seeds       | r5_seeds done successfully
 2026-11-14 10:49:52 | r5_seeds       | stage DONE in 3.24 h
 2026-11-14 10:49:52 | runner         | ALL REQUESTED STAGES FINISHED
+2026-11-15 10:18:15 | runner         | start (stages: r1b_ack; workers 2; G6B_PROFILE full)
+2026-11-15 10:27:12 | runner         | start (stages: r1b_ack; workers 2; G6B_PROFILE full)
+2026-11-15 10:28:02 | runner         | parpool open with 2 workers
+2026-11-15 10:28:02 | r1b_ack        | preflight start (20 traces)
+2026-11-15 10:28:15 | r1b_ack        | preflight: 0.6116 s per eval (basis 0.540, ratio 1.13); projected 0.4 h for 2500 units
+2026-11-15 10:28:15 | r1b_ack        | stage start
+2026-11-15 10:28:23 | r1b_ack        | r1b_ack start: n_calib=500, n_eval=500, n_repro=20
+2026-11-15 10:28:23 | r1b_ack        | unit log_explore: start
+2026-11-15 10:28:23 | r1b_ack        | log_explore: logging epsilon-greedy exploration from 500 calibration traces
+2026-11-15 10:29:35 | r1b_ack        | log_explore: 56771 decisions logged (explored=28553, base=28218). Saving to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1b_ack\calib_log_r1b.mat
+2026-11-15 10:29:35 | r1b_ack        | unit log_explore: saving checkpoint
+2026-11-15 10:29:35 | r1b_ack        | unit log_explore: checkpoint saved
+2026-11-15 10:29:35 | r1b_ack        | unit log_explore: done in 72.1 s
+2026-11-15 10:29:35 | r1b_ack        | unit fit: start
+2026-11-15 10:29:35 | r1b_ack        | fit: calling python train_r1b_ack.py...
+2026-11-15 10:30:33 | r1b_ack        | fit: python training successful:
+D:\Adaptive AMC A2C+QL\Optimized\v17x\train_r1b_ack.py:133: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  w.writerow([int(trace_id[i]), int(mcs_taken[i]), f"{p_hat_xfit[i]:.6f}", int(ack1[i]), int(explored[i])])
+Loading calibration data from D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1b_ack\calib_log_r1b.mat...
+Loaded 56771 decisions across 500 calibration traces.
+Fitting main deployed HistGradientBoostingClassifier model (gbt_a settings)...
+Saving deployed model to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\r1b_model.joblib...
+Deployed model SHA-256: 82bfdbc4f80de9adb11f021ba765649bcffa6da23ab7c05316ee47ad3b7cf93d
+Exporting tree structures for MATLAB bit-level prediction...
+Computing 5-fold cross-fitted predictions (folds by trace mod 5)...
+  Fitting fold 1/5 (train: 45389, test: 11382)...
+  Fitting fold 2/5 (train: 45408, test: 11363)...
+  Fitting fold 3/5 (train: 45553, test: 11218)...
+  Fitting fold 4/5 (train: 45395, test: 11376)...
+  Fitting fold 5/5 (train: 45339, test: 11432)...
+Writing cross-fitted calibration diagnostics to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1b_ack\r1b_calib_xfit.csv...
+Stage r1b fit complete.
+2026-11-15 10:30:33 | r1b_ack        | fit: deployed model SHA-256 = 82bfdbc4f80de9adb11f021ba765649bcffa6da23ab7c05316ee47ad3b7cf93d  r1b_model.joblib
+2026-11-15 10:30:33 | r1b_ack        | unit fit: saving checkpoint
+2026-11-15 10:30:33 | r1b_ack        | unit fit: checkpoint saved
+2026-11-15 10:30:33 | r1b_ack        | unit fit: done in 58.3 s
+2026-11-15 10:30:33 | r1b_ack        | unit equiv: start
+2026-11-15 10:30:33 | r1b_ack        | equiv: verifying tree prediction equivalence with scikit-learn (1e-9 gate)
+2026-11-15 10:30:34 | r1b_ack        | equiv: max abs difference between MATLAB and scikit-learn = 2.220e-16
+2026-11-15 10:30:34 | r1b_ack        | equiv: EQUIVALENCE GATE PASS (max abs diff <= 1e-9)
+2026-11-15 10:30:34 | r1b_ack        | unit equiv: saving checkpoint
+2026-11-15 10:30:34 | r1b_ack        | unit equiv: checkpoint saved
+2026-11-15 10:30:34 | r1b_ack        | unit equiv: done in 1.1 s
+2026-11-15 10:30:34 | r1b_ack        | unit repro: start
+2026-11-15 10:30:34 | r1b_ack        | repro: checking bit-identity on first 20 traces of NR2
+2026-11-15 10:30:52 | r1b_ack        | repro: REPRO PASS (Fixed-500, Context-joint-500, NR2 seed 1 max_abs_diff = 0)
+2026-11-15 10:30:52 | r1b_ack        | unit repro: saving checkpoint
+2026-11-15 10:30:52 | r1b_ack        | unit repro: checkpoint saved
+2026-11-15 10:30:52 | r1b_ack        | unit repro: done in 17.8 s
+2026-11-15 10:30:52 | r1b_ack        | unit eval_NR2: start
+2026-11-15 10:30:52 | r1b_ack        | eval_NR2: evaluating GBT-res-ACK and GBT-full-ACK on 500 NR2 traces
+2026-11-15 12:08:26 | r1b_ack        | eval_NR2: GBT-res-ACK mean ontime=0.6420, GBT-full-ACK mean ontime=0.6710
+2026-11-15 12:08:26 | r1b_ack        | unit eval_NR2: saving checkpoint
+2026-11-15 12:08:26 | r1b_ack        | unit eval_NR2: checkpoint saved
+2026-11-15 12:08:26 | r1b_ack        | unit eval_NR2: done in 5854.3 s
+2026-11-15 12:08:26 | r1b_ack        | unit eval_M1: start
+2026-11-15 12:08:26 | r1b_ack        | eval_M1: evaluating GBT-res-ACK and GBT-full-ACK on 500 M1 traces
+2026-11-15 13:40:06 | r1b_ack        | eval_M1: GBT-res-ACK=0.6523, GBT-full-ACK=0.6797
+2026-11-15 13:40:06 | r1b_ack        | unit eval_M1: saving checkpoint
+2026-11-15 13:40:06 | r1b_ack        | unit eval_M1: checkpoint saved
+2026-11-15 13:40:06 | r1b_ack        | unit eval_M1: done in 5499.1 s
+2026-11-15 13:40:06 | r1b_ack        | unit export: start
+2026-11-15 13:40:06 | r1b_ack        | export: exporting pertrace_r1b.csv, r1b_deploy_acks.csv, and REPORT_r1b_ack.txt
+2026-11-15 13:40:08 | r1b_ack        | unit export: saving checkpoint
+2026-11-15 13:40:08 | r1b_ack        | unit export: checkpoint saved
+2026-11-15 13:40:08 | r1b_ack        | unit export: done in 2.7 s
+2026-11-15 13:40:08 | r1b_ack        | r1b_ack done successfully
+2026-11-15 13:40:08 | r1b_ack        | stage DONE in 3.20 h
+2026-11-15 13:40:08 | r1b_ack        | stage_r1b_ack_report: report present at D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_r1b_ack.txt
+2026-11-15 13:40:08 | r1b_ack        | REPORT READY: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_r1b_ack.txt
+2026-11-15 13:40:08 | runner         | ALL REQUESTED STAGES FINISHED

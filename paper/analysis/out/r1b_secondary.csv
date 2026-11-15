@@ -1,0 +1,11 @@
+margin_pct,ci90_lo,ci90_hi,p,scheme,comparator,trace_set,holm_p,beats,hier95_lo,hier95_hi,seeds_above,n_seeds,outcome
+6.986,6.417,7.554,5.594e-53,GBT-res-ACK,ctxj500,NR2,5.594e-53,1,,,,,
+8.539,8.008,9.07,4.888e-68,GBT-res-ACK,fixed500,NR2,1.466e-67,1,,,,,
+8.01,7.482,8.539,2.524e-66,GBT-res-ACK,ctx500,NR2,5.048e-66,1,,,,,
+0.7333,0.4961,0.9704,1.149e-06,GBT-res-ACK,GBT-res (true-SINR labels),NR2,,,,,,,
+11.82,11.07,12.57,1.84e-67,GBT-full-ACK,ctxj500,NR2,1.84e-67,1,,,,,
+13.45,12.75,14.14,8.215e-76,GBT-full-ACK,fixed500,NR2,2.465e-75,1,,,,,
+12.89,12.19,13.59,1.122e-74,GBT-full-ACK,ctx500,NR2,2.243e-74,1,,,,,
+2.206,1.879,2.533,6.446e-24,GBT-full-ACK,GBT-full (true-SINR labels),NR2,,,,,,,
+-3.809,-4.113,-3.504,1.509e-55,GBT-res-ACK,"NR2 (M1 traces, secondary)",M1,1.509e-55,,-4.819,-2.916,0,10,LOSES
+-7.69,-8.185,-7.195,1.153e-66,GBT-full-ACK,"NR2 (M1 traces, secondary)",M1,2.307e-66,,-8.734,-6.753,0,10,LOSES

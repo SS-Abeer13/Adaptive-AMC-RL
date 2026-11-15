@@ -1,5 +1,2 @@
-2026-11-14 10:49:52 | FINISHED
-r3_nr2diag done
-r1_gbt     done
-r2_rule    done
-r5_seeds   done
+2026-11-15 13:40:08 | FINISHED
+r1b_ack    done
