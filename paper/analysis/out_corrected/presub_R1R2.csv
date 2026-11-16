@@ -1,0 +1,5 @@
+margin_pct,ci90_lo,ci90_hi,p,scheme,holm_p,hier95_lo,hier95_hi,seeds_above,n_seeds,outcome,trace_set
+-2.694,-3.048,-2.341,8.758e-32,GBT-res,8.758e-32,-3.727,-1.757,0,10,LOSES,NR2
+-5.542,-6.06,-5.025,2.171e-46,GBT-full,8.686e-46,-6.618,-4.549,0,10,LOSES,NR2
+3.21,2.826,3.594,1.041e-33,Rule,3.123e-33,2.111,4.252,9,10,BEATS,NR2
+3.214,2.829,3.598,2.122e-33,Rule-cal,4.243e-33,2.116,4.256,9,10,BEATS,NR2
