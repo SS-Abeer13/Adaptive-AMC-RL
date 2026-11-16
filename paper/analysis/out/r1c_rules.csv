@@ -1,0 +1,289 @@
+margin_pct,ci90_lo,ci90_hi,p,trace_set,scheme,comparator,holm_p,beats,role
+20.47,19.19,21.75,1.177e-47,G2,GBT-res-ACK-cellfit1,Baseline,8.236e-47,1,primary: cell
+17.29,16.1,18.48,1.273e-45,G2,GBT-res-ACK-cellfit1,OLLA,6.366e-45,1,primary: cell
+13.91,12.88,14.94,2.594e-43,G2,GBT-res-ACK-cellfit1,OLLA (tuned target),1.038e-42,1,primary: cell
+17.32,16.16,18.49,9.384e-46,G2,GBT-res-ACK-cellfit1,Multi-OLLA,5.63e-45,1,primary: cell
+8.78,7.939,9.62,3.717e-37,G2,GBT-res-ACK-cellfit1,Fixed,1.115e-36,1,primary: cell
+8.171,7.351,8.992,6.289e-35,G2,GBT-res-ACK-cellfit1,FixedPU (Oracle),1.258e-34,1,primary: cell
+7.589,6.736,8.442,2.691e-31,G2,GBT-res-ACK-cellfit1,Context table,2.691e-31,1,primary: cell
+50.73,48.57,52.88,7.583e-51,G2,GBT-res-ACK-cellfit1,Bandit (global),6.825e-50,1,primary: cell
+50.73,48.57,52.88,7.583e-51,G2,GBT-res-ACK-cellfit1,Bandit (delay class),6.825e-50,1,primary: cell
+20.06,18.81,21.31,7.869e-48,G2,GBT-res-ACK-cellfit2,Baseline,5.508e-47,1,primary: cell
+16.89,15.72,18.06,9.416e-46,G2,GBT-res-ACK-cellfit2,OLLA,4.708e-45,1,primary: cell
+13.52,12.51,14.53,4.832e-44,G2,GBT-res-ACK-cellfit2,OLLA (tuned target),1.933e-43,1,primary: cell
+16.93,15.79,18.06,4.077e-46,G2,GBT-res-ACK-cellfit2,Multi-OLLA,2.446e-45,1,primary: cell
+8.409,7.602,9.217,1.2e-36,G2,GBT-res-ACK-cellfit2,Fixed,3.599e-36,1,primary: cell
+7.803,7.014,8.593,2.055e-34,G2,GBT-res-ACK-cellfit2,FixedPU (Oracle),4.109e-34,1,primary: cell
+7.223,6.405,8.041,7.53e-31,G2,GBT-res-ACK-cellfit2,Context table,7.53e-31,1,primary: cell
+50.21,48.09,52.34,6.724e-51,G2,GBT-res-ACK-cellfit2,Bandit (global),6.052e-50,1,primary: cell
+50.21,48.09,52.34,6.724e-51,G2,GBT-res-ACK-cellfit2,Bandit (delay class),6.052e-50,1,primary: cell
+19.33,18.04,20.62,2.455e-46,G2,GBT-res-ACK-cellfit3,Baseline,1.718e-45,1,primary: cell
+16.18,14.98,17.38,3.103e-43,G2,GBT-res-ACK-cellfit3,OLLA,1.552e-42,1,primary: cell
+12.83,11.81,13.86,3.113e-41,G2,GBT-res-ACK-cellfit3,OLLA (tuned target),1.245e-40,1,primary: cell
+16.22,15.05,17.39,6.238e-44,G2,GBT-res-ACK-cellfit3,Multi-OLLA,3.743e-43,1,primary: cell
+7.752,6.962,8.542,5.539e-35,G2,GBT-res-ACK-cellfit3,Fixed,1.662e-34,1,primary: cell
+7.15,6.376,7.923,2.652e-32,G2,GBT-res-ACK-cellfit3,FixedPU (Oracle),5.303e-32,1,primary: cell
+6.573,5.773,7.372,3.719e-28,G2,GBT-res-ACK-cellfit3,Context table,3.719e-28,1,primary: cell
+49.3,47.16,51.45,7.07e-51,G2,GBT-res-ACK-cellfit3,Bandit (global),6.363e-50,1,primary: cell
+49.3,47.16,51.45,7.07e-51,G2,GBT-res-ACK-cellfit3,Bandit (delay class),6.363e-50,1,primary: cell
+20.81,19.51,22.11,1.062e-47,G2,GBT-res-ACK-cellfit4,Baseline,7.433e-47,1,primary: cell
+17.62,16.42,18.83,9.995e-46,G2,GBT-res-ACK-cellfit4,OLLA,4.997e-45,1,primary: cell
+14.23,13.2,15.26,3.518e-44,G2,GBT-res-ACK-cellfit4,OLLA (tuned target),1.407e-43,1,primary: cell
+17.66,16.48,18.84,3.446e-46,G2,GBT-res-ACK-cellfit4,Multi-OLLA,2.067e-45,1,primary: cell
+9.09,8.249,9.93,1.574e-37,G2,GBT-res-ACK-cellfit4,Fixed,4.723e-37,1,primary: cell
+8.48,7.652,9.308,3.438e-35,G2,GBT-res-ACK-cellfit4,FixedPU (Oracle),6.876e-35,1,primary: cell
+7.896,7.039,8.752,3.337e-32,G2,GBT-res-ACK-cellfit4,Context table,3.337e-32,1,primary: cell
+51.16,48.99,53.32,7.66e-51,G2,GBT-res-ACK-cellfit4,Bandit (global),6.894e-50,1,primary: cell
+51.16,48.99,53.32,7.66e-51,G2,GBT-res-ACK-cellfit4,Bandit (delay class),6.894e-50,1,primary: cell
+24.27,22.86,25.69,7.881e-49,G2,GBT-full-ACK-cellfit1,Baseline,5.517e-48,1,primary: cell
+20.99,19.66,22.33,1.21e-46,G2,GBT-full-ACK-cellfit1,OLLA,6.048e-46,1,primary: cell
+17.5,16.29,18.71,5.801e-45,G2,GBT-full-ACK-cellfit1,OLLA (tuned target),2.32e-44,1,primary: cell
+21.03,19.71,22.35,3.633e-47,G2,GBT-full-ACK-cellfit1,Multi-OLLA,2.18e-46,1,primary: cell
+12.21,11.23,13.2,1.3e-42,G2,GBT-full-ACK-cellfit1,Fixed,3.9e-42,1,primary: cell
+11.59,10.61,12.56,3.153e-40,G2,GBT-full-ACK-cellfit1,FixedPU (Oracle),6.306e-40,1,primary: cell
+10.98,9.972,12,6.482e-38,G2,GBT-full-ACK-cellfit1,Context table,6.482e-38,1,primary: cell
+55.48,53.22,57.75,6.861e-51,G2,GBT-full-ACK-cellfit1,Bandit (global),6.175e-50,1,primary: cell
+55.48,53.22,57.75,6.861e-51,G2,GBT-full-ACK-cellfit1,Bandit (delay class),6.175e-50,1,primary: cell
+21.86,20.43,23.29,1.715e-46,G2,GBT-full-ACK-cellfit2,Baseline,1.2e-45,1,primary: cell
+18.64,17.28,20.01,3.763e-43,G2,GBT-full-ACK-cellfit2,OLLA,1.882e-42,1,primary: cell
+15.22,13.99,16.45,4.294e-41,G2,GBT-full-ACK-cellfit2,OLLA (tuned target),1.718e-40,1,primary: cell
+18.68,17.33,20.02,8.351e-44,G2,GBT-full-ACK-cellfit2,Multi-OLLA,5.011e-43,1,primary: cell
+10.03,9.066,11,2.493e-36,G2,GBT-full-ACK-cellfit2,Fixed,7.48e-36,1,primary: cell
+9.418,8.467,10.37,2.109e-34,G2,GBT-full-ACK-cellfit2,FixedPU (Oracle),4.217e-34,1,primary: cell
+8.829,7.83,9.828,3e-31,G2,GBT-full-ACK-cellfit2,Context table,3e-31,1,primary: cell
+52.46,50.19,54.73,8.134e-51,G2,GBT-full-ACK-cellfit2,Bandit (global),7.321e-50,1,primary: cell
+52.46,50.19,54.73,8.134e-51,G2,GBT-full-ACK-cellfit2,Bandit (delay class),7.321e-50,1,primary: cell
+23.4,21.93,24.86,2.38e-47,G2,GBT-full-ACK-cellfit3,Baseline,1.666e-46,1,primary: cell
+20.14,18.75,21.53,9.395e-45,G2,GBT-full-ACK-cellfit3,OLLA,4.697e-44,1,primary: cell
+16.68,15.43,17.92,2.662e-43,G2,GBT-full-ACK-cellfit3,OLLA (tuned target),1.065e-42,1,primary: cell
+20.18,18.79,21.56,3.026e-45,G2,GBT-full-ACK-cellfit3,Multi-OLLA,1.815e-44,1,primary: cell
+11.42,10.45,12.4,4.955e-40,G2,GBT-full-ACK-cellfit3,Fixed,1.487e-39,1,primary: cell
+10.8,9.835,11.77,1.615e-38,G2,GBT-full-ACK-cellfit3,FixedPU (Oracle),3.23e-38,1,primary: cell
+10.2,9.192,11.22,2.329e-35,G2,GBT-full-ACK-cellfit3,Context table,2.329e-35,1,primary: cell
+54.39,52.11,56.67,7.47e-51,G2,GBT-full-ACK-cellfit3,Bandit (global),6.723e-50,1,primary: cell
+54.39,52.11,56.67,7.47e-51,G2,GBT-full-ACK-cellfit3,Bandit (delay class),6.723e-50,1,primary: cell
+25.75,24.33,27.17,4.656e-49,G2,GBT-full-ACK-cellfit4,Baseline,3.259e-48,1,primary: cell
+22.43,21.09,23.77,3.648e-48,G2,GBT-full-ACK-cellfit4,OLLA,2.189e-47,1,primary: cell
+18.9,17.69,20.11,1.966e-46,G2,GBT-full-ACK-cellfit4,OLLA (tuned target),7.862e-46,1,primary: cell
+22.47,21.13,23.8,5.78e-48,G2,GBT-full-ACK-cellfit4,Multi-OLLA,2.89e-47,1,primary: cell
+13.55,12.6,14.49,5.703e-46,G2,GBT-full-ACK-cellfit4,Fixed,1.711e-45,1,primary: cell
+12.91,11.96,13.86,1.464e-44,G2,GBT-full-ACK-cellfit4,FixedPU (Oracle),2.927e-44,1,primary: cell
+12.3,11.33,13.28,5.83e-42,G2,GBT-full-ACK-cellfit4,Context table,5.83e-42,1,primary: cell
+57.33,55.09,59.58,6.591e-51,G2,GBT-full-ACK-cellfit4,Bandit (global),5.932e-50,1,primary: cell
+57.33,55.09,59.58,6.591e-51,G2,GBT-full-ACK-cellfit4,Bandit (delay class),5.932e-50,1,primary: cell
+15.37,14.7,16.05,6.203e-51,G3,GBT-res-ACK-cellfit1,Baseline,5.474e-50,1,primary: cell
+11.57,10.99,12.15,2.997e-50,G3,GBT-res-ACK-cellfit1,OLLA,1.498e-49,1,primary: cell
+8.391,7.939,8.843,3.178e-50,G3,GBT-res-ACK-cellfit1,OLLA (tuned target),1.498e-49,1,primary: cell
+11.3,10.76,11.85,1.979e-50,G3,GBT-res-ACK-cellfit1,Multi-OLLA,1.187e-49,1,primary: cell
+2.917,2.499,3.335,2.451e-29,G3,GBT-res-ACK-cellfit1,Fixed,7.354e-29,1,primary: cell
+2.88,2.421,3.339,1.623e-23,G3,GBT-res-ACK-cellfit1,FixedPU (Oracle),1.623e-23,1,primary: cell
+2.755,2.356,3.154,1.257e-28,G3,GBT-res-ACK-cellfit1,Context table,2.513e-28,1,primary: cell
+37.68,36.6,38.75,6.082e-51,G3,GBT-res-ACK-cellfit1,Bandit (global),5.474e-50,1,primary: cell
+37.68,36.6,38.75,6.082e-51,G3,GBT-res-ACK-cellfit1,Bandit (delay class),5.474e-50,1,primary: cell
+15.38,14.7,16.05,6.267e-51,G3,GBT-res-ACK-cellfit2,Baseline,5.474e-50,1,primary: cell
+11.57,10.98,12.15,2.137e-50,G3,GBT-res-ACK-cellfit2,OLLA,1.129e-49,1,primary: cell
+8.393,7.942,8.844,9.402e-50,G3,GBT-res-ACK-cellfit2,OLLA (tuned target),3.761e-49,1,primary: cell
+11.3,10.76,11.85,1.881e-50,G3,GBT-res-ACK-cellfit2,Multi-OLLA,1.129e-49,1,primary: cell
+2.919,2.506,3.331,3.582e-29,G3,GBT-res-ACK-cellfit2,Fixed,1.075e-28,1,primary: cell
+2.881,2.434,3.329,5.829e-24,G3,GBT-res-ACK-cellfit2,FixedPU (Oracle),5.829e-24,1,primary: cell
+2.757,2.364,3.149,1.267e-28,G3,GBT-res-ACK-cellfit2,Context table,2.535e-28,1,primary: cell
+37.68,36.61,38.75,6.082e-51,G3,GBT-res-ACK-cellfit2,Bandit (global),5.474e-50,1,primary: cell
+37.68,36.61,38.75,6.082e-51,G3,GBT-res-ACK-cellfit2,Bandit (delay class),5.474e-50,1,primary: cell
+15.06,14.4,15.72,6.204e-51,G3,GBT-res-ACK-cellfit3,Baseline,5.474e-50,1,primary: cell
+11.26,10.69,11.83,3.632e-50,G3,GBT-res-ACK-cellfit3,OLLA,1.816e-49,1,primary: cell
+8.095,7.653,8.537,1.622e-49,G3,GBT-res-ACK-cellfit3,OLLA (tuned target),6.486e-49,1,primary: cell
+11,10.47,11.53,2.168e-50,G3,GBT-res-ACK-cellfit3,Multi-OLLA,1.301e-49,1,primary: cell
+2.636,2.237,3.035,9.156e-27,G3,GBT-res-ACK-cellfit3,Fixed,2.747e-26,1,primary: cell
+2.599,2.162,3.035,9.425e-22,G3,GBT-res-ACK-cellfit3,FixedPU (Oracle),9.425e-22,1,primary: cell
+2.474,2.096,2.853,1.435e-25,G3,GBT-res-ACK-cellfit3,Context table,2.871e-25,1,primary: cell
+37.3,36.25,38.36,6.082e-51,G3,GBT-res-ACK-cellfit3,Bandit (global),5.474e-50,1,primary: cell
+37.3,36.25,38.36,6.082e-51,G3,GBT-res-ACK-cellfit3,Bandit (delay class),5.474e-50,1,primary: cell
+15.18,14.51,15.84,6.266e-51,G3,GBT-res-ACK-cellfit4,Baseline,5.475e-50,1,primary: cell
+11.38,10.8,11.96,4.12e-50,G3,GBT-res-ACK-cellfit4,OLLA,2.06e-49,1,primary: cell
+8.207,7.763,8.651,1.554e-49,G3,GBT-res-ACK-cellfit4,OLLA (tuned target),6.215e-49,1,primary: cell
+11.11,10.58,11.65,3.129e-50,G3,GBT-res-ACK-cellfit4,Multi-OLLA,1.877e-49,1,primary: cell
+2.742,2.336,3.148,1.824e-27,G3,GBT-res-ACK-cellfit4,Fixed,5.471e-27,1,primary: cell
+2.705,2.264,3.146,1.251e-22,G3,GBT-res-ACK-cellfit4,FixedPU (Oracle),1.251e-22,1,primary: cell
+2.58,2.195,2.966,1.451e-26,G3,GBT-res-ACK-cellfit4,Context table,2.902e-26,1,primary: cell
+37.44,36.38,38.51,6.083e-51,G3,GBT-res-ACK-cellfit4,Bandit (global),5.475e-50,1,primary: cell
+37.44,36.38,38.51,6.083e-51,G3,GBT-res-ACK-cellfit4,Bandit (delay class),5.475e-50,1,primary: cell
+17.43,16.71,18.15,6.08e-51,G3,GBT-full-ACK-cellfit1,Baseline,5.472e-50,1,primary: cell
+13.55,12.91,14.19,1.29e-50,G3,GBT-full-ACK-cellfit1,OLLA,6.451e-50,1,primary: cell
+10.32,9.782,10.86,1.877e-50,G3,GBT-full-ACK-cellfit1,OLLA (tuned target),7.508e-50,1,primary: cell
+13.28,12.67,13.9,8.855e-51,G3,GBT-full-ACK-cellfit1,Multi-OLLA,5.472e-50,1,primary: cell
+4.75,4.21,5.29,4.332e-39,G3,GBT-full-ACK-cellfit1,Fixed,1.3e-38,1,primary: cell
+4.712,4.148,5.277,2.925e-38,G3,GBT-full-ACK-cellfit1,FixedPU (Oracle),2.925e-38,1,primary: cell
+4.585,4.069,5.102,5.228e-39,G3,GBT-full-ACK-cellfit1,Context table,1.3e-38,1,primary: cell
+40.13,38.96,41.3,6.082e-51,G3,GBT-full-ACK-cellfit1,Bandit (global),5.472e-50,1,primary: cell
+40.13,38.96,41.3,6.082e-51,G3,GBT-full-ACK-cellfit1,Bandit (delay class),5.472e-50,1,primary: cell
+17.37,16.63,18.11,6.203e-51,G3,GBT-full-ACK-cellfit2,Baseline,5.473e-50,1,primary: cell
+13.5,12.84,14.15,2.612e-50,G3,GBT-full-ACK-cellfit2,OLLA,1.306e-49,1,primary: cell
+10.27,9.733,10.8,6.113e-50,G3,GBT-full-ACK-cellfit2,OLLA (tuned target),2.445e-49,1,primary: cell
+13.23,12.61,13.84,9.402e-51,G3,GBT-full-ACK-cellfit2,Multi-OLLA,5.641e-50,1,primary: cell
+4.7,4.17,5.229,3.168e-40,G3,GBT-full-ACK-cellfit2,Fixed,8.231e-40,1,primary: cell
+4.662,4.1,5.224,5.34e-39,G3,GBT-full-ACK-cellfit2,FixedPU (Oracle),5.34e-39,1,primary: cell
+4.535,4.026,5.043,2.744e-40,G3,GBT-full-ACK-cellfit2,Context table,8.231e-40,1,primary: cell
+40.06,38.89,41.24,6.082e-51,G3,GBT-full-ACK-cellfit2,Bandit (global),5.473e-50,1,primary: cell
+40.06,38.89,41.24,6.082e-51,G3,GBT-full-ACK-cellfit2,Bandit (delay class),5.473e-50,1,primary: cell
+16.89,16.17,17.6,8.862e-51,G3,GBT-full-ACK-cellfit3,Baseline,6.197e-50,1,primary: cell
+13.03,12.4,13.66,1.385e-50,G3,GBT-full-ACK-cellfit3,OLLA,6.773e-50,1,primary: cell
+9.813,9.3,10.33,1.355e-50,G3,GBT-full-ACK-cellfit3,OLLA (tuned target),6.773e-50,1,primary: cell
+12.76,12.18,13.35,8.852e-51,G3,GBT-full-ACK-cellfit3,Multi-OLLA,6.197e-50,1,primary: cell
+4.267,3.765,4.769,3.1e-37,G3,GBT-full-ACK-cellfit3,Fixed,9.301e-37,1,primary: cell
+4.23,3.703,4.756,4.773e-35,G3,GBT-full-ACK-cellfit3,FixedPU (Oracle),4.773e-35,1,primary: cell
+4.103,3.625,4.581,3.287e-37,G3,GBT-full-ACK-cellfit3,Context table,9.301e-37,1,primary: cell
+39.48,38.33,40.64,6.082e-51,G3,GBT-full-ACK-cellfit3,Bandit (global),5.474e-50,1,primary: cell
+39.48,38.33,40.64,6.082e-51,G3,GBT-full-ACK-cellfit3,Bandit (delay class),5.474e-50,1,primary: cell
+16.65,15.92,17.38,7.89e-51,G3,GBT-full-ACK-cellfit4,Baseline,5.523e-50,1,primary: cell
+12.8,12.15,13.45,1.044e-49,G3,GBT-full-ACK-cellfit4,OLLA,4.174e-49,1,primary: cell
+9.59,9.059,10.12,7.857e-50,G3,GBT-full-ACK-cellfit4,OLLA (tuned target),3.929e-49,1,primary: cell
+12.53,11.93,13.14,2.34e-50,G3,GBT-full-ACK-cellfit4,Multi-OLLA,1.404e-49,1,primary: cell
+4.055,3.586,4.525,2.586e-37,G3,GBT-full-ACK-cellfit4,Fixed,7.759e-37,1,primary: cell
+4.018,3.52,4.515,2.444e-35,G3,GBT-full-ACK-cellfit4,FixedPU (Oracle),2.444e-35,1,primary: cell
+3.892,3.442,4.341,9.408e-37,G3,GBT-full-ACK-cellfit4,Context table,1.882e-36,1,primary: cell
+39.2,38.04,40.36,6.082e-51,G3,GBT-full-ACK-cellfit4,Bandit (global),5.473e-50,1,primary: cell
+39.2,38.04,40.36,6.082e-51,G3,GBT-full-ACK-cellfit4,Bandit (delay class),5.473e-50,1,primary: cell
+19.16,17.88,20.45,4.814e-46,G2,GBT-res-ACK-M1fit1,Baseline,3.37e-45,1,secondary: transfer
+16.02,14.81,17.23,4.475e-43,G2,GBT-res-ACK-M1fit1,OLLA,2.237e-42,1,secondary: transfer
+12.67,11.64,13.71,4.001e-41,G2,GBT-res-ACK-M1fit1,OLLA (tuned target),1.601e-40,1,secondary: transfer
+16.05,14.88,17.23,7.501e-44,G2,GBT-res-ACK-M1fit1,Multi-OLLA,4.501e-43,1,secondary: transfer
+7.601,6.801,8.401,1.488e-33,G2,GBT-res-ACK-M1fit1,Fixed,4.464e-33,1,secondary: transfer
+7,6.209,7.79,2.784e-30,G2,GBT-res-ACK-M1fit1,FixedPU (Oracle),5.568e-30,1,secondary: transfer
+6.424,5.62,7.227,2.049e-27,G2,GBT-res-ACK-M1fit1,Context table,2.049e-27,1,secondary: transfer
+49.09,46.99,51.2,7.213e-51,G2,GBT-res-ACK-M1fit1,Bandit (global),6.492e-50,1,secondary: transfer
+49.09,46.99,51.2,7.213e-51,G2,GBT-res-ACK-M1fit1,Bandit (delay class),6.492e-50,1,secondary: transfer
+21.04,19.75,22.33,1.587e-47,G2,GBT-res-ACK-M1fit2,Baseline,1.111e-46,1,secondary: transfer
+17.85,16.66,19.03,1.44e-46,G2,GBT-res-ACK-M1fit2,OLLA,8.641e-46,1,secondary: transfer
+14.45,13.42,15.47,8.796e-45,G2,GBT-res-ACK-M1fit2,OLLA (tuned target),3.518e-44,1,secondary: transfer
+17.88,16.72,19.04,1.709e-46,G2,GBT-res-ACK-M1fit2,Multi-OLLA,8.641e-46,1,secondary: transfer
+9.295,8.468,10.12,1.767e-39,G2,GBT-res-ACK-M1fit2,Fixed,5.302e-39,1,secondary: transfer
+8.684,7.877,9.491,1.317e-37,G2,GBT-res-ACK-M1fit2,FixedPU (Oracle),2.634e-37,1,secondary: transfer
+8.099,7.277,8.921,2.031e-34,G2,GBT-res-ACK-M1fit2,Context table,2.031e-34,1,secondary: transfer
+51.44,49.28,53.6,6.93e-51,G2,GBT-res-ACK-M1fit2,Bandit (global),6.237e-50,1,secondary: transfer
+51.44,49.28,53.6,6.93e-51,G2,GBT-res-ACK-M1fit2,Bandit (delay class),6.237e-50,1,secondary: transfer
+18.54,17.26,19.81,3.266e-45,G2,GBT-res-ACK-M1fit3,Baseline,2.286e-44,1,secondary: transfer
+15.41,14.22,16.6,1.92e-42,G2,GBT-res-ACK-M1fit3,OLLA,9.602e-42,1,secondary: transfer
+12.08,11.08,13.08,4.475e-40,G2,GBT-res-ACK-M1fit3,OLLA (tuned target),1.79e-39,1,secondary: transfer
+15.44,14.28,16.6,4.153e-43,G2,GBT-res-ACK-M1fit3,Multi-OLLA,2.492e-42,1,secondary: transfer
+7.034,6.282,7.785,7.068e-33,G2,GBT-res-ACK-M1fit3,Fixed,2.12e-32,1,secondary: transfer
+6.435,5.681,7.19,9.194e-30,G2,GBT-res-ACK-M1fit3,FixedPU (Oracle),1.839e-29,1,secondary: transfer
+5.862,5.119,6.606,1.305e-26,G2,GBT-res-ACK-M1fit3,Context table,1.305e-26,1,secondary: transfer
+48.31,46.22,50.39,7.213e-51,G2,GBT-res-ACK-M1fit3,Bandit (global),6.492e-50,1,secondary: transfer
+48.31,46.22,50.39,7.213e-51,G2,GBT-res-ACK-M1fit3,Bandit (delay class),6.492e-50,1,secondary: transfer
+20.01,18.73,21.3,3.568e-47,G2,GBT-res-ACK-M1fit4,Baseline,2.498e-46,1,secondary: transfer
+16.85,15.65,18.04,1.413e-44,G2,GBT-res-ACK-M1fit4,OLLA,7.063e-44,1,secondary: transfer
+13.48,12.47,14.49,1.05e-43,G2,GBT-res-ACK-M1fit4,OLLA (tuned target),4.202e-43,1,secondary: transfer
+16.88,15.72,18.05,2.48e-45,G2,GBT-res-ACK-M1fit4,Multi-OLLA,1.488e-44,1,secondary: transfer
+8.368,7.593,9.143,2.323e-38,G2,GBT-res-ACK-M1fit4,Fixed,6.969e-38,1,secondary: transfer
+7.762,6.987,8.538,3.083e-35,G2,GBT-res-ACK-M1fit4,FixedPU (Oracle),6.166e-35,1,secondary: transfer
+7.182,6.398,7.967,5.452e-32,G2,GBT-res-ACK-M1fit4,Context table,5.452e-32,1,secondary: transfer
+50.16,48.01,52.3,7.508e-51,G2,GBT-res-ACK-M1fit4,Bandit (global),6.757e-50,1,secondary: transfer
+50.16,48.01,52.3,7.508e-51,G2,GBT-res-ACK-M1fit4,Bandit (delay class),6.757e-50,1,secondary: transfer
+21.83,20.37,23.29,8.757e-46,G2,GBT-full-ACK-M1fit1,Baseline,6.13e-45,1,secondary: transfer
+18.61,17.21,20.01,2.517e-42,G2,GBT-full-ACK-M1fit1,OLLA,1.258e-41,1,secondary: transfer
+15.19,13.94,16.45,2.787e-40,G2,GBT-full-ACK-M1fit1,OLLA (tuned target),1.115e-39,1,secondary: transfer
+18.65,17.27,20.03,5.81e-43,G2,GBT-full-ACK-M1fit1,Multi-OLLA,3.486e-42,1,secondary: transfer
+10.01,9.05,10.97,3.583e-36,G2,GBT-full-ACK-M1fit1,Fixed,1.075e-35,1,secondary: transfer
+9.393,8.436,10.35,3.886e-34,G2,GBT-full-ACK-M1fit1,FixedPU (Oracle),7.771e-34,1,secondary: transfer
+8.804,7.806,9.801,8.266e-31,G2,GBT-full-ACK-M1fit1,Context table,8.266e-31,1,secondary: transfer
+52.43,50.18,54.68,6.999e-51,G2,GBT-full-ACK-M1fit1,Bandit (global),6.299e-50,1,secondary: transfer
+52.43,50.18,54.68,6.999e-51,G2,GBT-full-ACK-M1fit1,Bandit (delay class),6.299e-50,1,secondary: transfer
+24.12,22.66,25.58,8.395e-48,G2,GBT-full-ACK-M1fit2,Baseline,5.877e-47,1,secondary: transfer
+20.84,19.45,22.24,1.107e-45,G2,GBT-full-ACK-M1fit2,OLLA,5.535e-45,1,secondary: transfer
+17.36,16.09,18.63,7.109e-44,G2,GBT-full-ACK-M1fit2,OLLA (tuned target),2.844e-43,1,secondary: transfer
+20.88,19.49,22.27,5.966e-46,G2,GBT-full-ACK-M1fit2,Multi-OLLA,3.58e-45,1,secondary: transfer
+12.08,11.07,13.08,1.173e-40,G2,GBT-full-ACK-M1fit2,Fixed,3.518e-40,1,secondary: transfer
+11.45,10.47,12.43,7.993e-40,G2,GBT-full-ACK-M1fit2,FixedPU (Oracle),1.599e-39,1,secondary: transfer
+10.85,9.814,11.88,2.09e-36,G2,GBT-full-ACK-M1fit2,Context table,2.09e-36,1,secondary: transfer
+55.29,52.97,57.61,6.724e-51,G2,GBT-full-ACK-M1fit2,Bandit (global),6.052e-50,1,secondary: transfer
+55.29,52.97,57.61,6.724e-51,G2,GBT-full-ACK-M1fit2,Bandit (delay class),6.052e-50,1,secondary: transfer
+20.91,19.41,22.42,2.4e-44,G2,GBT-full-ACK-M1fit3,Baseline,1.68e-43,1,secondary: transfer
+17.72,16.29,19.16,2.07e-40,G2,GBT-full-ACK-M1fit3,OLLA,1.035e-39,1,secondary: transfer
+14.33,13.05,15.61,7.837e-38,G2,GBT-full-ACK-M1fit3,OLLA (tuned target),3.135e-37,1,secondary: transfer
+17.76,16.33,19.19,1.393e-40,G2,GBT-full-ACK-M1fit3,Multi-OLLA,8.36e-40,1,secondary: transfer
+9.18,8.204,10.16,1.38e-32,G2,GBT-full-ACK-M1fit3,Fixed,4.141e-32,1,secondary: transfer
+8.569,7.58,9.559,1.313e-29,G2,GBT-full-ACK-M1fit3,FixedPU (Oracle),2.626e-29,1,secondary: transfer
+7.985,6.969,9.001,2.729e-27,G2,GBT-full-ACK-M1fit3,Context table,2.729e-27,1,secondary: transfer
+51.28,49.02,53.54,1.325e-50,G2,GBT-full-ACK-M1fit3,Bandit (global),1.193e-49,1,secondary: transfer
+51.28,49.02,53.54,1.325e-50,G2,GBT-full-ACK-M1fit3,Bandit (delay class),1.193e-49,1,secondary: transfer
+22.5,21.03,23.97,1.131e-46,G2,GBT-full-ACK-M1fit4,Baseline,7.92e-46,1,secondary: transfer
+19.27,17.86,20.67,2.074e-43,G2,GBT-full-ACK-M1fit4,OLLA,1.037e-42,1,secondary: transfer
+15.83,14.59,17.06,4.151e-42,G2,GBT-full-ACK-M1fit4,OLLA (tuned target),1.66e-41,1,secondary: transfer
+19.3,17.91,20.69,9.175e-44,G2,GBT-full-ACK-M1fit4,Multi-OLLA,5.505e-43,1,secondary: transfer
+10.61,9.655,11.57,1.993e-38,G2,GBT-full-ACK-M1fit4,Fixed,5.979e-38,1,secondary: transfer
+9.993,9.043,10.94,5.305e-36,G2,GBT-full-ACK-M1fit4,FixedPU (Oracle),1.061e-35,1,secondary: transfer
+9.401,8.411,10.39,2.408e-33,G2,GBT-full-ACK-M1fit4,Context table,2.408e-33,1,secondary: transfer
+53.26,51,55.53,1.062e-50,G2,GBT-full-ACK-M1fit4,Bandit (global),9.562e-50,1,secondary: transfer
+53.26,51,55.53,1.062e-50,G2,GBT-full-ACK-M1fit4,Bandit (delay class),9.562e-50,1,secondary: transfer
+15.42,14.76,16.09,6.394e-51,G3,GBT-res-ACK-M1fit1,Baseline,5.474e-50,1,secondary: transfer
+11.61,11.03,12.2,9.93e-50,G3,GBT-res-ACK-M1fit1,OLLA,3.972e-49,1,secondary: transfer
+8.439,7.993,8.884,5.817e-50,G3,GBT-res-ACK-M1fit1,OLLA (tuned target),2.908e-49,1,secondary: transfer
+11.35,10.81,11.89,1.564e-50,G3,GBT-res-ACK-M1fit1,Multi-OLLA,9.382e-50,1,secondary: transfer
+2.962,2.553,3.371,1.665e-30,G3,GBT-res-ACK-M1fit1,Fixed,4.996e-30,1,secondary: transfer
+2.925,2.484,3.366,3.948e-25,G3,GBT-res-ACK-M1fit1,FixedPU (Oracle),3.948e-25,1,secondary: transfer
+2.8,2.411,3.189,4.034e-30,G3,GBT-res-ACK-M1fit1,Context table,8.067e-30,1,secondary: transfer
+37.74,36.68,38.8,6.082e-51,G3,GBT-res-ACK-M1fit1,Bandit (global),5.474e-50,1,secondary: transfer
+37.74,36.68,38.8,6.082e-51,G3,GBT-res-ACK-M1fit1,Bandit (delay class),5.474e-50,1,secondary: transfer
+15.39,14.73,16.06,6.142e-51,G3,GBT-res-ACK-M1fit2,Baseline,5.474e-50,1,secondary: transfer
+11.58,11.01,12.16,4.85e-50,G3,GBT-res-ACK-M1fit2,OLLA,2.425e-49,1,secondary: transfer
+8.409,7.964,8.855,7.508e-50,G3,GBT-res-ACK-M1fit2,OLLA (tuned target),3.003e-49,1,secondary: transfer
+11.32,10.77,11.87,1.881e-50,G3,GBT-res-ACK-M1fit2,Multi-OLLA,1.129e-49,1,secondary: transfer
+2.934,2.52,3.348,3.662e-29,G3,GBT-res-ACK-M1fit2,Fixed,1.099e-28,1,secondary: transfer
+2.897,2.449,3.346,1.137e-24,G3,GBT-res-ACK-M1fit2,FixedPU (Oracle),1.137e-24,1,secondary: transfer
+2.772,2.375,3.17,1.225e-28,G3,GBT-res-ACK-M1fit2,Context table,2.451e-28,1,secondary: transfer
+37.7,36.63,38.78,6.082e-51,G3,GBT-res-ACK-M1fit2,Bandit (global),5.474e-50,1,secondary: transfer
+37.7,36.63,38.78,6.082e-51,G3,GBT-res-ACK-M1fit2,Bandit (delay class),5.474e-50,1,secondary: transfer
+15.42,14.73,16.11,6.394e-51,G3,GBT-res-ACK-M1fit3,Baseline,5.474e-50,1,secondary: transfer
+11.61,11.02,12.2,2.575e-50,G3,GBT-res-ACK-M1fit3,OLLA,1.287e-49,1,secondary: transfer
+8.435,7.97,8.9,5.36e-50,G3,GBT-res-ACK-M1fit3,OLLA (tuned target),2.144e-49,1,secondary: transfer
+11.35,10.78,11.91,1.959e-50,G3,GBT-res-ACK-M1fit3,Multi-OLLA,1.175e-49,1,secondary: transfer
+2.959,2.524,3.393,1.579e-29,G3,GBT-res-ACK-M1fit3,Fixed,4.736e-29,1,secondary: transfer
+2.921,2.446,3.397,4.12e-24,G3,GBT-res-ACK-M1fit3,FixedPU (Oracle),4.12e-24,1,secondary: transfer
+2.797,2.381,3.212,2.904e-29,G3,GBT-res-ACK-M1fit3,Context table,5.808e-29,1,secondary: transfer
+37.73,36.66,38.81,6.082e-51,G3,GBT-res-ACK-M1fit3,Bandit (global),5.474e-50,1,secondary: transfer
+37.73,36.66,38.81,6.082e-51,G3,GBT-res-ACK-M1fit3,Bandit (delay class),5.474e-50,1,secondary: transfer
+15.26,14.57,15.95,7.174e-51,G3,GBT-res-ACK-M1fit4,Baseline,5.474e-50,1,secondary: transfer
+11.46,10.85,12.06,2.437e-49,G3,GBT-res-ACK-M1fit4,OLLA,9.748e-49,1,secondary: transfer
+8.285,7.814,8.755,1.949e-49,G3,GBT-res-ACK-M1fit4,OLLA (tuned target),9.743e-49,1,secondary: transfer
+11.19,10.63,11.76,4.464e-50,G3,GBT-res-ACK-M1fit4,Multi-OLLA,2.678e-49,1,secondary: transfer
+2.816,2.409,3.223,4.438e-28,G3,GBT-res-ACK-M1fit4,Fixed,1.331e-27,1,secondary: transfer
+2.779,2.331,3.227,1.226e-22,G3,GBT-res-ACK-M1fit4,FixedPU (Oracle),1.226e-22,1,secondary: transfer
+2.654,2.263,3.044,1.516e-27,G3,GBT-res-ACK-M1fit4,Context table,3.031e-27,1,secondary: transfer
+37.54,36.46,38.62,6.082e-51,G3,GBT-res-ACK-M1fit4,Bandit (global),5.474e-50,1,secondary: transfer
+37.54,36.46,38.62,6.082e-51,G3,GBT-res-ACK-M1fit4,Bandit (delay class),5.474e-50,1,secondary: transfer
+17.28,16.56,18,6.079e-51,G3,GBT-full-ACK-M1fit1,Baseline,5.471e-50,1,secondary: transfer
+13.41,12.78,14.04,9.404e-51,G3,GBT-full-ACK-M1fit1,OLLA,5.471e-50,1,secondary: transfer
+10.18,9.662,10.71,2.999e-50,G3,GBT-full-ACK-M1fit1,OLLA (tuned target),1.199e-49,1,secondary: transfer
+13.14,12.54,13.74,8.85e-51,G3,GBT-full-ACK-M1fit1,Multi-OLLA,5.471e-50,1,secondary: transfer
+4.62,4.102,5.138,7.542e-39,G3,GBT-full-ACK-M1fit1,Fixed,1.841e-38,1,secondary: transfer
+4.582,4.028,5.136,1.457e-37,G3,GBT-full-ACK-M1fit1,FixedPU (Oracle),1.457e-37,1,secondary: transfer
+4.455,3.959,4.951,6.138e-39,G3,GBT-full-ACK-M1fit1,Context table,1.841e-38,1,secondary: transfer
+39.96,38.79,41.12,6.082e-51,G3,GBT-full-ACK-M1fit1,Bandit (global),5.471e-50,1,secondary: transfer
+39.96,38.79,41.12,6.082e-51,G3,GBT-full-ACK-M1fit1,Bandit (delay class),5.471e-50,1,secondary: transfer
+16.98,16.25,17.72,7.066e-51,G3,GBT-full-ACK-M1fit2,Baseline,5.474e-50,1,secondary: transfer
+13.12,12.48,13.77,4.104e-50,G3,GBT-full-ACK-M1fit2,OLLA,1.877e-49,1,secondary: transfer
+9.904,9.386,10.42,3.754e-50,G3,GBT-full-ACK-M1fit2,OLLA (tuned target),1.877e-49,1,secondary: transfer
+12.86,12.26,13.46,1.233e-50,G3,GBT-full-ACK-M1fit2,Multi-OLLA,7.398e-50,1,secondary: transfer
+4.354,3.851,4.856,1.24e-37,G3,GBT-full-ACK-M1fit2,Fixed,3.721e-37,1,secondary: transfer
+4.316,3.779,4.853,2.533e-35,G3,GBT-full-ACK-M1fit2,FixedPU (Oracle),2.533e-35,1,secondary: transfer
+4.189,3.707,4.672,2.759e-37,G3,GBT-full-ACK-M1fit2,Context table,5.518e-37,1,secondary: transfer
+39.6,38.44,40.76,6.082e-51,G3,GBT-full-ACK-M1fit2,Bandit (global),5.474e-50,1,secondary: transfer
+39.6,38.44,40.76,6.082e-51,G3,GBT-full-ACK-M1fit2,Bandit (delay class),5.474e-50,1,secondary: transfer
+17.59,16.85,18.32,6.08e-51,G3,GBT-full-ACK-M1fit3,Baseline,5.472e-50,1,secondary: transfer
+13.7,13.06,14.35,1.15e-50,G3,GBT-full-ACK-M1fit3,OLLA,5.749e-50,1,secondary: transfer
+10.47,9.923,11.02,1.975e-50,G3,GBT-full-ACK-M1fit3,OLLA (tuned target),7.902e-50,1,secondary: transfer
+13.44,12.82,14.05,8.85e-51,G3,GBT-full-ACK-M1fit3,Multi-OLLA,5.472e-50,1,secondary: transfer
+4.89,4.336,5.444,2.187e-40,G3,GBT-full-ACK-M1fit3,Fixed,6.56e-40,1,secondary: transfer
+4.852,4.27,5.435,1.779e-38,G3,GBT-full-ACK-M1fit3,FixedPU (Oracle),1.779e-38,1,secondary: transfer
+4.725,4.195,5.255,2.259e-40,G3,GBT-full-ACK-M1fit3,Context table,6.56e-40,1,secondary: transfer
+40.32,39.12,41.51,6.082e-51,G3,GBT-full-ACK-M1fit3,Bandit (global),5.472e-50,1,secondary: transfer
+40.32,39.12,41.51,6.082e-51,G3,GBT-full-ACK-M1fit3,Bandit (delay class),5.472e-50,1,secondary: transfer
+17.19,16.47,17.92,6.08e-51,G3,GBT-full-ACK-M1fit4,Baseline,5.472e-50,1,secondary: transfer
+13.32,12.69,13.96,1.019e-50,G3,GBT-full-ACK-M1fit4,OLLA,5.472e-50,1,secondary: transfer
+10.1,9.571,10.63,4.323e-50,G3,GBT-full-ACK-M1fit4,OLLA (tuned target),1.729e-49,1,secondary: transfer
+13.05,12.46,13.65,8.939e-51,G3,GBT-full-ACK-M1fit4,Multi-OLLA,5.472e-50,1,secondary: transfer
+4.538,4.021,5.055,1.171e-38,G3,GBT-full-ACK-M1fit4,Fixed,3.512e-38,1,secondary: transfer
+4.501,3.952,5.05,1.11e-37,G3,GBT-full-ACK-M1fit4,FixedPU (Oracle),1.11e-37,1,secondary: transfer
+4.374,3.881,4.867,1.828e-38,G3,GBT-full-ACK-M1fit4,Context table,3.655e-38,1,secondary: transfer
+39.85,38.69,41.01,6.082e-51,G3,GBT-full-ACK-M1fit4,Bandit (global),5.472e-50,1,secondary: transfer
+39.85,38.69,41.01,6.082e-51,G3,GBT-full-ACK-M1fit4,Bandit (delay class),5.472e-50,1,secondary: transfer

@@ -1,0 +1,37 @@
+================================================================================
+REPORT_r1c.txt -- Calibration-Draw Replication & Per-Cell Generalization (Stage r1c)
+Generated: 2026-11-16 19:44:00 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+Model SHA-256 Manifest:
+82bfdbc4f80de9adb11f021ba765649bcffa6da23ab7c05316ee47ad3b7cf93d  r1b_model.joblib
+d998b87c6bc2d2b64e3b82e94b3af1f0aba4b81f901a7cd1f2c4eb3bb6c06ae8  r1c_model_m1_2.joblib
+68d2539ffe02c1a35065238692986006605ee526edb66caf26b2eee3718a9bec  r1c_model_m1_3.joblib
+c5b5dec48cd83c5e980d951d70d0012e7133e809fbdf96b3e2365ef86ed9f846  r1c_model_m1_4.joblib
+3e9d3ca7de7f3b6efcb24fc274c09fb55550b494c372f4d691f44fe59a1857e7  r1c_model_g2_1.joblib
+049e3cf3099ac8bc82c4b31ad3f81080522f52c092f0f3d5949cd9eb896b9d34  r1c_model_g2_2.joblib
+668dc0885aadd4ae46a736a693b8b845e0927737acc951ed349136c4265996e6  r1c_model_g2_3.joblib
+40d08ec711caeec3ba0775d7761d7f493fd376d5ff7a14ba1cbb7dff82b63853  r1c_model_g2_4.joblib
+ee62447165c622880b74cb26e04d1cc2447ccaa0885bf5fdaf09726571ad4422  r1c_model_g3_1.joblib
+966fcc8045217b897ee1a1843185db0558472031c2910404961686ec09817ae2  r1c_model_g3_2.joblib
+0cb798408bc736a2b84f847274be94c1baa372be83edf664439b7fd2bb7304c7  r1c_model_g3_3.joblib
+fac7e3341a74a611cc7f6d0a9bcaf9d4d91fcdedeb1145c2cf5970b66e5aee6f  r1c_model_g3_4.joblib
+
+
+NR2 Evaluation Traces (n=500):
+  M1 Fit 1: GBT-res-ACK = 0.6420 | GBT-full-ACK = 0.6710
+  M1 Fit 2: GBT-res-ACK = 0.6501 | GBT-full-ACK = 0.6878
+  M1 Fit 3: GBT-res-ACK = 0.6399 | GBT-full-ACK = 0.6729
+  M1 Fit 4: GBT-res-ACK = 0.6477 | GBT-full-ACK = 0.6779
+
+G2 Evaluation Traces (Cell Fits, n=300):
+  G2 Fit 1: GBT-res-ACK = 0.5794 | GBT-full-ACK = 0.5977
+  G2 Fit 2: GBT-res-ACK = 0.5774 | GBT-full-ACK = 0.5861
+  G2 Fit 3: GBT-res-ACK = 0.5739 | GBT-full-ACK = 0.5935
+  G2 Fit 4: GBT-res-ACK = 0.5811 | GBT-full-ACK = 0.6048
+
+G3 Evaluation Traces (Cell Fits, n=300):
+  G3 Fit 1: GBT-res-ACK = 0.9254 | GBT-full-ACK = 0.9419
+  G3 Fit 2: GBT-res-ACK = 0.9255 | GBT-full-ACK = 0.9415
+  G3 Fit 3: GBT-res-ACK = 0.9229 | GBT-full-ACK = 0.9376
+  G3 Fit 4: GBT-res-ACK = 0.9239 | GBT-full-ACK = 0.9357

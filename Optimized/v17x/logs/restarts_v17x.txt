@@ -132,3 +132,16 @@
 [Sun 11/15/2026 10:22:39.15] launch 1 (STAGES=r1b_ack workers=2 G6B_PROFILE=full) 
 [Sun 11/15/2026 10:27:00.79] launch 1 (STAGES=r1b_ack workers=2 G6B_PROFILE=full) 
 [Sun 11/15/2026 13:40:19.23] launch 1 exit code 0 
+[Sun 11/15/2026 21:45:58.48] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 21:47:47.07] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 21:48:56.12] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 21:52:37.16] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 21:55:20.33] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 22:03:57.66] launch 1 exit code 1 
+[Sun 11/15/2026 22:04:58.25] launch 2 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Sun 11/15/2026 22:05:28.21] launch 2 exit code 2 
+[Mon 11/16/2026  0:24:57.49] launch 1 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Mon 11/16/2026 09:58:21.09] WATCHDOG kill
+[Mon 11/16/2026  9:58:21.33] launch 1 exit code 1 
+[Mon 11/16/2026  9:59:21.92] launch 2 (STAGES=r1c workers=2 G6B_PROFILE=full) 
+[Mon 11/16/2026 19:44:09.84] launch 2 exit code 0 

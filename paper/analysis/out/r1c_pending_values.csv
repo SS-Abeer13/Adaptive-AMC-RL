@@ -1,0 +1,3 @@
+item,key,value,source_file,date
+R1C,verdict_gbtresack,holds across all fits and both cells,paper/analysis/out/r1c_*.csv,
+R1C,verdict_gbtfullack,holds across all fits and both cells,paper/analysis/out/r1c_*.csv,

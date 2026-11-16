@@ -2983,3 +2983,257 @@ Stage r1b fit complete.
 2026-11-15 13:40:08 | r1b_ack        | stage_r1b_ack_report: report present at D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_r1b_ack.txt
 2026-11-15 13:40:08 | r1b_ack        | REPORT READY: D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\REPORT_r1b_ack.txt
 2026-11-15 13:40:08 | runner         | ALL REQUESTED STAGES FINISHED
+2026-11-15 21:46:07 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 21:46:07 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 21:46:07 | r1c            | preflight start (20 traces)
+2026-11-15 21:47:56 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 21:47:56 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 21:47:56 | r1c            | preflight start (20 traces)
+2026-11-15 21:48:06 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-15 21:48:07 | r1c            | stage start
+2026-11-15 21:48:10 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-15 21:48:10 | r1c            | unit load_cells: start
+2026-11-15 21:48:10 | r1c            | load_cells: reading frozen cell envs and asserting parameters per §4.1
+2026-11-15 21:48:10 | r1c            | load_cells: cell environments loaded and asserted successfully
+2026-11-15 21:48:10 | r1c            | unit load_cells: saving checkpoint
+2026-11-15 21:48:10 | r1c            | unit load_cells: checkpoint saved
+2026-11-15 21:48:10 | r1c            | unit load_cells: done in 0.1 s
+2026-11-15 21:48:10 | r1c            | unit log_m1_2: start
+2026-11-15 21:48:10 | r1c            | log_explore: logging 500 traces (tr_base=620000, crn_base=630000, exp_base=3060000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_2.mat
+2026-11-15 21:49:05 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 21:49:05 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 21:49:05 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-15 21:49:05 | r1c            | stage start
+2026-11-15 21:49:14 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-15 21:49:14 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-15 21:49:14 | r1c            | unit log_m1_2: start
+2026-11-15 21:49:14 | r1c            | log_explore: logging 500 traces (tr_base=620000, crn_base=630000, exp_base=3060000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_2.mat
+2026-11-15 21:50:08 | r1c            | unit log_m1_2: saving checkpoint
+2026-11-15 21:50:08 | r1c            | unit log_m1_2: checkpoint saved
+2026-11-15 21:50:08 | r1c            | unit log_m1_2: done in 53.3 s
+2026-11-15 21:50:08 | r1c            | unit log_m1_3: start
+2026-11-15 21:50:08 | r1c            | log_explore: logging 500 traces (tr_base=640000, crn_base=650000, exp_base=3070000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_3.mat
+2026-11-15 21:52:46 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 21:52:46 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 21:52:46 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-15 21:52:46 | r1c            | stage start
+2026-11-15 21:52:56 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-15 21:52:56 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-15 21:52:56 | r1c            | unit log_m1_2: loaded checkpoint, skipped
+2026-11-15 21:52:56 | r1c            | unit log_m1_3: start
+2026-11-15 21:52:56 | r1c            | log_explore: logging 500 traces (tr_base=640000, crn_base=650000, exp_base=3070000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_3.mat
+2026-11-15 21:55:31 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 21:55:31 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 21:55:31 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-15 21:55:31 | r1c            | stage start
+2026-11-15 21:55:40 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-15 21:55:40 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-15 21:55:40 | r1c            | unit log_m1_2: loaded checkpoint, skipped
+2026-11-15 21:55:40 | r1c            | unit log_m1_3: start
+2026-11-15 21:55:40 | r1c            | log_explore: logging 500 traces (tr_base=640000, crn_base=650000, exp_base=3070000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_3.mat
+2026-11-15 21:56:39 | r1c            | unit log_m1_3: saving checkpoint
+2026-11-15 21:56:39 | r1c            | unit log_m1_3: checkpoint saved
+2026-11-15 21:56:39 | r1c            | unit log_m1_3: done in 59.3 s
+2026-11-15 21:56:40 | r1c            | unit log_m1_4: start
+2026-11-15 21:56:40 | r1c            | log_explore: logging 500 traces (tr_base=660000, crn_base=670000, exp_base=3080000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_m1_4.mat
+2026-11-15 21:57:24 | r1c            | unit log_m1_4: saving checkpoint
+2026-11-15 21:57:24 | r1c            | unit log_m1_4: checkpoint saved
+2026-11-15 21:57:24 | r1c            | unit log_m1_4: done in 44.0 s
+2026-11-15 21:57:24 | r1c            | unit log_g2_1: start
+2026-11-15 21:57:24 | r1c            | log_explore: logging 500 traces (tr_base=4100000, crn_base=4200000, exp_base=4300000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g2_1.mat
+2026-11-15 21:58:08 | r1c            | unit log_g2_1: saving checkpoint
+2026-11-15 21:58:08 | r1c            | unit log_g2_1: checkpoint saved
+2026-11-15 21:58:08 | r1c            | unit log_g2_1: done in 44.2 s
+2026-11-15 21:58:08 | r1c            | unit log_g3_1: start
+2026-11-15 21:58:08 | r1c            | log_explore: logging 500 traces (tr_base=4400000, crn_base=4500000, exp_base=4600000, base_off=-3) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g3_1.mat
+2026-11-15 21:58:48 | r1c            | unit log_g3_1: saving checkpoint
+2026-11-15 21:58:48 | r1c            | unit log_g3_1: checkpoint saved
+2026-11-15 21:58:48 | r1c            | unit log_g3_1: done in 40.3 s
+2026-11-15 21:58:48 | r1c            | unit log_g2_2: start
+2026-11-15 21:58:48 | r1c            | log_explore: logging 500 traces (tr_base=4101000, crn_base=4201000, exp_base=4301000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g2_2.mat
+2026-11-15 21:59:31 | r1c            | unit log_g2_2: saving checkpoint
+2026-11-15 21:59:31 | r1c            | unit log_g2_2: checkpoint saved
+2026-11-15 21:59:31 | r1c            | unit log_g2_2: done in 42.5 s
+2026-11-15 21:59:31 | r1c            | unit log_g3_2: start
+2026-11-15 21:59:31 | r1c            | log_explore: logging 500 traces (tr_base=4401000, crn_base=4501000, exp_base=4601000, base_off=-3) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g3_2.mat
+2026-11-15 22:00:27 | r1c            | unit log_g3_2: saving checkpoint
+2026-11-15 22:00:27 | r1c            | unit log_g3_2: checkpoint saved
+2026-11-15 22:00:27 | r1c            | unit log_g3_2: done in 56.0 s
+2026-11-15 22:00:27 | r1c            | unit log_g2_3: start
+2026-11-15 22:00:27 | r1c            | log_explore: logging 500 traces (tr_base=4102000, crn_base=4202000, exp_base=4302000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g2_3.mat
+2026-11-15 22:01:25 | r1c            | unit log_g2_3: saving checkpoint
+2026-11-15 22:01:25 | r1c            | unit log_g2_3: checkpoint saved
+2026-11-15 22:01:25 | r1c            | unit log_g2_3: done in 58.7 s
+2026-11-15 22:01:25 | r1c            | unit log_g3_3: start
+2026-11-15 22:01:25 | r1c            | log_explore: logging 500 traces (tr_base=4402000, crn_base=4502000, exp_base=4602000, base_off=-3) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g3_3.mat
+2026-11-15 22:02:08 | r1c            | unit log_g3_3: saving checkpoint
+2026-11-15 22:02:08 | r1c            | unit log_g3_3: checkpoint saved
+2026-11-15 22:02:08 | r1c            | unit log_g3_3: done in 43.0 s
+2026-11-15 22:02:08 | r1c            | unit log_g2_4: start
+2026-11-15 22:02:08 | r1c            | log_explore: logging 500 traces (tr_base=4103000, crn_base=4203000, exp_base=4303000, base_off=-2) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g2_4.mat
+2026-11-15 22:02:50 | r1c            | unit log_g2_4: saving checkpoint
+2026-11-15 22:02:50 | r1c            | unit log_g2_4: checkpoint saved
+2026-11-15 22:02:50 | r1c            | unit log_g2_4: done in 41.9 s
+2026-11-15 22:02:50 | r1c            | unit log_g3_4: start
+2026-11-15 22:02:50 | r1c            | log_explore: logging 500 traces (tr_base=4403000, crn_base=4503000, exp_base=4603000, base_off=-3) -> D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\ckpt\r1c\calib_log_g3_4.mat
+2026-11-15 22:03:31 | r1c            | unit log_g3_4: saving checkpoint
+2026-11-15 22:03:31 | r1c            | unit log_g3_4: checkpoint saved
+2026-11-15 22:03:31 | r1c            | unit log_g3_4: done in 41.1 s
+2026-11-15 22:03:31 | r1c            | unit fit: start
+2026-11-15 22:03:31 | r1c            | fit: training all 11 models via Python train_r1c_ack.py
+2026-11-15 22:03:50 | r1c            | ERROR (attempt 1): Error using stage_r1c>unit_fit
+2026-11-15 22:05:06 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-15 22:05:06 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-15 22:05:06 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-15 22:05:07 | r1c            | stage start
+2026-11-15 22:05:15 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-15 22:05:15 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_m1_2: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_m1_3: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_m1_4: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g2_1: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g3_1: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g2_2: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g3_2: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g2_3: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g3_3: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g2_4: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit log_g3_4: loaded checkpoint, skipped
+2026-11-15 22:05:15 | r1c            | unit fit: start
+2026-11-15 22:05:15 | r1c            | fit: training all 11 models via Python train_r1c_ack.py
+2026-11-15 22:05:21 | r1c            | ERROR (attempt 2): Error using stage_r1c>unit_fit
+2026-11-15 22:05:21 | runner         | HALTED at stage r1c (no finished marker written)
+2026-11-16 00:25:09 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-16 00:25:10 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-16 00:25:10 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-16 00:25:10 | r1c            | stage start
+2026-11-16 00:25:23 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-16 00:25:32 | r1c            | r1c python interpreter verified: D:\miniconda\python.exe
+2026-11-16 00:25:32 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_m1_2: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_m1_3: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_m1_4: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g2_1: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g3_1: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g2_2: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g3_2: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g2_3: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g3_3: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g2_4: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit log_g3_4: loaded checkpoint, skipped
+2026-11-16 00:25:32 | r1c            | unit fit: start
+2026-11-16 00:25:32 | r1c            | fit: training all 11 models via Python (D:\miniconda\python.exe)
+2026-11-16 00:33:45 | r1c            | fit: all 11 models trained and hashed into D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\r1c_models.sha256
+2026-11-16 00:33:45 | r1c            | unit fit: saving checkpoint
+2026-11-16 00:33:46 | r1c            | unit fit: checkpoint saved
+2026-11-16 00:33:46 | r1c            | unit fit: done in 493.5 s
+2026-11-16 00:33:46 | r1c            | unit equiv: start
+2026-11-16 00:33:46 | r1c            | equiv: verifying tree prediction equivalence with scikit-learn for all models (1e-9 gate)
+2026-11-16 00:33:55 | r1c            | equiv: EQUIVALENCE GATE PASS for all 12 models (max abs diff <= 1e-9)
+2026-11-16 00:33:55 | r1c            | unit equiv: saving checkpoint
+2026-11-16 00:33:56 | r1c            | unit equiv: checkpoint saved
+2026-11-16 00:33:56 | r1c            | unit equiv: done in 10.7 s
+2026-11-16 00:33:56 | r1c            | unit repro: start
+2026-11-16 00:33:56 | r1c            | repro: checking bit-identity on first 20 traces of NR2, G2, G3
+2026-11-16 00:35:02 | r1c            | repro: REPRO PASS for NR2, G2, G3 (max_abs_diff = 0)
+2026-11-16 00:35:02 | r1c            | unit repro: saving checkpoint
+2026-11-16 00:35:02 | r1c            | unit repro: checkpoint saved
+2026-11-16 00:35:02 | r1c            | unit repro: done in 65.7 s
+2026-11-16 00:35:02 | r1c            | unit eval_nr2: start
+2026-11-16 00:35:02 | r1c            | eval_nr2: evaluating M1 fits 2-4 on 500 NR2 traces
+2026-11-16 00:35:02 | r1c            | eval_nr2: M1 fit 2...
+2026-11-16 01:55:08 | r1c            | eval_nr2: M1 fit 2: res=0.6501, full=0.6878
+2026-11-16 01:55:08 | r1c            | eval_nr2: M1 fit 3...
+2026-11-16 03:16:06 | r1c            | eval_nr2: M1 fit 3: res=0.6399, full=0.6729
+2026-11-16 03:16:06 | r1c            | eval_nr2: M1 fit 4...
+2026-11-16 04:39:00 | r1c            | eval_nr2: M1 fit 4: res=0.6477, full=0.6779
+2026-11-16 04:39:00 | r1c            | unit eval_nr2: saving checkpoint
+2026-11-16 04:39:00 | r1c            | unit eval_nr2: checkpoint saved
+2026-11-16 04:39:00 | r1c            | unit eval_nr2: done in 14638.0 s
+2026-11-16 04:39:00 | r1c            | unit eval_g2_cellfit: start
+2026-11-16 04:39:00 | r1c            | eval_g2_cellfit: evaluating g2 cell fits 1-4 on 300 traces
+2026-11-16 04:39:00 | r1c            | eval_g2_cellfit: fit 1...
+2026-11-16 05:27:54 | r1c            | eval_g2_cellfit: fit 1: res=0.5794, full=0.5977
+2026-11-16 05:27:54 | r1c            | eval_g2_cellfit: fit 2...
+2026-11-16 06:16:51 | r1c            | eval_g2_cellfit: fit 2: res=0.5774, full=0.5861
+2026-11-16 06:16:51 | r1c            | eval_g2_cellfit: fit 3...
+2026-11-16 07:05:32 | r1c            | eval_g2_cellfit: fit 3: res=0.5739, full=0.5935
+2026-11-16 07:05:32 | r1c            | eval_g2_cellfit: fit 4...
+2026-11-16 07:55:54 | r1c            | eval_g2_cellfit: fit 4: res=0.5811, full=0.6048
+2026-11-16 07:55:54 | r1c            | unit eval_g2_cellfit: saving checkpoint
+2026-11-16 07:55:54 | r1c            | unit eval_g2_cellfit: checkpoint saved
+2026-11-16 07:55:54 | r1c            | unit eval_g2_cellfit: done in 11813.5 s
+2026-11-16 07:55:54 | r1c            | unit eval_g3_cellfit: start
+2026-11-16 07:55:54 | r1c            | eval_g3_cellfit: evaluating g3 cell fits 1-4 on 300 traces
+2026-11-16 07:55:54 | r1c            | eval_g3_cellfit: fit 1...
+2026-11-16 09:59:54 | runner         | start (stages: r1c; workers 2; G6B_PROFILE full)
+2026-11-16 09:59:54 | runner         | no parpool (V17X_NO_POOL=1)
+2026-11-16 09:59:54 | r1c            | preflight: 0.5608 s per eval (basis 0.540, ratio 1.04); projected 2.8 h for 18100 units
+2026-11-16 09:59:54 | r1c            | stage start
+2026-11-16 10:00:10 | r1c            | r1c start: n_calib=500, n_eval_nr2=500, n_eval_cell=300, n_repro=20
+2026-11-16 10:00:23 | r1c            | r1c python interpreter verified: D:\miniconda\python.exe
+2026-11-16 10:00:23 | r1c            | unit load_cells: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_m1_2: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_m1_3: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_m1_4: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g2_1: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g3_1: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g2_2: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g3_2: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g2_3: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g3_3: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g2_4: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit log_g3_4: loaded checkpoint, skipped
+2026-11-16 10:00:23 | r1c            | unit fit: loaded checkpoint, skipped
+2026-11-16 10:00:24 | r1c            | unit equiv: loaded checkpoint, skipped
+2026-11-16 10:00:24 | r1c            | unit repro: loaded checkpoint, skipped
+2026-11-16 10:00:24 | r1c            | unit eval_nr2: loaded checkpoint, skipped
+2026-11-16 10:00:24 | r1c            | unit eval_g2_cellfit: loaded checkpoint, skipped
+2026-11-16 10:00:24 | r1c            | unit eval_g3_cellfit: start
+2026-11-16 10:00:24 | r1c            | eval_g3_cellfit: evaluating g3 cell fits 1-4 on 300 traces
+2026-11-16 10:00:24 | r1c            | eval_g3_cellfit: fit 1...
+2026-11-16 10:51:28 | r1c            | eval_g3_cellfit: fit 1: res=0.9254, full=0.9419
+2026-11-16 10:51:28 | r1c            | eval_g3_cellfit: fit 2...
+2026-11-16 11:38:35 | r1c            | eval_g3_cellfit: fit 2: res=0.9255, full=0.9415
+2026-11-16 11:38:35 | r1c            | eval_g3_cellfit: fit 3...
+2026-11-16 12:28:33 | r1c            | eval_g3_cellfit: fit 3: res=0.9229, full=0.9376
+2026-11-16 12:28:33 | r1c            | eval_g3_cellfit: fit 4...
+2026-11-16 13:15:09 | r1c            | eval_g3_cellfit: fit 4: res=0.9239, full=0.9357
+2026-11-16 13:15:09 | r1c            | unit eval_g3_cellfit: saving checkpoint
+2026-11-16 13:15:09 | r1c            | unit eval_g3_cellfit: checkpoint saved
+2026-11-16 13:15:09 | r1c            | unit eval_g3_cellfit: done in 11684.5 s
+2026-11-16 13:15:09 | r1c            | unit eval_g2_transfer: start
+2026-11-16 13:15:09 | r1c            | eval_g2_transfer: evaluating M1 fits 1-4 on g2 (300 traces)
+2026-11-16 13:15:09 | r1c            | eval_g2_transfer: M1 fit 1...
+2026-11-16 14:06:57 | r1c            | eval_g2_transfer: M1 fit 1: res=0.5731, full=0.5860
+2026-11-16 14:06:57 | r1c            | eval_g2_transfer: M1 fit 2...
+2026-11-16 14:54:33 | r1c            | eval_g2_transfer: M1 fit 2: res=0.5822, full=0.5970
+2026-11-16 14:54:33 | r1c            | eval_g2_transfer: M1 fit 3...
+2026-11-16 15:42:04 | r1c            | eval_g2_transfer: M1 fit 3: res=0.5701, full=0.5815
+2026-11-16 15:42:04 | r1c            | eval_g2_transfer: M1 fit 4...
+2026-11-16 16:30:27 | r1c            | eval_g2_transfer: M1 fit 4: res=0.5772, full=0.5892
+2026-11-16 16:30:27 | r1c            | unit eval_g2_transfer: saving checkpoint
+2026-11-16 16:30:27 | r1c            | unit eval_g2_transfer: checkpoint saved
+2026-11-16 16:30:27 | r1c            | unit eval_g2_transfer: done in 11718.2 s
+2026-11-16 16:30:27 | r1c            | unit eval_g3_transfer: start
+2026-11-16 16:30:27 | r1c            | eval_g3_transfer: evaluating M1 fits 1-4 on g3 (300 traces)
+2026-11-16 16:30:27 | r1c            | eval_g3_transfer: M1 fit 1...
+2026-11-16 17:18:54 | r1c            | eval_g3_transfer: M1 fit 1: res=0.9259, full=0.9408
+2026-11-16 17:18:54 | r1c            | eval_g3_transfer: M1 fit 2...
+2026-11-16 18:07:08 | r1c            | eval_g3_transfer: M1 fit 2: res=0.9256, full=0.9384
+2026-11-16 18:07:08 | r1c            | eval_g3_transfer: M1 fit 3...
+2026-11-16 18:54:49 | r1c            | eval_g3_transfer: M1 fit 3: res=0.9258, full=0.9432
+2026-11-16 18:54:49 | r1c            | eval_g3_transfer: M1 fit 4...
+2026-11-16 19:44:00 | r1c            | eval_g3_transfer: M1 fit 4: res=0.9245, full=0.9400
+2026-11-16 19:44:00 | r1c            | unit eval_g3_transfer: saving checkpoint
+2026-11-16 19:44:00 | r1c            | unit eval_g3_transfer: checkpoint saved
+2026-11-16 19:44:00 | r1c            | unit eval_g3_transfer: done in 11612.6 s
+2026-11-16 19:44:00 | r1c            | unit export: start
+2026-11-16 19:44:00 | r1c            | export: writing pertrace_r1c.csv and REPORT_r1c.txt
+2026-11-16 19:44:00 | r1c            | export: pertrace_r1c.csv and REPORT_r1c.txt written to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\presub\r1c
+2026-11-16 19:44:00 | r1c            | unit export: saving checkpoint
+2026-11-16 19:44:00 | r1c            | unit export: checkpoint saved
+2026-11-16 19:44:00 | r1c            | unit export: done in 0.4 s
+2026-11-16 19:44:00 | r1c            | stage_r1c done successfully
+2026-11-16 19:44:00 | r1c            | stage DONE in 9.74 h
+2026-11-16 19:44:00 | runner         | ALL REQUESTED STAGES FINISHED
