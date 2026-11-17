@@ -156,16 +156,28 @@ function out = unit_eval_fresh(envN2, nr2_extra_outs, cell_extra_outs, n_nr2_ext
     ctx.hbf(sprintf('eval: NR2 fresh %d seeds mean on-time: %.4f', n_nr2_extra, mean(mean(nr2_fresh_vals))));
 
     % 2. Evaluate G2 fresh seeds (6..10) on G2 traces
-    g2_cfg = get_cell_cfg('G2_hi_d10', envN2);
-    envG2 = g2_cfg.env;
-    envG2.base_rule_kind = 'fixed'; envG2.base_rule_name = 'Fixed'; envG2.base_rule_force = 'fixed';
+    % Loaded straight from the frozen calib file, as stage_r1c.m does (§4.1),
+    % instead of get_cell_cfg's nominal env: get_cell_cfg hard-codes G2's
+    % *nominal* pkt_bits=16000, not the feasibility-stepped, calibrated
+    % pkt_bits=14000 that G2's own training (above, envCal) actually used.
+    % That mismatch was the latent part of Deviation D1 (see
+    % AUDIT_config_all_stages.md, R5/NR-G10 row, and
+    % Dataset/presub/G2_D1_verification_note.md).
     calib_g2_file = fullfile(ctx.ckptdir, 'g10', 'calib_single_G2_hi_d10.mat');
     if ~exist(calib_g2_file, 'file')
         fallback_g2 = fullfile(ctx.root, 'Dataset', 'ckpt', 'g10', 'calib_single_G2_hi_d10.mat');
         if exist(fallback_g2, 'file'), calib_g2_file = fallback_g2; else, error('calib_single_G2_hi_d10.mat missing'); end
     end
     calib_g2 = load(calib_g2_file);
+    envG2 = calib_g2.out.env;
+    assert(envG2.pkt_bits == 14000, 'G2 pkt_bits must be 14000 (Deviation D1)');
+    assert(envG2.pkt_deadline == 10, 'G2 pkt_deadline must be 10');
+    assert(envG2.pkt_period == 20, 'G2 pkt_period must be 20');
+    assert(envG2.N == 10, 'G2 N must be 10');
+    assert(envG2.N * envG2.pkt_bits / envG2.pkt_period == 7000, 'G2 offered load must be 7000 bits/TTI');
+    envG2.base_rule_kind = 'fixed'; envG2.base_rule_name = 'Fixed'; envG2.base_rule_force = 'fixed';
     envG2.fixed_offset = calib_g2.out.fixed_offset;
+    assert(envG2.fixed_offset == -2, 'G2 env.fixed_offset must be -2');
     b0_g2 = min(envG2.burn_in, o.simTime - 1);
 
     g2_fresh_vals = zeros(n_g10_extra, n_eval_g10);
