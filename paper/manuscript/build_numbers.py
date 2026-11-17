@@ -725,6 +725,7 @@ _h = h5py.File(P('Optimized', 'v17x', 'Dataset', 'ckpt', 'g10', 'calib_single_G2
 add('NDOneGood', str(int(_h['out']['env']['pkt_bits'][()].ravel()[0])), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G2_hi_d10.mat', 'out.env.pkt_bits')
 _h3 = h5py.File(P('Optimized', 'v17x', 'Dataset', 'ckpt', 'g10', 'calib_single_G3_lo_d18.mat'), 'r')
 add('NGthreeBase', f(float(_h3['out']['fixed_offset'][()].ravel()[0]), 0), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat', 'out.fixed_offset')
+add('NGthreeDeadline', str(int(_h3['out']['env']['pkt_deadline'][()].ravel()[0])), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat', 'out.env.pkt_deadline')
 add('NPSExplEps', '0.5', 'PS1b', 'paper/proposals/R1b_ack_prereg.md', 'section 3 (frozen)')
 
 # ------------------------------------------------------------------ write

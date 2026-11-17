@@ -442,6 +442,7 @@ NGsixSweeps,21,G6h,Optimized/v17x/logs/heartbeat_v17x.txt,g6b sweep units
 NGsixValEns,0.6306,G6a,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,ENS_A2C
 NGsixValPrim,0.6126,G6a,Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,PRIMARY_A2C
 NGthreeBase,\ensuremath{-}3,D1,Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat,out.fixed_offset
+NGthreeDeadline,18,D1,Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat,out.env.pkt_deadline
 NHMfourFixed,3.4985,R26,Optimized/v17/paper/headroom.csv,fixed
 NHMfourGenie,5.6615,R26,Optimized/v17/paper/headroom.csv,genie
 NHMfourGeniePct,+61.8,R26,Optimized/v17/paper/headroom.csv,genie/fixed - 1
