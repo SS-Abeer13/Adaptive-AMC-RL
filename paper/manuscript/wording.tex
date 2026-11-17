@@ -75,3 +75,35 @@
 \defwording{HR1P2}{unrun}{}
 \defwording{HR1P3}{unrun}{}
 \defwording{HR1P4}{unrun}{}
+
+% ---- R1c (Amendment 10a section 6): verdict per scheme, selected automatically from r1c_verdicts.txt via r1c_to_pending.py
+\defwording{R1Cres}{holds}{Across four independent calibration draws, the one-step learner trained on observed ACK/NACK (restricted to base $\pm\lit{1}$) beat or matched the RL policy on the NR2 traces, and, trained on each neighbouring cell's own calibration traces, beat or matched the cell's RL policy and beat all nine calibrated comparators in both cells.}
+\defwording{R1Cres}{cellshold}{For the learner restricted to base $\pm\lit{1}$: in both neighbouring cells the cell-trained learner held across all four calibration draws, but on the NR2 traces the comparison with the RL policy depends on the calibration draw.}
+\defwording{R1Cres}{draw}{For the learner restricted to base $\pm\lit{1}$, the comparison with the RL policy depends on the calibration draw: the four independent draws gave different outcomes.}
+\defwording{R1Cres}{celldep}{For the learner restricted to base $\pm\lit{1}$, the result was consistent across the four calibration draws in every trace set, but cell-dependent: it beat or matched the RL policy on the NR2 traces and in \Ronec{cellhold_res}, not in \Ronec{cellfail_res}.}
+\defwording{R1Cres}{oppoint}{For the learner restricted to base $\pm\lit{1}$, the result was consistent across the four calibration draws, but held only at the M1 operating point: in neither neighbouring cell did the cell-trained learner both beat or match the RL policy and beat all nine calibrated comparators.}
+\defwording{R1Cres}{neither}{The one-step learner trained on observed ACK/NACK (restricted to base $\pm\lit{1}$) neither held against the RL policy across calibration draws nor generalized to the neighbouring cells.}
+\defwording{R1Cres}{unrun}{The replication of the learner restricted to base $\pm\lit{1}$ across four calibration draws and its per-cell test are pending (R1c).}
+\defwording{R1Cfull}{holds}{Across four independent calibration draws, the one-step learner trained on observed ACK/NACK (over all offsets) beat or matched the RL policy on the NR2 traces, and, trained on each neighbouring cell's own calibration traces, beat or matched the cell's RL policy and beat all nine calibrated comparators in both cells.}
+\defwording{R1Cfull}{cellshold}{For the learner over all offsets: in both neighbouring cells the cell-trained learner held across all four calibration draws, but on the NR2 traces the comparison with the RL policy depends on the calibration draw.}
+\defwording{R1Cfull}{draw}{For the learner over all offsets, the comparison with the RL policy depends on the calibration draw: the four independent draws gave different outcomes.}
+\defwording{R1Cfull}{celldep}{For the learner over all offsets, the result was consistent across the four calibration draws in every trace set, but cell-dependent: it beat or matched the RL policy on the NR2 traces and in \Ronec{cellhold_full}, not in \Ronec{cellfail_full}.}
+\defwording{R1Cfull}{oppoint}{For the learner over all offsets, the result was consistent across the four calibration draws, but held only at the M1 operating point: in neither neighbouring cell did the cell-trained learner both beat or match the RL policy and beat all nine calibrated comparators.}
+\defwording{R1Cfull}{neither}{The one-step learner trained on observed ACK/NACK (over all offsets) neither held against the RL policy across calibration draws nor generalized to the neighbouring cells.}
+\defwording{R1Cfull}{unrun}{The replication of the learner over all offsets across four calibration draws and its per-cell test are pending (R1c).}
+
+% ---- R1c short rows for the abstract (R1Cabs) and the discussion (R1Cfullshort), GBT-full-ACK verdict
+\defwording{R1Cabs}{holds}{This held across four calibration draws and, retrained per cell, at two neighbouring operating points.}
+\defwording{R1Cabs}{cellshold}{Retrained per cell it held at two neighbouring operating points; at the main point it depended on the calibration draw.}
+\defwording{R1Cabs}{draw}{Across four calibration draws, however, the outcome depended on the draw.}
+\defwording{R1Cabs}{celldep}{It held across four calibration draws, but at only one of two neighbouring operating points.}
+\defwording{R1Cabs}{oppoint}{It held across four calibration draws at the main point, but not at two neighbouring operating points.}
+\defwording{R1Cabs}{neither}{It did not hold across calibration draws or neighbouring operating points.}
+\defwording{R1Cabs}{unrun}{Its replication across calibration draws and operating points is pending.}
+\defwording{R1Cfullshort}{holds}{R1c: it held across four calibration draws and in both neighbouring cells}
+\defwording{R1Cfullshort}{cellshold}{R1c: it held in both cells but depended on the calibration draw at M1}
+\defwording{R1Cfullshort}{draw}{R1c: the outcome depended on the calibration draw}
+\defwording{R1Cfullshort}{celldep}{R1c: it held across draws but in one cell only}
+\defwording{R1Cfullshort}{oppoint}{R1c: it held across draws at M1 but not in the cells}
+\defwording{R1Cfullshort}{neither}{R1c: it did not hold}
+\defwording{R1Cfullshort}{unrun}{its replication, R1c, is pending}

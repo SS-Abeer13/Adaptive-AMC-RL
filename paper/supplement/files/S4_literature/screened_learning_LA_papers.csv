@@ -1,0 +1,25 @@
+citation_key,year,venue,rl_method,baselines_used,baselines_tuned,calibrated_rule_baseline,information_parity,read_depth
+wiesmayr2025salad,2025,arXiv:2510.05784,"SALAD (ACK/NACK SINR tracking, non-RL learning)","OLLA with 3 fixed NACK steps, target 0.1",partially (3 step sizes),partial,yes,full text
+bruno2014rlamc,2014,2014 IEEE 80th Vehicular Technology Conference (VTC2014-Fall),RL updating CQI-MCS mapping,fixed mapping,no,no,unclear,abstract
+pulliyakode2017rlolla,2017,arXiv:1708.00994,MAB over OLLA offsets,OLLA,no,no,yes,full text (key passages)
+mota2019qlamc,2019,arXiv:1912.04030,tabular Q-learning MCS,"fixed LUT, OLLA",no,no,yes,full text (key passages)
+saxena2019cmab,2019,Proceedings of the 2019 Workshop on Network Meets AI &amp; ML  - NetAI'19,contextual MAB LA,OLLA,no,no,unclear,abstract
+saxena2021lts,2021,"2021 IEEE 32nd Annual International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC)","model-based AMC, latent Thompson sampling","OLLA, TS",no,no,unclear,title/abstract
+saxena2022tuningfree,2022,IEEE Transactions on Wireless Communications,latent Thompson sampling (bandit),"OLLA, MTS, UTS",no,no,partial,full text (arXiv 2010.08651)
+park2021twostagets,2021,IEEE Wireless Communications Letters,two-stage Thompson sampling OLLA,TS-based LA,no,no,yes,abstract
+gupta2019cts,2019,IEEE INFOCOM 2019 - IEEE Conference on Computer Communications,constrained Thompson sampling rate selection,"TS, others",no,no,yes,title/abstract
+geiser2022drlla,2022,Telecom,DRL LA,traditional LA,no,unclear,unclear,abstract
+ye2023drlla,2023,IEEE Transactions on Vehicular Technology,DQN-type DRLLA with classified experience replay,"OLLA, LTSLA, other DRLLA",no (as described),no,unclear,abstract
+pang2024td3olla,2024,2024 IEEE Wireless Communications and Networking Conference (WCNC),TD3 tunes OLLA parameters (two-level; OLLA selects MCS),SOTA LA,no,no,unclear,abstract
+you2026sim2real,2026,arXiv:2603.00689,DC-DQN-LA (decoupled DQN),"OLLA (srsRAN default; step studied, fixed 0.001), BayesLA",step size chosen on testbed,partial,no,full text (key passages)
+wang2026lolla,2026,IEEE Transactions on Mobile Computing,PPO-Lagrangian; RESIDUAL continuous SINR offset on the OLLA/LUT mapping,"OLLA (0.1/1.0 dB default), ILLA, direct-MCS RL, fixed MCS",no (default OLLA only),no,no,"full text (arXiv 2606.23110v1, the only version as of 2026-11-04)"
+demirel2025genrl,2025,arXiv:2507.06602,distributed generalised RL for DL LA,state-of-the-art LA (OLLA-based),industry baseline,partial,unclear,full text (key passages)
+ku2024cmaburllc,2024,IEEE Transactions on Vehicular Technology,contextual MAB LA (LLR-based context),"OLLA, MAB variants",no,no,unclear,abstract
+lin2026metadrl,2026,IEEE Transactions on Vehicular Technology,meta-DRL LA,n/a,n/a,unclear,unclear,title only (no abstract available)
+an2024dragon,2024,Proceedings of the 30th Annual International Conference on Mobile Computing and Networking,DRL MIMO layer + MCS adapter,default adapters,no,unclear,unclear,title/abstract
+parsa2022jointpower,2022,Computer Networks,DRL joint power + MCS,n/a,n/a,unclear,unclear,title
+kela2022delayolla,2022,2022 Joint European Conference on Networks and Communications &amp; 6G Summit (EuCNC/6G Summit),Q-learning and DQN OLLA minimising resources within PDB,traditional OLLA,no,no,no,abstract
+parsa2025qdrlla,2025,IEEE Open Journal of the Communications Society,"DRL jointly choosing MCS, power, subcarrier spacing (QDRLLA)",conventional heuristic LA,not stated,unclear,unclear,abstract
+liang2024idetla,2024,IEEE Transactions on Communications,constrained PADDPG joint modulation + power,DRL variants,n/a,unclear,unclear,abstract
+giwa2026qppg,2026,IEEE Wireless Communications Letters,policy gradient with QNG-inspired preconditioner,classical baselines,not stated,unclear,unclear,abstract
+huang2022deluxe,2022,IEEE Journal on Selected Areas in Communications 40(1):143-162,supervised deep learning (DNN predicts MCS decodability from a reduced representation of the punctured transmission); not RL,EESM-based link adaptation,unclear,unclear,unclear,"abstract, dblp and survey summary (arXiv 2408.02943, Sec. on DL for LA)"

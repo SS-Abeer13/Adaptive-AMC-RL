@@ -35,7 +35,16 @@ T2 = [('v16', P('Optimized', 'v16', 'paper', 'table_core.csv'), 'v16 cases: resi
       ('NR-G10', P('Optimized', 'v17x', 'Dataset', 'table_cells_nr.csv'), 'NR-G10: non-oracle recipe at the two neighbouring operating points'),
       ('NR-G10 (descriptive)', P('paper', 'analysis', 'out', 'nr_g10_ctxj_descriptive.csv'), 'NR-G10 vs the G10 per-cell combined table (descriptive, not pre-registered)'),
       ('A6', P('Optimized', 'v17x', 'Dataset', 'a6_pf_timing.csv'), 'A6: PF-averaging definition and multi-process HARQ (rules only)'),
-      ('A3c', P('Optimized', 'v17x', 'Dataset', 'table_a3c.csv'), 'A3c: per-TTI decision time (one laptop core; descriptive)')]
+      ('A3c', P('Optimized', 'v17x', 'Dataset', 'table_a3c.csv'), 'A3c: per-TTI decision time (one laptop core; descriptive)'),
+      ('R1', P('paper', 'analysis', 'out', 'presub_R1R2.csv'), 'R1/R2: NR2 relative to the true-SINR one-step learners and the designed rules, NR2 and M1 traces (margin: NR2 relative to the control; negative: the control is better)'),
+      ('R1 secondary', P('paper', 'analysis', 'out', 'presub_R1R2_secondary.csv'), 'R1/R2 secondary comparisons (controls against the combined table and against each other)'),
+      ('R4', P('paper', 'analysis', 'out', 'presub_R4.csv'), 'R4: other seed-level intervals (t, BCa, exact sign-flip) and power; sensitivity only'),
+      ('R5 frozen', P('paper', 'analysis', 'out', 'presub_R5.csv'), 'R5: more seeds, frozen analysis (G2 affected by Deviation D1)'),
+      ('R5 G2 corrected', P('paper', 'analysis', 'out', 'presub_G2corrected', 'presub_R5.csv'), 'R5: more seeds, G2 seeds 6-10 re-evaluated at the cell packet size (Deviation D1); reported next to the frozen record'),
+      ('R1b', P('paper', 'analysis', 'out', 'r1b_R1.csv'), 'R1b: NR2 relative to the ACK-trained one-step learners (exploration logging), NR2 traces'),
+      ('R1c summary', P('paper', 'analysis', 'out', 'r1c_summary.csv'), 'R1c: replication of the ACK-trained learners, state per trace set over four calibration draws'),
+      ('R1c fits', P('paper', 'analysis', 'out', 'r1c_fits.csv'), 'R1c: each fit against the ten-seed RL policy of its trace set (margin: RL relative to the learner)'),
+      ('R1c rules', P('paper', 'analysis', 'out', 'r1c_rules.csv'), 'R1c: each cell fit against the nine calibrated comparators of its cell (margin: learner relative to the comparator; Holm over nine)')]
 s2 = []
 for tag, src, title in T2:
     name = re.sub(r'[^A-Za-z0-9]+', '_', tag).strip('_') + '__' + os.path.basename(src)
@@ -52,7 +61,10 @@ stage_of = {'W1_warmup_prereg.md': ('W1', 'w1', 'Optimized/v17x/Dataset/table_wa
             'A6_pf_timing_prereg.md': ('A6', 'a6', 'Optimized/v17x/Dataset/a6_pf_timing.csv'),
             'G10_operating_grid_prereg.md': ('G10', 'g10', 'Optimized/v17x/Dataset/table_cells.csv'),
             'NR2_confirmatory_prereg.md': ('NR2', 'nr2', 'Optimized/v17x/Dataset/table_nr2.csv'),
-            'NR_G10_operating_grid_prereg.md': ('NR-G10', 'nr_g10', 'Optimized/v17x/Dataset/table_cells_nr.csv')}
+            'NR_G10_operating_grid_prereg.md': ('NR-G10', 'nr_g10', 'Optimized/v17x/Dataset/table_cells_nr.csv'),
+            'R_presub_prereg.md': ('R1-R5', 'r1_gbt', 'Optimized/v17x/Dataset/presub/pertrace.csv'),
+            'R1b_ack_prereg.md': ('R1b', 'r1b_ack', 'Optimized/v17x/Dataset/presub/r1b/pertrace_r1b.csv'),
+            'R1c_ack_prereg.md': ('R1c', 'r1c', 'Optimized/v17x/Dataset/presub/r1c/pertrace_r1c.csv')}
 hb = open(P('Optimized', 'v17x', 'logs', 'heartbeat_v17x.txt'), encoding='utf-8', errors='ignore').read().splitlines()
 starts = [(l[:19], re.search(r'stages: ([^;]+);', l).group(1).split(',')) for l in hb if '| runner' in l and 'start (stages:' in l]
 rows3 = []
@@ -103,12 +115,12 @@ def longtable(path, cols=None, caption='', size=r'\scriptsize', sep='3pt'):
     return '\n'.join(out)
 tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geometry}', r'\usepackage{longtable,booktabs,pdflscape,array,calc}', r'\usepackage[hidelinks]{hyperref}', r'\setcounter{secnumdepth}{0}', r'\setcounter{tocdepth}{2}',
        r'\usepackage{fontspec}', r'\setmainfont{DejaVu Serif}', r'\setmonofont{DejaVu Sans Mono}[Scale=0.85]', r'\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}',
-       r'\title{Supplementary material for ``When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules''}',
+       r'\title{Supplementary material for ``A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study''}',
        r'\date{Generated from repository commit ' + esc(git('rev-parse', '--short', 'HEAD')) + '}', r'\sloppy', r'\setlength{\emergencystretch}{3em}', r'\begin{document}', r'\maketitle', r'\tableofcontents', r'\clearpage',
        r'\section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}',
        'All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \\texttt{MANIFEST.sha256}. '
        f'S1 is the case registry: {n_cases} cases and {n_rows} scheme evaluations of the main round (v9--v17), plus the ledger of the {rc} cases and {rr} scheme evaluations of the pre-registered robustness checks ({n_cases + rc} cases, {n_rows + rr} scheme evaluations in total). '
-       'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
+       'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b and their replication R1c); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
        'S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. '
        'S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \\texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. '
        'Margins are relative differences in percent, paired per trace; ``beats'' follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\\,\\% CI lower bound above zero).',
@@ -141,7 +153,7 @@ open(os.path.join(OUT, 'README.md'), 'w', encoding='utf-8', newline='\n').write(
 
 - `S1_registry/case_registry.csv`: main round, {n_cases} cases, {n_rows} scheme evaluations (v9--v17), with the `correction` column.
 - `S1_registry/robustness_cases.csv`: pre-registered robustness checks, {rc} cases, {rr} scheme evaluations. Project total: {n_cases + rc} cases, {n_rows + rr} scheme evaluations.
-- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c). For v9--v15 the registry row gives the margin over the best rule.
+- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c, R1/R2, R4, R5 frozen and G2-corrected, R1b, R1c). For v9--v15 the registry row gives the margin over the best rule.
 - `S3_preregistration/`: every frozen pre-registration and analysis script listed in `FREEZE.sha256`, the earlier freeze files, and `freeze_timeline.csv` (hash, freeze commit, first runner start, results commit).
 - `S4_literature/screened_learning_LA_papers.csv`: the {len(scr)} learning-based LA papers screened for the introduction, with their codes (calibrated-rule baseline yes {cnt['yes']} / partial {cnt['partial']} / no {cnt['no']} / unclear {cnt['unclear']}).
 - `MANIFEST.sha256`: SHA-256 of every file in this archive. Verify with `sha256sum -c MANIFEST.sha256` from this folder.

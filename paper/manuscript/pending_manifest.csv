@@ -126,3 +126,82 @@ HR1,verdict_P2,supported | not-supported (HR1 prereg section 5 P2),choice,VI-I; 
 HR1,verdict_P3,supported | not-supported (HR1 prereg section 5 P3),choice,VI-I; wording HR1P3,unrun
 HR1,verdict_P4,supported | not-supported (HR1 prereg section 5 P4),choice,VI-I; wording HR1P4,unrun
 HR1,scope,run (HR1 prereg section 6 scope sentence),choice,VI-I; wording HR1scope,unrun
+R1C,verdict_res,holds | cellshold | draw | celldep | oppoint | neither (R1c prereg section 6; GBT-res-ACK),choice,abstract; VI; VIII; wording R1Cres,unrun
+R1C,cellhold_res,cells where GBT-res-ACK holds (text),text,VI,-
+R1C,cellfail_res,cells where GBT-res-ACK does not hold (text),text,VI,-
+R1C,state_nrtwo_res,"holds | fails | split, NR2 traces, M1 fits, GBT-res-ACK",choice,VI,-
+R1C,mean_nrtwo_res,"mean on-time over the 4 fits, NR2 traces, M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,min_nrtwo_res,"lowest fit on-time, NR2 traces, M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,max_nrtwo_res,"highest fit on-time, NR2 traces, M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,worstfit_nrtwo_res,"worst fit (1-4), NR2 traces, M1 fits, GBT-res-ACK",integer,VI,-
+R1C,worstmargin_nrtwo_res,"RL margin over the worst fit (%), NR2 traces, M1 fits, GBT-res-ACK",0.2f,VI,-
+R1C,worstout_nrtwo_res,"outcome of the worst fit vs RL, NR2 traces, M1 fits, GBT-res-ACK",choice,VI,-
+R1C,state_gtwo_res,"holds | fails | split, G2, cell fits, GBT-res-ACK",choice,VI,-
+R1C,mean_gtwo_res,"mean on-time over the 4 fits, G2, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,min_gtwo_res,"lowest fit on-time, G2, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,max_gtwo_res,"highest fit on-time, G2, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,worstfit_gtwo_res,"worst fit (1-4), G2, cell fits, GBT-res-ACK",integer,VI,-
+R1C,worstmargin_gtwo_res,"RL margin over the worst fit (%), G2, cell fits, GBT-res-ACK",0.2f,VI,-
+R1C,worstout_gtwo_res,"outcome of the worst fit vs RL, G2, cell fits, GBT-res-ACK",choice,VI,-
+R1C,state_gthree_res,"holds | fails | split, G3, cell fits, GBT-res-ACK",choice,VI,-
+R1C,mean_gthree_res,"mean on-time over the 4 fits, G3, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,min_gthree_res,"lowest fit on-time, G3, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,max_gthree_res,"highest fit on-time, G3, cell fits, GBT-res-ACK",0.4f,VI,-
+R1C,worstfit_gthree_res,"worst fit (1-4), G3, cell fits, GBT-res-ACK",integer,VI,-
+R1C,worstmargin_gthree_res,"RL margin over the worst fit (%), G3, cell fits, GBT-res-ACK",0.2f,VI,-
+R1C,worstout_gthree_res,"outcome of the worst fit vs RL, G3, cell fits, GBT-res-ACK",choice,VI,-
+R1C,state_gtwotr_res,"holds | fails | split, G2, transferred M1 fits, GBT-res-ACK",choice,VI,-
+R1C,mean_gtwotr_res,"mean on-time over the 4 fits, G2, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,min_gtwotr_res,"lowest fit on-time, G2, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,max_gtwotr_res,"highest fit on-time, G2, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,worstfit_gtwotr_res,"worst fit (1-4), G2, transferred M1 fits, GBT-res-ACK",integer,VI,-
+R1C,worstmargin_gtwotr_res,"RL margin over the worst fit (%), G2, transferred M1 fits, GBT-res-ACK",0.2f,VI,-
+R1C,worstout_gtwotr_res,"outcome of the worst fit vs RL, G2, transferred M1 fits, GBT-res-ACK",choice,VI,-
+R1C,state_gthreetr_res,"holds | fails | split, G3, transferred M1 fits, GBT-res-ACK",choice,VI,-
+R1C,mean_gthreetr_res,"mean on-time over the 4 fits, G3, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,min_gthreetr_res,"lowest fit on-time, G3, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,max_gthreetr_res,"highest fit on-time, G3, transferred M1 fits, GBT-res-ACK",0.4f,VI,-
+R1C,worstfit_gthreetr_res,"worst fit (1-4), G3, transferred M1 fits, GBT-res-ACK",integer,VI,-
+R1C,worstmargin_gthreetr_res,"RL margin over the worst fit (%), G3, transferred M1 fits, GBT-res-ACK",0.2f,VI,-
+R1C,worstout_gthreetr_res,"outcome of the worst fit vs RL, G3, transferred M1 fits, GBT-res-ACK",choice,VI,-
+R1C,verdict_full,holds | cellshold | draw | celldep | oppoint | neither (R1c prereg section 6; GBT-full-ACK),choice,abstract; VI; VIII; wording R1Cfull,unrun
+R1C,cellhold_full,cells where GBT-full-ACK holds (text),text,VI,-
+R1C,cellfail_full,cells where GBT-full-ACK does not hold (text),text,VI,-
+R1C,state_nrtwo_full,"holds | fails | split, NR2 traces, M1 fits, GBT-full-ACK",choice,VI,-
+R1C,mean_nrtwo_full,"mean on-time over the 4 fits, NR2 traces, M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,min_nrtwo_full,"lowest fit on-time, NR2 traces, M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,max_nrtwo_full,"highest fit on-time, NR2 traces, M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,worstfit_nrtwo_full,"worst fit (1-4), NR2 traces, M1 fits, GBT-full-ACK",integer,VI,-
+R1C,worstmargin_nrtwo_full,"RL margin over the worst fit (%), NR2 traces, M1 fits, GBT-full-ACK",0.2f,VI,-
+R1C,worstout_nrtwo_full,"outcome of the worst fit vs RL, NR2 traces, M1 fits, GBT-full-ACK",choice,VI,-
+R1C,state_gtwo_full,"holds | fails | split, G2, cell fits, GBT-full-ACK",choice,VI,-
+R1C,mean_gtwo_full,"mean on-time over the 4 fits, G2, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,min_gtwo_full,"lowest fit on-time, G2, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,max_gtwo_full,"highest fit on-time, G2, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,worstfit_gtwo_full,"worst fit (1-4), G2, cell fits, GBT-full-ACK",integer,VI,-
+R1C,worstmargin_gtwo_full,"RL margin over the worst fit (%), G2, cell fits, GBT-full-ACK",0.2f,VI,-
+R1C,worstout_gtwo_full,"outcome of the worst fit vs RL, G2, cell fits, GBT-full-ACK",choice,VI,-
+R1C,state_gthree_full,"holds | fails | split, G3, cell fits, GBT-full-ACK",choice,VI,-
+R1C,mean_gthree_full,"mean on-time over the 4 fits, G3, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,min_gthree_full,"lowest fit on-time, G3, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,max_gthree_full,"highest fit on-time, G3, cell fits, GBT-full-ACK",0.4f,VI,-
+R1C,worstfit_gthree_full,"worst fit (1-4), G3, cell fits, GBT-full-ACK",integer,VI,-
+R1C,worstmargin_gthree_full,"RL margin over the worst fit (%), G3, cell fits, GBT-full-ACK",0.2f,VI,-
+R1C,worstout_gthree_full,"outcome of the worst fit vs RL, G3, cell fits, GBT-full-ACK",choice,VI,-
+R1C,state_gtwotr_full,"holds | fails | split, G2, transferred M1 fits, GBT-full-ACK",choice,VI,-
+R1C,mean_gtwotr_full,"mean on-time over the 4 fits, G2, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,min_gtwotr_full,"lowest fit on-time, G2, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,max_gtwotr_full,"highest fit on-time, G2, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,worstfit_gtwotr_full,"worst fit (1-4), G2, transferred M1 fits, GBT-full-ACK",integer,VI,-
+R1C,worstmargin_gtwotr_full,"RL margin over the worst fit (%), G2, transferred M1 fits, GBT-full-ACK",0.2f,VI,-
+R1C,worstout_gtwotr_full,"outcome of the worst fit vs RL, G2, transferred M1 fits, GBT-full-ACK",choice,VI,-
+R1C,state_gthreetr_full,"holds | fails | split, G3, transferred M1 fits, GBT-full-ACK",choice,VI,-
+R1C,mean_gthreetr_full,"mean on-time over the 4 fits, G3, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,min_gthreetr_full,"lowest fit on-time, G3, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,max_gthreetr_full,"highest fit on-time, G3, transferred M1 fits, GBT-full-ACK",0.4f,VI,-
+R1C,worstfit_gthreetr_full,"worst fit (1-4), G3, transferred M1 fits, GBT-full-ACK",integer,VI,-
+R1C,worstmargin_gthreetr_full,"RL margin over the worst fit (%), G3, transferred M1 fits, GBT-full-ACK",0.2f,VI,-
+R1C,worstout_gthreetr_full,"outcome of the worst fit vs RL, G3, transferred M1 fits, GBT-full-ACK",choice,VI,-
+R1C,rl_nrtwo,on-time of NR2 (10 seeds) on the NR2 traces,0.4f,VI,-
+R1C,rl_gtwo,on-time of NR-G10 (10 seeds) in G2,0.4f,VI,-
+R1C,rl_gthree,on-time of NR-G10 (10 seeds) in G3,0.4f,VI,-

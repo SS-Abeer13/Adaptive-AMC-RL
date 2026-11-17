@@ -8,8 +8,8 @@
 \setmainfont{DejaVu Serif}
 \setmonofont{DejaVu Sans Mono}[Scale=0.85]
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\title{Supplementary material for ``When Does Deep Reinforcement Learning Help Link Adaptation? A Pre-Registered Evaluation Against Calibrated Rules}
-\date{Generated from repository commit fc78cc7}
+\title{Supplementary material for ``A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study}
+\date{Generated from repository commit 20af2cf}
 \sloppy
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -17,7 +17,7 @@
 \tableofcontents
 \clearpage
 \section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}
-All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 9 cases and 18 scheme evaluations of the pre-registered robustness checks (76 cases, 126 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. Margins are relative differences in percent, paired per trace; ``beats follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
+All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 37 cases and 71 scheme evaluations of the pre-registered robustness checks (104 cases, 179 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b and their replication R1c); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. Margins are relative differences in percent, paired per trace; ``beats follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
 \clearpage
 \begin{landscape}
 \section{S1. Case registry}
@@ -147,7 +147,7 @@ All files are also provided as CSV or Markdown in the accompanying archive, with
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}lllll@{}}
-\caption{Ledger of the pre-registered robustness checks: 9 cases, 18 scheme evaluations.}\\
+\caption{Ledger of the pre-registered robustness checks: 37 cases, 71 scheme evaluations.}\\
 \toprule
 \textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{prereg} \\
 \midrule
@@ -163,6 +163,10 @@ G10 & Operating-grid check with the M1 recipe (G2; G3) & 2 & 4 & paper/proposals
 A6 & PF-timing diagnostic & 1 & 1 & paper/proposals/A6\_pf\_timing\_prereg.md \\
 NR2 & Confirmatory non-oracle replication (Amendment 3) & 1 & 2 & paper/proposals/NR2\_confirmatory\_prereg.md \\
 NR-G10 & Operating-grid check with the non-oracle recipe (G2\_hi\_d10\_NR; G3\_lo\_d18\_NR; Amendment 5) & 2 & 4 & paper/proposals/NR\_G10\_operating\_grid\_prereg.md section 6 \\
+PS-R1R2 & Attribution controls: one-step GBT on true-SINR labels and designed rule, as written and calibrated; NR2 and M1 traces (Amendment 8) & 4 & 8 & paper/proposals/R\_presub\_prereg.md section 10 \\
+PS-R5 & More seeds: NR2 with 20 seeds; NR-G10 with 10 seeds per cell (Amendment 8; G2 with Deviation D1) & 3 & 3 & paper/proposals/R\_presub\_prereg.md section 10 \\
+R1b & One-step learner trained on observed ACK/NACK, NR2 and M1 traces (Amendment 9) & 2 & 4 & paper/proposals/R1b\_ack\_prereg.md section 9 \\
+R1c & Calibration-draw replication and per-cell test of the ACK-trained learner (Amendment 10a) & 19 & 38 & paper/proposals/R1c\_ack\_prereg.md section 7 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -653,6 +657,511 @@ scheduled\_rtt8\_np8 & scheduled & 8 & 8 & Fixed & 3.4360 & 3.1406 & 3.7314 & 0.
 \bottomrule
 \end{longtable}
 \normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllll@{}}
+\caption{R1/R2: NR2 relative to the true-SINR one-step learners and the designed rules, NR2 and M1 traces (margin: NR2 relative to the control; negative: the control is better) Source: \texttt{paper/analysis/out/presub\_R1R2.csv}.}\\
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} & \textbf{trace\_set} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} & \textbf{trace\_set} \\
+\midrule
+\endhead
+-2.694 & -3.048 & -2.341 & 8.758e-32 & GBT-res & 8.758e-32 & -3.727 & -1.757 & 0 & 10 & LOSES & NR2 \\
+-5.542 & -6.06 & -5.025 & 2.171e-46 & GBT-full & 8.686e-46 & -6.618 & -4.549 & 0 & 10 & LOSES & NR2 \\
+3.21 & 2.826 & 3.594 & 1.041e-33 & Rule & 3.123e-33 & 2.111 & 4.252 & 9 & 10 & BEATS & NR2 \\
+3.214 & 2.829 & 3.598 & 2.122e-33 & Rule-cal & 4.243e-33 & 2.116 & 4.256 & 9 & 10 & BEATS & NR2 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllllll@{}}
+\caption{R1/R2 secondary comparisons (controls against the combined table and against each other) Source: \texttt{paper/analysis/out/presub\_R1R2\_secondary.csv}.}\\
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{comparator} & \textbf{trace\_set} & \textbf{holm\_p} & \textbf{beats} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{comparator} & \textbf{trace\_set} & \textbf{holm\_p} & \textbf{beats} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endhead
+6.207 & 5.639 & 6.774 & 5.962e-47 & GBT-res & ctxj500 & NR2 & 5.962e-47 & 1 &  &  &  &  &  \\
+7.749 & 7.228 & 8.27 & 2.998e-64 & GBT-res & fixed500 & NR2 & 8.993e-64 & 1 &  &  &  &  &  \\
+7.224 & 6.698 & 7.75 & 5.026e-60 & GBT-res & ctx500 & NR2 & 1.005e-59 & 1 &  &  &  &  &  \\
+9.409 & 8.675 & 10.14 & 4.416e-56 & GBT-full & ctxj500 & NR2 & 4.416e-56 & 1 &  &  &  &  &  \\
+11 & 10.32 & 11.67 & 1.298e-68 & GBT-full & fixed500 & NR2 & 3.895e-68 & 1 &  &  &  &  &  \\
+10.46 & 9.781 & 11.13 & 2.286e-66 & GBT-full & ctx500 & NR2 & 4.572e-66 & 1 &  &  &  &  &  \\
+0.1307 & -0.2597 & 0.5211 & 0.5517 & Rule & ctxj500 & NR2 & 0.5517 & 0 &  &  &  &  &  \\
+1.584 & 1.237 & 1.932 & 5.85e-12 & Rule & fixed500 & NR2 & 1.755e-11 & 1 &  &  &  &  &  \\
+1.09 & 0.7435 & 1.436 & 5.1e-06 & Rule & ctx500 & NR2 & 1.02e-05 & 1 &  &  &  &  &  \\
+0.1276 & -0.2642 & 0.5194 & 0.5234 & Rule-cal & ctxj500 & NR2 & 0.5234 & 0 &  &  &  &  &  \\
+1.581 & 1.23 & 1.933 & 1.223e-11 & Rule-cal & fixed500 & NR2 & 3.669e-11 & 1 &  &  &  &  &  \\
+1.086 & 0.7382 & 1.435 & 4.251e-06 & Rule-cal & ctx500 & NR2 & 8.503e-06 & 1 &  &  &  &  &  \\
+-2.829 & -3.171 & -2.486 & 6.17e-34 & GBT-res & NR2 & M1 (secondary) & 1.851e-33 &  & -3.867 & -1.912 & 0 & 10 & LOSES \\
+-6.018 & -6.503 & -5.532 & 1.028e-53 & GBT-full & NR2 & M1 (secondary) & 4.111e-53 &  & -7.082 & -5.067 & 0 & 10 & LOSES \\
+2.822 & 2.44 & 3.205 & 3.643e-28 & Rule & NR2 & M1 (secondary) & 3.643e-28 &  & 1.728 & 3.833 & 9 & 10 & BEATS \\
+2.819 & 2.44 & 3.197 & 1.348e-28 & Rule-cal & NR2 & M1 (secondary) & 2.696e-28 &  & 1.728 & 3.83 & 9 & 10 & BEATS \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllllll@{}}
+\caption{R4: other seed-level intervals (t, BCa, exact sign-flip) and power; sensitivity only Source: \texttt{paper/analysis/out/presub\_R4.csv}.}\\
+\toprule
+\textbf{comparison} & \textbf{n\_seeds} & \textbf{mean\_seed\_margin} & \textbf{sd} & \textbf{t95\_lo} & \textbf{t95\_hi} & \textbf{bca95\_lo} & \textbf{bca95\_hi} & \textbf{signflip\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{power\_at\_observed} & \textbf{mde80\_n10} & \textbf{mde80\_n5} & \textbf{category} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{comparison} & \textbf{n\_seeds} & \textbf{mean\_seed\_margin} & \textbf{sd} & \textbf{t95\_lo} & \textbf{t95\_hi} & \textbf{bca95\_lo} & \textbf{bca95\_hi} & \textbf{signflip\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{power\_at\_observed} & \textbf{mde80\_n10} & \textbf{mde80\_n5} & \textbf{category} \\
+\midrule
+\endhead
+M1 vs Context-joint-500 & 10 & 0.6585 & 1.525 & -0.4323 & 1.749 & -0.1434 & 1.658 & 0.2422 & -0.3016 & 1.703 & 0.2313 & 1.519 & 2.565 & unchanged \\
+NR2 vs Context-joint-500 & 10 & 3.345 & 1.631 & 2.179 & 4.512 & 2.181 & 4.137 & 0.003906 & 2.224 & 4.401 & 0.9999 & 1.624 & 2.743 & unchanged \\
+NR-G10 G2 vs Context table & 5 & 1.726 & 0.8591 & 0.6594 & 2.793 & 1.268 & 2.791 & 0.0625 & 0.8569 & 2.716 & 0.9112 & 0.8557 & 1.445 & unchanged \\
+NR-G10 G3 vs Context table & 5 & 1.016 & 0.2587 & 0.6945 & 1.337 & 0.8265 & 1.213 & 0.0625 & 0.6276 & 1.405 & 1 & 0.2577 & 0.4351 & unchanged \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllll@{}}
+\caption{R5: more seeds, frozen analysis (G2 affected by Deviation D1) Source: \texttt{paper/analysis/out/presub\_R5.csv}.}\\
+\toprule
+\textbf{analysis} & \textbf{verdict} & \textbf{holds} & \textbf{margin} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{win} & \textbf{best\_rule} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{analysis} & \textbf{verdict} & \textbf{holds} & \textbf{margin} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{win} & \textbf{best\_rule} \\
+\midrule
+\endhead
+NR2-20 & CONFIRM & yes & 2.814 & 2.424 & 3.203 & 4.183e-26 & 1.824 & 3.817 & 19 & 20 & yes &  \\
+NRG10-10 G2 & WEAKENS & no & -9.417 & -10.03 & -8.799 & 6.744e-47 & -16.35 & -2.546 & 5 & 10 & no & Context table \\
+NRG10-10 G3 & PASS & yes & 0.6568 & 0.4251 & 0.8885 & 0.0001013 & 0.2437 & 1.087 & 9 & 10 & yes & Context table \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllll@{}}
+\caption{R5: more seeds, G2 seeds 6-10 re-evaluated at the cell packet size (Deviation D1); reported next to the frozen record Source: \texttt{paper/analysis/out/presub\_G2corrected/presub\_R5.csv}.}\\
+\toprule
+\textbf{analysis} & \textbf{verdict} & \textbf{holds} & \textbf{margin} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{win} & \textbf{best\_rule} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{analysis} & \textbf{verdict} & \textbf{holds} & \textbf{margin} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{win} & \textbf{best\_rule} \\
+\midrule
+\endhead
+NR2-20 & CONFIRM & yes & 2.814 & 2.424 & 3.203 & 4.183e-26 & 1.824 & 3.817 & 19 & 20 & yes &  \\
+NRG10-10 G2 & PASS & yes & 2.143 & 1.687 & 2.598 & 1.48e-12 & 1.13 & 3.193 & 9 & 10 & yes & Context table \\
+NRG10-10 G3 & PASS & yes & 0.6568 & 0.4251 & 0.8885 & 0.0001013 & 0.2437 & 1.087 & 9 & 10 & yes & Context table \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllll@{}}
+\caption{R1b: NR2 relative to the ACK-trained one-step learners (exploration logging), NR2 traces Source: \texttt{paper/analysis/out/r1b\_R1.csv}.}\\
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{trace\_set} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{scheme} & \textbf{trace\_set} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endhead
+-3.403 & -3.754 & -3.051 & 1.062e-41 & GBT-res-ACK & NR2 & 1.062e-41 & -4.427 & -2.47 & 0 & 10 & LOSES \\
+-7.581 & -8.095 & -7.066 & 1.197e-63 & GBT-full-ACK & NR2 & 2.394e-63 & -8.641 & -6.606 & 0 & 10 & LOSES \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllllll@{}}
+\caption{R1c: replication of the ACK-trained learners, state per trace set over four calibration draws Source: \texttt{paper/analysis/out/r1c\_summary.csv}.}\\
+\toprule
+\textbf{role} & \textbf{trace\_set} & \textbf{kind} & \textbf{scheme} & \textbf{n\_fits} & \textbf{state} & \textbf{mean\_ontime} & \textbf{min\_ontime} & \textbf{max\_ontime} & \textbf{rl\_ontime} & \textbf{worst\_fit} & \textbf{worst\_margin} & \textbf{worst\_outcome} & \textbf{outcomes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{role} & \textbf{trace\_set} & \textbf{kind} & \textbf{scheme} & \textbf{n\_fits} & \textbf{state} & \textbf{mean\_ontime} & \textbf{min\_ontime} & \textbf{max\_ontime} & \textbf{rl\_ontime} & \textbf{worst\_fit} & \textbf{worst\_margin} & \textbf{worst\_outcome} & \textbf{outcomes} \\
+\midrule
+\endhead
+primary: replication & NR2 & M1fit & GBT-res-ACK & 4 & holds & 0.6449 & 0.6399 & 0.6501 & 0.6201 & 3 & -3.096 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+primary: replication & NR2 & M1fit & GBT-full-ACK & 4 & holds & 0.6774 & 0.671 & 0.6878 & 0.6201 & 1 & -7.581 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+primary: cell & G2 & cellfit & GBT-res-ACK & 4 & holds & 0.578 & 0.5739 & 0.5811 & 0.5501 & 3 & -4.157 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+primary: cell & G2 & cellfit & GBT-full-ACK & 4 & holds & 0.5955 & 0.5861 & 0.6048 & 0.5501 & 2 & -6.144 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+primary: cell & G3 & cellfit & GBT-res-ACK & 4 & holds & 0.9244 & 0.9229 & 0.9255 & 0.9066 & 3 & -1.774 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+primary: cell & G3 & cellfit & GBT-full-ACK & 4 & holds & 0.9392 & 0.9357 & 0.9419 & 0.9066 & 4 & -3.114 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+secondary: transfer & G2 & M1fit & GBT-res-ACK & 4 & holds & 0.5757 & 0.5701 & 0.5822 & 0.5501 & 3 & -3.514 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+secondary: transfer & G2 & M1fit & GBT-full-ACK & 4 & holds & 0.5884 & 0.5815 & 0.597 & 0.5501 & 3 & -5.41 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+secondary: transfer & G3 & M1fit & GBT-res-ACK & 4 & holds & 0.9255 & 0.9245 & 0.9259 & 0.9066 & 4 & -1.945 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+secondary: transfer & G3 & M1fit & GBT-full-ACK & 4 & holds & 0.9406 & 0.9384 & 0.9432 & 0.9066 & 2 & -3.391 & LOSES & 1:LOSES 2:LOSES 3:LOSES 4:LOSES \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllllllllll@{}}
+\caption{R1c: each fit against the ten-seed RL policy of its trace set (margin: RL relative to the learner) Source: \texttt{paper/analysis/out/r1c\_fits.csv}.}\\
+\toprule
+\textbf{trace\_set} & \textbf{kind} & \textbf{scheme} & \textbf{fit} & \textbf{ontime} & \textbf{rl\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome\_vs\_rl} & \textbf{role} & \textbf{beats\_rules} & \textbf{favourable} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{trace\_set} & \textbf{kind} & \textbf{scheme} & \textbf{fit} & \textbf{ontime} & \textbf{rl\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome\_vs\_rl} & \textbf{role} & \textbf{beats\_rules} & \textbf{favourable} \\
+\midrule
+\endhead
+NR2 & M1fit & GBT-res-ACK & 1 & 0.642 & 0.6201 & -3.403 & -3.754 & -3.051 & 1.062e-41 & 2.124e-41 & -4.427 & -2.47 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-res-ACK & 2 & 0.6501 & 0.6201 & -4.618 & -4.971 & -4.265 & 1.311e-58 & 5.242e-58 & -5.633 & -3.696 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-res-ACK & 3 & 0.6399 & 0.6201 & -3.096 & -3.445 & -2.747 & 2.252e-37 & 2.252e-37 & -4.114 & -2.159 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-res-ACK & 4 & 0.6477 & 0.6201 & -4.252 & -4.593 & -3.911 & 3.555e-55 & 1.066e-54 & -5.267 & -3.324 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-full-ACK & 1 & 0.671 & 0.6201 & -7.581 & -8.095 & -7.066 & 1.197e-63 & 5.985e-63 & -8.641 & -6.606 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-full-ACK & 2 & 0.6878 & 0.6201 & -9.842 & -10.34 & -9.346 & 7.818e-77 & 6.254e-76 & -10.86 & -8.885 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-full-ACK & 3 & 0.6729 & 0.6201 & -7.842 & -8.358 & -7.325 & 1.518e-65 & 9.109e-65 & -8.894 & -6.861 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+NR2 & M1fit & GBT-full-ACK & 4 & 0.6779 & 0.6201 & -8.528 & -9.026 & -8.029 & 3.909e-71 & 2.736e-70 & -9.574 & -7.57 & 0 & 10 & LOSES & primary: replication & n/a & yes \\
+G2 & cellfit & GBT-res-ACK & 1 & 0.5794 & 0.5501 & -5.062 & -5.682 & -4.442 & 2.291e-28 & 9.162e-28 & -6.125 & -4.023 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-res-ACK & 2 & 0.5774 & 0.5501 & -4.738 & -5.34 & -4.136 & 7.697e-27 & 2.309e-26 & -5.791 & -3.704 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-res-ACK & 3 & 0.5739 & 0.5501 & -4.157 & -4.767 & -3.547 & 2.319e-21 & 2.319e-21 & -5.203 & -3.112 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-res-ACK & 4 & 0.5811 & 0.5501 & -5.332 & -5.972 & -4.692 & 1.49e-28 & 7.449e-28 & -6.393 & -4.283 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-full-ACK & 1 & 0.5977 & 0.5501 & -7.966 & -8.754 & -7.179 & 5.048e-35 & 3.533e-34 & -9.087 & -6.849 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-full-ACK & 2 & 0.5861 & 0.5501 & -6.144 & -6.951 & -5.337 & 9.97e-26 & 1.994e-25 & -7.315 & -4.973 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-full-ACK & 3 & 0.5935 & 0.5501 & -7.315 & -8.115 & -6.515 & 8.875e-32 & 5.325e-31 & -8.434 & -6.178 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & cellfit & GBT-full-ACK & 4 & 0.6048 & 0.5501 & -9.048 & -9.798 & -8.299 & 2.271e-40 & 1.817e-39 & -10.13 & -7.971 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-res-ACK & 1 & 0.9254 & 0.9066 & -2.042 & -2.335 & -1.749 & 3.327e-28 & 9.982e-28 & -2.521 & -1.587 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-res-ACK & 2 & 0.9255 & 0.9066 & -2.043 & -2.324 & -1.762 & 1.252e-28 & 5.008e-28 & -2.512 & -1.596 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-res-ACK & 3 & 0.9229 & 0.9066 & -1.774 & -2.045 & -1.502 & 9.379e-26 & 1.114e-25 & -2.233 & -1.337 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-res-ACK & 4 & 0.9239 & 0.9066 & -1.875 & -2.16 & -1.59 & 5.572e-26 & 1.114e-25 & -2.345 & -1.422 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-full-ACK & 1 & 0.9419 & 0.9066 & -3.756 & -4.159 & -3.353 & 7.503e-43 & 5.252e-42 & -4.347 & -3.191 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-full-ACK & 2 & 0.9415 & 0.9066 & -3.71 & -4.095 & -3.325 & 1.122e-44 & 8.973e-44 & -4.283 & -3.169 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-full-ACK & 3 & 0.9376 & 0.9066 & -3.31 & -3.673 & -2.947 & 2.508e-40 & 1.505e-39 & -3.855 & -2.789 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G3 & cellfit & GBT-full-ACK & 4 & 0.9357 & 0.9066 & -3.114 & -3.457 & -2.77 & 2.788e-39 & 1.394e-38 & -3.638 & -2.614 & 0 & 10 & LOSES & primary: cell & yes & yes \\
+G2 & M1fit & GBT-res-ACK & 1 & 0.5731 & 0.5501 & -4.022 & -4.607 & -3.438 & 1.572e-22 & 4.715e-22 & -5.057 & -2.996 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-res-ACK & 2 & 0.5822 & 0.5501 & -5.51 & -6.107 & -4.912 & 9.068e-33 & 6.348e-32 & -6.546 & -4.492 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-res-ACK & 3 & 0.5701 & 0.5501 & -3.514 & -4.089 & -2.938 & 1.356e-18 & 1.356e-18 & -4.55 & -2.473 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-res-ACK & 4 & 0.5772 & 0.5501 & -4.702 & -5.275 & -4.129 & 8.816e-28 & 4.408e-27 & -5.716 & -3.696 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-full-ACK & 1 & 0.586 & 0.5501 & -6.122 & -6.916 & -5.328 & 7.009e-26 & 2.804e-25 & -7.261 & -4.974 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-full-ACK & 2 & 0.597 & 0.5501 & -7.854 & -8.657 & -7.051 & 4.779e-34 & 3.823e-33 & -9.001 & -6.707 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-full-ACK & 3 & 0.5815 & 0.5501 & -5.41 & -6.246 & -4.574 & 2.853e-21 & 5.705e-21 & -6.599 & -4.196 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G2 & M1fit & GBT-full-ACK & 4 & 0.5892 & 0.5501 & -6.634 & -7.435 & -5.834 & 3.828e-28 & 2.297e-27 & -7.777 & -5.479 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-res-ACK & 1 & 0.9259 & 0.9066 & -2.085 & -2.369 & -1.801 & 7.823e-30 & 2.335e-29 & -2.56 & -1.631 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-res-ACK & 2 & 0.9256 & 0.9066 & -2.058 & -2.348 & -1.769 & 7.35e-30 & 2.335e-29 & -2.536 & -1.601 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-res-ACK & 3 & 0.9258 & 0.9066 & -2.082 & -2.389 & -1.774 & 5.838e-30 & 2.335e-29 & -2.58 & -1.618 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-res-ACK & 4 & 0.9245 & 0.9066 & -1.945 & -2.245 & -1.646 & 1.652e-24 & 1.652e-24 & -2.431 & -1.478 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-full-ACK & 1 & 0.9408 & 0.9066 & -3.636 & -4.02 & -3.252 & 6.941e-44 & 4.859e-43 & -4.206 & -3.093 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-full-ACK & 2 & 0.9384 & 0.9066 & -3.391 & -3.76 & -3.021 & 2.237e-40 & 1.119e-39 & -3.942 & -2.863 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-full-ACK & 3 & 0.9432 & 0.9066 & -3.885 & -4.291 & -3.478 & 8.245e-45 & 6.596e-44 & -4.484 & -3.315 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+G3 & M1fit & GBT-full-ACK & 4 & 0.94 & 0.9066 & -3.561 & -3.941 & -3.181 & 2.992e-43 & 1.795e-42 & -4.125 & -3.017 & 0 & 10 & LOSES & secondary: transfer & yes & yes \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllll@{}}
+\caption{R1c: each cell fit against the nine calibrated comparators of its cell (margin: learner relative to the comparator; Holm over nine) Source: \texttt{paper/analysis/out/r1c\_rules.csv}.}\\
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{trace\_set} & \textbf{scheme} & \textbf{comparator} & \textbf{holm\_p} & \textbf{beats} & \textbf{role} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{trace\_set} & \textbf{scheme} & \textbf{comparator} & \textbf{holm\_p} & \textbf{beats} & \textbf{role} \\
+\midrule
+\endhead
+20.47 & 19.19 & 21.75 & 1.177e-47 & G2 & GBT-res-ACK-cellfit1 & Baseline & 8.236e-47 & 1 & primary: cell \\
+17.29 & 16.1 & 18.48 & 1.273e-45 & G2 & GBT-res-ACK-cellfit1 & OLLA & 6.366e-45 & 1 & primary: cell \\
+13.91 & 12.88 & 14.94 & 2.594e-43 & G2 & GBT-res-ACK-cellfit1 & OLLA (tuned target) & 1.038e-42 & 1 & primary: cell \\
+17.32 & 16.16 & 18.49 & 9.384e-46 & G2 & GBT-res-ACK-cellfit1 & Multi-OLLA & 5.63e-45 & 1 & primary: cell \\
+8.78 & 7.939 & 9.62 & 3.717e-37 & G2 & GBT-res-ACK-cellfit1 & Fixed & 1.115e-36 & 1 & primary: cell \\
+8.171 & 7.351 & 8.992 & 6.289e-35 & G2 & GBT-res-ACK-cellfit1 & FixedPU (Oracle) & 1.258e-34 & 1 & primary: cell \\
+7.589 & 6.736 & 8.442 & 2.691e-31 & G2 & GBT-res-ACK-cellfit1 & Context table & 2.691e-31 & 1 & primary: cell \\
+50.73 & 48.57 & 52.88 & 7.583e-51 & G2 & GBT-res-ACK-cellfit1 & Bandit (global) & 6.825e-50 & 1 & primary: cell \\
+50.73 & 48.57 & 52.88 & 7.583e-51 & G2 & GBT-res-ACK-cellfit1 & Bandit (delay class) & 6.825e-50 & 1 & primary: cell \\
+20.06 & 18.81 & 21.31 & 7.869e-48 & G2 & GBT-res-ACK-cellfit2 & Baseline & 5.508e-47 & 1 & primary: cell \\
+16.89 & 15.72 & 18.06 & 9.416e-46 & G2 & GBT-res-ACK-cellfit2 & OLLA & 4.708e-45 & 1 & primary: cell \\
+13.52 & 12.51 & 14.53 & 4.832e-44 & G2 & GBT-res-ACK-cellfit2 & OLLA (tuned target) & 1.933e-43 & 1 & primary: cell \\
+16.93 & 15.79 & 18.06 & 4.077e-46 & G2 & GBT-res-ACK-cellfit2 & Multi-OLLA & 2.446e-45 & 1 & primary: cell \\
+8.409 & 7.602 & 9.217 & 1.2e-36 & G2 & GBT-res-ACK-cellfit2 & Fixed & 3.599e-36 & 1 & primary: cell \\
+7.803 & 7.014 & 8.593 & 2.055e-34 & G2 & GBT-res-ACK-cellfit2 & FixedPU (Oracle) & 4.109e-34 & 1 & primary: cell \\
+7.223 & 6.405 & 8.041 & 7.53e-31 & G2 & GBT-res-ACK-cellfit2 & Context table & 7.53e-31 & 1 & primary: cell \\
+50.21 & 48.09 & 52.34 & 6.724e-51 & G2 & GBT-res-ACK-cellfit2 & Bandit (global) & 6.052e-50 & 1 & primary: cell \\
+50.21 & 48.09 & 52.34 & 6.724e-51 & G2 & GBT-res-ACK-cellfit2 & Bandit (delay class) & 6.052e-50 & 1 & primary: cell \\
+19.33 & 18.04 & 20.62 & 2.455e-46 & G2 & GBT-res-ACK-cellfit3 & Baseline & 1.718e-45 & 1 & primary: cell \\
+16.18 & 14.98 & 17.38 & 3.103e-43 & G2 & GBT-res-ACK-cellfit3 & OLLA & 1.552e-42 & 1 & primary: cell \\
+12.83 & 11.81 & 13.86 & 3.113e-41 & G2 & GBT-res-ACK-cellfit3 & OLLA (tuned target) & 1.245e-40 & 1 & primary: cell \\
+16.22 & 15.05 & 17.39 & 6.238e-44 & G2 & GBT-res-ACK-cellfit3 & Multi-OLLA & 3.743e-43 & 1 & primary: cell \\
+7.752 & 6.962 & 8.542 & 5.539e-35 & G2 & GBT-res-ACK-cellfit3 & Fixed & 1.662e-34 & 1 & primary: cell \\
+7.15 & 6.376 & 7.923 & 2.652e-32 & G2 & GBT-res-ACK-cellfit3 & FixedPU (Oracle) & 5.303e-32 & 1 & primary: cell \\
+6.573 & 5.773 & 7.372 & 3.719e-28 & G2 & GBT-res-ACK-cellfit3 & Context table & 3.719e-28 & 1 & primary: cell \\
+49.3 & 47.16 & 51.45 & 7.07e-51 & G2 & GBT-res-ACK-cellfit3 & Bandit (global) & 6.363e-50 & 1 & primary: cell \\
+49.3 & 47.16 & 51.45 & 7.07e-51 & G2 & GBT-res-ACK-cellfit3 & Bandit (delay class) & 6.363e-50 & 1 & primary: cell \\
+20.81 & 19.51 & 22.11 & 1.062e-47 & G2 & GBT-res-ACK-cellfit4 & Baseline & 7.433e-47 & 1 & primary: cell \\
+17.62 & 16.42 & 18.83 & 9.995e-46 & G2 & GBT-res-ACK-cellfit4 & OLLA & 4.997e-45 & 1 & primary: cell \\
+14.23 & 13.2 & 15.26 & 3.518e-44 & G2 & GBT-res-ACK-cellfit4 & OLLA (tuned target) & 1.407e-43 & 1 & primary: cell \\
+17.66 & 16.48 & 18.84 & 3.446e-46 & G2 & GBT-res-ACK-cellfit4 & Multi-OLLA & 2.067e-45 & 1 & primary: cell \\
+9.09 & 8.249 & 9.93 & 1.574e-37 & G2 & GBT-res-ACK-cellfit4 & Fixed & 4.723e-37 & 1 & primary: cell \\
+8.48 & 7.652 & 9.308 & 3.438e-35 & G2 & GBT-res-ACK-cellfit4 & FixedPU (Oracle) & 6.876e-35 & 1 & primary: cell \\
+7.896 & 7.039 & 8.752 & 3.337e-32 & G2 & GBT-res-ACK-cellfit4 & Context table & 3.337e-32 & 1 & primary: cell \\
+51.16 & 48.99 & 53.32 & 7.66e-51 & G2 & GBT-res-ACK-cellfit4 & Bandit (global) & 6.894e-50 & 1 & primary: cell \\
+51.16 & 48.99 & 53.32 & 7.66e-51 & G2 & GBT-res-ACK-cellfit4 & Bandit (delay class) & 6.894e-50 & 1 & primary: cell \\
+24.27 & 22.86 & 25.69 & 7.881e-49 & G2 & GBT-full-ACK-cellfit1 & Baseline & 5.517e-48 & 1 & primary: cell \\
+20.99 & 19.66 & 22.33 & 1.21e-46 & G2 & GBT-full-ACK-cellfit1 & OLLA & 6.048e-46 & 1 & primary: cell \\
+17.5 & 16.29 & 18.71 & 5.801e-45 & G2 & GBT-full-ACK-cellfit1 & OLLA (tuned target) & 2.32e-44 & 1 & primary: cell \\
+21.03 & 19.71 & 22.35 & 3.633e-47 & G2 & GBT-full-ACK-cellfit1 & Multi-OLLA & 2.18e-46 & 1 & primary: cell \\
+12.21 & 11.23 & 13.2 & 1.3e-42 & G2 & GBT-full-ACK-cellfit1 & Fixed & 3.9e-42 & 1 & primary: cell \\
+11.59 & 10.61 & 12.56 & 3.153e-40 & G2 & GBT-full-ACK-cellfit1 & FixedPU (Oracle) & 6.306e-40 & 1 & primary: cell \\
+10.98 & 9.972 & 12 & 6.482e-38 & G2 & GBT-full-ACK-cellfit1 & Context table & 6.482e-38 & 1 & primary: cell \\
+55.48 & 53.22 & 57.75 & 6.861e-51 & G2 & GBT-full-ACK-cellfit1 & Bandit (global) & 6.175e-50 & 1 & primary: cell \\
+55.48 & 53.22 & 57.75 & 6.861e-51 & G2 & GBT-full-ACK-cellfit1 & Bandit (delay class) & 6.175e-50 & 1 & primary: cell \\
+21.86 & 20.43 & 23.29 & 1.715e-46 & G2 & GBT-full-ACK-cellfit2 & Baseline & 1.2e-45 & 1 & primary: cell \\
+18.64 & 17.28 & 20.01 & 3.763e-43 & G2 & GBT-full-ACK-cellfit2 & OLLA & 1.882e-42 & 1 & primary: cell \\
+15.22 & 13.99 & 16.45 & 4.294e-41 & G2 & GBT-full-ACK-cellfit2 & OLLA (tuned target) & 1.718e-40 & 1 & primary: cell \\
+18.68 & 17.33 & 20.02 & 8.351e-44 & G2 & GBT-full-ACK-cellfit2 & Multi-OLLA & 5.011e-43 & 1 & primary: cell \\
+10.03 & 9.066 & 11 & 2.493e-36 & G2 & GBT-full-ACK-cellfit2 & Fixed & 7.48e-36 & 1 & primary: cell \\
+9.418 & 8.467 & 10.37 & 2.109e-34 & G2 & GBT-full-ACK-cellfit2 & FixedPU (Oracle) & 4.217e-34 & 1 & primary: cell \\
+8.829 & 7.83 & 9.828 & 3e-31 & G2 & GBT-full-ACK-cellfit2 & Context table & 3e-31 & 1 & primary: cell \\
+52.46 & 50.19 & 54.73 & 8.134e-51 & G2 & GBT-full-ACK-cellfit2 & Bandit (global) & 7.321e-50 & 1 & primary: cell \\
+52.46 & 50.19 & 54.73 & 8.134e-51 & G2 & GBT-full-ACK-cellfit2 & Bandit (delay class) & 7.321e-50 & 1 & primary: cell \\
+23.4 & 21.93 & 24.86 & 2.38e-47 & G2 & GBT-full-ACK-cellfit3 & Baseline & 1.666e-46 & 1 & primary: cell \\
+20.14 & 18.75 & 21.53 & 9.395e-45 & G2 & GBT-full-ACK-cellfit3 & OLLA & 4.697e-44 & 1 & primary: cell \\
+16.68 & 15.43 & 17.92 & 2.662e-43 & G2 & GBT-full-ACK-cellfit3 & OLLA (tuned target) & 1.065e-42 & 1 & primary: cell \\
+20.18 & 18.79 & 21.56 & 3.026e-45 & G2 & GBT-full-ACK-cellfit3 & Multi-OLLA & 1.815e-44 & 1 & primary: cell \\
+11.42 & 10.45 & 12.4 & 4.955e-40 & G2 & GBT-full-ACK-cellfit3 & Fixed & 1.487e-39 & 1 & primary: cell \\
+10.8 & 9.835 & 11.77 & 1.615e-38 & G2 & GBT-full-ACK-cellfit3 & FixedPU (Oracle) & 3.23e-38 & 1 & primary: cell \\
+10.2 & 9.192 & 11.22 & 2.329e-35 & G2 & GBT-full-ACK-cellfit3 & Context table & 2.329e-35 & 1 & primary: cell \\
+54.39 & 52.11 & 56.67 & 7.47e-51 & G2 & GBT-full-ACK-cellfit3 & Bandit (global) & 6.723e-50 & 1 & primary: cell \\
+54.39 & 52.11 & 56.67 & 7.47e-51 & G2 & GBT-full-ACK-cellfit3 & Bandit (delay class) & 6.723e-50 & 1 & primary: cell \\
+25.75 & 24.33 & 27.17 & 4.656e-49 & G2 & GBT-full-ACK-cellfit4 & Baseline & 3.259e-48 & 1 & primary: cell \\
+22.43 & 21.09 & 23.77 & 3.648e-48 & G2 & GBT-full-ACK-cellfit4 & OLLA & 2.189e-47 & 1 & primary: cell \\
+18.9 & 17.69 & 20.11 & 1.966e-46 & G2 & GBT-full-ACK-cellfit4 & OLLA (tuned target) & 7.862e-46 & 1 & primary: cell \\
+22.47 & 21.13 & 23.8 & 5.78e-48 & G2 & GBT-full-ACK-cellfit4 & Multi-OLLA & 2.89e-47 & 1 & primary: cell \\
+13.55 & 12.6 & 14.49 & 5.703e-46 & G2 & GBT-full-ACK-cellfit4 & Fixed & 1.711e-45 & 1 & primary: cell \\
+12.91 & 11.96 & 13.86 & 1.464e-44 & G2 & GBT-full-ACK-cellfit4 & FixedPU (Oracle) & 2.927e-44 & 1 & primary: cell \\
+12.3 & 11.33 & 13.28 & 5.83e-42 & G2 & GBT-full-ACK-cellfit4 & Context table & 5.83e-42 & 1 & primary: cell \\
+57.33 & 55.09 & 59.58 & 6.591e-51 & G2 & GBT-full-ACK-cellfit4 & Bandit (global) & 5.932e-50 & 1 & primary: cell \\
+57.33 & 55.09 & 59.58 & 6.591e-51 & G2 & GBT-full-ACK-cellfit4 & Bandit (delay class) & 5.932e-50 & 1 & primary: cell \\
+15.37 & 14.7 & 16.05 & 6.203e-51 & G3 & GBT-res-ACK-cellfit1 & Baseline & 5.474e-50 & 1 & primary: cell \\
+11.57 & 10.99 & 12.15 & 2.997e-50 & G3 & GBT-res-ACK-cellfit1 & OLLA & 1.498e-49 & 1 & primary: cell \\
+8.391 & 7.939 & 8.843 & 3.178e-50 & G3 & GBT-res-ACK-cellfit1 & OLLA (tuned target) & 1.498e-49 & 1 & primary: cell \\
+11.3 & 10.76 & 11.85 & 1.979e-50 & G3 & GBT-res-ACK-cellfit1 & Multi-OLLA & 1.187e-49 & 1 & primary: cell \\
+2.917 & 2.499 & 3.335 & 2.451e-29 & G3 & GBT-res-ACK-cellfit1 & Fixed & 7.354e-29 & 1 & primary: cell \\
+2.88 & 2.421 & 3.339 & 1.623e-23 & G3 & GBT-res-ACK-cellfit1 & FixedPU (Oracle) & 1.623e-23 & 1 & primary: cell \\
+2.755 & 2.356 & 3.154 & 1.257e-28 & G3 & GBT-res-ACK-cellfit1 & Context table & 2.513e-28 & 1 & primary: cell \\
+37.68 & 36.6 & 38.75 & 6.082e-51 & G3 & GBT-res-ACK-cellfit1 & Bandit (global) & 5.474e-50 & 1 & primary: cell \\
+37.68 & 36.6 & 38.75 & 6.082e-51 & G3 & GBT-res-ACK-cellfit1 & Bandit (delay class) & 5.474e-50 & 1 & primary: cell \\
+15.38 & 14.7 & 16.05 & 6.267e-51 & G3 & GBT-res-ACK-cellfit2 & Baseline & 5.474e-50 & 1 & primary: cell \\
+11.57 & 10.98 & 12.15 & 2.137e-50 & G3 & GBT-res-ACK-cellfit2 & OLLA & 1.129e-49 & 1 & primary: cell \\
+8.393 & 7.942 & 8.844 & 9.402e-50 & G3 & GBT-res-ACK-cellfit2 & OLLA (tuned target) & 3.761e-49 & 1 & primary: cell \\
+11.3 & 10.76 & 11.85 & 1.881e-50 & G3 & GBT-res-ACK-cellfit2 & Multi-OLLA & 1.129e-49 & 1 & primary: cell \\
+2.919 & 2.506 & 3.331 & 3.582e-29 & G3 & GBT-res-ACK-cellfit2 & Fixed & 1.075e-28 & 1 & primary: cell \\
+2.881 & 2.434 & 3.329 & 5.829e-24 & G3 & GBT-res-ACK-cellfit2 & FixedPU (Oracle) & 5.829e-24 & 1 & primary: cell \\
+2.757 & 2.364 & 3.149 & 1.267e-28 & G3 & GBT-res-ACK-cellfit2 & Context table & 2.535e-28 & 1 & primary: cell \\
+37.68 & 36.61 & 38.75 & 6.082e-51 & G3 & GBT-res-ACK-cellfit2 & Bandit (global) & 5.474e-50 & 1 & primary: cell \\
+37.68 & 36.61 & 38.75 & 6.082e-51 & G3 & GBT-res-ACK-cellfit2 & Bandit (delay class) & 5.474e-50 & 1 & primary: cell \\
+15.06 & 14.4 & 15.72 & 6.204e-51 & G3 & GBT-res-ACK-cellfit3 & Baseline & 5.474e-50 & 1 & primary: cell \\
+11.26 & 10.69 & 11.83 & 3.632e-50 & G3 & GBT-res-ACK-cellfit3 & OLLA & 1.816e-49 & 1 & primary: cell \\
+8.095 & 7.653 & 8.537 & 1.622e-49 & G3 & GBT-res-ACK-cellfit3 & OLLA (tuned target) & 6.486e-49 & 1 & primary: cell \\
+11 & 10.47 & 11.53 & 2.168e-50 & G3 & GBT-res-ACK-cellfit3 & Multi-OLLA & 1.301e-49 & 1 & primary: cell \\
+2.636 & 2.237 & 3.035 & 9.156e-27 & G3 & GBT-res-ACK-cellfit3 & Fixed & 2.747e-26 & 1 & primary: cell \\
+2.599 & 2.162 & 3.035 & 9.425e-22 & G3 & GBT-res-ACK-cellfit3 & FixedPU (Oracle) & 9.425e-22 & 1 & primary: cell \\
+2.474 & 2.096 & 2.853 & 1.435e-25 & G3 & GBT-res-ACK-cellfit3 & Context table & 2.871e-25 & 1 & primary: cell \\
+37.3 & 36.25 & 38.36 & 6.082e-51 & G3 & GBT-res-ACK-cellfit3 & Bandit (global) & 5.474e-50 & 1 & primary: cell \\
+37.3 & 36.25 & 38.36 & 6.082e-51 & G3 & GBT-res-ACK-cellfit3 & Bandit (delay class) & 5.474e-50 & 1 & primary: cell \\
+15.18 & 14.51 & 15.84 & 6.266e-51 & G3 & GBT-res-ACK-cellfit4 & Baseline & 5.475e-50 & 1 & primary: cell \\
+11.38 & 10.8 & 11.96 & 4.12e-50 & G3 & GBT-res-ACK-cellfit4 & OLLA & 2.06e-49 & 1 & primary: cell \\
+8.207 & 7.763 & 8.651 & 1.554e-49 & G3 & GBT-res-ACK-cellfit4 & OLLA (tuned target) & 6.215e-49 & 1 & primary: cell \\
+11.11 & 10.58 & 11.65 & 3.129e-50 & G3 & GBT-res-ACK-cellfit4 & Multi-OLLA & 1.877e-49 & 1 & primary: cell \\
+2.742 & 2.336 & 3.148 & 1.824e-27 & G3 & GBT-res-ACK-cellfit4 & Fixed & 5.471e-27 & 1 & primary: cell \\
+2.705 & 2.264 & 3.146 & 1.251e-22 & G3 & GBT-res-ACK-cellfit4 & FixedPU (Oracle) & 1.251e-22 & 1 & primary: cell \\
+2.58 & 2.195 & 2.966 & 1.451e-26 & G3 & GBT-res-ACK-cellfit4 & Context table & 2.902e-26 & 1 & primary: cell \\
+37.44 & 36.38 & 38.51 & 6.083e-51 & G3 & GBT-res-ACK-cellfit4 & Bandit (global) & 5.475e-50 & 1 & primary: cell \\
+37.44 & 36.38 & 38.51 & 6.083e-51 & G3 & GBT-res-ACK-cellfit4 & Bandit (delay class) & 5.475e-50 & 1 & primary: cell \\
+17.43 & 16.71 & 18.15 & 6.08e-51 & G3 & GBT-full-ACK-cellfit1 & Baseline & 5.472e-50 & 1 & primary: cell \\
+13.55 & 12.91 & 14.19 & 1.29e-50 & G3 & GBT-full-ACK-cellfit1 & OLLA & 6.451e-50 & 1 & primary: cell \\
+10.32 & 9.782 & 10.86 & 1.877e-50 & G3 & GBT-full-ACK-cellfit1 & OLLA (tuned target) & 7.508e-50 & 1 & primary: cell \\
+13.28 & 12.67 & 13.9 & 8.855e-51 & G3 & GBT-full-ACK-cellfit1 & Multi-OLLA & 5.472e-50 & 1 & primary: cell \\
+4.75 & 4.21 & 5.29 & 4.332e-39 & G3 & GBT-full-ACK-cellfit1 & Fixed & 1.3e-38 & 1 & primary: cell \\
+4.712 & 4.148 & 5.277 & 2.925e-38 & G3 & GBT-full-ACK-cellfit1 & FixedPU (Oracle) & 2.925e-38 & 1 & primary: cell \\
+4.585 & 4.069 & 5.102 & 5.228e-39 & G3 & GBT-full-ACK-cellfit1 & Context table & 1.3e-38 & 1 & primary: cell \\
+40.13 & 38.96 & 41.3 & 6.082e-51 & G3 & GBT-full-ACK-cellfit1 & Bandit (global) & 5.472e-50 & 1 & primary: cell \\
+40.13 & 38.96 & 41.3 & 6.082e-51 & G3 & GBT-full-ACK-cellfit1 & Bandit (delay class) & 5.472e-50 & 1 & primary: cell \\
+17.37 & 16.63 & 18.11 & 6.203e-51 & G3 & GBT-full-ACK-cellfit2 & Baseline & 5.473e-50 & 1 & primary: cell \\
+13.5 & 12.84 & 14.15 & 2.612e-50 & G3 & GBT-full-ACK-cellfit2 & OLLA & 1.306e-49 & 1 & primary: cell \\
+10.27 & 9.733 & 10.8 & 6.113e-50 & G3 & GBT-full-ACK-cellfit2 & OLLA (tuned target) & 2.445e-49 & 1 & primary: cell \\
+13.23 & 12.61 & 13.84 & 9.402e-51 & G3 & GBT-full-ACK-cellfit2 & Multi-OLLA & 5.641e-50 & 1 & primary: cell \\
+4.7 & 4.17 & 5.229 & 3.168e-40 & G3 & GBT-full-ACK-cellfit2 & Fixed & 8.231e-40 & 1 & primary: cell \\
+4.662 & 4.1 & 5.224 & 5.34e-39 & G3 & GBT-full-ACK-cellfit2 & FixedPU (Oracle) & 5.34e-39 & 1 & primary: cell \\
+4.535 & 4.026 & 5.043 & 2.744e-40 & G3 & GBT-full-ACK-cellfit2 & Context table & 8.231e-40 & 1 & primary: cell \\
+40.06 & 38.89 & 41.24 & 6.082e-51 & G3 & GBT-full-ACK-cellfit2 & Bandit (global) & 5.473e-50 & 1 & primary: cell \\
+40.06 & 38.89 & 41.24 & 6.082e-51 & G3 & GBT-full-ACK-cellfit2 & Bandit (delay class) & 5.473e-50 & 1 & primary: cell \\
+16.89 & 16.17 & 17.6 & 8.862e-51 & G3 & GBT-full-ACK-cellfit3 & Baseline & 6.197e-50 & 1 & primary: cell \\
+13.03 & 12.4 & 13.66 & 1.385e-50 & G3 & GBT-full-ACK-cellfit3 & OLLA & 6.773e-50 & 1 & primary: cell \\
+9.813 & 9.3 & 10.33 & 1.355e-50 & G3 & GBT-full-ACK-cellfit3 & OLLA (tuned target) & 6.773e-50 & 1 & primary: cell \\
+12.76 & 12.18 & 13.35 & 8.852e-51 & G3 & GBT-full-ACK-cellfit3 & Multi-OLLA & 6.197e-50 & 1 & primary: cell \\
+4.267 & 3.765 & 4.769 & 3.1e-37 & G3 & GBT-full-ACK-cellfit3 & Fixed & 9.301e-37 & 1 & primary: cell \\
+4.23 & 3.703 & 4.756 & 4.773e-35 & G3 & GBT-full-ACK-cellfit3 & FixedPU (Oracle) & 4.773e-35 & 1 & primary: cell \\
+4.103 & 3.625 & 4.581 & 3.287e-37 & G3 & GBT-full-ACK-cellfit3 & Context table & 9.301e-37 & 1 & primary: cell \\
+39.48 & 38.33 & 40.64 & 6.082e-51 & G3 & GBT-full-ACK-cellfit3 & Bandit (global) & 5.474e-50 & 1 & primary: cell \\
+39.48 & 38.33 & 40.64 & 6.082e-51 & G3 & GBT-full-ACK-cellfit3 & Bandit (delay class) & 5.474e-50 & 1 & primary: cell \\
+16.65 & 15.92 & 17.38 & 7.89e-51 & G3 & GBT-full-ACK-cellfit4 & Baseline & 5.523e-50 & 1 & primary: cell \\
+12.8 & 12.15 & 13.45 & 1.044e-49 & G3 & GBT-full-ACK-cellfit4 & OLLA & 4.174e-49 & 1 & primary: cell \\
+9.59 & 9.059 & 10.12 & 7.857e-50 & G3 & GBT-full-ACK-cellfit4 & OLLA (tuned target) & 3.929e-49 & 1 & primary: cell \\
+12.53 & 11.93 & 13.14 & 2.34e-50 & G3 & GBT-full-ACK-cellfit4 & Multi-OLLA & 1.404e-49 & 1 & primary: cell \\
+4.055 & 3.586 & 4.525 & 2.586e-37 & G3 & GBT-full-ACK-cellfit4 & Fixed & 7.759e-37 & 1 & primary: cell \\
+4.018 & 3.52 & 4.515 & 2.444e-35 & G3 & GBT-full-ACK-cellfit4 & FixedPU (Oracle) & 2.444e-35 & 1 & primary: cell \\
+3.892 & 3.442 & 4.341 & 9.408e-37 & G3 & GBT-full-ACK-cellfit4 & Context table & 1.882e-36 & 1 & primary: cell \\
+39.2 & 38.04 & 40.36 & 6.082e-51 & G3 & GBT-full-ACK-cellfit4 & Bandit (global) & 5.473e-50 & 1 & primary: cell \\
+39.2 & 38.04 & 40.36 & 6.082e-51 & G3 & GBT-full-ACK-cellfit4 & Bandit (delay class) & 5.473e-50 & 1 & primary: cell \\
+19.16 & 17.88 & 20.45 & 4.814e-46 & G2 & GBT-res-ACK-M1fit1 & Baseline & 3.37e-45 & 1 & secondary: transfer \\
+16.02 & 14.81 & 17.23 & 4.475e-43 & G2 & GBT-res-ACK-M1fit1 & OLLA & 2.237e-42 & 1 & secondary: transfer \\
+12.67 & 11.64 & 13.71 & 4.001e-41 & G2 & GBT-res-ACK-M1fit1 & OLLA (tuned target) & 1.601e-40 & 1 & secondary: transfer \\
+16.05 & 14.88 & 17.23 & 7.501e-44 & G2 & GBT-res-ACK-M1fit1 & Multi-OLLA & 4.501e-43 & 1 & secondary: transfer \\
+7.601 & 6.801 & 8.401 & 1.488e-33 & G2 & GBT-res-ACK-M1fit1 & Fixed & 4.464e-33 & 1 & secondary: transfer \\
+7 & 6.209 & 7.79 & 2.784e-30 & G2 & GBT-res-ACK-M1fit1 & FixedPU (Oracle) & 5.568e-30 & 1 & secondary: transfer \\
+6.424 & 5.62 & 7.227 & 2.049e-27 & G2 & GBT-res-ACK-M1fit1 & Context table & 2.049e-27 & 1 & secondary: transfer \\
+49.09 & 46.99 & 51.2 & 7.213e-51 & G2 & GBT-res-ACK-M1fit1 & Bandit (global) & 6.492e-50 & 1 & secondary: transfer \\
+49.09 & 46.99 & 51.2 & 7.213e-51 & G2 & GBT-res-ACK-M1fit1 & Bandit (delay class) & 6.492e-50 & 1 & secondary: transfer \\
+21.04 & 19.75 & 22.33 & 1.587e-47 & G2 & GBT-res-ACK-M1fit2 & Baseline & 1.111e-46 & 1 & secondary: transfer \\
+17.85 & 16.66 & 19.03 & 1.44e-46 & G2 & GBT-res-ACK-M1fit2 & OLLA & 8.641e-46 & 1 & secondary: transfer \\
+14.45 & 13.42 & 15.47 & 8.796e-45 & G2 & GBT-res-ACK-M1fit2 & OLLA (tuned target) & 3.518e-44 & 1 & secondary: transfer \\
+17.88 & 16.72 & 19.04 & 1.709e-46 & G2 & GBT-res-ACK-M1fit2 & Multi-OLLA & 8.641e-46 & 1 & secondary: transfer \\
+9.295 & 8.468 & 10.12 & 1.767e-39 & G2 & GBT-res-ACK-M1fit2 & Fixed & 5.302e-39 & 1 & secondary: transfer \\
+8.684 & 7.877 & 9.491 & 1.317e-37 & G2 & GBT-res-ACK-M1fit2 & FixedPU (Oracle) & 2.634e-37 & 1 & secondary: transfer \\
+8.099 & 7.277 & 8.921 & 2.031e-34 & G2 & GBT-res-ACK-M1fit2 & Context table & 2.031e-34 & 1 & secondary: transfer \\
+51.44 & 49.28 & 53.6 & 6.93e-51 & G2 & GBT-res-ACK-M1fit2 & Bandit (global) & 6.237e-50 & 1 & secondary: transfer \\
+51.44 & 49.28 & 53.6 & 6.93e-51 & G2 & GBT-res-ACK-M1fit2 & Bandit (delay class) & 6.237e-50 & 1 & secondary: transfer \\
+18.54 & 17.26 & 19.81 & 3.266e-45 & G2 & GBT-res-ACK-M1fit3 & Baseline & 2.286e-44 & 1 & secondary: transfer \\
+15.41 & 14.22 & 16.6 & 1.92e-42 & G2 & GBT-res-ACK-M1fit3 & OLLA & 9.602e-42 & 1 & secondary: transfer \\
+12.08 & 11.08 & 13.08 & 4.475e-40 & G2 & GBT-res-ACK-M1fit3 & OLLA (tuned target) & 1.79e-39 & 1 & secondary: transfer \\
+15.44 & 14.28 & 16.6 & 4.153e-43 & G2 & GBT-res-ACK-M1fit3 & Multi-OLLA & 2.492e-42 & 1 & secondary: transfer \\
+7.034 & 6.282 & 7.785 & 7.068e-33 & G2 & GBT-res-ACK-M1fit3 & Fixed & 2.12e-32 & 1 & secondary: transfer \\
+6.435 & 5.681 & 7.19 & 9.194e-30 & G2 & GBT-res-ACK-M1fit3 & FixedPU (Oracle) & 1.839e-29 & 1 & secondary: transfer \\
+5.862 & 5.119 & 6.606 & 1.305e-26 & G2 & GBT-res-ACK-M1fit3 & Context table & 1.305e-26 & 1 & secondary: transfer \\
+48.31 & 46.22 & 50.39 & 7.213e-51 & G2 & GBT-res-ACK-M1fit3 & Bandit (global) & 6.492e-50 & 1 & secondary: transfer \\
+48.31 & 46.22 & 50.39 & 7.213e-51 & G2 & GBT-res-ACK-M1fit3 & Bandit (delay class) & 6.492e-50 & 1 & secondary: transfer \\
+20.01 & 18.73 & 21.3 & 3.568e-47 & G2 & GBT-res-ACK-M1fit4 & Baseline & 2.498e-46 & 1 & secondary: transfer \\
+16.85 & 15.65 & 18.04 & 1.413e-44 & G2 & GBT-res-ACK-M1fit4 & OLLA & 7.063e-44 & 1 & secondary: transfer \\
+13.48 & 12.47 & 14.49 & 1.05e-43 & G2 & GBT-res-ACK-M1fit4 & OLLA (tuned target) & 4.202e-43 & 1 & secondary: transfer \\
+16.88 & 15.72 & 18.05 & 2.48e-45 & G2 & GBT-res-ACK-M1fit4 & Multi-OLLA & 1.488e-44 & 1 & secondary: transfer \\
+8.368 & 7.593 & 9.143 & 2.323e-38 & G2 & GBT-res-ACK-M1fit4 & Fixed & 6.969e-38 & 1 & secondary: transfer \\
+7.762 & 6.987 & 8.538 & 3.083e-35 & G2 & GBT-res-ACK-M1fit4 & FixedPU (Oracle) & 6.166e-35 & 1 & secondary: transfer \\
+7.182 & 6.398 & 7.967 & 5.452e-32 & G2 & GBT-res-ACK-M1fit4 & Context table & 5.452e-32 & 1 & secondary: transfer \\
+50.16 & 48.01 & 52.3 & 7.508e-51 & G2 & GBT-res-ACK-M1fit4 & Bandit (global) & 6.757e-50 & 1 & secondary: transfer \\
+50.16 & 48.01 & 52.3 & 7.508e-51 & G2 & GBT-res-ACK-M1fit4 & Bandit (delay class) & 6.757e-50 & 1 & secondary: transfer \\
+21.83 & 20.37 & 23.29 & 8.757e-46 & G2 & GBT-full-ACK-M1fit1 & Baseline & 6.13e-45 & 1 & secondary: transfer \\
+18.61 & 17.21 & 20.01 & 2.517e-42 & G2 & GBT-full-ACK-M1fit1 & OLLA & 1.258e-41 & 1 & secondary: transfer \\
+15.19 & 13.94 & 16.45 & 2.787e-40 & G2 & GBT-full-ACK-M1fit1 & OLLA (tuned target) & 1.115e-39 & 1 & secondary: transfer \\
+18.65 & 17.27 & 20.03 & 5.81e-43 & G2 & GBT-full-ACK-M1fit1 & Multi-OLLA & 3.486e-42 & 1 & secondary: transfer \\
+10.01 & 9.05 & 10.97 & 3.583e-36 & G2 & GBT-full-ACK-M1fit1 & Fixed & 1.075e-35 & 1 & secondary: transfer \\
+9.393 & 8.436 & 10.35 & 3.886e-34 & G2 & GBT-full-ACK-M1fit1 & FixedPU (Oracle) & 7.771e-34 & 1 & secondary: transfer \\
+8.804 & 7.806 & 9.801 & 8.266e-31 & G2 & GBT-full-ACK-M1fit1 & Context table & 8.266e-31 & 1 & secondary: transfer \\
+52.43 & 50.18 & 54.68 & 6.999e-51 & G2 & GBT-full-ACK-M1fit1 & Bandit (global) & 6.299e-50 & 1 & secondary: transfer \\
+52.43 & 50.18 & 54.68 & 6.999e-51 & G2 & GBT-full-ACK-M1fit1 & Bandit (delay class) & 6.299e-50 & 1 & secondary: transfer \\
+24.12 & 22.66 & 25.58 & 8.395e-48 & G2 & GBT-full-ACK-M1fit2 & Baseline & 5.877e-47 & 1 & secondary: transfer \\
+20.84 & 19.45 & 22.24 & 1.107e-45 & G2 & GBT-full-ACK-M1fit2 & OLLA & 5.535e-45 & 1 & secondary: transfer \\
+17.36 & 16.09 & 18.63 & 7.109e-44 & G2 & GBT-full-ACK-M1fit2 & OLLA (tuned target) & 2.844e-43 & 1 & secondary: transfer \\
+20.88 & 19.49 & 22.27 & 5.966e-46 & G2 & GBT-full-ACK-M1fit2 & Multi-OLLA & 3.58e-45 & 1 & secondary: transfer \\
+12.08 & 11.07 & 13.08 & 1.173e-40 & G2 & GBT-full-ACK-M1fit2 & Fixed & 3.518e-40 & 1 & secondary: transfer \\
+11.45 & 10.47 & 12.43 & 7.993e-40 & G2 & GBT-full-ACK-M1fit2 & FixedPU (Oracle) & 1.599e-39 & 1 & secondary: transfer \\
+10.85 & 9.814 & 11.88 & 2.09e-36 & G2 & GBT-full-ACK-M1fit2 & Context table & 2.09e-36 & 1 & secondary: transfer \\
+55.29 & 52.97 & 57.61 & 6.724e-51 & G2 & GBT-full-ACK-M1fit2 & Bandit (global) & 6.052e-50 & 1 & secondary: transfer \\
+55.29 & 52.97 & 57.61 & 6.724e-51 & G2 & GBT-full-ACK-M1fit2 & Bandit (delay class) & 6.052e-50 & 1 & secondary: transfer \\
+20.91 & 19.41 & 22.42 & 2.4e-44 & G2 & GBT-full-ACK-M1fit3 & Baseline & 1.68e-43 & 1 & secondary: transfer \\
+17.72 & 16.29 & 19.16 & 2.07e-40 & G2 & GBT-full-ACK-M1fit3 & OLLA & 1.035e-39 & 1 & secondary: transfer \\
+14.33 & 13.05 & 15.61 & 7.837e-38 & G2 & GBT-full-ACK-M1fit3 & OLLA (tuned target) & 3.135e-37 & 1 & secondary: transfer \\
+17.76 & 16.33 & 19.19 & 1.393e-40 & G2 & GBT-full-ACK-M1fit3 & Multi-OLLA & 8.36e-40 & 1 & secondary: transfer \\
+9.18 & 8.204 & 10.16 & 1.38e-32 & G2 & GBT-full-ACK-M1fit3 & Fixed & 4.141e-32 & 1 & secondary: transfer \\
+8.569 & 7.58 & 9.559 & 1.313e-29 & G2 & GBT-full-ACK-M1fit3 & FixedPU (Oracle) & 2.626e-29 & 1 & secondary: transfer \\
+7.985 & 6.969 & 9.001 & 2.729e-27 & G2 & GBT-full-ACK-M1fit3 & Context table & 2.729e-27 & 1 & secondary: transfer \\
+51.28 & 49.02 & 53.54 & 1.325e-50 & G2 & GBT-full-ACK-M1fit3 & Bandit (global) & 1.193e-49 & 1 & secondary: transfer \\
+51.28 & 49.02 & 53.54 & 1.325e-50 & G2 & GBT-full-ACK-M1fit3 & Bandit (delay class) & 1.193e-49 & 1 & secondary: transfer \\
+22.5 & 21.03 & 23.97 & 1.131e-46 & G2 & GBT-full-ACK-M1fit4 & Baseline & 7.92e-46 & 1 & secondary: transfer \\
+19.27 & 17.86 & 20.67 & 2.074e-43 & G2 & GBT-full-ACK-M1fit4 & OLLA & 1.037e-42 & 1 & secondary: transfer \\
+15.83 & 14.59 & 17.06 & 4.151e-42 & G2 & GBT-full-ACK-M1fit4 & OLLA (tuned target) & 1.66e-41 & 1 & secondary: transfer \\
+19.3 & 17.91 & 20.69 & 9.175e-44 & G2 & GBT-full-ACK-M1fit4 & Multi-OLLA & 5.505e-43 & 1 & secondary: transfer \\
+10.61 & 9.655 & 11.57 & 1.993e-38 & G2 & GBT-full-ACK-M1fit4 & Fixed & 5.979e-38 & 1 & secondary: transfer \\
+9.993 & 9.043 & 10.94 & 5.305e-36 & G2 & GBT-full-ACK-M1fit4 & FixedPU (Oracle) & 1.061e-35 & 1 & secondary: transfer \\
+9.401 & 8.411 & 10.39 & 2.408e-33 & G2 & GBT-full-ACK-M1fit4 & Context table & 2.408e-33 & 1 & secondary: transfer \\
+53.26 & 51 & 55.53 & 1.062e-50 & G2 & GBT-full-ACK-M1fit4 & Bandit (global) & 9.562e-50 & 1 & secondary: transfer \\
+53.26 & 51 & 55.53 & 1.062e-50 & G2 & GBT-full-ACK-M1fit4 & Bandit (delay class) & 9.562e-50 & 1 & secondary: transfer \\
+15.42 & 14.76 & 16.09 & 6.394e-51 & G3 & GBT-res-ACK-M1fit1 & Baseline & 5.474e-50 & 1 & secondary: transfer \\
+11.61 & 11.03 & 12.2 & 9.93e-50 & G3 & GBT-res-ACK-M1fit1 & OLLA & 3.972e-49 & 1 & secondary: transfer \\
+8.439 & 7.993 & 8.884 & 5.817e-50 & G3 & GBT-res-ACK-M1fit1 & OLLA (tuned target) & 2.908e-49 & 1 & secondary: transfer \\
+11.35 & 10.81 & 11.89 & 1.564e-50 & G3 & GBT-res-ACK-M1fit1 & Multi-OLLA & 9.382e-50 & 1 & secondary: transfer \\
+2.962 & 2.553 & 3.371 & 1.665e-30 & G3 & GBT-res-ACK-M1fit1 & Fixed & 4.996e-30 & 1 & secondary: transfer \\
+2.925 & 2.484 & 3.366 & 3.948e-25 & G3 & GBT-res-ACK-M1fit1 & FixedPU (Oracle) & 3.948e-25 & 1 & secondary: transfer \\
+2.8 & 2.411 & 3.189 & 4.034e-30 & G3 & GBT-res-ACK-M1fit1 & Context table & 8.067e-30 & 1 & secondary: transfer \\
+37.74 & 36.68 & 38.8 & 6.082e-51 & G3 & GBT-res-ACK-M1fit1 & Bandit (global) & 5.474e-50 & 1 & secondary: transfer \\
+37.74 & 36.68 & 38.8 & 6.082e-51 & G3 & GBT-res-ACK-M1fit1 & Bandit (delay class) & 5.474e-50 & 1 & secondary: transfer \\
+15.39 & 14.73 & 16.06 & 6.142e-51 & G3 & GBT-res-ACK-M1fit2 & Baseline & 5.474e-50 & 1 & secondary: transfer \\
+11.58 & 11.01 & 12.16 & 4.85e-50 & G3 & GBT-res-ACK-M1fit2 & OLLA & 2.425e-49 & 1 & secondary: transfer \\
+8.409 & 7.964 & 8.855 & 7.508e-50 & G3 & GBT-res-ACK-M1fit2 & OLLA (tuned target) & 3.003e-49 & 1 & secondary: transfer \\
+11.32 & 10.77 & 11.87 & 1.881e-50 & G3 & GBT-res-ACK-M1fit2 & Multi-OLLA & 1.129e-49 & 1 & secondary: transfer \\
+2.934 & 2.52 & 3.348 & 3.662e-29 & G3 & GBT-res-ACK-M1fit2 & Fixed & 1.099e-28 & 1 & secondary: transfer \\
+2.897 & 2.449 & 3.346 & 1.137e-24 & G3 & GBT-res-ACK-M1fit2 & FixedPU (Oracle) & 1.137e-24 & 1 & secondary: transfer \\
+2.772 & 2.375 & 3.17 & 1.225e-28 & G3 & GBT-res-ACK-M1fit2 & Context table & 2.451e-28 & 1 & secondary: transfer \\
+37.7 & 36.63 & 38.78 & 6.082e-51 & G3 & GBT-res-ACK-M1fit2 & Bandit (global) & 5.474e-50 & 1 & secondary: transfer \\
+37.7 & 36.63 & 38.78 & 6.082e-51 & G3 & GBT-res-ACK-M1fit2 & Bandit (delay class) & 5.474e-50 & 1 & secondary: transfer \\
+15.42 & 14.73 & 16.11 & 6.394e-51 & G3 & GBT-res-ACK-M1fit3 & Baseline & 5.474e-50 & 1 & secondary: transfer \\
+11.61 & 11.02 & 12.2 & 2.575e-50 & G3 & GBT-res-ACK-M1fit3 & OLLA & 1.287e-49 & 1 & secondary: transfer \\
+8.435 & 7.97 & 8.9 & 5.36e-50 & G3 & GBT-res-ACK-M1fit3 & OLLA (tuned target) & 2.144e-49 & 1 & secondary: transfer \\
+11.35 & 10.78 & 11.91 & 1.959e-50 & G3 & GBT-res-ACK-M1fit3 & Multi-OLLA & 1.175e-49 & 1 & secondary: transfer \\
+2.959 & 2.524 & 3.393 & 1.579e-29 & G3 & GBT-res-ACK-M1fit3 & Fixed & 4.736e-29 & 1 & secondary: transfer \\
+2.921 & 2.446 & 3.397 & 4.12e-24 & G3 & GBT-res-ACK-M1fit3 & FixedPU (Oracle) & 4.12e-24 & 1 & secondary: transfer \\
+2.797 & 2.381 & 3.212 & 2.904e-29 & G3 & GBT-res-ACK-M1fit3 & Context table & 5.808e-29 & 1 & secondary: transfer \\
+37.73 & 36.66 & 38.81 & 6.082e-51 & G3 & GBT-res-ACK-M1fit3 & Bandit (global) & 5.474e-50 & 1 & secondary: transfer \\
+37.73 & 36.66 & 38.81 & 6.082e-51 & G3 & GBT-res-ACK-M1fit3 & Bandit (delay class) & 5.474e-50 & 1 & secondary: transfer \\
+15.26 & 14.57 & 15.95 & 7.174e-51 & G3 & GBT-res-ACK-M1fit4 & Baseline & 5.474e-50 & 1 & secondary: transfer \\
+11.46 & 10.85 & 12.06 & 2.437e-49 & G3 & GBT-res-ACK-M1fit4 & OLLA & 9.748e-49 & 1 & secondary: transfer \\
+8.285 & 7.814 & 8.755 & 1.949e-49 & G3 & GBT-res-ACK-M1fit4 & OLLA (tuned target) & 9.743e-49 & 1 & secondary: transfer \\
+11.19 & 10.63 & 11.76 & 4.464e-50 & G3 & GBT-res-ACK-M1fit4 & Multi-OLLA & 2.678e-49 & 1 & secondary: transfer \\
+2.816 & 2.409 & 3.223 & 4.438e-28 & G3 & GBT-res-ACK-M1fit4 & Fixed & 1.331e-27 & 1 & secondary: transfer \\
+2.779 & 2.331 & 3.227 & 1.226e-22 & G3 & GBT-res-ACK-M1fit4 & FixedPU (Oracle) & 1.226e-22 & 1 & secondary: transfer \\
+2.654 & 2.263 & 3.044 & 1.516e-27 & G3 & GBT-res-ACK-M1fit4 & Context table & 3.031e-27 & 1 & secondary: transfer \\
+37.54 & 36.46 & 38.62 & 6.082e-51 & G3 & GBT-res-ACK-M1fit4 & Bandit (global) & 5.474e-50 & 1 & secondary: transfer \\
+37.54 & 36.46 & 38.62 & 6.082e-51 & G3 & GBT-res-ACK-M1fit4 & Bandit (delay class) & 5.474e-50 & 1 & secondary: transfer \\
+17.28 & 16.56 & 18 & 6.079e-51 & G3 & GBT-full-ACK-M1fit1 & Baseline & 5.471e-50 & 1 & secondary: transfer \\
+13.41 & 12.78 & 14.04 & 9.404e-51 & G3 & GBT-full-ACK-M1fit1 & OLLA & 5.471e-50 & 1 & secondary: transfer \\
+10.18 & 9.662 & 10.71 & 2.999e-50 & G3 & GBT-full-ACK-M1fit1 & OLLA (tuned target) & 1.199e-49 & 1 & secondary: transfer \\
+13.14 & 12.54 & 13.74 & 8.85e-51 & G3 & GBT-full-ACK-M1fit1 & Multi-OLLA & 5.471e-50 & 1 & secondary: transfer \\
+4.62 & 4.102 & 5.138 & 7.542e-39 & G3 & GBT-full-ACK-M1fit1 & Fixed & 1.841e-38 & 1 & secondary: transfer \\
+4.582 & 4.028 & 5.136 & 1.457e-37 & G3 & GBT-full-ACK-M1fit1 & FixedPU (Oracle) & 1.457e-37 & 1 & secondary: transfer \\
+4.455 & 3.959 & 4.951 & 6.138e-39 & G3 & GBT-full-ACK-M1fit1 & Context table & 1.841e-38 & 1 & secondary: transfer \\
+39.96 & 38.79 & 41.12 & 6.082e-51 & G3 & GBT-full-ACK-M1fit1 & Bandit (global) & 5.471e-50 & 1 & secondary: transfer \\
+39.96 & 38.79 & 41.12 & 6.082e-51 & G3 & GBT-full-ACK-M1fit1 & Bandit (delay class) & 5.471e-50 & 1 & secondary: transfer \\
+16.98 & 16.25 & 17.72 & 7.066e-51 & G3 & GBT-full-ACK-M1fit2 & Baseline & 5.474e-50 & 1 & secondary: transfer \\
+13.12 & 12.48 & 13.77 & 4.104e-50 & G3 & GBT-full-ACK-M1fit2 & OLLA & 1.877e-49 & 1 & secondary: transfer \\
+9.904 & 9.386 & 10.42 & 3.754e-50 & G3 & GBT-full-ACK-M1fit2 & OLLA (tuned target) & 1.877e-49 & 1 & secondary: transfer \\
+12.86 & 12.26 & 13.46 & 1.233e-50 & G3 & GBT-full-ACK-M1fit2 & Multi-OLLA & 7.398e-50 & 1 & secondary: transfer \\
+4.354 & 3.851 & 4.856 & 1.24e-37 & G3 & GBT-full-ACK-M1fit2 & Fixed & 3.721e-37 & 1 & secondary: transfer \\
+4.316 & 3.779 & 4.853 & 2.533e-35 & G3 & GBT-full-ACK-M1fit2 & FixedPU (Oracle) & 2.533e-35 & 1 & secondary: transfer \\
+4.189 & 3.707 & 4.672 & 2.759e-37 & G3 & GBT-full-ACK-M1fit2 & Context table & 5.518e-37 & 1 & secondary: transfer \\
+39.6 & 38.44 & 40.76 & 6.082e-51 & G3 & GBT-full-ACK-M1fit2 & Bandit (global) & 5.474e-50 & 1 & secondary: transfer \\
+39.6 & 38.44 & 40.76 & 6.082e-51 & G3 & GBT-full-ACK-M1fit2 & Bandit (delay class) & 5.474e-50 & 1 & secondary: transfer \\
+17.59 & 16.85 & 18.32 & 6.08e-51 & G3 & GBT-full-ACK-M1fit3 & Baseline & 5.472e-50 & 1 & secondary: transfer \\
+13.7 & 13.06 & 14.35 & 1.15e-50 & G3 & GBT-full-ACK-M1fit3 & OLLA & 5.749e-50 & 1 & secondary: transfer \\
+10.47 & 9.923 & 11.02 & 1.975e-50 & G3 & GBT-full-ACK-M1fit3 & OLLA (tuned target) & 7.902e-50 & 1 & secondary: transfer \\
+13.44 & 12.82 & 14.05 & 8.85e-51 & G3 & GBT-full-ACK-M1fit3 & Multi-OLLA & 5.472e-50 & 1 & secondary: transfer \\
+4.89 & 4.336 & 5.444 & 2.187e-40 & G3 & GBT-full-ACK-M1fit3 & Fixed & 6.56e-40 & 1 & secondary: transfer \\
+4.852 & 4.27 & 5.435 & 1.779e-38 & G3 & GBT-full-ACK-M1fit3 & FixedPU (Oracle) & 1.779e-38 & 1 & secondary: transfer \\
+4.725 & 4.195 & 5.255 & 2.259e-40 & G3 & GBT-full-ACK-M1fit3 & Context table & 6.56e-40 & 1 & secondary: transfer \\
+40.32 & 39.12 & 41.51 & 6.082e-51 & G3 & GBT-full-ACK-M1fit3 & Bandit (global) & 5.472e-50 & 1 & secondary: transfer \\
+40.32 & 39.12 & 41.51 & 6.082e-51 & G3 & GBT-full-ACK-M1fit3 & Bandit (delay class) & 5.472e-50 & 1 & secondary: transfer \\
+17.19 & 16.47 & 17.92 & 6.08e-51 & G3 & GBT-full-ACK-M1fit4 & Baseline & 5.472e-50 & 1 & secondary: transfer \\
+13.32 & 12.69 & 13.96 & 1.019e-50 & G3 & GBT-full-ACK-M1fit4 & OLLA & 5.472e-50 & 1 & secondary: transfer \\
+10.1 & 9.571 & 10.63 & 4.323e-50 & G3 & GBT-full-ACK-M1fit4 & OLLA (tuned target) & 1.729e-49 & 1 & secondary: transfer \\
+13.05 & 12.46 & 13.65 & 8.939e-51 & G3 & GBT-full-ACK-M1fit4 & Multi-OLLA & 5.472e-50 & 1 & secondary: transfer \\
+4.538 & 4.021 & 5.055 & 1.171e-38 & G3 & GBT-full-ACK-M1fit4 & Fixed & 3.512e-38 & 1 & secondary: transfer \\
+4.501 & 3.952 & 5.05 & 1.11e-37 & G3 & GBT-full-ACK-M1fit4 & FixedPU (Oracle) & 1.11e-37 & 1 & secondary: transfer \\
+4.374 & 3.881 & 4.867 & 1.828e-38 & G3 & GBT-full-ACK-M1fit4 & Context table & 3.655e-38 & 1 & secondary: transfer \\
+39.85 & 38.69 & 41.01 & 6.082e-51 & G3 & GBT-full-ACK-M1fit4 & Bandit (global) & 5.472e-50 & 1 & secondary: transfer \\
+39.85 & 38.69 & 41.01 & 6.082e-51 & G3 & GBT-full-ACK-M1fit4 & Bandit (delay class) & 5.472e-50 & 1 & secondary: transfer \\
+\bottomrule
+\end{longtable}
+\normalsize
 \section{S3. Pre-registrations, hashes and freeze timeline}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
@@ -676,8 +1185,56 @@ checkpoint5\_list.md &  & yes & d08807f & 2026-11-05 16:45 &  &  &  \\
 compute\_basis.md &  & yes & ebce975 & 2026-11-04 21:44 &  &  &  \\
 NR2\_confirmatory\_prereg.md & NR2 & yes & a12d322 & 2026-11-08 09:09 & 2026-11-10 03:52:44 & fd6d7fb & 2026-11-10 15:35 \\
 nr2\_stats.py &  & yes & a12d322 & 2026-11-08 09:09 &  &  &  \\
-AMENDMENTS.md &  & yes & d7fd804 & 2026-11-10 15:37 &  &  &  \\
 NR\_G10\_operating\_grid\_prereg.md & NR-G10 & yes & d7fd804 & 2026-11-10 15:37 & 2026-11-10 15:53:31 & 97fc571 & 2026-11-11 06:18 \\
+AMENDMENTS.md &  & yes & 27b6c37 & 2026-11-15 16:14 &  &  &  \\
+HR1\_headroom\_prereg.md &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
+hr\_stats.py &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
+R\_presub\_prereg.md & R1-R5 & yes & f631efe & 2026-11-13 15:39 & 2026-11-13 16:57:53 & 618eb47 & 2026-11-14 10:57 \\
+presub\_stats.py &  & yes & f631efe & 2026-11-13 15:39 &  &  &  \\
+R1b\_ack\_prereg.md & R1b & yes & 172f69c & 2026-11-15 00:20 & 2026-11-15 10:18:15 & 5183a89 & 2026-11-15 13:44 \\
+r1b\_stats.py &  & yes & 172f69c & 2026-11-15 00:20 &  &  &  \\
+R1c\_ack\_prereg.md & R1c & yes & 27b6c37 & 2026-11-15 16:14 & 2026-11-15 21:46:07 & e59b477 & 2026-11-17 00:12 \\
+r1c\_stats.py &  & yes & 27b6c37 & 2026-11-15 16:14 &  &  &  \\
+\bottomrule
+\end{longtable}
+\normalsize
+\section{S4. Literature screening list}
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllll@{}}
+\caption{The 24 learning-based link-adaptation papers screened for Section I, with the codes used there (calibrated-rule baseline: yes 0, partial 3, no 13, unclear 8). Codes were assigned by one coder from the abstract and the accessible text (column read\_depth); a second coding was not done. Source: \texttt{paper/lit/lit\_matrix.csv}, which also gives baselines, setting and relevance.}\\
+\toprule
+\textbf{citation\_key} & \textbf{year} & \textbf{venue} & \textbf{rl\_method} & \textbf{baselines\_tuned} & \textbf{calibrated\_rule\_baseline} & \textbf{information\_parity} & \textbf{read\_depth} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{citation\_key} & \textbf{year} & \textbf{venue} & \textbf{rl\_method} & \textbf{baselines\_tuned} & \textbf{calibrated\_rule\_baseline} & \textbf{information\_parity} & \textbf{read\_depth} \\
+\midrule
+\endhead
+wiesmayr2025salad & 2025 & arXiv:2510.05784 & SALAD (ACK/NACK SINR tracking, non-RL learning) & partially (3 step sizes) & partial & yes & full text \\
+bruno2014rlamc & 2014 & 2014 IEEE 80th Vehicular Technology Conference (VTC2014-Fall) & RL updating CQI-MCS mapping & no & no & unclear & abstract \\
+pulliyakode2017rlolla & 2017 & arXiv:1708.00994 & MAB over OLLA offsets & no & no & yes & full text (key passages) \\
+mota2019qlamc & 2019 & arXiv:1912.04030 & tabular Q-learning MCS & no & no & yes & full text (key passages) \\
+saxena2019cmab & 2019 & Proceedings of the 2019 Workshop on Network Meets AI \&amp; ML  - NetAI'19 & contextual MAB LA & no & no & unclear & abstract \\
+saxena2021lts & 2021 & 2021 IEEE 32nd Annual International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC) & model-based AMC, latent Thompson sampling & no & no & unclear & title/abstract \\
+saxena2022tuningfree & 2022 & IEEE Transactions on Wireless Communications & latent Thompson sampling (bandit) & no & no & partial & full text (arXiv 2010.08651) \\
+park2021twostagets & 2021 & IEEE Wireless Communications Letters & two-stage Thompson sampling OLLA & no & no & yes & abstract \\
+gupta2019cts & 2019 & IEEE INFOCOM 2019 - IEEE Conference on Computer Communications & constrained Thompson sampling rate selection & no & no & yes & title/abstract \\
+geiser2022drlla & 2022 & Telecom & DRL LA & no & unclear & unclear & abstract \\
+ye2023drlla & 2023 & IEEE Transactions on Vehicular Technology & DQN-type DRLLA with classified experience replay & no (as described) & no & unclear & abstract \\
+pang2024td3olla & 2024 & 2024 IEEE Wireless Communications and Networking Conference (WCNC) & TD3 tunes OLLA parameters (two-level; OLLA selects MCS) & no & no & unclear & abstract \\
+you2026sim2real & 2026 & arXiv:2603.00689 & DC-DQN-LA (decoupled DQN) & step size chosen on testbed & partial & no & full text (key passages) \\
+wang2026lolla & 2026 & IEEE Transactions on Mobile Computing & PPO-Lagrangian; RESIDUAL continuous SINR offset on the OLLA/LUT mapping & no (default OLLA only) & no & no & full text (arXiv 2606.23110v1, the only version as of 2026-11-04) \\
+demirel2025genrl & 2025 & arXiv:2507.06602 & distributed generalised RL for DL LA & industry baseline & partial & unclear & full text (key passages) \\
+ku2024cmaburllc & 2024 & IEEE Transactions on Vehicular Technology & contextual MAB LA (LLR-based context) & no & no & unclear & abstract \\
+lin2026metadrl & 2026 & IEEE Transactions on Vehicular Technology & meta-DRL LA & n/a & unclear & unclear & title only (no abstract available) \\
+an2024dragon & 2024 & Proceedings of the 30th Annual International Conference on Mobile Computing and Networking & DRL MIMO layer + MCS adapter & no & unclear & unclear & title/abstract \\
+parsa2022jointpower & 2022 & Computer Networks & DRL joint power + MCS & n/a & unclear & unclear & title \\
+kela2022delayolla & 2022 & 2022 Joint European Conference on Networks and Communications \&amp; 6G Summit (EuCNC/6G Summit) & Q-learning and DQN OLLA minimising resources within PDB & no & no & no & abstract \\
+parsa2025qdrlla & 2025 & IEEE Open Journal of the Communications Society & DRL jointly choosing MCS, power, subcarrier spacing (QDRLLA) & not stated & unclear & unclear & abstract \\
+liang2024idetla & 2024 & IEEE Transactions on Communications & constrained PADDPG joint modulation + power & n/a & unclear & unclear & abstract \\
+giwa2026qppg & 2026 & IEEE Wireless Communications Letters & policy gradient with QNG-inspired preconditioner & not stated & unclear & unclear & abstract \\
+huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):143-162 & supervised deep learning (DNN predicts MCS decodability from a reduced representation of the punctured transmission); not RL & unclear & unclear & unclear & abstract, dblp and survey summary (arXiv 2408.02943, Sec. on DL for LA) \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -719,11 +1276,27 @@ NR\_G10\_operating\_grid\_prereg.md & NR-G10 & yes & d7fd804 & 2026-11-10 15:37 
 \noindent SHA-256: \texttt{\footnotesize 1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c}\par\medskip
 \input{md_NR2_confirmatory_prereg_md.tex}
 \clearpage
-\subsection*{AMENDMENTS.md}\addcontentsline{toc}{subsection}{AMENDMENTS.md}
-\noindent SHA-256: \texttt{\footnotesize 1b370c55fb899ef2769bbdbe7f5436b709a5ca31b3b501fbf67283e375fc7017}\par\medskip
-\input{md_AMENDMENTS_md.tex}
-\clearpage
 \subsection*{NR\_G10\_operating\_grid\_prereg.md}\addcontentsline{toc}{subsection}{NR\_G10\_operating\_grid\_prereg.md}
 \noindent SHA-256: \texttt{\footnotesize bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08}\par\medskip
 \input{md_NR_G10_operating_grid_prereg_md.tex}
+\clearpage
+\subsection*{AMENDMENTS.md}\addcontentsline{toc}{subsection}{AMENDMENTS.md}
+\noindent SHA-256: \texttt{\footnotesize dee68be966172e2dc75b754daa4de5fbc15fc626f5019188c6ac1e6b520786c6}\par\medskip
+\input{md_AMENDMENTS_md.tex}
+\clearpage
+\subsection*{HR1\_headroom\_prereg.md}\addcontentsline{toc}{subsection}{HR1\_headroom\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize ba7978b105408813f3f4dfb92d73f93757c64e43c30a5a40925ea018ee26eed9}\par\medskip
+\input{md_HR1_headroom_prereg_md.tex}
+\clearpage
+\subsection*{R\_presub\_prereg.md}\addcontentsline{toc}{subsection}{R\_presub\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize 3e6c079f15bc9226ccf0e4cdd336f1af64c55d7778676246218815f5e022ea3a}\par\medskip
+\input{md_R_presub_prereg_md.tex}
+\clearpage
+\subsection*{R1b\_ack\_prereg.md}\addcontentsline{toc}{subsection}{R1b\_ack\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize f86bb57f470bf1d257e20a46e78415f765b29233a4e78558bac405ac436c1879}\par\medskip
+\input{md_R1b_ack_prereg_md.tex}
+\clearpage
+\subsection*{R1c\_ack\_prereg.md}\addcontentsline{toc}{subsection}{R1c\_ack\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize 0336ff99bc9079df492f0cf4a351b0adb7959298468b58aaf3826e5c1a54e3c6}\par\medskip
+\input{md_R1c_ack_prereg_md.tex}
 \end{document}

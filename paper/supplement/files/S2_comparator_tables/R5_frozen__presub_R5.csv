@@ -1,0 +1,4 @@
+analysis,verdict,holds,margin,ci90_lo,ci90_hi,holm_p,hier95_lo,hier95_hi,seeds_above,n_seeds,win,best_rule
+NR2-20,CONFIRM,yes,2.814,2.424,3.203,4.183e-26,1.824,3.817,19,20,yes,
+NRG10-10 G2,WEAKENS,no,-9.417,-10.03,-8.799,6.744e-47,-16.35,-2.546,5,10,no,Context table
+NRG10-10 G3,PASS,yes,0.6568,0.4251,0.8885,0.0001013,0.2437,1.087,9,10,yes,Context table

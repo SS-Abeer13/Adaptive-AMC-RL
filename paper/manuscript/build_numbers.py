@@ -636,6 +636,97 @@ for pid in ['P1', 'P2', 'P3', 'P4']:
     want = hp[pid]['verdict'].replace(' ', '-')
     if PV.get(('HR1', 'verdict_' + pid)) != want: ERR.append(f'pending_values HR1 verdict_{pid} = {PV.get(("HR1", "verdict_" + pid))}; hr_predictions.csv says {want}')
 
+# ---- Pre-submission runs R1-R5 (Amendment 8), R1b (Amendment 9), Deviation D1; R1c is a pending item (Amendment 10a)
+AO = lambda *a: P('paper', 'analysis', 'out', *a)
+OUTWORD = {'BEATS': 'NR2 better', 'BEATS-TRACE': 'NR2 better (trace level only)', 'LOSES': 'learner better', 'MATCH': 'match', 'INCONCLUSIVE': 'inconclusive'}
+XTAG = {'GBT-res': 'GbtRes', 'GBT-full': 'GbtFull', 'Rule': 'Rule', 'Rule-cal': 'RuleCal', 'GBT-res-ACK': 'GbtResAck', 'GBT-full-ACK': 'GbtFullAck',
+        'NR2': 'NRtwo', 'ctxj500': 'CtxJ', 'fixed500': 'FixedD', 'ctx500': 'CtxD'}
+def prim_rows(path, ledger):
+    for r in rows_of(path):
+        t = XTAG[r['scheme']]
+        add(f'NPS{t}Mar', f(r['margin_pct'], 2, True), ledger, rel(path), f"{r['scheme']} margin of NR2 relative to the scheme")
+        add(f'NPS{t}Lo', f(r['ci90_lo'], 2), ledger, rel(path), 'ci90_lo'); add(f'NPS{t}Hi', f(r['ci90_hi'], 2), ledger, rel(path), 'ci90_hi')
+        add(f'NPS{t}HierLo', f(r['hier95_lo'], 2), ledger, rel(path), 'hier95_lo'); add(f'NPS{t}HierHi', f(r['hier95_hi'], 2), ledger, rel(path), 'hier95_hi')
+        add(f'NPS{t}Seeds', str(int(float(r['seeds_above']))), ledger, rel(path), 'NR2 seeds above the scheme')
+        add(f'NPS{t}Holm', sci(r['holm_p']), ledger, rel(path), 'holm_p'); add(f'NPS{t}Out', OUTWORD[r['outcome']], ledger, rel(path), 'outcome (frozen classify)')
+        add(f'NPS{t}Adv', f(-float(r['margin_pct']), 2), ledger, rel(path), 'NR2 deficit relative to the scheme, sign flipped')
+PR = AO('presub_R1R2.csv'); RB = AO('r1b_R1.csv')
+prim_rows(PR, 'PS1'); prim_rows(RB, 'PS1b')
+for r in rows_of(RB):   # project-wide Bonferroni for the headline comparison (NR2 vs the ACK-trained learners)
+    add(f"NBonfPProj{XTAG[r['scheme']]}", sci(min(1.0, float(r['holm_p']) * ptests)), 'M08', rel(RB) + '; ' + rel(ROB), 'R1b Holm p x project tests')
+for path, led in [(AO('presub_R1R2_secondary.csv'), 'PS1'), (AO('r1b_secondary.csv'), 'PS1b')]:
+    for r in rows_of(path):
+        t = XTAG[r['scheme']]
+        if r['comparator'] == 'ctxj500':
+            add(f'NPS{t}OverCtxJ', f(r['margin_pct'], 2, True), led, rel(path), 'scheme vs Context-joint-500 margin')
+            add(f'NPS{t}OverCtxJLo', f(r['ci90_lo'], 2), led, rel(path), 'ci90_lo'); add(f'NPS{t}OverCtxJHi', f(r['ci90_hi'], 2), led, rel(path), 'ci90_hi')
+            add(f'NPS{t}OverCtxJBeats', 'yes' if r['beats'] == '1' else 'no', led, rel(path), 'beats (Holm over 3)')
+        elif 'true-SINR' in r['comparator']:
+            add(f'NPSTwin{t}', f(r['margin_pct'], 2, True), led, rel(path), 'ACK-label scheme vs its true-SINR-label twin')
+            add(f'NPSTwin{t}Lo', f(r['ci90_lo'], 2), led, rel(path), 'ci90_lo'); add(f'NPSTwin{t}Hi', f(r['ci90_hi'], 2), led, rel(path), 'ci90_hi')
+        elif r.get('trace_set', '').startswith('M1'):
+            add(f'NPS{t}MoneMar', f(r['margin_pct'], 2, True), led, rel(path), 'M1-trace secondary margin of NR2 relative to the scheme')
+            add(f'NPS{t}MoneOut', OUTWORD[r['outcome']], led, rel(path), 'M1-trace secondary outcome')
+SM = AO('presub_side_metrics.csv')
+for r in rows_of(SM):
+    t = XTAG[r['scheme']]
+    add(f'NPSOnt{t}', f(r['ontime'], 4), 'PS3', rel(SM), 'on-time ratio, NR2 traces (NR2: 10-seed pooled)')
+    if r.get('jain'):
+        add(f'NPSJain{t}', f(r['jain'], 3), 'PS3', rel(SM), 'Jain index'); add(f'NPSBot{t}', f(r['bottom_decile_mean'], 3), 'PS3', rel(SM), 'bottom-decile mean of per-user on-time')
+        add(f'NPSBler{t}', f(100 * float(r['bler1']), 1), 'PS3', rel(SM), 'first-transmission BLER %')
+add('NPSPktUser', f((200 - 50) / 20, 1), 'PS3', 'derived', 'scored TTIs (NCfgScored) / packet period (NCfgPeriod): packets per user and trace')
+RE = AO('r1b_reliability.csv'); rel_rows = [r for r in rows_of(RE) if r['bin'] == 'all']
+ece = {r['set']: float(r['ece']) for r in rel_rows}
+add('NPSEceXfit', f(ece['calibration (cross-fitted), all'], 3), 'PS1b', rel(RE), 'ECE, cross-fitted calibration predictions')
+add('NPSEceExpl', f(ece['calibration (cross-fitted), explored'], 3), 'PS1b', rel(RE), 'ECE, explored decisions')
+add('NPSEceDepRes', f(ece['deployment GBT-res-ACK, NR2 traces'], 3), 'PS1b', rel(RE), 'ECE, deployment GBT-res-ACK')
+add('NPSEceDepFull', f(ece['deployment GBT-full-ACK, NR2 traces'], 3), 'PS1b', rel(RE), 'ECE, deployment GBT-full-ACK')
+add('NPSEceMax', f(max(ece.values()), 3), 'PS1b', rel(RE), 'largest ECE over the four sets')
+add('NPSBrierXfit', f(next(r for r in rel_rows if r['set'] == 'calibration (cross-fitted), all')['brier'], 3), 'PS1b', rel(RE), 'Brier, cross-fitted')
+RT = P('Optimized', 'v17x', 'Dataset', 'r2_thresholds.txt'); mt = re.search(r'OPTIMAL_THRESHOLDS: B=(\w+) \| S=([\w.]+) \| theta=([\w.]+)', open(RT).read())
+add('NPSRuleCalB', mt.group(1), 'PS2', rel(RT), 'calibrated busy threshold'); add('NPSRuleCalS', mt.group(2), 'PS2', rel(RT), 'calibrated slack threshold (off = clause dropped)')
+add('NPSRuleCalTheta', mt.group(3), 'PS2', rel(RT), 'calibrated drop threshold dB/TTI')
+SP = AO('presub_R3_speed.csv')
+for r in rows_of(SP):
+    t = {'<10 m/s': 'Slow', '10-20 m/s': 'Mid', '>20 m/s': 'Fast'}[r['speed']] + XTAG[r['comparator']]
+    add(f'NPSSpd{t}', f(r['margin_pct'], 2, True), 'PS3', rel(SP), 'NR2 margin by speed class'); add(f'NPSSpd{t}Lo', f(r['hier95_lo'], 2), 'PS3', rel(SP), 'hier95_lo'); add(f'NPSSpd{t}Hi', f(r['hier95_hi'], 2), 'PS3', rel(SP), 'hier95_hi')
+WM = AO('presub_R3_warm.csv')
+for r in rows_of(WM):
+    t = 'Warm' if r['comparator'] == 'olla_warm200' else 'Cold'
+    add(f'NPS{t}Mar', f(r['margin_pct'], 2, True), 'PS3', rel(WM), f"NR2 vs {r['comparator']}"); add(f'NPS{t}Lo', f(r['ci90_lo'], 2), 'PS3', rel(WM), 'ci90_lo'); add(f'NPS{t}Hi', f(r['ci90_hi'], 2), 'PS3', rel(WM), 'ci90_hi')
+DS_ = AO('r3_delta_shares.csv')
+for r in rows_of(DS_):
+    t = {'all': 'All', 'busy0': 'BusyZero', 'busy1': 'BusyOne', 'slacklo': 'SlackLo', 'slackhi': 'SlackHi', 'slow': 'Slow', 'mid': 'Mid', 'fast': 'Fast', 'burst': 'Burst', 'calm': 'Calm'}[r['bin']]
+    for d, nm in [('minus', 'Minus'), ('zero', 'Zero'), ('plus', 'Plus')]:
+        add(f'NPSD{t}{nm}', f(r[f'pct_{d}'], 1), 'PS3', rel(DS_), f'delta share {d}, {r["bin"]}')
+    if r['bin'] == 'all':
+        add('NPSDClipped', f(100 * float(r['n_clipped']) / float(r['n_all']), 1), 'PS3', rel(DS_), 'share of decisions with the base clipped at the CQI floor')
+        add('NPSDSeedMinPlus', f(r['pct_plus_min'], 0), 'PS3', rel(DS_), 'min over seeds of the +1 share'); add('NPSDSeedMaxPlus', f(r['pct_plus_max'], 0), 'PS3', rel(DS_), 'max over seeds of the +1 share')
+F4 = AO('presub_R4.csv')
+for r in rows_of(F4):
+    t = {'M1 vs Context-joint-500': 'Mone', 'NR2 vs Context-joint-500': 'NRtwo'}.get(r['comparison']) or ('Gtwo' if ' G2 ' in r['comparison'] else 'Gthree')
+    for k, nm, nd in [('t95_lo', 'TLo', 2), ('t95_hi', 'THi', 2), ('bca95_lo', 'BLo', 2), ('bca95_hi', 'BHi', 2), ('mde80_n10', 'MdeTen', 2), ('mde80_n5', 'MdeFive', 2)]:
+        add(f'NPSFour{t}{nm}', f(r[k], nd), 'PS4', rel(F4), k)
+    add(f'NPSFour{t}P', f(r['signflip_p'], 3) if float(r['signflip_p']) >= 0.001 else sci(r['signflip_p']), 'PS4', rel(F4), 'exact sign-flip p')
+    add(f'NPSFour{t}Cat', r['category'], 'PS4', rel(F4), 'category vs the hierarchical interval')
+for path, sfx in [(AO('presub_R5.csv'), ''), (AO('presub_G2corrected', 'presub_R5.csv'), 'Corr')]:
+    for r in rows_of(path):
+        t = {'NR2-20': 'NRtwo', 'NRG10-10 G2': 'Gtwo', 'NRG10-10 G3': 'Gthree'}[r['analysis']] + sfx
+        add(f'NPSFive{t}Mar', f(r['margin'], 2, True), 'PS5', rel(path), 'margin'); add(f'NPSFive{t}HierLo', f(r['hier95_lo'], 2), 'PS5', rel(path), 'hier95_lo')
+        add(f'NPSFive{t}HierHi', f(r['hier95_hi'], 2), 'PS5', rel(path), 'hier95_hi'); add(f'NPSFive{t}Seeds', r['seeds_above'], 'PS5', rel(path), 'seeds above')
+        add(f'NPSFive{t}N', r['n_seeds'], 'PS5', rel(path), 'seeds'); add(f'NPSFive{t}Verdict', r['verdict'], 'PS5', rel(path), 'verdict')
+# Deviation D1: packet size of the faulty evaluation (get_cell_cfg) and of the frozen G2 cell (calib file)
+G10S = open(P('Optimized', 'v17x', 'stage_g10.m'), encoding='utf-8').read()
+mD = re.search(r"'G2_hi_d10'[\s\S]{0,400}?pkt_bits = (\d+)", G10S)
+add('NDOneBad', mD.group(1), 'D1', 'Optimized/v17x/stage_g10.m', 'get_cell_cfg G2 pkt_bits')
+import site; sys.path.append(site.getusersitepackages())   # h5py lives in the user site (python3 -I hides it)
+import h5py
+_h = h5py.File(P('Optimized', 'v17x', 'Dataset', 'ckpt', 'g10', 'calib_single_G2_hi_d10.mat'), 'r')
+add('NDOneGood', str(int(_h['out']['env']['pkt_bits'][()].ravel()[0])), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G2_hi_d10.mat', 'out.env.pkt_bits')
+_h3 = h5py.File(P('Optimized', 'v17x', 'Dataset', 'ckpt', 'g10', 'calib_single_G3_lo_d18.mat'), 'r')
+add('NGthreeBase', f(float(_h3['out']['fixed_offset'][()].ravel()[0]), 0), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat', 'out.fixed_offset')
+add('NPSExplEps', '0.5', 'PS1b', 'paper/proposals/R1b_ack_prereg.md', 'section 3 (frozen)')
+
 # ------------------------------------------------------------------ write
 if ERR:
     print('ERRORS:'); [print('  ', e) for e in ERR]; sys.exit(1)

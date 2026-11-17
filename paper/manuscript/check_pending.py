@@ -14,9 +14,9 @@ ns-3 are not numbers.  A literal that is intended (for example the action value 
 """
 import csv, glob, re, sys, os
 
-MACRO = {'Gone': 'G1', 'Wone': 'W1', 'Gsix': 'G6', 'NR': 'NR', 'Gten': 'G10', 'NRtwo': 'NR2', 'Aone': 'A1', 'Athree': 'A3', 'Asix': 'A6', 'NRGten': 'NRG10', 'Athreec': 'A3c'}
+MACRO = {'Gone': 'G1', 'Wone': 'W1', 'Gsix': 'G6', 'NR': 'NR', 'Gten': 'G10', 'NRtwo': 'NR2', 'Aone': 'A1', 'Athree': 'A3', 'Asix': 'A6', 'NRGten': 'NRG10', 'Athreec': 'A3c', 'Ronec': 'R1C'}
 SKIP = {'pending.tex', 'wording.tex', 'pending_values.tex', 'pending_status.tex', 'numbers.tex'}
-LITERAL_GATED = ['main.tex', 'sec_intro.tex', 'sec_results.tex', 'sec_discussion.tex']
+LITERAL_GATED = ['main.tex', 'sec_intro.tex', 'sec_results.tex', 'sec_learners.tex', 'sec_discussion.tex']
 LITERAL_REPORTED = ['sec_related.tex', 'sec_system.tex', 'sec_method.tex', 'sec_protocol.tex', 'sec_pitfalls.tex',
                     'sec_conclusion.tex', 'sec_appendix.tex']
 

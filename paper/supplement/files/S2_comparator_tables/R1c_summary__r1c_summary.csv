@@ -1,0 +1,11 @@
+role,trace_set,kind,scheme,n_fits,state,mean_ontime,min_ontime,max_ontime,rl_ontime,worst_fit,worst_margin,worst_outcome,outcomes
+primary: replication,NR2,M1fit,GBT-res-ACK,4,holds,0.6449,0.6399,0.6501,0.6201,3,-3.096,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+primary: replication,NR2,M1fit,GBT-full-ACK,4,holds,0.6774,0.671,0.6878,0.6201,1,-7.581,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+primary: cell,G2,cellfit,GBT-res-ACK,4,holds,0.578,0.5739,0.5811,0.5501,3,-4.157,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+primary: cell,G2,cellfit,GBT-full-ACK,4,holds,0.5955,0.5861,0.6048,0.5501,2,-6.144,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+primary: cell,G3,cellfit,GBT-res-ACK,4,holds,0.9244,0.9229,0.9255,0.9066,3,-1.774,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+primary: cell,G3,cellfit,GBT-full-ACK,4,holds,0.9392,0.9357,0.9419,0.9066,4,-3.114,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+secondary: transfer,G2,M1fit,GBT-res-ACK,4,holds,0.5757,0.5701,0.5822,0.5501,3,-3.514,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+secondary: transfer,G2,M1fit,GBT-full-ACK,4,holds,0.5884,0.5815,0.597,0.5501,3,-5.41,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+secondary: transfer,G3,M1fit,GBT-res-ACK,4,holds,0.9255,0.9245,0.9259,0.9066,4,-1.945,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES
+secondary: transfer,G3,M1fit,GBT-full-ACK,4,holds,0.9406,0.9384,0.9432,0.9066,2,-3.391,LOSES,1:LOSES 2:LOSES 3:LOSES 4:LOSES

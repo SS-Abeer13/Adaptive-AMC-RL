@@ -100,3 +100,125 @@ Freeze v3: hashes in `FREEZE.sha256`; the commit is recorded in `paper/STATUS.md
 - Timestamp verification: `DeepA2C_Shared_v17.m` was modified at Tue Nov 10 01:03:25 2026, prior to NR2 training (04:42:51–10:06:07). Thus NR2 was trained with the working-tree version, which is verified bit-identical to HEAD.
 
 **Freeze v7:** Hashes recorded in `paper/proposals/FREEZE.sha256`.
+
+## Amendment 7: 11 Nov 2026 (new stage HR1 / `hr1`, Plan 4: learnable myopic headroom; before any instrumented run on evaluation traces)
+**What is added.** `HR1_headroom_prereg.md` (new, frozen) and its analysis script `paper/analysis/hr_stats.py` (frozen with it). The instrumented evaluator (`Optimized/v17/headroom/`, commits `fc78cc7`, `5f2659e`) logs 65 columns per scheduled new transmission and is bit-identical to the frozen evaluator on 20 calibration traces (`Dataset/hr/hr_equiv.txt`). The full pass runs the main-round **evaluation** traces of M1 (500001–500500, CRN 510001+) and M3 (540001–540500, CRN 550001+) for Fixed, the Context table, the frozen combined table Context-joint-500 and the stored learned policies (M1, NR2 on M1; the M3 policies on M3), all 10 seeds per learned scheme.
+
+**Decisions fixed by the author (11 Nov 2026), now part of the frozen text (§3):**
+- (a) candidate offsets that map to the same MCS because of clipping are treated as one action;
+- (b) the residual-restricted headroom uses the base offset ±1 per decision (`base_rule_offset`), and the table headroom uses −4…+2;
+- (c) the full-buffer case uses ubits = tbs.
+
+**Predictions** P1–P4 with decision rules and wording rows (§§5–6). HR1 adds no scheme evaluations, so the registry, the robustness ledger and the Bonferroni pool are unchanged (§7).
+
+**Independence.** Written after all main results were known. No headroom quantity has been computed on any trace: `hr_stats.py` was tested on synthetic logs only (rules (a)–(c), determinism, genie ≥ learnable), and the 20-trace calibration logs were not analysed.
+
+**What is not changed.** All earlier frozen texts and scripts keep their hashes.
+
+**Freeze v8:** hashes in `paper/proposals/FREEZE.sha256` (v7 kept as `FREEZE_v7.sha256`). The B4 gate of `stage_hr1.m` opens when this entry and the `hr1` freeze line are present and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 8: 13 Nov 2026 (new stages R1–R5, pre-submission attribution and robustness runs; before any of their runs)
+**Trigger.** The simulated review of draft v10 (`paper/review/`, four reviewers, all "major revision") asked whether the NR2 gain needs reinforcement learning or would be captured by any learner, or a designed rule, that sees the same gNB-observable features. It also asked for NR2 diagnostics, a seed-level sensitivity analysis and more seeds. The author approved runs R1–R5 of `R1_revision_runs_proposal.md` (R6–R10 stay for the revision round).
+
+**What is added.** `R_presub_prereg.md` (new, frozen) and its analysis script `paper/analysis/presub_stats.py` (frozen with it; it imports the frozen `r1`, `holm` and `seed_level` of `nr2_stats.py`). Stages `r3_nr2diag`, `r1_gbt`, `r2_rule`, `r5_seeds`:
+- **R1:** a one-step gradient-boosted predictor (gbt_a settings of HR1) trained only on G6 calibration-trace logs (600001–600500) with the Fixed-500 rule as the behaviour policy; labels q = psucc × ubits (true SINR, training targets only); inputs `obs_1..19` only; deployed as GBT-res (base ±1) and GBT-full (−4…+2).
+- **R2:** a designed rule on the Fixed-500 base (δ = +1 if busy ≥ 1, or slack ≤ 0.6 with a packet, or a reported-SINR drop of at least 1 dB/TTI over 4 TTIs), and a calibrated version (160-point grid on the G6 calibration traces; thresholds hashed before evaluation).
+- **Evaluation:** primary on the NR2 evaluation traces against NR2 (Holm over 4, R2 at seed level; outcomes BEATS / BEATS-TRACE / LOSES / MATCH / INCONCLUSIVE with wording rows and consequences for C2); secondary on the M1 traces and against Context-joint-500, Fixed-500 and Context-500.
+- **R3:** NR2 diagnostics (speed breakdown, warm-up, fairness guard, action shares), descriptive.
+- **R4:** t, BCa and exact sign-flip analyses and power on the seed margins (M1, NR2, NR-G10), sensitivity only.
+- **R5:** +10 NR2 seeds (25253–25262) and +5 NR-G10 seeds per cell (33248–33252, 34248–34252), reported next to the frozen verdicts, which stand.
+
+**Multiplicity.** +7 cases / +11 scheme evaluations (R1, R2 on two trace sets; R5 three analyses). Project totals become 83 cases / 137 scheme evaluations, Bonferroni pool ≤ 1 370 (added to `ledger/robustness_cases.csv` at integration).
+
+**Independence.** Written after all results of the paper were known. No R1–R5 trace, model, threshold or output exists. `presub_stats.py --selftest` was run on synthetic data only (outcome classes, exact sign-flip, BCa, power, end-to-end R3–R5); no evaluation-trace data were opened by the writing session.
+
+**What is not changed.** All earlier frozen texts and scripts keep their hashes; all earlier verdicts stand.
+
+**Freeze v9:** hashes in `paper/proposals/FREEZE.sha256` (v8 kept as `FREEZE_v8.sha256`). The stages may run once this entry and the v9 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Deviation D1 (Amendment 8, stage `r5_seeds`, cell G2): recorded 15 Nov 2026
+**What happened.** R5 G2 was evaluated at **pkt_bits 16000 instead of the calibrated 14000** (`Optimized/v17x/stage_r5_seeds.m:159`, `get_cell_cfg('G2_hi_d10', envN2)` at evaluation). The G2 cell of G10 / NR-G10 uses 14000 bits, so the five added seeds (6–10) were scored in a different traffic configuration from the comparators and from the frozen seeds 1–5. This was found in the audit (`34ed25f`, `5b84537`): seeds 6–10 scored about −20 % each against the frozen Context table, while their training reward matched seeds 1–5, and re-evaluation at 14000 bits gave 0.5445 (r5 seeds) and 0.5478 (stored seeds), both above the Context table (0.5385).
+**Effect.** Training is unaffected: the policies were trained with the cell's frozen environment. Only the evaluation of G2 seeds 6–10, and therefore the R5 "NR-G10-10 G2" verdict ("WEAKENS", −9.42 %), rests on the faulty configuration. The NR2-20 and G3 evaluations are checked field by field against their frozen environments (pkt_bits, deadline, period, load, base offset) in the correction run.
+**Correction (no retraining, no change to any frozen text).** R5 seeds 6–10 of G2 are re-evaluated at 14000 bits through the frozen `stage_nr_g10` evaluation path, on the same traces and CRN. The corrected per-trace values go to a new file next to the original (`Optimized/v17x/Dataset/presub/pertrace_G2corrected.csv`; the original is not overwritten), and `paper/analysis/presub_stats.py` is run **unchanged** into a separate output folder (`paper/analysis/out/presub_G2corrected/`).
+**Reporting.** The paper reports the frozen (faulty) R5 G2 verdict and the corrected re-evaluation **side by side**, names this deviation, and states that the corrected value replaces nothing in the frozen record.
+
+## Amendment 9: 15 Nov 2026 (new stage R1b / `r1b_ack`: one-step learner trained on observed ACK/NACK; before any of its runs)
+**Trigger.** In R1, both one-step GBT schemes beat NR2 on the NR2 traces (on-time GBT-full 0.6565, GBT-res 0.6373, NR2 0.6201). The leakage audit was clean (`34ed25f`, `5b84537`), but R1's labels use the simulator's true SINR, which a gNB never has. The deployable analogue needs labels from observed ACK/NACK, and the logged Fixed rule (always offset −2) gives no coverage of the other actions.
+**What is added.** `R1b_ack_prereg.md` (new, frozen) and `paper/analysis/r1b_stats.py` (frozen with it; it imports the frozen functions of `nr2_stats.py` and `presub_stats.py`).
+- **Logging:** on the G6 calibration traces 600001–600500 only, ε-greedy around the Fixed-500 base with ε = 0.5: offset −2 with probability 0.5, otherwise uniform over −4…+2; draws `rng(3050000 + j)`. Observed first-transmission ACK/NACK, MCS taken, features and candidate useful bits are logged; no true-SINR quantity is logged or used.
+- **Model:** p̂(ACK | obs_1..19, MCS), a `HistGradientBoostingClassifier` with the gbt_a settings, trained on the observed first-transmission outcomes; q̂(a) = p̂(x, mcs(a)) × useful_bits(a).
+- **Schemes:** GBT-res-ACK (base ±1) and GBT-full-ACK (−4…+2), deterministic.
+- **Evaluation:** as R1 (NR2 traces primary, Holm over 2, R2 at seed level, the frozen outcome classes and wording rows; secondary on the comparators, the M1 traces and against the true-SINR R1 schemes); calibration of p̂ reported (reliability curve, Brier, ECE; cross-fitted on calibration logs and on deployment decisions).
+**Multiplicity.** +2 cases / +4 scheme evaluations; with Amendment 8 the project totals become 85 cases / 141 scheme evaluations, Bonferroni pool ≤ 1 410.
+**Independence.** Written after the R1–R5 results and audits were known. No R1b log, model or output exists. `r1b_stats.py --selftest` was run on synthetic data only; no evaluation-trace data were opened by the writing session.
+**What is not changed.** All earlier frozen texts and scripts keep their hashes, apart from this file (`AMENDMENTS.md`), to which D1 and this entry are appended.
+
+**Freeze v10:** hashes in `paper/proposals/FREEZE.sha256` (v9 kept as `FREEZE_v9.sha256`). Stage `r1b_ack` may run once this entry and the v10 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 10: 15 Nov 2026 (new stage R1c / `r1c`: calibration-set replication and operating-cell generalization of the ACK-trained learner; before any of its runs)
+**Trigger.** Stage R1b (`5183a89`) demonstrated that a one-step supervised learner trained purely on observed first-transmission ACK/NACK feedback beat NR2 across all 10 policy seeds on the NR2 confirmatory traces (GBT-res-ACK on-time 0.6420, margin −3.40 % [−3.75, −3.05] %, hier [−4.43, −2.47] %; GBT-full-ACK on-time 0.6710, margin −7.58 % [−8.09, −7.07] %, hier [−8.64, −6.61] %; twins over simulator true-SINR labels +0.73 % and +2.21 %; all ECE ≤ 0.021). Two critical scientific questions arise immediately:
+(a) **Calibration-set replication:** was this advantage dependent on the specific 500 calibration traces used (draw chance), or does it hold across independent calibration sets?
+(b) **Operating-cell generalization:** does the ACK-trained learner maintain its advantage at neighbouring operating points across the NR-G10 grid (G2 at 14 kbit and G3) against the RL policy and calibrated heuristic baselines?
+
+**What is added.** `R1c_ack_prereg.md` (new, frozen) and `paper/analysis/r1c_stats.py` (frozen with it; validated on synthetic data):
+- **Replication across 4 fits:** 3 additional fresh, disjoint calibration trace sets (500 traces each, M1 setup, ε-greedy logging with ε = 0.5):
+  - Fit 1: traces 600001–600500, CRN 610001+, exploration stream `rng(3050000 + j)` (from R1b);
+  - Fit 2: traces 620001–620500, CRN 630001+, exploration stream `rng(3060000 + j)`;
+  - Fit 3: traces 640001–640500, CRN 650001+, exploration stream `rng(3070000 + j)`;
+  - Fit 4: traces 660001–660500, CRN 670001+, exploration stream `rng(3080000 + j)`.
+  All 4 fits trained with `HistGradientBoostingClassifier` under `gbt_a` settings (`max_iter=300, lr=0.05, 31 leaves, min 40 per leaf`).
+  Each fit deployed as `GBT-res-ACK` (base ±1) and `GBT-full-ACK` (−4…+2) on the 500 NR2 confirmatory evaluation traces (traces 1000001–1000500).
+  Reporting: fit-level mean, min, max, Student-t 95 % CI across fits, and the worst fit evaluated against NR2 under Rule R1 (Holm over the 2 schemes) and Rule R2 (hierarchical 95 % CI over 10 NR2 seeds).
+- **Operating-cell generalization:** The 4 ACK fits evaluated on the 300 held-out evaluation traces of the two neighbouring cells from the pre-registered NR-G10 operating grid:
+  - `G2_hi_d10`: 14,000 bits (corrected per Deviation D1), 10 TTI deadline, base offset `Fixed -2` (traces 720001–720300, CRN 730001+);
+  - `G3_lo_d18`: 8,000 bits, 18 TTI deadline, base offset `Fixed -3` (traces 740001–740300, CRN 750001+).
+  Evaluated against the frozen per-cell single-cue comparators (`G_FAMILY`, Holm over 9 per cell) and the cell's RL policies from NR-G10 (`NRG10`, Rule R1 and Rule R2).
+- **Pre-registered wording rows (§5):**
+  - "holds across all 4 fits and both cells"
+  - "fit-dependent"
+  - "operating-point dependent"
+  - "neither holds nor generalizes"
+  - "not run"
+
+**Multiplicity.** Adds **11 cases / 22 scheme evaluations** (3 new fits on NR2 = +3 cases / +6 evaluations; 4 fits on G2 = +4 cases / +8 evaluations; 4 fits on G3 = +4 cases / +8 evaluations; alternatively +5 cases grouped by cell). With Amendment 9 the project totals become **96 cases / 163 scheme evaluations**, Bonferroni pool ≤ 1 630 tests.
+
+**Compute estimate.** 3 calibration logs (≈ 4 min), 3 model trainings (≈ 3 min), gates (≈ 1 min), NR2 evaluations for 3 fits (≈ 4.9 h), cell G2 evaluations for 4 fits (≈ 3.7 h), cell G3 evaluations for 4 fits (≈ 3.7 h). Total: **≈ 12.3 h** (roughly 12–14 h).
+
+**Independence.** Written after the R1b results were known. No R1c exploration draw, calibration log, model or evaluation output exists. `r1c_stats.py --selftest` was validated on synthetic data only; no evaluation data were opened by the writing session.
+
+**What is not changed.** All earlier frozen texts and scripts maintain their hashes, apart from this file (`AMENDMENTS.md`), to which this entry is appended. All earlier results and verdicts stand as recorded.
+
+**Freeze v11:** hashes in `paper/proposals/FREEZE.sha256` (v10 kept as `FREEZE_v10.sha256`). Stage `r1c` may run once this entry and the v11 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 10a: 15 Nov 2026 (revision of R1c before any of its runs)
+**Trigger.** Review of the Amendment 10 text (`85b0518`, Freeze v11) before stage `r1c` ran. The weaknesses were:
+- the cells were tested only with M1-trained models;
+- the cell parameters were typed into the text, which is the class of error behind Deviation D1;
+- the RL comparator in the cells used 5 seeds;
+- "match" was not defined;
+- the "fit-dependent" wording over-interpreted the outcome.
+
+No R1c draw, log, model or output exists. `R1c_ack_prereg.md` and `paper/analysis/r1c_stats.py` are replaced; the v11 versions stay in git history.
+
+**Changes.**
+1. **Primary cell test = per-cell fits.** Four GBT-ACK fits per cell, on fresh disjoint calibration traces of that cell, with the same ε-greedy logging (ε = 0.5) around the cell's frozen base offset and the same gbt_a settings. Ranges:
+   - G2 fit k: traces 4100000 + 1000(k−1) + j, CRN 4200000 + …, stream `rng(4300000 + …)`;
+   - G3 fit k: traces 4400000 + …, CRN 4500000 + …, stream `rng(4600000 + …)`;
+   - j = 1…500, all asserted disjoint.
+
+   The M1-trained fits evaluated in the cells become a secondary **transfer** analysis.
+2. **Cell environments are loaded from `Optimized/v17x/Dataset/ckpt/g10/calib_single_<cell>.mat`, never hard-coded.** The stage asserts pkt_bits (G2 = 14 000), deadline, period, N, offered load and base offset against the file. `get_cell_cfg` is not used. The typed G3 parameters are removed; the values read from the file on 15 Nov are given for reference only.
+3. **RL comparator per cell = 10 seeds.** G2 seeds 6–10 are the corrected 14 kbit re-evaluation of Deviation D1 (`pertrace_G2corrected.csv`; the script refuses to run without it). R1 (Holm over the 8 fit × scheme comparisons per trace set) and R2 apply as for NR2.
+4. **Wording:**
+   - **"match"** = Holm not significant and |margin| < 0.5 %;
+   - **"beats rules"** = R1 against every member of the cell's family of 9, with Holm over 9;
+   - "fit-dependent" is reworded to **"depends on the calibration draw"**;
+   - rows are added for **"replicates across fits, cell-dependent"** and **"cells hold, fit-dependent"**;
+   - the verdict is given per scheme.
+5. **Compute** about 20.5 h, including per-cell logging (8 draws) and 8 cell fits. The stage specification is updated. **Multiplicity** becomes +19 cases / +38 scheme evaluations, giving project totals of 104 / 179 and a Bonferroni pool ≤ 1 790.
+
+**Validation.** `r1c_stats.py --selftest` (synthetic data only) passes. It produces each of the six wording rows from a pattern built for it, checks the MATCH definition and the order of the outcome classes, checks the refusal without the corrected G2 file, and checks that the statistics functions are the frozen ones.
+
+**Independence.** No evaluation data were opened. The writing session read only the frozen G10 calibration files (`calib_single_<cell>.mat`, `out.env` field names and values) to state §4.1.
+
+**Freeze v12:** hashes in `paper/proposals/FREEZE.sha256` (v11 kept as `FREEZE_v11.sha256`). Stage `r1c` may run once this entry and the v12 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
