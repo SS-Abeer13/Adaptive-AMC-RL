@@ -10,3 +10,4 @@ PS-R1R2,"Attribution controls: one-step GBT on true-SINR labels and designed rul
 PS-R5,"More seeds: NR2 with 20 seeds; NR-G10 with 10 seeds per cell (Amendment 8; G2 with Deviation D1)",3,3,paper/proposals/R_presub_prereg.md section 10,paper/analysis/out/presub_R5.csv
 R1b,"One-step learner trained on observed ACK/NACK, NR2 and M1 traces (Amendment 9)",2,4,paper/proposals/R1b_ack_prereg.md section 9,paper/analysis/out/r1b_R1.csv
 R1c,"Calibration-draw replication and per-cell test of the ACK-trained learner (Amendment 10a)",19,38,paper/proposals/R1c_ack_prereg.md section 7,paper/analysis/out/r1c_summary.csv
+R6,"Full-action residual RL (offsets -4..+2) vs the ACK-trained one-step learner, NR2 traces; optional true-SINR model on the R1b exploration logs (Amendment 11; counted when pre-registered)",2,3,paper/proposals/R6_fullaction_prereg.md section 7,pending
