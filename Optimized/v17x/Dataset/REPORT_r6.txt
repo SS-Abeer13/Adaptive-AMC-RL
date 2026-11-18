@@ -1,0 +1,28 @@
+================================================================================
+REPORT_r6.txt -- Residual RL, Full Action Set vs ACK-Trained One-Step Learner (Stage r6)
+Generated: 2026-11-18 15:25:49 | MATLAB 9.14.0.2206163 (R2023a)
+================================================================================
+
+RL-full mean on-time (pooled 10 seeds, 500 NR2 traces): 0.6222
+  seed  1: 0.6241
+  seed  2: 0.6212
+  seed  3: 0.6252
+  seed  4: 0.6246
+  seed  5: 0.6098
+  seed  6: 0.6067
+  seed  7: 0.6315
+  seed  8: 0.6253
+  seed  9: 0.6260
+  seed 10: 0.6275
+
+Delta shares on scheduled new transmissions (pooled seeds):
+  delta=-2: 0.2273% (n=1212)
+  delta=-1: 24.4356% (n=130292)
+  delta=+0: 20.7629% (n=110709)
+  delta=+1: 16.3327% (n=87087)
+  delta=+2: 3.4883% (n=18600)
+  delta=+3: 7.0974% (n=37844)
+  delta=+4: 27.6557% (n=147462)
+  CQI floor/ceiling clip share: 0.0032%
+
+R6b (descriptive): GBT-res-SINRexp=0.5629, GBT-full-SINRexp=0.4743

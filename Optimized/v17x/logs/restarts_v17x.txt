@@ -145,3 +145,9 @@
 [Mon 11/16/2026  9:58:21.33] launch 1 exit code 1 
 [Mon 11/16/2026  9:59:21.92] launch 2 (STAGES=r1c workers=2 G6B_PROFILE=full) 
 [Mon 11/16/2026 19:44:09.84] launch 2 exit code 0 
+[Wed 11/18/2026  9:23:56.56] launch 1 (STAGES=r6_fullaction workers=2 G6B_PROFILE=full) 
+[Wed 11/18/2026  9:26:04.57] launch 1 exit code 3 
+[Wed 11/18/2026  9:40:51.93] launch 1 (STAGES=r6_fullaction workers=2 G6B_PROFILE=full) 
+[Wed 11/18/2026 13:09:19.72] launch 1 exit code 1 
+[Wed 11/18/2026 13:10:20.15] launch 2 (STAGES=r6_fullaction workers=2 G6B_PROFILE=full) 
+[Wed 11/18/2026 15:26:08.59] launch 2 exit code 0 

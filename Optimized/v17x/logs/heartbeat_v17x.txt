@@ -3237,3 +3237,163 @@ Stage r1b fit complete.
 2026-11-16 19:44:00 | r1c            | stage_r1c done successfully
 2026-11-16 19:44:00 | r1c            | stage DONE in 9.74 h
 2026-11-16 19:44:00 | runner         | ALL REQUESTED STAGES FINISHED
+2026-11-18 09:24:30 | runner         | start (stages: r6_fullaction; workers 2; G6B_PROFILE full)
+2026-11-18 09:24:31 | runner         | Removing stale FINISHED_ALL.marker from earlier run
+2026-11-18 09:25:22 | runner         | parpool open with 2 workers
+2026-11-18 09:25:22 | r6_fullaction  | preflight start (20 traces)
+2026-11-18 09:25:54 | r6_fullaction  | preflight: 1.0486 s per episode (basis 0.640, ratio 1.64); projected 8.7 h for 30000 units
+2026-11-18 09:25:54 | r6_fullaction  | PAUSED by the 1.5x rule; waiting for APPROVE file
+2026-11-18 09:41:00 | runner         | start (stages: r6_fullaction; workers 2; G6B_PROFILE full)
+2026-11-18 09:41:28 | runner         | parpool open with 2 workers
+2026-11-18 09:41:28 | r6_fullaction  | preflight: 1.0486 s per episode (basis 0.640, ratio 1.64); projected 8.7 h for 30000 units
+2026-11-18 09:41:28 | r6_fullaction  | APPROVE file found: continuing despite the 1.5x rule
+2026-11-18 09:41:28 | r6_fullaction  | stage start
+2026-11-18 09:41:36 | r6_fullaction  | r6_fullaction start: n_seeds=10, ep_deep=3000, n_eval=500, n_repro=20, run_r6b=1
+2026-11-18 09:41:36 | r6_fullaction  | unit gate_default: start
+2026-11-18 09:41:36 | r6_fullaction  | gate_default: NR2 seed 1 unchanged-config repro on 20 traces
+2026-11-18 09:41:41 | r6_fullaction  | gate_default: NR2 seed 1 reproduces bit-identically on the unchanged [-1 0 1] config (max_abs_diff = 0)
+2026-11-18 09:41:41 | r6_fullaction  | unit gate_default: saving checkpoint
+2026-11-18 09:41:41 | r6_fullaction  | unit gate_default: checkpoint saved
+2026-11-18 09:41:41 | r6_fullaction  | unit gate_default: done in 5.2 s
+2026-11-18 09:41:41 | r6_fullaction  | unit smoke: start
+2026-11-18 09:41:41 | r6_fullaction  | smoke: 1 seed, 20 episodes, full action set, preflight range 1030001-1030020
+2026-11-18 09:41:55 | r6_fullaction  | smoke: output width=7, delta=0 index=3, largest initial bias at index=3 (bias values: [0.000725 -0.0008342 3.001 -0.002029 0.001953 -0.000633 -0.0001587])
+2026-11-18 09:41:59 | r6_fullaction  | smoke: PASS (final lc=4.85; 40000 decisions observed, offsets within -4..+2)
+2026-11-18 09:41:59 | r6_fullaction  | unit smoke: saving checkpoint
+2026-11-18 09:41:59 | r6_fullaction  | unit smoke: checkpoint saved
+2026-11-18 09:41:59 | r6_fullaction  | unit smoke: done in 18.0 s
+2026-11-18 09:41:59 | r6_fullaction  | unit train_1: start
+2026-11-18 09:41:59 | r6_fullaction  | train_1: training RL-full (seed 27243, 3000 episodes, 7-action)
+2026-11-18 10:00:22 | r6_fullaction  | train_1: finished in 1103.5 s, final lc=4.74
+2026-11-18 10:00:23 | r6_fullaction  | unit train_1: saving checkpoint
+2026-11-18 10:00:23 | r6_fullaction  | unit train_1: checkpoint saved
+2026-11-18 10:00:23 | r6_fullaction  | unit train_1: done in 1104.1 s
+2026-11-18 10:00:23 | r6_fullaction  | unit train_2: start
+2026-11-18 10:00:23 | r6_fullaction  | train_2: training RL-full (seed 27244, 3000 episodes, 7-action)
+2026-11-18 10:20:01 | r6_fullaction  | train_2: finished in 1177.5 s, final lc=5.06
+2026-11-18 10:20:01 | r6_fullaction  | unit train_2: saving checkpoint
+2026-11-18 10:20:01 | r6_fullaction  | unit train_2: checkpoint saved
+2026-11-18 10:20:01 | r6_fullaction  | unit train_2: done in 1177.8 s
+2026-11-18 10:20:01 | r6_fullaction  | unit train_3: start
+2026-11-18 10:20:01 | r6_fullaction  | train_3: training RL-full (seed 27245, 3000 episodes, 7-action)
+2026-11-18 10:40:46 | r6_fullaction  | train_3: finished in 1245.5 s, final lc=4.63
+2026-11-18 10:40:47 | r6_fullaction  | unit train_3: saving checkpoint
+2026-11-18 10:40:47 | r6_fullaction  | unit train_3: checkpoint saved
+2026-11-18 10:40:47 | r6_fullaction  | unit train_3: done in 1245.8 s
+2026-11-18 10:40:47 | r6_fullaction  | unit train_4: start
+2026-11-18 10:40:47 | r6_fullaction  | train_4: training RL-full (seed 27246, 3000 episodes, 7-action)
+2026-11-18 11:03:13 | r6_fullaction  | train_4: finished in 1345.8 s, final lc=4.72
+2026-11-18 11:03:13 | r6_fullaction  | unit train_4: saving checkpoint
+2026-11-18 11:03:13 | r6_fullaction  | unit train_4: checkpoint saved
+2026-11-18 11:03:13 | r6_fullaction  | unit train_4: done in 1346.3 s
+2026-11-18 11:03:13 | r6_fullaction  | unit train_5: start
+2026-11-18 11:03:13 | r6_fullaction  | train_5: training RL-full (seed 27247, 3000 episodes, 7-action)
+2026-11-18 11:28:08 | r6_fullaction  | train_5: finished in 1495.0 s, final lc=4.30
+2026-11-18 11:28:08 | r6_fullaction  | unit train_5: saving checkpoint
+2026-11-18 11:28:08 | r6_fullaction  | unit train_5: checkpoint saved
+2026-11-18 11:28:08 | r6_fullaction  | unit train_5: done in 1495.3 s
+2026-11-18 11:28:08 | r6_fullaction  | unit train_6: start
+2026-11-18 11:28:08 | r6_fullaction  | train_6: training RL-full (seed 27248, 3000 episodes, 7-action)
+2026-11-18 11:54:39 | r6_fullaction  | train_6: finished in 1590.8 s, final lc=4.06
+2026-11-18 11:54:39 | r6_fullaction  | unit train_6: saving checkpoint
+2026-11-18 11:54:40 | r6_fullaction  | unit train_6: checkpoint saved
+2026-11-18 11:54:40 | r6_fullaction  | unit train_6: done in 1591.2 s
+2026-11-18 11:54:40 | r6_fullaction  | unit train_7: start
+2026-11-18 11:54:40 | r6_fullaction  | train_7: training RL-full (seed 27249, 3000 episodes, 7-action)
+2026-11-18 12:22:42 | r6_fullaction  | train_7: finished in 1682.7 s, final lc=3.76
+2026-11-18 12:22:42 | r6_fullaction  | unit train_7: saving checkpoint
+2026-11-18 12:22:43 | r6_fullaction  | unit train_7: checkpoint saved
+2026-11-18 12:22:43 | r6_fullaction  | unit train_7: done in 1683.2 s
+2026-11-18 12:22:43 | r6_fullaction  | unit train_8: start
+2026-11-18 12:22:43 | r6_fullaction  | train_8: training RL-full (seed 27250, 3000 episodes, 7-action)
+2026-11-18 12:52:41 | r6_fullaction  | train_8: finished in 1798.1 s, final lc=4.00
+2026-11-18 12:52:41 | r6_fullaction  | unit train_8: saving checkpoint
+2026-11-18 12:52:41 | r6_fullaction  | unit train_8: checkpoint saved
+2026-11-18 12:52:41 | r6_fullaction  | unit train_8: done in 1798.6 s
+2026-11-18 12:52:41 | r6_fullaction  | unit train_9: start
+2026-11-18 12:52:41 | r6_fullaction  | train_9: training RL-full (seed 27251, 3000 episodes, 7-action)
+2026-11-18 13:06:56 | r6_fullaction  | ERROR (attempt 1): Out of memory.
+2026-11-18 13:11:01 | runner         | start (stages: r6_fullaction; workers 2; G6B_PROFILE full)
+2026-11-18 13:12:10 | runner         | parpool open with 2 workers
+2026-11-18 13:12:10 | r6_fullaction  | preflight: 1.0486 s per episode (basis 0.640, ratio 1.64); projected 8.7 h for 30000 units
+2026-11-18 13:12:10 | r6_fullaction  | APPROVE file found: continuing despite the 1.5x rule
+2026-11-18 13:12:10 | r6_fullaction  | stage start
+2026-11-18 13:12:23 | r6_fullaction  | r6_fullaction start: n_seeds=10, ep_deep=3000, n_eval=500, n_repro=20, run_r6b=1
+2026-11-18 13:12:24 | r6_fullaction  | unit gate_default: loaded checkpoint, skipped
+2026-11-18 13:12:24 | r6_fullaction  | unit smoke: loaded checkpoint, skipped
+2026-11-18 13:12:24 | r6_fullaction  | unit train_1: loaded checkpoint, skipped
+2026-11-18 13:12:25 | r6_fullaction  | unit train_2: loaded checkpoint, skipped
+2026-11-18 13:12:25 | r6_fullaction  | unit train_3: loaded checkpoint, skipped
+2026-11-18 13:12:26 | r6_fullaction  | unit train_4: loaded checkpoint, skipped
+2026-11-18 13:12:26 | r6_fullaction  | unit train_5: loaded checkpoint, skipped
+2026-11-18 13:12:27 | r6_fullaction  | unit train_6: loaded checkpoint, skipped
+2026-11-18 13:12:27 | r6_fullaction  | unit train_7: loaded checkpoint, skipped
+2026-11-18 13:12:28 | r6_fullaction  | unit train_8: loaded checkpoint, skipped
+2026-11-18 13:12:28 | r6_fullaction  | unit train_9: start
+2026-11-18 13:12:28 | r6_fullaction  | train_9: training RL-full (seed 27251, 3000 episodes, 7-action)
+2026-11-18 13:32:36 | r6_fullaction  | train_9: finished in 1208.2 s, final lc=4.35
+2026-11-18 13:32:36 | r6_fullaction  | unit train_9: saving checkpoint
+2026-11-18 13:32:36 | r6_fullaction  | unit train_9: checkpoint saved
+2026-11-18 13:32:36 | r6_fullaction  | unit train_9: done in 1208.8 s
+2026-11-18 13:32:36 | r6_fullaction  | unit train_10: start
+2026-11-18 13:32:36 | r6_fullaction  | train_10: training RL-full (seed 27252, 3000 episodes, 7-action)
+2026-11-18 13:51:51 | r6_fullaction  | train_10: finished in 1154.8 s, final lc=4.42
+2026-11-18 13:51:51 | r6_fullaction  | unit train_10: saving checkpoint
+2026-11-18 13:51:52 | r6_fullaction  | unit train_10: checkpoint saved
+2026-11-18 13:51:52 | r6_fullaction  | unit train_10: done in 1155.1 s
+2026-11-18 13:51:52 | r6_fullaction  | unit repro: start
+2026-11-18 13:51:52 | r6_fullaction  | repro: ctxj500 and NR2 seed 1 on 20 traces, exact match
+2026-11-18 13:52:00 | r6_fullaction  | repro: REPRO PASS for ctxj500 and NR2 seed 1 (max_abs_diff = 0)
+2026-11-18 13:52:00 | r6_fullaction  | unit repro: saving checkpoint
+2026-11-18 13:52:00 | r6_fullaction  | unit repro: checkpoint saved
+2026-11-18 13:52:00 | r6_fullaction  | unit repro: done in 8.3 s
+2026-11-18 13:52:00 | r6_fullaction  | unit eval: start
+2026-11-18 13:52:00 | r6_fullaction  | eval: RL-full seeds 1-10 on 500 NR2 traces (decision draws rng(2340000+100j+s))
+2026-11-18 13:53:15 | r6_fullaction  | eval: RL-full seed 1 mean on-time = 0.6241
+2026-11-18 13:54:19 | r6_fullaction  | eval: RL-full seed 2 mean on-time = 0.6212
+2026-11-18 13:55:24 | r6_fullaction  | eval: RL-full seed 3 mean on-time = 0.6252
+2026-11-18 13:56:27 | r6_fullaction  | eval: RL-full seed 4 mean on-time = 0.6246
+2026-11-18 13:57:31 | r6_fullaction  | eval: RL-full seed 5 mean on-time = 0.6098
+2026-11-18 13:58:34 | r6_fullaction  | eval: RL-full seed 6 mean on-time = 0.6067
+2026-11-18 13:59:37 | r6_fullaction  | eval: RL-full seed 7 mean on-time = 0.6315
+2026-11-18 14:00:41 | r6_fullaction  | eval: RL-full seed 8 mean on-time = 0.6253
+2026-11-18 14:01:44 | r6_fullaction  | eval: RL-full seed 9 mean on-time = 0.6260
+2026-11-18 14:02:48 | r6_fullaction  | eval: RL-full seed 10 mean on-time = 0.6275
+2026-11-18 14:02:48 | r6_fullaction  | eval: RL-full mean on-time (pooled 10 seeds) = 0.6222
+2026-11-18 14:02:48 | r6_fullaction  | unit eval: saving checkpoint
+2026-11-18 14:02:48 | r6_fullaction  | unit eval: checkpoint saved
+2026-11-18 14:02:48 | r6_fullaction  | unit eval: done in 647.8 s
+2026-11-18 14:02:48 | r6_fullaction  | unit r6b_log: start
+2026-11-18 14:02:48 | r6_fullaction  | r6b_log: re-running R1b exploration logging on 500 G6 calibration traces (identical streams)
+2026-11-18 14:03:42 | r6_fullaction  | r6b_log: 56771 decisions logged, row-identical to the stored R1b log (trace/mcs/ack1/explored)
+2026-11-18 14:03:43 | r6_fullaction  | unit r6b_log: saving checkpoint
+2026-11-18 14:03:43 | r6_fullaction  | unit r6b_log: checkpoint saved
+2026-11-18 14:03:43 | r6_fullaction  | unit r6b_log: done in 54.9 s
+2026-11-18 14:03:43 | r6_fullaction  | unit r6b_fit: start
+2026-11-18 14:03:43 | r6_fullaction  | r6b_fit: training 7 HistGradientBoostingRegressor models via Python train_r6b_sinrexp.py
+2026-11-18 14:04:27 | r6_fullaction  | r6b_fit: R6b models SHA-256 = 60a4ef2b603085035026ee7a7252ba6d00911a792d5c61f1b0e6b5dbf62978ed  r6b_model.joblib
+2026-11-18 14:04:27 | r6_fullaction  | unit r6b_fit: saving checkpoint
+2026-11-18 14:04:27 | r6_fullaction  | unit r6b_fit: checkpoint saved
+2026-11-18 14:04:27 | r6_fullaction  | unit r6b_fit: done in 44.5 s
+2026-11-18 14:04:27 | r6_fullaction  | unit r6b_equiv: start
+2026-11-18 14:04:27 | r6_fullaction  | r6b_equiv: verifying tree prediction equivalence with scikit-learn (1e-9 gate)
+2026-11-18 14:04:31 | r6_fullaction  | r6b_equiv: max abs difference = 0.000e+00
+2026-11-18 14:04:31 | r6_fullaction  | r6b_equiv: EQUIVALENCE GATE PASS (max abs diff <= 1e-9)
+2026-11-18 14:04:31 | r6_fullaction  | unit r6b_equiv: saving checkpoint
+2026-11-18 14:04:32 | r6_fullaction  | unit r6b_equiv: checkpoint saved
+2026-11-18 14:04:32 | r6_fullaction  | unit r6b_equiv: done in 4.9 s
+2026-11-18 14:04:32 | r6_fullaction  | unit r6b_eval: start
+2026-11-18 14:04:32 | r6_fullaction  | r6b_eval: evaluating GBT-res-SINRexp and GBT-full-SINRexp on 500 NR2 traces (deterministic)
+2026-11-18 15:25:49 | r6_fullaction  | r6b_eval: GBT-res-SINRexp=0.5629, GBT-full-SINRexp=0.4743
+2026-11-18 15:25:49 | r6_fullaction  | unit r6b_eval: saving checkpoint
+2026-11-18 15:25:49 | r6_fullaction  | unit r6b_eval: checkpoint saved
+2026-11-18 15:25:49 | r6_fullaction  | unit r6b_eval: done in 4877.1 s
+2026-11-18 15:25:49 | r6_fullaction  | unit export: start
+2026-11-18 15:25:49 | r6_fullaction  | export: writing pertrace_r6.csv, r6_actions.csv and REPORT_r6.txt
+2026-11-18 15:25:49 | r6_fullaction  | export: pertrace_r6.csv, r6_actions.csv and REPORT_r6.txt written to D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset\presub\r6 / D:\Adaptive AMC A2C+QL\Optimized\v17x\Dataset
+2026-11-18 15:25:49 | r6_fullaction  | unit export: saving checkpoint
+2026-11-18 15:25:49 | r6_fullaction  | unit export: checkpoint saved
+2026-11-18 15:25:49 | r6_fullaction  | unit export: done in 0.2 s
+2026-11-18 15:25:49 | r6_fullaction  | r6_fullaction done successfully
+2026-11-18 15:25:49 | r6_fullaction  | stage DONE in 2.23 h
+2026-11-18 15:25:49 | runner         | ALL REQUESTED STAGES FINISHED

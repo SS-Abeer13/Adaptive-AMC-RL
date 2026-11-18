@@ -163,8 +163,21 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
     nSingle = nSingle + nExtra_v17(env);
     nFeat = nSingle * L_seq;
     histS = zeros(nSingle, N, L_seq, 'single');
-    sch_log = zeros(T, 5); n_sch = 0;
-    r1b_log_buf = zeros(T, 41); n_r1b_log = 0;
+    % R6a secondary/descriptive logging opt-in (R6_fullaction_prereg.md
+    % Section 3): widens sch_log with per-user resid delta and a
+    % CQI-floor/ceiling clip flag when the caller sets env.r6_delta_log.
+    % Every other caller is unaffected (sch_log stays 5 columns).
+    wantR6Log = isfield(env, 'r6_delta_log') && env.r6_delta_log;
+    sch_log_width = 5; if wantR6Log, sch_log_width = 7; end
+    sch_log = zeros(T, sch_log_width); n_sch = 0;
+    % R6b (R_presub_prereg.md is R1b; R6_fullaction_prereg.md Section 4 is R6b):
+    % 'log_explore_r6b' reuses 'log_explore' row-for-row (identical RNG draw
+    % order and taken actions, so the stored R1b log is reproduced exactly),
+    % with 7 extra columns (42-48) carrying the per-candidate analytic
+    % success probability c_psucc from the simulator's true SINR -- the R1
+    % label ingredient not available to the ACK-only R1b/R1c log.
+    r1b_log_width = 41; if strcmpi(ptype, 'log_explore_r6b'), r1b_log_width = 48; end
+    r1b_log_buf = zeros(T, r1b_log_width); n_r1b_log = 0;
     r1b_deploy_buf = zeros(T, 4); n_r1b_deploy = 0;
     p_hat_users = zeros(1, N); log_explored_u = zeros(1, N); log_off_u = zeros(1, N);
     trace_id_val = 0; if isfield(meta, 'trace_id'), trace_id_val = meta.trace_id; end
@@ -234,6 +247,10 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
         idxg = @(k) (k-1)*nH+1 : k*nH;
     end
 
+    % Per-TTI scratch for the R6a logging above (set in the 'a2c_v17' isResid
+    % branch below when wantR6Log is true; otherwise unused).
+    delta_cur = zeros(1, N); clip_cur = zeros(1, N);
+
     for t = 1:T
         if useRTT
             % Step 1: Feedback arrival at TTI t
@@ -289,7 +306,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
         t0   = max(t-4, 1);
         slope4 = (obs_SINR(t, :) - obs_SINR(t0, :)) / max(t - t0, 1);
 
-        if isDeep || isEns || any(strcmpi(ptype, {'gbt_res', 'gbt_full', 'gbt_res_ack', 'gbt_full_ack', 'log_explore', 'rule', 'rule_cal'}))
+        if isDeep || isEns || any(strcmpi(ptype, {'gbt_res', 'gbt_full', 'gbt_res_ack', 'gbt_full_ack', 'log_explore', 'log_explore_r6b', 'rule', 'rule_cal'}))
             s_now = stateFeat_v17(env.state_tier, ref, dRef, obs_SINR(t, :), dS, off, ...
                                  slope4, nk, H, speeds(t, :), burstObsM(t, :), ...
                                  delays, R_emas, ctx, featExtra_v17(env, X));
@@ -381,7 +398,12 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
                     [~, aAll] = max(logits, [], 1);
                     act(t, :) = aAll;
                     delta = env.resid_actions(aAll);
-                    cqiAll = max(minC, min(maxC, ref + b_i + delta));
+                    preclip = ref + b_i + delta;
+                    cqiAll = max(minC, min(maxC, preclip));
+                    if wantR6Log
+                        delta_cur = delta;
+                        clip_cur = double(preclip < minC | preclip > maxC);
+                    end
                 else
                     [~, aAll] = max(logits, [], 1);
                     act(t, :) = aAll;
@@ -484,7 +506,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
                     p_hat_users(ii) = p_hat_chosen;
                 end
                 act(t, :) = cqiAll - ref;
-            case 'log_explore'
+            case {'log_explore', 'log_explore_r6b'}
                 cqiAll = max(minC, min(maxC, ref - 2)); % Fixed-500 base for scheduling
                 act(t, :) = cqiAll - ref;
             case 'rule'
@@ -555,7 +577,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
 
             % Scheduled transmission rate recorded BEFORE transmission physics clear state
             sch_u = find(rb > 0);
-            if strcmpi(ptype, 'log_explore') && ~isempty(sch_u)
+            if any(strcmpi(ptype, {'log_explore', 'log_explore_r6b'})) && ~isempty(sch_u)
                 for u = sch_u(:)'
                     if ~retxReady(u)
                         u_eps = rand(policy.s_exp);
@@ -590,20 +612,25 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
                 for u = sch_u(:)'
                     n_sch = n_sch + 1;
                     if n_sch > size(sch_log, 1)
-                        sch_log = [sch_log; zeros(T, 5)];
+                        sch_log = [sch_log; zeros(T, sch_log_width)];
                     end
                     sl_u = Q.dl(u) - t + 1;
                     is_retx_u = double(retxReady(u));
                     n_busy_u = sum(H.proc_busy(u, :));
                     act_u = act(t, u);
-                    sch_log(n_sch, :) = [u, act_u, sl_u, is_retx_u, n_busy_u];
+                    if wantR6Log
+                        sch_log(n_sch, :) = [u, act_u, sl_u, is_retx_u, n_busy_u, delta_cur(u), clip_cur(u)];
+                    else
+                        sch_log(n_sch, :) = [u, act_u, sl_u, is_retx_u, n_busy_u];
+                    end
                 end
             end
 
             if isempty(U), uRow = []; else, uRow = U(t, :); end
             [H, Q, bl1, isRetxTx] = harqTransmit_v17(sent, SINR_true(t, :), rb, H, Q, env, t, uRow);
 
-            if strcmpi(ptype, 'log_explore') && ~isempty(sch_u) && t > b0
+            if any(strcmpi(ptype, {'log_explore', 'log_explore_r6b'})) && ~isempty(sch_u) && t > b0
+                isR6b = strcmpi(ptype, 'log_explore_r6b');
                 for u = sch_u(:)'
                     if ~retxReady(u)
                         obs_raw = double(s_now(:, u)');
@@ -627,12 +654,27 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
 
                         n_r1b_log = n_r1b_log + 1;
                         if n_r1b_log > size(r1b_log_buf, 1)
-                            r1b_log_buf = [r1b_log_buf; zeros(T, 41)];
+                            r1b_log_buf = [r1b_log_buf; zeros(T, r1b_log_width)];
                         end
-                        r1b_log_buf(n_r1b_log, :) = [ ...
+                        row41 = [ ...
                             trace_id_val, t, u, obs19, log_off_u(u), tx_mcs, ack1, ubits_taken, ...
                             c_mcs, c_ubits, log_explored_u(u) ...
                         ];
+                        if isR6b
+                            % R6b analytic label ingredient (R6_fullaction_prereg.md
+                            % Section 4): per-candidate success probability from the
+                            % simulator's true SINR, exactly as HR1's c_psucc
+                            % (evalPolicy_v17_hr.m, sinr_eff = SINR_true(t,u), no
+                            % combining on a 1st transmission).
+                            sinr_eff = SINR_true(t, u);
+                            c_psucc = zeros(1, 7);
+                            for ka = 1:7
+                                c_psucc(ka) = 1 - estimateBLER_v17(sinr_eff, c_mcs(ka));
+                            end
+                            r1b_log_buf(n_r1b_log, :) = [row41, c_psucc];
+                        else
+                            r1b_log_buf(n_r1b_log, :) = row41;
+                        end
                     end
                 end
             end
@@ -814,7 +856,7 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub(ptype, policy, SINR_
     end
 
     info = struct('okU', Q.okU, 'resU', Q.resU, 'sch_log', sch_log(1:n_sch, :));
-    if strcmpi(ptype, 'log_explore')
+    if any(strcmpi(ptype, {'log_explore', 'log_explore_r6b'}))
         info.r1b_log = r1b_log_buf(1:n_r1b_log, :);
     end
     if any(strcmpi(ptype, {'gbt_res_ack', 'gbt_full_ack'}))

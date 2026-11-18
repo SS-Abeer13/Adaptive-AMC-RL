@@ -1,0 +1,9 @@
+2026-11-18 13:12:10
+stage r6_fullaction
+unit episode
+measured s/unit 1.04862
+basis s/unit 0.64000
+ratio 1.638 (pause above 1.50)
+units 30000
+projected hours 8.74
+note: R6a full-action-set training (10 seeds x 3000 ep; 20 ep benchmarked; basis 0.64 s/ep, as NR2)
