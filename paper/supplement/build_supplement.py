@@ -44,7 +44,9 @@ T2 = [('v16', P('Optimized', 'v16', 'paper', 'table_core.csv'), 'v16 cases: resi
       ('R1b', P('paper', 'analysis', 'out', 'r1b_R1.csv'), 'R1b: NR2 relative to the ACK-trained one-step learners (exploration logging), NR2 traces'),
       ('R1c summary', P('paper', 'analysis', 'out', 'r1c_summary.csv'), 'R1c: replication of the ACK-trained learners, state per trace set over four calibration draws'),
       ('R1c fits', P('paper', 'analysis', 'out', 'r1c_fits.csv'), 'R1c: each fit against the ten-seed RL policy of its trace set (margin: RL relative to the learner)'),
-      ('R1c rules', P('paper', 'analysis', 'out', 'r1c_rules.csv'), 'R1c: each cell fit against the nine calibrated comparators of its cell (margin: learner relative to the comparator; Holm over nine)')]
+      ('R1c rules', P('paper', 'analysis', 'out', 'r1c_rules.csv'), 'R1c: each cell fit against the nine calibrated comparators of its cell (margin: learner relative to the comparator; Holm over nine)'),
+      ('R6 fits', P('paper', 'analysis', 'out', 'r6_fits.csv'), 'R6: RL with the full action set (-4..+2) against each GBT-full-ACK draw on the NR2 traces (margin: RL-full relative to the draw; Holm over four)'),
+      ('R6 secondary', P('paper', 'analysis', 'out', 'r6_secondary.csv'), 'R6 secondary, descriptive: RL-full against NR2, the combined table and the GBT-res-ACK draws; gap closure')]
 s2 = []
 for tag, src, title in T2:
     name = re.sub(r'[^A-Za-z0-9]+', '_', tag).strip('_') + '__' + os.path.basename(src)
@@ -64,7 +66,8 @@ stage_of = {'W1_warmup_prereg.md': ('W1', 'w1', 'Optimized/v17x/Dataset/table_wa
             'NR_G10_operating_grid_prereg.md': ('NR-G10', 'nr_g10', 'Optimized/v17x/Dataset/table_cells_nr.csv'),
             'R_presub_prereg.md': ('R1-R5', 'r1_gbt', 'Optimized/v17x/Dataset/presub/pertrace.csv'),
             'R1b_ack_prereg.md': ('R1b', 'r1b_ack', 'Optimized/v17x/Dataset/presub/r1b/pertrace_r1b.csv'),
-            'R1c_ack_prereg.md': ('R1c', 'r1c', 'Optimized/v17x/Dataset/presub/r1c/pertrace_r1c.csv')}
+            'R1c_ack_prereg.md': ('R1c', 'r1c', 'Optimized/v17x/Dataset/presub/r1c/pertrace_r1c.csv'),
+            'R6_fullaction_prereg.md': ('R6', 'r6_fullaction', 'Optimized/v17x/Dataset/presub/r6/pertrace_r6.csv')}
 hb = open(P('Optimized', 'v17x', 'logs', 'heartbeat_v17x.txt'), encoding='utf-8', errors='ignore').read().splitlines()
 starts = [(l[:19], re.search(r'stages: ([^;]+);', l).group(1).split(',')) for l in hb if '| runner' in l and 'start (stages:' in l]
 rows3 = []
@@ -124,7 +127,7 @@ tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geom
        r'\section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}',
        'All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \\texttt{MANIFEST.sha256}. '
        f'S1 is the case registry: {n_cases} cases and {n_rows} scheme evaluations of the main round (v9--v17), plus the ledger of the {rc} cases and {rr} scheme evaluations of the pre-registered robustness checks ({n_cases + rc} cases, {n_rows + rr} scheme evaluations in total). '
-       'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b and their replication R1c); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
+       'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b, their replication R1c and the full-action RL run R6); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
        'S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. '
        'S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \\texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. '
        'S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\\texttt{Optimized/v17x/AUDIT\\_config\\_all\\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\\texttt{G2\\_D1\\_verification\\_note.md}). '
@@ -158,7 +161,7 @@ open(os.path.join(OUT, 'README.md'), 'w', encoding='utf-8', newline='\n').write(
 
 - `S1_registry/case_registry.csv`: main round, {n_cases} cases, {n_rows} scheme evaluations (v9--v17), with the `correction` column.
 - `S1_registry/robustness_cases.csv`: pre-registered robustness checks, {rc} cases, {rr} scheme evaluations. Project total: {n_cases + rc} cases, {n_rows + rr} scheme evaluations.
-- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c, R1/R2, R4, R5 frozen and G2-corrected, R1b, R1c). For v9--v15 the registry row gives the margin over the best rule.
+- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c, R1/R2, R4, R5 frozen and G2-corrected, R1b, R1c, R6). For v9--v15 the registry row gives the margin over the best rule.
 - `S3_preregistration/`: every frozen pre-registration and analysis script listed in `FREEZE.sha256`, the earlier freeze files, and `freeze_timeline.csv` (hash, freeze commit, first runner start, results commit).
 - `S4_literature/screened_learning_LA_papers.csv`: the {len(scr)} learning-based LA papers screened for the introduction, with their codes (calibrated-rule baseline yes {cnt['yes']} / partial {cnt['partial']} / no {cnt['no']} / unclear {cnt['unclear']}).
 - `S5_audit/`: `AUDIT_config_all_stages.md` and `G2_D1_verification_note.md`. Deviation D1: a symmetric configuration audit of all 13 stages found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy.

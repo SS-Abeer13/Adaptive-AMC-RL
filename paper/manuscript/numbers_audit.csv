@@ -67,9 +67,10 @@ NBonfP,$8.8\times10^{-10}$,M04,Optimized/v17/paper/table_core.csv,holm_p x tests
 NBonfPCtxJ,1.00,M07,Optimized/v17x/Dataset/table_cal500.csv; Optimized/case_registry.csv,"Holm p (CtxJ) x registry tests, capped at 1"
 NBonfPCtxJProj,1.00,M08,Optimized/v17x/Dataset/table_cal500.csv; paper/ledger/robustness_cases.csv,"Holm p (CtxJ) x project tests, capped at 1"
 NBonfPProj,$1.6\times10^{-9}$,M08,Optimized/v17/paper/table_core.csv,holm_p x project tests
-NBonfPProjGbtFullAck,$4.3\times10^{-60}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
+NBonfPProjGbtFullAck,$4.4\times10^{-60}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
 NBonfPProjGbtResAck,$1.9\times10^{-38}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
-NBonfPProjNR,$6.6\times10^{-27}$,M08,paper/analysis/out/nr2_stats.csv; paper/ledger/robustness_cases.csv,NR2 Holm p (CtxJ) x project tests
+NBonfPProjNR,$6.7\times10^{-27}$,M08,paper/analysis/out/nr2_stats.csv; paper/ledger/robustness_cases.csv,NR2 Holm p (CtxJ) x project tests
+NBonfPProjRsix,$1.9\times10^{-63}$,M08,paper/analysis/out/r6_fits.csv; paper/ledger/robustness_cases.csv,largest R6a Holm p x project tests
 NBonfPraw,$9.1\times10^{-13}$,M04,Optimized/v17/paper/table_core.csv,holm_p
 NBonfTests,972,M04,Optimized/case_registry.csv,rows x 9
 NBoot,"20\,000",P01,paper/proposals/common_rules.md,"R2 B = 20,000"
@@ -1449,9 +1450,9 @@ NPfNSchemes,13,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,schemes compared
 NPfOneProc,3.466,H17,Optimized/v17/README_v17.md,README_v17 s1 table rtt8/1proc Baseline Mbps
 NPfRangeHi,26,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,max ratio
 NPfRangeLo,10,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,min v16 K3 / v17 M3 - 1 over schemes
-NProjCases,104,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry cases + robustness cases
-NProjRows,179,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry rows + robustness rows
-NProjTests,"1\,790",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound)
+NProjCases,106,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry cases + robustness cases
+NProjRows,182,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry rows + robustness rows
+NProjTests,"1\,820",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound)
 NRegCases,67,M01,Optimized/case_registry.csv,unique case_id
 NRegRows,108,M01,Optimized/case_registry.csv,rows
 NRegSinceTen,49,M02,Optimized/case_registry.csv,cases with version != v9
@@ -1459,8 +1460,45 @@ NRegSupCases,7,H19,Optimized/case_registry.csv,status superseded (cases)
 NRegSupRows,18,H19,Optimized/case_registry.csv,status superseded (rows)
 NRegValidCases,60,M03,Optimized/case_registry.csv,valid cases
 NRegWinCases,9,M03,Optimized/case_registry.csv,valid cases with win=1 excluding corrected X1 row
-NRobCases,37,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
-NRobRows,71,M08,paper/ledger/robustness_cases.csv,sum of rows over robustness stages
+NRobCases,39,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
+NRobRows,74,M08,paper/ledger/robustness_cases.csv,sum of rows over robustness stages
+NRsixClosure,3.6,R6,paper/analysis/out/r6_secondary.csv,gap closure (% of the NR2 to GBT-full-ACK gap)
+NRsixFullBest,\ensuremath{-}7.27,R6,paper/analysis/out/r6_fits.csv,least negative RL-full margin over the four GBT-full-ACK fits
+NRsixFullFour,\ensuremath{-}8.22,R6,paper/analysis/out/r6_fits.csv,RL-full vs GBT-full-ACK fit 4 margin
+NRsixFullFourHierHi,\ensuremath{-}7.43,R6,paper/analysis/out/r6_fits.csv,hier95_hi
+NRsixFullFourHierLo,\ensuremath{-}9.10,R6,paper/analysis/out/r6_fits.csv,hier95_lo
+NRsixFullLossMax,9.54,R6,paper/analysis/out/r6_fits.csv,"largest deficit, sign flipped"
+NRsixFullLossMin,7.27,R6,paper/analysis/out/r6_fits.csv,"smallest RL-full deficit vs GBT-full-ACK fits, sign flipped"
+NRsixFullOne,\ensuremath{-}7.27,R6,paper/analysis/out/r6_fits.csv,RL-full vs GBT-full-ACK fit 1 margin
+NRsixFullOneHierHi,\ensuremath{-}6.46,R6,paper/analysis/out/r6_fits.csv,hier95_hi
+NRsixFullOneHierLo,\ensuremath{-}8.16,R6,paper/analysis/out/r6_fits.csv,hier95_lo
+NRsixFullSeeds,0,R6,paper/analysis/out/r6_fits.csv,max RL-full seeds above any GBT-full-ACK fit
+NRsixFullThree,\ensuremath{-}7.54,R6,paper/analysis/out/r6_fits.csv,RL-full vs GBT-full-ACK fit 3 margin
+NRsixFullThreeHierHi,\ensuremath{-}6.73,R6,paper/analysis/out/r6_fits.csv,hier95_hi
+NRsixFullThreeHierLo,\ensuremath{-}8.40,R6,paper/analysis/out/r6_fits.csv,hier95_lo
+NRsixFullTwo,\ensuremath{-}9.54,R6,paper/analysis/out/r6_fits.csv,RL-full vs GBT-full-ACK fit 2 margin
+NRsixFullTwoHierHi,\ensuremath{-}8.74,R6,paper/analysis/out/r6_fits.csv,hier95_hi
+NRsixFullTwoHierLo,\ensuremath{-}10.41,R6,paper/analysis/out/r6_fits.csv,hier95_lo
+NRsixFullWorst,\ensuremath{-}9.54,R6,paper/analysis/out/r6_fits.csv,most negative RL-full margin over the four GBT-full-ACK fits
+NRsixOnt,0.6222,R6,paper/analysis/out/r6_fits.csv,RL-full on-time ratio (10-seed mean)
+NRsixOutside,38.5,R6,Optimized/v17x/Dataset/presub/r6/r6_actions.csv,"mean share (%) of decisions with delta outside NR2 set {-1,0,1}"
+NRsixPlusFour,27.8,R6,Optimized/v17x/Dataset/presub/r6/r6_actions.csv,mean share (%) of delta = +4 (offset +2)
+NRsixResBest,\ensuremath{-}2.77,R6,paper/analysis/out/r6_secondary.csv,least negative
+NRsixResLossMax,4.30,R6,paper/analysis/out/r6_secondary.csv,"largest deficit, sign flipped"
+NRsixResLossMin,2.77,R6,paper/analysis/out/r6_secondary.csv,"smallest RL-full deficit vs GBT-res-ACK fits, sign flipped"
+NRsixResWorst,\ensuremath{-}4.30,R6,paper/analysis/out/r6_secondary.csv,most negative RL-full margin vs GBT-res-ACK fits
+NRsixVsCtxJ,+3.69,R6,paper/analysis/out/r6_secondary.csv,RL-full vs ctxj500
+NRsixVsCtxJHi,4.14,R6,paper/analysis/out/r6_secondary.csv,ci90_hi
+NRsixVsCtxJHierHi,4.60,R6,paper/analysis/out/r6_secondary.csv,hier95_hi
+NRsixVsCtxJHierLo,2.68,R6,paper/analysis/out/r6_secondary.csv,hier95_lo
+NRsixVsCtxJLo,3.24,R6,paper/analysis/out/r6_secondary.csv,ci90_lo
+NRsixVsCtxJSeeds,10,R6,paper/analysis/out/r6_secondary.csv,RL-full seeds above
+NRsixVsNRtwo,+0.33,R6,paper/analysis/out/r6_secondary.csv,RL-full vs NR2
+NRsixVsNRtwoHi,0.61,R6,paper/analysis/out/r6_secondary.csv,ci90_hi
+NRsixVsNRtwoHierHi,1.09,R6,paper/analysis/out/r6_secondary.csv,hier95_hi
+NRsixVsNRtwoHierLo,\ensuremath{-}0.54,R6,paper/analysis/out/r6_secondary.csv,hier95_lo
+NRsixVsNRtwoLo,0.05,R6,paper/analysis/out/r6_secondary.csv,ci90_lo
+NRsixVsNRtwoSeeds,8,R6,paper/analysis/out/r6_secondary.csv,RL-full seeds above
 NSlotFixOLLA,2.9233,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train_b OLLA tp
 NSlotFixRL,2.9191,H07,Optimized/v10/Dataset/fill_summary_v10.txt,E1_train_b A2C tp
 NSlotMinusThree,58,H07,Optimized/v10/logs/matlab_v10b_check.log,actions% at -3

@@ -222,3 +222,43 @@ No R1c draw, log, model or output exists. `R1c_ack_prereg.md` and `paper/analysi
 **Independence.** No evaluation data were opened. The writing session read only the frozen G10 calibration files (`calib_single_<cell>.mat`, `out.env` field names and values) to state §4.1.
 
 **Freeze v12:** hashes in `paper/proposals/FREEZE.sha256` (v11 kept as `FREEZE_v11.sha256`). Stage `r1c` may run once this entry and the v12 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 11: 17 Nov 2026 (new stage R6 / `r6_fullaction`: residual RL with the full action set −4…+2; before any of its runs)
+**Trigger.** R1b and R1c show that the one-step learner trained on observed ACK/NACK beats NR2. All three internal reviewers of draft v12 (`3757e1d`, `paper/review/review_v12_*.md`) named the action set as the main confound:
+- NR2 chooses base ±1;
+- GBT-full-ACK chooses any offset in −4…+2;
+- the matched comparison (GBT-res-ACK, −3.40 %) removes the action-set difference, but no RL policy with the wider set exists.
+
+No R6 policy, log, model or output exists.
+
+**What is added.** `R6_fullaction_prereg.md` (new, frozen) and `paper/analysis/r6_stats.py` (frozen with it; it imports the frozen functions of `nr2_stats.py` and `presub_stats.py`).
+1. **R6a (primary): RL-full.**
+   - Recipe: NR2's residual A2C recipe, unchanged except `env.resid_actions = -2:4` on the forced Fixed −2 base, so the offsets are −4…+2, the set of GBT-full-ACK.
+   - The logit bias on δ = 0 and the deviation penalty 0.02 × |δ| are as in NR2.
+   - Seeds: 10 fresh (`base_seed = 27042`, +201…+210), 3000 episodes.
+   - Gates: default-path reproduction of NR2 seed 1 before training, and REPRO before evaluation.
+   - Evaluation: greedy, on the NR2 traces; decision draws `rng(2340000 + 100 j + s)`, all asserted disjoint.
+   - Comparison: GBT-full-ACK M1 fits 1–4, with R1 statistics (Holm over 4), seed level and the R1c outcome classes.
+   - Wording rows:
+     - **"the supervised learner beats RL at both action sets"** (all fits LOSES);
+     - **"the gap closes with the full action set"** (no fit LOSES, not all BEATS);
+     - **"RL-full beats the supervised learner"** (all BEATS);
+     - **"depends on the calibration draw"** (mixed);
+     - **"not run"**.
+   - Secondary, descriptive: gap closure, RL-full vs NR2, vs the combined table and vs GBT-res-ACK, and the δ shares.
+2. **R6b (optional observation): a true-SINR one-step model on the R1b exploration logs.**
+   - The logging re-run must match the stored R1b log row for row.
+   - Model: R1's model form and labels, deployed as res and full.
+   - It separates the logging effect from the label effect in the R1b twin result. Descriptive only; no verdict.
+
+**Multiplicity.** +2 cases / +3 scheme evaluations (R6a 1 / 1; R6b 1 / 2), counted from this freeze. Project totals become **106 / 182**, with a Bonferroni pool ≤ 1 820. Ledger row `R6` is added.
+
+**Compute.** About 7.5–8.5 h; R6a alone about 6–6.5 h. R6b may run last or not at all.
+
+**Validation.** `r6_stats.py --selftest` (synthetic data only) passes. It produces each of the four state-based wording rows and "not run" from patterns built for them, checks the outcome classes and their order (identical to R1c), checks that R6a is unaffected by the presence or absence of R6b, and checks that the statistics functions are the frozen ones.
+
+**Independence.** No evaluation data were opened. The writing session read the code to confirm that `env.resid_actions` sets the action set and the actor width (`DeepA2C_Shared_v17.m:20–29, 88–94`; `defaultEnv_v17.m:167–169`), and searched the repository to confirm that the seed base 27042 and the draw range 2340000+ are unused.
+
+**What is not changed.** All earlier frozen texts and scripts keep their hashes. All earlier results and verdicts stand as recorded, with Deviation D1.
+
+**Freeze v13:** hashes in `paper/proposals/FREEZE.sha256` (v12 kept as `FREEZE_v12.sha256`). Stage `r6_fullaction` may run once this entry and the v13 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.

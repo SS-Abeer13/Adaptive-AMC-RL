@@ -728,6 +728,40 @@ add('NGthreeBase', f(float(_h3['out']['fixed_offset'][()].ravel()[0]), 0), 'D1',
 add('NGthreeDeadline', str(int(_h3['out']['env']['pkt_deadline'][()].ravel()[0])), 'D1', 'Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat', 'out.env.pkt_deadline')
 add('NPSExplEps', '0.5', 'PS1b', 'paper/proposals/R1b_ack_prereg.md', 'section 3 (frozen)')
 
+# ---- R6 (Amendment 11, Freeze v13): residual RL with the full action set (paper/analysis/r6_stats.py, unchanged)
+R6F = AO('r6_fits.csv'); R6S = AO('r6_secondary.csv'); R6A = P('Optimized', 'v17x', 'Dataset', 'presub', 'r6', 'r6_actions.csv')
+_r6 = rows_of(R6F)
+assert len(_r6) == 4 and all(r['outcome'] == 'LOSES' for r in _r6), 'R6a: unexpected outcomes'
+add('NRsixOnt', f(_r6[0]['rl_ontime'], 4), 'R6', rel(R6F), 'RL-full on-time ratio (10-seed mean)')
+for r in _r6:
+    k = ['One', 'Two', 'Three', 'Four'][int(r['fit']) - 1]
+    add(f'NRsixFull{k}', f(r['margin_pct'], 2), 'R6', rel(R6F), f"RL-full vs GBT-full-ACK fit {r['fit']} margin")
+    add(f'NRsixFull{k}HierLo', f(r['hier95_lo'], 2), 'R6', rel(R6F), 'hier95_lo'); add(f'NRsixFull{k}HierHi', f(r['hier95_hi'], 2), 'R6', rel(R6F), 'hier95_hi')
+_m = sorted(float(r['margin_pct']) for r in _r6)
+add('NRsixFullWorst', f(_m[0], 2), 'R6', rel(R6F), 'most negative RL-full margin over the four GBT-full-ACK fits')
+add('NRsixFullBest', f(_m[-1], 2), 'R6', rel(R6F), 'least negative RL-full margin over the four GBT-full-ACK fits')
+add('NRsixFullSeeds', str(max(int(float(r['seeds_above'])) for r in _r6)), 'R6', rel(R6F), 'max RL-full seeds above any GBT-full-ACK fit')
+add('NBonfPProjRsix', sci(min(1.0, max(float(r['holm_p']) for r in _r6) * ptests)), 'M08', rel(R6F) + '; ' + rel(ROB), 'largest R6a Holm p x project tests')
+_s = rows_of(R6S)
+_res = [r for r in _s if r['comparison'].startswith('RL-full vs GBT-res-ACK')]
+assert len(_res) == 4 and all(r['outcome'] == 'LOSES' for r in _res)
+_mr = sorted(float(r['margin_pct']) for r in _res)
+add('NRsixResWorst', f(_mr[0], 2), 'R6', rel(R6S), 'most negative RL-full margin vs GBT-res-ACK fits'); add('NRsixResBest', f(_mr[-1], 2), 'R6', rel(R6S), 'least negative')
+add('NRsixFullLossMin', f(-_m[-1], 2), 'R6', rel(R6F), 'smallest RL-full deficit vs GBT-full-ACK fits, sign flipped'); add('NRsixFullLossMax', f(-_m[0], 2), 'R6', rel(R6F), 'largest deficit, sign flipped')
+add('NRsixResLossMin', f(-_mr[-1], 2), 'R6', rel(R6S), 'smallest RL-full deficit vs GBT-res-ACK fits, sign flipped'); add('NRsixResLossMax', f(-_mr[0], 2), 'R6', rel(R6S), 'largest deficit, sign flipped')
+for tag, key in [('NRtwo', 'RL-full vs NR2'), ('CtxJ', 'RL-full vs ctxj500')]:
+    r = [x for x in _s if x['comparison'].startswith(key)][0]
+    add(f'NRsixVs{tag}', f(r['margin_pct'], 2, True), 'R6', rel(R6S), key)
+    add(f'NRsixVs{tag}Lo', f(r['ci90_lo'], 2), 'R6', rel(R6S), 'ci90_lo'); add(f'NRsixVs{tag}Hi', f(r['ci90_hi'], 2), 'R6', rel(R6S), 'ci90_hi')
+    add(f'NRsixVs{tag}HierLo', f(r['hier95_lo'], 2), 'R6', rel(R6S), 'hier95_lo'); add(f'NRsixVs{tag}HierHi', f(r['hier95_hi'], 2), 'R6', rel(R6S), 'hier95_hi')
+    add(f'NRsixVs{tag}Seeds', str(int(float(r['seeds_above']))), 'R6', rel(R6S), 'RL-full seeds above')
+add('NRsixClosure', f([x for x in _s if x['comparison'].startswith('gap closure')][0]['margin_pct'], 1), 'R6', rel(R6S), 'gap closure (% of the NR2 to GBT-full-ACK gap)')
+_sh = {}
+for r in rows_of(R6A):
+    if r['metric'] == 'delta_share': _sh.setdefault(int(r['key']), []).append(float(r['value']))
+add('NRsixOutside', f(100 * sum(sum(_sh[d]) / len(_sh[d]) for d in _sh if d not in (-1, 0, 1)), 1), 'R6', rel(R6A), 'mean share (%) of decisions with delta outside NR2 set {-1,0,1}')
+add('NRsixPlusFour', f(100 * sum(_sh[4]) / len(_sh[4]), 1), 'R6', rel(R6A), 'mean share (%) of delta = +4 (offset +2)')
+
 # ------------------------------------------------------------------ write
 if ERR:
     print('ERRORS:'); [print('  ', e) for e in ERR]; sys.exit(1)

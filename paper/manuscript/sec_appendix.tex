@@ -149,6 +149,7 @@ Attribution controls (R1, R2; Amendment 8) & Does the gain need RL, or any schem
 NR2 diagnostics, seed sensitivity, more seeds (R3--R5) & Diagnostics as for M1; other seed-level intervals; 20 / 10 seeds & stored policies and traces; fresh seeds & descriptive; sensitivity only; frozen verdict logic, second analysis (Deviation D1 for G2) & run\\
 ACK-trained one-step learner (R1b; Amendment 9) & Does R1 hold with labels a gNB observes? & calibration traces logged with $\varepsilon$-greedy exploration; NR2 and M1 traces & as R1, Holm over 2; calibration of $\hat p$ & run\\
 Replication of R1b (R1c; Amendment 10a) & Four calibration draws; per-cell fits in G2 and G3 & fresh calibration draws per trace set; NR2 and cell evaluation traces & Holm over 8 per trace set vs a 10-seed RL policy; Holm over 9 vs the cell's rules & \ifitemrun{R1C}{run}{frozen, running}\\
+RL with the full action set (R6; Amendment 11) & Does the one-step learner still win when the RL policy has its action set? & \lit{10} fresh RL seeds, residual step $-\lit{2}\dots+\lit{4}$; NR2 traces & Holm over 4 vs the four GBT-full-ACK draws; R6b (true-SINR model on the exploration logs) exploratory, not reported & run\\
 \bottomrule
 \end{tabular}
 \end{table*}

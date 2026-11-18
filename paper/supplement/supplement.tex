@@ -9,7 +9,7 @@
 \setmonofont{DejaVu Sans Mono}[Scale=0.85]
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \title{Supplementary material for ``A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study}
-\date{Generated from repository commit 3757e1d}
+\date{Generated from repository commit 2d03dbe}
 \sloppy
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -17,7 +17,7 @@
 \tableofcontents
 \clearpage
 \section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}
-All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 37 cases and 71 scheme evaluations of the pre-registered robustness checks (104 cases, 179 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b and their replication R1c); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\texttt{Optimized/v17x/AUDIT\_config\_all\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\texttt{G2\_D1\_verification\_note.md}). Margins are relative differences in percent, paired per trace; ``beats follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
+All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 39 cases and 74 scheme evaluations of the pre-registered robustness checks (106 cases, 182 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b, their replication R1c and the full-action RL run R6); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\texttt{Optimized/v17x/AUDIT\_config\_all\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\texttt{G2\_D1\_verification\_note.md}). Margins are relative differences in percent, paired per trace; ``beats follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
 \clearpage
 \begin{landscape}
 \section{S1. Case registry}
@@ -147,7 +147,7 @@ All files are also provided as CSV or Markdown in the accompanying archive, with
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}lllll@{}}
-\caption{Ledger of the pre-registered robustness checks: 37 cases, 71 scheme evaluations.}\\
+\caption{Ledger of the pre-registered robustness checks: 39 cases, 74 scheme evaluations.}\\
 \toprule
 \textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{prereg} \\
 \midrule
@@ -167,6 +167,7 @@ PS-R1R2 & Attribution controls: one-step GBT on true-SINR labels and designed ru
 PS-R5 & More seeds: NR2 with 20 seeds; NR-G10 with 10 seeds per cell (Amendment 8; G2 with Deviation D1) & 3 & 3 & paper/proposals/R\_presub\_prereg.md section 10 \\
 R1b & One-step learner trained on observed ACK/NACK, NR2 and M1 traces (Amendment 9) & 2 & 4 & paper/proposals/R1b\_ack\_prereg.md section 9 \\
 R1c & Calibration-draw replication and per-cell test of the ACK-trained learner (Amendment 10a) & 19 & 38 & paper/proposals/R1c\_ack\_prereg.md section 7 \\
+R6 & Full-action residual RL (offsets -4..+2) vs the ACK-trained one-step learner, NR2 traces; optional true-SINR model on the R1b exploration logs (Amendment 11) & 2 & 3 & paper/proposals/R6\_fullaction\_prereg.md section 7 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1162,6 +1163,47 @@ G3 & M1fit & GBT-full-ACK & 4 & 0.94 & 0.9066 & -3.561 & -3.941 & -3.181 & 2.992
 \bottomrule
 \end{longtable}
 \normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllllll@{}}
+\caption{R6: RL with the full action set (-4..+2) against each GBT-full-ACK draw on the NR2 traces (margin: RL-full relative to the draw; Holm over four) Source: \texttt{paper/analysis/out/r6\_fits.csv}.}\\
+\toprule
+\textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{learner\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{learner\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{outcome} \\
+\midrule
+\endhead
+RL-full vs GBT-full-ACK & 1 & 0.6222 & 0.671 & -7.274 & -7.735 & -6.814 & 1.064e-66 & 1.064e-66 & -8.156 & -6.461 & 0 & 10 & LOSES \\
+RL-full vs GBT-full-ACK & 2 & 0.6222 & 0.6878 & -9.543 & -9.99 & -9.096 & 1.252e-78 & 5.008e-78 & -10.41 & -8.745 & 0 & 10 & LOSES \\
+RL-full vs GBT-full-ACK & 3 & 0.6222 & 0.6729 & -7.536 & -7.986 & -7.086 & 1.244e-70 & 2.487e-70 & -8.399 & -6.733 & 0 & 10 & LOSES \\
+RL-full vs GBT-full-ACK & 4 & 0.6222 & 0.6779 & -8.224 & -8.678 & -7.771 & 1.88e-73 & 5.64e-73 & -9.103 & -7.427 & 0 & 10 & LOSES \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllllllllll@{}}
+\caption{R6 secondary, descriptive: RL-full against NR2, the combined table and the GBT-res-ACK draws; gap closure Source: \texttt{paper/analysis/out/r6\_secondary.csv}.}\\
+\toprule
+\textbf{comparison} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{learner\_ontime} & \textbf{holm\_p} & \textbf{outcome} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{comparison} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_above} & \textbf{n\_seeds} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{learner\_ontime} & \textbf{holm\_p} & \textbf{outcome} \\
+\midrule
+\endhead
+RL-full vs NR2 (seed means; NR2 treated as fixed at seed level) & 0.3315 & 0.05123 & 0.6117 & 0.04443 & -0.5445 & 1.095 & 8 & 10 &  &  &  &  &  \\
+gap closure (\% of the NR2 to GBT-full-ACK gap) & 3.589 &  &  &  &  &  &  &  &  &  &  &  &  \\
+RL-full vs ctxj500 & 3.688 & 3.236 & 4.14 & 1.285e-32 & 2.682 & 4.596 & 10 & 10 &  &  &  &  &  \\
+RL-full vs GBT-res-ACK fit 1 & -3.083 & -3.459 & -2.706 & 1.268e-32 & -3.974 & -2.286 & 0 & 10 & 1 & 0.6222 & 0.642 & 2.537e-32 & LOSES \\
+RL-full vs GBT-res-ACK fit 2 & -4.302 & -4.69 & -3.913 & 7.467e-48 & -5.196 & -3.506 & 0 & 10 & 2 & 0.6222 & 0.6501 & 2.987e-47 & LOSES \\
+RL-full vs GBT-res-ACK fit 3 & -2.775 & -3.145 & -2.405 & 2.782e-28 & -3.659 & -1.973 & 0 & 10 & 3 & 0.6222 & 0.6399 & 2.782e-28 & LOSES \\
+RL-full vs GBT-res-ACK fit 4 & -3.935 & -4.317 & -3.553 & 1.996e-43 & -4.825 & -3.136 & 0 & 10 & 4 & 0.6222 & 0.6477 & 5.988e-43 & LOSES \\
+\bottomrule
+\end{longtable}
+\normalsize
 \section{S3. Pre-registrations, hashes and freeze timeline}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
@@ -1186,7 +1228,7 @@ compute\_basis.md &  & yes & ebce975 & 2026-11-04 21:44 &  &  &  \\
 NR2\_confirmatory\_prereg.md & NR2 & yes & a12d322 & 2026-11-08 09:09 & 2026-11-10 03:52:44 & fd6d7fb & 2026-11-10 15:35 \\
 nr2\_stats.py &  & yes & a12d322 & 2026-11-08 09:09 &  &  &  \\
 NR\_G10\_operating\_grid\_prereg.md & NR-G10 & yes & d7fd804 & 2026-11-10 15:37 & 2026-11-10 15:53:31 & 97fc571 & 2026-11-11 06:18 \\
-AMENDMENTS.md &  & yes & 27b6c37 & 2026-11-15 16:14 &  &  &  \\
+AMENDMENTS.md &  & yes & 8a3f5b0 & 2026-11-17 17:31 &  &  &  \\
 HR1\_headroom\_prereg.md &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
 hr\_stats.py &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
 R\_presub\_prereg.md & R1-R5 & yes & f631efe & 2026-11-13 15:39 & 2026-11-13 16:57:53 & 618eb47 & 2026-11-14 10:57 \\
@@ -1195,6 +1237,8 @@ R1b\_ack\_prereg.md & R1b & yes & 172f69c & 2026-11-15 00:20 & 2026-11-15 10:18:
 r1b\_stats.py &  & yes & 172f69c & 2026-11-15 00:20 &  &  &  \\
 R1c\_ack\_prereg.md & R1c & yes & 27b6c37 & 2026-11-15 16:14 & 2026-11-15 21:46:07 & e59b477 & 2026-11-17 00:12 \\
 r1c\_stats.py &  & yes & 27b6c37 & 2026-11-15 16:14 &  &  &  \\
+R6\_fullaction\_prereg.md & R6 & yes & 8a3f5b0 & 2026-11-17 17:31 & 2026-11-18 09:24:30 & 5fc0f11 & 2026-11-18 15:39 \\
+r6\_stats.py &  & yes & 8a3f5b0 & 2026-11-17 17:31 &  &  &  \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1281,7 +1325,7 @@ huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):
 \input{md_NR_G10_operating_grid_prereg_md.tex}
 \clearpage
 \subsection*{AMENDMENTS.md}\addcontentsline{toc}{subsection}{AMENDMENTS.md}
-\noindent SHA-256: \texttt{\footnotesize dee68be966172e2dc75b754daa4de5fbc15fc626f5019188c6ac1e6b520786c6}\par\medskip
+\noindent SHA-256: \texttt{\footnotesize f4c628766d398cc6f653ecbfe62a43a63b0311a57531e0d1d17675215ac29e45}\par\medskip
 \input{md_AMENDMENTS_md.tex}
 \clearpage
 \subsection*{HR1\_headroom\_prereg.md}\addcontentsline{toc}{subsection}{HR1\_headroom\_prereg.md}
@@ -1299,4 +1343,8 @@ huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):
 \subsection*{R1c\_ack\_prereg.md}\addcontentsline{toc}{subsection}{R1c\_ack\_prereg.md}
 \noindent SHA-256: \texttt{\footnotesize 0336ff99bc9079df492f0cf4a351b0adb7959298468b58aaf3826e5c1a54e3c6}\par\medskip
 \input{md_R1c_ack_prereg_md.tex}
+\clearpage
+\subsection*{R6\_fullaction\_prereg.md}\addcontentsline{toc}{subsection}{R6\_fullaction\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize a8899c0f4582ed37f0b52471439903264dca97743f5c5b55f639fe976c559a6a}\par\medskip
+\input{md_R6_fullaction_prereg_md.tex}
 \end{document}
