@@ -1,6 +1,6 @@
 # Response to the reviewers — skeleton
 
-**Manuscript:** "A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study" — [Manuscript ID]
+**Manuscript:** "Is Reinforcement Learning Necessary for Link Adaptation? A Pre-Registered Comparison with Calibrated Rules and Supervised Learning" — [Manuscript ID]
 
 We thank the Editor and the reviewers. Below, reviewer comments are quoted in *italics*, our responses follow, and every change is given with its location in the revised manuscript (changes are marked in blue in the marked-up version).
 

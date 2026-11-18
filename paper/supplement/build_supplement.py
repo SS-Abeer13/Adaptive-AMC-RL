@@ -122,7 +122,7 @@ def longtable(path, cols=None, caption='', size=r'\scriptsize', sep='3pt'):
     return '\n'.join(out)
 tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geometry}', r'\usepackage{longtable,booktabs,pdflscape,array,calc}', r'\usepackage[hidelinks]{hyperref}', r'\setcounter{secnumdepth}{0}', r'\setcounter{tocdepth}{2}',
        r'\usepackage{fontspec}', r'\setmainfont{DejaVu Serif}', r'\setmonofont{DejaVu Sans Mono}[Scale=0.85]', r'\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}',
-       r'\title{Supplementary material for ``A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study''}',
+       r'\title{Supplementary material for ``Is Reinforcement Learning Necessary for Link Adaptation? A Pre-Registered Comparison with Calibrated Rules and Supervised Learning''}',
        r'\date{Generated from repository commit ' + esc(git('rev-parse', '--short', 'HEAD')) + '}', r'\sloppy', r'\setlength{\emergencystretch}{3em}', r'\begin{document}', r'\maketitle', r'\tableofcontents', r'\clearpage',
        r'\section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}',
        'All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \\texttt{MANIFEST.sha256}. '

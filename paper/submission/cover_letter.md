@@ -3,7 +3,7 @@
 To the Editor-in-Chief,
 IEEE Transactions on Machine Learning in Communications and Networking
 
-**Submission: "A Residual Deep RL Policy for Link Adaptation Beats Calibrated Rules but Not a Supervised One-Step Learner: A Pre-Registered Simulation Study"**
+**Submission: "Is Reinforcement Learning Necessary for Link Adaptation? A Pre-Registered Comparison with Calibrated Rules and Supervised Learning"**
 
 Dear Editor,
 
