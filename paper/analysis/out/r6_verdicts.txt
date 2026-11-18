@@ -1,0 +1,18 @@
+R6a: the supervised learner beats RL at both action sets | state loses | outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  statement: With the same action set as the one-step learner (offsets −4…+2), the RL policy still delivered fewer packets on time than the one-step learner trained on observed ACK/NACK, for each of the four calibration draws: the supervised learner beats RL at both action sets.
+  fit 1: RL-full 0.6222 vs GBT-full-ACK 0.6710; margin -7.27 % [-7.73, -6.81], Holm p 1.06e-66, hier [-8.16, -6.46], seeds above 0/10: LOSES
+  fit 2: RL-full 0.6222 vs GBT-full-ACK 0.6878; margin -9.54 % [-9.99, -9.10], Holm p 5.01e-78, hier [-10.41, -8.74], seeds above 0/10: LOSES
+  fit 3: RL-full 0.6222 vs GBT-full-ACK 0.6729; margin -7.54 % [-7.99, -7.09], Holm p 2.49e-70, hier [-8.40, -6.73], seeds above 0/10: LOSES
+  fit 4: RL-full 0.6222 vs GBT-full-ACK 0.6779; margin -8.22 % [-8.68, -7.77], Holm p 5.64e-73, hier [-9.10, -7.43], seeds above 0/10: LOSES
+  [secondary] RL-full vs NR2 (seed means; NR2 treated as fixed at seed level): +0.33 [0.05, 0.61]
+  [secondary] gap closure (% of the NR2 to GBT-full-ACK gap): +3.59
+  [secondary] RL-full vs ctxj500: +3.69 [3.24, 4.14]
+  [secondary] RL-full vs GBT-res-ACK fit 1: -3.08 [-3.46, -2.71]
+  [secondary] RL-full vs GBT-res-ACK fit 2: -4.30 [-4.69, -3.91]
+  [secondary] RL-full vs GBT-res-ACK fit 3: -2.77 [-3.15, -2.40]
+  [secondary] RL-full vs GBT-res-ACK fit 4: -3.93 [-4.32, -3.55]
+R6b: run
+  [R6b, observation] res logging effect: SINRexp vs R1 (same labels and model form, different logs): -11.68 % [-12.27, -11.08]
+  [R6b, observation] res label effect: ACK fit 1 vs SINRexp (same logs; label and model form change together): +14.05 % [13.37, 14.73]
+  [R6b, observation] full logging effect: SINRexp vs R1 (same labels and model form, different logs): -27.76 % [-28.68, -26.84]
+  [R6b, observation] full label effect: ACK fit 1 vs SINRexp (same logs; label and model form change together): +41.48 % [40.19, 42.78]

@@ -1,0 +1,5 @@
+comparison,scheme,margin_pct,ci90_lo,ci90_hi,p
+"logging effect: SINRexp vs R1 (same labels and model form, different logs)",res,-11.68,-12.27,-11.08,3.923e-77
+label effect: ACK fit 1 vs SINRexp (same logs; label and model form change together),res,14.05,13.37,14.73,8.127e-79
+"logging effect: SINRexp vs R1 (same labels and model form, different logs)",full,-27.76,-28.68,-26.84,1.264e-83
+label effect: ACK fit 1 vs SINRexp (same logs; label and model form change together),full,41.48,40.19,42.78,1.264e-83

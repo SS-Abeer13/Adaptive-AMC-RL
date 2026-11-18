@@ -1,0 +1,4 @@
+item,key,value,source_file,date
+R6,verdict,the supervised learner beats RL at both action sets,paper/analysis/out/r6_*.csv,
+R6,state,loses,paper/analysis/out/r6_*.csv,
+R6,r6b,run,paper/analysis/out/r6_*.csv,
