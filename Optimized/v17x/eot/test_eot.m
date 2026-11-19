@@ -85,7 +85,7 @@ function test_eot()
     end
     assert(Q.okU(1) == 0, 'Test 1 resolved: okU must be 0 (miss)');
     assert(Q.resU(1) == 1, 'Test 1 resolved: resU must be 1 (counted miss)');
-    assert(Q.eot_track.n_late_ack_asrun == 1, 'Test 1 resolved: n_late_ack_asrun must be tracked');
+    % (Exposure counters come from asrun pass only per S_EOT_PF_prereg.md Section 2)
     fprintf('PASSED\n');
 
     %% ---------------- Test 2 ----------------

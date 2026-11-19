@@ -882,18 +882,16 @@ function [tp, bler, cqi_err, act, info] = evalPolicy_presub_eot(ptype, policy, S
                 Q.eot_track.n_censored_asrun = Q.eot_track.n_censored_asrun + 1;
             end
         end
-    end
-
-    if eot_resolved
-        n_counted_resolved = sum(Q.resU);
-        n_censored_asrun   = Q.eot_track.n_censored_asrun;
-        n_late_ack_asrun   = Q.eot_track.n_late_ack_asrun;
-        n_counted_asrun    = max(0, Q.eot_track.n_arrivals_all - n_censored_asrun);
-    else
         n_counted_asrun    = sum(Q.resU);
         n_counted_resolved = Q.eot_track.n_arrivals_resolved;
         n_late_ack_asrun   = Q.eot_track.n_late_ack_asrun;
         n_censored_asrun   = Q.eot_track.n_censored_asrun;
+    else
+        % Resolved pass: exposure counters are reported from asrun pass only (S_EOT_PF_prereg.md Section 2)
+        n_counted_resolved = sum(Q.resU);
+        n_counted_asrun    = NaN;
+        n_late_ack_asrun   = NaN;
+        n_censored_asrun   = NaN;
     end
 
     info = struct('okU', Q.okU, 'resU', Q.resU, 'sch_log', sch_log(1:n_sch, :));

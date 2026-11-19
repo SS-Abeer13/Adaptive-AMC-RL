@@ -1,38 +1,72 @@
 function stage_eot(ctx)
-% stage_eot  Task 2 end-of-trace sensitivity stage.
-% Re-evaluates stored schemes under env.eot_mode = 'resolved'.
-% Checkpoints keyed by SHA-256 of code + config.
+% stage_eot  Task 2 end-of-trace sensitivity stage and Task 3 D-PF diagnostic.
+% Evaluates stored schemes under asrun and resolved modes, asserts exact
+% reproduction of all stored per-trace values in asrun mode, and computes
+% D-PF diagnostic for M2 and M4.
+% Checkpoints keyed by SHA-256 of stage_eot.m, all .m in eot/, and unit config.
 
     addpath(ctx.v17);
-    addpath(fullfile(ctx.root, 'eot'));
+    eot_dir = fullfile(ctx.root, 'eot');
+    addpath(eot_dir);
     addpath(fullfile(ctx.root, 'g6'));
     addpath(fullfile(ctx.root, 'nr1'));
     addpath(ctx.root);
     v17_setup;
 
-    stage_file = mfilename('fullpath');
-    stage_m = [stage_file '.m'];
-    key_config = struct('eot_mode', 'resolved', 'smoke', ctx.smoke);
-    stage_hash = compute_stage_hash(stage_m, key_config);
+    stage_m = [mfilename('fullpath') '.m'];
+    ctx.hbf(sprintf('stage_eot: starting stage eot (smoke=%d)', ctx.smoke));
 
-    ctx.hbf(sprintf('stage_eot: starting with stage_hash=%s (smoke=%d)', stage_hash(1:12), ctx.smoke));
+    n_eval_nr2 = ternary(ctx.smoke, 2, 500);
+    n_eval_m1  = ternary(ctx.smoke, 2, 500);
+    n_eval_g2  = ternary(ctx.smoke, 2, 300);
+    n_eval_g3  = ternary(ctx.smoke, 2, 300);
+    n_eval_m2  = ternary(ctx.smoke, 2, 500);
+    n_eval_m4  = ternary(ctx.smoke, 2, 500);
 
-    n_eval = ternary(ctx.smoke, 2, 500);
+    % ---- Units 1 & 2: NR2 ----
+    h_as_nr2 = compute_unit_hash('NR2', 'asrun', 'scheduled', {'nr2_all'}, ctx.smoke, stage_m, eot_dir);
+    u_as_nr2 = unit_with_hash(ctx, 'asrun_NR2', @() eval_set_eot('NR2', 'asrun', n_eval_nr2, ctx), h_as_nr2);
 
-    % ---- 1. Unit: eval_M1 ----
-    u_eval_m1 = unit_with_hash(ctx, 'eval_M1', @() unit_eval_m1(n_eval, ctx), stage_hash);
+    h_res_nr2 = compute_unit_hash('NR2', 'resolved', 'scheduled', {'nr2_all'}, ctx.smoke, stage_m, eot_dir);
+    u_res_nr2 = unit_with_hash(ctx, 'resolved_NR2', @() eval_set_eot('NR2', 'resolved', n_eval_nr2, ctx), h_res_nr2);
 
-    % ---- 2. Unit: eval_NR2 ----
-    u_eval_nr2 = unit_with_hash(ctx, 'eval_NR2', @() unit_eval_nr2(n_eval, ctx), stage_hash);
+    % ---- Units 3 & 4: M1 ----
+    h_as_m1 = compute_unit_hash('M1', 'asrun', 'scheduled', {'m1_all'}, ctx.smoke, stage_m, eot_dir);
+    u_as_m1 = unit_with_hash(ctx, 'asrun_M1', @() eval_set_eot('M1', 'asrun', n_eval_m1, ctx), h_as_m1);
 
-    % ---- 3. Unit: eval_G2 ----
-    u_eval_g2 = unit_with_hash(ctx, 'eval_G2', @() unit_eval_g2(n_eval, ctx), stage_hash);
+    h_res_m1 = compute_unit_hash('M1', 'resolved', 'scheduled', {'m1_all'}, ctx.smoke, stage_m, eot_dir);
+    u_res_m1 = unit_with_hash(ctx, 'resolved_M1', @() eval_set_eot('M1', 'resolved', n_eval_m1, ctx), h_res_m1);
 
-    % ---- 4. Unit: eval_G3 ----
-    u_eval_g3 = unit_with_hash(ctx, 'eval_G3', @() unit_eval_g3(n_eval, ctx), stage_hash);
+    % ---- Units 5 & 6: G2 ----
+    h_as_g2 = compute_unit_hash('G2', 'asrun', 'scheduled', {'g2_all'}, ctx.smoke, stage_m, eot_dir);
+    u_as_g2 = unit_with_hash(ctx, 'asrun_G2', @() eval_set_eot('G2', 'asrun', n_eval_g2, ctx), h_as_g2);
 
-    % ---- 5. Unit: summary ----
-    unit_with_hash(ctx, 'summary', @() unit_summary(u_eval_m1.data, u_eval_nr2.data, u_eval_g2.data, u_eval_g3.data, ctx), stage_hash);
+    h_res_g2 = compute_unit_hash('G2', 'resolved', 'scheduled', {'g2_all'}, ctx.smoke, stage_m, eot_dir);
+    u_res_g2 = unit_with_hash(ctx, 'resolved_G2', @() eval_set_eot('G2', 'resolved', n_eval_g2, ctx), h_res_g2);
+
+    % ---- Units 7 & 8: G3 ----
+    h_as_g3 = compute_unit_hash('G3', 'asrun', 'scheduled', {'g3_all'}, ctx.smoke, stage_m, eot_dir);
+    u_as_g3 = unit_with_hash(ctx, 'asrun_G3', @() eval_set_eot('G3', 'asrun', n_eval_g3, ctx), h_as_g3);
+
+    h_res_g3 = compute_unit_hash('G3', 'resolved', 'scheduled', {'g3_all'}, ctx.smoke, stage_m, eot_dir);
+    u_res_g3 = unit_with_hash(ctx, 'resolved_G3', @() eval_set_eot('G3', 'resolved', n_eval_g3, ctx), h_res_g3);
+
+    % ---- Unit 9: pfdiag_M2 ----
+    h_pf_m2 = compute_unit_hash('M2', 'both', 'both', {'m2_schemes'}, ctx.smoke, stage_m, eot_dir);
+    u_pf_m2 = unit_with_hash(ctx, 'pfdiag_M2', @() eval_pfdiag_eot('M2', n_eval_m2, ctx), h_pf_m2);
+
+    % ---- Unit 10: pfdiag_M4 ----
+    h_pf_m4 = compute_unit_hash('M4', 'both', 'both', {'m4_schemes'}, ctx.smoke, stage_m, eot_dir);
+    u_pf_m4 = unit_with_hash(ctx, 'pfdiag_M4', @() eval_pfdiag_eot('M4', n_eval_m4, ctx), h_pf_m4);
+
+    % ---- Unit 11: summary ----
+    h_sum = compute_unit_hash('summary', 'both', 'both', {'summary'}, ctx.smoke, stage_m, eot_dir);
+    unit_with_hash(ctx, 'summary', @() report_eot_summary( ...
+        u_as_nr2.data, u_res_nr2.data, ...
+        u_as_m1.data, u_res_m1.data, ...
+        u_as_g2.data, u_res_g2.data, ...
+        u_as_g3.data, u_res_g3.data, ...
+        u_pf_m2.data, u_pf_m4.data, ctx), h_sum);
 
     ctx.hbf('stage_eot done successfully');
 end
@@ -40,14 +74,17 @@ end
 % =========================================================================
 % Hash-keyed checkpoint runner
 % =========================================================================
-function out = unit_with_hash(ctx, name, fcn, stage_hash)
+function out = unit_with_hash(ctx, name, fcn, unit_hash)
     d = fullfile(ctx.ckptdir, ctx.stage);
+    if ~exist(d, 'dir'), mkdir(d); end
     f = fullfile(d, [name '.mat']);
     if exist(f, 'file')
         try
             S = load(f, 'out');
-            if isfield(S.out, 'stage_hash') && strcmp(S.out.stage_hash, stage_hash)
-                % Valid hash match
+            if isfield(S.out, 'unit_hash') && strcmp(S.out.unit_hash, unit_hash)
+                ctx.hbf(sprintf('unit %s: checkpoint valid (skipping recompute)', name));
+                out = S.out;
+                return;
             else
                 ctx.hbf(sprintf('unit %s: hash mismatch (recomputing)', name));
                 delete(f);
@@ -56,54 +93,50 @@ function out = unit_with_hash(ctx, name, fcn, stage_hash)
             delete(f);
         end
     end
-    wrapped_fcn = @() wrap_output(fcn(), stage_hash);
+    wrapped_fcn = @() wrap_output(fcn(), unit_hash);
     out = ctx.unit(name, wrapped_fcn);
 end
 
-function wrapped = wrap_output(data, stage_hash)
-    wrapped = struct('data', data, 'stage_hash', stage_hash);
+function wrapped = wrap_output(data, unit_hash)
+    wrapped = struct('data', data, 'unit_hash', unit_hash);
 end
 
-function h = compute_stage_hash(stage_file, key_config)
-    fid = fopen(stage_file, 'r');
-    code_bytes = fread(fid, '*uint8');
-    fclose(fid);
-    cfg_str = jsonencode(key_config);
+function h = compute_unit_hash(set_name, eot_mode, pf_avg, scheme_list, smoke, stage_m, eot_dir)
     hasher = java.security.MessageDigest.getInstance('SHA-256');
-    hasher.update(code_bytes);
+
+    % 1. stage_eot.m code bytes
+    fid = fopen(stage_m, 'r');
+    if fid > 0
+        b = fread(fid, '*uint8');
+        fclose(fid);
+        hasher.update(b);
+    end
+
+    % 2. Every .m in eot_dir in sorted order
+    mfiles = dir(fullfile(eot_dir, '*.m'));
+    if ~isempty(mfiles)
+        [~, idx] = sort({mfiles.name});
+        mfiles = mfiles(idx);
+        for k = 1:numel(mfiles)
+            fid = fopen(fullfile(eot_dir, mfiles(k).name), 'r');
+            if fid > 0
+                b = fread(fid, '*uint8');
+                fclose(fid);
+                hasher.update(b);
+            end
+        end
+    end
+
+    % 3. Config struct
+    cfg = struct('set', set_name, 'eot_mode', eot_mode, 'pf_avg', pf_avg, ...
+                 'scheme_list', {scheme_list}, 'smoke', smoke);
+    cfg_str = jsonencode(cfg);
     hasher.update(uint8(cfg_str));
+
     bytes = hasher.digest();
     h = sprintf('%02x', typecast(bytes, 'uint8'));
 end
 
-% =========================================================================
-% Unit implementations (stubs for Task 1; executed in Task 2)
-% =========================================================================
-function out = unit_eval_m1(n_eval, ctx)
-    ctx.hbf(sprintf('eval_M1: running %d traces in resolved mode', n_eval));
-    out = struct('n_eval', n_eval, 'study', 'M1');
-end
-
-function out = unit_eval_nr2(n_eval, ctx)
-    ctx.hbf(sprintf('eval_NR2: running %d traces in resolved mode', n_eval));
-    out = struct('n_eval', n_eval, 'study', 'NR2');
-end
-
-function out = unit_eval_g2(n_eval, ctx)
-    ctx.hbf(sprintf('eval_G2: running %d traces in resolved mode', n_eval));
-    out = struct('n_eval', n_eval, 'study', 'G2');
-end
-
-function out = unit_eval_g3(n_eval, ctx)
-    ctx.hbf(sprintf('eval_G3: running %d traces in resolved mode', n_eval));
-    out = struct('n_eval', n_eval, 'study', 'G3');
-end
-
-function out = unit_summary(m1, nr2, g2, g3, ctx)
-    ctx.hbf('summary: generating eot_summary.txt and running stats scripts');
-    out = struct('status', 'complete');
-end
-
-function out = ternary(cond, a, b)
-    if cond, out = a; else, out = b; end
+function y = ternary(c, a, b)
+    if c, y = a; else, y = b; end
 end
