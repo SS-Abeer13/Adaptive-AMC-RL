@@ -1,0 +1,6 @@
+D-RS DIAGNOSTIC REPORT (traces 60001-60100)
+share_diff_rsched=0.0029 (46/16119)
+share_retx_p_not_1=0.0632 (51/807)
+mean_delta_Remas=0.0006
+p99_delta_Remas=0.0078
+share_pf_user_change=0.0005 (8/16119)
