@@ -262,3 +262,35 @@ No R6 policy, log, model or output exists.
 **What is not changed.** All earlier frozen texts and scripts keep their hashes. All earlier results and verdicts stand as recorded, with Deviation D1.
 
 **Freeze v13:** hashes in `paper/proposals/FREEZE.sha256` (v12 kept as `FREEZE_v12.sha256`). Stage `r6_fullaction` may run once this entry and the v13 freeze file are committed and `sha256sum -c FREEZE.sha256` passes.
+
+## Amendment 12: 19 Nov 2026 (new stage `eot`: end-of-trace accounting sensitivity S-EOT, PF-definition diagnostic D-PF, retransmission-rate diagnostic D-RS; before any of their runs on evaluation traces)
+**Trigger.** The 8 Nov code review (code reading only) left three items open that the manuscript does not disclose:
+- **End-of-trace accounting.** The HARQ drain completes packets without the deadline check, and unresolved packets leave the ratio. About 6–7 % of counted packets are exposed. The bias may favour aggressive schemes, and the ACK-trained learners are the more aggressive ones.
+- **PF averaging at RTT 0.** Training uses ACK-time PF averaging, while the evaluation uses scheduling-time averaging (M2, M4).
+- **Retransmission scheduled rate.** At RTT 8 the training-side PF scheduled rate on retransmissions can read the wrong HARQ process.
+
+The tooling commit `17bf7d1` added `env.eot_mode`. Its default `'asrun'` is bit-identical to the frozen evaluators on calibration traces 60001–60020 (15 scheme × case pairs). No `'resolved'` value on any evaluation trace exists.
+
+**What is added.** `S_EOT_PF_prereg.md` (new, frozen). No new analysis script: the frozen scripts are rerun unchanged in logic, and only path-only copies are allowed, with their diffs reported.
+1. **S-EOT.**
+   - Every frozen deadline comparison is re-scored on its stored traces under `'resolved'` accounting:
+     - only packets with `dl ≤ T_end` count;
+     - the deadline applies during the drain;
+     - at RTT 0 there is one expiry step at `T + 1`.
+   - Sets: NR2, M1, and the R1c cells G2 and G3.
+   - A full `'asrun'` pass first must reproduce every stored per-trace value exactly. That pass also gives the exposure counters.
+   - Wording rows: (a) "every frozen verdict is unchanged (largest shift x pp)"; (b) "the following verdicts change: …; both reported", which goes to the abstract if a headline comparison changes; (c) "not run".
+2. **D-PF.** The stored M2 and M4 policies and comparators are re-evaluated under `pf_avg = 'scheduled'` (which must reproduce exactly) and `'acked'` (the training definition), using the frozen R1 and R2 rules.
+   - Wording rows: (a) "verdicts unchanged", (b) "verdict changes to …", (c) "not run".
+   - Under every row the mismatch is disclosed, and retraining goes to the revision round.
+3. **D-RS.** On calibration traces only, the frequency and size of the retransmission scheduled-rate mismatch in the RTT 8 training loop. Descriptive; one limitation sentence.
+
+**Multiplicity.** None. These are sensitivity analyses of existing comparisons: no case, no registry row, nothing added to the Bonferroni pool. Totals stay **106 / 182**.
+
+**Compute.** About 1.8 h (S-EOT, two passes on 2 workers) + 1 h (D-PF) + 0.5 h (D-RS).
+
+**Independence.** No evaluation data were opened. The writing session read `17bf7d1` (the diffs of `evalPolicy_g6_eot.m`, `evalPolicy_presub_eot.m` and the `_eot` helpers against their frozen originals) and `Optimized/v17x/Dataset/eot/eot_equiv.txt`.
+
+**What is not changed.** All earlier frozen texts, scripts, results and verdicts stand as recorded. All earlier hashes are unchanged except `AMENDMENTS.md`, which gains this entry.
+
+**Freeze v14:** hashes in `paper/proposals/FREEZE.sha256` (v13 kept as `FREEZE_v13.sha256`). S-EOT and D-PF may run on evaluation traces once this entry and the v14 freeze file are committed and `sha256sum -c FREEZE.sha256` passes 23/23.
