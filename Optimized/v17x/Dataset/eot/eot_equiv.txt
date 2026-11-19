@@ -1,0 +1,15 @@
+EQUIV|M1|Baseline|bit_identical=1
+EQUIV|M1|OLLA|bit_identical=1
+EQUIV|M1|Fixed|bit_identical=1
+EQUIV|M1|FixedPU|bit_identical=1
+EQUIV|M1|Context|bit_identical=1
+EQUIV|M1|Context-joint-500|bit_identical=1
+EQUIV|M1|M1 seed 1|bit_identical=1
+EQUIV|M1|NR2 seed 1|bit_identical=1
+EQUIV|M1|R6a seed 1|bit_identical=1
+EQUIV|M1|GBT-res-ACK fit 1|bit_identical=1
+EQUIV|M1|GBT-full-ACK fit 1|bit_identical=1
+EQUIV|M2|Baseline|bit_identical=1
+EQUIV|M2|OLLA|bit_identical=1
+EQUIV|M2|Fixed|bit_identical=1
+EQUIV|M2|M2 seed 1|bit_identical=1
