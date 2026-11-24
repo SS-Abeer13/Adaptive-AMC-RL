@@ -294,3 +294,5 @@ The tooling commit `17bf7d1` added `env.eot_mode`. Its default `'asrun'` is bit-
 **What is not changed.** All earlier frozen texts, scripts, results and verdicts stand as recorded. All earlier hashes are unchanged except `AMENDMENTS.md`, which gains this entry.
 
 **Freeze v14:** hashes in `paper/proposals/FREEZE.sha256` (v13 kept as `FREEZE_v13.sha256`). S-EOT and D-PF may run on evaluation traces once this entry and the v14 freeze file are committed and `sha256sum -c FREEZE.sha256` passes 23/23.
+
+**Amendment 13 (24 Nov 2026), Freeze v15.** Fresh-trace confirmation of the frozen policies (FT), symmetric seed check (S-SYM) and supervised-learner timing (T-GBT). Spec: `FT_fresh_trace_prereg.md`; objects: `FT_objects.sha256`; analysis: `paper/analysis/ft_stats.py` (selftest only). Written after the external review and the Round 2 rewrite; no FT trace existed at freeze time. Multiplicity: +1 case, +9 primary and +16 secondary tests.
