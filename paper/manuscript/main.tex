@@ -1,5 +1,7 @@
 \documentclass[journal]{IEEEtran}
-\usepackage{amsmath,amssymb,booktabs,graphicx,xcolor,siunitx,tikz,array,multirow,balance}
+\usepackage{amsmath,amssymb,booktabs,graphicx,xcolor,siunitx,tikz,pgfplots,array,multirow,balance}
+\usepackage{cite}
+\pgfplotsset{compat=1.17}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit}
 \usepackage[hidelinks]{hyperref}
 \input{pending}
@@ -16,10 +18,10 @@
 \author{Author names (to be completed)}
 \maketitle
 \begin{abstract}
-In one simulated multi-user NR-like cell with multi-process HARQ, we ask what deep reinforcement learning (RL) adds to link adaptation over schemes using the same gNB-observable cues. Decision rules and wording are pre-registered, schemes are paired on disjoint traces with common random numbers, and all \NProjCases{} cases are recorded. For deadline traffic, learning on the learner's cues helps, but deep RL is not the best learner. A residual advantage actor-critic (A2C) policy on a non-oracle base rule, selected during the campaign and confirmed on fresh traces and seeds, beats hand-designed state rules (\NPSRuleMar\,\%) and, robustly across seeds, the strongest calibrated table, which also uses the true speed class (+\NRtwo{margin_ctxj}\,\%, hierarchical \NLevHier\,\% CI [\NRtwo{hier_lo}, \NRtwo{hier_hi}]\,\%). Yet a supervised one-step model of transmission success, trained only on ACK/NACK logged under exploration, beats it: with the same action set the RL policy delivers \NPSGbtResAckAdv\,\% fewer packets on time, and an RL policy given the model's full offset range still delivers \NRsixFullLossMin--\NRsixFullLossMax\,\% fewer than the model. \wordingsel{R1Cabs}{R1C}{verdict_full}{unrun} The comparator also matters: the pre-registered oracle-base policy gains \Wone{abstract_gain}\,\% over OLLA \wordingsel{W1}{W1}{abstract_cond}{unrun}, but re-calibrating rules on its cues removes \NGsixClosure\,\% of its margin over the best rule, leaving a gain not robust across seeds. On full-buffer goodput RL trails one calibrated offset (\NMthreePrimFixedMar\,\%). We document three simulation pitfalls and release all artefacts.
+Link adaptation chooses a modulation and coding scheme for every transmission, from delayed feedback and, for latency-sensitive traffic, before packet deadlines expire. Deep reinforcement learning (RL) is increasingly proposed for this task, but it is usually compared only with outer-loop link adaptation (OLLA). It is therefore unclear how much of its reported gain comes from learning itself. We ask how much of RL's advantage survives stronger comparators. In a system-level simulator with multi-process HARQ and deadline traffic, we compare a residual actor-critic policy with three rungs of comparators: OLLA, rules calibrated on the RL policy's own inputs, and a supervised one-step learner trained only on ACK/NACK feedback. All controllers face the same traces, every decision rule was fixed before its test, and results are reported across training seeds. RL clearly beats OLLA and modestly beats the calibrated rules. The supervised learner, however, delivers more packets on time than RL, even when both choose from the same actions. When HARQ delay leaves little room for retransmission, a one-step learner is a strong alternative to deep RL, and learned link adaptation should be benchmarked against one.
 \end{abstract}
 \begin{IEEEkeywords}
-Link adaptation, outer-loop link adaptation, reinforcement learning, HARQ, evaluation methodology, reproducibility, pre-registration
+Link adaptation, outer-loop link adaptation, reinforcement learning, supervised learning, HARQ, evaluation methodology
 \end{IEEEkeywords}
 \input{sec_intro}
 \input{sec_related}
@@ -27,8 +29,6 @@ Link adaptation, outer-loop link adaptation, reinforcement learning, HARQ, evalu
 \input{sec_method}
 \input{sec_protocol}
 \input{sec_results}
-\input{sec_learners}
-\input{sec_pitfalls}
 \input{sec_discussion}
 \input{sec_conclusion}
 \input{sec_appendix}

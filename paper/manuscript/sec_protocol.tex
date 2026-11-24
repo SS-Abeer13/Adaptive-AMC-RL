@@ -1,74 +1,8 @@
 \section{Evaluation Protocol}\label{sec:protocol}
-\subsection{Rounds, cases and registry}
-The campaign ran in numbered rounds (v9 to v17). The main round, v17, provides the four cases M1--M4. Each round uses fresh, disjoint seeds and traces: \NCfgEval{} evaluation traces and \NCfgSeeds{} training seeds for the headline cases. Every case is recorded in a public registry of \NRegCases{} cases and \NRegRows{} scheme evaluations (v9 to v17, Aug--Nov 2026). Of these, \NRegSupCases{} cases (\NRegSupRows{} evaluations) were later superseded after an error was found (Section~\ref{sec:pitfalls}), and \NRegSinceTen{} cases date from v10, when the present protocol began.
+Every comparison is paired on the same traces and judged across training seeds, and we state openly which tests came first.
 
-\subsection{Comparators and information}
-Nine comparators are evaluated (seven distinct ones in M1, because the tuned-target OLLA equals the default OLLA and the two bandits coincide there). \emph{Baseline}: open-loop CQI. \emph{OLLA}, \emph{OLLA (tuned target)} and \emph{Multi-OLLA} (a fast/slow blend). \emph{Fixed}: one global offset on the OLLA reference. \emph{FixedPU}: one offset per user class on the OLLA reference, where the class is the true delay class (two) and the true mean-speed class (three); this is a \emph{class oracle}, because the true speed is not observable at the gNB. \emph{Context table}: one offset per remaining-slack bin (three bins). Two contextual bandits (global; per delay class) are trained on the learner's episodes.
+\emph{Paired traces.} Two controllers always face the same channels and packet arrivals, so a comparison is a paired difference per trace. Calibration, validation and evaluation traces are disjoint, and all controllers share common random numbers~\cite{glasserman1992crn}. We report the \emph{margin}: the mean paired difference relative to the comparator's mean, in percent. A negative margin means the comparator delivered more packets on time.
 
-\begin{table*}[t]
-\caption{Information used by each scheme. \checkmark: used; --: not used; ``oracle'': simulator ground truth, not a gNB measurement. No scheme observes the interference state: the A2C state sees interference only through the delayed reported SINR, its recent changes and the NACK average. The burst/calm bins of the action and speed analyses (Section~\ref{sec:behaviour}) use the simulator's burst state as an analysis variable, not as a policy input.}\label{tab:info}
-\centering\footnotesize
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{@{}lccccccp{3.0cm}p{2.9cm}@{}}
-\toprule
-Scheme & CQI & ACK hist. & Slack & Delay cls. & Speed cls. & HARQ state & Other & Calibrated on\\
-\midrule
-Baseline (open loop) & \checkmark & -- & -- & -- & -- & -- & -- & --\\
-OLLA & \checkmark & \checkmark & -- & -- & -- & -- & -- & -- (standard)\\
-OLLA, tuned target & \checkmark & \checkmark & -- & -- & -- & -- & -- & target grid, \NCfgCalibCtx{} traces\\
-Multi-OLLA & \checkmark & \checkmark & -- & -- & -- & -- & CQI trend, cell NACK average & --\\
-Fixed & \checkmark & \checkmark & -- & -- & -- & -- & -- & offset grid, \NCfgCalib{} traces\\
-FixedPU (class oracle) & \checkmark & \checkmark & -- & \checkmark & \checkmark\ \emph{oracle} & -- & -- & per-class grid, \NCfgCalib{} traces\\
-Context table & \checkmark & \checkmark & \checkmark (3 bins) & -- & -- & -- & -- & coord.\ ascent, \NCfgCalibCtx{} traces\\
-Bandit (global) & \checkmark & \checkmark & -- & -- & -- & -- & -- & learner's episodes\\
-Bandit (delay class) & \checkmark & \checkmark & -- & \checkmark & -- & -- & -- & learner's episodes\\
-A2C, offset action & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & $\Delta$CQI; reported SINR and its 1- and 4-TTI change; NACK average; OLLA offset; 3 frames & 800 ep.\ $\times$ \NCfgSeeds{} seeds\\
-\textbf{Residual A2C (primary)} & \checkmark & \checkmark & \checkmark & \checkmark\ (base) & \checkmark\ \emph{oracle (base)} & \checkmark & as offset A2C & \NCfgEpDl{} ep.\ $\times$ \NCfgSeeds{} seeds\\
-\midrule
-Combined table (re-cal.) & \checkmark & \checkmark & \checkmark (3 bins) & \checkmark & \checkmark\ \emph{oracle} & \checkmark\ (busy) & -- & coord.\ ascent, \NGsixCalTraces{} traces\\
-Residual A2C, Fixed base & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & as offset A2C & \NCfgEpDl{} ep.\ $\times$ \NCfgSeeds{} seeds\\
-Designed rule (R2) & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark\ (busy) & reported-SINR drop & thresholds, \NGsixCalTraces{} traces\\
-One-step learners (R1, R1b) & \checkmark & \checkmark & \checkmark & -- & -- & \checkmark & as offset A2C; MCS & \NGsixCalTraces{} calibration traces (R1b: exploration)\\
-\bottomrule
-\end{tabular}
-\end{table*}
+\emph{Two levels of uncertainty.} A practitioner trains one policy, so a win must survive a change of training seed~\cite{henderson2018matters,agarwal2021precipice}. A controller \emph{beats} a comparator at trace level if the Holm-adjusted~\cite{holm1979} Wilcoxon signed-rank test~\cite{wilcoxon1945} gives $p<0.05$ and the \NLevTrace\,\% interval of the margin lies above zero. The win is \emph{robust across seeds} if a hierarchical bootstrap over seeds and traces~\cite{saravanan2019hierboot} also gives a \NLevHier\,\% interval above zero. We also report how many seeds beat the comparator.
 
-Table~\ref{tab:info} states what each scheme observes. The learner's state contains only gNB-observable quantities and adds the slack cue and three HARQ-process features. The residual policy, however, acts on top of FixedPU, so it inherits the class information of that base rule, including the oracle speed class. We therefore describe the calibrated rules as \emph{built on the learner's cues}: the Context table uses the slack cue, FixedPU the class information.
-
-\emph{Original and re-calibrated rules.} We call the rules calibrated in the main round the \emph{original rules}. A code review before the final comparison showed that their calibration was weaker than ``calibrated on the learner's cues'' suggests. The Context table came from a two-pass coordinate ascent on \NCfgCalibCtx{} traces that did not examine all \NCalCtxTables{} candidate tables, and the FixedPU table was assembled from per-class optima without ever being evaluated as a whole. A pre-registered re-calibration study removes both limits: every rule is searched again on \NGsixCalTraces{} fresh traces, and a \emph{combined table} that uses slack, class and HARQ-process state together is added (Section~\ref{sec:robust}; details in Appendix~\ref{app:g6}). \ifitemrun{G6}{\wordingsel{SI}{G6}{verdict}{unrun}}{}
-
-\subsection{Splits, common random numbers and decision rules}\label{sec:rules}
-Calibration traces (seeds from 60001), validation traces (from 80001) and evaluation traces (from 500001) are disjoint. All schemes see the same evaluation traces with common random numbers~\cite{glasserman1992crn}, so comparisons are paired per trace. Table~\ref{tab:terms} defines the terms used for the comparisons. Figure~\ref{fig:protocol} shows how the pieces fit together.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figs/f9_protocol.pdf}
-\caption{Evaluation protocol. Everything on the left is fixed before any evaluation trace is drawn: the pre-registration, the calibrated and hashed rule tables, and the trained policies. All schemes are then evaluated on the same fresh traces. The trace-level rule R1 and the seed-level rule R2 (Table~\ref{tab:terms}) only select pre-registered wording; numbers and wording reach the text solely through generated macros.}\label{fig:protocol}
-\end{figure*}
-
-\begin{table}[t]
-\caption{Terms used in the comparisons.}\label{tab:terms}
-\centering\footnotesize
-\begin{tabular}{@{}p{2.1cm}p{6.0cm}@{}}
-\toprule
-Term & Meaning\\
-\midrule
-Margin & Relative difference $100\,\overline{d}/\overline{x}$ in percent, with $d$ the paired per-trace difference between the learned policy and comparator $X$, and $\overline{x}$ the comparator's mean. Absolute differences are in percentage points (pp).\\
-Trace-level rule (R1) & ``Beats $X$'': Holm-adjusted~\cite{holm1979} two-sided Wilcoxon signed-rank $p<0.05$~\cite{wilcoxon1945} over the case's comparator family, \emph{and} the lower bound of the \NLevTrace\,\% $t$-interval of the margin above zero.\\
-Seed-level rule (R2) & A claim that meets R1 but whose hierarchical seed$\times$trace \NLevHier\,\% lower bound against the strongest comparator of the claim is not above zero is reported as ``not robust to seed resampling''.\\
-Claim A / Claim B & Beats the OLLA family / beats the calibrated rules (Fixed, FixedPU, Context table). Beating all comparators is a \emph{win}.\\
-Primary scheme & The per-seed mean: each of the ten trained policies is evaluated, and the results are averaged.\\
-Original / re-calibrated rules & Rules calibrated in the main round on \NCfgCalibCtx--\NCfgCalib{} traces / on \NGsixCalTraces{} fresh traces (Section~\ref{sec:robust}).\\
-Combined table & One offset per combination of slack, delay class, speed class and busy HARQ processes.\\
-Probability of improvement & Probability that a randomly chosen trained policy beats the comparator on a randomly chosen trace~\cite{agarwal2021precipice}.\\
-Stage codes & G6 re-calibration, W1 warm-up, NR1/NR2 non-oracle ablation and replication, G10/NR-G10 operating points, A1 speed breakdown, HR1 headroom (Table~\ref{tab:stages}).\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Seed-level inference uses a hierarchical seed$\times$trace bootstrap~\cite{saravanan2019hierboot} (\NBoot{} resamples), a bootstrap over the ten per-seed means and a one-sided sign test over seeds. The two rules only select pre-registered wording; effect sizes and their intervals are reported throughout, so that size and uncertainty can be judged directly rather than through a binary verdict~\cite{agarwal2021precipice}. A fairness guard applies: a Jain-index drop above 0.02 or an edge5 drop above 10\,\% relative to the best calibrated rule must be reported. Two headroom bounds frame the results: a per-trace hindsight bound and a genie bound.
-
-\subsection{Pre-registration and multiplicity}
-After the main round, and before any further run, we froze seven short pre-registrations that test the M1 result from different sides; an eighth, the confirmatory replication, was added later by amendment, before it ran, and further checks followed, each frozen before it ran but designed after earlier results were known (HR1, R1--R5, R1b, R1c; Appendix~\ref{app:programme}). Each text fixes the question, the data, the comparator family, the decision rule and the wording for every outcome, and is hashed. A change after freezing is allowed only before the affected stage starts and is logged as a dated amendment. Calibration tables are hashed before any evaluation trace is touched. The manuscript reads every number from the stages' output files through generated macros, and a correction to a generated verdict is made in the claims ledger and the text, never in the generated file.
-
-From v12 on, a pre-registration note was written before each run, and failed predictions are reported. In v17 the primary predictions were met in all four cases, and two secondary predictions on M1 were not: the 800-episode offset policy was predicted to win and failed Claim~B, and the 800-episode residual policy was predicted to fail Claim~B and won. Across the registry, \NRegWinCases{} of the \NRegValidCases{} valid cases show a WIN under the corrected verdict. Multiplicity is handled over the whole registry: the M1 comparison against the best original rule has Holm-adjusted $p=$~\NBonfPraw{}, and $p=$~\NBonfP{} after a Bonferroni factor of \NBonfTests{} ($\NRegRows\times9$ comparators). The same correction applied to the comparison with the combined table gives $p=\NBonfPCtxJ$: that margin passes within its pre-registered family but not across the project. The registry covers the main round; with the \NRobCases{} pre-registered robustness cases of Appendix~\ref{app:programme} the project has \NProjCases{} cases and \NProjRows{} scheme evaluations, at most \NProjTests{} tests (an upper bound of ten comparisons per scheme evaluation, nine comparators plus the combined table), and the two corrected $p$-values become \NBonfPProj{} and \NBonfPCtxJProj{}. The confirmatory NR2 comparison with the combined table keeps $p=$~\NBonfPProjNR{} after the same project-wide factor; this is a trace-level value, conditional on the ten trained policies, and the seed-level interval (Section~\ref{sec:checks}) is the primary evidence for NR2. The headroom analysis (HR1) uses logged decisions only and adds no case. We state plainly that the recipe was chosen during the campaign; M1 is a confirmatory test of that recipe on fresh data. The non-oracle recipe was then chosen on M1's evaluation traces (NR1), so for that recipe only NR2 and NR-G10 are confirmatory: both were frozen before their policies were trained; NR2 used fresh evaluation traces, while NR-G10 reused G10's evaluation traces and comparator results.
+\emph{Pre-registration and the order of tests.} Every decision rule was frozen before its run, but the campaign was not planned in one piece. Before each stage we fixed its question, data, comparators, decision rule and the wording of every outcome, and stored the text's hash. The non-oracle RL policy was chosen in an exploratory ablation and then confirmed on fresh evaluation traces and fresh seeds. The supervised learner was added after that confirmation and reuses its evaluation traces. Its comparisons therefore test the ranking across training draws and operating points; they are not a confirmation on a fresh sample. After a Bonferroni correction over every test in the project, the headline comparison keeps $p={}$\,\NBonfPProjGbtResAck. The full sequence and the registry of all \NProjCases{} cases are in the supplementary material, and Appendix~\ref{app:programme} maps each check to its code. Section~\ref{sec:results} now climbs the ladder.

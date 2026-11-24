@@ -1,9 +1,9 @@
 \appendices
 \section{Training details}\label{app:hp}
-Table~\ref{tab:hp} lists the learner's hyper-parameters. They are read from the simulator code by the number-generation script. The same values were used in all cases and checks; the re-calibration study and the warm-up check re-use the M1 policies.
+Table~\ref{tab:hp} lists the hyper-parameters of the residual A2C. The same values were used in all cases.
 
 \begin{table}[h]
-\caption{Hyper-parameters of the shared multi-user A2C (all cases).}\label{tab:hp}
+\caption{Hyper-parameters of the residual A2C}\label{tab:hp}
 \centering\footnotesize
 \begin{tabular}{@{}ll@{}}
 \toprule
@@ -18,23 +18,57 @@ Entropy weight (start $\rightarrow$ end) & \NHpEntStart{} $\rightarrow$ \NHpEntE
 Validation & every \NHpValEvery{} episodes on \NHpNval{} traces\\
 Initial logit bias on $\delta=0$ & \NCfgResidBias\\
 Deviation penalty & \NCfgResidPen$\,|\delta|$\\
-Shaping constant $c$ & \NCfgShape\\
+Shaping constant & \NCfgShape\\
 Episodes (deadline / goodput) & \NCfgEpDl{} / \NCfgEpGp\\
 Training seeds per case & \NCfgSeeds\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{Comparator tables for M2--M4}\label{app:tables}
-Tables~\ref{tab:m2}--\ref{tab:m4} give the margin of the primary residual A2C scheme over each original comparator, in the format of Table~\ref{tab:m1}. On-time ratio is the metric in M2, goodput in M3 and M4.
+\section{Results of the original RL policy}\label{app:tables}
+The original policy starts from a per-class offset (FixedPU) that uses each user's true delay and speed class. Table~\ref{tab:m1} compares it with the rules calibrated in the main round, and Table~\ref{tab:g6} with the rules re-calibrated on \NGsixCalTraces{} traces. Tables~\ref{tab:m2}--\ref{tab:m4} give the scenarios with instantaneous feedback and with full-buffer traffic. The margin is the paired gain of the RL policy over the comparator; ``Beats'' means that the trace-level rule of Section~\ref{sec:protocol} is met.
+
+\begin{table*}[t]
+\caption{Original RL policy against the original comparators, main scenario}\label{tab:m1}
+\centering\footnotesize
+\begin{tabular}{@{}lcccrc@{}}
+\toprule
+Comparator & On-time (\%) & Margin (\%) & \NLevTrace\,\% CI (\%) & Holm $p$ & Beats\\
+\midrule
+Baseline (open loop) & \NMonePctBaseline & \NMonePrimBaselineMar & [\NMonePrimBaselineLo, \NMonePrimBaselineHi] & \NMonePrimBaselineHolm & \NMonePrimBaselineBeats\\
+OLLA & \NMonePctOLLA & \NMonePrimOLLAMar & [\NMonePrimOLLALo, \NMonePrimOLLAHi] & \NMonePrimOLLAHolm & \NMonePrimOLLABeats\\
+OLLA (tuned target) & \NMonePctOLLAT & \NMonePrimOLLATMar & [\NMonePrimOLLATLo, \NMonePrimOLLATHi] & \NMonePrimOLLATHolm & \NMonePrimOLLATBeats\\
+Multi-OLLA & \NMonePctMulti & \NMonePrimMultiMar & [\NMonePrimMultiLo, \NMonePrimMultiHi] & \NMonePrimMultiHolm & \NMonePrimMultiBeats\\
+Bandit (global) & \NMonePctBanG & \NMonePrimBanGMar & [\NMonePrimBanGLo, \NMonePrimBanGHi] & \NMonePrimBanGHolm & \NMonePrimBanGBeats\\
+Bandit (delay class) & \NMonePctBanD & \NMonePrimBanDMar & [\NMonePrimBanDLo, \NMonePrimBanDHi] & \NMonePrimBanDHolm & \NMonePrimBanDBeats\\
+Fixed & \NMonePctFixed & \NMonePrimFixedMar & [\NMonePrimFixedLo, \NMonePrimFixedHi] & \NMonePrimFixedHolm & \NMonePrimFixedBeats\\
+FixedPU (class oracle) & \NMonePctFPU & \NMonePrimFPUMar & [\NMonePrimFPULo, \NMonePrimFPUHi] & \NMonePrimFPUHolm & \NMonePrimFPUBeats\\
+Context table & \NMonePctCtx & \NMonePrimCtxMar & [\NMonePrimCtxLo, \NMonePrimCtxHi] & \NMonePrimCtxHolm & \NMonePrimCtxBeats\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Original RL policy against the re-calibrated comparators, main scenario}\label{tab:g6}
+\centering\footnotesize
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+& \multicolumn{4}{c}{Trace level} & \multicolumn{3}{c}{Seed level}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-8}
+Comparator & Margin (\%) & \NLevTrace\,\% CI (\%) & Holm $p$ & Beats & Seeds ahead & Hier.\ \NLevHier\,\% CI (\%) & Robust\\
+\midrule
+\inputtab{gen/tab_g6.tex}
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \begin{table}[h]
-\caption{M2 (deadline, RTT~0): residual A2C vs.\ each comparator.}\label{tab:m2}
+\caption{Original RL policy, deadline traffic with instantaneous feedback (RTT~0)}\label{tab:m2}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
-Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+Comparator & Margin (\%) & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \midrule
 \inputtab{gen/tab_m2.tex}
 \bottomrule
@@ -42,12 +76,12 @@ Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \end{table}
 
 \begin{table}[h]
-\caption{M3 (goodput, RTT~\NCfgRtt): residual A2C vs.\ each comparator.}\label{tab:m3}
+\caption{Original RL policy, full-buffer goodput with RTT~\NCfgRtt}\label{tab:m3}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
-Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+Comparator & Margin (\%) & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \midrule
 \inputtab{gen/tab_m3.tex}
 \bottomrule
@@ -55,39 +89,27 @@ Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \end{table}
 
 \begin{table}[h]
-\caption{M4 (goodput, RTT~0): residual A2C vs.\ each comparator.}\label{tab:m4}
+\caption{Original RL policy, full-buffer goodput with RTT~0}\label{tab:m4}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
-Comparator & Margin & \NLevTrace\,\% CI & Holm $p$ & Beats\\
+Comparator & Margin (\%) & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \midrule
 \inputtab{gen/tab_m4.tex}
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{Original calibration and re-calibration details}\label{app:g6}
-\emph{Limits of the original calibration.} A code review before the final comparison found two limits, which the re-calibration study removes.
-\begin{enumerate}
-\item \emph{The original Context table was found by a two-pass coordinate ascent started from the all-zero table, on \NCfgCalibCtx{} calibration traces.} The search space has $7^3=\NCalCtxTables$ tables (seven offsets in three bins), and the search did not examine all of them.
-\item \emph{The original FixedPU table was separable.} For each of the nine global offsets one run was made, and each of the six classes took its own best offset from the per-class metrics. The assembled six-entry table was never evaluated as a whole table.
-\item \emph{The re-calibration study removes both limits.} Fixed (9 candidates), the Context table (343 tables) and the tuned-target OLLA (30 settings) are searched exhaustively on \NGsixCalTraces{} fresh calibration traces (seeds \NGsixCalSeedLo--\NGsixCalSeedHi). FixedPU is a separable grid followed by joint refinement (at most three sweeps). A combined table over slack $\times$ delay class $\times$ speed class $\times$ busy HARQ processes (0 or $\ge1$; $3\cdot2\cdot3\cdot2=36$ cells) is searched by coordinate ascent from \NGsixStarts{} starts. The first start is the \emph{composite} table
-\[
-\begin{aligned}\mathrm{comp}(b,d,v,u)=\min\!\big(2,\max(&-4,\\[-1pt] &P(d,v)+X(b)-F)\big),\end{aligned}
-\]
-with $F$ the re-calibrated Fixed offset, $P(d,v)$ the re-calibrated FixedPU table and $X(b)$ the re-calibrated Context table, all in integer CQI steps. Cells with fewer than \NGsixSparse{} calibration decisions are not searched and keep their composite value. The tables are hashed before any evaluation trace is run, and calibration and evaluation values are reported side by side.
-\end{enumerate}
+\section{Calibration of the rules}\label{app:g6}
+\emph{Original rules.} The rules of the main round were calibrated on \NCfgCalib--\NCfgCalibCtx{} traces. A code review found two weaknesses. The Context table came from a coordinate ascent that did not examine all \NCalCtxTables{} candidate tables, and the per-class FixedPU table was assembled from per-class optima without being evaluated as a whole.
 
+\emph{Re-calibration.} All rules were searched again on \NGsixCalTraces{} fresh calibration traces (seeds \NGsixCalSeedLo--\NGsixCalSeedHi), disjoint from the evaluation traces. Fixed (9 candidates), the Context table (all \NCalCtxTables{} tables) and the tuned-target OLLA (30 settings) were searched exhaustively. Fixed selects \NGsixFixedOff{} CQI steps; the Context table selects \NGsixCtxDOffs{} for its three slack bins; the re-tuned OLLA uses target \NGsixOllaTgt{} with a \NGsixOllaStep~dB step. FixedPU uses a separable grid followed by joint refinement.
 
-\emph{Calibration set.} \NGsixCalTraces{} traces (seeds \NGsixCalSeedLo--\NGsixCalSeedHi) with their own CRN draws, disjoint from the M1 evaluation traces. Every table was written to a file and hashed before the evaluation traces were run.
-
-\emph{Single-cue rules.} The re-calibrated Fixed rule selects one global offset of \NGsixFixedOff{} CQI steps (the same value as the original Fixed rule). The re-calibrated Context table is the best of all tables over three slack bins (\NGsixCtxDOffs). The re-tuned OLLA uses target \NGsixOllaTgt{} with a \NGsixOllaStep~dB step. The re-calibrated FixedPU is a separable search followed by joint refinement.
-
-\emph{Combined table.} Table~\ref{tab:ctxj} gives the calibrated offsets of the combined table. Cells with fewer than \NGsixSparse{} calibration decisions (marked $^\ast$) were not searched and keep the composite value of Section~\ref{sec:protocol}. The search ran from \NGsixStarts{} starts (the composite table and three random tables) with at most \NGsixSweepCap{} sweeps each. \NGsixConvStarts{} starts converged; one reached the cap while still improving (score \NGsixCapStartScore), and the selected start \NGsixSelStart{} scored \NGsixSelScore. The search took \NGsixSearchHours~h over \NGsixSweeps{} sweeps.
+\emph{Combined table.} The combined table (Table~\ref{tab:ctxj}) has one offset per slack bin, delay class, speed class and HARQ state, \NGsixCells{} cells. It was searched by coordinate ascent from \NGsixStarts{} starts: a composite of the re-calibrated single-cue rules and three random tables, with at most \NGsixSweepCap{} sweeps each. Cells with fewer than \NGsixSparse{} calibration decisions were not searched and keep their composite value. \NGsixConvStarts{} starts converged; one reached the cap while still improving, so the table may be slightly under-optimised, which favours the RL policy. The search took \NGsixSearchHours~h. Every table was hashed before any evaluation trace was run. The combined table scores \NGsixCalCtxJ{} on the calibration traces and \NGsixEvalCtxJ{} on the evaluation traces, so it shows no sign of over-fitting.
 
 \begin{table}[h]
-\caption{Calibrated combined table: CQI offset per slack bin $b$ (1: tightest), delay class $d$, speed class $v$ (1: slowest) and busy-HARQ indicator $u$. $^\ast$: sparse cell, composite value.}\label{tab:ctxj}
+\caption{Calibrated combined table (CQI offsets)}\label{tab:ctxj}
 \centering\footnotesize
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}cccccccc@{}}
@@ -98,74 +120,44 @@ $b$ & $d$ & $u=0$ & $u=1$ & $u=0$ & $u=1$ & $u=0$ & $u=1$\\
 \midrule
 \inputtab{gen/tab_ctxj.tex}
 \bottomrule
-\end{tabular}
+\end{tabular}\\[2pt]
+\parbox{\columnwidth}{\scriptsize $b$: slack bin (1: tightest); $d$: delay class; $v$: speed class (1: slowest); $u$: HARQ busy. $^\ast$: sparse cell, composite value.}
 \end{table}
 
-\emph{Calibration against evaluation.} Table~\ref{tab:calev} compares each re-calibrated rule's score on the calibration traces with its on-time ratio on the evaluation traces.
+\section{Three simulation pitfalls}\label{app:pitfalls}
+Three errors changed the conclusions of earlier versions of this study. Each can recur in other LA simulators.
+
+\emph{Mobility time scale.} Early versions moved users $v$ metres per TTI instead of $v\,T_\mathrm{TTI}$, so the channel changed about a thousand times too fast. The learner appeared to beat OLLA; after the fix, it won none of the \NVnineCases{} cases of that round.
+
+\emph{Slot stealing.} A per-user goodput reward let a shared policy lower one user's rate so that others were scheduled more often. The learned policy became bimodal, and its goodput fell to \NSlotRL{}~Mbps against \NSlotOLLA{}~Mbps for OLLA. An opportunity-cost reward removed the effect.
+
+\emph{PF-average timing under multi-process HARQ.} If the PF average is updated only when the ACK arrives, a user just served still looks starved for one RTT and is scheduled again. In a controlled test at RTT~\NCfgRtt{}, going from one to eight HARQ processes raised Baseline goodput by a factor of \NAsixBaseAckRatio{} under ACK-time averaging and lowered the Jain index from \NAsixJainAckOne{} to \NAsixJainAckEight. Under scheduling-time averaging, the factor was \NAsixBaseSchedRatio{} and fairness was unchanged. The apparent HARQ gain came from the PF definition. We use scheduling-time averaging throughout and recommend stating the definition explicitly.
+
+\section{Map of the pre-registered checks}\label{app:programme}
+Table~\ref{tab:stages} maps each check in this paper to its code in the released pre-registration files and in the supplementary material.
 
 \begin{table}[h]
-\caption{Re-calibrated rules: calibration objective and evaluation on-time ratio.}\label{tab:calev}
-\centering\footnotesize
-\begin{tabular}{@{}lcc@{}}
-\toprule
-Rule & Calibration & Evaluation\\
-\midrule
-Combined table & \NGsixCalCtxJ & \NGsixEvalCtxJ\\
-Context table (re-cal.) & \NGsixCalCtxD & \NGsixEvalCtxD\\
-Fixed (re-cal.) & \NGsixCalFixedD & \NGsixEvalFixedD\\
-FixedPU (re-cal.) & \NGsixCalFPUD & \NGsixEvalFPUD\\
-Composite (start of the search) & \NGsixCalComp & --\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Pre-registered robustness programme}\label{app:programme}
-Table~\ref{tab:stages} lists the pre-registered checks of Sections~\ref{sec:robust}--\ref{sec:hr1} with the short codes used in the released pre-registration files, the claims ledger and the code. Figure~\ref{fig:nr2} shows how the verdict of the confirmatory replication (NR2) is determined.
-
-\begin{figure}[t]
-\centering\includegraphics[width=\columnwidth]{f10_nr2}
-\caption{Pre-registered verdicts of the confirmatory replication (NR2) against the frozen combined table. R1 and R2 are the rules of Table~\ref{tab:terms}; the REVERSE branch uses the Holm-adjusted test and the upper bound of the trace-level interval. WIN (beating every comparator of the family) is reported with every verdict; a reframing of the paper is considered only after CONFIRM together with WIN.}\label{fig:nr2}
-\end{figure}
-
-\begin{table*}[t]
-\caption{Pre-registered robustness programme. Codes refer to the released pre-registration files. Each text was frozen before its stage ran; NR2 was added after the other results were known. ``Fresh'': traces or seeds not used in any earlier round.}\label{tab:stages}
+\caption{Pre-registered checks and their codes}\label{tab:stages}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}p{2.6cm}p{3.9cm}p{3.9cm}p{4.4cm}l@{}}
+\begin{tabular}{@{}p{4.3cm}p{1.6cm}p{1.8cm}@{}}
 \toprule
-Check (code) & Question & Data & Decision rule & Status\\
+Check & Code & Section\\
 \midrule
-Action analysis (G1) & What does the policy do, and where? & logged M1/M3 decisions, all seeds & descriptive; a mechanism sentence needs a bin $\ge$\,5\,\% of decisions and a pattern in every seed & run\\
-Warm-up check (W1) & Is the gap to OLLA a cold-start effect? & M1 traces, OLLA warmed up for \NWoneTTI{} TTIs & Claims A and B as in M1; the abstract quotes the smaller gain & run\\
-Re-calibration study (G6) & Does the result survive stronger comparators? & \NGsixCalTraces{} fresh calibration traces; M1 evaluation traces & Holm over \NGsixNcmp{} comparators; Claims A and B, and beating the combined table; seed-level rule against the strongest comparator & run\\
-Non-oracle base ablation (NR1) & Is the class oracle in the base rule needed? & fresh seeds, non-oracle Fixed base; M1 evaluation traces & Holm over nine; WIN = beats all & run\\
-Operating-point check (G10) & Does it hold at other operating points? & two neighbouring cells, fresh traces; single-cue rules re-calibrated per cell & Holm over nine per cell; ALL / MIXED / NONE & \ifitemrun{G10}{run}{running}\\
-Speed breakdown, timing (A1, A3) & By user speed; inference cost & M1 traces; timing on one CPU & descriptive & run\\
-PF-timing demonstration (A6) & Is the multi-process HARQ gain a PF-timing artefact? & \NAsixTraces{} fresh traces, three schemes & expectation stated in advance & run\\
-Confirmatory replication (NR2) & Does the ablation replicate on fresh data? & fresh seeds, fresh evaluation traces, frozen re-calibrated tables & trace-level and seed-level rules against the combined table & \ifitemrun{NR2}{run}{frozen, after G10}\\
-Operating points, non-oracle recipe (NR-G10) & Does the recommended recipe hold at other operating points? & the two G10 cells and traces, fresh seeds; single-cue rules frozen from G10 & Holm over nine per cell; ALL / MIXED / NONE & \ifitemrun{NRG10}{run}{frozen, after NR2}\\
-Learnable headroom (HR1) & How much could a learner add over a calibrated table in one step? & logged decisions of the M1 and M3 evaluation runs (tables, M1, NR2, goodput policy) & four predictions P1--P4, each with a 95\,\% interval; descriptive, no case added & \ifitemrun{HR1}{run}{frozen, after NR-G10}\\
-Attribution controls (R1, R2; Amendment 8) & Does the gain need RL, or any scheme on the same cues? & G6 calibration traces (training, threshold search); NR2 and M1 evaluation traces & Holm over 4 vs NR2, seed-level rule; BEATS / LOSES / MATCH / INCONCLUSIVE & run\\
-NR2 diagnostics, seed sensitivity, more seeds (R3--R5) & Diagnostics as for M1; other seed-level intervals; 20 / 10 seeds & stored policies and traces; fresh seeds & descriptive; sensitivity only; frozen verdict logic, second analysis (Deviation D1 for G2) & run\\
-ACK-trained one-step learner (R1b; Amendment 9) & Does R1 hold with labels a gNB observes? & calibration traces logged with $\varepsilon$-greedy exploration; NR2 and M1 traces & as R1, Holm over 2; calibration of $\hat p$ & run\\
-Replication of R1b (R1c; Amendment 10a) & Four calibration draws; per-cell fits in G2 and G3 & fresh calibration draws per trace set; NR2 and cell evaluation traces & Holm over 8 per trace set vs a 10-seed RL policy; Holm over 9 vs the cell's rules & \ifitemrun{R1C}{run}{frozen, running}\\
-RL with the full action set (R6; Amendment 11) & Does the one-step learner still win when the RL policy has its action set? & \lit{10} fresh RL seeds, residual step $-\lit{2}\dots+\lit{4}$; NR2 traces & Holm over 4 vs the four GBT-full-ACK draws; R6b (true-SINR model on the exploration logs) exploratory, not reported & run\\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\section{Registry summary}\label{app:registry}
-Table~\ref{tab:registry} summarises the case registry by campaign version. A case is one configuration evaluated on its own traces; a row is one scheme evaluated in a case. The full registry is in the supplement. The \NRobCases{} cases of the robustness checks (Appendix~\ref{app:programme}) are kept in a separate ledger and counted in the project-wide correction (\NProjCases{} cases, \NProjRows{} scheme evaluations in total).
-
-\begin{table}[h]
-\caption{Case registry by version: cases, scheme evaluations (rows), cases with a valid WIN, and superseded cases. A valid WIN is a WIN of the pre-registered scheme in a case that is not superseded. The v13 X1 case is not counted: its WIN row is the per-seed mean, while the pre-registered scheme (the ensemble) failed.}\label{tab:registry}
-\centering\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Version & Cases & Rows & WIN & Superseded\\
-\midrule
-\inputtab{gen/tab_registry.tex}
+Main round (four scenarios) & M1--M4 & \ref{sec:rung1}, \ref{sec:nohelp}, App.~\ref{app:tables}\\
+OLLA warm-up & W1 & \ref{sec:rung1}\\
+Re-calibrated rules, combined table & G6 & \ref{sec:rung2}, App.~\ref{app:g6}\\
+Non-oracle RL: ablation, confirmation & NR1, NR2 & \ref{sec:rung2}\\
+Neighbouring operating points & G10, NR-G10 & \ref{sec:rung2}\\
+More seeds; other seed intervals & R5, R4 & \ref{sec:rung2}\\
+Designed rule & R2 & \ref{sec:rung2}\\
+Supervised learner, simulator labels & R1 & supplement\\
+Supervised learner, ACK/NACK labels & R1b & \ref{sec:rung3}\\
+Replication across draws and cells & R1c & \ref{sec:rung3}\\
+RL with the full action set & R6 & \ref{sec:rung3}\\
+One-step headroom analysis & HR1 & supplement\\
+PF-timing demonstration & A6 & App.~\ref{app:pitfalls}\\
+Decision-time benchmark & A3c & \ref{sec:calfirst}\\
 \bottomrule
 \end{tabular}
 \end{table}

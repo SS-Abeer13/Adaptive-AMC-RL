@@ -1,9 +1,39 @@
-\section{Learning Formulation and Method}\label{sec:method}
-\subsection{Decision problem}
-At every TTI each scheduled user receives one decision. The effective CQI is $\mathrm{clip}(q_\mathrm{ref}+b_i+\delta)$, where $q_\mathrm{ref}$ is the OLLA reference, $b_i$ is a calibrated base-rule offset and $\delta$ is the learned part. In the \emph{offset} formulation $b_i=0$ and $\delta\in[-4,+2]$. In the \emph{residual} formulation $\delta\in\{-1,0,+1\}$ and the base rule is the better of Fixed and FixedPU, chosen on calibration traces (it was FixedPU in all four cases). FixedPU uses the true delay and speed class of each user and is therefore a \emph{class oracle} (Section~\ref{sec:protocol}).
+\section{Controllers Compared}\label{sec:controllers}\label{sec:method}
+Each rung of the ladder gives the comparator more of what the RL policy has. The controllers below form three rungs, plus the RL policy they are measured against. Table~\ref{tab:info} shows exactly what each one observes and how it is trained.
 
-\subsection{Rewards}
-For deadline traffic the reward is $+1$ for an on-time and $-1$ for a missed packet, with potential-based shaping $\Phi(s)=-\NCfgShape\,r/B$ for $r$ remaining bits of a $B$-bit packet~\cite{ng1999shaping} and a deviation penalty of \NCfgResidPen$|\delta|$. For goodput the reward is an opportunity cost, the fix for the slot-stealing failure in Section~\ref{sec:pitfalls}.
+\subsection{Rung 1: OLLA}
+OLLA is the industrial reference, and it starts cold. We use the standard target of \NCfgOllaTarget{} and the step sizes of Table~\ref{tab:params}, plus two variants: a tuned target and a fast/slow blend (Multi-OLLA). Because OLLA needs time to converge, we also report it after a warm-up of \NWoneTTI{} TTIs.
 
-\subsection{Learner and training}
-A shared multi-user advantage actor-critic (A2C)~\cite{mnih2016a3c} uses a $57$-$128$-$96$-$3$ actor on three stacked frames of $19$ features. It has \NParamsActor{} parameters and \NMacsActor{} multiply-accumulates per user decision. The logit of $\delta=0$ starts with a bias of \NCfgResidBias. We train for \NCfgEpDl{} episodes (deadline) or \NCfgEpGp{} (goodput) with \NCfgSeeds{} independent seeds. The \emph{primary scheme} is the per-seed mean: each seed's policy is evaluated and the results are averaged. A deterministic ensemble of the seeds is a secondary scheme. Hyper-parameters are in Appendix~\ref{app:hp}. That is \NFlopsActor{} floating-point operations per user decision, a hardware-independent cost; wall-clock decision times and where such a policy can run are discussed in Section~\ref{sec:placement}.
+\subsection{Rung 2: calibrated rules}
+Calibrated rules give the comparator the RL policy's inputs without any learning. Each rule picks an offset from a small table whose entries are searched on separate calibration traces. \emph{Fixed} uses one global offset. The \emph{Context table} uses one offset per bin of remaining deadline slack. The \emph{combined table} uses one offset per combination of slack bin, delay class, speed class and HARQ state, \NGsixCells{} cells in total. Its speed class is the user's true mean speed, which a base station cannot observe, so this table has an advantage over RL. All tables were searched again on \NGsixCalTraces{} traces before the final comparison (Appendix~\ref{app:g6}). Finally, a \emph{designed rule} writes the RL policy's behaviour down. It raises the CQI one step when a HARQ process is busy, the deadline is close, or the reported SINR is falling.
+
+\subsection{The RL policy}
+The RL policy learns a residual correction from delayed rewards, starting from the calibrated Fixed offset $b$. It is a residual advantage actor-critic (A2C)~\cite{mnih2016a3c} that adds a step $\delta\in\{-1,0,+1\}$, so $a=b+\delta$. Its state stacks three frames of \lit{19} features that a base station can observe. They include deadline slack, HARQ state, the reported SINR and its changes, and the recent NACK rate. The reward is $+1$ per packet delivered on time and $-1$ per packet missed, with potential-based shaping~\cite{ng1999shaping}. A small penalty on $|\delta|$ and an initial bias towards $\delta=0$ keep the policy near its base rule. One network serves all users; we train \NCfgSeeds{} seeds for \NCfgEpDl{} episodes each and report their mean (Appendix~\ref{app:hp}).
+
+Two RL variants isolate its design choices. The \emph{original} policy was pre-registered first and starts from a per-class offset that uses the true speed class. \emph{RL-full} has the larger action set of the supervised learner, offsets $-\lit{4}\dots+\lit{2}$.
+
+\subsection{Rung 3: a supervised one-step learner}
+The supervised learner asks one question for each candidate offset: \emph{if I send this MCS now, how likely is an ACK?} A gradient-boosted tree classifier estimates $\hat p(\mathrm{ACK}\mid x,\mathrm{MCS})$ from the same \lit{19} features $x$ (current frame only) and the candidate MCS. The learner then picks the offset with the largest expected useful bits: $\hat p$ times the payload the transmission would deliver. It learns only from ACK/NACK outcomes, which a base station observes.
+
+This simplicity has two costs. First, the learner needs to see outcomes of non-default offsets, so its calibration traces were logged with $\varepsilon$-greedy exploration ($\varepsilon=\NPSExplEps$). Second, it is myopic: it gives no credit for what a decision does to later retransmissions or deadlines. We test it with the RL policy's actions (base $\pm\lit{1}$, \emph{restricted}) and with offsets $-\lit{4}\dots+\lit{2}$ (\emph{full}). Section~\ref{sec:protocol} explains how all these controllers are compared.
+
+\begin{table*}[t]
+\caption{Information and training of each controller}\label{tab:info}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.6cm}p{4.4cm}p{3.0cm}p{3.7cm}p{2.6cm}@{}}
+\toprule
+Controller & Observes & Computes per candidate & Trained or calibrated on & Actions\\
+\midrule
+OLLA & reported CQI, ACK/NACK history & -- & standard steps (no training) & continuous offset\\
+Fixed & as OLLA & -- & grid search, calibration traces & one global offset\\
+Context table & as OLLA, plus deadline slack (3 bins) & -- & exhaustive search, \NGsixCalTraces{} traces & one offset per bin\\
+Combined table & as OLLA, plus slack, delay class, \emph{true} speed class, HARQ busy/idle & -- & coordinate ascent, \NGsixCalTraces{} traces & one offset per cell (\NGsixCells)\\
+Designed rule & as OLLA, plus slack, HARQ busy/idle, SINR drop & -- & thresholds searched, \NGsixCalTraces{} traces & base or base $+1$\\
+Residual A2C & \lit{19} observable features, 3 stacked frames & -- & delayed on-time reward; prior towards base rule & base $\pm1$\\
+RL-full & as residual A2C & -- & as residual A2C & $-\lit{4}\dots+\lit{2}$\\
+Supervised learner & \lit{19} observable features, current frame & $\hat p(\mathrm{ACK})\times$ useful bits & observed ACK/NACK, exploration logs & base $\pm1$ or $-\lit{4}\dots+\lit{2}$\\
+\bottomrule
+\end{tabular}\\[2pt]
+\parbox{\textwidth}{\scriptsize No controller observes the interference state directly. The original RL policy (Section~\ref{sec:rung2}) uses a base offset that depends on the true speed class.}
+\end{table*}
