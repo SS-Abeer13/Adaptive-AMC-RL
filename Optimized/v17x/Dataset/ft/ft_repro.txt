@@ -1,0 +1,2 @@
+FT REPRO GATE (NR2 traces 1..20, all 37 schemes)
+Total checks: 740 | Max abs diff: 0.000e+00 | Status: EXACT PASS

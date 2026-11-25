@@ -36,7 +36,7 @@ function cfg = v17x_cfg()
         cfg.stages = {'st_slow'};
     else
         allst = {'g1', 'w1', 'nr1', 'g6a', 'g6b', 'g6c', 'g10', 'nr2', 'nr_g10', 'a1', 'a3', 'a6', 'hr1', 'r3_nr2diag', 'r1_gbt', 'r2_rule', 'r5_seeds', 'r1b_ack', 'r1c', 'r6_fullaction'};   % approved order (Checkpoint 5b + NR2 + NR-G10 + HR1 + R1-R5 + R1b + R1c + R6, Amendment 11)
-        known_stages = [allst, {'eot'}];
+        known_stages = [allst, {'eot', 'ft'}];
         req = strtrim(strsplit(envstr('STAGES', strjoin(allst, ',')), ','));
         cfg.stages = req(ismember(req, known_stages));
     end

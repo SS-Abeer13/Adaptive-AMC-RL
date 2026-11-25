@@ -1,0 +1,2 @@
+FT EXPOSURE COUNTERS (asrun pass, NR2 10 seeds, n_eval=500):
+counted_asrun=364349 | counted_resolved=355000 | late_ack=2524 | censored=5651 | exposed_pct=2.24%

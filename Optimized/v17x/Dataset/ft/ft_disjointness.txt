@@ -1,0 +1,251 @@
+========================================================================================
+AMENDMENT 14 WIDENED DISJOINTNESS CHECK (all Optimized/ .m/.py + case_registry.csv)
+========================================================================================
+FT Evaluation Traces : 7,000,001 .. 7,000,500
+FT CRN               : 7,100,001 .. 7,100,500
+FT Decision Draws    : 7,200,101 .. 7,250,099
+
+Occupied seed bases >= 1,000 found (258 distinct values):
+        1000  | Optimized/v10/evalPolicy_v10.m, Optimized/v11/evalPolicy_v11.m, Optimized/v12/evalPolicy_v12.m, Optimized/v13/evalPolicy_v13.m (+15 more)
+        1001  | Optimized/v17/release/code/test_pf_update_v17.m, Optimized/v17/test_pf_update_v17.m
+        1042  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+        1582  | Optimized/case_registry.csv
+        2042  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+        3042  | Optimized/v13/v13_setup.m
+        3727  | Optimized/case_registry.csv
+        3800  | Optimized/case_registry.csv
+        3902  | Optimized/case_registry.csv
+        3984  | Optimized/case_registry.csv
+        4042  | Optimized/v13/v13_setup.m
+        4114  | Optimized/case_registry.csv
+        4378  | Optimized/case_registry.csv
+        4679  | Optimized/case_registry.csv
+        4734  | Optimized/case_registry.csv
+        4746  | Optimized/case_registry.csv
+        4870  | Optimized/case_registry.csv
+        4892  | Optimized/case_registry.csv
+        4918  | Optimized/case_registry.csv
+        5001  | Optimized/v16/release/code/test_residgoodput_v16.m, Optimized/v16/test_residgoodput_v16.m, Optimized/v17/release/code/test_residgoodput_v17.m, Optimized/v17/test_residgoodput_v17.m
+        5042  | Optimized/v13/v13_setup.m
+        5101  | Optimized/case_registry.csv
+        5102  | Optimized/case_registry.csv
+        5618  | Optimized/case_registry.csv
+        5658  | Optimized/case_registry.csv
+        5708  | Optimized/case_registry.csv
+        5712  | Optimized/case_registry.csv
+        5745  | Optimized/case_registry.csv
+        5955  | Optimized/case_registry.csv
+        5976  | Optimized/case_registry.csv
+        6042  | Optimized/v14/v14_setup.m
+        6051  | Optimized/case_registry.csv
+        6068  | Optimized/case_registry.csv
+        6095  | Optimized/case_registry.csv
+        6100  | Optimized/case_registry.csv
+        6126  | Optimized/case_registry.csv
+        6306  | Optimized/case_registry.csv
+        6434  | Optimized/case_registry.csv
+        6538  | Optimized/case_registry.csv
+        6595  | Optimized/case_registry.csv
+        6722  | Optimized/case_registry.csv
+        6725  | Optimized/case_registry.csv
+        6838  | Optimized/case_registry.csv
+        7042  | Optimized/v14/v14_setup.m
+        7068  | Optimized/case_registry.csv
+        7106  | Optimized/case_registry.csv
+        7178  | Optimized/case_registry.csv
+        7234  | Optimized/case_registry.csv
+        7236  | Optimized/case_registry.csv
+        7250  | Optimized/case_registry.csv
+        7257  | Optimized/case_registry.csv
+        7292  | Optimized/case_registry.csv
+        7296  | Optimized/case_registry.csv
+        7395  | Optimized/case_registry.csv
+        7428  | Optimized/case_registry.csv
+        7440  | Optimized/case_registry.csv
+        7493  | Optimized/case_registry.csv
+        7548  | Optimized/case_registry.csv
+        7552  | Optimized/case_registry.csv
+        7643  | Optimized/case_registry.csv
+        7730  | Optimized/case_registry.csv
+        7807  | Optimized/case_registry.csv
+        7818  | Optimized/case_registry.csv
+        7880  | Optimized/case_registry.csv
+        7926  | Optimized/case_registry.csv
+        8000  | Optimized/v17x/run_a3b_matlab.m
+        8005  | Optimized/case_registry.csv
+        8013  | Optimized/case_registry.csv
+        8019  | Optimized/case_registry.csv
+        8036  | Optimized/case_registry.csv
+        8042  | Optimized/case_registry.csv, Optimized/v14/v14_setup.m
+        8079  | Optimized/case_registry.csv
+        8107  | Optimized/case_registry.csv
+        8226  | Optimized/case_registry.csv
+        8298  | Optimized/case_registry.csv
+        8350  | Optimized/case_registry.csv
+        8351  | Optimized/case_registry.csv
+        8357  | Optimized/case_registry.csv
+        8360  | Optimized/case_registry.csv
+        8371  | Optimized/case_registry.csv
+        8421  | Optimized/case_registry.csv
+        8472  | Optimized/case_registry.csv
+        8474  | Optimized/case_registry.csv
+        8475  | Optimized/case_registry.csv
+        8484  | Optimized/case_registry.csv
+        8491  | Optimized/case_registry.csv
+        8495  | Optimized/case_registry.csv
+        8501  | Optimized/case_registry.csv
+        8504  | Optimized/case_registry.csv
+        8514  | Optimized/case_registry.csv
+        8521  | Optimized/case_registry.csv
+        8532  | Optimized/case_registry.csv
+        8557  | Optimized/case_registry.csv
+        8616  | Optimized/case_registry.csv
+        8617  | Optimized/case_registry.csv
+        8621  | Optimized/case_registry.csv
+        8635  | Optimized/case_registry.csv
+        8717  | Optimized/case_registry.csv
+        9000  | Optimized/v10/runComparison_v10.m, Optimized/v10/v10b_check.m, Optimized/v11/runComparison_v11.m, Optimized/v11/v11b_check.m (+33 more)
+        9001  | Optimized/v16/release/code/test_residgoodput_v16.m, Optimized/v16/test_residgoodput_v16.m, Optimized/v17/release/code/test_residgoodput_v17.m, Optimized/v17/test_residgoodput_v17.m (+1 more)
+        9002  | Optimized/v9/fill_v9_preflight.m
+        9007  | Optimized/case_registry.csv
+        9040  | Optimized/case_registry.csv
+        9042  | Optimized/v14/v14_setup.m
+        9057  | Optimized/case_registry.csv
+        9071  | Optimized/case_registry.csv
+        9191  | Optimized/case_registry.csv
+        9260  | Optimized/case_registry.csv
+        9386  | Optimized/case_registry.csv
+        9389  | Optimized/case_registry.csv
+        9512  | Optimized/case_registry.csv
+        9576  | Optimized/case_registry.csv
+        9821  | Optimized/case_registry.csv
+        9860  | Optimized/case_registry.csv
+       10042  | Optimized/v14/v14_setup.m, Optimized/v7/run_v7_point.m
+       11042  | Optimized/v15/v15_setup.m
+       12042  | Optimized/v15/v15_setup.m
+       12345  | Optimized/v17x/eot/test_eot.m
+       13042  | Optimized/v15/v15_setup.m
+       14042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       15042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       16000  | Optimized/v17x/run_a3b_matlab.m
+       16042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       17042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       18042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       19000  | Optimized/v7/run_v7_point.m
+       19042  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+       20000  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+       20042  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+       21000  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+       21042  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+       22042  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+       23042  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+       30000  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+       31000  | Optimized/v12/v12_setup.m, Optimized/v13/v13_setup.m
+       40000  | Optimized/v13/v13_setup.m
+       41000  | Optimized/v13/v13_setup.m
+       42000  | Optimized/v13/v13_setup.m
+       43000  | Optimized/v13/v13_setup.m
+       44000  | Optimized/v13/v13_setup.m
+       45000  | Optimized/v13/v13_setup.m
+       50000  | Optimized/v10/runComparison_v10.m, Optimized/v10/v10b_check.m, Optimized/v11/runComparison_v11.m, Optimized/v11/test_equivalence_v11.m (+33 more)
+       50001  | Optimized/v9/fill_v9_preflight.m
+       50101  | Optimized/v17/release/code/test_equivalence_v17.m, Optimized/v17/test_equivalence_v17.m
+       50201  | Optimized/v17/release/code/test_equivalence_v17.m, Optimized/v17/test_equivalence_v17.m
+       60000  | Optimized/v10/calibrateCtx_v10.m, Optimized/v10/calibrateFixedClass_v10.m, Optimized/v11/calibrateCtx_v11.m, Optimized/v11/calibrateFixedClass_v11.m (+47 more)
+       60500  | Optimized/v16/release/code/test_fullbuffer_rtt_v16.m, Optimized/v16/test_fullbuffer_rtt_v16.m, Optimized/v17/release/code/test_fullbuffer_rtt_v17.m, Optimized/v17/test_fullbuffer_rtt_v17.m
+       61000  | Optimized/v10/calibrateFixedClass_v10.m, Optimized/v11/calibrateFixedClass_v11.m, Optimized/v11/calibrateTargetClass_v11.m, Optimized/v12/calibrateFixedClass_v12.m (+37 more)
+       61500  | Optimized/v10/calibrateCtx_v10.m, Optimized/v11/calibrateCtx_v11.m, Optimized/v12/calibrateCtx_v12.m, Optimized/v13/calibrateCtx_v13.m (+21 more)
+       62000  | Optimized/v10/calibrateCtx_v10.m, Optimized/v10/calibrateFixedClass_v10.m, Optimized/v11/calibrateCtx_v11.m, Optimized/v11/calibrateFixedClass_v11.m (+45 more)
+       63500  | Optimized/v16/release/code/test_fullbuffer_rtt_v16.m, Optimized/v16/test_fullbuffer_rtt_v16.m, Optimized/v17/release/code/test_fullbuffer_rtt_v17.m, Optimized/v17/test_fullbuffer_rtt_v17.m
+       70000  | Optimized/v13/test_stage1_sanity_v13.m, Optimized/v17/release/code/test_engine_consistency_v17.m, Optimized/v17/test_engine_consistency_v17.m
+       71000  | Optimized/v13/test_stage1_sanity_v13.m
+       72000  | Optimized/v13/test_stage1_sanity_v13.m
+       73500  | Optimized/v17x/stage_g10_preflight.m, Optimized/v17x/stage_nr_g10_preflight.m
+       77000  | Optimized/v10/runComparison_v10.m, Optimized/v11/runComparison_v11.m, Optimized/v11/test_equivalence_v11.m, Optimized/v12/runComparison_v12.m (+56 more)
+       77889  | Optimized/v17/release/code/test_equivalence_v17.m, Optimized/v17/test_equivalence_v17.m
+       77991  | Optimized/v17/release/code/test_equivalence_v17.m, Optimized/v17/test_equivalence_v17.m
+       78000  | Optimized/v8/fill_actions_sweep_v8.m, Optimized/v9/fill_actions_sweep_v9.m
+       79000  | Optimized/v8/fill_sanity2_v8.m, Optimized/v8/fill_sanity_v8.m, Optimized/v9/fill_sanity2_v9.m
+       79500  | Optimized/v8/fill_sanity2_v8.m, Optimized/v8/fill_sanity_v8.m, Optimized/v9/fill_sanity2_v9.m
+       80000  | Optimized/v11/DeepA2C_Shared_v11.m, Optimized/v12/DeepA2C_Shared_v12.m, Optimized/v13/DeepA2C_Shared_v13.m, Optimized/v14/DeepA2C_Shared_v14.m (+7 more)
+       81000  | Optimized/v11/DeepA2C_Shared_v11.m, Optimized/v12/DeepA2C_Shared_v12.m, Optimized/v13/DeepA2C_Shared_v13.m, Optimized/v14/DeepA2C_Shared_v14.m (+5 more)
+       88000  | Optimized/v13/test_stage1_sanity_v13.m, Optimized/v7/sweep_olla_target_v7.m
+       88100  | Optimized/v13/test_stage1_sanity_v13.m
+       89000  | Optimized/v13/test_stage1_sanity_v13.m, Optimized/v7/sweep_olla_target_v7.m
+       89100  | Optimized/v13/test_stage1_sanity_v13.m
+       90000  | Optimized/v13/test_stage1_sanity_v13.m, Optimized/v16/headroom_v16.m, Optimized/v16/release/code/headroom_v16.m, Optimized/v17/headroom_v17.m (+2 more)
+       90017  | Optimized/v17x/stage_g10.m, Optimized/v17x/stage_g6b.m
+       90100  | Optimized/v13/test_stage1_sanity_v13.m
+       91000  | Optimized/v7/sweep_olla_target_v7.m
+       92000  | Optimized/v7/action_histogram_v7.m
+      100000  | Optimized/v10/evalPolicy_v10.m, Optimized/v11/evalPolicy_v11.m, Optimized/v12/evalPolicy_v12.m, Optimized/v13/evalPolicy_v13.m (+18 more)
+      200000  | Optimized/v14/v14_setup.m
+      210000  | Optimized/v14/v14_setup.m
+      220000  | Optimized/v14/v14_setup.m
+      230000  | Optimized/v14/v14_setup.m
+      240000  | Optimized/v14/v14_setup.m
+      250000  | Optimized/v14/v14_setup.m
+      260000  | Optimized/v14/v14_setup.m
+      270000  | Optimized/v14/v14_setup.m
+      280000  | Optimized/v14/v14_setup.m
+      290000  | Optimized/v14/v14_setup.m
+      300000  | Optimized/v15/v15_setup.m
+      310000  | Optimized/v15/v15_setup.m
+      320000  | Optimized/v15/v15_setup.m
+      330000  | Optimized/v15/v15_setup.m
+      340000  | Optimized/v15/v15_setup.m
+      350000  | Optimized/v15/v15_setup.m
+      400000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      410000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      420000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      430000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      440000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m, Optimized/v17/diag_engine_gap_v17.m, Optimized/v17/release/code/diag_engine_gap_v17.m
+      450000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m, Optimized/v17/diag_engine_gap_v17.m, Optimized/v17/release/code/diag_engine_gap_v17.m
+      460000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      470000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      480000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      485000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      490000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      495000  | Optimized/v16/release/code/v16_setup.m, Optimized/v16/v16_setup.m
+      500000  | Optimized/v17/headroom/hr_instrument_v17.m, Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m, Optimized/v17x/stage_a1.m (+4 more)
+      500001  | Optimized/v17x/stage_a3.m, Optimized/v17x/stage_a3_preflight.m
+      510000  | Optimized/v17/headroom/hr_instrument_v17.m, Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m, Optimized/v17x/stage_a1.m (+4 more)
+      510001  | Optimized/v17x/stage_a3.m, Optimized/v17x/stage_a3_preflight.m
+      520000  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+      530000  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+      540000  | Optimized/v17/headroom/hr_instrument_v17.m, Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m, Optimized/v17x/stage_hr1.m
+      550000  | Optimized/v17/headroom/hr_instrument_v17.m, Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m, Optimized/v17x/stage_hr1.m
+      560000  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+      570000  | Optimized/v17/release/code/v17_setup.m, Optimized/v17/v17_setup.m
+      600000  | Optimized/v17x/stage_g6a.m, Optimized/v17x/stage_g6a_preflight.m, Optimized/v17x/stage_g6b.m, Optimized/v17x/stage_g6b_preflight.m (+1 more)
+      600500  | Optimized/v17x/stage_g6a.m
+      610000  | Optimized/v17x/stage_g6a.m, Optimized/v17x/stage_g6a_preflight.m, Optimized/v17x/stage_g6b.m, Optimized/v17x/stage_g6b_preflight.m (+4 more)
+      720000  | Optimized/v17x/cross_check_g2.m, Optimized/v17x/stage_g10.m, Optimized/v17x/stage_g10_preflight.m, Optimized/v17x/stage_nr_g10.m (+4 more)
+      730000  | Optimized/v17x/cross_check_g2.m, Optimized/v17x/stage_g10.m, Optimized/v17x/stage_g10_preflight.m, Optimized/v17x/stage_nr_g10.m (+4 more)
+      740000  | Optimized/v17x/stage_g10.m, Optimized/v17x/stage_nr_g10.m, Optimized/v17x/stage_r1c.m, Optimized/v17x/stage_r5_seeds.m
+      750000  | Optimized/v17x/stage_g10.m, Optimized/v17x/stage_nr_g10.m, Optimized/v17x/stage_r1c.m, Optimized/v17x/stage_r5_seeds.m
+      800000  | Optimized/v17x/stage_a6.m, Optimized/v17x/stage_a6_preflight.m
+      810000  | Optimized/v17x/stage_a6.m, Optimized/v17x/stage_a6_preflight.m
+      901000  | Optimized/v17x/stage_g10.m
+      902000  | Optimized/v17x/stage_g10.m
+      911000  | Optimized/v17x/stage_g10.m
+      912000  | Optimized/v17x/stage_g10.m
+     1000000  | Optimized/v17x/stage_nr2.m
+     1010000  | Optimized/v17x/stage_nr2.m
+     1020000  | Optimized/v17x/audit_gbt_metrics.m, Optimized/v17x/eot/eval_set_eot.m, Optimized/v17x/repro_check_20.m, Optimized/v17x/run_audit_500.m (+8 more)
+     1030000  | Optimized/v17x/stage_nr2_preflight.m, Optimized/v17x/stage_r6_fullaction.m, Optimized/v17x/stage_r6_fullaction_preflight.m
+     1060000  | Optimized/v17x/stage_eot_preflight.m, Optimized/v17x/stage_r1_gbt_preflight.m, Optimized/v17x/stage_r1b_ack_preflight.m, Optimized/v17x/stage_r1c_preflight.m (+2 more)
+     2040000  | Optimized/v17x/stage_r5_seeds.m
+     2140000  | Optimized/v17x/stage_r5_seeds.m, Optimized/v17x/test_g2_rederive.m
+     2240000  | Optimized/v17x/stage_r5_seeds.m
+     2340000  | Optimized/v17x/eot/eval_set_eot.m, Optimized/v17x/stage_r6_fullaction.m
+     3050000  | Optimized/v17x/stage_r1b_ack.m, Optimized/v17x/stage_r1b_ack_preflight.m, Optimized/v17x/stage_r6_fullaction.m
+     3060000  | Optimized/v17x/stage_r1c_preflight.m
+     4100000  | Optimized/v17x/stage_r1c.m
+     4200000  | Optimized/v17x/stage_r1c.m
+     4300000  | Optimized/v17x/stage_r1c.m
+     4400000  | Optimized/v17x/stage_r1c.m
+     4500000  | Optimized/v17x/stage_r1c.m
+     4600000  | Optimized/v17x/stage_r1c.m
+
+DISJOINTNESS RESULT: PASS (0 collisions with FT ranges)
