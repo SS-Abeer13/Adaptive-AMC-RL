@@ -1,0 +1,5 @@
+M1 primary vs Context-joint-500: margin +0.64% | seeds>0 5/10 (sign p=0.623) | seed-mean boot 95% [-0.26,+1.64] | hier 95% [-0.38,+1.74] (p_le0=0.116) | P(RL>cmp)=0.546 [0.486,0.607] | R2=0
+M1 primary vs Context-500: margin +1.50% | seeds>0 9/10 (sign p=0.0107) | seed-mean boot 95% [+0.59,+2.50] | hier 95% [+0.48,+2.59] (p_le0=0.00135) | P(RL>cmp)=0.591 [0.533,0.650] | R2=1
+M1 primary vs Fixed-500: margin +2.01% | seeds>0 9/10 (sign p=0.0107) | seed-mean boot 95% [+1.10,+3.02] | hier 95% [+0.99,+3.12] (p_le0=5e-05) | P(RL>cmp)=0.623 [0.569,0.680] | R2=1
+M1 primary vs FixedPU-500: margin +1.83% | seeds>0 9/10 (sign p=0.0107) | seed-mean boot 95% [+0.92,+2.84] | hier 95% [+0.77,+2.96] (p_le0=0.00045) | P(RL>cmp)=0.603 [0.549,0.661] | R2=1
+M1 primary vs OLLA-tuned-500: margin +8.83% | seeds>0 10/10 (sign p=0.000977) | seed-mean boot 95% [+7.86,+9.91] | hier 95% [+7.50,+10.16] (p_le0=5e-05) | P(RL>cmp)=0.799 [0.757,0.841] | R2=1

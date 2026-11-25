@@ -1,0 +1,16 @@
+analysis,value
+R2_vs_Context-joint-500_seeds_above,9
+R2_vs_Context-joint-500_n_seeds,10
+R2_vs_Context-joint-500_p_sign,0.01074
+R2_vs_Context-joint-500_hier95_lo,2.324
+R2_vs_Context-joint-500_hier95_hi,4.6
+R2_vs_Context-joint-500_seedmean95_lo,2.431
+R2_vs_Context-joint-500_seedmean95_hi,4.41
+secondary_vs_M1_margin_pct,2.724
+secondary_vs_M1_ci90_lo,2.448
+secondary_vs_M1_ci90_hi,2.999
+secondary_vs_M1_p,6.437e-42
+secondary_ensemble_vs_Context-joint-500_margin_pct,5.756
+secondary_ensemble_vs_Context-joint-500_ci90_lo,5.188
+secondary_ensemble_vs_Context-joint-500_ci90_hi,6.324
+secondary_ensemble_vs_Context-joint-500_p,1.836e-42

@@ -1,0 +1,14 @@
+GBT-res-ACK: operating-point dependent | states {'NR2': 'holds', 'G2': 'fails', 'G3': 'fails'}
+  statement: The result was consistent across the four calibration draws, but held only at the M1 operating point: in neither neighbouring cell did the cell-trained learner both beat or match the RL policy and beat all nine calibrated comparators.
+GBT-full-ACK: operating-point dependent | states {'NR2': 'holds', 'G2': 'fails', 'G3': 'fails'}
+  statement: The result was consistent across the four calibration draws, but held only at the M1 operating point: in neither neighbouring cell did the cell-trained learner both beat or match the RL policy and beat all nine calibrated comparators.
+  [primary: replication] NR2 GBT-res-ACK: holds; mean on-time 0.6308 (min 0.6258, max 0.6362) vs RL 0.6053; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [primary: replication] NR2 GBT-full-ACK: holds; mean on-time 0.6642 (min 0.6575, max 0.6751) vs RL 0.6053; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [primary: cell] G2 GBT-res-ACK: fails; mean on-time 0.5622 (min 0.5581, max 0.5655) vs RL 0.5337; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [primary: cell] G2 GBT-full-ACK: fails; mean on-time 0.5802 (min 0.5705, max 0.5899) vs RL 0.5337; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [primary: cell] G3 GBT-res-ACK: fails; mean on-time 0.9159 (min 0.9143, max 0.9171) vs RL 0.8960; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [primary: cell] G3 GBT-full-ACK: fails; mean on-time 0.9320 (min 0.9282, max 0.9349) vs RL 0.8960; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [secondary: transfer] G2 GBT-res-ACK: fails; mean on-time 0.5598 (min 0.5541, max 0.5664) vs RL 0.5337; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [secondary: transfer] G2 GBT-full-ACK: fails; mean on-time 0.5730 (min 0.5657, max 0.5819) vs RL 0.5337; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [secondary: transfer] G3 GBT-res-ACK: fails; mean on-time 0.9170 (min 0.9161, max 0.9175) vs RL 0.8960; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES
+  [secondary: transfer] G3 GBT-full-ACK: fails; mean on-time 0.9337 (min 0.9313, max 0.9366) vs RL 0.8960; outcomes 1:LOSES 2:LOSES 3:LOSES 4:LOSES

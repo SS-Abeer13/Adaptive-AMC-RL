@@ -1,0 +1,5 @@
+comparison,fit,rl_ontime,learner_ontime,margin_pct,ci90_lo,ci90_hi,p,holm_p,hier95_lo,hier95_hi,seeds_above,n_seeds,outcome
+RL-full vs GBT-full-ACK,1,0.6079,0.6575,-7.532,-8.016,-7.048,2.386e-66,2.386e-66,-8.463,-6.677,0,10,LOSES
+RL-full vs GBT-full-ACK,2,0.6079,0.6751,-9.943,-10.41,-9.473,1.504e-78,6.015e-78,-10.85,-9.11,0,10,LOSES
+RL-full vs GBT-full-ACK,3,0.6079,0.6595,-7.824,-8.297,-7.35,8.31e-70,1.662e-69,-8.739,-6.981,0,10,LOSES
+RL-full vs GBT-full-ACK,4,0.6079,0.6646,-8.531,-9.008,-8.054,2.671e-73,8.013e-73,-9.454,-7.693,0,10,LOSES

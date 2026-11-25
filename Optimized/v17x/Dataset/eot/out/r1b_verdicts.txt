@@ -1,0 +1,6 @@
+R1b primary (NR2 traces, Holm over 2): GBT-res-ACK: LOSES (-3.58% [-3.95, -3.21], hier [-4.65, -2.61]); GBT-full-ACK: LOSES (-7.94% [-8.48, -7.40], hier [-9.04, -6.92])
+R1b consequence: an ACK-trained learner beat NR2
+p_hat calibration (cross-fitted, all): ECE 0.0054, Brier 0.1356
+p_hat calibration (cross-fitted, explored): ECE 0.0102, Brier 0.1487
+p_hat calibration (deployment GBT-res-ACK): ECE 0.0143, Brier 0.1213
+p_hat calibration (deployment GBT-full-ACK): ECE 0.0208, Brier 0.1218

@@ -1,0 +1,7 @@
+R1/R2 primary (NR2 traces, Holm over 4): GBT-res: LOSES (-2.83% [-3.19, -2.46], hier [-3.90, -1.84]); GBT-full: LOSES (-5.82% [-6.37, -5.28], hier [-6.95, -4.79]); Rule: BEATS (+3.36% [+2.95, +3.77], hier [+2.21, +4.46]); Rule-cal: BEATS (+3.35% [+2.94, +3.76], hier [+2.20, +4.45])
+R1/R2 consequence for C2: reframe: a non-RL scheme beat NR2
+R3 speed/fairness: not run
+R3 warm-up: not run
+R3 actions: not run
+R4: NR2 vs Context-joint-500: t [+2.27, +4.71], BCa [+2.27, +4.32], sign-flip p=0.00391, MDE80 n=10 1.70, n=5 2.88 -> unchanged
+R5: not run

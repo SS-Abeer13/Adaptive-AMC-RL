@@ -1,0 +1,11 @@
+item,key,value,source_file,date
+NR2,verdict,CONFIRM,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,win,yes,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,margin_ctxj,3.49,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,ci_lo_ctxj,3.05,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,ci_hi_ctxj,3.93,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,holm_ctxj,1.21e-29,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,seeds_above,9,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,hier_lo,2.32,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,hier_hi,4.60,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,
+NR2,margin_m1,2.72,Optimized/v17x/Dataset/eot/out/nr2_stats.csv; nr2_seed_stats.csv,

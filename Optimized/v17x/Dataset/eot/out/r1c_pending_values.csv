@@ -1,0 +1,3 @@
+item,key,value,source_file,date
+R1C,verdict_gbtresack,operating-point dependent,paper/analysis/out/r1c_*.csv,
+R1C,verdict_gbtfullack,operating-point dependent,paper/analysis/out/r1c_*.csv,

@@ -1,0 +1,2 @@
+comparison,n_seeds,mean_seed_margin,sd,t95_lo,t95_hi,bca95_lo,bca95_hi,signflip_p,hier95_lo,hier95_hi,power_at_observed,mde80_n10,mde80_n5,category
+NR2 vs Context-joint-500,10,3.492,1.709,2.269,4.715,2.271,4.323,0.003906,2.324,4.6,0.9999,1.703,2.875,unchanged
