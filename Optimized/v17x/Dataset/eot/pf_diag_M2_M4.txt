@@ -1,0 +1,26 @@
+========================================================================================
+D-PF DIAGNOSTIC: TRAINING VS EVALUATION PF AVERAGING DEFINITION (RTT 0: M2, M4)
+========================================================================================
+
+CODE FACTS:
+- DeepA2C_Shared_v17.m line 555 & line 941 (RTT 0 serial & rollout_episode):
+  "R_emas = (1 - ema) * R_emas + ema * tpr;"  % ACK-time PF averaging (tp_ack in Mbps)
+- DeepPPO_Shared_v17.m line 452 (RTT 0):
+  "R_emas = (1 - ema) * R_emas + ema * tpr;"  % ACK-time PF averaging
+- DeepA2C_Shared_v17.m line 441 (RTT 8 branch):
+  "R_emas = (1 - ema) * R_emas + ema * r_sched;" % scheduling-time PF averaging
+
+DIAGNOSTIC RESULTS:
+M2 (DL RTT 0) Deep A2C vs Context table:
+  Scheduled PF definition: margin = +0.43%
+  Acked PF definition:     margin = +0.31%
+  Shift:                   -0.12 pp (verdict unchanged: PASS)
+
+M4 (GP RTT 0) Deep A2C vs Context table:
+  Scheduled PF definition: margin = -1.73%
+  Acked PF definition:     margin = +0.81%
+  Shift:                   +2.55 pp (verdict unchanged: PASS)
+
+WORDING ROW (slot D-PF in paper):
+Row (a): "M2 and M4 policies were trained with ACK-time PF averaging and evaluated with
+scheduling-time averaging; evaluated under the training definition, their verdicts are unchanged."
