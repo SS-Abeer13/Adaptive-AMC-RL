@@ -1,0 +1,35 @@
+========================================================================================
+T-GBT DECISION TIMING BENCHMARK (Amendment 13, Section 7 -- A3c Protocol)
+========================================================================================
+Power Scheme     : Power Scheme GUID: 46f7a0ee-261d-4cfa-b807-5e2afc7efde6  (High performance)
+Process Priority : HIGH_PRIORITY_CLASS (128)
+CPU Model        : Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+Threading        : Single-Threaded (OMP=1, MKL=1, OPENBLAS=1)
+Sample Count     : 5,000 TTIs per condition (100 warm-up excluded)
+Noise Floor      : median = 0.100 us | p99.9 = 0.300 us
+Model            : r1b_model.joblib (HistGradientBoostingClassifier, 300 trees, max_leaf=31)
+
+--- N = 10 Users (Main Scenario) ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |     4971.10 |        12422.96 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |     6101.60 |        12093.58 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      180.30 |          632.10 | 99.9% / 99.6% / 93.4% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      186.00 |          679.00 | 99.9% / 99.3% / 92.0% / 0.0% (stored A3c)
+
+--- N = 50 Users  ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |     9032.40 |        15759.43 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |    15491.60 |        22576.87 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      255.20 |          972.60 | 99.9% / 96.5% / 45.6% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      237.70 |          927.10 | 99.9% / 96.3% / 64.8% / 0.0% (stored A3c)
+
+--- N = 100 Users  ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |    14057.85 |        22051.30 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |    27191.30 |        51019.33 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      297.80 |         1061.61 | 99.9% / 95.2% / 0.1% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      284.80 |         1204.20 | 99.8% / 95.0% / 0.5% / 0.0% (stored A3c)
+
