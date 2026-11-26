@@ -110,3 +110,19 @@ The Checkpoint-5 campaign and subsequent amendments added pre-registered confirm
 - **Total Scheme Evaluations:** 126 evaluations.
 - **Total Project-Wide Tests (Bonferroni pool):** $\le 126 \times 10 = 1,260$ tests.
 - **Survives Bonferroni?** M1 vs Context table raw $p = 9.06 \times 10^{-13}$; Bonferroni adjusted over 1,260 tests: $p_{\text{adj}} \approx 1.14 \times 10^{-9} \ll 0.05$. M1 remains highly significant under the most conservative project-wide correction.
+
+## 7a. Later amendments (from `ledger/robustness_cases.csv`, which is authoritative)
+
+The table in Section 7 stops at NR-G10. The stages below were added later; cumulative totals include the 67 / 108 main round.
+
+| Stage | Cases added | Scheme eval rows added | Tests added directly | Cumulative cases | Cumulative rows | Bonferroni pool |
+|---|---|---|---|---|---|---|
+| PS-R1R2 | +4 | +8 | 0 | 80 | 134 | 1,340 |
+| PS-R5 | +3 | +3 | 0 | 83 | 137 | 1,370 |
+| R1b | +2 | +4 | 0 | 85 | 141 | 1,410 |
+| R1c | +19 | +38 | 0 | 104 | 179 | 1,790 |
+| R6 | +2 | +3 | 0 | 106 | 182 | 1,820 |
+| FT | +1 | +0 | +25 | 107 | 182 | 1,845 |
+
+- **FT (Amendment 13 §8; seeds per Amendment 14):** one case (`FT`), no scheme evaluation; FT-H1 to H3 add 9 tests and the secondary families 16, entered directly in the `tests` column. S-SYM and T-GBT add none.
+- **Totals now:** 107 cases, 182 scheme evaluations, Bonferroni pool ≤ 182 × 10 + 25 = 1,845 tests (`NProjCases`, `NProjRows`, `NProjTests` in `paper/manuscript/numbers.tex`).

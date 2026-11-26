@@ -66,11 +66,11 @@ NAthreeTtiFpu,346.2,A03,Optimized/v17x/Dataset/REPORT_a3.txt,FixedPU us/TTI
 NBonfP,$8.8\times10^{-10}$,M04,Optimized/v17/paper/table_core.csv,holm_p x tests
 NBonfPCtxJ,1.00,M07,Optimized/v17x/Dataset/table_cal500.csv; Optimized/case_registry.csv,"Holm p (CtxJ) x registry tests, capped at 1"
 NBonfPCtxJProj,1.00,M08,Optimized/v17x/Dataset/table_cal500.csv; paper/ledger/robustness_cases.csv,"Holm p (CtxJ) x project tests, capped at 1"
-NBonfPProj,$1.6\times10^{-9}$,M08,Optimized/v17/paper/table_core.csv,holm_p x project tests
+NBonfPProj,$1.7\times10^{-9}$,M08,Optimized/v17/paper/table_core.csv,holm_p x project tests
 NBonfPProjGbtFullAck,$4.4\times10^{-60}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
-NBonfPProjGbtResAck,$1.9\times10^{-38}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
-NBonfPProjNR,$6.7\times10^{-27}$,M08,paper/analysis/out/nr2_stats.csv; paper/ledger/robustness_cases.csv,NR2 Holm p (CtxJ) x project tests
-NBonfPProjRsix,$1.9\times10^{-63}$,M08,paper/analysis/out/r6_fits.csv; paper/ledger/robustness_cases.csv,largest R6a Holm p x project tests
+NBonfPProjGbtResAck,$2.0\times10^{-38}$,M08,paper/analysis/out/r1b_R1.csv; paper/ledger/robustness_cases.csv,R1b Holm p x project tests
+NBonfPProjNR,$6.8\times10^{-27}$,M08,paper/analysis/out/nr2_stats.csv; paper/ledger/robustness_cases.csv,NR2 Holm p (CtxJ) x project tests
+NBonfPProjRsix,$2.0\times10^{-63}$,M08,paper/analysis/out/r6_fits.csv; paper/ledger/robustness_cases.csv,largest R6a Holm p x project tests
 NBonfPraw,$9.1\times10^{-13}$,M04,Optimized/v17/paper/table_core.csv,holm_p
 NBonfTests,972,M04,Optimized/case_registry.csv,rows x 9
 NBoot,"20\,000",P01,paper/proposals/common_rules.md,"R2 B = 20,000"
@@ -1450,9 +1450,9 @@ NPfNSchemes,13,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,schemes compared
 NPfOneProc,3.466,H17,Optimized/v17/README_v17.md,README_v17 s1 table rtt8/1proc Baseline Mbps
 NPfRangeHi,26,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,max ratio
 NPfRangeLo,10,H17a,Optimized/v16/Dataset/fill_summary_v16.txt,min v16 K3 / v17 M3 - 1 over schemes
-NProjCases,106,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry cases + robustness cases
+NProjCases,107,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry cases + robustness cases
 NProjRows,182,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry rows + robustness rows
-NProjTests,"1\,820",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound)
+NProjTests,"1\,845",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound) + directly registered tests
 NRegCases,67,M01,Optimized/case_registry.csv,unique case_id
 NRegRows,108,M01,Optimized/case_registry.csv,rows
 NRegSinceTen,49,M02,Optimized/case_registry.csv,cases with version != v9
@@ -1460,7 +1460,7 @@ NRegSupCases,7,H19,Optimized/case_registry.csv,status superseded (cases)
 NRegSupRows,18,H19,Optimized/case_registry.csv,status superseded (rows)
 NRegValidCases,60,M03,Optimized/case_registry.csv,valid cases
 NRegWinCases,9,M03,Optimized/case_registry.csv,valid cases with win=1 excluding corrected X1 row
-NRobCases,39,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
+NRobCases,40,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
 NRobRows,74,M08,paper/ledger/robustness_cases.csv,sum of rows over robustness stages
 NRsixClosure,3.6,R6,paper/analysis/out/r6_secondary.csv,gap closure (% of the NR2 to GBT-full-ACK gap)
 NRsixFullBest,\ensuremath{-}7.27,R6,paper/analysis/out/r6_fits.csv,least negative RL-full margin over the four GBT-full-ACK fits

@@ -197,8 +197,9 @@ add('NRobCases', str(rc), 'M08', rel(ROB), 'sum of cases over robustness stages'
 add('NRobRows', str(rr), 'M08', rel(ROB), 'sum of rows over robustness stages')
 add('NProjCases', str(len(ids) + rc), 'M08', rel(REG) + '; ' + rel(ROB), 'registry cases + robustness cases')
 add('NProjRows', str(len(rows) + rr), 'M08', rel(REG) + '; ' + rel(ROB), 'registry rows + robustness rows')
-ptests = (len(rows) + rr) * 10
-add('NProjTests', f'{ptests:,}'.replace(',', r'\,'), 'M08', rel(REG) + '; ' + rel(ROB), 'project rows x 10 (upper bound)')
+rt = sum(int(x.get('tests') or 0) for x in rob)   # tests registered directly (stages that add tests but no scheme evaluation, e.g. FT)
+ptests = (len(rows) + rr) * 10 + rt
+add('NProjTests', f'{ptests:,}'.replace(',', r'\,'), 'M08', rel(REG) + '; ' + rel(ROB), 'project rows x 10 (upper bound) + directly registered tests')
 add('NBonfPProj', sci(p1 * ptests), 'M08', rel(TC), 'holm_p x project tests')
 
 # ------------------------------------------------------------------ literature counts
