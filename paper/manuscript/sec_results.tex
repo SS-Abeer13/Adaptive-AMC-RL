@@ -27,7 +27,7 @@ Against OLLA, RL looks strong, but much of the gap is OLLA's slow start and a mi
 \subsection{Rung 2: RL against calibrated rules}\label{sec:rung2}
 Once the rules are calibrated well, the original policy's win becomes a coin flip across seeds. Its margin over the combined table is \NGsixCtxJMar\,\%, and only \NGsixCtxJAbove{} of \NCfgSeeds{} seeds are ahead (hierarchical interval [\NGsixCtxJHierLo, \NGsixCtxJHierHi]\,\%). The richer table, more than the larger calibration budget, removed the margin: re-calibrating the Context table alone moved it only from \NMonePrimCtxMar\,\% to \NGsixCtxDMar\,\% (Appendix~\ref{app:tables}).
 
-A better-designed RL policy still beats the calibrated rules robustly, although it sees less. This policy starts from the calibrated Fixed offset instead of the oracle base. On fresh traces and fresh seeds, it beat the combined table by \NRtwo{margin_ctxj}\,\%, with \NRtwo{seeds_above} of \NCfgSeeds{} seeds ahead (Table~\ref{tab:attrib}). It wins even though the table uses the true speed class. It also beats the designed rule, which writes its own behaviour into a fixed rule, by \NPSRuleCalMar\,\%. \wordingsel{NRG10abs}{NRG10}{verdict}{unrun}
+A better-designed RL policy still beats the calibrated rules robustly, although it sees less. This policy starts from the calibrated Fixed offset instead of the oracle base. On fresh traces and fresh seeds, it beat the combined table by \NRtwo{margin_ctxj}\,\%, with \NRtwo{seeds_above} of \NCfgSeeds{} seeds ahead (Table~\ref{tab:attrib}). On a second fresh bank of traces, evaluated after all policies were frozen, the margin was \NFtCtxJMar\,\% with \NFtCtxJSeeds{} seeds ahead. It wins even though the table uses the true speed class. It also beats the designed rule, which writes its own behaviour into a fixed rule, by \NPSRuleCalMar\,\%. \wordingsel{NRG10abs}{NRG10}{verdict}{unrun}
 
 What the policy learned is a deadline-aware gamble. It raises the MCS one step in \NPSDAllPlus\,\% of decisions, and in \NPSDSlackLoPlus\,\% when the deadline is close. This is consistent with a simple rule: a larger transport block is worth a higher risk of failure when there is no time for a second attempt. This is a per-decision trade-off, which raises the question of whether a simpler learner could estimate it directly.
 
@@ -71,8 +71,10 @@ Draw & RL-full margin (\%) & hier.\ \NLevHier\,\% CI (\%)\\
 
 \emph{Is it one lucky fit? No.} We refitted the learner on four independent calibration draws. We also retrained it in two neighbouring cells, one with a higher load and one with a longer deadline (Table~\ref{tab:r1c}). \wordingsel{R1Cabs}{R1C}{verdict_full}{unrun} The ranking is a property of the method, not of one training run.
 
+\emph{Does it hold on fresh traces? Yes.} The comparisons above reuse the traces of the RL confirmation, and the learner was designed after that confirmation. We therefore froze every policy and evaluated all of them once more on \NCfgEval{} fresh traces, under a decision rule fixed in advance. Every fit of the learner beat RL again: by \NFtResLossMin--\NFtResLossMax\,\% with the same actions, and by \NFtFullLossMin--\NFtFullLossMax\,\% against RL-full with the full ones. No RL seed was ahead, and every hierarchical interval lay below \NFtHierUpperMax\,\% (Table~\ref{tab:r1c}, last row).
+
 \begin{table}[t]
-\caption{Supervised learner across training draws and cells}\label{tab:r1c}
+\caption{Supervised learner across training draws, cells and trace banks}\label{tab:r1c}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lccc@{}}
@@ -82,12 +84,13 @@ Setting & RL & Supervised, restricted & Supervised, full\\
 Main scenario & \Ronec{rl_nrtwo} & \Ronec{mean_nrtwo_res} [\Ronec{min_nrtwo_res}, \Ronec{max_nrtwo_res}] & \Ronec{mean_nrtwo_full} [\Ronec{min_nrtwo_full}, \Ronec{max_nrtwo_full}]\\
 Higher load & \Ronec{rl_gtwo} & \Ronec{mean_gtwo_res} [\Ronec{min_gtwo_res}, \Ronec{max_gtwo_res}] & \Ronec{mean_gtwo_full} [\Ronec{min_gtwo_full}, \Ronec{max_gtwo_full}]\\
 Longer deadline & \Ronec{rl_gthree} & \Ronec{mean_gthree_res} [\Ronec{min_gthree_res}, \Ronec{max_gthree_res}] & \Ronec{mean_gthree_full} [\Ronec{min_gthree_full}, \Ronec{max_gthree_full}]\\
+Main, fresh traces & \NFtOntNRtwo & \NFtOntResMean{} [\NFtOntResMin, \NFtOntResMax] & \NFtOntFullMean{} [\NFtOntFullMin, \NFtOntFullMax]\\
 \bottomrule
 \end{tabular}\\[2pt]
-\parbox{\columnwidth}{\scriptsize On-time ratio; supervised learner: mean over four calibration draws [lowest, highest]. Per-draw tests are in the supplement.}
+\parbox{\columnwidth}{\scriptsize On-time ratio; supervised learner: mean over four calibration draws [lowest, highest]. Fresh traces: \NCfgEval{} traces generated after all policies were frozen. Per-draw tests are in the supplement.}
 \end{table}
 
-\emph{What does it cost?} The learner wins by being more selective, not by taking more risk, but it needs exploration. Its first-transmission block-error rate is \NPSBlerGbtResAck\,\%, below the \NPSBlerNRtwo\,\% of RL; both sit above the OLLA target, as expected under deadline pressure. Its probability estimates are well calibrated (expected calibration error at most \NPSEceMax), and its fairness across users is at least that of RL. Its price is the $\varepsilon$-greedy exploration used to log its training data, a throughput cost in a live network. One caveat bounds this rung: these comparisons reuse the RL confirmation traces (Section~\ref{sec:protocol}).
+\emph{What does it cost?} The learner wins by being more selective, not by taking more risk, but it needs exploration. Its first-transmission block-error rate is \NPSBlerGbtResAck\,\%, below the \NPSBlerNRtwo\,\% of RL; both sit above the OLLA target, as expected under deadline pressure. Its probability estimates are well calibrated (expected calibration error at most \NPSEceMax), and its fairness across users is at least that of RL. Its price is the $\varepsilon$-greedy exploration used to log its training data, a throughput cost in a live network, and more computation per decision (Section~\ref{sec:calfirst}).
 
 \subsection{Where RL does not help}\label{sec:nohelp}
-RL adds nothing where a static offset already captures the decision. On full-buffer goodput it trails a single calibrated offset (\NMthreePrimFixedMar\,\% at RTT~\NCfgRtt), and at that RTT it learned to leave its base rule unchanged. With instantaneous feedback, its margin over the Context table is \NMtwoPrimCtxMar\,\% and not robust across seeds (Appendix~\ref{app:tables}). Learning pays only where the decision has structure, which is what the next section examines.
+RL adds nothing where a static offset already captures the decision. On full-buffer goodput it trails a single calibrated offset (\NMthreePrimFixedMar\,\% at RTT~\NCfgRtt), and at that RTT it learned to leave its base rule unchanged. With instantaneous feedback, its margin over the Context table is \NMtwoPrimCtxMar\,\% and not robust across seeds (Appendix~\ref{app:tables}). Both RTT~0 results also depend on a scheduler detail (Section~\ref{sec:limits}). Learning pays only where the decision has structure, which is what the next section examines.

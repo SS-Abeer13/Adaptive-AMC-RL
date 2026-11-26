@@ -26,7 +26,7 @@ Training seeds per case & \NCfgSeeds\\
 \end{table}
 
 \section{Results of the original RL policy}\label{app:tables}
-The original policy starts from a per-class offset (FixedPU) that uses each user's true delay and speed class. Table~\ref{tab:m1} compares it with the rules calibrated in the main round, and Table~\ref{tab:g6} with the rules re-calibrated on \NGsixCalTraces{} traces. Tables~\ref{tab:m2}--\ref{tab:m4} give the scenarios with instantaneous feedback and with full-buffer traffic. The margin is the paired gain of the RL policy over the comparator; ``Beats'' means that the trace-level rule of Section~\ref{sec:protocol} is met.
+The original policy starts from a per-class offset (FixedPU) that uses each user's true delay and speed class. Table~\ref{tab:m1} compares it with the rules calibrated in the main round, and Table~\ref{tab:g6} with the rules re-calibrated on \NGsixCalTraces{} traces. Tables~\ref{tab:m2}--\ref{tab:m4} give the scenarios with instantaneous feedback and with full-buffer traffic. $^\dagger$RTT~0 results use scheduling-time PF averaging at evaluation, while training used ACK-time averaging; Section~\ref{sec:limits} reports both. The margin is the paired gain of the RL policy over the comparator; ``Beats'' means that the trace-level rule of Section~\ref{sec:protocol} is met.
 
 \begin{table*}[t]
 \caption{Original RL policy against the original comparators, main scenario}\label{tab:m1}
@@ -63,7 +63,7 @@ Comparator & Margin (\%) & \NLevTrace\,\% CI (\%) & Holm $p$ & Beats & Seeds ahe
 \end{table*}
 
 \begin{table}[h]
-\caption{Original RL policy, deadline traffic with instantaneous feedback (RTT~0)}\label{tab:m2}
+\caption{Original RL policy, deadline traffic with instantaneous feedback (RTT~0)$^\dagger$}\label{tab:m2}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
@@ -89,7 +89,7 @@ Comparator & Margin (\%) & \NLevTrace\,\% CI & Holm $p$ & Beats\\
 \end{table}
 
 \begin{table}[h]
-\caption{Original RL policy, full-buffer goodput with RTT~0}\label{tab:m4}
+\caption{Original RL policy, full-buffer goodput with RTT~0$^\dagger$}\label{tab:m4}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
@@ -157,7 +157,12 @@ Replication across draws and cells & R1c & \ref{sec:rung3}\\
 RL with the full action set & R6 & \ref{sec:rung3}\\
 One-step headroom analysis & HR1 & supplement\\
 PF-timing demonstration & A6 & App.~\ref{app:pitfalls}\\
-Decision-time benchmark & A3c & \ref{sec:calfirst}\\
+Decision-time benchmark, RL & A3c & \ref{sec:calfirst}\\
+Decision time, supervised learner & T-GBT & \ref{sec:calfirst}\\
+End-of-trace accounting & S-EOT & \ref{sec:protocol}\\
+Scheduler definition at RTT~0 & D-PF, D-RS & \ref{sec:limits}\\
+Symmetric seed-level rule & S-SYM & \ref{sec:protocol}\\
+Fresh-trace confirmation & FT & \ref{sec:rung2}, \ref{sec:rung3}\\
 \bottomrule
 \end{tabular}
 \end{table}

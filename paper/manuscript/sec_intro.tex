@@ -10,12 +10,12 @@ A gain over OLLA, however, cannot be credited to learning alone. The learner usu
 
 We answer this question with a comparator ladder, in which each rung gives the comparator more of what the RL policy has. Rung one is OLLA. Rung two is a set of rules calibrated carefully on the RL policy's own inputs. Rung three is a simpler learner: a supervised model of transmission success, trained only on the ACK/NACK feedback a base station already observes. We climb the ladder in a system-level simulator with multi-process HARQ and deadline traffic. All controllers face the same traces, results are reported across training seeds, and every decision rule was fixed before its test.
 
-The answer depends on the rung, and on the top rung RL loses. Against OLLA, a residual actor-critic (A2C) policy gains a lot. Against calibrated rules, most of that gain disappears, though a well-designed RL policy still wins. Against the supervised learner, RL loses, even with the same actions.
+The answer depends on the rung, and on the top rung RL loses. Against OLLA, a residual actor-critic (A2C) policy gains a lot. Against calibrated rules, most of that gain disappears, though a well-designed RL policy still wins. Against the supervised learner, RL loses, even with the same actions and on fresh traces.
 
 Our contributions are:
 \begin{itemize}
 \item \textbf{A comparator ladder for learned LA} (Sections~\ref{sec:controllers}--\ref{sec:protocol}): RL is compared with OLLA, with rules calibrated on its inputs and with a supervised learner, on paired traces and across seeds.
-\item \textbf{Evidence on when deep RL pays off} (Section~\ref{sec:results}): with delayed HARQ feedback and deadlines, a supervised one-step learner beats RL across training draws, action sets and two neighbouring operating points.
-\item \textbf{Practical guidance} (Section~\ref{sec:discussion}): calibrate the rules first, then try a one-step learner before deep RL. Appendix~\ref{app:pitfalls} adds three simulation pitfalls that changed our conclusions during the study.
+\item \textbf{Evidence on when deep RL pays off} (Section~\ref{sec:results}): with delayed HARQ feedback and deadlines, a supervised one-step learner beats RL across training draws, action sets, two neighbouring operating points and a fresh trace bank.
+\item \textbf{Practical guidance} (Section~\ref{sec:discussion}): calibrate the rules first, then try a one-step learner before deep RL, and budget for its costs. Appendix~\ref{app:pitfalls} adds three simulation pitfalls that changed our conclusions during the study.
 \end{itemize}
 Section~\ref{sec:related} reviews related work, and Section~\ref{sec:system} defines the problem.
