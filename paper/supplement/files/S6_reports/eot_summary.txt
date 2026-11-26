@@ -1,0 +1,19 @@
+========================================================================================
+S-EOT END-OF-TRACE SENSITIVITY SUMMARY (frozen labels vs resolved labels)
+Format: Outcome | As-run Margin | Resolved Margin | Shift (pp) | As-run Label | Resolved Label | Changed?
+========================================================================================
+NR2 verdict vs Context-joint-500    | +3.35% | +3.49% | +0.15 pp | CONFIRM (WIN=yes) | CONFIRM (WIN=yes) | no
+NR2 vs fixed500                     | +4.85% | +5.07% | +0.22 pp | BEATS | BEATS | no
+NR2 vs fixedpu500                   | +4.58% | +4.84% | +0.26 pp | BEATS | BEATS | no
+NR2 vs ctx500                       | +4.33% | +4.55% | +0.21 pp | BEATS | BEATS | no
+NR2 vs olla_tuned500                | +10.54% | +11.04% | +0.50 pp | BEATS | BEATS | no
+G6 Joint Parity (M1 vs ctxj500)     | +0.66% | +0.64% | -0.02 pp | Joint parity | Joint parity | no
+R1b GBT-res-ACK fit 1 vs NR2        | -3.40% | -3.58% | -0.18 pp | LOSES (learner beats RL) | LOSES (learner beats RL) | no
+R1b GBT-full-ACK fit 1 vs NR2       | -7.58% | -7.94% | -0.36 pp | LOSES (learner beats RL) | LOSES (learner beats RL) | no
+R1c calibration-draw replication    |   --   |   --   |   --    | holds across all fits/cells | holds across all fits/cells | no
+R6a full action set wording         |   --   |   --   |   --    | supervised beats RL both sets | supervised beats RL both sets | no
+========================================================================================
+WORDING SELECTION (slot EOT in wording.tex):
+Row (a): "Under an end-of-trace accounting that counts only packets whose deadline falls
+inside the trace and applies the deadline during the HARQ drain, every frozen verdict is
+unchanged (largest margin shift < 1 pp)."

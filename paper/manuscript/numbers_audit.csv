@@ -1454,12 +1454,14 @@ NProjCases,107,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.cs
 NProjRows,182,M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,registry rows + robustness rows
 NProjTests,"1\,845",M08,Optimized/case_registry.csv; paper/ledger/robustness_cases.csv,project rows x 10 (upper bound) + directly registered tests
 NRegCases,67,M01,Optimized/case_registry.csv,unique case_id
+NRegIneligCases,2,M03,paper/ledger/registry_eligibility.csv,valid-status cases ruled ineligible as evidence
 NRegRows,108,M01,Optimized/case_registry.csv,rows
 NRegSinceTen,49,M02,Optimized/case_registry.csv,cases with version != v9
 NRegSupCases,7,H19,Optimized/case_registry.csv,status superseded (cases)
 NRegSupRows,18,H19,Optimized/case_registry.csv,status superseded (rows)
 NRegValidCases,60,M03,Optimized/case_registry.csv,valid cases
-NRegWinCases,9,M03,Optimized/case_registry.csv,valid cases with win=1 excluding corrected X1 row
+NRegWinCases,8,M03,Optimized/case_registry.csv; paper/ledger/registry_eligibility.csv,"evidence-eligible cases with win=1 (valid status, corrected verdicts, eligibility ledger)"
+NRegWinCasesValid,9,M03,Optimized/case_registry.csv,valid cases with win=1 excluding corrected X1 row (status only)
 NRobCases,40,M08,paper/ledger/robustness_cases.csv,sum of cases over robustness stages
 NRobRows,74,M08,paper/ledger/robustness_cases.csv,sum of rows over robustness stages
 NRsixClosure,3.6,R6,paper/analysis/out/r6_secondary.csv,gap closure (% of the NR2 to GBT-full-ACK gap)

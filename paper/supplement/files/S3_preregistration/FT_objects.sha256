@@ -1,0 +1,37 @@
+# FT_objects.sha256 -- Frozen objects for Amendment 13 (37 schemes across 29 files)
+# Verify from repo root: sha256sum -c paper/proposals/FT_objects.sha256
+# NR2 residual A2C, seeds 1-10 (10 schemes)
+bd03707627495cc2ddad178f2b53d08a01f7f9595b2bf959ff1572079000705b  Optimized/v17x/Dataset/ckpt/nr2/train_seed_1.mat
+6719fbe89889ff09dbb4a9d0149ac31266ec9fa19dd803a55e755218b196b8bc  Optimized/v17x/Dataset/ckpt/nr2/train_seed_2.mat
+d84e1b880ae0f810c293e04222b6c6f8520d3661b7dcc798c1a9f301259a4813  Optimized/v17x/Dataset/ckpt/nr2/train_seed_3.mat
+709fa1604c1110f9569df67e2fddedac9b726dc3834878c9cd8b2ce3dc437987  Optimized/v17x/Dataset/ckpt/nr2/train_seed_4.mat
+1d16416bc351de06cf55cdd7dfada23dec96d06918173591e20f3db6e2f72bcb  Optimized/v17x/Dataset/ckpt/nr2/train_seed_5.mat
+5058b9edfbea0356cfdb6a99ae081f1764c2eef90be922c4020bf99cc303b03a  Optimized/v17x/Dataset/ckpt/nr2/train_seed_6.mat
+ddd9fdd4f10bdad34c4ecf6e90471941b45cb216b256d50ad5a2f6d830a33deb  Optimized/v17x/Dataset/ckpt/nr2/train_seed_7.mat
+7256ad7ba031f859800048cfba69dc78479e10ff3cc6703dd812100429a6a5e5  Optimized/v17x/Dataset/ckpt/nr2/train_seed_8.mat
+393095a5099ae0ea578eebefaa3396fe076484d7c0a87c4ad17fad949d5d6fab  Optimized/v17x/Dataset/ckpt/nr2/train_seed_9.mat
+292301425b90e57e02de6bc5c30200abaed8566c3af5baebd5c3a5df7754a836  Optimized/v17x/Dataset/ckpt/nr2/train_seed_10.mat
+# R6a RL-full, seeds 1-10 (10 schemes)
+0248e66981175671af02fd90c1750dc8709ccfb9ca47818f6a289cb73798089f  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_1.mat
+f700029ed9dc8c483fb6ab69a141bcc15e91fc97af106c0f88004d30046eaec7  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_2.mat
+cfa9b60134e1b2790da9a8491b1149b373012e2dbcd62bd417c987decc486e07  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_3.mat
+9cc71aece14531a56c0f38988d9b2802fca2186c401d1d8d0ea3295348a28895  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_4.mat
+5ca03757ae3272d3fbee351e3c18c82d67761d7b6a631e2b6feaf3ee6aad7f96  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_5.mat
+2ebd5bce59b5767946db0269c52b152f2cf20e64230bc0141966fa936a91f1b0  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_6.mat
+02ad90ac42277cec192a6ed17b233b22fdb0e688c6675b3b050b995f1c443268  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_7.mat
+3ceb40599cca230231a632646e7dfdd0e696ae77796197141e0df62c2acaf220  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_8.mat
+176896c92e22fa595ff90ab0d1c4cb7c5cd9ae583058410f870c1b78c8743ef1  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_9.mat
+4ee8ae673e776fcc034d986c21e68b3a57197e64b50a70b912cea879be9ff653  Optimized/v17x/Dataset/ckpt/r6_fullaction/train_10.mat
+# GBT-res-ACK fits 1-4 and GBT-full-ACK fits 1-4 (8 schemes; each fit shares one binary classifier file, differing at inference by candidate offset set -3:-1 vs -4:2)
+5ea9ee3cde3eb32b0ebcc4f47758de69e672577b30783f716aaf11ff952216ce  Optimized/v17x/Dataset/ckpt/r1b_ack/r1b_trees.mat
+444fcdcfa27c4aa4ad1a97b33dcec08d8503704f38200a6c545dc20e45c9b7d5  Optimized/v17x/Dataset/ckpt/r1c/r1c_trees_m1_2.mat
+393a84f2a847440a2bd2698278774c5ea360262a671c8bc81d198de18da6009f  Optimized/v17x/Dataset/ckpt/r1c/r1c_trees_m1_3.mat
+174329e5b700e85eeddf1806caa76f6e575cb6c2a58b7aae76d7965678311f5d  Optimized/v17x/Dataset/ckpt/r1c/r1c_trees_m1_4.mat
+# G6 frozen tables: Context-joint-500, Fixed-500, Context-500, OLLA-tuned-500 (4 schemes)
+94140b8c3405dc7107c2ef1b3d833fd2811fde47b2046516b8547ca331257f89  Optimized/v17x/Dataset/cal500_tables.txt
+9daca94e965ef1ddfcb7d5c25d506880274ca158b1acc43f3257dc17845f9c14  Optimized/v17x/Dataset/ckpt/g6a/composite_table.mat
+# R2 Designed rules: Rule (as written) & Rule-cal (calibrated) (2 schemes)
+292ab1a47b32baf3d6f4636fa934b9cc742eb3cd322e471a38ebe1881650f80a  Optimized/v17x/Dataset/ckpt/r2_rule/select.mat
+# v17 code rules: OLLA, Multi-OLLA, Baseline (3 schemes; plus Rule/evaluator)
+0c1bb8b7a697e123d3dde1904a0bc5dcb4d96d1b10799b1aa02b2c8149faff85  Optimized/v17x/evalPolicy_presub.m
+4492e73499751c2ba031b9b8b6ab87911d36372a563a4b8e4c9f3d7bf49d1591  Optimized/v17/evalPolicy_v17.m

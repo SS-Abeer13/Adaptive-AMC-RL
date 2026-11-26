@@ -1,0 +1,62 @@
+======================================================================
+M4 (GP RTT 0)
+======================================================================
+Max abs diff between Context and Fixed across all traces:
+  scheduled: 0.0
+  acked:     0.0
+  Identical: True
+
+Mode: scheduled
+----------------------------------------------------------------------
+Fixed                  | margin= -1.73% | 90% CI [ -2.23,  -1.24] | raw p=2.455e-09 | Holm p=1.718e-08 | LOSES
+Context                | margin= -1.73% | 90% CI [ -2.23,  -1.24] | raw p=2.455e-09 | Holm p=1.718e-08 | LOSES
+OLLA                   | margin= +0.15% | 90% CI [ -0.41,  +0.72] | raw p=9.632e-01 | Holm p=1.000e+00 | TIE / NO DIFF
+OLLA-tuned             | margin= -0.90% | 90% CI [ -1.50,  -0.30] | raw p=1.639e-02 | Holm p=8.195e-02 | TIE / NO DIFF
+Multi-OLLA             | margin= -0.77% | 90% CI [ -1.35,  -0.20] | raw p=3.180e-02 | Holm p=1.272e-01 | TIE / NO DIFF
+FixedPU                | margin= -1.04% | 90% CI [ -1.25,  -0.83] | raw p=6.144e-16 | Holm p=4.915e-15 | LOSES
+Bandit (global)        | margin= +0.15% | 90% CI [ -0.41,  +0.72] | raw p=9.632e-01 | Holm p=1.000e+00 | TIE / NO DIFF
+Bandit (delay class)   | margin= +0.51% | 90% CI [ -0.03,  +1.04] | raw p=1.981e-01 | Holm p=5.943e-01 | TIE / NO DIFF
+Baseline               | margin= +7.07% | 90% CI [ +6.30,  +7.83] | raw p=1.621e-39 | Holm p=1.459e-38 | BEATS
+
+Mode: acked
+----------------------------------------------------------------------
+Fixed                  | margin= +0.81% | 90% CI [ +0.40,  +1.22] | raw p=2.535e-04 | Holm p=5.071e-04 | BEATS
+Context                | margin= +0.81% | 90% CI [ +0.40,  +1.22] | raw p=2.535e-04 | Holm p=5.071e-04 | BEATS
+OLLA                   | margin= -5.05% | 90% CI [ -5.51,  -4.60] | raw p=1.198e-52 | Holm p=8.387e-52 | LOSES
+OLLA-tuned             | margin= -5.06% | 90% CI [ -5.50,  -4.62] | raw p=1.172e-54 | Holm p=9.373e-54 | LOSES
+Multi-OLLA             | margin= -2.89% | 90% CI [ -3.35,  -2.42] | raw p=9.702e-21 | Holm p=3.881e-20 | LOSES
+FixedPU                | margin= +0.70% | 90% CI [ +0.53,  +0.87] | raw p=3.478e-12 | Holm p=1.043e-11 | BEATS
+Bandit (global)        | margin= -5.05% | 90% CI [ -5.51,  -4.60] | raw p=1.198e-52 | Holm p=8.387e-52 | LOSES
+Bandit (delay class)   | margin= -4.53% | 90% CI [ -4.96,  -4.10] | raw p=8.485e-49 | Holm p=4.243e-48 | LOSES
+Baseline               | margin=-10.03% | 90% CI [-10.64,  -9.41] | raw p=2.766e-71 | Holm p=2.489e-70 | LOSES
+======================================================================
+M2 (DL RTT 0)
+======================================================================
+Max abs diff between Context and Fixed across all traces:
+  scheduled: 0.125
+  acked:     0.1824581430745814
+  Identical: False
+
+Mode: scheduled
+----------------------------------------------------------------------
+Fixed                  | margin= +0.93% | 90% CI [ +0.72,  +1.13] | raw p=5.603e-11 | Holm p=1.121e-10 | BEATS
+Context                | margin= +0.43% | 90% CI [ +0.21,  +0.64] | raw p=1.696e-02 | Holm p=1.696e-02 | BEATS
+OLLA                   | margin= +2.50% | 90% CI [ +2.23,  +2.77] | raw p=1.485e-39 | Holm p=8.909e-39 | BEATS
+OLLA-tuned             | margin= +2.50% | 90% CI [ +2.23,  +2.77] | raw p=1.485e-39 | Holm p=8.909e-39 | BEATS
+Multi-OLLA             | margin= +2.30% | 90% CI [ +2.05,  +2.55] | raw p=1.675e-39 | Holm p=8.909e-39 | BEATS
+FixedPU                | margin= +1.00% | 90% CI [ +0.80,  +1.20] | raw p=3.143e-15 | Holm p=9.430e-15 | BEATS
+Bandit (global)        | margin=+12.57% | 90% CI [+12.09, +13.06] | raw p=4.211e-83 | Holm p=3.790e-82 | BEATS
+Bandit (delay class)   | margin=+12.57% | 90% CI [+12.09, +13.06] | raw p=4.211e-83 | Holm p=3.790e-82 | BEATS
+Baseline               | margin= +4.73% | 90% CI [ +4.40,  +5.06] | raw p=2.975e-64 | Holm p=2.082e-63 | BEATS
+
+Mode: acked
+----------------------------------------------------------------------
+Fixed                  | margin= +0.93% | 90% CI [ +0.69,  +1.17] | raw p=4.553e-10 | Holm p=9.107e-10 | BEATS
+Context                | margin= +0.31% | 90% CI [ +0.07,  +0.55] | raw p=1.229e-01 | Holm p=1.229e-01 | TIE / NO DIFF
+OLLA                   | margin= +2.49% | 90% CI [ +2.19,  +2.79] | raw p=1.013e-34 | Holm p=6.079e-34 | BEATS
+OLLA-tuned             | margin= +2.49% | 90% CI [ +2.19,  +2.79] | raw p=1.013e-34 | Holm p=6.079e-34 | BEATS
+Multi-OLLA             | margin= +2.37% | 90% CI [ +2.07,  +2.66] | raw p=1.862e-32 | Holm p=7.447e-32 | BEATS
+FixedPU                | margin= +1.20% | 90% CI [ +0.99,  +1.40] | raw p=3.405e-18 | Holm p=1.021e-17 | BEATS
+Bandit (global)        | margin=+12.88% | 90% CI [+12.31, +13.45] | raw p=8.125e-82 | Holm p=7.312e-81 | BEATS
+Bandit (delay class)   | margin=+12.88% | 90% CI [+12.31, +13.45] | raw p=8.125e-82 | Holm p=7.312e-81 | BEATS
+Baseline               | margin= +4.67% | 90% CI [ +4.26,  +5.07] | raw p=4.193e-52 | Holm p=2.935e-51 | BEATS

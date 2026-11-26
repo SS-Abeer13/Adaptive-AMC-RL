@@ -1,0 +1,14 @@
+HR1 headroom analysis (B=20000, rng 20261111, 5-fold cross-fitting by trace)
+M1_dl_rtt8 | Fixed: 58528 decisions, 500 traces
+M1_dl_rtt8 | Context table: 58401 decisions, 500 traces
+M1_dl_rtt8 | Context-joint-500: 58337 decisions, 500 traces
+M1_dl_rtt8 | M1: 587016 decisions, 500 traces
+M1_dl_rtt8 | NR2: 566932 decisions, 500 traces
+M3_gp_rtt8 | Fixed: 38455 decisions, 500 traces
+M3_gp_rtt8 | Context table: 38455 decisions, 500 traces
+M3_gp_rtt8 | Context-joint-500: 44484 decisions, 500 traces
+M3_gp_rtt8 | A2C_case: 379380 decisions, 500 traces
+P1: not supported | 2.382 [1.883, 2.887] | M3 residual-restricted learnable headroom over Fixed (A2C_case run) has 95 % upper bound < 0.5 %
+P2: supported | 5.837 [5.620, 6.053] | M1 residual-restricted learnable headroom over the combined table around the non-oracle base (NR2 run) has 95 % lower bound > 0
+P3: supported | 0.245 [0.110, 0.380] | M1: residual-restricted headroom over the combined table is larger around the non-oracle base (NR2 run) than around the oracle base (M1 run): 95 % lower bound of the difference > 0
+P4: supported | 4.678 [4.012, 5.356] | M1: learnable headroom over the Context table (Context-table run) is larger for users in speed classes 2-3 than in speed class 1 (< 10 m/s): 95 % lower bound of the difference > 0

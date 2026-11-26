@@ -1,0 +1,4 @@
+case_id,tag,evidence_eligible,eligibility_note
+32,E4c_deadline,no,"v10 exploratory case whose evaluation traces overlapped the run that motivated it; superseded as evidence by the v12 replication on fresh traces, which failed Claim B"
+33,E5_mixed_nofeat,yes,"exploratory ablation; the win was never replicated"
+46,X1_pf,no,"pre-registered scheme (ensemble) failed; the win=1 row is the per-seed mean, which was not the pre-registered scheme (corrected verdict)"

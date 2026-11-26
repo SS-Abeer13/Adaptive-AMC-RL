@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 P = lambda *a: os.path.join(ROOT, *a)
 OUT = os.path.join(HERE, 'files')
 if os.path.isdir(OUT): shutil.rmtree(OUT)
-for d in ['S1_registry', 'S2_comparator_tables', 'S3_preregistration', 'S4_literature', 'S5_audit']: os.makedirs(os.path.join(OUT, d))
+for d in ['S1_registry', 'S2_comparator_tables', 'S3_preregistration', 'S4_literature', 'S5_audit', 'S6_reports']: os.makedirs(os.path.join(OUT, d))
 GIT_ENV = dict(os.environ, TZ='Asia/Dhaka')   # the run PC's time zone (UTC+6); the runner heartbeat is written in local time
 git = lambda *a: subprocess.run(['git', '-C', ROOT, *a], capture_output=True, text=True, env=GIT_ENV).stdout.strip()
 sha = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
@@ -22,6 +22,25 @@ reg = cp(P('Optimized', 'case_registry.csv'), 'S1_registry')
 rob = cp(P('paper', 'ledger', 'robustness_cases.csv'), 'S1_registry')
 R = list(csv.DictReader(open(reg, newline=''))); RB = list(csv.DictReader(open(rob, newline='')))
 n_cases = len({r['case_id'] for r in R}); n_rows = len(R)
+rt = sum(int(x.get('tests') or 0) for x in RB)
+EL = {x['case_id']: x for x in csv.DictReader(open(P('paper', 'ledger', 'registry_eligibility.csv'), newline='', encoding='utf-8'))}
+cp(P('paper', 'ledger', 'registry_eligibility.csv'), 'S1_registry')
+elig_rows, seen = [], set()
+for r in R:
+    if r['case_id'] in seen: continue
+    seen.add(r['case_id'])
+    crs = [x for x in R if x['case_id'] == r['case_id']]
+    won = any(x['win'] == '1' for x in crs)
+    if r['case_id'] in EL: e, note = EL[r['case_id']]['evidence_eligible'], EL[r['case_id']]['eligibility_note']
+    elif not r['status'].startswith('valid'): e, note = 'no', r['status']
+    else: e, note = 'yes', ''
+    elig_rows.append(dict(case_id=r['case_id'], version=r['version'], tag=r['tag'], role=r['role'], status=r['status'], any_win=('yes' if won else 'no'), evidence_eligible=e, eligibility_note=note))
+elig = os.path.join(OUT, 'S1_registry', 'case_eligibility.csv')
+with open(elig, 'w', newline='', encoding='utf-8') as fh:
+    w = csv.DictWriter(fh, fieldnames=list(elig_rows[0]), lineterminator='\n'); w.writeheader(); w.writerows(elig_rows)
+n_elig = sum(1 for x in elig_rows if x['evidence_eligible'] == 'yes')
+n_win_valid = sum(1 for x in elig_rows if x['any_win'] == 'yes' and x['status'].startswith('valid') and x['case_id'] != '46')
+n_win_elig = sum(1 for x in elig_rows if x['any_win'] == 'yes' and x['evidence_eligible'] == 'yes')
 rc, rr = sum(int(x['cases']) for x in RB), sum(int(x['rows']) for x in RB)
 
 # ---------------- S2 comparator tables (stage, file, title)
@@ -46,7 +65,13 @@ T2 = [('v16', P('Optimized', 'v16', 'paper', 'table_core.csv'), 'v16 cases: resi
       ('R1c fits', P('paper', 'analysis', 'out', 'r1c_fits.csv'), 'R1c: each fit against the ten-seed RL policy of its trace set (margin: RL relative to the learner)'),
       ('R1c rules', P('paper', 'analysis', 'out', 'r1c_rules.csv'), 'R1c: each cell fit against the nine calibrated comparators of its cell (margin: learner relative to the comparator; Holm over nine)'),
       ('R6 fits', P('paper', 'analysis', 'out', 'r6_fits.csv'), 'R6: RL with the full action set (-4..+2) against each GBT-full-ACK draw on the NR2 traces (margin: RL-full relative to the draw; Holm over four)'),
-      ('R6 secondary', P('paper', 'analysis', 'out', 'r6_secondary.csv'), 'R6 secondary, descriptive: RL-full against NR2, the combined table and the GBT-res-ACK draws; gap closure')]
+      ('R6 secondary', P('paper', 'analysis', 'out', 'r6_secondary.csv'), 'R6 secondary, descriptive: RL-full against NR2, the combined table and the GBT-res-ACK draws; gap closure'),
+      ('Side metrics', P('paper', 'analysis', 'out', 'presub_side_metrics.csv'), 'Learners and rules on the NR2 traces: on-time ratio, goodput, first-transmission BLER and fairness indices (Jain, edge5, edge10, bottom decile), from the exact evaluation path; includes the learners trained on simulator labels (GBT-res, GBT-full)'),
+      ('HR1', P('paper', 'analysis', 'out', 'hr_values.csv'), 'HR1: one-step headroom over each calibrated table, by estimator (descriptive)'),
+      ('FT primary', P('Optimized', 'v17x', 'Dataset', 'ft', 'ft_primary.csv'), 'FT: fresh-trace confirmation, primary families FT-H1 to H3 (as-run accounting), per draw; evaluated once on 500 fresh traces after all policies were frozen'),
+      ('FT primary resolved', P('Optimized', 'v17x', 'Dataset', 'ft', 'out_resolved', 'ft_primary.csv'), 'FT primary families under the resolved end-of-trace accounting (secondary)'),
+      ('FT secondary', P('Optimized', 'v17x', 'Dataset', 'ft', 'ft_secondary.csv'), 'FT secondary families, per draw'),
+      ('FT schemes', P('Optimized', 'v17x', 'Dataset', 'ft', 'ft_schemes.csv'), 'FT: on-time ratio of every frozen scheme on the fresh traces, next to its value on the NR2 traces')]
 s2 = []
 for tag, src, title in T2:
     name = re.sub(r'[^A-Za-z0-9]+', '_', tag).strip('_') + '__' + os.path.basename(src)
@@ -67,9 +92,12 @@ stage_of = {'W1_warmup_prereg.md': ('W1', 'w1', 'Optimized/v17x/Dataset/table_wa
             'R_presub_prereg.md': ('R1-R5', 'r1_gbt', 'Optimized/v17x/Dataset/presub/pertrace.csv'),
             'R1b_ack_prereg.md': ('R1b', 'r1b_ack', 'Optimized/v17x/Dataset/presub/r1b/pertrace_r1b.csv'),
             'R1c_ack_prereg.md': ('R1c', 'r1c', 'Optimized/v17x/Dataset/presub/r1c/pertrace_r1c.csv'),
-            'R6_fullaction_prereg.md': ('R6', 'r6_fullaction', 'Optimized/v17x/Dataset/presub/r6/pertrace_r6.csv')}
+            'R6_fullaction_prereg.md': ('R6', 'r6_fullaction', 'Optimized/v17x/Dataset/presub/r6/pertrace_r6.csv'),
+            'S_EOT_PF_prereg.md': ('S-EOT, D-PF', 'eot', 'Optimized/v17x/Dataset/eot/eot_summary.txt'),
+            'FT_fresh_trace_prereg.md': ('FT, S-SYM, T-GBT', 'ft', 'Optimized/v17x/Dataset/ft/ft_primary.csv'),
+            'FT_seed_amendment.md': ('FT seeds', 'ft', 'Optimized/v17x/Dataset/ft/ft_primary.csv')}
 hb = open(P('Optimized', 'v17x', 'logs', 'heartbeat_v17x.txt'), encoding='utf-8', errors='ignore').read().splitlines()
-starts = [(l[:19], re.search(r'stages: ([^;]+);', l).group(1).split(',')) for l in hb if '| runner' in l and 'start (stages:' in l]
+starts = [(l[:19], [x for x in re.search(r'stages: ([^;]*);', l).group(1).split(',') if x.strip()]) for l in hb if '| runner' in l and 'start (stages:' in l]
 rows3 = []
 for h, f in fz:
     src = os.path.normpath(os.path.join(P('paper', 'proposals'), f))
@@ -96,6 +124,26 @@ if bad or late: raise SystemExit(f'freeze check failed: hash mismatch {bad}, run
 for src in [P('Optimized', 'v17x', 'AUDIT_config_all_stages.md'), P('Optimized', 'v17x', 'Dataset', 'presub', 'G2_D1_verification_note.md')]:
     cp(src, 'S5_audit')
 
+# ---------------- S6 diagnostic and sensitivity reports (verbatim, UTF-8)
+REP = [('S-EOT: end-of-trace accounting sensitivity', P('Optimized', 'v17x', 'Dataset', 'eot', 'eot_summary.txt')),
+       ('S-EOT: share of packets affected', P('Optimized', 'v17x', 'Dataset', 'eot', 'exposure_table.txt')),
+       ('D-PF: PF-averaging definition, M2 and M4', P('Optimized', 'v17x', 'Dataset', 'eot', 'pf_diag_M2_M4.txt'), 'Note: the suggested paper wording at the end of this report (``their verdicts are unchanged\'\') is superseded. Under ACK-time PF averaging the RTT-0 goodput policy (M4) beats Fixed but loses to OLLA (per-comparator detail below), so the paper uses pre-registered row (b) and restricts the full-buffer claim to RTT 8.'),
+       ('D-PF: per-comparator detail', P('Optimized', 'v17x', 'Dataset', 'eot', 'pf_diag_M4_detail.txt')),
+       ('D-RS: retransmission scheduled-rate diagnostic', P('Optimized', 'v17x', 'Dataset', 'eot', 'diag_rsched_retx.txt')),
+       ('FT: summary', P('Optimized', 'v17x', 'Dataset', 'ft', 'ft_summary.txt')),
+       ('FT: end-of-trace exposure', P('Optimized', 'v17x', 'Dataset', 'ft', 'ft_exposure.txt')),
+       ('S-SYM: symmetric seed-level check of frozen verdicts', P('Optimized', 'v17x', 'Dataset', 'ft', 'ssym_summary.txt')),
+       ('T-GBT: decision time of the supervised learner', P('Optimized', 'v17x', 'Dataset', 'ft', 'tgbt_timing.txt')),
+       ('HR1: headroom report', P('paper', 'analysis', 'out', 'hr_report.txt'))]
+s6 = []
+for item in REP:
+    title, src = item[0], item[1]
+    raw = open(src, 'rb').read()
+    txt = raw.decode('utf-16') if raw[:2] in (b'\xff\xfe', b'\xfe\xff') else raw.decode('utf-8')
+    dst = os.path.join(OUT, 'S6_reports', os.path.basename(src))
+    open(dst, 'w', encoding='utf-8', newline='\n').write(txt.replace('\r\n', '\n'))
+    s6.append((title, dst, os.path.relpath(src, ROOT), item[2] if len(item) > 2 else ''))
+
 # ---------------- S4 literature screening list (the learning-based LA papers counted in Sec. I)
 LM = list(csv.DictReader(open(P('paper', 'lit', 'lit_matrix.csv'), newline='', encoding='utf-8')))
 S4C = ['citation_key', 'year', 'venue', 'rl_method', 'baselines_used', 'baselines_tuned', 'calibrated_rule_baseline', 'information_parity', 'read_depth']
@@ -120,7 +168,7 @@ def longtable(path, cols=None, caption='', size=r'\scriptsize', sep='3pt'):
     out += [' & '.join(esc(r[c]) for c in cols) + r' \\' for r in rows]
     out += [r'\bottomrule', r'\end{longtable}', r'\normalsize']
     return '\n'.join(out)
-tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geometry}', r'\usepackage{longtable,booktabs,pdflscape,array,calc}', r'\usepackage[hidelinks]{hyperref}', r'\setcounter{secnumdepth}{0}', r'\setcounter{tocdepth}{2}',
+tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geometry}', r'\usepackage{longtable,booktabs,pdflscape,array,calc,fvextra}', r'\usepackage[hidelinks]{hyperref}', r'\setcounter{secnumdepth}{0}', r'\setcounter{tocdepth}{2}',
        r'\usepackage{fontspec}', r'\setmainfont{DejaVu Serif}', r'\setmonofont{DejaVu Sans Mono}[Scale=0.85]', r'\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}',
        r'\title{Supplementary material for ``Is Reinforcement Learning Necessary for Link Adaptation? A Pre-Registered Comparison with Calibrated Rules and Supervised Learning''}',
        r'\date{Generated from repository commit ' + esc(git('rev-parse', '--short', 'HEAD')) + '}', r'\sloppy', r'\setlength{\emergencystretch}{3em}', r'\begin{document}', r'\maketitle', r'\tableofcontents', r'\clearpage',
@@ -128,14 +176,18 @@ tex = [r'\documentclass[10pt]{article}', r'\usepackage[a4paper,margin=14mm]{geom
        'All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \\texttt{MANIFEST.sha256}. '
        f'S1 is the case registry: {n_cases} cases and {n_rows} scheme evaluations of the main round (v9--v17), plus the ledger of the {rc} cases and {rr} scheme evaluations of the pre-registered robustness checks ({n_cases + rc} cases, {n_rows + rr} scheme evaluations in total). '
        'S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b, their replication R1c and the full-action RL run R6); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. '
-       'S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. '
+       'S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Sections I and II. '
        'S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \\texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. '
        'S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\\texttt{Optimized/v17x/AUDIT\\_config\\_all\\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\\texttt{G2\\_D1\\_verification\\_note.md}). '
-       'Margins are relative differences in percent, paired per trace; ``beats'' follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\\,\\% CI lower bound above zero).',
+       'S6 reproduces the diagnostic and sensitivity reports (end-of-trace accounting, PF-averaging definition, fresh-trace summary, symmetric seed check, decision time, headroom) verbatim. '
+       f'Evidence eligibility: a valid status alone does not make a case evidence. Of the {n_cases} main-round cases, {n_elig} are eligible as evidence; cases with a win: {n_win_valid} with a valid status and corrected verdict, {n_win_elig} eligible (S1, \\texttt{{case\\_eligibility.csv}}). '
+       'Margins are relative differences in percent, paired per trace; ``beats\'\' follows the definition in Section V of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\\,\\% CI lower bound above zero).',
        r'\clearpage', r'\begin{landscape}', r'\section{S1. Case registry}',
        longtable(reg, ['case_id', 'version', 'tag', 'role', 'rl_scheme', 'primary_metric', 'rl_value', 'best_rule', 'margin_vs_best_rule_pct', 'claimA', 'claimB', 'win', 'holm_vs_best', 'n_seeds', 'n_traces', 'status'],
                  f'Registry of the main round: {n_cases} cases, {n_rows} scheme evaluations (\\texttt{{case\\_registry.csv}}; the \\texttt{{correction}} column is in the CSV).', r'\tiny', '1.6pt'),
-       longtable(rob, ['stage', 'description', 'cases', 'rows', 'prereg'], f'Ledger of the pre-registered robustness checks: {rc} cases, {rr} scheme evaluations.', r'\scriptsize'),
+       longtable(elig, ['case_id', 'version', 'tag', 'role', 'status', 'any_win', 'evidence_eligible', 'eligibility_note'],
+                 f'Evidence eligibility of the {n_cases} main-round cases ({n_elig} eligible). A valid status is not enough: exceptions are listed in \\texttt{{registry\\_eligibility.csv}}. Cases with a win: {n_win_valid} valid with corrected verdict, {n_win_elig} eligible as evidence.', r'\tiny', '1.6pt'),
+       longtable(rob, ['stage', 'description', 'cases', 'rows', 'tests', 'prereg'], f'Ledger of the pre-registered robustness checks: {rc} cases, {rr} scheme evaluations, {rt} tests registered directly.', r'\scriptsize'),
        r'\section{S2. Comparator tables}']
 SEL = {'A6': ['cell', 'pf_mode', 'rtt', 'nproc', 'scheme', 'goodput_mean', 'goodput_ci_lo', 'goodput_ci_hi', 'jain_mean', 'edge5_mean'],
        'NR-G10 (descriptive)': ['cell', 'n_traces', 'n_seeds', 'ctxj_mean', 'primary_mean', 'margin_pct', 'ci90_lo', 'ci90_hi', 'wilcoxon_p', 'hier_ci95_lo', 'hier_ci95_hi', 'seeds_above']}
@@ -148,7 +200,11 @@ tex += [r'\section{S3. Pre-registrations, hashes and freeze timeline}',
         r'\section{S4. Literature screening list}',
         longtable(s4, ['citation_key', 'year', 'venue', 'rl_method', 'baselines_tuned', 'calibrated_rule_baseline', 'information_parity', 'read_depth'],
                   f'The {len(scr)} learning-based link-adaptation papers screened for Section I, with the codes used there (calibrated-rule baseline: yes {cnt["yes"]}, partial {cnt["partial"]}, no {cnt["no"]}, unclear {cnt["unclear"]}). Codes were assigned by one coder from the abstract and the accessible text (column read\\_depth); a second coding was not done. Source: \\texttt{{paper/lit/lit\\_matrix.csv}}, which also gives baselines, setting and relevance.', r'\tiny', '2pt'),
-        r'\end{landscape}']
+        r'\section{S6. Diagnostic and sensitivity reports}']
+for title, dst, src, note in s6:
+    tex += [r'\subsection*{' + esc(title) + r'}\addcontentsline{toc}{subsection}{' + esc(title) + '}', r'\noindent Source: \texttt{' + esc(src) + r'}\par'] + ([r'\noindent\textbf{' + esc(note) + r'}\par\smallskip'] if note else []) + [
+            r'\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{' + os.path.relpath(dst, HERE).replace(os.sep, '/') + '}']
+tex += [r'\end{landscape}']
 for h, f in fz:
     b = os.path.basename(f)
     if b.endswith('.md'):
@@ -160,10 +216,12 @@ open(os.path.join(HERE, 'supplement.tex'), 'w', encoding='utf-8', newline='\n').
 open(os.path.join(OUT, 'README.md'), 'w', encoding='utf-8', newline='\n').write(f"""# Supplementary material
 
 - `S1_registry/case_registry.csv`: main round, {n_cases} cases, {n_rows} scheme evaluations (v9--v17), with the `correction` column.
-- `S1_registry/robustness_cases.csv`: pre-registered robustness checks, {rc} cases, {rr} scheme evaluations. Project total: {n_cases + rc} cases, {n_rows + rr} scheme evaluations.
-- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c, R1/R2, R4, R5 frozen and G2-corrected, R1b, R1c, R6). For v9--v15 the registry row gives the margin over the best rule.
+- `S1_registry/robustness_cases.csv`: pre-registered robustness checks, {rc} cases, {rr} scheme evaluations. Project total: {n_cases + rc} cases, {n_rows + rr} scheme evaluations; Bonferroni pool at most {(n_rows + rr) * 10 + rt} tests.
+- `S2_comparator_tables/`: per-case comparator tables (v16, v17, W1, G6, NR1, NR2, G10, NR-G10, NR-G10 descriptive, A6, A3c, R1/R2, R4, R5 frozen and G2-corrected, R1b, R1c, R6, side metrics, HR1, FT). For v9--v15 the registry row gives the margin over the best rule.
 - `S3_preregistration/`: every frozen pre-registration and analysis script listed in `FREEZE.sha256`, the earlier freeze files, and `freeze_timeline.csv` (hash, freeze commit, first runner start, results commit).
 - `S4_literature/screened_learning_LA_papers.csv`: the {len(scr)} learning-based LA papers screened for the introduction, with their codes (calibrated-rule baseline yes {cnt['yes']} / partial {cnt['partial']} / no {cnt['no']} / unclear {cnt['unclear']}).
+- `S6_reports/`: diagnostic and sensitivity reports (S-EOT, D-PF, D-RS, FT, S-SYM, T-GBT, HR1), UTF-8 copies.
+- `S1_registry/case_eligibility.csv` and `registry_eligibility.csv`: evidence eligibility of every main-round case; {n_win_elig} of {n_win_valid} valid winning cases are eligible (E4c is not: overlapping traces).
 - `S5_audit/`: `AUDIT_config_all_stages.md` and `G2_D1_verification_note.md`. Deviation D1: a symmetric configuration audit of all 13 stages found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy.
 - `MANIFEST.sha256`: SHA-256 of every file in this archive. Verify with `sha256sum -c MANIFEST.sha256` from this folder.
 

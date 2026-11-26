@@ -1,4 +1,4 @@
-# FREEZE v13 (amendment 11, 17 Nov 2026: new stage R6 / r6_fullaction, residual RL with the full action set -4..+2 against the ACK-trained one-step learner; optional R6b true-SINR model on the exploration logs; analysis script r6_stats.py). Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
+# FREEZE v16 (amendment 14, 25 Nov 2026: FT seed ranges moved to 7000000+ / 7100000+ / 7200000+; FT_seed_amendment.md). Verify: cd paper/proposals && sha256sum -c FREEZE.sha256
 c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd  G6_calibration_budget_prereg.md
 3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d  W1_warmup_prereg.md
 ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258  NR1_nonoracle_residual_prereg.md
@@ -10,7 +10,7 @@ d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a  compute_basis.
 1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c  NR2_confirmatory_prereg.md
 c73b4157438f3f91397c6ba32159b494dd9e57dade0917052bca3f112656f71f  ../analysis/nr2_stats.py
 bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08  NR_G10_operating_grid_prereg.md
-f4c628766d398cc6f653ecbfe62a43a63b0311a57531e0d1d17675215ac29e45  AMENDMENTS.md
+68efa5602f2df2da6f503d7815327c720944753a3b96d98d12f8fc71ff53e054  AMENDMENTS.md
 ba7978b105408813f3f4dfb92d73f93757c64e43c30a5a40925ea018ee26eed9  HR1_headroom_prereg.md
 83f53ca0d67ec5267936e0f8fbc86b9be1c54a43eb08eb6a7dfec96847ad212b  ../analysis/hr_stats.py
 3e6c079f15bc9226ccf0e4cdd336f1af64c55d7778676246218815f5e022ea3a  R_presub_prereg.md
@@ -21,3 +21,8 @@ a23599218d963a15eec6565a3fcb87edd23d33baec2833b568d94c2d1653fe7e  ../analysis/r1
 fb33c8be96a109c099afe2caadac7cd94b0d24c7feb78367427751b327cdc63e  ../analysis/r1c_stats.py
 a8899c0f4582ed37f0b52471439903264dca97743f5c5b55f639fe976c559a6a  R6_fullaction_prereg.md
 f6257c7908533f46c81f81250bb06713770bc29c14ce2657ea17cde646337e7d  ../analysis/r6_stats.py
+c4211dc2720845a0cf2035933373e548dfe970fa217224ab279f47b4f8328fc0  S_EOT_PF_prereg.md
+5ada6b8e6105199e8dec50edb9decc53d82fe451be3418a6832a5d0d26a6c570  FT_fresh_trace_prereg.md
+059e18a18328210589c94bbd58798b7a24b3da43203c225a21d12434fa6b3df9  FT_objects.sha256
+598767193f5b0ee0e8a7159db8cabc2d995d4e1c36ef566363d532b786dd7130  ../analysis/ft_stats.py
+b47c300e6b81e49872ed53a113e084e42aeaf208491d3acd648e009af02ac623  FT_seed_amendment.md

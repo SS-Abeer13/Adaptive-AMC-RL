@@ -26,9 +26,11 @@ Recommended wording for the paper: *"Over the whole study we registered 67 cases
 | v15 | 3 | 6 | 0 | **superseded** |
 | v16 | 6 | 20 | 3 (K2 valid; K1 offset, L1 superseded) | K1, K3, L1, L3 superseded |
 | v17 | 4 | 12 | 2 (M1, M2) | valid |
-| **Total** | **67** | **108** | **11** by corrected verdict (**9 valid**) | 60 valid, 7 superseded (18 of 108 rows) |
+| **Total** | **67** | **108** | **11** by corrected verdict (**9 valid**; **8 eligible as evidence**, see below) | 60 valid, 7 superseded (18 of 108 rows) |
 
 Roles across cases: 12 primary, 6 secondary, 16 robustness, 33 ablation.
+
+**Evidence eligibility (review issue 3, 26 Nov 2026).** A valid status alone does not make a case evidence. `ledger/registry_eligibility.csv` lists the exceptions: v10 E4c is not eligible, because its evaluation traces overlapped the run that motivated it, and v13 X1 failed as pre-registered. Superseded cases are never eligible. Winning cases eligible as evidence: **8** (macro `NRegWinCases`; `NRegWinCasesValid` = 9 keeps the status-only count). The supplement's S1 lists the eligibility of every case.
 
 ## 2. Why earlier documents say 15, 17, 26, 35 or 39
 

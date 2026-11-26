@@ -1,0 +1,55 @@
+FT Summary (trace_set=FT)
+FT-H1 (GBT-res-ACK fits 1-4 vs NR2): holds on fresh traces
+FT-H2 (GBT-full-ACK fits 1-4 vs RL-full): holds on fresh traces
+FT-H3 (NR2 vs Context-joint-500): CONFIRM
+Wording (H1/H2): "On a fresh trace bank, evaluated once after all policies were frozen, every fit of the supervised learner again beat RL, with the same action set and with the full one."
+
+--- Primary Comparisons ---
+FT-H1 | NR2 vs GBT-res-ACK | fit=1 | margin=-3.43% | 90% CI [-3.77, -3.08] | 95% hier CI [-4.46, -2.49] | Holm p=3.14e-43 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H1 | NR2 vs GBT-res-ACK | fit=2 | margin=-4.67% | 90% CI [-5.01, -4.33] | 95% hier CI [-5.68, -3.76] | Holm p=1.39e-60 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H1 | NR2 vs GBT-res-ACK | fit=3 | margin=-3.09% | 90% CI [-3.44, -2.75] | 95% hier CI [-4.13, -2.16] | Holm p=1.09e-37 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H1 | NR2 vs GBT-res-ACK | fit=4 | margin=-4.16% | 90% CI [-4.51, -3.82] | 95% hier CI [-5.19, -3.24] | Holm p=1.98e-54 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H2 | RL-full vs GBT-full-ACK | fit=1 | margin=-7.13% | 90% CI [-7.58, -6.67] | 95% hier CI [-8.01, -6.31] | Holm p=6.15e-68 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H2 | RL-full vs GBT-full-ACK | fit=2 | margin=-9.29% | 90% CI [-9.75, -8.83] | 95% hier CI [-10.16, -8.48] | Holm p=4.18e-79 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H2 | RL-full vs GBT-full-ACK | fit=3 | margin=-7.75% | 90% CI [-8.21, -7.29] | 95% hier CI [-8.63, -6.94] | Holm p=6.14e-71 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H2 | RL-full vs GBT-full-ACK | fit=4 | margin=-8.16% | 90% CI [-8.63, -7.70] | 95% hier CI [-9.05, -7.34] | Holm p=4.9e-73 | RL seeds ahead=0/10 | SUP-BEATS
+FT-H3 | NR2 vs Context-joint-500 | fit=0 | margin=+2.53% | 90% CI [+2.12, +2.95] | 95% hier CI [+1.39, +3.57] | Holm p=1.02e-20 | RL seeds ahead=9/10 | CONFIRM
+
+--- Secondary Comparisons ---
+FT-S1 | NR2 vs GBT-full-ACK | fit=1 | margin=-7.58% | 90% CI [-8.09, -7.07] | 95% hier CI [-8.63, -6.59] | Holm p=6.01e-65 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | NR2 vs GBT-full-ACK | fit=2 | margin=-9.73% | 90% CI [-10.23, -9.23] | 95% hier CI [-10.76, -8.78] | Holm p=2.2e-78 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | NR2 vs GBT-full-ACK | fit=3 | margin=-8.20% | 90% CI [-8.71, -7.69] | 95% hier CI [-9.27, -7.23] | Holm p=9.36e-69 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | NR2 vs GBT-full-ACK | fit=4 | margin=-8.61% | 90% CI [-9.12, -8.10] | 95% hier CI [-9.66, -7.65] | Holm p=3.82e-71 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | RL-full vs GBT-res-ACK | fit=1 | margin=-2.96% | 90% CI [-3.32, -2.60] | 95% hier CI [-3.85, -2.16] | Holm p=1.22e-32 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | RL-full vs GBT-res-ACK | fit=2 | margin=-4.20% | 90% CI [-4.57, -3.83] | 95% hier CI [-5.09, -3.40] | Holm p=1.73e-49 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | RL-full vs GBT-res-ACK | fit=3 | margin=-2.62% | 90% CI [-2.99, -2.25] | 95% hier CI [-3.53, -1.82] | Holm p=7.38e-27 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S1 | RL-full vs GBT-res-ACK | fit=4 | margin=-3.70% | 90% CI [-4.06, -3.33] | 95% hier CI [-4.59, -2.90] | Holm p=2.09e-43 | RL seeds ahead=0/10 | SUP-BEATS
+FT-S2 | NR2 vs Baseline | fit=0 | margin=+18.78% | 90% CI [+17.92, +19.64] | 95% hier CI [+17.15, +20.35] | Holm p=3.93e-80 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs OLLA | fit=0 | margin=+14.28% | 90% CI [+13.57, +14.99] | 95% hier CI [+12.84, +15.64] | Holm p=4.28e-78 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs OLLA-tuned-500 | fit=0 | margin=+10.67% | 90% CI [+10.07, +11.27] | 95% hier CI [+9.36, +11.90] | Holm p=3.06e-72 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs Multi-OLLA | fit=0 | margin=+14.09% | 90% CI [+13.38, +14.80] | 95% hier CI [+12.64, +15.45] | Holm p=9.21e-78 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs Fixed-500 | fit=0 | margin=+4.58% | 90% CI [+4.17, +4.99] | 95% hier CI [+3.42, +5.65] | Holm p=1.12e-49 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs Context-500 | fit=0 | margin=+4.20% | 90% CI [+3.81, +4.60] | 95% hier CI [+3.04, +5.26] | Holm p=1.36e-46 | RL seeds ahead=10/10 | RL-BEATS
+FT-S2 | NR2 vs Rule | fit=0 | margin=+2.60% | 90% CI [+2.23, +2.97] | 95% hier CI [+1.49, +3.62] | Holm p=1.04e-24 | RL seeds ahead=9/10 | RL-BEATS
+FT-S2 | NR2 vs Rule-cal | fit=0 | margin=+2.54% | 90% CI [+2.16, +2.91] | 95% hier CI [+1.43, +3.56] | Holm p=1.14e-23 | RL seeds ahead=9/10 | RL-BEATS
+
+--- Scheme On-Time Ratios (FT vs NR2-trace) ---
+GBT-full-ACK-M1fit1      | seeds= 1 | FT=0.667335 | NR2=0.670985
+GBT-full-ACK-M1fit2      | seeds= 1 | FT=0.683244 | NR2=0.687812
+GBT-full-ACK-M1fit3      | seeds= 1 | FT=0.671872 | NR2=0.672883
+GBT-full-ACK-M1fit4      | seeds= 1 | FT=0.674874 | NR2=0.677930
+GBT-res-ACK-M1fit1       | seeds= 1 | FT=0.638651 | NR2=0.641963
+GBT-res-ACK-M1fit2       | seeds= 1 | FT=0.646941 | NR2=0.650141
+GBT-res-ACK-M1fit3       | seeds= 1 | FT=0.636444 | NR2=0.639933
+GBT-res-ACK-M1fit4       | seeds= 1 | FT=0.643555 | NR2=0.647659
+NR2                      | seeds=10 | FT=0.616759 | NR2=0.616930
+RL-full                  | seeds=10 | FT=0.619775 | NR2=0.622175
+Rule                     | seeds= 1 | FT=0.601144 | NR2=0.600831
+Rule-cal                 | seeds= 1 | FT=0.601501 | NR2=0.600812
+baseline                 | seeds= 1 | FT=0.519241 | NR2=0.524680
+ctx500                   | seeds= 1 | FT=0.591880 | NR2=0.594355
+ctxj500                  | seeds= 1 | FT=0.601534 | NR2=0.600047
+fixed500                 | seeds= 1 | FT=0.589775 | NR2=0.591460
+multi_olla               | seeds= 1 | FT=0.540580 | NR2=0.540603
+olla                     | seeds= 1 | FT=0.539691 | NR2=0.540737
+olla_tuned500            | seeds= 1 | FT=0.557303 | NR2=0.560990

@@ -1,0 +1,1049 @@
+path,category,bytes,sha256
+Optimized/case_registry.csv,case registry and multiplicity ledger,11576,92b645c8c8d1c932e398d0bdd266be01e2ad2e030bf7015d1798eb3d4fced107
+Optimized/v17/Bandit_v17.m,"simulator, trace and CRN generators, stage code",7108,89d45cd393df161ea429e2f15aed92f4dd24090d71c40b9c0f4281ec3b5302f7
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed1.mat,"trained policies, calibrated tables and models",415278,fe8ddc2b4bd4b83ecc743b58b04ba84927198861538513fe7247082d62d56c53
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed10.mat,"trained policies, calibrated tables and models",415180,99268eca2a5a2dbd9ccbe359a7a0fb60874d1eb21de9387ed429c5207f99d62c
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed2.mat,"trained policies, calibrated tables and models",414727,1fcbd1a5dd3ba45c91341da20cbe5e844611364761af0b24d633bb26e876f64b
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed3.mat,"trained policies, calibrated tables and models",414924,ba011dda9886b60e84d361064223ac91e2158da57302f39583afe29e53a2591b
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed4.mat,"trained policies, calibrated tables and models",414903,2c1547ce3fca6e0d5de377a4905141b4e748951d0e17f62c88e84c097c173c99
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed5.mat,"trained policies, calibrated tables and models",415078,23327eb424acc29d535ceaf280837c7b9e5c80e8ba18c7ccb8086c018ef9c8be
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed6.mat,"trained policies, calibrated tables and models",414763,0c11b7d65539d05633dc9af723707551fa97632a754256fce76f9a698c38ab1c
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed7.mat,"trained policies, calibrated tables and models",414986,ad8d71d8901e97604a5ee1bb33d28e693170dba46467aa90ec8311ede5ce7218
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed8.mat,"trained policies, calibrated tables and models",414686,ca3e89205a239feeae966d8271353efd3b7c57fe71b6ee3aad90abe563e9b9b2
+Optimized/v17/Dataset/ckpt/M1_dl_rtt8_seed9.mat,"trained policies, calibrated tables and models",414947,815a3119ab7f2a22e0dcb0b3a743f3d52be5d836c953d6f9b8e1706ccdb0fa81
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed1.mat,"trained policies, calibrated tables and models",323933,c9456180874c833bfa554303286acb6ca8327b20c944f21afa49380d31343625
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed10.mat,"trained policies, calibrated tables and models",324229,e53606a9e28483e237e2cfaba96efac630ab649d7b73d29a43c04dc2a54a5727
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed2.mat,"trained policies, calibrated tables and models",324205,258dac4c4fa3593f81a1ec4b13b8e8d915ac6eec9005ffe982f9f5fd42f8e279
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed3.mat,"trained policies, calibrated tables and models",324445,1680f7d3946cddd79c77b25b572830b559bee542a5adf8f725b4af819009ebfc
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed4.mat,"trained policies, calibrated tables and models",323975,7a02a6ca5002a6143a73e8de11992da16d7bc8bfeff5471698bcbf56c8254812
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed5.mat,"trained policies, calibrated tables and models",323950,06696faeedbf4a0ffac19dbde99bed75534547b84bb2bbbdbaa907ecfd269ac7
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed6.mat,"trained policies, calibrated tables and models",324016,f3b34817b25ed2bb5d5f250092c40f876423f3b6bb3d80d9744a96ce78f31b5e
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed7.mat,"trained policies, calibrated tables and models",324198,7b4505ad8d0b9dfe6095cc877f349d3c723c887a0ab28201b7f5bc0955489de2
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed8.mat,"trained policies, calibrated tables and models",324128,19d558cbc8e56ef93db2ca5d97d48e3ba8be4924e2b141e5d0dfafd5b6f0fc02
+Optimized/v17/Dataset/ckpt/M2_dl_rtt0_seed9.mat,"trained policies, calibrated tables and models",323929,81d72680e9302f5a6d99035b23d553a28975e3e35433305247e34ded654078a6
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed1.mat,"trained policies, calibrated tables and models",255401,d372238ea4927dd4fec48d94f70e9989e0275a379611f2122bb6274783c94b21
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed10.mat,"trained policies, calibrated tables and models",169629,24ae79d0d771a4df8ce2ed7e5f37bab5f897f2fd026d1687c04dd69b1660f4f9
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed2.mat,"trained policies, calibrated tables and models",255581,6cf7946507b69155f2f6335e09ac6456a82174919c4bae5397ab13c1f59048ef
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed3.mat,"trained policies, calibrated tables and models",255575,d0e9bf6a826d36aa98838aeca15a860d18e023f568a4fe9e75d7598c9ffa8105
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed4.mat,"trained policies, calibrated tables and models",255612,8b3e594ed9337404a1f6ecc71d90c0956e7d9cf62d273f10ba346e6f86ad695b
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed5.mat,"trained policies, calibrated tables and models",255604,657c52f4d78ffe21cb6a77b14fac90cf03b6f6bed43e9f9e8b9fad71491338b5
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed6.mat,"trained policies, calibrated tables and models",169603,e75783e1724e815a563f6f9045c2d0566d83bbf12ddc1d043be702cf01037c62
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed7.mat,"trained policies, calibrated tables and models",169697,1b0d48590061575577b898ce6f7306fda4a36ec0fa2df782e7ada5317079470f
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed8.mat,"trained policies, calibrated tables and models",169626,b8263e07dfd09d689bced17d3b2bba60917dbc167f4476689ca9b4f52305c45f
+Optimized/v17/Dataset/ckpt/M3_gp_rtt8_seed9.mat,"trained policies, calibrated tables and models",169577,fc4801bd81246866db5192f64c41dd02eaa899d0cb8445ef44fd25e6f39951ee
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed1.mat,"trained policies, calibrated tables and models",169727,9ed4a02827beef3851d5a90fd0562e1862ace672854a0982ed3bf1f1d7948965
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed10.mat,"trained policies, calibrated tables and models",169606,52caad7c0b68dd7fc1a35bc29186ae0c4129f4bb7e2bd8523c6183eef44cb5c9
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed2.mat,"trained policies, calibrated tables and models",169666,edfee2f2a886bee7003ea1ae419944ed79f6fd182e628107a66df724ae23e88c
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed3.mat,"trained policies, calibrated tables and models",169487,d38261ce68e6d1f838f7c8643f947b8d409cb0089a4aed1b6e89d2d7d4b19f75
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed4.mat,"trained policies, calibrated tables and models",169634,5f7056358c17a38c23c1c6dfc60c5546f2ae933185304fcf725ec8eb808b9e35
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed5.mat,"trained policies, calibrated tables and models",169572,68fe71323769d8e5b4e8c26915b5e1d447f5d762ffbd0b087be0af284a004d22
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed6.mat,"trained policies, calibrated tables and models",169541,8a81f0e9c995bec880b7f77e40e8c5a419687bb49f6437b447008c004aea67f1
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed7.mat,"trained policies, calibrated tables and models",169575,8beda56336b6a29fa88f5495a22d8e79df6b3751f2eafb23d3699f9a1d3c15a1
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed8.mat,"trained policies, calibrated tables and models",169576,e4a6e93778af50c2951ea8ad56c2d95f5fdd128ef75e2b2fedda7db4b97886e5
+Optimized/v17/Dataset/ckpt/M4_gp_rtt0_seed9.mat,"trained policies, calibrated tables and models",169593,e42c95d2e12ea23415955ef918d1e4287ee4b973293ce666602d51951bbd62b6
+Optimized/v17/Dataset/ckpt/pre_M1_dl_rtt8_seed1.mat,"trained policies, calibrated tables and models",311877,e0e0c5e987111d262d486517d607288199a5223fb592e8eac9215a5c92d30e0b
+Optimized/v17/Dataset/ckpt/pre_M1_dl_rtt8_seed2.mat,"trained policies, calibrated tables and models",311755,ddeac9b2c9a24d9f86a7fe8e536e499442cb482a79558925c076a183e9c59f1c
+Optimized/v17/Dataset/ckpt/pre_M2_dl_rtt0_seed1.mat,"trained policies, calibrated tables and models",232931,442eb647dc36b15445e4fc132de3f665e997020969deb875f7f4dfc29663f52f
+Optimized/v17/Dataset/ckpt/pre_M2_dl_rtt0_seed2.mat,"trained policies, calibrated tables and models",233014,b4976f69700104677aa97351e68acc4e52f6fdc18d8e83a25ee14e7c08902be3
+Optimized/v17/Dataset/ckpt/pre_M3_gp_rtt8_seed1.mat,"trained policies, calibrated tables and models",221531,3ce50ed99f0a4034282c30d221e013934b0e953ad91e8ce8226b1f8732f96024
+Optimized/v17/Dataset/ckpt/pre_M3_gp_rtt8_seed2.mat,"trained policies, calibrated tables and models",221658,be86fe7fdabacad68c8aa7c33cd1b269488e55b93d6d382c2fa9c84cf58eaac5
+Optimized/v17/Dataset/ckpt/pre_M4_gp_rtt0_seed1.mat,"trained policies, calibrated tables and models",147051,68bb3b023897245525e0b244a2fd6b1d5618e8a453b639b7651d6f7532b1b13b
+Optimized/v17/Dataset/ckpt/pre_M4_gp_rtt0_seed2.mat,"trained policies, calibrated tables and models",147058,13428e1b29c51740aeb17f73ea89d9b913d95b853e74ed3b7884af6a8393f61a
+Optimized/v17/Dataset/fill_summary_v17.txt,"per-seed and per-trace results, result tables",55515,4e1dd3435714adb3703a10de8680b9025c8436aa7cf37acd7dd562691f99e860
+Optimized/v17/Dataset/results_v17_M1_dl_rtt8.mat,"per-seed and per-trace results, result tables",7217058,dd55d6476be124c34e3d623979e37658b58ae19b5022482bbe774948a82d3dfc
+Optimized/v17/Dataset/results_v17_M1_dl_rtt8.txt,"per-seed and per-trace results, result tables",7086,e671a4742e2c00840d57924c6d6aa6a45b7732a08b5c4d2df767fe653ae1a7ef
+Optimized/v17/Dataset/results_v17_M2_dl_rtt0.mat,"per-seed and per-trace results, result tables",5188467,d487618123e2395dcc7428a6c71bd630d1b948947a841d153a13797d2881fd83
+Optimized/v17/Dataset/results_v17_M2_dl_rtt0.txt,"per-seed and per-trace results, result tables",5684,2e91e3b7906af091add8e4cd8b4c218fe3ae4d498526016b721b12d9311e57b3
+Optimized/v17/Dataset/results_v17_M3_gp_rtt8.mat,"per-seed and per-trace results, result tables",5172935,02405d95e16bffadf7ee62542a1a8a1f06b31040969337a87cb4830b5a1ca8f6
+Optimized/v17/Dataset/results_v17_M3_gp_rtt8.txt,"per-seed and per-trace results, result tables",5632,8350ca2b834f9c23ea16dc4dd9622d14b1457cb236cf7500200573a17a003267
+Optimized/v17/Dataset/results_v17_M4_gp_rtt0.mat,"per-seed and per-trace results, result tables",4392155,898c90521f1d6c8b5d36773f89210c119a2f7cbd8d6ab858f1a0e1f5fa51cf87
+Optimized/v17/Dataset/results_v17_M4_gp_rtt0.txt,"per-seed and per-trace results, result tables",4274,70d34d2e4cfd1ba86dadd3a1aa7fabf3410bb25c1f2038e431ca154a5a4b045d
+Optimized/v17/Dataset/results_v17_pre_M1_dl_rtt8.mat,"per-seed and per-trace results, result tables",1123010,c527346ab28476f89a1d1da3f70eefffc8206d7000515d352b9d734b3478d85f
+Optimized/v17/Dataset/results_v17_pre_M1_dl_rtt8.txt,"per-seed and per-trace results, result tables",6977,f7ee322165b2d86b05d050df59d35cffec6179e9a2d484e16bc61c29ecee0c07
+Optimized/v17/Dataset/results_v17_pre_M2_dl_rtt0.mat,"per-seed and per-trace results, result tables",805424,3b391e9fc03f141d45049e779d96dda69fa657cc1ab001ca68113afb8fa157c2
+Optimized/v17/Dataset/results_v17_pre_M2_dl_rtt0.txt,"per-seed and per-trace results, result tables",5629,ea894289450910c084af3ac0856b4468651c9a432564afb0605054b8a72ea2fc
+Optimized/v17/Dataset/results_v17_pre_M3_gp_rtt8.mat,"per-seed and per-trace results, result tables",1093150,70085f12776644358e96b0828a7f23648c5a85ac95f82a13af3acb6546c159e7
+Optimized/v17/Dataset/results_v17_pre_M3_gp_rtt8.txt,"per-seed and per-trace results, result tables",5611,98735d4a121f727c6bd87ac99fdc592477e9ba1661201a1be2307be7a0402b8e
+Optimized/v17/Dataset/results_v17_pre_M4_gp_rtt0.mat,"per-seed and per-trace results, result tables",784050,2a39c0d59568034609f2fa5f4824ccc38a0f55c662dde614f9b16de6fd310f53
+Optimized/v17/Dataset/results_v17_pre_M4_gp_rtt0.txt,"per-seed and per-trace results, result tables",4271,eb49009e2203fc310c38f79810daee232978be39b76472b352c79f7a650fb38f
+Optimized/v17/DeepA2C_Shared_v17.m,"simulator, trace and CRN generators, stage code",52370,f37993bba378e799623e3aacbce92dcc79f3b00859ed6d5e00290aac115785ca
+Optimized/v17/DeepGRU_Shared_v17.m,"simulator, trace and CRN generators, stage code",17272,1374f2cd660326f2b72bcf64fb32c8a6b0c85c6b47dc0dfed041a30134bcbe75
+Optimized/v17/DeepPPO_Shared_v17.m,"simulator, trace and CRN generators, stage code",33865,b5c15c8f002f71660a0707988fce8ee9739feb7aeae5ced6107e979bd2c26c18
+Optimized/v17/MultiOLLA_v17.m,"simulator, trace and CRN generators, stage code",1749,2aa299901de95777b46ecef84e8835a32c275f6351adc07dd1f4160fb99547bf
+Optimized/v17/PLAN_v17.md,"simulator, trace and CRN generators, stage code",12692,d9fd09c9d54afc10f511f9c45ab7ccd163feac334d89f157d9e5cd7840632579
+Optimized/v17/README_v17.md,"simulator, trace and CRN generators, stage code",47747,4da4d8fd94d3e65695836157aa4c669cc4b35fffc92e8ec9c502885e27901acc
+Optimized/v17/analyze_v17_replication.m,"simulator, trace and CRN generators, stage code",5948,c15fe10273d3094deb488af93647e4e364d81594fd23f5a3a676c45f5ce6102a
+Optimized/v17/analyze_v17_rtteff.m,"simulator, trace and CRN generators, stage code",2737,294fe3321d700f282f0d4dd07975e52687bbb8fe8dcc91829b3df24e59f22c9d
+Optimized/v17/baseCQI_v17.m,"simulator, trace and CRN generators, stage code",565,5eeff307823b0acb8694a04e37dd2b68efe87e9f961d3c576e224db3740f497b
+Optimized/v17/build_v17_tables.m,"simulator, trace and CRN generators, stage code",6543,ffc09864d27abdb3e61560677b70f077d6b27237b25877fe218cf2f99fe23556
+Optimized/v17/calibrateCtx_v17.m,"simulator, trace and CRN generators, stage code",2675,40fad30fd9446b0903098a80299e30ba51805cbe339ed63134935ae71340ce0b
+Optimized/v17/calibrateFixedClass_v17.m,"simulator, trace and CRN generators, stage code",2630,f9bb4fc3489ce195f6434153b2c221e00aab3300652066a27b8ad6f7eb8569a3
+Optimized/v17/calibrateGenie_v17.m,"simulator, trace and CRN generators, stage code",2139,9858db5bfadabc36a633837a785461b12833cdb1e8203d06d2097cbffbf0e7e3
+Optimized/v17/calibrateTargetClass_v17.m,"simulator, trace and CRN generators, stage code",2612,93d9dd6dd0c58f32fdec5709bff46a57fd08ac83ab6c9cc9ea6ca9f178862b4a
+Optimized/v17/case_registry.csv,"simulator, trace and CRN generators, stage code",11576,92b645c8c8d1c932e398d0bdd266be01e2ad2e030bf7015d1798eb3d4fced107
+Optimized/v17/cqiAge_v17.m,"simulator, trace and CRN generators, stage code",368,7274bb36c0e67bbe2bd9181841a0cb3dba20dafe693529b0303788a22e1ff229
+Optimized/v17/cqiFeedback_v17.m,"simulator, trace and CRN generators, stage code",1224,c0e3db8fff3120c17dbe1ddc29e7e5da48b5cd2db47f037b8dd8089beae210d7
+Optimized/v17/ctxBin_v17.m,"simulator, trace and CRN generators, stage code",404,aaa1986866ad920941e95c90e1a0c09b2b703399cf916531f78581053fe8eb42
+Optimized/v17/cueBin_v17.m,"simulator, trace and CRN generators, stage code",216,6bc91f16be68a8326a86f8339413bbac9c61e827b0398b0bc7d053770e0a6e3d
+Optimized/v17/cueVal_v17.m,"simulator, trace and CRN generators, stage code",596,2c10666fcd1b67660781612747c7d1f2a48df629e46eed03b1f1884e0466ee39
+Optimized/v17/defaultEnv_v17.m,"simulator, trace and CRN generators, stage code",10152,0d9bcb2b64007380e096d03720885ae4e781679935243ea9638f09d072d0fc01
+Optimized/v17/diag_action_by_state_v17.m,"simulator, trace and CRN generators, stage code",6691,ffc6ec9f1a792a9b0822805a24f1b81c0829a7b59f7112d368fabaa910c3b386
+Optimized/v17/diag_engine_gap_v17.m,"simulator, trace and CRN generators, stage code",12128,7df16da137c638cd7fa8d878c4850781338f10f1703d7a51c81f21eb130bb859
+Optimized/v17/estimateBLER_v17.m,"simulator, trace and CRN generators, stage code",2112,a8c395a5594301057fbf41ac40931d8d082f284700bb7ddfbfb570c4f2a91934
+Optimized/v17/evalPolicy_v17.m,"simulator, trace and CRN generators, stage code",31884,4492e73499751c2ba031b9b8b6ab87911d36372a563a4b8e4c9f3d7bf49d1591
+Optimized/v17/featExtra_v17.m,"simulator, trace and CRN generators, stage code",2905,2d44d206d243b5d857afc84bbb76aaedcd572dab174252e739a0b29e7381d1fc
+Optimized/v17/fill_stats_v17.m,"simulator, trace and CRN generators, stage code",10913,92454ab8c93eec9dfdc8307e1f4819b385961b6b9f7409aa4940aa02cbf45b5a
+Optimized/v17/fill_v17_campaign.m,"simulator, trace and CRN generators, stage code",4150,8d134336c41c2f49ddeaf9965e1fa34bb63ddaf7d67c560611b9db7a36216996
+Optimized/v17/fill_v17_preflight.m,"simulator, trace and CRN generators, stage code",3613,0425e657c1ef8672eb79f50da79527b64af24d5057dbc7e7346a63ef56d57e65
+Optimized/v17/g1/evalPolicy_v17_g1.m,"simulator, trace and CRN generators, stage code",32711,2c9c9edc0ec3f6e334019b7775dbe71438bd2975bc62c4828365b098b80b37fd
+Optimized/v17/g1/g1_recut_v17.m,"simulator, trace and CRN generators, stage code",8121,7ab4f52f115ec7c121b5629835bd9af509d0bad0e9c7150cf2bb23e99bcf0c40
+Optimized/v17/generateChannel_v17.m,"simulator, trace and CRN generators, stage code",4451,09bb8ad7035d6bd205f2a936a1c9076de7457b836ebd4d470ad6842c3784f2c3
+Optimized/v17/generate_v17_figures.m,"simulator, trace and CRN generators, stage code",5973,4c32880f648aae845617f7b2e78c91e2f9c41af15c17e80141b5668a830dc727
+Optimized/v17/harqFeedback_v17.m,"simulator, trace and CRN generators, stage code",5189,a80cf75f4fa24018524259ab2dbb5b895784f5fb348af9cc44aaf636f2455b5f
+Optimized/v17/harqInit_v17.m,"simulator, trace and CRN generators, stage code",1291,18cc1e477e1aa6fe00a56786aaa4a7ac50ca8a6c542dda032046733b2cfd8d65
+Optimized/v17/harqTransmit_v17.m,"simulator, trace and CRN generators, stage code",2884,c46f743037858b9d53ffedbcadf26f2dea19443550fa8a8e8920ab9ec938070e
+Optimized/v17/headroom/evalPolicy_v17_hr.m,"simulator, trace and CRN generators, stage code",38312,bf95f1a4b99b181217d2590e5eae513023e17ba4c136458a1d97bb3839b31728
+Optimized/v17/headroom/hr_instrument_v17.m,"simulator, trace and CRN generators, stage code",21052,f8c5248ddf224b72b47db1dec7c3cad283d310a3a2ac4eedf7d96408e942b743
+Optimized/v17/headroom_v17.m,"simulator, trace and CRN generators, stage code",3077,b762eff8438c1059e88cef61e6ab381dfb6e43c8e4554df64494bd8c6d8d5402
+Optimized/v17/holmAdjust_v17.m,"simulator, trace and CRN generators, stage code",334,57b09afd42b592a282ce1963dadd2dbade12d4c54919386eb7eb7d8be7f53b93
+Optimized/v17/metricMean_v17.m,"simulator, trace and CRN generators, stage code",811,ed61351a10a54f51b0a64c4554ece3a69c97f3ac1fa5552224e6c97daa3a7cc3
+Optimized/v17/nCtxBins_v17.m,"simulator, trace and CRN generators, stage code",174,9f492771bfae74f3419f463b02c679ce074e93dc1db404d6d25c42314c3ca9c1
+Optimized/v17/nExtra_v17.m,"simulator, trace and CRN generators, stage code",638,7c8eca65ce3dc74f8603c2b7a35326fb74d995d63715279571fda8050d54e300
+Optimized/v17/paper/figures/acthist_M1_dl_rtt8.pdf,"per-seed and per-trace results, result tables",6497,e4cf237265e857083095b38b3f684579d582732793393e5f061d66ae9d5cf62c
+Optimized/v17/paper/figures/acthist_M1_dl_rtt8.png,"per-seed and per-trace results, result tables",34662,e096fe1cfbcc709b38517baf2ca58ba90fe3af602991be9634b973a5ccca0584
+Optimized/v17/paper/figures/acthist_M2_dl_rtt0.pdf,"per-seed and per-trace results, result tables",6495,1a9d44da8290c514d8d96265f6d3185e2b0936d30b03f46781b3a4c51b47f4ea
+Optimized/v17/paper/figures/acthist_M2_dl_rtt0.png,"per-seed and per-trace results, result tables",34434,12bfcab78258fc35ab71ba9ca163dafc78b6ed2aea73cf1c70c328d3151dbdf6
+Optimized/v17/paper/figures/acthist_M3_gp_rtt8.pdf,"per-seed and per-trace results, result tables",6499,d9c2730ba4328cb355c64dac0cfa5b31acf9cdbbc3806bc81b5a2f7802441f95
+Optimized/v17/paper/figures/acthist_M3_gp_rtt8.png,"per-seed and per-trace results, result tables",35188,0a97517d820bc3182084a71aa6a6036c90c0bd66f03190d8eb54e3dfa331be8c
+Optimized/v17/paper/figures/acthist_M4_gp_rtt0.pdf,"per-seed and per-trace results, result tables",6495,0212ce7c506e6e7e84e226c2cd2d9d5bc9fd8c8516f95255ed3fa418fc17bb28
+Optimized/v17/paper/figures/acthist_M4_gp_rtt0.png,"per-seed and per-trace results, result tables",34968,c9c1bb726e10157182d05c82560797fc93485c77edd68fec4b2bf1c6b28a446d
+Optimized/v17/paper/figures/bars_M1_dl_rtt8.pdf,"per-seed and per-trace results, result tables",164151,0778906a7a3db4a5b22c35f40433801cd74bb8b05ae934ea858c231a44cb8494
+Optimized/v17/paper/figures/bars_M1_dl_rtt8.png,"per-seed and per-trace results, result tables",62317,03d18fd6d5f79047994d9702490cfe628cc47a01131cfa9f424e4b167bcd5ead
+Optimized/v17/paper/figures/bars_M2_dl_rtt0.pdf,"per-seed and per-trace results, result tables",170524,f6a81b54dc4b2f07cde51d24f297b3edd37c836aa5c0dee579f7d44eee608415
+Optimized/v17/paper/figures/bars_M2_dl_rtt0.png,"per-seed and per-trace results, result tables",62390,02f84739a34a4e5152e6ce23b29f25365913d401c9ef41f4e6259100355e2914
+Optimized/v17/paper/figures/bars_M3_gp_rtt8.pdf,"per-seed and per-trace results, result tables",158459,bb375288fccbf0d1263a178f2e47eaf5128544c3fd2f7503aa9dbf692c7293d0
+Optimized/v17/paper/figures/bars_M3_gp_rtt8.png,"per-seed and per-trace results, result tables",61650,a685032f0050d65cebd25d79821d7070ae24940ea0d7690c8bb6f6ecc4657243
+Optimized/v17/paper/figures/bars_M4_gp_rtt0.pdf,"per-seed and per-trace results, result tables",148060,ab7043dd0a555309cbb9f1a7930f86ab6bf627c0b4e788b7e371d8f878ee1632
+Optimized/v17/paper/figures/bars_M4_gp_rtt0.png,"per-seed and per-trace results, result tables",58721,a3e33e0a0694b586cfc12a8fd990c010347673c8f3d701e89077c7a310e3f73b
+Optimized/v17/paper/figures/margin_vs_rtt.pdf,"per-seed and per-trace results, result tables",5077,f88b6f5fb192ec6de8df07581380ce4513120db9b9747fad0b4ffbd71fd35911
+Optimized/v17/paper/figures/margin_vs_rtt.png,"per-seed and per-trace results, result tables",58062,36ee943bb91e7753f878dfda2e6350f0aa5020fcff340df95d9541bda3064025
+Optimized/v17/paper/g1/g1_action_by_state.csv,"per-seed and per-trace results, result tables",2673,d7826f6515c3c8f7f20d0da5227f912881c74b3f92694bd96f4b3303ec167875
+Optimized/v17/paper/g1/g1_log_M1_dl_rtt8.mat,"per-seed and per-trace results, result tables",4393704,568122d4c7b868347ea7526a3e370517872a16a1d2fcb3d9065b5207cdcfc76e
+Optimized/v17/paper/g1/g1_log_M3_gp_rtt8.mat,"per-seed and per-trace results, result tables",4482243,9712bc1629b685b4a0fca97f65b15f89dbde95d1ec7eff9bba86c5d1f285d2fa
+Optimized/v17/paper/g1/g1_summary.txt,"per-seed and per-trace results, result tables",826,d1ff5faaf0b3c6845d517e6746ea67ec81299ad0bd4c1823ae32f73861bfd50b
+Optimized/v17/paper/headroom.csv,"per-seed and per-trace results, result tables",225,58872ed3491379a606d130fdd37c1d5a83c889f4b5fb9c2b3ad457f04b7fba87
+Optimized/v17/paper/table_action_by_state.csv,"per-seed and per-trace results, result tables",847,81cd2bc6939c316079ba5c9acdfdd2dc4b680b2634f4d605722872410a91ced3
+Optimized/v17/paper/table_core.csv,"per-seed and per-trace results, result tables",7752,75b9db9ff8b59ff7746b54c76f349d8d83e121e36c098634584867758687e60e
+Optimized/v17/paper/table_harq_ablation.csv,"per-seed and per-trace results, result tables",1141,4dc154d7e5d2acfedab8f68021efb15792f7619a119f17f1d85c0ca46d0de437
+Optimized/v17/paper/table_training_length.csv,"per-seed and per-trace results, result tables",273,9157c25f58574d311ec9eb61b16649cef3b4bcabb9fc4a5a5b45e7e23f57b53a
+Optimized/v17/release/LICENSE,v17 release bundle,1090,3bf6ce6cc576e00d7215fb860cf60267362ede694d29ce1e639d4c2295f90941
+Optimized/v17/release/MANIFEST.sha256,v17 release bundle,20772,584234de913bdb856476f8f87ab7521921a6f7feb51090d8d4ec95fd0faa9626
+Optimized/v17/release/PLAN_v17.md,v17 release bundle,12692,d9fd09c9d54afc10f511f9c45ab7ccd163feac334d89f157d9e5cd7840632579
+Optimized/v17/release/README_release.md,v17 release bundle,7675,2d20a4083fe57b97c1f4675e83b0663bdd302bfc709bce6461c2f2b4192e0646
+Optimized/v17/release/README_v17.md,v17 release bundle,47747,4da4d8fd94d3e65695836157aa4c669cc4b35fffc92e8ec9c502885e27901acc
+Optimized/v17/release/case_registry.csv,v17 release bundle,11576,92b645c8c8d1c932e398d0bdd266be01e2ad2e030bf7015d1798eb3d4fced107
+Optimized/v17/release/code/Bandit_v17.m,v17 release bundle,7108,89d45cd393df161ea429e2f15aed92f4dd24090d71c40b9c0f4281ec3b5302f7
+Optimized/v17/release/code/DeepA2C_Shared_v17.m,v17 release bundle,52370,f37993bba378e799623e3aacbce92dcc79f3b00859ed6d5e00290aac115785ca
+Optimized/v17/release/code/DeepGRU_Shared_v17.m,v17 release bundle,17272,1374f2cd660326f2b72bcf64fb32c8a6b0c85c6b47dc0dfed041a30134bcbe75
+Optimized/v17/release/code/DeepPPO_Shared_v17.m,v17 release bundle,33865,b5c15c8f002f71660a0707988fce8ee9739feb7aeae5ced6107e979bd2c26c18
+Optimized/v17/release/code/MultiOLLA_v17.m,v17 release bundle,1749,2aa299901de95777b46ecef84e8835a32c275f6351adc07dd1f4160fb99547bf
+Optimized/v17/release/code/analyze_v17_replication.m,v17 release bundle,5948,c15fe10273d3094deb488af93647e4e364d81594fd23f5a3a676c45f5ce6102a
+Optimized/v17/release/code/analyze_v17_rtteff.m,v17 release bundle,2737,294fe3321d700f282f0d4dd07975e52687bbb8fe8dcc91829b3df24e59f22c9d
+Optimized/v17/release/code/baseCQI_v17.m,v17 release bundle,565,5eeff307823b0acb8694a04e37dd2b68efe87e9f961d3c576e224db3740f497b
+Optimized/v17/release/code/build_v17_tables.m,v17 release bundle,6543,ffc09864d27abdb3e61560677b70f077d6b27237b25877fe218cf2f99fe23556
+Optimized/v17/release/code/calibrateCtx_v17.m,v17 release bundle,2675,40fad30fd9446b0903098a80299e30ba51805cbe339ed63134935ae71340ce0b
+Optimized/v17/release/code/calibrateFixedClass_v17.m,v17 release bundle,2630,f9bb4fc3489ce195f6434153b2c221e00aab3300652066a27b8ad6f7eb8569a3
+Optimized/v17/release/code/calibrateGenie_v17.m,v17 release bundle,2139,9858db5bfadabc36a633837a785461b12833cdb1e8203d06d2097cbffbf0e7e3
+Optimized/v17/release/code/calibrateTargetClass_v17.m,v17 release bundle,2612,93d9dd6dd0c58f32fdec5709bff46a57fd08ac83ab6c9cc9ea6ca9f178862b4a
+Optimized/v17/release/code/cqiAge_v17.m,v17 release bundle,368,7274bb36c0e67bbe2bd9181841a0cb3dba20dafe693529b0303788a22e1ff229
+Optimized/v17/release/code/cqiFeedback_v17.m,v17 release bundle,1224,c0e3db8fff3120c17dbe1ddc29e7e5da48b5cd2db47f037b8dd8089beae210d7
+Optimized/v17/release/code/ctxBin_v17.m,v17 release bundle,404,aaa1986866ad920941e95c90e1a0c09b2b703399cf916531f78581053fe8eb42
+Optimized/v17/release/code/cueBin_v17.m,v17 release bundle,216,6bc91f16be68a8326a86f8339413bbac9c61e827b0398b0bc7d053770e0a6e3d
+Optimized/v17/release/code/cueVal_v17.m,v17 release bundle,596,2c10666fcd1b67660781612747c7d1f2a48df629e46eed03b1f1884e0466ee39
+Optimized/v17/release/code/defaultEnv_v17.m,v17 release bundle,10152,0d9bcb2b64007380e096d03720885ae4e781679935243ea9638f09d072d0fc01
+Optimized/v17/release/code/diag_action_by_state_v17.m,v17 release bundle,6516,4f56560b0f24f1088d5f7bd458e397fa05d27139300f5adb3a0025cb99be34c4
+Optimized/v17/release/code/diag_engine_gap_v17.m,v17 release bundle,12128,7df16da137c638cd7fa8d878c4850781338f10f1703d7a51c81f21eb130bb859
+Optimized/v17/release/code/estimateBLER_v17.m,v17 release bundle,2112,a8c395a5594301057fbf41ac40931d8d082f284700bb7ddfbfb570c4f2a91934
+Optimized/v17/release/code/evalPolicy_v17.m,v17 release bundle,31884,4492e73499751c2ba031b9b8b6ab87911d36372a563a4b8e4c9f3d7bf49d1591
+Optimized/v17/release/code/featExtra_v17.m,v17 release bundle,2905,2d44d206d243b5d857afc84bbb76aaedcd572dab174252e739a0b29e7381d1fc
+Optimized/v17/release/code/fill_stats_v17.m,v17 release bundle,10913,92454ab8c93eec9dfdc8307e1f4819b385961b6b9f7409aa4940aa02cbf45b5a
+Optimized/v17/release/code/fill_v17_campaign.m,v17 release bundle,4150,8d134336c41c2f49ddeaf9965e1fa34bb63ddaf7d67c560611b9db7a36216996
+Optimized/v17/release/code/fill_v17_preflight.m,v17 release bundle,3613,0425e657c1ef8672eb79f50da79527b64af24d5057dbc7e7346a63ef56d57e65
+Optimized/v17/release/code/generateChannel_v17.m,v17 release bundle,4451,09bb8ad7035d6bd205f2a936a1c9076de7457b836ebd4d470ad6842c3784f2c3
+Optimized/v17/release/code/generate_v17_figures.m,v17 release bundle,5973,4c32880f648aae845617f7b2e78c91e2f9c41af15c17e80141b5668a830dc727
+Optimized/v17/release/code/harqFeedback_v17.m,v17 release bundle,5189,a80cf75f4fa24018524259ab2dbb5b895784f5fb348af9cc44aaf636f2455b5f
+Optimized/v17/release/code/harqInit_v17.m,v17 release bundle,1291,18cc1e477e1aa6fe00a56786aaa4a7ac50ca8a6c542dda032046733b2cfd8d65
+Optimized/v17/release/code/harqTransmit_v17.m,v17 release bundle,2884,c46f743037858b9d53ffedbcadf26f2dea19443550fa8a8e8920ab9ec938070e
+Optimized/v17/release/code/headroom_v17.m,v17 release bundle,3077,b762eff8438c1059e88cef61e6ab381dfb6e43c8e4554df64494bd8c6d8d5402
+Optimized/v17/release/code/holmAdjust_v17.m,v17 release bundle,334,57b09afd42b592a282ce1963dadd2dbade12d4c54919386eb7eb7d8be7f53b93
+Optimized/v17/release/code/metricMean_v17.m,v17 release bundle,811,ed61351a10a54f51b0a64c4554ece3a69c97f3ac1fa5552224e6c97daa3a7cc3
+Optimized/v17/release/code/nCtxBins_v17.m,v17 release bundle,174,9f492771bfae74f3419f463b02c679ce074e93dc1db404d6d25c42314c3ca9c1
+Optimized/v17/release/code/nExtra_v17.m,v17 release bundle,638,7c8eca65ce3dc74f8603c2b7a35326fb74d995d63715279571fda8050d54e300
+Optimized/v17/release/code/runComparison_v17.m,v17 release bundle,30627,3ab54c391e8dc0b275ce3705a63accd450ef4c38afdceea6158f17023f42ac5c
+Optimized/v17/release/code/run_v17_headless.bat,v17 release bundle,544,3dd3f358fee7d05538a324b77dd4bef21d2f568e9f21c601e3d68a4f8f68968c
+Optimized/v17/release/code/run_v17_resume.m,v17 release bundle,248,e6e475ffc23e1f5d03b0227b6b09db57ff06c6bc981a0a970d7c60672a0c93c7
+Optimized/v17/release/code/sampleSched_v5.m,v17 release bundle,508,29ffa7d72c21a858d6a1a04751f57327634482f045b6cac31652e1006242f04c
+Optimized/v17/release/code/schedContext_v5.m,v17 release bundle,783,1ea72f5fa46a4685085c23e87a3aaf16a4e25003e066eb5efd52155968a174e7
+Optimized/v17/release/code/schedule_users_v17.m,v17 release bundle,1114,aebd57f9eeff9e46d1a3f7984c6023999c6982d668a6d05a9d35187db89b0585
+Optimized/v17/release/code/schedule_users_v5.m,v17 release bundle,822,af375e2644b47b0d51f65223c0b762e81e18d63b6ff80061cfb38bf30acaaf89
+Optimized/v17/release/code/selectBaseRule_v17.m,v17 release bundle,1953,af1df235f94491bc0ed0849cba72cc03c5474d0b768333441301aa1ce817f1f5
+Optimized/v17/release/code/shaping_pair_v17.m,v17 release bundle,3566,5d91ecc8e57e71b0ca51141e51fe78d2bf764d0ee841ef4022999e64b456278f
+Optimized/v17/release/code/slackOf_v17.m,v17 release bundle,396,bb513e21383b99bb45169b71908c471db7f3e5f54b4b6fb52a9f38f5b1e384e9
+Optimized/v17/release/code/stateFeat_v17.m,v17 release bundle,1489,07a21e14aa771ecb2c43008b63bc35256b455ffbbc65fc6abbc65a37e1961b22
+Optimized/v17/release/code/tbsFromMCSandRB_v17.m,v17 release bundle,583,ccd14c29ab834abecbaaa53b6621bdd547fb7832535299f5bd5343901e3677d5
+Optimized/v17/release/code/test_conservation_v17.m,v17 release bundle,2054,fb4440a167760e91a42c013b4e40b68b1a1c7fb58adfc371bc5e8023b7b98d0b
+Optimized/v17/release/code/test_delayedcredit_v17.m,v17 release bundle,3198,336b73675500c5d856bf803579d57b83809a91f9a15da2649b6b2492e080e09b
+Optimized/v17/release/code/test_engine_consistency_v17.m,v17 release bundle,5242,325d7f81a5f71d17bb75a39cd0f61504e2aca6d3c03ca0f5a97e56f9fff92dbf
+Optimized/v17/release/code/test_equivalence_v17.m,v17 release bundle,8772,a974a4d29369463234c35dfe0c7e20a7696b2d6b3c9703d1496b3590074b744b
+Optimized/v17/release/code/test_expiry_v17.m,v17 release bundle,2669,679ba6754ffb9b25d483157507d949865f48c5ff28cb46ac3ad9d7581f8f3842
+Optimized/v17/release/code/test_fairness_sanity_v17.m,v17 release bundle,3253,9816b021a6852aed2d03df27688fc30dc658e49637a4fe90c345d250018d0f2a
+Optimized/v17/release/code/test_fullbuffer_rtt_v17.m,v17 release bundle,3186,9da0a8dcd6d1b6bcc56477cd2725555c34af5921001d040587aa99003cb9b4c1
+Optimized/v17/release/code/test_oppcost_delayedcredit_v17.m,v17 release bundle,3327,822053dcd7eff82709ec2422a59e9e70b42a4970b63422ac7a966b47e3021415
+Optimized/v17/release/code/test_pairing_v17.m,v17 release bundle,2379,a1ca4781deb15d4d3ecf83bf6238a3b17aed152b573f054f631c23c7ed66f844
+Optimized/v17/release/code/test_parfor_seeds.m,v17 release bundle,2233,c031b9281d75639cb6cabea08ac04db365270a08a3d4fd563d51e1a535dc425b
+Optimized/v17/release/code/test_pf_update_v17.m,v17 release bundle,6465,a8c20707fa1d890414cc6d0a0a40aea3f8d23aef3ccfa1feff6f59ad0c36752a
+Optimized/v17/release/code/test_proclimit_v17.m,v17 release bundle,3076,fbd79b876c6f1d5fb22c3f931b2d0f9556f89a91b01a4a42672653f7ac59441b
+Optimized/v17/release/code/test_residgoodput_v17.m,v17 release bundle,2477,ca6cef60bc38c9023515fe53943e6acd6f3e6ca26814c6963b97eff765d06364
+Optimized/v17/release/code/test_timing_v17.m,v17 release bundle,3458,0b776fe3b59b7532758151111067172a56cb46b2a128f071d45f674a367583f9
+Optimized/v17/release/code/trafficInit_v17.m,v17 release bundle,1322,376d4853f5322a3d3eed5e4830fb8ddd6a229216305c915177c6ee00bb08f45a
+Optimized/v17/release/code/trafficPost_v17.m,v17 release bundle,595,26c842bde78ddb9ee650f765baf58d148f6800a92cc75a4ae9a5798d2b0d31c1
+Optimized/v17/release/code/trafficPre_v17.m,v17 release bundle,1081,86b6faf984abd862ad560e5bfb4205e9efd996864749e921b34dc6e52c41e919
+Optimized/v17/release/code/txStep_v17.m,v17 release bundle,4555,3b380e9f7d17ad014f141101ca70a46e1c14284522e58d3128d40d2cfeebd6b2
+Optimized/v17/release/code/update_heartbeat_v17.m,v17 release bundle,1334,417cab004a58552f690f1ff50cfcca88d5645a37fbb2ef9295becbc0e78275e8
+Optimized/v17/release/code/userClass_v17.m,v17 release bundle,362,068c1ab07c160fa9fabdd72c5049383d47507d975eb258c81eeddf7d430140eb
+Optimized/v17/release/code/userDeadline_v17.m,v17 release bundle,279,3f38eaa0bf2973755a217b094814268c405a34fc0ca5f8876c0c47afa3a33a75
+Optimized/v17/release/code/userMetric_v17.m,v17 release bundle,597,3aa79eb13590ad1a6d1685c75cfbb15b363fb6b3c95a84374a185cd6d9bc605b
+Optimized/v17/release/code/v17_setup.m,v17 release bundle,4175,bc1948ac89e8d0b9bdf59d1a0502c8e85b520a56c15434a07ddf9cfe10963fe5
+Optimized/v17/release/dataset/fill_summary_v17.txt,v17 release bundle,55515,4e1dd3435714adb3703a10de8680b9025c8436aa7cf37acd7dd562691f99e860
+Optimized/v17/release/dataset/results_v17_M1_dl_rtt8.txt,v17 release bundle,7086,e671a4742e2c00840d57924c6d6aa6a45b7732a08b5c4d2df767fe653ae1a7ef
+Optimized/v17/release/dataset/results_v17_M2_dl_rtt0.txt,v17 release bundle,5684,2e91e3b7906af091add8e4cd8b4c218fe3ae4d498526016b721b12d9311e57b3
+Optimized/v17/release/dataset/results_v17_M3_gp_rtt8.txt,v17 release bundle,5632,8350ca2b834f9c23ea16dc4dd9622d14b1457cb236cf7500200573a17a003267
+Optimized/v17/release/dataset/results_v17_M4_gp_rtt0.txt,v17 release bundle,4274,70d34d2e4cfd1ba86dadd3a1aa7fabf3410bb25c1f2038e431ca154a5a4b045d
+Optimized/v17/release/dataset/results_v17_pre_M1_dl_rtt8.txt,v17 release bundle,6977,f7ee322165b2d86b05d050df59d35cffec6179e9a2d484e16bc61c29ecee0c07
+Optimized/v17/release/dataset/results_v17_pre_M2_dl_rtt0.txt,v17 release bundle,5629,ea894289450910c084af3ac0856b4468651c9a432564afb0605054b8a72ea2fc
+Optimized/v17/release/dataset/results_v17_pre_M3_gp_rtt8.txt,v17 release bundle,5611,98735d4a121f727c6bd87ac99fdc592477e9ba1661201a1be2307be7a0402b8e
+Optimized/v17/release/dataset/results_v17_pre_M4_gp_rtt0.txt,v17 release bundle,4271,eb49009e2203fc310c38f79810daee232978be39b76472b352c79f7a650fb38f
+Optimized/v17/release/paper/figures/acthist_M1_dl_rtt8.pdf,v17 release bundle,6497,48b202e5190592b4e2a5ca1d778c5c5bae71d95b79a570ef4e0862c970180433
+Optimized/v17/release/paper/figures/acthist_M1_dl_rtt8.png,v17 release bundle,34662,17c140ce9dcc09fe247e9b1c73de7f131c3a6502a220bd9eb54a5de209f60d14
+Optimized/v17/release/paper/figures/acthist_M2_dl_rtt0.pdf,v17 release bundle,6495,4a9a3ef32bd786a4c43c279ce3c06a68a5e77c011b0201792a8f4a882d173556
+Optimized/v17/release/paper/figures/acthist_M2_dl_rtt0.png,v17 release bundle,34434,0abd94cace309813e05fc76d0b702a4b463d8e5f15c53b71e04cc51f3a112128
+Optimized/v17/release/paper/figures/acthist_M3_gp_rtt8.pdf,v17 release bundle,6499,502987845c62854f4fc26c869956ccf38e9f13fd05f3eaed04569f2491139a75
+Optimized/v17/release/paper/figures/acthist_M3_gp_rtt8.png,v17 release bundle,35188,be863d831c53aa08214579cad69c0d0ba8ef7d0b96dd706bddb1df8a08e919c7
+Optimized/v17/release/paper/figures/acthist_M4_gp_rtt0.pdf,v17 release bundle,6495,2a1918e6291ecdc2ea8e1afafbc162a94263e8e717e19999727de9603ad501c9
+Optimized/v17/release/paper/figures/acthist_M4_gp_rtt0.png,v17 release bundle,34968,de0e74c978ff947806033f5feeb1bf6e64cb040c5b44e7ab2ef930c88a004e23
+Optimized/v17/release/paper/figures/bars_M1_dl_rtt8.pdf,v17 release bundle,164151,ba5806098c33230ea83130a2ca6c42f976130373cda4d20421b21c514ec36fea
+Optimized/v17/release/paper/figures/bars_M1_dl_rtt8.png,v17 release bundle,62317,5b33c62b15f1fc50cd6d4b9569dd2c29c64c5f89df5d7aec9c4b9a82b4153e48
+Optimized/v17/release/paper/figures/bars_M2_dl_rtt0.pdf,v17 release bundle,170524,9fcd1bd0de6c5e12181e9ac30260b6bce33217b415619a79b60ca7345a668906
+Optimized/v17/release/paper/figures/bars_M2_dl_rtt0.png,v17 release bundle,62390,de523096fbafec9ee40104003f3394adb4a96cf08cb44aed86367109128b291e
+Optimized/v17/release/paper/figures/bars_M3_gp_rtt8.pdf,v17 release bundle,158459,f0bbe485f56f3b6aa2f0c6c60178905baf2661a7f88657f6bb7ffbb90ef790a6
+Optimized/v17/release/paper/figures/bars_M3_gp_rtt8.png,v17 release bundle,61650,1ba0e9f52837207c34cd596ac01465d1db130a3bfdb4877c6924524c5d8c6604
+Optimized/v17/release/paper/figures/bars_M4_gp_rtt0.pdf,v17 release bundle,148060,e0f5aa7137b0bf1f432c6539e5c76f1a38a8934f573d3dacaee7bafc887c3980
+Optimized/v17/release/paper/figures/bars_M4_gp_rtt0.png,v17 release bundle,58721,a4716382b49a53ca5788a6e9362a7051c6b7b51d17d6f648e4d985063e9ccf2d
+Optimized/v17/release/paper/figures/margin_vs_rtt.pdf,v17 release bundle,4239,8190f5bbf789a193eb1497ee968021bf39daf6aab58ec7909107711d76956a8c
+Optimized/v17/release/paper/figures/margin_vs_rtt.png,v17 release bundle,48739,f700329754e3532d0e216c83d6097ed6aa93183597c3a1c5606fd2df852e2233
+Optimized/v17/release/paper/headroom.csv,v17 release bundle,225,58872ed3491379a606d130fdd37c1d5a83c889f4b5fb9c2b3ad457f04b7fba87
+Optimized/v17/release/paper/table_action_by_state.csv,v17 release bundle,847,81cd2bc6939c316079ba5c9acdfdd2dc4b680b2634f4d605722872410a91ced3
+Optimized/v17/release/paper/table_core.csv,v17 release bundle,7752,75b9db9ff8b59ff7746b54c76f349d8d83e121e36c098634584867758687e60e
+Optimized/v17/release/paper/table_harq_ablation.csv,v17 release bundle,1141,4dc154d7e5d2acfedab8f68021efb15792f7619a119f17f1d85c0ca46d0de437
+Optimized/v17/release/paper/table_training_length.csv,v17 release bundle,273,9157c25f58574d311ec9eb61b16649cef3b4bcabb9fc4a5a5b45e7e23f57b53a
+Optimized/v17/release/reproduce_tables.py,v17 release bundle,22506,edd68beb8356b3575d44f5de63234b37f85d129e07d8456bc3b647dedb5b4b42
+Optimized/v17/runComparison_v17.m,"simulator, trace and CRN generators, stage code",30627,3ab54c391e8dc0b275ce3705a63accd450ef4c38afdceea6158f17023f42ac5c
+Optimized/v17/run_v17_headless.bat,"simulator, trace and CRN generators, stage code",544,3dd3f358fee7d05538a324b77dd4bef21d2f568e9f21c601e3d68a4f8f68968c
+Optimized/v17/run_v17_resume.m,"simulator, trace and CRN generators, stage code",248,e6e475ffc23e1f5d03b0227b6b09db57ff06c6bc981a0a970d7c60672a0c93c7
+Optimized/v17/schedule_users_v17.m,"simulator, trace and CRN generators, stage code",1114,aebd57f9eeff9e46d1a3f7984c6023999c6982d668a6d05a9d35187db89b0585
+Optimized/v17/selectBaseRule_v17.m,"simulator, trace and CRN generators, stage code",1953,af1df235f94491bc0ed0849cba72cc03c5474d0b768333441301aa1ce817f1f5
+Optimized/v17/shaping_pair_v17.m,"simulator, trace and CRN generators, stage code",3566,5d91ecc8e57e71b0ca51141e51fe78d2bf764d0ee841ef4022999e64b456278f
+Optimized/v17/slackOf_v17.m,"simulator, trace and CRN generators, stage code",396,bb513e21383b99bb45169b71908c471db7f3e5f54b4b6fb52a9f38f5b1e384e9
+Optimized/v17/stateFeat_v17.m,"simulator, trace and CRN generators, stage code",1489,07a21e14aa771ecb2c43008b63bc35256b455ffbbc65fc6abbc65a37e1961b22
+Optimized/v17/tbsFromMCSandRB_v17.m,"simulator, trace and CRN generators, stage code",583,ccd14c29ab834abecbaaa53b6621bdd547fb7832535299f5bd5343901e3677d5
+Optimized/v17/test_conservation_v17.m,"simulator, trace and CRN generators, stage code",2054,fb4440a167760e91a42c013b4e40b68b1a1c7fb58adfc371bc5e8023b7b98d0b
+Optimized/v17/test_delayedcredit_v17.m,"simulator, trace and CRN generators, stage code",3198,336b73675500c5d856bf803579d57b83809a91f9a15da2649b6b2492e080e09b
+Optimized/v17/test_engine_consistency_v17.m,"simulator, trace and CRN generators, stage code",5242,325d7f81a5f71d17bb75a39cd0f61504e2aca6d3c03ca0f5a97e56f9fff92dbf
+Optimized/v17/test_equivalence_v17.m,"simulator, trace and CRN generators, stage code",8772,a974a4d29369463234c35dfe0c7e20a7696b2d6b3c9703d1496b3590074b744b
+Optimized/v17/test_expiry_v17.m,"simulator, trace and CRN generators, stage code",2669,679ba6754ffb9b25d483157507d949865f48c5ff28cb46ac3ad9d7581f8f3842
+Optimized/v17/test_fairness_sanity_v17.m,"simulator, trace and CRN generators, stage code",3253,9816b021a6852aed2d03df27688fc30dc658e49637a4fe90c345d250018d0f2a
+Optimized/v17/test_fullbuffer_rtt_v17.m,"simulator, trace and CRN generators, stage code",3186,9da0a8dcd6d1b6bcc56477cd2725555c34af5921001d040587aa99003cb9b4c1
+Optimized/v17/test_oppcost_delayedcredit_v17.m,"simulator, trace and CRN generators, stage code",3327,822053dcd7eff82709ec2422a59e9e70b42a4970b63422ac7a966b47e3021415
+Optimized/v17/test_pairing_v17.m,"simulator, trace and CRN generators, stage code",2379,a1ca4781deb15d4d3ecf83bf6238a3b17aed152b573f054f631c23c7ed66f844
+Optimized/v17/test_parfor_seeds.m,"simulator, trace and CRN generators, stage code",2233,c031b9281d75639cb6cabea08ac04db365270a08a3d4fd563d51e1a535dc425b
+Optimized/v17/test_pf_update_v17.m,"simulator, trace and CRN generators, stage code",6465,a8c20707fa1d890414cc6d0a0a40aea3f8d23aef3ccfa1feff6f59ad0c36752a
+Optimized/v17/test_proclimit_v17.m,"simulator, trace and CRN generators, stage code",3076,fbd79b876c6f1d5fb22c3f931b2d0f9556f89a91b01a4a42672653f7ac59441b
+Optimized/v17/test_residgoodput_v17.m,"simulator, trace and CRN generators, stage code",2477,ca6cef60bc38c9023515fe53943e6acd6f3e6ca26814c6963b97eff765d06364
+Optimized/v17/test_timing_v17.m,"simulator, trace and CRN generators, stage code",3458,0b776fe3b59b7532758151111067172a56cb46b2a128f071d45f674a367583f9
+Optimized/v17/trafficInit_v17.m,"simulator, trace and CRN generators, stage code",1322,376d4853f5322a3d3eed5e4830fb8ddd6a229216305c915177c6ee00bb08f45a
+Optimized/v17/trafficPost_v17.m,"simulator, trace and CRN generators, stage code",595,26c842bde78ddb9ee650f765baf58d148f6800a92cc75a4ae9a5798d2b0d31c1
+Optimized/v17/trafficPre_v17.m,"simulator, trace and CRN generators, stage code",1081,86b6faf984abd862ad560e5bfb4205e9efd996864749e921b34dc6e52c41e919
+Optimized/v17/txStep_v17.m,"simulator, trace and CRN generators, stage code",4555,3b380e9f7d17ad014f141101ca70a46e1c14284522e58d3128d40d2cfeebd6b2
+Optimized/v17/update_heartbeat_v17.m,"simulator, trace and CRN generators, stage code",1334,417cab004a58552f690f1ff50cfcca88d5645a37fbb2ef9295becbc0e78275e8
+Optimized/v17/userClass_v17.m,"simulator, trace and CRN generators, stage code",362,068c1ab07c160fa9fabdd72c5049383d47507d975eb258c81eeddf7d430140eb
+Optimized/v17/userDeadline_v17.m,"simulator, trace and CRN generators, stage code",279,3f38eaa0bf2973755a217b094814268c405a34fc0ca5f8876c0c47afa3a33a75
+Optimized/v17/userMetric_v17.m,"simulator, trace and CRN generators, stage code",597,3aa79eb13590ad1a6d1685c75cfbb15b363fb6b3c95a84374a185cd6d9bc605b
+Optimized/v17/v17_setup.m,"simulator, trace and CRN generators, stage code",4175,bc1948ac89e8d0b9bdf59d1a0502c8e85b520a56c15434a07ddf9cfe10963fe5
+Optimized/v17x/AUDIT_config_all_stages.md,"simulator, trace and CRN generators, stage code",18938,0912f11f252f9dd6c5a64a7573d43b4f88c6a7c7f5b8fec0e8e3b522b132cd5e
+Optimized/v17x/AUDIT_presub_runs.md,"simulator, trace and CRN generators, stage code",20148,963d5191c88bb33b06330bdf6ff33152b0f349fdf42d602a29e96631467fef30
+Optimized/v17x/Dataset/APPROVE_g1.txt,"per-seed and per-trace results, result tables",9,82c8f8af98b335ba9df3b77d297742d4fbf789e4b0632315dd21be7e02a5d9a3
+Optimized/v17x/Dataset/APPROVE_nr1.txt,"per-seed and per-trace results, result tables",101,1074ab4dbd255e67239cf21108bd20e7b93559d9d023a7fba0fabb5802c3b5ac
+Optimized/v17x/Dataset/APPROVE_nr2.txt,"per-seed and per-trace results, result tables",104,ac3c5c15a654b25cbb8466373991c404eda988cd7e38c3d7fd914a5e77e7b8cc
+Optimized/v17x/Dataset/APPROVE_nr_g10.txt,"per-seed and per-trace results, result tables",102,3b978ada1727cac5e7960a1eaded2ce5cec9fc7aac720ee0323d495c2d502309
+Optimized/v17x/Dataset/APPROVE_r2_rule.txt,"per-seed and per-trace results, result tables",121,2d94ed226a8b049c88b27bbf40c9c6f3891a279898cb63688897b5c3089dcdb7
+Optimized/v17x/Dataset/APPROVE_r3_nr2diag.txt,"per-seed and per-trace results, result tables",118,98e6afc69f294d0ebc38442f3919012a615844272b7584f6a2d595574b23e4cd
+Optimized/v17x/Dataset/APPROVE_r5_seeds.txt,"per-seed and per-trace results, result tables",124,bce29f1716e73d0c3693920c297db7565829b467f6964f868cce2f749366d979
+Optimized/v17x/Dataset/APPROVE_r6_fullaction.txt,"per-seed and per-trace results, result tables",0,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Optimized/v17x/Dataset/APPROVE_w1.txt,"per-seed and per-trace results, result tables",101,1074ab4dbd255e67239cf21108bd20e7b93559d9d023a7fba0fabb5802c3b5ac
+Optimized/v17x/Dataset/FINISHED_ALL.marker,"per-seed and per-trace results, result tables",21,b34b81d57c90d6f61fc97727324717a1fcf542246c444c45f8ce0d7f7f639c15
+Optimized/v17x/Dataset/PREFLIGHT_a1.txt,"per-seed and per-trace results, result tables",207,d9d4319820ec402133a344074534f8f5e3a1450e85edcff3665698ba56db7ea5
+Optimized/v17x/Dataset/PREFLIGHT_a3.txt,"per-seed and per-trace results, result tables",195,ce207646924d763b4bdc6e217c5810ad004cae48de91a638dc8317bdbc4b0784
+Optimized/v17x/Dataset/PREFLIGHT_a6.txt,"per-seed and per-trace results, result tables",207,c018e9440018e7ec27f3b23760ca807f95a7535f0dc379ad3a6c753c17038a24
+Optimized/v17x/Dataset/PREFLIGHT_g1.txt,"per-seed and per-trace results, result tables",209,5f60e3aee51c46712c763f4ef7156afc94d788f3ea90eb74be920b7516b3719b
+Optimized/v17x/Dataset/PREFLIGHT_g10.txt,"per-seed and per-trace results, result tables",239,cf60b01eb44ae855d5efe7fec7da2224d154b6f6b7e7a960d7b605a4194af796
+Optimized/v17x/Dataset/PREFLIGHT_g6a.txt,"per-seed and per-trace results, result tables",209,25843ee7d8a9dad9baf9282fe9c90e87f94431f051eb0bb262e3f4a5c109d39f
+Optimized/v17x/Dataset/PREFLIGHT_g6b.txt,"per-seed and per-trace results, result tables",207,c81c6b2b29f23d7fa699ae3a99a8632ca95b98aec00438a40b56f56a7fa355b1
+Optimized/v17x/Dataset/PREFLIGHT_g6c.txt,"per-seed and per-trace results, result tables",188,eeacf740a42a57a306daa14f2fa07d468a014e46f54501d809d6d9d4bb47927f
+Optimized/v17x/Dataset/PREFLIGHT_nr1.txt,"per-seed and per-trace results, result tables",233,e1cb197105c51523b692d8a79936ad0ace4923e12e8ef1ee100345db0e63d783
+Optimized/v17x/Dataset/PREFLIGHT_nr2.txt,"per-seed and per-trace results, result tables",256,f6ca437a7240979c3c453be7a5583fcac613115c6627a7630f2029abc00d75cc
+Optimized/v17x/Dataset/PREFLIGHT_nr_g10.txt,"per-seed and per-trace results, result tables",227,b8baa9cfe978149da9701bae752e4775634c579cf9e2e1ba56d57ccbbef396b8
+Optimized/v17x/Dataset/PREFLIGHT_r1_gbt.txt,"per-seed and per-trace results, result tables",239,be2fbfdfa5620d64abc8f0efde6d4e92ab7647dc3b8d596b8ae3f97cdcd6ccee
+Optimized/v17x/Dataset/PREFLIGHT_r1b_ack.txt,"per-seed and per-trace results, result tables",241,305b2cf80c1ee8b30bd96086fd2db6d72fd79d4f4c6e725ba6104195cd6a23ef
+Optimized/v17x/Dataset/PREFLIGHT_r1c.txt,"per-seed and per-trace results, result tables",235,894aa4134cfc695a87cb2cb4d77cca42336b57d50831e2f5084ad84e6271dea2
+Optimized/v17x/Dataset/PREFLIGHT_r2_rule.txt,"per-seed and per-trace results, result tables",243,1c60e02bf85e92b40083af48bf12c7729f335f2af9a1ec63a1afbefb6678f2d7
+Optimized/v17x/Dataset/PREFLIGHT_r3_nr2diag.txt,"per-seed and per-trace results, result tables",247,dae7a79eafb6fd0d285354c3ffae733c326fbec93d01783fa1bd67606f8d0d36
+Optimized/v17x/Dataset/PREFLIGHT_r5_seeds.txt,"per-seed and per-trace results, result tables",254,41f79f5b45d399a9c8fa7df304b5d5f6f730b06fc1ddfcf21f466f8143377b83
+Optimized/v17x/Dataset/PREFLIGHT_r6_fullaction.txt,"per-seed and per-trace results, result tables",262,d2d9c6531ec0b2c82637a3e0187e9e274504db020ac68bea356a4cd5769710e8
+Optimized/v17x/Dataset/PREFLIGHT_w1.txt,"per-seed and per-trace results, result tables",203,107848cb38595d0330bba0e89b943a71e91496c65d3e5a012da7b3f63ab8afcb
+Optimized/v17x/Dataset/PRESUBMIT_CHECK.txt,"per-seed and per-trace results, result tables",3735,e101fa5c3009f1df63162af765db7ad3b8b2ca2ad2ac1dcd1c21a332492c3478
+Optimized/v17x/Dataset/REPORT_a3.txt,"per-seed and per-trace results, result tables",363,1a1ea53ad9589739c8292a7a80210ed129c431f247cdf7329fbae5786c3bd04c
+Optimized/v17x/Dataset/REPORT_a3b.txt,"per-seed and per-trace results, result tables",9653,4722335b43c856e72bd688e2ec4b9ee57541312060ba20d26a35c2526fafb380
+Optimized/v17x/Dataset/REPORT_a3c.txt,"per-seed and per-trace results, result tables",7751,2ecf54cf1dd391b3ef4d7551c294d9b98dc3cd8782d2141cd42a7157b607540c
+Optimized/v17x/Dataset/REPORT_g10.txt,"per-seed and per-trace results, result tables",682,8f84f86964c53456bc96066fa41485da124b5994ecfc7a7eb6fba3eac8b72c85
+Optimized/v17x/Dataset/REPORT_g6a.txt,"per-seed and per-trace results, result tables",771,2cb7ef045413a17d55fe86325c1458fee92065861d173d3300c1c4e5f2569c94
+Optimized/v17x/Dataset/REPORT_nr2.txt,"per-seed and per-trace results, result tables",2082,3e137c680621a8dbf6930756dd6898352e1afb6a28193ac4e28cdf41a13d8964
+Optimized/v17x/Dataset/REPORT_nr_g10.txt,"per-seed and per-trace results, result tables",1566,2665815c4e8e487877498bcba70743c2af1e884eb1c8aebbbe14ff85a91bc0d5
+Optimized/v17x/Dataset/REPORT_r1_gbt.txt,"per-seed and per-trace results, result tables",638,44806f9d217a78ace647028b1742e66f14bbc11f182d4fdd913c283f385656c6
+Optimized/v17x/Dataset/REPORT_r1b_ack.txt,"per-seed and per-trace results, result tables",614,4d160215133da04365403f17da5aa9a5dc0feacd292cde4b283ecafe7de00327
+Optimized/v17x/Dataset/REPORT_r1c.txt,"per-seed and per-trace results, result tables",2188,9631c156e6c79f152f129b4f5f3c231fcc35494848a81349b7963a3e81ba9118
+Optimized/v17x/Dataset/REPORT_r2_rule.txt,"per-seed and per-trace results, result tables",601,3a00d454e10c33eb188ecc3417698a0b6c9187b77c0e14b18e72f7623ef7ffc8
+Optimized/v17x/Dataset/REPORT_r3_nr2diag.txt,"per-seed and per-trace results, result tables",581,5097eb7e687a778532d29b6d8dcb4f0bf0c25843d9ebbe164e0664da67d423a8
+Optimized/v17x/Dataset/REPORT_r5_seeds.txt,"per-seed and per-trace results, result tables",510,1b82b5bf2752a6f60608cadcc3bc6042b2a927a7cac16cee65290a22d6964730
+Optimized/v17x/Dataset/REPORT_r6.txt,"per-seed and per-trace results, result tables",944,1480193cee63796c5521435b12ec347e2644b660f726bc8ec4c0f5081dc647db
+Optimized/v17x/Dataset/STATUS.txt,"per-seed and per-trace results, result tables",47,49cf1dc84faa81930293da515244cfe944a9277850772a43a23d67beacdf30b7
+Optimized/v17x/Dataset/a1_peruser.mat,"per-seed and per-trace results, result tables",127359,68d8720916057b31be438ae82bffe8adce5df8a4e19f231941ba39328e9fbade
+Optimized/v17x/Dataset/a3_timing.mat,"per-seed and per-trace results, result tables",737,0be704c8d64e29a7332e66b96efbb0ef38da14b9e1509dd386ea63dc6b80bfd6
+Optimized/v17x/Dataset/a3b_export.mat,"per-seed and per-trace results, result tables",384250,c957611db1aaf4e61ea3c240c1544a17586bccd1f7f85fe5508bf374c13960b3
+Optimized/v17x/Dataset/a3b_matlab_results.mat,"per-seed and per-trace results, result tables",1569,f207547c69f6c79b645c062a8ec83427f4f5b63f0b426d09ab2d6b458f1e8136
+Optimized/v17x/Dataset/a3b_python_results.csv,"per-seed and per-trace results, result tables",1778,bc0c0f1ed1299791dc927a3c1c1cdcdcfbbf6d32469573df15ce7f0bc35dc8cf
+Optimized/v17x/Dataset/a6_pf_timing.csv,"per-seed and per-trace results, result tables",1916,a502eb62673fc39b84f8fae9d3531d2a4cf11db403261c0e4e0dd1b442faa0fe
+Optimized/v17x/Dataset/actor_m1.onnx,"trained policies, calibrated tables and models",81083,3bfa613fb08899e591a1db5d983b9a4ab3fb1c681aff34161ef513dd7ed76c5d
+Optimized/v17x/Dataset/actor_nr2.onnx,"trained policies, calibrated tables and models",81083,6f93291a662a6a65ad393384d254dc6415c3381754d0e1760e638c715fe449d1
+Optimized/v17x/Dataset/attempts_nr1.txt,"per-seed and per-trace results, result tables",2,4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865
+Optimized/v17x/Dataset/attempts_r6_fullaction.txt,"per-seed and per-trace results, result tables",2,4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865
+Optimized/v17x/Dataset/audit_500_metrics.mat,"per-seed and per-trace results, result tables",452,c5e84cfebae3375e4922332229c21478dd6cd8c9262cac7203d4bb5bb64bed85
+Optimized/v17x/Dataset/audit_exact_side_metrics.mat,"per-seed and per-trace results, result tables",595,74b9d5c3ed98a6ebec9e928482b9ae33dca08b4431ed84e8cb5fb4fc1c6553c6
+Optimized/v17x/Dataset/base_rule_by_cell.csv,"per-seed and per-trace results, result tables",152,bc743d87eec9a571ae2cff238d3bde56a7000881c401a72a9ef0ca5aec1223d7
+Optimized/v17x/Dataset/cal500_single.txt,"per-seed and per-trace results, result tables",315,8ec52905dce4a61dcc9da329f9bd113068147fa0472ae5941ad0c43ec5821998
+Optimized/v17x/Dataset/cal500_tables.sha256,"per-seed and per-trace results, result tables",84,61affd7cfe1b80aa2333b42da31926ac5b59d8081e90012d8c7dac2b6f36ee61
+Optimized/v17x/Dataset/cal500_tables.txt,"per-seed and per-trace results, result tables",1019,94140b8c3405dc7107c2ef1b3d833fd2811fde47b2046516b8547ca331257f89
+Optimized/v17x/Dataset/cdf_data_N10.csv,"per-seed and per-trace results, result tables",79239,1567adc1405b2f6e3c4ec921641afedf24c3d73b836743a72b02a94bc893a055
+Optimized/v17x/Dataset/cdf_data_N100.csv,"per-seed and per-trace results, result tables",81300,98671e02e312acd6adf686df82e26a890bd1b2d0f5485835472ffca44ad11490
+Optimized/v17x/Dataset/cdf_data_N50.csv,"per-seed and per-trace results, result tables",80657,56c66c21e206186a89d1b7bdf773a7fbfbf541f52435b57dc6d2f11b4cbfd5bc
+Optimized/v17x/Dataset/cdf_data_all.csv,"per-seed and per-trace results, result tables",250884,cddd09a9bc70cd10a892c305b9b4a3119de4d992ebf09afcfd4f0ffbc00d0ece
+Optimized/v17x/Dataset/ckpt/a1/peruser.mat,"trained policies, calibrated tables and models",135087,c7eb07a4fb48efb4b2d542299e486feacff0bfba8f7b5433efc54356a59ce8ef
+Optimized/v17x/Dataset/ckpt/a3/timing.mat,"trained policies, calibrated tables and models",11848,78ff40cea699800a4c10534588e3fbf4fbd1841d05f1a8efef8c53622be52f8b
+Optimized/v17x/Dataset/ckpt/a6/cell_acked_rtt0_np1.mat,"trained policies, calibrated tables and models",18576,48120a539ba160dbf8cb7fb55147788647e7c3dcfa77b97d2c9b6b65d4fa982f
+Optimized/v17x/Dataset/ckpt/a6/cell_acked_rtt8_np1.mat,"trained policies, calibrated tables and models",18576,0d8cef8aa7be1f18c39a093ecffe5a9c79dbd3c2e57a62b79678d0b7587fc75d
+Optimized/v17x/Dataset/ckpt/a6/cell_acked_rtt8_np8.mat,"trained policies, calibrated tables and models",18576,28a82efa9c24f8bcc7ad5d0dcb19b8801b7bb6c4c9a5056ef53ba504bff12d0e
+Optimized/v17x/Dataset/ckpt/a6/cell_scheduled_rtt0_np1.mat,"trained policies, calibrated tables and models",18584,1ed185b5348fd9c286cf6a370ea05f3bc49bd27535dab274ccc8c644c16e7206
+Optimized/v17x/Dataset/ckpt/a6/cell_scheduled_rtt8_np1.mat,"trained policies, calibrated tables and models",18584,5b3a0bf549e490fd0a450c126623ebf667282736c23d717bbb275f3c2e4dcb99
+Optimized/v17x/Dataset/ckpt/a6/cell_scheduled_rtt8_np8.mat,"trained policies, calibrated tables and models",18584,4f4e08123c348f822bc6c00e69ebc5d6de0a965323c45e8173965a1a0cf1b469
+Optimized/v17x/Dataset/ckpt/a6/equiv_test.mat,"trained policies, calibrated tables and models",8904,55ce98be3cd8076d6e580776f9943a0271b82c41473a53285d9efb060eccd9e7
+Optimized/v17x/Dataset/ckpt/g10/bandit_G2_hi_d10.mat,"trained policies, calibrated tables and models",39440,6c868d64e604ce98974666e576538ea2df25350f801eaaba738c8ddf18d99722
+Optimized/v17x/Dataset/ckpt/g10/bandit_G3_lo_d18.mat,"trained policies, calibrated tables and models",39440,0c07830b82499e2c3d85bcb3cf083e732d33a311cf6b5d38fe68aac2092e0a76
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_0_sweep_1.mat,"trained policies, calibrated tables and models",9488,6921671f21b79482dcc93b0e69a87ad7d2642f7e1f9df8924c66c717977fad32
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_0_sweep_2.mat,"trained policies, calibrated tables and models",9488,bdec1c543992b5b93c59f8ad417254e6dfd9943d6b9eae2b93b0286ee73e56fd
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_0_sweep_3.mat,"trained policies, calibrated tables and models",9488,773315ac8b65193d91872049ced1ba80533d6117035056c8d4a489ed969876dd
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_0_sweep_4.mat,"trained policies, calibrated tables and models",9488,8af3c1681d235956ebcab474b5582ca6437bbcfc1525ededf72042a6c436d1f8
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_0_sweep_5.mat,"trained policies, calibrated tables and models",9488,e27dd7bae729a0bea7de998ecb279bd494e1ee9714fa193219a4d249aed74b14
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_1.mat,"trained policies, calibrated tables and models",9488,0820a6db0170135cc19917ae36a09f46d904e7fb66fdf7f17ef9826143b5dcf7
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_2.mat,"trained policies, calibrated tables and models",9488,29afa1a21912fc54ad7a93a065df6974cc8bf253997a5e48b49a191b19f12a71
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_3.mat,"trained policies, calibrated tables and models",9488,ef58eb280bb026155b103058fd968ab2ee2fdca55cbae46e9bc16e9ed0e0e813
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_4.mat,"trained policies, calibrated tables and models",9488,aace11e50d177918d6bfe8ae5e690957ecdbf85a18cd050d85c33f78c21d63bb
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_5.mat,"trained policies, calibrated tables and models",9488,4b797c81864ab6a7cf8fe5e8d5d73d529fbbe27ea53e0a67e331e10f40face15
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_1_sweep_6.mat,"trained policies, calibrated tables and models",9488,976c805e20a9d763559777db55a8f58cf26fc695e4f2dff93598c930bb7c6b56
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_2_sweep_1.mat,"trained policies, calibrated tables and models",9488,fa6e33bfe4f5d962be603e38eeeefa29d46212a15fe799d19e308f0325019bc2
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_2_sweep_2.mat,"trained policies, calibrated tables and models",9488,0e8438155650ffd5e1b3d5fa041aed42b2328f202a8bb6d65ee89287447f6555
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_2_sweep_3.mat,"trained policies, calibrated tables and models",9488,469323b7779575696fedcc27e897b23a553fcb39482f3394d90286862533c6a2
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_2_sweep_4.mat,"trained policies, calibrated tables and models",9488,27b7883b7f09c0af989e21b5fa53edba93aeb0f07440176398040f8f8a3eae41
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_2_sweep_5.mat,"trained policies, calibrated tables and models",9488,97ac81a62bd44720eb6194df6439ea881c344185ee2ee6cf6881d9004ec47d2f
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_3_sweep_1.mat,"trained policies, calibrated tables and models",9488,08fb6cd2b7443501f7e264d961978f0431c000c5a8d94401d9d4443891f4f00b
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_3_sweep_2.mat,"trained policies, calibrated tables and models",9488,c9130948f838cd93e5caa33a7b6f7f5699c3fe35b5a0e73416e29482e0384bbe
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_3_sweep_3.mat,"trained policies, calibrated tables and models",9488,b07fe371bc968436a48b9fc18b333fc98dcb67821450687c6cb3ba3fd9c2df9e
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G2_hi_d10_start_3_sweep_4.mat,"trained policies, calibrated tables and models",9488,39a025cacb0aa83d7d0493305013d548c044497e2b2d4df9b223768f17a33548
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_0_sweep_1.mat,"trained policies, calibrated tables and models",9488,db257cc63ee23c4c3ccdbd1b5a94da2625e9b82b067f6d44b0e390d20b8ae922
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_0_sweep_2.mat,"trained policies, calibrated tables and models",9488,da0a785ae90731fc1c16bd4e2cab830704da0170562b3d7db61a93e1b609930c
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_0_sweep_3.mat,"trained policies, calibrated tables and models",9488,a1f6c9c5c157432cc1cd8a4e1e642cdb55844b334c48644340cbc545d77ef77f
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_1_sweep_1.mat,"trained policies, calibrated tables and models",9488,c6312947cc836d0d95f82bcff3fa41fb5609340c0171be68cb847e1e6231f8dc
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_1_sweep_2.mat,"trained policies, calibrated tables and models",9488,f6a18d20c2577e9cbf87ce5556f6081bf01b8f1c023bf1f7f7c4b103eb9cd9c3
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_1_sweep_3.mat,"trained policies, calibrated tables and models",9488,ce3a61dcba862aa52ed16434c8c1b99d0369fafcc80e94e515f980390368cf1d
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_2_sweep_1.mat,"trained policies, calibrated tables and models",9488,95a238ea715874cbf6336d4df81a091a06330d09152e3693c3782c938b473721
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_2_sweep_2.mat,"trained policies, calibrated tables and models",9488,df488343839252eae3be05c38dc74f578bdc58f16f4970408b42b6f77f094670
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_2_sweep_3.mat,"trained policies, calibrated tables and models",9488,b51df1258730101fd69aab238508b95ca7aafb82bb4767ed9fda3eeb1335fe2f
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_2_sweep_4.mat,"trained policies, calibrated tables and models",9488,bd32dc7701493155ba9760b5624534f30cc700fd981d48f1fe150c7bc8a6e3dd
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_3_sweep_1.mat,"trained policies, calibrated tables and models",9488,c0d90691d427f6e50797c05adf48786f9c027bcdea144ecf434a073a823deb09
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_3_sweep_2.mat,"trained policies, calibrated tables and models",9488,da3526a31f77eea9912e987a03889f9b06772db909f76dc37c2670e3078b0759
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_3_sweep_3.mat,"trained policies, calibrated tables and models",9488,de00964a5d003526d14084847770bd9499288be9b281f436fc8c7dc63a3a74c6
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_3_sweep_4.mat,"trained policies, calibrated tables and models",9488,7261be8337b6c626cd43234af136092842290b86abbfd7ce930ab27a85b3ff53
+Optimized/v17x/Dataset/ckpt/g10/calib_comb_G3_lo_d18_start_3_sweep_5.mat,"trained policies, calibrated tables and models",9488,dd7f8d9de0ebb6393efdc2abeb24c7397956a5736de2fd8575c44f7204ee02bd
+Optimized/v17x/Dataset/ckpt/g10/calib_single_G2_hi_d10.mat,"trained policies, calibrated tables and models",64504,1c3ac9248508587fcf487146c6ddb1c881940b1eab295a6fa0125cfcc904a5dd
+Optimized/v17x/Dataset/ckpt/g10/calib_single_G3_lo_d18.mat,"trained policies, calibrated tables and models",64504,d838975b58394dc96bb96776808acdab61df25272c2347e729bd63f929f570ae
+Optimized/v17x/Dataset/ckpt/g10/eval_G2_hi_d10.mat,"trained policies, calibrated tables and models",51728,671544578d3d793f342cbfb924b006a6d876b3d786a34d40b6587c03686bbdb9
+Optimized/v17x/Dataset/ckpt/g10/eval_G3_lo_d18.mat,"trained policies, calibrated tables and models",51728,dbad46904216b4cdb0291c001a2eaeb133a3eb73668beb30d99f425daf43fd72
+Optimized/v17x/Dataset/ckpt/g10/feas_G2_hi_d10.mat,"trained policies, calibrated tables and models",59728,ccbb6e882f5ddd249e83e296e084d12281c8449ec97db5fc7654434559a2e03d
+Optimized/v17x/Dataset/ckpt/g10/feas_G3_lo_d18.mat,"trained policies, calibrated tables and models",59728,e5ae9921af41840d04428d2848b7ddf68185e65d8a89b9039863ca94df54b0b4
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G2_hi_d10_1.mat,"trained policies, calibrated tables and models",543031,506bf52a7070be9f1305bcbb2a7a15851b3f44467cc27ff8c510f87c95f01d8d
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G2_hi_d10_2.mat,"trained policies, calibrated tables and models",543014,0eb8ddd3fa1b5e5cba47b11301dc0e9b8a30d93f68d33b5d89689292b3e623f3
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G2_hi_d10_3.mat,"trained policies, calibrated tables and models",543089,111e2a6d305d1dab41a6de94afede38e995aacb6e0dc0de6bfc910a64b616f77
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G2_hi_d10_4.mat,"trained policies, calibrated tables and models",542975,64fe5e468bfb552aa225908082c4df2a10233718e26828cc6a7bbc3b468d8ca9
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G2_hi_d10_5.mat,"trained policies, calibrated tables and models",542949,33b0507392943c9e181ecdbbbb5db1752b47462847b14c1eef372cd07192a10e
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G3_lo_d18_1.mat,"trained policies, calibrated tables and models",539987,dfa020ffc07d0bd3d661be015416da2ea6f2aec2ce7d5c61f9bf4c077e604d19
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G3_lo_d18_2.mat,"trained policies, calibrated tables and models",539969,6b42b5c194bfbc204c59e689fe3c8aaff01f8dd33fdc2dfce525791903322c13
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G3_lo_d18_3.mat,"trained policies, calibrated tables and models",539937,2bea14b8dc0d58cf92f07fc2cdc457fb5b289923ca4c9f7f1c1d08e4c8726969
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G3_lo_d18_4.mat,"trained policies, calibrated tables and models",540052,b7baa0ce2792c265158cbbbbb4164eacd4db7a10f56d7f3f55f52c4b419ed471
+Optimized/v17x/Dataset/ckpt/g10/train_seed_G3_lo_d18_5.mat,"trained policies, calibrated tables and models",540306,371f019c74cda46146cbbf6e063bf11f727187ca205164ce290fb26cd6fd2a12
+Optimized/v17x/Dataset/ckpt/g6a/composite_table.mat,"trained policies, calibrated tables and models",13024,9daca94e965ef1ddfcb7d5c25d506880274ca158b1acc43f3257dc17845f9c14
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk1.mat,"trained policies, calibrated tables and models",10992,5eb0e8b8ef5341a22e54c75846f173eddcf13d22e3adf67ab1e0d7333459c3d5
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk2.mat,"trained policies, calibrated tables and models",10992,48d81947d5453b34afa6fabf40b00a0f0dbdd3608695bd4aa712925baacf5b95
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk3.mat,"trained policies, calibrated tables and models",10992,2ade1ccb9cc9bccf3d9b890fba33b6e063b1da91431218144b8da1a168cf1aab
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk4.mat,"trained policies, calibrated tables and models",10992,79e47e4cf4e78ddaad3bc448496c51e210771acc3b56499c3282f84070799db4
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk5.mat,"trained policies, calibrated tables and models",10992,a03313955dc35450ba6ef4cc2a6b6575c1de99b9b23c0991996dc59837d49ce8
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk6.mat,"trained policies, calibrated tables and models",10992,68337fe3446d5e96f854bbfdf88e1d58adac8dd50cbc6030be8b06567cf075e1
+Optimized/v17x/Dataset/ckpt/g6a/ctx_exh_chunk7.mat,"trained policies, calibrated tables and models",10992,8e41a88b7e787a485d8eb84f75c0f998689bf269ee9ee256ff5f2fb446d4961b
+Optimized/v17x/Dataset/ckpt/g6a/fixedpu_joint_sweep1.mat,"trained policies, calibrated tables and models",9240,9975908c3927c1bda1bd3c05448d09c145074cfaa5f4932f23ec70ae688bc8ee
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_1.mat,"trained policies, calibrated tables and models",8840,f28771f5d2ef476f4310672a85ea987168d64771bb89f3d46d4c022ed293819f
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_10.mat,"trained policies, calibrated tables and models",8840,9413370fd71fd577a0559b2eb7a1829bd49e202431ed5101842ded27d1796dd1
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_11.mat,"trained policies, calibrated tables and models",8840,b6c8e190aca3f95185e191208f0916facb4558bd207e5bad6eb12bca4db712af
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_12.mat,"trained policies, calibrated tables and models",8840,04bdc92f421f730977755ec66c5e41b06b8c57c6353d7d82bea81a2beedee1d6
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_13.mat,"trained policies, calibrated tables and models",8840,5407b95d394b9f8367def959d34e33b362f8a7eb168012f17f18aac3e1412ece
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_14.mat,"trained policies, calibrated tables and models",8840,d25d6373d19aef15b20efd71c8e7a3966a52d785e28ad291410298fd437e0d84
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_15.mat,"trained policies, calibrated tables and models",8840,a50194f01256aa30adf02601ebbfa7893f709ed1697d18ea0453337702eabf53
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_16.mat,"trained policies, calibrated tables and models",8840,ff325e6ca012742e2951280b8972130a09dc300cf4a4d3a15627ea06118c6c20
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_17.mat,"trained policies, calibrated tables and models",8840,545229c64b7bf220f03794b62a9a9bf48063a94f08702c563d0fe93be74b026e
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_18.mat,"trained policies, calibrated tables and models",8840,02d6d771021838396f70f5a54a57a64acad906a8922373e4a7ad615b19894504
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_19.mat,"trained policies, calibrated tables and models",8840,bbebc1c56ca12efb9c246374fa49ff79ab50c267d243ea292a2b862d5621f290
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_2.mat,"trained policies, calibrated tables and models",8840,21dcfa4d5ffe166c5cc97b2cecd610838bcf8081df30547ccdebd280e15e6336
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_20.mat,"trained policies, calibrated tables and models",8840,fbb4054d902c30632b68a0dd2ed6ae0e3a65f09ac24d16290c19f4cb269410fc
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_21.mat,"trained policies, calibrated tables and models",8840,afac0f83221944690c0a0799da89a41d7328ec465b163d8171dee753b6919d8d
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_22.mat,"trained policies, calibrated tables and models",8840,6f2a98c26190587712f57747b3d566b88575c1cedffb712406d5aaf8af2801ae
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_23.mat,"trained policies, calibrated tables and models",8840,1ce7bc22bf4a6612374bf371abaaf25e8e223c9356085e239a21aab5c41f7b5b
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_24.mat,"trained policies, calibrated tables and models",8840,47cd0c5208d72c901f93d08a1a912137ecb4c3470a34fc54faf0680e86c28657
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_25.mat,"trained policies, calibrated tables and models",8840,6b14aeb91ea78e4e9438df8ffccbff900c8c38c1c4f10eb6876495f6a89e75cf
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_26.mat,"trained policies, calibrated tables and models",8840,d64a4829083b8b94da5a5388cb53f71cbff5681fa49c258db800fbcb4491f2ac
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_27.mat,"trained policies, calibrated tables and models",8840,8e04d99e56ed9acb546027a6843b779d09a1733ead9a6abb603c87548cf53deb
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_28.mat,"trained policies, calibrated tables and models",8840,33d83dc6bfcfe34b071595d2f4f74fccf7da09f326e59cac4261f14c035115f3
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_29.mat,"trained policies, calibrated tables and models",8840,f2a0369dad02abf03c4ebff6aab5d90f213d3bb74d246f6bdc6aebef42152955
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_3.mat,"trained policies, calibrated tables and models",8840,d969df7e41dc99b953137f52ebfdbc19f2f42fe5e9ed1a7bb63331d04c39e368
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_30.mat,"trained policies, calibrated tables and models",8840,66514ba7bd0a7eea6e9e17939d0e01f90d9994fbf46c53e9b3e07ec7a8f34ca4
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_4.mat,"trained policies, calibrated tables and models",8840,b60d08b12c72151b18b0669741fc62957c14701027d149eb29961a9f4494fc01
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_5.mat,"trained policies, calibrated tables and models",8840,6c658a5f88d1ae559ae0c38ca3967f89a09808fdbc70f35f74b04a676e9339ab
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_6.mat,"trained policies, calibrated tables and models",8840,5d922e7421c203bb21488fca36944d938e09590195ba9f48fd98afb702bac08d
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_7.mat,"trained policies, calibrated tables and models",8840,1e7c76a13400ac437ba5b61486e2bf3c3c74073480c30964934ad9ca689ffaf1
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_8.mat,"trained policies, calibrated tables and models",8840,dc64a9cf75f9242d302dafd1238eccc86894493d029267e5a8a0f6aa9944dea3
+Optimized/v17x/Dataset/ckpt/g6a/olla_set_9.mat,"trained policies, calibrated tables and models",8840,4b0ee8b91ea78942c9494eb54819d7cf0a1531fe60ad75cef14f5611c59a41d5
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk1.mat,"trained policies, calibrated tables and models",10400,99d8b222764a469ec1dd7791f334afcc5b97c78de986f5e1f815ee9653e3339b
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk10.mat,"trained policies, calibrated tables and models",10400,e8d13c0297d48e9efc7d78857dc8a42cd38265505a612321d0ab49fe2f0f7520
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk11.mat,"trained policies, calibrated tables and models",10400,07ff31d29a054a1cd5e19fef3e12638b8cdefdd094fea07ca075c2d6ba0c2d90
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk12.mat,"trained policies, calibrated tables and models",10400,c7f3e4a2461ea0780bb73e75f44dcf91a1bf8b2317bf6fe97258ade412afac7c
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk13.mat,"trained policies, calibrated tables and models",10400,afe5062c1cc168954ba61be38acf4803b71fb39848b66fcb5eda11c7e7b82fee
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk14.mat,"trained policies, calibrated tables and models",10400,f656a8090a262e71f0cdeb6f240475c1ff8b03172c1e5adace8f6b8bed7af9b0
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk15.mat,"trained policies, calibrated tables and models",10400,57e74160ca8391d42f837c4c484f85442900c5fa30456efe5de980701aedecdc
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk16.mat,"trained policies, calibrated tables and models",10400,c155ed0dac281f976c984c56777c0d36dc38b7c549d031aa42367fdc95a9fd18
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk17.mat,"trained policies, calibrated tables and models",10400,229427440a491dadf16f96213f13e28f8a8246962e145b582b7770d5e8a9249b
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk18.mat,"trained policies, calibrated tables and models",10400,0d7d62850ebe0355ee48c6630261bc67e6daed5c6c5e8a1f0ddc84a58ab3c213
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk19.mat,"trained policies, calibrated tables and models",10400,ff0a644d02cb77b2b6f9f610e8997fe33a5e3f1539bde0f3ec74f0917dd60c01
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk2.mat,"trained policies, calibrated tables and models",10400,dffbcf429b1d90923d57b4c32fcd0cbf9cbdfdc9368da1c3b1480de00533b1ce
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk20.mat,"trained policies, calibrated tables and models",10400,f79a2b8c4a124f52933aee4d227f1f8f989366ad1ebda382a61cadb4aa819b45
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk3.mat,"trained policies, calibrated tables and models",10400,999be7fc7ad5631eb0d16d518351cf13893e9af7ad19ecc9e033977c8a2c4dd9
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk4.mat,"trained policies, calibrated tables and models",10400,a9dc592c93c8ab93e53c8df8e11d4b076915026554731b3d5afd649e17ef4213
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk5.mat,"trained policies, calibrated tables and models",10400,62c3bdb8f9495e848a1e79398eee71fcc645db7e4e9d186b1c4f5c585852c6b6
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk6.mat,"trained policies, calibrated tables and models",10400,a9a5283910791a68211ee75ec05f9eaf479fb28f6636ab84daf8c1bc45a9a436
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk7.mat,"trained policies, calibrated tables and models",10400,2d655b95ea43f646f8c9d019d45b21b0ec031c415a4c09df55d6a778d6773696
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk8.mat,"trained policies, calibrated tables and models",10400,3580164eb47ce31e33de56653d39bf47ab25ec3db00424766a478ea31d9aa9e0
+Optimized/v17x/Dataset/ckpt/g6a/sep_grid_chunk9.mat,"trained policies, calibrated tables and models",10400,15767fd0bb61a33504bcb7ccf1442823ff3f22693e7e6e92ce8502e6d7b0ab33
+Optimized/v17x/Dataset/ckpt/g6b/start_0_sweep_1.mat,"trained policies, calibrated tables and models",9488,688df98534184d3d130340574bc30df6276790addfaa22c07be161e99f891761
+Optimized/v17x/Dataset/ckpt/g6b/start_0_sweep_2.mat,"trained policies, calibrated tables and models",9488,731d8b359bb81be69a72a6a8a9dc415a5a10a10cafec0f4cfc3b847a03ec7487
+Optimized/v17x/Dataset/ckpt/g6b/start_0_sweep_3.mat,"trained policies, calibrated tables and models",9488,9cb2c5e37974b16dffb5d948c8ea65346c74f1f21a7fa92c2833b9a90aa8341a
+Optimized/v17x/Dataset/ckpt/g6b/start_0_sweep_4.mat,"trained policies, calibrated tables and models",9488,96323f2e75dbd7e2fe069087ae85e66acfd6fa43d4f83694f9bdf4d89595d0fa
+Optimized/v17x/Dataset/ckpt/g6b/start_0_sweep_5.mat,"trained policies, calibrated tables and models",9488,5da8c8704c5c2ae914a5cb138654ac31c428c5a80c329bfa8180c8fa40119ec2
+Optimized/v17x/Dataset/ckpt/g6b/start_1_sweep_1.mat,"trained policies, calibrated tables and models",9488,53a305614d12fa070fd8dc07bcdd6691dc58fc628cb9e59f41b7b4f26ffd9fdb
+Optimized/v17x/Dataset/ckpt/g6b/start_1_sweep_2.mat,"trained policies, calibrated tables and models",9488,3ab0b1df4e42ff818710cd60b01cf9f2b29d938cd4bba1c978d9ff675945c04c
+Optimized/v17x/Dataset/ckpt/g6b/start_1_sweep_3.mat,"trained policies, calibrated tables and models",9488,a591f6a349547843109dcdc9527624504c0557f0db94b84bd390f88c509deff5
+Optimized/v17x/Dataset/ckpt/g6b/start_1_sweep_4.mat,"trained policies, calibrated tables and models",9488,a7e9305dff454d2b1543933f448a08a87bab2d63fe4ca0a02fac79a286591888
+Optimized/v17x/Dataset/ckpt/g6b/start_1_sweep_5.mat,"trained policies, calibrated tables and models",9488,1d7d2e951fcb20f61d6c45314f194a83d578441ad390d5e849e27d42a2ac6bb1
+Optimized/v17x/Dataset/ckpt/g6b/start_2_sweep_1.mat,"trained policies, calibrated tables and models",9488,8731544a7accbfbe348241cbfd25880ada0c2099c471b865476d43ffd957f5ab
+Optimized/v17x/Dataset/ckpt/g6b/start_2_sweep_2.mat,"trained policies, calibrated tables and models",9488,12a3307a23122813267afe335f8aeac824315cb16a093fe1ecf56d50cb91c68d
+Optimized/v17x/Dataset/ckpt/g6b/start_2_sweep_3.mat,"trained policies, calibrated tables and models",9488,f29ef71926864643324b80b0b345a0e6dc93bb5ef57538da57c389ffffdcccd0
+Optimized/v17x/Dataset/ckpt/g6b/start_2_sweep_4.mat,"trained policies, calibrated tables and models",9488,b19a93049977879c41da69bee8a1920c43d279d4cc7dac111598b8ff430d0726
+Optimized/v17x/Dataset/ckpt/g6b/start_2_sweep_5.mat,"trained policies, calibrated tables and models",9488,bb02d1de28ef0a220bdd48b4e534ca2e84d91df5de9b8a55214e39266497ff81
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_1.mat,"trained policies, calibrated tables and models",9488,6280f95a7dcd87eee1dc4b06718aec129c63f2ffcec99a7740ecbcfbef0ad03e
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_2.mat,"trained policies, calibrated tables and models",9488,24dc876da1e7ace486abd107c229919773c189378a7103281a807688ec2e1acb
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_3.mat,"trained policies, calibrated tables and models",9488,4460da5ec295e2436d4a8005b9f38a584e41f5578702d1dbaef01ea3875887f1
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_4.mat,"trained policies, calibrated tables and models",9488,9b5ebe6013e63bce43bd719fc0632da7045826b7ab698710ef26f85a2e508023
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_5.mat,"trained policies, calibrated tables and models",9488,4ebd69165b3bead99a0083acdcdaa80b0c57978b6b8b93a78fe68a8c27fb863f
+Optimized/v17x/Dataset/ckpt/g6b/start_3_sweep_6.mat,"trained policies, calibrated tables and models",9488,01307e7a61e4832ec85bbe51da16b7be4c90efabb075f006f4819b2d267984ea
+Optimized/v17x/Dataset/ckpt/g6c/analysis.mat,"trained policies, calibrated tables and models",12960,a1f3fad9921e936911074a823c2fec669f1ce1537ea5597e1dada7860d0e3d20
+Optimized/v17x/Dataset/ckpt/g6c/eval.mat,"trained policies, calibrated tables and models",29680,9b06c1df62174da02d45ca08cd8adb6e491791d457120cb87e9241a7c9cbfe27
+Optimized/v17x/Dataset/ckpt/g6c/repro.mat,"trained policies, calibrated tables and models",4424,aec1209964be4747a02c1100dfac65d9c0fe2d2d9c2216733ec3eb1ff46aed41
+Optimized/v17x/Dataset/ckpt/nr1/calib.mat,"trained policies, calibrated tables and models",59608,1552e681b0c3373a261225715357efc4f517a4b8e80428009b4db765ba2dd2f1
+Optimized/v17x/Dataset/ckpt/nr1/eval.mat,"trained policies, calibrated tables and models",16264,ba4bd9a45f1ebaeac2fdcb0bbc6dcd24f12501ca87a254d3d79f33f20e05f09b
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_1.mat,"trained policies, calibrated tables and models",543902,1cf64d9d78700e3ff2308ed46cc8e6dbbe44db07618f9e10631ce30aeb2fad28
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_10.mat,"trained policies, calibrated tables and models",543919,f64c0b6a0c92934a8238551904296afaeb5febf2f8e71605260b243209ed6f9d
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_2.mat,"trained policies, calibrated tables and models",543722,c2a1484d54a2d8c12b952882a958bbff3ac255955e0b604fe6a55c8864879c76
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_3.mat,"trained policies, calibrated tables and models",543854,43be279e7fcef38c4d4bcddc11ecf3b8888a825341efc3238a8567891c38dfe7
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_4.mat,"trained policies, calibrated tables and models",543812,11e6918010d1b881b60b08c0c17319bd8147426a6c5f6e74ae1ac8b38409e119
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_5.mat,"trained policies, calibrated tables and models",543830,40c0f0ddf6e407f7a9f65072995b7395e6fefba5e0f92393da83a3e4c155458e
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_6.mat,"trained policies, calibrated tables and models",543901,3f2c6ccf96b7e9f02c6d2392485e100af03ecb1f71a7883b323342371e3c4762
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_7.mat,"trained policies, calibrated tables and models",543703,32f03566f3eeeead928a290abdd2efeb27ef91d7c1c3ba26dd75018c759765b6
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_8.mat,"trained policies, calibrated tables and models",543723,13a69ea52cd39aeafb42bac48a573dee6eb1a2e6e844d7a3b62738ce7e64551d
+Optimized/v17x/Dataset/ckpt/nr1/train_seed_9.mat,"trained policies, calibrated tables and models",543827,49565ab9918813062c1231a245a53af8ce79ad919ed17051c66de290b4946132
+Optimized/v17x/Dataset/ckpt/nr2/analysis.mat,"trained policies, calibrated tables and models",12248,9547fccd527106ede1137fb876e796eb37f917a8a8f072b77b2e0cd88e31d27f
+Optimized/v17x/Dataset/ckpt/nr2/check.mat,"trained policies, calibrated tables and models",4424,c8e3b7b3c6216eaf7708aec04f9c10711278ad8bc3ff12fae3f36b6dc2b5ec39
+Optimized/v17x/Dataset/ckpt/nr2/eval.mat,"trained policies, calibrated tables and models",216168,6640d9f18f1170068ea357dd660df6a91b5fc6b1122ece04cf63aa348b86e072
+Optimized/v17x/Dataset/ckpt/nr2/repro.mat,"trained policies, calibrated tables and models",4424,4367482e4ae5d4e2dcce0437ecc468e5225f0995030eb36a1c1d2ae8136e1925
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_1.mat,"trained policies, calibrated tables and models",543867,bd03707627495cc2ddad178f2b53d08a01f7f9595b2bf959ff1572079000705b
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_10.mat,"trained policies, calibrated tables and models",543818,292301425b90e57e02de6bc5c30200abaed8566c3af5baebd5c3a5df7754a836
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_2.mat,"trained policies, calibrated tables and models",543674,6719fbe89889ff09dbb4a9d0149ac31266ec9fa19dd803a55e755218b196b8bc
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_3.mat,"trained policies, calibrated tables and models",543912,d84e1b880ae0f810c293e04222b6c6f8520d3661b7dcc798c1a9f301259a4813
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_4.mat,"trained policies, calibrated tables and models",543665,709fa1604c1110f9569df67e2fddedac9b726dc3834878c9cd8b2ce3dc437987
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_5.mat,"trained policies, calibrated tables and models",543821,1d16416bc351de06cf55cdd7dfada23dec96d06918173591e20f3db6e2f72bcb
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_6.mat,"trained policies, calibrated tables and models",543941,5058b9edfbea0356cfdb6a99ae081f1764c2eef90be922c4020bf99cc303b03a
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_7.mat,"trained policies, calibrated tables and models",544015,ddd9fdd4f10bdad34c4ecf6e90471941b45cb216b256d50ad5a2f6d830a33deb
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_8.mat,"trained policies, calibrated tables and models",543941,7256ad7ba031f859800048cfba69dc78479e10ff3cc6703dd812100429a6a5e5
+Optimized/v17x/Dataset/ckpt/nr2/train_seed_9.mat,"trained policies, calibrated tables and models",543713,393095a5099ae0ea578eebefaa3396fe076484d7c0a87c4ad17fad949d5d6fab
+Optimized/v17x/Dataset/ckpt/nr_g10/eval_G2_hi_d10.mat,"trained policies, calibrated tables and models",54893,1b0324bc59ba7f2a253fb3e9ad3c2ded38c5a78bfbf1dd265373489f150b86b4
+Optimized/v17x/Dataset/ckpt/nr_g10/eval_G3_lo_d18.mat,"trained policies, calibrated tables and models",54413,193ebd47ab009caba3917343b76e9a9134de2cfc3ea9011e3c548705da74ef37
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G2_hi_d10_1.mat,"trained policies, calibrated tables and models",543079,73fca199c43e18937f1f6822fda8e576a9a8fd380769c83c65696cbd5b006f64
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G2_hi_d10_2.mat,"trained policies, calibrated tables and models",543086,0030f11d44a2b291b503f7878e8f87d17033ee3b20513f86481a98f087e82a43
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G2_hi_d10_3.mat,"trained policies, calibrated tables and models",543145,865fc2c12f5c09a1bf7eeff9e35c01cefdab061ae8f6c3441eb4237c5357aeeb
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G2_hi_d10_4.mat,"trained policies, calibrated tables and models",543080,f9a539417b094defcb39a41268af2fe0c80b92c74f8362679ec73056ae9a7551
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G2_hi_d10_5.mat,"trained policies, calibrated tables and models",542902,a1e46ebfd26b5509b016be197d4d95803384f71fa1d03622c38c3b8855e4cb9a
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G3_lo_d18_1.mat,"trained policies, calibrated tables and models",540096,6c711278600c0c0cfcca5ae950e9c1980534eba42e62b700202a9a6ad84f02f7
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G3_lo_d18_2.mat,"trained policies, calibrated tables and models",540009,04f2c65195bbfdf08e45717afb0b1a772cfec90739cd8450a1f67ec1eee81dcb
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G3_lo_d18_3.mat,"trained policies, calibrated tables and models",539850,f896a5efdd0c1200d14666d8578d875447431b90cdcb52915e3c8aec5b9bf9a9
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G3_lo_d18_4.mat,"trained policies, calibrated tables and models",540125,ff3704d4e7110b5ddd5af7f45636c08e4e46047167c489321c38e2d9bb98a4c0
+Optimized/v17x/Dataset/ckpt/nr_g10/train_seed_G3_lo_d18_5.mat,"trained policies, calibrated tables and models",540203,e3f03046936fe245edf37dfb2f7e9fb5b23d518c177af4dc4e62f3459c4a0173
+Optimized/v17x/Dataset/ckpt/preflight_a1.mat,"trained policies, calibrated tables and models",326,f758137fd537413fba88c999926129ff63745a736c541c5f271c54e502bc119e
+Optimized/v17x/Dataset/ckpt/preflight_a3.mat,"trained policies, calibrated tables and models",316,f8babf259b46181394177c991bf9b2fb03bea5d837c137e22fcc93e43c0f7a03
+Optimized/v17x/Dataset/ckpt/preflight_a6.mat,"trained policies, calibrated tables and models",326,44204c92802c2629f647d54c1cc4aaaabcefb5b9bc94b5c91d82348c6dec3aac
+Optimized/v17x/Dataset/ckpt/preflight_g1.mat,"trained policies, calibrated tables and models",326,71695bed21d864ed66da099c48e75da107d0ed7a24f0f4f4d9591c1a023621bc
+Optimized/v17x/Dataset/ckpt/preflight_g10.mat,"trained policies, calibrated tables and models",350,baaf8da67fb73c1c8916a9e5631de719939d8973e992334dbfe4339280ab0db4
+Optimized/v17x/Dataset/ckpt/preflight_g6a.mat,"trained policies, calibrated tables and models",321,f323925514aa1dba4dfb2db758d5139e2e3fc57a9a8e56eea6e5f9e87ff9737d
+Optimized/v17x/Dataset/ckpt/preflight_g6b.mat,"trained policies, calibrated tables and models",321,61e44a5ce1fdcede63d9ab4a1d2cfca74366c478305dd52407d9a7e1719e5f2d
+Optimized/v17x/Dataset/ckpt/preflight_g6c.mat,"trained policies, calibrated tables and models",302,fb1c40662ec11d6da87263c6acfca30a097b57dd07837bc9c6b85366bf202129
+Optimized/v17x/Dataset/ckpt/preflight_nr1.mat,"trained policies, calibrated tables and models",347,68a9481d29b61dcf5607ff262873092f2a2a30f1ebb72c4d771cb7a2b298076e
+Optimized/v17x/Dataset/ckpt/preflight_nr2.mat,"trained policies, calibrated tables and models",384,b975fabf849c7edf2601c153b3c5386ff9c2ad0c6d3a2350c1259ffb5cd55ba2
+Optimized/v17x/Dataset/ckpt/preflight_nr_g10.mat,"trained policies, calibrated tables and models",341,738fb1050e0bd373adfd8a3afa1200cbcd4d8c9dbfc28daf3f72cb5f71497921
+Optimized/v17x/Dataset/ckpt/preflight_w1.mat,"trained policies, calibrated tables and models",320,8c8893c02ca9d16dbacda34f3841811162c56340ed6712f1b3f02bf9acaa1e42
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_1.mat,"trained policies, calibrated tables and models",25392,659250d4a3c281e1a93e012c0a868e39f9183e6bb5a60333579a85336f42ff97
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_10.mat,"trained policies, calibrated tables and models",25392,00dd9bee49dc184bebb522b145447bee2a078dda18faf28bcb51ef39b6cdd8a3
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_2.mat,"trained policies, calibrated tables and models",25392,6a67c4df9c79cc7f7ecded5821ed13f33c6216424ff3fa0f21f3bb7fdff0b9f4
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_3.mat,"trained policies, calibrated tables and models",25392,fc34121a923abe28a93147d3543e1e0b31d7e6dd9ec06cfd8e91acd4b3e859b8
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_4.mat,"trained policies, calibrated tables and models",25392,a7950625a410907f941408674c402c003aa7d8e76ebccc9971a597bcd1f91062
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_5.mat,"trained policies, calibrated tables and models",25392,92e8ff0d80f2874e83a62e8088019274cefabf8d5536bdc07fcc393e75f20ad1
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_6.mat,"trained policies, calibrated tables and models",25392,749844edf551ec0b6df75c62ec5dd1cbd5e1c35e5ce3161c17f73a2c8214c61c
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_7.mat,"trained policies, calibrated tables and models",25392,f4818b4b29411c1406bbbe14e16f37b06a98d2dfba2107fafe38b6bf7fd86521
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_8.mat,"trained policies, calibrated tables and models",25392,115648e9227843a62389369b290ee2b86a149cbb623f5e66f29ff8c361017903
+Optimized/v17x/Dataset/ckpt/w1/a2c_seed_9.mat,"trained policies, calibrated tables and models",25392,8fdadd06880e891ef7fb11a0bcff67fba4328c2773c4e60ef34e91f4e07bf523
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_1.mat,"trained policies, calibrated tables and models",42544,be8cfd685362d0c00d537708214cbc1526f0a1cfa1e9ba023c6a0851bf3b15e8
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_10.mat,"trained policies, calibrated tables and models",42544,347c86850b3ee8810d2cad9c6d25285395f8ad1240a7b14e2ec97574c4dc907e
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_2.mat,"trained policies, calibrated tables and models",42544,3f0ed82ded03ff8e369698ea90414a2d9234b7b096edca60a3320547ea92954c
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_3.mat,"trained policies, calibrated tables and models",42544,997cf723a075d5d76f08a056e2e2e40044d4a8df2325ba7d613f87bfee87fc77
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_4.mat,"trained policies, calibrated tables and models",42544,6f6f4f99ac64c6fbcf981b860ca5d1844dce2f68cf5b28593363fb9b58b07610
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_5.mat,"trained policies, calibrated tables and models",42544,aaf6a75048115711530061dc5e296ea8015b0118fd945b7a20db0e9872e936d8
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_6.mat,"trained policies, calibrated tables and models",42544,043784e65c4e6e61cf25d506b4eed0201e4f999da98e89a82e8c68698105feea
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_7.mat,"trained policies, calibrated tables and models",42544,befe4e61166b334c40451fcb178adb3e6f90fb35c16519cbb44b4022334551a6
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_8.mat,"trained policies, calibrated tables and models",42544,31ed9adca138542cfefc7e5ce45614928b5e45953ea5dc2c67b067125eecf558
+Optimized/v17x/Dataset/ckpt/w1/bandit_seed_9.mat,"trained policies, calibrated tables and models",42544,49c5f7394f621761db955375f33138cf8ff263540092a5ee8dbcd2ecce847a01
+Optimized/v17x/Dataset/ckpt/w1/comparators_det.mat,"trained policies, calibrated tables and models",78423,d000db40c9681580f01e2323ca337bc0514227497b0667649803d36deb73b115
+Optimized/v17x/Dataset/ckpt/w1/ens.mat,"trained policies, calibrated tables and models",25392,460c9ae8e586701c9447e6597ff7816a4f5150352b0c31fe435814517a275aaf
+Optimized/v17x/Dataset/ckpt/w1/repro20.mat,"trained policies, calibrated tables and models",8904,8135f540aba3e9bc37bbe2a5255dc78d4f3e5e72a0f44334d87778d13cec55e9
+Optimized/v17x/Dataset/ckpt/w1/secondary_recal.mat,"trained policies, calibrated tables and models",72168,1c03003bab6382227f9d073c91cd9ae0a9981a0f279b10eaaf651f4cac0db2e5
+Optimized/v17x/Dataset/composite_table.csv,"per-seed and per-trace results, result tables",446,5086a1bf42c9055e842f35b41140341dcea507e67623e0565a56fb0a39a9afbf
+Optimized/v17x/Dataset/composite_table_G2_hi_d10.csv,"per-seed and per-trace results, result tables",446,5086a1bf42c9055e842f35b41140341dcea507e67623e0565a56fb0a39a9afbf
+Optimized/v17x/Dataset/composite_table_G3_lo_d18.csv,"per-seed and per-trace results, result tables",446,5d2f6173eb092bfe1a08647e1ce252931ffb56f08047fcbf09c4be8fbf6d8f9c
+Optimized/v17x/Dataset/ctxj_cells.csv,"per-seed and per-trace results, result tables",693,d34c9e23ec03e747af445cd005cfcfcc7b346f18f61805627760e50bcc1703d1
+Optimized/v17x/Dataset/ctxj_cells_G2_hi_d10.csv,"per-seed and per-trace results, result tables",686,a8b5ec78ff3b4c1115287cfb4648b2f83e18890388974c92a99b6ebc93459592
+Optimized/v17x/Dataset/ctxj_cells_G3_lo_d18.csv,"per-seed and per-trace results, result tables",674,d3fe6e4e4ca5cbbf1d75c88da9e52802e548f281b83b00d420d4dcae00507225
+Optimized/v17x/Dataset/eot/diag_rsched_retx.mat,"per-seed and per-trace results, result tables",355,be94a5b6f0a197fa0d30d21a1a5fe1c4271fc4c571526684b697a502deb8e2ca
+Optimized/v17x/Dataset/eot/diag_rsched_retx.txt,"per-seed and per-trace results, result tables",200,1a608b49026dd8097f85894e354de78adc97a1c090a714fce3afa1764ea9eb9c
+Optimized/v17x/Dataset/eot/eot_equiv.txt,"per-seed and per-trace results, result tables",528,9ad93e0e30590614c2c985ef5f3c62004a46b7a80f611d5ac5c259e3af5bbda6
+Optimized/v17x/Dataset/eot/eot_summary.txt,"per-seed and per-trace results, result tables",1778,a0d4a4205439c2327cab900c110cdbeb4e846d1af264e542791a4dd274f6f576
+Optimized/v17x/Dataset/eot/exposure_table.txt,"per-seed and per-trace results, result tables",787,f759407d56c43560d89a1cd9ae68a9d47b4c49e46fd439951669476b73beb416
+Optimized/v17x/Dataset/eot/out/g6_seed_stats.csv,"per-seed and per-trace results, result tables",866,7fb9fba32535bb66968e8d55688670ae66b2384d3cab0d93d07f93c88aa74ee5
+Optimized/v17x/Dataset/eot/out/g6_seed_stats.txt,"per-seed and per-trace results, result tables",944,372d2a1a4cc5422af4b8e6a3d9c26fd0a5e95944efc871212ef5ec74fc5e3346
+Optimized/v17x/Dataset/eot/out/nr2_pending_values.csv,"per-seed and per-trace results, result tables",890,e44a98d3713953eb38fe8941055933b94560ef7d5bd7740fab1587f89667c798
+Optimized/v17x/Dataset/eot/out/nr2_seed_stats.csv,"per-seed and per-trace results, result tables",646,2d7d3e8127b957f86f4ef6a204da1128aa564f7e3f076d366d519682a80d518f
+Optimized/v17x/Dataset/eot/out/nr2_stats.csv,"per-seed and per-trace results, result tables",1297,bd023ff2e6510fd065a1fa9395e90e5bcfe83d3bc16dd3101997246d776bb47c
+Optimized/v17x/Dataset/eot/out/nr2_verdict.txt,"per-seed and per-trace results, result tables",249,7b6774d3f4627653373ec9c278561d7b8e9dc4dc060714a0da6759a458ce6491
+Optimized/v17x/Dataset/eot/out/presub_R1R2.csv,"per-seed and per-trace results, result tables",404,eccfad434a94edfa334c1c427baf8d570cf3a343ec2503d7fd8253fbcbaf97b4
+Optimized/v17x/Dataset/eot/out/presub_R1R2_secondary.csv,"per-seed and per-trace results, result tables",788,97d778d3aa260ce13160fcb91b82c7445a0a3ae1c4a7e4ec99b0160a05bb6af6
+Optimized/v17x/Dataset/eot/out/presub_R4.csv,"per-seed and per-trace results, result tables",262,ad312a44ce8b382ebffc7652c1382ff0932f7cda8f61f717bf7501f56cb444e2
+Optimized/v17x/Dataset/eot/out/presub_pending_values.csv,"per-seed and per-trace results, result tables",1491,e48b16fd6865afe197683c01094d439d3932ec4a37cd18430599737f0528c899
+Optimized/v17x/Dataset/eot/out/presub_verdicts.txt,"per-seed and per-trace results, result tables",557,3fd6c73f41f7d867719117a7ae7c47cd4575ef0ac27b0a5416c95bac7300bb53
+Optimized/v17x/Dataset/eot/out/r1b_R1.csv,"per-seed and per-trace results, result tables",266,dbbdbf1314733c82e14a73ca9c73327d6a2518f08e1b1624beef44605e243dbe
+Optimized/v17x/Dataset/eot/out/r1b_pending_values.csv,"per-seed and per-trace results, result tables",839,ab09ad06c7c81e653bebf90e55a0a5916f34a508bf989c8d03dbcaaae72a5204
+Optimized/v17x/Dataset/eot/out/r1b_reliability.csv,"per-seed and per-trace results, result tables",3363,d3c5674a27cbbc2d6f45d7272022cb63e273493718465f7f29bda6afba8c3b92
+Optimized/v17x/Dataset/eot/out/r1b_secondary.csv,"per-seed and per-trace results, result tables",610,ffbbb5118a3b0b0f7bcfc1fa2b14bd8063cc4363bcea92313b1e7da212989836
+Optimized/v17x/Dataset/eot/out/r1b_verdicts.txt,"per-seed and per-trace results, result tables",496,ccae73e4c339d5ffa803b84c0668a0f956605c9e272b440c682585f0d758fbd4
+Optimized/v17x/Dataset/eot/out/r1c_fits.csv,"per-seed and per-trace results, result tables",5233,e3c6430809dc7431c4a43044ac3dd849af7171cc95ba4e9f95bfb40c9c7392f3
+Optimized/v17x/Dataset/eot/out/r1c_pending_values.csv,"per-seed and per-trace results, result tables",192,3ad57c1ae6889cc767811cf276ddc193c0e10772def482c9c409e4aa9e4a49f6
+Optimized/v17x/Dataset/eot/out/r1c_summary.csv,"per-seed and per-trace results, result tables",1367,427df6e59057f1bd13be639f7101b932e57fb2271a7dac84c86555b7da28784d
+Optimized/v17x/Dataset/eot/out/r1c_verdicts.txt,"per-seed and per-trace results, result tables",2156,338f45783e13cb1d37c14132a8c39e78c97c33ce9a9f7ac5ea076b59b161bf3f
+Optimized/v17x/Dataset/eot/out/r6_fits.csv,"per-seed and per-trace results, result tables",550,e58479580fd583f656a11308cf6963291e10dd8d5236b895601b9d0dae876262
+Optimized/v17x/Dataset/eot/out/r6_pending_values.csv,"per-seed and per-trace results, result tables",216,e9d62088d9feabaa71d9b4dfac4371cd7dafda77d4dcbf8940b907b7e25c146d
+Optimized/v17x/Dataset/eot/out/r6_secondary.csv,"per-seed and per-trace results, result tables",822,295edba67ae147d21e3ff5bd4f7de37cde9b5262a6887749a46ba3f900ff870f
+Optimized/v17x/Dataset/eot/out/r6_verdicts.txt,"per-seed and per-trace results, result tables",1470,b3c1b35cd3c1835fb0895b0589a8647e493f54157103c2de7927e4ef3738e5fc
+Optimized/v17x/Dataset/eot/pf_diag_M2_M4.txt,"per-seed and per-trace results, result tables",1296,3304fffe025e413b537ac335c1b177f0a2caa80562254569845055d38849c073
+Optimized/v17x/Dataset/eot/presub_resolved/pertrace.csv,"per-seed and per-trace results, result tables",350138,ed99fc1e2557c7b5014b33ef49c2b837661a532397d59bb3d774aa773d13ec00
+Optimized/v17x/Dataset/eot/presub_resolved/pertrace_G2corrected.csv,"per-seed and per-trace results, result tables",350138,ed99fc1e2557c7b5014b33ef49c2b837661a532397d59bb3d774aa773d13ec00
+Optimized/v17x/Dataset/eot/presub_resolved/r1b/pertrace_r1b.csv,"per-seed and per-trace results, result tables",31318,c338d219d9962f84724ec103c8373f8bd848c262ecad670c1d56572a4340802d
+Optimized/v17x/Dataset/eot/presub_resolved/r1b/r1b_calib_xfit.csv,"per-seed and per-trace results, result tables",1137643,67fc63975f6af75d1193126587ba1564853bfed9e97cb4dc4da69633588e0ff1
+Optimized/v17x/Dataset/eot/presub_resolved/r1b/r1b_deploy_acks.csv,"per-seed and per-trace results, result tables",3212753,78ad4f2ca57181dab3a8a88a9d8fc8a209fd7941aa96555a685f6238eeb96a26
+Optimized/v17x/Dataset/eot/presub_resolved/r1c/pertrace_r1c.csv,"per-seed and per-trace results, result tables",481030,dcc5907a85455be9595cbe7d4be9e4ec5a58ad1431c9d74baf5d450c2d98b2d6
+Optimized/v17x/Dataset/eot/presub_resolved/r6/pertrace_r6.csv,"per-seed and per-trace results, result tables",134454,f0ca1f673e291562bde91ae801214be8034803aa09b17cd45cca0e194e3d65b3
+Optimized/v17x/Dataset/eot/resolved_G2.mat,"per-seed and per-trace results, result tables",56242,0b1cdcd61b5a6dc4242ba47328df09aa047db269c46c698656e3b8aeca2872c8
+Optimized/v17x/Dataset/eot/resolved_G3.mat,"per-seed and per-trace results, result tables",55475,cf76b2a2528202e5d808cf233de45a8a4bbff05a239f58bc39483f99f2957775
+Optimized/v17x/Dataset/eot/resolved_M1.mat,"per-seed and per-trace results, result tables",44003,ca182800d99180080a7db152b0fc4ba7489d9eb063c5ba5e5d090531dbcf4ba0
+Optimized/v17x/Dataset/eot/resolved_NR2.mat,"per-seed and per-trace results, result tables",103068,b2538d93c661e5c0c299de5b9b71ef2094aca2ee806665bbfe0f6265491ff15e
+Optimized/v17x/Dataset/fill_summary_v17b_cal.txt,"per-seed and per-trace results, result tables",1595,a3664faf5d49104925740bda5b5519f2e848bab36f5d13073b6ae8ce1c55bd57
+Optimized/v17x/Dataset/fill_summary_v17c.txt,"per-seed and per-trace results, result tables",430,f47220b030d3e8fbfe89d27470c58ff6708feb8a94c811fa6cd58391cf21cd9f
+Optimized/v17x/Dataset/fill_summary_v17n.txt,"per-seed and per-trace results, result tables",1244,2163d6bc6f78793efbc134acbbe2de53e2aede9d31ef2402972e33ee11816cd0
+Optimized/v17x/Dataset/fill_summary_v17nr2.txt,"per-seed and per-trace results, result tables",1443,77995ef8b4839a26fd687282569e43e49f6c75e320500eedd0977d67c03ae0a2
+Optimized/v17x/Dataset/fill_summary_v17nr_grid.txt,"per-seed and per-trace results, result tables",288,fa7b0d0139a6ecc4e87c6ba6e36649801f08f8ef462141b4c30696f999c3800b
+Optimized/v17x/Dataset/fill_summary_v17pf.txt,"per-seed and per-trace results, result tables",722,de8d58dc7c2bcbb3c9f1134d2af547c10781cf08127983407ba88e3f4c2139e5
+Optimized/v17x/Dataset/fill_summary_v17w.txt,"per-seed and per-trace results, result tables",1291,8f178ff1bf557483124e40fc4f889d0d2414849d922951c779b2bea7c6eae8c9
+Optimized/v17x/Dataset/ft/ft_disjointness.txt,"per-seed and per-trace results, result tables",17389,72aa462eaf6c38eaaa5f899e8334eb8c5d7640364eb95d252a57542e43dd7f95
+Optimized/v17x/Dataset/ft/ft_exposure.txt,"per-seed and per-trace results, result tables",160,60b5fa49062a82cb4919077a0317adc0eeeae862ab96f04a8495118e00b8dfe0
+Optimized/v17x/Dataset/ft/ft_primary.csv,"per-seed and per-trace results, result tables",1150,a5a1525bfa266f3f21c6b0b173cef40006a40f9239dd98905f73d19fa7f08ae8
+Optimized/v17x/Dataset/ft/ft_repro.txt,"per-seed and per-trace results, result tables",114,a950db1651e4b78979e2398ce7ba01b1af216e3b33b58d6cfa55603949ef02ba
+Optimized/v17x/Dataset/ft/ft_schemes.csv,"per-seed and per-trace results, result tables",768,5243bb3efa7ef614465e9a0b1cb73905bc34f1d7630ee434357dbfd3398076cb
+Optimized/v17x/Dataset/ft/ft_secondary.csv,"per-seed and per-trace results, result tables",1866,2994e10dcd3debc34eeb711164b7e050d5ea308d0c02439f9e40ff8cce806894
+Optimized/v17x/Dataset/ft/ft_summary.txt,"per-seed and per-trace results, result tables",5720,e247308c531cd1a12ae2e73518e36d082569547757f44a13e3faa162cc879970
+Optimized/v17x/Dataset/ft/out_resolved/ft_primary.csv,"per-seed and per-trace results, result tables",1145,e16f7b7d9e4e297e638d059a0a4550eeb505375deb81c86e20014ca2b2c60203
+Optimized/v17x/Dataset/ft/out_resolved/ft_schemes.csv,"per-seed and per-trace results, result tables",768,d884412f1f452bd11a9a7b78494f8aafa117d3238bacddec9bc0717bb55189ca
+Optimized/v17x/Dataset/ft/out_resolved/ft_secondary.csv,"per-seed and per-trace results, result tables",1869,a9ccac9febc277720ad013bf112c4108c2c9e0d33ad68d10730d19bf0ef59eea
+Optimized/v17x/Dataset/ft/out_resolved/ft_summary.txt,"per-seed and per-trace results, result tables",5723,e969fd3d8f8bfbb22590785de5219276258e21677f14dcc0253397eb17bd470a
+Optimized/v17x/Dataset/ft/pertrace_ft_asrun.csv,"per-seed and per-trace results, result tables",663583,e5780b2619cf15b31eb8dfc7c368227f7cc52c6dc8531a53ce34138c3b20b3ec
+Optimized/v17x/Dataset/ft/pertrace_ft_resolved.csv,"per-seed and per-trace results, result tables",670846,892117d52cb3d79937516b8e832a8241c59c3a81ca50c5ece52b586389281be8
+Optimized/v17x/Dataset/ft/ssym_summary.txt,"per-seed and per-trace results, result tables",7484,d8e994c2e0c33be5f3b635c95f904108c6e81cdd4b26d7947453a0c09650ab52
+Optimized/v17x/Dataset/ft/tgbt_timing.txt,"per-seed and per-trace results, result tables",7588,78b64cb05c646bb59471bf89d3fba25ce03acb41bad52322b3d43cc33e5e56b2
+Optimized/v17x/Dataset/g2_cross_check_results.mat,"per-seed and per-trace results, result tables",11158,e860d7b1d9ec34880b6645fda7b3817e9fa249a05ea1841df36e79d874f7bfd8
+Optimized/v17x/Dataset/g2_rederive_results.mat,"per-seed and per-trace results, result tables",7143,dda0287dbdf1817d9ab563ef08f96ac7951c47a0aebafc39eb11521ee99bea55
+Optimized/v17x/Dataset/hr/REPORT_hr1.txt,"per-seed and per-trace results, result tables",3637,61c6936be9b97256e0f47ac43c5a071d4411a4e6ab54cb3eafe18fdfedd9ce2c
+Optimized/v17x/Dataset/hr/full/REPORT_hr1.txt,"per-seed and per-trace results, result tables",3637,61c6936be9b97256e0f47ac43c5a071d4411a4e6ab54cb3eafe18fdfedd9ce2c
+Optimized/v17x/Dataset/hr/full/hr_logs.sha256,"per-seed and per-trace results, result tables",882,56334c9983edf736507e28e2754bc8f8d80a59a73f3345c28f7b9034f8ec7801
+Optimized/v17x/Dataset/hr/full/hr_report.txt,"per-seed and per-trace results, result tables",1310,b171053729a6fef70bfbd9388ae7bf73ac61e87216620573be457533a7108c29
+Optimized/v17x/Dataset/hr/hr_equiv.txt,"per-seed and per-trace results, result tables",635,c62d08b98501539a7a34d64bbbe2749b6d3b1ac55b436196f10f199b78060f1e
+Optimized/v17x/Dataset/hr/hr_logs.sha256,"per-seed and per-trace results, result tables",882,56334c9983edf736507e28e2754bc8f8d80a59a73f3345c28f7b9034f8ec7801
+Optimized/v17x/Dataset/presub/G2_D1_verification_note.md,"per-seed and per-trace results, result tables",4550,290cfa5912826009b9d17c0b544fbc920db508a8fc5eb4b66a757f12732d1be7
+Optimized/v17x/Dataset/presub/actions.csv,"per-seed and per-trace results, result tables",16883685,2f934918f0c3c882dadd31ca509586084893b5286fe437cf72a74feb5674894c
+Optimized/v17x/Dataset/presub/pertrace.csv,"per-seed and per-trace results, result tables",1089860,b11899844a0d5d683d05c91e8bbd8aa4ef73db6730503aaf272339c96bcc1315
+Optimized/v17x/Dataset/presub/pertrace_G2corrected.csv,"per-seed and per-trace results, result tables",1133761,33fa53f16049f54ee7e992f765aa1cdc0dff2e9b9d2e0beb95ff562e897074a9
+Optimized/v17x/Dataset/presub/pertrace_corrected.csv,"per-seed and per-trace results, result tables",1133761,33fa53f16049f54ee7e992f765aa1cdc0dff2e9b9d2e0beb95ff562e897074a9
+Optimized/v17x/Dataset/presub/peruser.csv,"per-seed and per-trace results, result tables",1700708,d04b6d229d6978ec04de5f2a239fd0d219e58386603e51378b9df5cfe91c8fe0
+Optimized/v17x/Dataset/presub/presub_files.sha256,"per-seed and per-trace results, result tables",238,0bb5812a92ced9e9d6b5e05305e2103a722b69d72a99d02df5d55adebb12c56f
+Optimized/v17x/Dataset/presub/r1b/pertrace_r1b.csv,"per-seed and per-trace results, result tables",61602,0157e649536dfa5bc0888d39ff28f241f09e7df480f79ec07d65afb1f1017e47
+Optimized/v17x/Dataset/presub/r1b/r1b_calib_xfit.csv,"per-seed and per-trace results, result tables",1137643,67fc63975f6af75d1193126587ba1564853bfed9e97cb4dc4da69633588e0ff1
+Optimized/v17x/Dataset/presub/r1b/r1b_deploy_acks.csv,"per-seed and per-trace results, result tables",3212753,78ad4f2ca57181dab3a8a88a9d8fc8a209fd7941aa96555a685f6238eeb96a26
+Optimized/v17x/Dataset/presub/r1c/pertrace_r1c.csv,"per-seed and per-trace results, result tables",481030,4f2b01b26af01b9562df3f8156f5076208a57894051b850578d7435b8c22ea2e
+Optimized/v17x/Dataset/presub/r6/R6b_diagnosis.md,"per-seed and per-trace results, result tables",8148,d12a5b47f2d22fd3bad95c56c99f97f58478401a148c0468a4d7130d9516213e
+Optimized/v17x/Dataset/presub/r6/pertrace_r6.csv,"per-seed and per-trace results, result tables",169738,48d7db797588455584420149090244a22d522fdc6f7824d2ef42d4fbe0c41281
+Optimized/v17x/Dataset/presub/r6/r6_actions.csv,"per-seed and per-trace results, result tables",2060,7af29cfb018568ba4ddd7e4d8427a7a7273461019b1b2161b06bca73326abcef
+Optimized/v17x/Dataset/r1_gbt_hash.txt,"per-seed and per-trace results, result tables",85,d9490be1c5d967bf8f3e74dc8c316587e367d2ca2ec5eb3cccac469ac15125a9
+Optimized/v17x/Dataset/r1b_hash.txt,"per-seed and per-trace results, result tables",84,43f85465509885bd3e2ffe3b0814d7664d577faa6dad3d5b593746f95e3ab962
+Optimized/v17x/Dataset/r1b_model.joblib,"trained policies, calibrated tables and models",1096144,82bfdbc4f80de9adb11f021ba765649bcffa6da23ab7c05316ee47ad3b7cf93d
+Optimized/v17x/Dataset/r1c_model_g2_1.joblib,"trained policies, calibrated tables and models",1096176,3e9d3ca7de7f3b6efcb24fc274c09fb55550b494c372f4d691f44fe59a1857e7
+Optimized/v17x/Dataset/r1c_model_g2_2.joblib,"trained policies, calibrated tables and models",1096208,049e3cf3099ac8bc82c4b31ad3f81080522f52c092f0f3d5949cd9eb896b9d34
+Optimized/v17x/Dataset/r1c_model_g2_3.joblib,"trained policies, calibrated tables and models",1096256,668dc0885aadd4ae46a736a693b8b845e0927737acc951ed349136c4265996e6
+Optimized/v17x/Dataset/r1c_model_g2_4.joblib,"trained policies, calibrated tables and models",1096160,40d08ec711caeec3ba0775d7761d7f493fd376d5ff7a14ba1cbb7dff82b63853
+Optimized/v17x/Dataset/r1c_model_g3_1.joblib,"trained policies, calibrated tables and models",1097024,ee62447165c622880b74cb26e04d1cc2447ccaa0885bf5fdaf09726571ad4422
+Optimized/v17x/Dataset/r1c_model_g3_2.joblib,"trained policies, calibrated tables and models",1097024,966fcc8045217b897ee1a1843185db0558472031c2910404961686ec09817ae2
+Optimized/v17x/Dataset/r1c_model_g3_3.joblib,"trained policies, calibrated tables and models",1097024,0cb798408bc736a2b84f847274be94c1baa372be83edf664439b7fd2bb7304c7
+Optimized/v17x/Dataset/r1c_model_g3_4.joblib,"trained policies, calibrated tables and models",1097024,fac7e3341a74a611cc7f6d0a9bcaf9d4d91fcdedeb1145c2cf5970b66e5aee6f
+Optimized/v17x/Dataset/r1c_model_m1_2.joblib,"trained policies, calibrated tables and models",1096048,d998b87c6bc2d2b64e3b82e94b3af1f0aba4b81f901a7cd1f2c4eb3bb6c06ae8
+Optimized/v17x/Dataset/r1c_model_m1_3.joblib,"trained policies, calibrated tables and models",1096032,68d2539ffe02c1a35065238692986006605ee526edb66caf26b2eee3718a9bec
+Optimized/v17x/Dataset/r1c_model_m1_4.joblib,"trained policies, calibrated tables and models",1096080,c5b5dec48cd83c5e980d951d70d0012e7133e809fbdf96b3e2365ef86ed9f846
+Optimized/v17x/Dataset/r1c_models.sha256,"per-seed and per-trace results, result tables",1051,7c275525d181dbbe95db764e0040e6df4c6441050b9b305979ed7475539345d7
+Optimized/v17x/Dataset/r2_thresholds.sha256,"per-seed and per-trace results, result tables",84,5a95d285472a93f711cef5869c400d00499a1d3fd01b8de9ce94fb62c45f905b
+Optimized/v17x/Dataset/r2_thresholds.txt,"per-seed and per-trace results, result tables",11393,f7c7db0001edc53d2e214996f341e0ec6d4d9acb46a4f92d4176c834ba583c58
+Optimized/v17x/Dataset/r6b_hash.txt,"per-seed and per-trace results, result tables",84,68350821530d72eebdf632196e7707a37a32126c3a0fa4ed7acdaa43712a3562
+Optimized/v17x/Dataset/r6b_model.joblib,"trained policies, calibrated tables and models",7657633,60a4ef2b603085035026ee7a7252ba6d00911a792d5c61f1b0e6b5dbf62978ed
+Optimized/v17x/Dataset/stage_a1.done,"per-seed and per-trace results, result tables",37,6c1b3343e2c8e4652b569e8350fd2e0fea7306ac4c1b0d26777a25f8c9ac4523
+Optimized/v17x/Dataset/stage_a3.done,"per-seed and per-trace results, result tables",35,e3330c327a2084383a130a090fb9a9b3ada5ceae614ef456282e2de9808b8b77
+Optimized/v17x/Dataset/stage_a6.done,"per-seed and per-trace results, result tables",36,aae4f562138783835003f3e366a562b02fc62ea019df76eaefdd11e4472b65a9
+Optimized/v17x/Dataset/stage_g1.done,"per-seed and per-trace results, result tables",37,4c9f9c8528b036943d0d3b08404c81a9aa071bfdfa1f825c4755736972406fda
+Optimized/v17x/Dataset/stage_g10.done,"per-seed and per-trace results, result tables",37,c4ed1dc97fec4003eb4f2e7d346d8e104b9c681be4d217e08381c2de22de4488
+Optimized/v17x/Dataset/stage_g6a.done,"per-seed and per-trace results, result tables",38,95f98cfe5728286af67ab7070612bdeb854bc42291db3dcb273046c40c1ddcf2
+Optimized/v17x/Dataset/stage_g6b.done,"per-seed and per-trace results, result tables",37,f1d7b6b407d296a7c9922a8d531d6607e822589bf27248a4c1d28766b28d7140
+Optimized/v17x/Dataset/stage_g6c.done,"per-seed and per-trace results, result tables",36,bc22b8faa92ff752fb6e9a60be2c7d23c26d85864d2e938a0ae4244b7f9b9caa
+Optimized/v17x/Dataset/stage_nr1.done,"per-seed and per-trace results, result tables",37,d52561f22511fe58698ee1ae509dd0b145025f02d30adc3d653170980bd0ea99
+Optimized/v17x/Dataset/stage_nr2.done,"per-seed and per-trace results, result tables",37,564808e9b12dc9f26c6a76379ad09b487aba7d86066d30fca6246c216c872d2c
+Optimized/v17x/Dataset/stage_nr_g10.done,"per-seed and per-trace results, result tables",37,59eb4fa015b306553109103f8820b1d51d933e62412293f572d26e3b69314aa7
+Optimized/v17x/Dataset/stage_r1_gbt.done,"per-seed and per-trace results, result tables",38,4b969037ba3e2cd1e950d34d8b78094251a26893555789038def3d45b23dde52
+Optimized/v17x/Dataset/stage_r1b_ack.done,"per-seed and per-trace results, result tables",38,f7cc3d9ea94dcda80cf7dcb98a2ec3aa13757141328add293e481149b7004e75
+Optimized/v17x/Dataset/stage_r1c.done,"per-seed and per-trace results, result tables",38,dfddd75e7573c059c4ceb05e386089779f87be3d46e32c4e8a47afaa69b89675
+Optimized/v17x/Dataset/stage_r2_rule.done,"per-seed and per-trace results, result tables",37,4ad537281eeaea65a1a93a581a19c08676f5a4e4df824f64c475a91a38a27e45
+Optimized/v17x/Dataset/stage_r3_nr2diag.done,"per-seed and per-trace results, result tables",36,f9566cb14c92e72e7006588cf5181603bc804b54efc808beeec04e116dd9e7b1
+Optimized/v17x/Dataset/stage_r5_seeds.done,"per-seed and per-trace results, result tables",38,4d1440fca938b9f98950ac8ba4bbbdd8765f05a0192a9d474e10b75d8d9bf2d3
+Optimized/v17x/Dataset/stage_r6_fullaction.done,"per-seed and per-trace results, result tables",37,0eac9189b3cbbe134a25018521d3c430d2746246909ed3d862052d4db382d1ba
+Optimized/v17x/Dataset/stage_w1.done,"per-seed and per-trace results, result tables",37,950b3210333bb4568c3dc20a243ec1b9e313a501f63fc5f3f05ec187f272a184
+Optimized/v17x/Dataset/table_a3b.csv,"per-seed and per-trace results, result tables",3134,8a878d5db1e24b528deb6382d3f68789a2e4081903ff666fa0bfd6a3566dd8fb
+Optimized/v17x/Dataset/table_a3c.csv,"per-seed and per-trace results, result tables",1605,9f85aac912948bf7b4d7fea846c9d9884351218115e3987972ac35080b8c58bd
+Optimized/v17x/Dataset/table_cal500.csv,"per-seed and per-trace results, result tables",566,61c2482e2af67b5f65513e153c9321ff02fd56b7e8c80401f6b6b22229882e29
+Optimized/v17x/Dataset/table_cells.csv,"per-seed and per-trace results, result tables",1275,5b211025b6ba74f89c8370ca79ed4efca34a415e79ccd555e5f93ffa48ab6653
+Optimized/v17x/Dataset/table_cells_nr.csv,"per-seed and per-trace results, result tables",1157,ad2a1c85c34bd58ad5a25e3024e0ea75ae4623a3377bba6613ffa254a63c6096
+Optimized/v17x/Dataset/table_nr1.csv,"per-seed and per-trace results, result tables",588,1badda7e58cd175464eb98b5031e5b95b489cbeec926539ebded2d7c33a3885c
+Optimized/v17x/Dataset/table_nr2.csv,"per-seed and per-trace results, result tables",532,6f383e94eea134b24f78db427268e9a33940f116f8439c26a805a819a1e078fd
+Optimized/v17x/Dataset/table_warmup.csv,"per-seed and per-trace results, result tables",773,218b313f84bd95d0ed608cd5ea6627590316a5fb6b4f27e6e7f9dae459db19a5
+Optimized/v17x/README_v17x_runner.md,"simulator, trace and CRN generators, stage code",10379,8635b6d9d5f1c5022a72dfed6c22069218ca7345322d52b1c71579a42f15faf6
+Optimized/v17x/audit_gbt_metrics.m,"simulator, trace and CRN generators, stage code",4737,6b25b605cd223f3c3a5e8346e757c38d91b8f3e3dd499ace9fe3e8c4aae9ddaa
+Optimized/v17x/build_a3b_report.py,"simulator, trace and CRN generators, stage code",10027,7e16c800682b5931a00f0a8eaaa082ac874c507772be7785dae05b1708c699b8
+Optimized/v17x/compare_configs.m,"simulator, trace and CRN generators, stage code",4875,8a502067d59a9c649e84fc5f65f4393f0a42501f9f9cc3944027bce8c1ae3fe3
+Optimized/v17x/compute_exact_stored_metrics.m,"simulator, trace and CRN generators, stage code",4082,6fca83605cc37400287dd7758a1eebcfb3080c7bbcbd5bfb263b61b6c62fd03d
+Optimized/v17x/compute_r1b_exact_side_metrics.m,"simulator, trace and CRN generators, stage code",6293,7e956a1dc6ab5b3df95e5236da0fceefd6e6c5bd3a28177f5c41769fa94507af
+Optimized/v17x/create_pertrace_corrected.py,"simulator, trace and CRN generators, stage code",1592,8192ff8592044f3150a31a255c44246430047eec159649c69be0a20fa1e66620
+Optimized/v17x/cross_check_g2.m,"simulator, trace and CRN generators, stage code",4579,f840129c688cb00fac66866174afb8f3c72263dfcb075a2c5c8b96ef0fab0d13
+Optimized/v17x/eot/analysis/g6_seed_stats_eot.py,"simulator, trace and CRN generators, stage code",3967,0d8bf901c939caeb8858534b4eef3cdfcce4653109bb9a4dc4d0d14e521f6f0f
+Optimized/v17x/eot/analysis/nr2_stats_eot.py,"simulator, trace and CRN generators, stage code",6038,ed3006c98c85e66574dfb6fe0279727fc51c0f60ae438f9a95b58b460f7d8b52
+Optimized/v17x/eot/diag_rsched_retx.m,"simulator, trace and CRN generators, stage code",11916,afd7a137d118c3ef5b639b059c5b4abc4ca40a1351d9988e2477fc1e5799ed55
+Optimized/v17x/eot/evalPolicy_g6_eot.m,"simulator, trace and CRN generators, stage code",34697,b72ede78982d51e10d9c16ace51a86919bb46e6b6cee9245b3f9fa442d623bb9
+Optimized/v17x/eot/evalPolicy_presub_eot.m,"simulator, trace and CRN generators, stage code",47249,3a45c563ccf214155870ab5dee6c1136449a7c156825518fb7c1d2a5de09339a
+Optimized/v17x/eot/eval_pfdiag_eot.m,"simulator, trace and CRN generators, stage code",5959,d9e8a1f2107a2c90b2d8ce739d520010b0418709b491b77f1c37d1a4dd70612a
+Optimized/v17x/eot/eval_set_eot.m,"simulator, trace and CRN generators, stage code",33659,15eb2d1af04700adf02c0b9bdb72344d922d2426832cb17272676ac96974daa5
+Optimized/v17x/eot/harqFeedback_eot.m,"simulator, trace and CRN generators, stage code",5294,a8f308568f45cf4571a6e55f6bf645abcd3081723730a908b04e8b0bc71c3039
+Optimized/v17x/eot/report_eot_summary.m,"simulator, trace and CRN generators, stage code",15005,fc4431290f1a648a70f739c961af4004e8ef23d12bbd02bc1ff1103a1b12fb69
+Optimized/v17x/eot/run_eot_equiv.m,"simulator, trace and CRN generators, stage code",10938,036d4c324950578b6559ff474db4e67b26d13736bb56ed5b5121b91c9e83e130
+Optimized/v17x/eot/test_eot.m,"simulator, trace and CRN generators, stage code",7059,7cf11ef84d06124244e0c063f422f78301f9922de0615dfa7a2dd240132b0730
+Optimized/v17x/eot/trafficExpire_eot.m,"simulator, trace and CRN generators, stage code",923,c7836c919cba71e6f3f142b53c9c77985e41dc2eb9d83562bd2161db4ff8102d
+Optimized/v17x/eot/trafficPost_eot.m,"simulator, trace and CRN generators, stage code",704,07d243d171a822738aa0501d47f477975d4f9466a6777bb6931af9c231aa31ee
+Optimized/v17x/eot/trafficPre_eot.m,"simulator, trace and CRN generators, stage code",1511,a81504cf61ae48ca1b4368cbf9f92b462591fe3fe9119a4972c010faf9783f6a
+Optimized/v17x/evalPolicy_presub.m,"simulator, trace and CRN generators, stage code",45696,0c1bb8b7a697e123d3dde1904a0bc5dcb4d96d1b10799b1aa02b2c8149faff85
+Optimized/v17x/ft/check_disjointness_ft.py,"simulator, trace and CRN generators, stage code",4282,335ef509c46c3d3c8bc4326a62e6b1fb6c03a6356d4ab360a4eab74f2c8768d0
+Optimized/v17x/ft/eval_ft_pass.m,"simulator, trace and CRN generators, stage code",14382,8330abf29462cd21cb411edf154171af49676c48bb9782f8b457d66c7c49bd18
+Optimized/v17x/ft/ft_load_objects.m,"simulator, trace and CRN generators, stage code",5470,58aaa392ebb7ed1621257167b16b19ac0e8ae6212eae1e7b8432b29839350b8b
+Optimized/v17x/ft/ssym.py,"simulator, trace and CRN generators, stage code",5634,08b7d8f2b55ec514acd40e520047284102b96588d4a56c4a945df5278fca61bd
+Optimized/v17x/ft/tgbt_b_timing.py,"simulator, trace and CRN generators, stage code",16467,e5d6ae1ac7fb3b07df7ff1fb10f24a0a9afd56f70f30570288892fa3915507ce
+Optimized/v17x/ft/tgbt_timing.py,"simulator, trace and CRN generators, stage code",9995,f6cbfa863eb32996fd340c4c54b673045572cdd9bece42ab68a3f36945733145
+Optimized/v17x/g6/evalPolicy_v17_g6.m,"simulator, trace and CRN generators, stage code",33135,d710d965181c9e8dcf9ab1fd3fc2fce83ea917f4f748677bad1b0ab1acfca081
+Optimized/v17x/heartbeat_keeper.ps1,"simulator, trace and CRN generators, stage code",2310,60939505c62af9cbdfbe2f5be7e3a99fe8f5aef302761c89e877d1c8f5f9306e
+Optimized/v17x/launch.bat,"simulator, trace and CRN generators, stage code",96,03355cedbcb75fa405e119d0625347b9e72fc0fb7a9f70e780d18849dc4c0f94
+Optimized/v17x/launch_g10.bat,"simulator, trace and CRN generators, stage code",172,de15d26a6b1bce8328643f448f58bb0c2050e337b4bc708d350035976c96e299
+Optimized/v17x/launch_nr2.bat,"simulator, trace and CRN generators, stage code",172,d079249b8c16404b11a3d966715a38ff161776afc6af39e9e887ee95dd636245
+Optimized/v17x/launch_nr_g10.bat,"simulator, trace and CRN generators, stage code",157,6a8bf1d3848641375ed6677a5b1a3e6cee611b5138e332e0c3ed25a994993641
+Optimized/v17x/nr1/selectBaseRule_v17n.m,"simulator, trace and CRN generators, stage code",2717,b8700f0a22f64bddfd695e481aedc1f99d17e8495a0201a9629c1c1458ce8f9e
+Optimized/v17x/paper/a1/a1_peruser.mat,"per-seed and per-trace results, result tables",127359,68d8720916057b31be438ae82bffe8adce5df8a4e19f231941ba39328e9fbade
+Optimized/v17x/paper/a3/a3_timing.mat,"per-seed and per-trace results, result tables",737,0be704c8d64e29a7332e66b96efbb0ef38da14b9e1509dd386ea63dc6b80bfd6
+Optimized/v17x/paper/a6_pf_timing.csv,"per-seed and per-trace results, result tables",1916,a502eb62673fc39b84f8fae9d3531d2a4cf11db403261c0e4e0dd1b442faa0fe
+Optimized/v17x/recut_r3.py,"simulator, trace and CRN generators, stage code",3354,79680ad63217acc0f987bd1fde60fcd14979b41d967e467acc0a82e99a1bf4de
+Optimized/v17x/repro_check_20.m,"simulator, trace and CRN generators, stage code",3905,13c2ceac019eb374fa08861c6daae9e1231fd97845959753ef6fee579cb1651d
+Optimized/v17x/run_a3b_matlab.m,"simulator, trace and CRN generators, stage code",17366,211fe263c3409696c1f1728c6d81cb725089b6392dbd5708d6d1bd5054078adf
+Optimized/v17x/run_a3b_python.py,"simulator, trace and CRN generators, stage code",11810,3f8e9cba89b1fcbdb8b9cc6f520767270ff4abd9236167f4737a39bd6ae0893d
+Optimized/v17x/run_a3c.py,"simulator, trace and CRN generators, stage code",28494,f8b2a5142211d9c90fbdc9fbab7f49f06d654c627cf8bf6afe8f6e5d06ee6d4c
+Optimized/v17x/run_all_preflights.m,"simulator, trace and CRN generators, stage code",5556,8c7f84a380c5f165476e7514bdf38fb79d7e22c1144ec3789edad77b4c643b2d
+Optimized/v17x/run_audit_500.m,"simulator, trace and CRN generators, stage code",8262,f2aeab47255ea63c834da5e02845d411701e14f644e479caaee50924361a097d
+Optimized/v17x/run_audit_500_exact.m,"simulator, trace and CRN generators, stage code",8764,a8bb959aee722232be41f55556f691d54687c51eba908e0e134768a2f5ee31ae
+Optimized/v17x/run_ft.bat,"simulator, trace and CRN generators, stage code",106,d084606dd5a1380e1180d1e3c6a9315b211fa15fe455fb6d180513d6da341fea
+Optimized/v17x/run_presub.bat,"simulator, trace and CRN generators, stage code",103,16b07fe78a8848ed1132e0dbfe4f9bc722205da486f381210591b4e54a1e5f6b
+Optimized/v17x/run_r1b.bat,"simulator, trace and CRN generators, stage code",91,e370405dc96f8ace60232c147d78f7385cad88b1421bc55d0e7f138430510d3f
+Optimized/v17x/run_r1c.bat,"simulator, trace and CRN generators, stage code",108,c9ff96f7cf14c7b2f5d18cf8745965779b649783f91a37f277eb628d6f4396cd
+Optimized/v17x/run_v17x_all.bat,"simulator, trace and CRN generators, stage code",4747,17d663859a39cd3407d30f4624649f572109ddfb850af10af7d3a8915c5cdf0e
+Optimized/v17x/run_v17x_all.m,"simulator, trace and CRN generators, stage code",10377,d3f5fc10f444bc9ad9df8d451a6a194d4a21fd7eb772132db2ec024318460acc
+Optimized/v17x/stage_a1.m,"simulator, trace and CRN generators, stage code",5631,90ae8a90ea810663e40512241427697f9c412fec28bd4e45d25dfc0826e69734
+Optimized/v17x/stage_a1_preflight.m,"simulator, trace and CRN generators, stage code",1584,22e58d802a6d4a2b7e15bba1f7287bc47e732237dbd8f70f9976a67f47eb0091
+Optimized/v17x/stage_a3.m,"simulator, trace and CRN generators, stage code",5113,7b843b905da7abdd9ecce1067bfe304ccc023b73e10b176df67e57d1da3375f5
+Optimized/v17x/stage_a3_preflight.m,"simulator, trace and CRN generators, stage code",927,690036cac54803556fa7f0c8349c886b4f2065c59d4c98c39c041d79d79ef6eb
+Optimized/v17x/stage_a6.m,"simulator, trace and CRN generators, stage code",9263,341a90aa91b1e8f5afbffe5580a732001981037401b03239aafe1c3a8fb305df
+Optimized/v17x/stage_a6_preflight.m,"simulator, trace and CRN generators, stage code",1624,31c2056863b680f760318dc00c655e60da47ab188ca60cec2148f1ce4bb52273
+Optimized/v17x/stage_eot.m,"simulator, trace and CRN generators, stage code",5967,49aba5f5fad1c49c35050c92d587c2c8ef0d601b0fbbd9abd89e78572c752d69
+Optimized/v17x/stage_eot_preflight.m,"simulator, trace and CRN generators, stage code",2059,9046b5e614170eab8b1d6a12beb19855ba0c77ad74bb260a22fbe8281ddf18bd
+Optimized/v17x/stage_eot_report.m,"simulator, trace and CRN generators, stage code",269,0cf6fa796c29bc78ce6fd5a252ddc8b92a28b3488ec6239421dbdaf988482cde
+Optimized/v17x/stage_ft.m,"simulator, trace and CRN generators, stage code",4300,1052cc5362f8b9b360b74c6887644e9436de5784adf402fde0a738c2f2799f20
+Optimized/v17x/stage_ft_preflight.m,"simulator, trace and CRN generators, stage code",3033,3757a898582c8c9a45bdf473c39ac6c734752636dd54d75c1eef3c182f56da0a
+Optimized/v17x/stage_g1.m,"simulator, trace and CRN generators, stage code",1569,767808eb05696fd6492dc1433df280f99771fc0e024fe0218566872ccef74c84
+Optimized/v17x/stage_g10.m,"simulator, trace and CRN generators, stage code",27858,f879162c7185244759a9e4cef79e0128c488795b4584b68e68585f5094dd8efc
+Optimized/v17x/stage_g10_preflight.m,"simulator, trace and CRN generators, stage code",2068,5ebadd71392c8264d369cf283ead1deff34dfa7effb193dadcd93e552e1b22c2
+Optimized/v17x/stage_g10_report.m,"simulator, trace and CRN generators, stage code",619,14f73f8f9cb175a071b7fbf5ba7300f77fbc721e786cf3376592a9d6ecf5cdce
+Optimized/v17x/stage_g1_preflight.m,"simulator, trace and CRN generators, stage code",1365,d048bfbf54edf843fe002cfb13777a160413701974df5b6ac9d38e2b8a3461a6
+Optimized/v17x/stage_g6a.m,"simulator, trace and CRN generators, stage code",13513,f7c219718dfa6b30a2622368a3f0d5d7b9a15ac23e538d80b4caefcc503b0450
+Optimized/v17x/stage_g6a_preflight.m,"simulator, trace and CRN generators, stage code",1368,ad21968ed39d031a8d78245c702c1f93a887edc314ccd693da407a5308c770bb
+Optimized/v17x/stage_g6a_report.m,"simulator, trace and CRN generators, stage code",1120,5c2e91023b6f2229fc2d223564bafec82230d20dd6dd60be5e5b4de0d19ffc61
+Optimized/v17x/stage_g6b.m,"simulator, trace and CRN generators, stage code",12210,a784c6cb83faa1ec7cc886affd373a652c49e59ff2650d34bf7a6ccba46b7916
+Optimized/v17x/stage_g6b_preflight.m,"simulator, trace and CRN generators, stage code",1399,46618cffaa70b68205080d012f9be90e4fee897c6f887687f0fab64920b203d6
+Optimized/v17x/stage_g6c.m,"simulator, trace and CRN generators, stage code",15330,dab7c16ce55d6d66054aa4d1888d93203b60e765681eed154f8e0369890762be
+Optimized/v17x/stage_g6c_preflight.m,"simulator, trace and CRN generators, stage code",1390,ab0a65a1284dfc5e73aa9cd916f0f993a8161fdf7dc882f3908e452ffa6f627f
+Optimized/v17x/stage_hr1.m,"simulator, trace and CRN generators, stage code",7982,bbef616e17d7bd5c0197f7fbc7e2561d09ac45d77604e00ea64c628d4d906207
+Optimized/v17x/stage_hr1_preflight.m,"simulator, trace and CRN generators, stage code",1937,db40ace9165eaf068c960e03d240e912ff55e7299186398e6269adfc7de95a4a
+Optimized/v17x/stage_nr1.m,"simulator, trace and CRN generators, stage code",10520,a7fd3de371f7dc03246d5f1cbc36597548fa94aef1d7c7ed82bab9428f2589ef
+Optimized/v17x/stage_nr1_preflight.m,"simulator, trace and CRN generators, stage code",1447,19584ddb5bc41c2db566bb932e1d848013cb945613f76a748bdf0afb56a1d2bb
+Optimized/v17x/stage_nr2.m,"simulator, trace and CRN generators, stage code",28869,68718fafb97803f042d95e5fc56dee5af22e86a560ddc563d749be5816abb4d0
+Optimized/v17x/stage_nr2_preflight.m,"simulator, trace and CRN generators, stage code",1853,643b9d1103e4754b64970a5e490cf5e61f9210873a53a33f946b8810b8615930
+Optimized/v17x/stage_nr2_report.m,"simulator, trace and CRN generators, stage code",654,569c7777b1cda0932d1206da4040d30077969d2a5ad95227edb296c8bc898b6b
+Optimized/v17x/stage_nr_g10.m,"simulator, trace and CRN generators, stage code",14688,c1445a84aa0c74057c9b594edb809644bbac263929d5b942a284aee5dca9a2c4
+Optimized/v17x/stage_nr_g10_preflight.m,"simulator, trace and CRN generators, stage code",1672,6a3979d8886319e80a5f41a63b60f7c02a63c6789c77c894627c6dbe2d6a8932
+Optimized/v17x/stage_nr_g10_report.m,"simulator, trace and CRN generators, stage code",652,4062b42ef8995daf15a8b5e03f9d9cf8f1211f5d3fa48cf553318dbcdc8edd64
+Optimized/v17x/stage_r1_gbt.m,"simulator, trace and CRN generators, stage code",15688,cc4d718bb3dee4efe247b1054b51e14084d59d43b0196c82b18a27a2acd54b39
+Optimized/v17x/stage_r1_gbt_preflight.m,"simulator, trace and CRN generators, stage code",2175,e3992c63133b3a61bb9590db5a28cf4f925fffe0f3ae3ced17cdf0d641d58460
+Optimized/v17x/stage_r1b_ack.m,"simulator, trace and CRN generators, stage code",19047,57c52161e6ad992566039d4a6357a50d1f3dc839754f44e1a6e7539eb904cf48
+Optimized/v17x/stage_r1b_ack_preflight.m,"simulator, trace and CRN generators, stage code",2285,680cf1a3aad242c219bd436555124676e1c7b2e5740518a535c833c531d232c8
+Optimized/v17x/stage_r1b_ack_report.m,"simulator, trace and CRN generators, stage code",284,a38b1397429eb232a7809e86d3265aaf068a0dfad7e845d69c888e2a81046317
+Optimized/v17x/stage_r1c.m,"simulator, trace and CRN generators, stage code",34450,de2f87416c34b9c4112d04ad6a02e4ce6c69f3223369a4e5e8c88063fe0aadff
+Optimized/v17x/stage_r1c_preflight.m,"simulator, trace and CRN generators, stage code",2589,24a469b9cdfc4cdef5a870cf650220bf8fb68f094a4843099e09bc882317fbcd
+Optimized/v17x/stage_r2_rule.m,"simulator, trace and CRN generators, stage code",14322,6fe3e461df2814950d342cf9b6921ea656b36102280ada4b472e10ba52f8b3df
+Optimized/v17x/stage_r2_rule_preflight.m,"simulator, trace and CRN generators, stage code",2147,eb8e931f8873848977e4768801bdb3d896e6a1279eea701dace7060f2bdb2fcf
+Optimized/v17x/stage_r3_nr2diag.m,"simulator, trace and CRN generators, stage code",15404,c760a2b802f23e301d7aaf15d98f9ada100d9c323d008141ecb3ec21ec4c44f4
+Optimized/v17x/stage_r3_nr2diag_preflight.m,"simulator, trace and CRN generators, stage code",2634,fc97213caf828fbf93e2ff88b585f62ffc0496f893e542c8d557a38f3f443926
+Optimized/v17x/stage_r5_seeds.m,"simulator, trace and CRN generators, stage code",18831,ad6b5bb6429ad56dff9a332af8b9b80855d30d65504092fd007834007d2aa4db
+Optimized/v17x/stage_r5_seeds_preflight.m,"simulator, trace and CRN generators, stage code",1477,651c1cd5a67b630549d839fea34ee13b1c124951ec465e4adcee8040d013b047
+Optimized/v17x/stage_r6_fullaction.m,"simulator, trace and CRN generators, stage code",26931,57f88a192272ffd3ed506de5f9e2bc43faf9b51566aa142a0273a071b677971f
+Optimized/v17x/stage_r6_fullaction_preflight.m,"simulator, trace and CRN generators, stage code",2175,32f8d03a7cc7598ce863ba64fc4ec1e8f7e1c7bb21732ca2ebe7938bc5a7d09f
+Optimized/v17x/stage_st_crash_once.m,"simulator, trace and CRN generators, stage code",518,834e14dac4fa3cd265a38e27eb0c7c3ada6acf6ed406fad4de5eb94a08563cac
+Optimized/v17x/stage_st_crash_once_preflight.m,"simulator, trace and CRN generators, stage code",165,8bce45791fab05914c172bf7409db455756f9c61782c5cd4bd28084acdc8899e
+Optimized/v17x/stage_st_fail_always.m,"simulator, trace and CRN generators, stage code",114,067eac952e58ccbf169769a7e7cd9a84ef5ffb9a6edbcf0b77719e62528d568f
+Optimized/v17x/stage_st_fail_always_preflight.m,"simulator, trace and CRN generators, stage code",166,696506d47a8eda4f9b49603427afbd4c2506cc94080366f3092014d248d92d90
+Optimized/v17x/stage_st_ok.m,"simulator, trace and CRN generators, stage code",288,7084c2b30660ba6f2f1adc80b92c3be053a6cf77e783e2ccd33edfc9231eeb63
+Optimized/v17x/stage_st_ok2.m,"simulator, trace and CRN generators, stage code",63,7d47937e441d9bc897e58e0bd2acee2a71e6afbc7822d3c7615f821df0b95fc5
+Optimized/v17x/stage_st_ok2_preflight.m,"simulator, trace and CRN generators, stage code",158,c87615cefa2893407c435f13de53657edcb6be2aba0295d77ec9ecd40b71f90f
+Optimized/v17x/stage_st_ok2_report.m,"simulator, trace and CRN generators, stage code",201,b35af583acd4db526f02c1a024caee5b8d7855b04c59d6df27e45686266839b9
+Optimized/v17x/stage_st_ok_preflight.m,"simulator, trace and CRN generators, stage code",158,2997121266a3c3f530735727345077b379bea2423ca9baaa4fc3b7cafb422da2
+Optimized/v17x/stage_st_ok_report.m,"simulator, trace and CRN generators, stage code",200,55784dba594c03ad6a2b29543f37bbcd61eb1b9f11b6bf5ab59b99fa3fb6c51e
+Optimized/v17x/stage_st_slow.m,"simulator, trace and CRN generators, stage code",64,e4c0a0d8b0a2fad4ac782f2e52adc476bf2a77cd20a20e5c05313a36df00050c
+Optimized/v17x/stage_st_slow_preflight.m,"simulator, trace and CRN generators, stage code",253,5656b48d2d8ba488046b69b6f3640f76935f84d085f81a8b72ee76d9d9cb9d84
+Optimized/v17x/stage_w1.m,"simulator, trace and CRN generators, stage code",17268,1375129ae840859de147c10ce9925cae9830d63198a59387017c17454bbda1a1
+Optimized/v17x/stage_w1_preflight.m,"simulator, trace and CRN generators, stage code",1447,66f88192d0959c9d1731a75db88ee0f835b72e552fc52a9c2e62b6ba1e0535f3
+Optimized/v17x/test_g2_rederive.m,"simulator, trace and CRN generators, stage code",4070,027ada6097b8a7eef0940ba37901484e707cf9b944212bf5042d3a77894f6096
+Optimized/v17x/train_r1_gbt.py,"simulator, trace and CRN generators, stage code",3448,c802a531dfc1860e482d0a8f716d831c1569bcaa996fa0db70153febaea51513
+Optimized/v17x/train_r1b_ack.py,"simulator, trace and CRN generators, stage code",5732,b8ca5aca0fc383dd0ed5e2ddd6edf3803df597202e3cf28081ec6b9f38cecadf
+Optimized/v17x/train_r1c_ack.py,"simulator, trace and CRN generators, stage code",6152,2dd10727a3a4bd037f4884a80d23363fc24b6a847691903b1355a264cb33a55c
+Optimized/v17x/train_r6b_sinrexp.py,"simulator, trace and CRN generators, stage code",3580,d77b2f6396bb93bd259524a93887b4268a4959891e7196033ca767124139e3ba
+Optimized/v17x/v17x_cfg.m,"simulator, trace and CRN generators, stage code",3364,9fc722dc54e0fb0b13b1a068571b3f1f52482cfbb32dc77f8c27d4d1e5d30034
+Optimized/v17x/v17x_hb.m,"simulator, trace and CRN generators, stage code",707,561ddc118744cb47951ca534ff6ef647b17d35fff952f35e634c1db511e730e5
+Optimized/v17x/v17x_reset.m,"simulator, trace and CRN generators, stage code",602,48882a26f3b343bb85f4a5f16249c4ccec0cbaad83b86358487222d66e091dce
+Optimized/v17x/v17x_status.m,"simulator, trace and CRN generators, stage code",1220,0c9e82f092a977e529f30348ae7e6228f9c8ff7dd8cf23bfba7526d9cc6adf8d
+Optimized/v17x/v17x_unit.m,"simulator, trace and CRN generators, stage code",1301,5612b575c8b93d3f6f04403e834b381421224dd9ba4a599716673d667c4634f1
+Optimized/v17x/watchdog_v17x.ps1,"simulator, trace and CRN generators, stage code",3650,352228e1c4908819fe37fb09756e711e9cb2ef6a22f8953047d6a31fdf260332
+paper/analysis/G1_SPEC.md,analysis scripts and their outputs,4419,2d6a24d2d10dc06342614c64d4a9515434db5586aa51b705783177c5cbea40ef
+paper/analysis/a1_speed_stats.py,analysis scripts and their outputs,2400,0400d6631e9143e823a1e278c977204bfb7ca65bf8ff05277beec5f9cd87048e
+paper/analysis/actor_flops.py,analysis scripts and their outputs,1420,0f8bb4b7f2cffddeac6219069ad7dffb4383538fa6d800819eb06ca69ebcb855
+paper/analysis/ft_stats.py,analysis scripts and their outputs,16293,598767193f5b0ee0e8a7159db8cabc2d995d4e1c36ef566363d532b786dd7130
+paper/analysis/g1_seed_consistency.py,analysis scripts and their outputs,2859,d3879c4e844c648853b365dd9f07fe4878203f8d4690bdd9bfd9c76ee7f7cc3a
+paper/analysis/g3_seed_stats.py,analysis scripts and their outputs,4909,dc836bb31d7bb808a1402739e78c095a5ac1fb25e767e04eab980a8012364f10
+paper/analysis/g6_seed_stats.py,analysis scripts and their outputs,3941,0e5289da87678b417b64634a5433afd5ad752032f5bd8050413a8c61e29674f1
+paper/analysis/hr_gbtb_sensitivity.py,analysis scripts and their outputs,5352,3300920f9f31533ed5c7aad3ecb06f76a0262c0ad9b3c6511b78e3eb1b473d53
+paper/analysis/hr_stats.py,analysis scripts and their outputs,13333,83f53ca0d67ec5267936e0f8fbc86b9be1c54a43eb08eb6a7dfec96847ad212b
+paper/analysis/m3_identity.py,analysis scripts and their outputs,1365,098170b56ba73db3da8f2ee5d75d18e13da3df522ed5e3c2102fac4c3cf29fdf
+paper/analysis/nr1_g6_compare.py,analysis scripts and their outputs,2195,5fddd2b1abb72200deefb4830516848d1bb85614bfd69bb2e66c4bfb5176c8bc
+paper/analysis/nr2_stats.py,analysis scripts and their outputs,6438,c73b4157438f3f91397c6ba32159b494dd9e57dade0917052bca3f112656f71f
+paper/analysis/nr_g10_ctxj_descriptive.py,analysis scripts and their outputs,3912,e050e8439a8c3fbb6c70f517ef27f4b107e62ae8e0668da0dd3f5251eb374fa8
+paper/analysis/out/a1_speed_stats.csv,analysis scripts and their outputs,241,e0d2003fdd50df695138f43df3ed011acb01f4860248789da4cb2c76c296297f
+paper/analysis/out/a3c_summary.csv,analysis scripts and their outputs,487,1b58835b108f9ec2b559e6c53d3d7f53ccaa3211f61678346be3b72110dc2834
+paper/analysis/out/actor_flops.csv,analysis scripts and their outputs,101,10748dfc6bf77b915ddd4863793f5523a4c92f45e971da8518c6b9e3491d96db
+paper/analysis/out/g1_seed_consistency.csv,analysis scripts and their outputs,634,dcc162b7a874eb484dab0a2cfe1cdb9a05c2863c508da3d200a558cc96867782
+paper/analysis/out/g1_seed_contrasts.csv,analysis scripts and their outputs,226,469275a4e87ee6b133842f2a0b0734054d5a94182702cf40000490ef1989cd73
+paper/analysis/out/g3_seed_stats.csv,analysis scripts and their outputs,3154,ac696b4eb18c29078e3c6c545bc15cf3ab54f615b89b3bbb62273107a34d1e94
+paper/analysis/out/g3_seed_stats.txt,analysis scripts and their outputs,4318,8422f19871edada1b4d7017090da46424de4940a77ab0e1194c54b7d0fc7da9c
+paper/analysis/out/g6_seed_stats.csv,analysis scripts and their outputs,870,dd530959cbd9ca23b862353064308828abc38b438563c974aa86ebe409140e33
+paper/analysis/out/g6_seed_stats.txt,analysis scripts and their outputs,995,f3ed79801503038dd621bf8796ef63fabe0f4556499e02d1b218cc028a9715a6
+paper/analysis/out/hr_gbtb_sensitivity.csv,analysis scripts and their outputs,250,2b2bca29e5b304bf168b3a87fbf62b08bc1fd21e0685574b0bee4ea20f134654
+paper/analysis/out/hr_predictions.csv,analysis scripts and their outputs,755,0e4e78b705005659b54a541aa181a6dd4df5ee25f59156271c49b6f95bfcce48
+paper/analysis/out/hr_report.txt,analysis scripts and their outputs,1310,b171053729a6fef70bfbd9388ae7bf73ac61e87216620573be457533a7108c29
+paper/analysis/out/hr_values.csv,analysis scripts and their outputs,14003,45d2254faaf8a3b2e4de2ed21a5d9b61329be4fadd5d1051da0adb27eb2339f9
+paper/analysis/out/m3_identity.txt,analysis scripts and their outputs,2582,c055d176b43f61292340b10d323cd3e4ce736642938a11c629a46d22a664ed9c
+paper/analysis/out/nr1_g6_compare.csv,analysis scripts and their outputs,447,f79c3835abb28085388f361a173b47f308381cb02bae453de898913f6d85d024
+paper/analysis/out/nr2_pending_values.csv,analysis scripts and their outputs,770,6ad4de4d49a1b9b51574839ada10199431bd7a639c23f33019dd1be12e8d552c
+paper/analysis/out/nr2_seed_stats.csv,analysis scripts and their outputs,723,beeb791bf44d30e0217d44b18748b50e5b02b22101db0760e56c008298cece1e
+paper/analysis/out/nr2_stats.csv,analysis scripts and their outputs,459,1c5c3ab6b1d2f2c4a9ab4a702b133b8c73f115f3b4bfbda689f8c13ead37c0c1
+paper/analysis/out/nr2_verdict.txt,analysis scripts and their outputs,249,a09674f91e61555abcf121a81718ca895d719457599dc663cc0cd5d794001149
+paper/analysis/out/nr_g10_ctxj_descriptive.csv,analysis scripts and their outputs,455,3b5660d1f0bf1d5a86943131e33034cecc16959846708184cfe3709faec98a56
+paper/analysis/out/nr_g10_ctxj_descriptive.txt,analysis scripts and their outputs,1252,b2a3130c0a7e0119fdd10a5a8f348d0b0699a736d3eb2d600bbd2e0f162236c3
+paper/analysis/out/presub_G2corrected/presub_R1R2.csv,analysis scripts and their outputs,405,10510105cdccdbbf7d0439e5a687d304342f4f1b51bd88f5218b71e7c5882419
+paper/analysis/out/presub_G2corrected/presub_R1R2_secondary.csv,analysis scripts and their outputs,1260,eb6e88030cd32c61040e4d29c530d1912dfa21c32623a6b504cbfde6c808bb7d
+paper/analysis/out/presub_G2corrected/presub_R3_actions.csv,analysis scripts and their outputs,725,018c50f0fa5cc1bdabca09f008196e25e2418772fc46c45bb8df67c8fe322c81
+paper/analysis/out/presub_G2corrected/presub_R3_fair.csv,analysis scripts and their outputs,130,53ad487dc948b50349b92586e1f87402950d5c3e2be7ee7498c15c418c82a7c2
+paper/analysis/out/presub_G2corrected/presub_R3_speed.csv,analysis scripts and their outputs,283,74205e528518dd6150bdd0346f26217151803d7bc9dff604d47afc53f8e1d1cb
+paper/analysis/out/presub_G2corrected/presub_R3_warm.csv,analysis scripts and their outputs,116,7b9079420f733ffb1d2c66d86f385e0f3da8d560f62c789d9e5bf63a7f2b7c01
+paper/analysis/out/presub_G2corrected/presub_R4.csv,analysis scripts and their outputs,616,cdad9ec7bd5d07d03673db665ef345fa413555f47e7bec9845156bfbcdc5a58f
+paper/analysis/out/presub_G2corrected/presub_R5.csv,analysis scripts and their outputs,351,d249832b9f45a71e8a7637e17769c86a77c962f033c0c7a6f568544ba37d0da8
+paper/analysis/out/presub_G2corrected/presub_pending_values.csv,analysis scripts and their outputs,2287,c605f2f668217bdba97db76b8792959cc4184e490d4af163462f792e659fa177
+paper/analysis/out/presub_G2corrected/presub_verdicts.txt,analysis scripts and their outputs,1253,78530eb1fc2f10733a42fb73c641a0f0ad978901d821ba476fb90c066ec61df8
+paper/analysis/out/presub_R1R2.csv,analysis scripts and their outputs,405,10510105cdccdbbf7d0439e5a687d304342f4f1b51bd88f5218b71e7c5882419
+paper/analysis/out/presub_R1R2_secondary.csv,analysis scripts and their outputs,1260,eb6e88030cd32c61040e4d29c530d1912dfa21c32623a6b504cbfde6c808bb7d
+paper/analysis/out/presub_R3_actions.csv,analysis scripts and their outputs,725,018c50f0fa5cc1bdabca09f008196e25e2418772fc46c45bb8df67c8fe322c81
+paper/analysis/out/presub_R3_fair.csv,analysis scripts and their outputs,130,53ad487dc948b50349b92586e1f87402950d5c3e2be7ee7498c15c418c82a7c2
+paper/analysis/out/presub_R3_speed.csv,analysis scripts and their outputs,283,74205e528518dd6150bdd0346f26217151803d7bc9dff604d47afc53f8e1d1cb
+paper/analysis/out/presub_R3_warm.csv,analysis scripts and their outputs,116,7b9079420f733ffb1d2c66d86f385e0f3da8d560f62c789d9e5bf63a7f2b7c01
+paper/analysis/out/presub_R4.csv,analysis scripts and their outputs,616,cdad9ec7bd5d07d03673db665ef345fa413555f47e7bec9845156bfbcdc5a58f
+paper/analysis/out/presub_R5.csv,analysis scripts and their outputs,359,1d2072df81381e28b1b31142be815095ff94a835930d402e021423e9e33da6b5
+paper/analysis/out/presub_pending_values.csv,analysis scripts and their outputs,2294,703a503c20bd695d45023f927f7d46a5d2c24306ffb8a5a023623449dbe1ebef
+paper/analysis/out/presub_side_metrics.csv,analysis scripts and their outputs,501,f69556635f44f208c8fb581408d058a894ded58e4d5b62f33acb01ed18833f7a
+paper/analysis/out/presub_verdicts.txt,analysis scripts and their outputs,1259,4322a58d7dcbdd75e0e4f000170707c49a4b2c26c579185b161908fa40a72416
+paper/analysis/out/r1b_R1.csv,analysis scripts and their outputs,268,9e3eb7ef6c7ac1c545a22b50f6948b24b6fbdc42d594c60ef4859623bfecedcb
+paper/analysis/out/r1b_pending_values.csv,analysis scripts and their outputs,839,9751a1eca83796317d5d98933c809054d6eea9544372ee6c7e096321a72b0539
+paper/analysis/out/r1b_reliability.csv,analysis scripts and their outputs,3363,d3c5674a27cbbc2d6f45d7272022cb63e273493718465f7f29bda6afba8c3b92
+paper/analysis/out/r1b_secondary.csv,analysis scripts and their outputs,925,d2cbf0c7cbe8826511e2213960b03e3e614c9a96adb348aa6ce08f1f831213b8
+paper/analysis/out/r1b_verdicts.txt,analysis scripts and their outputs,496,ff18ab71233179c8a0d27ad9f2d93d7d98ebd8967a88e16046ddae400ad6f04b
+paper/analysis/out/r1c_fits.csv,analysis scripts and their outputs,5390,f0e149604c86ee21ab1571b6555c60f6297cfac1173ab7512f887ba9fc695d66
+paper/analysis/out/r1c_pending_rows.csv,analysis scripts and their outputs,7342,8192c9994d9368a651fdffed6fb396ce6e9e77f72ea817d3fa9ac4a1fbd9e051
+paper/analysis/out/r1c_pending_values.csv,analysis scripts and their outputs,214,cb6bdf155bb6d95fcb8c16a40626696694665d1ec31e834c8d6e504d5d8b656b
+paper/analysis/out/r1c_rules.csv,analysis scripts and their outputs,27154,fec19a853e1ed259491f07fe3e98fc598f8554ff82b2efb3d98b6f543aa150f3
+paper/analysis/out/r1c_summary.csv,analysis scripts and their outputs,1370,5c9de8a70c0b2dc22fdc086fb12fbeaaf0705a2854e5d45800aa602edd8ceb8a
+paper/analysis/out/r1c_verdicts.txt,analysis scripts and their outputs,2308,5bf776e68d814892a4e3edae647afe691bf4ff197da83e4cd1a079c8cf5cf234
+paper/analysis/out/r3_delta_shares.csv,analysis scripts and their outputs,1134,96fc524765f48c120b55b29edc36b409ea17f439d0851afc23f29cecfee03175
+paper/analysis/out/r6_fits.csv,analysis scripts and their outputs,549,b82ed222fc3017040e48529abe0eefacbf74049bd8343631dbefba47268ee89e
+paper/analysis/out/r6_pending_values.csv,analysis scripts and their outputs,212,24b8c3a0605f69f615e46e2c6cfd6a6dd10e5de56fb0c7bb6ffd3d160fb6142a
+paper/analysis/out/r6_r6b.csv,analysis scripts and their outputs,512,a32617a8ec7738409b5aaa13c49139e9a7f229f6cab5453ad97096f5e676787a
+paper/analysis/out/r6_secondary.csv,analysis scripts and their outputs,826,6863b721c11a592d653b06183ad513e2f1f73946b9c17e2b537659b538727343
+paper/analysis/out/r6_verdicts.txt,analysis scripts and their outputs,1995,a906061bdf045970f2e35380a264ded502cea40a22e48ba0f7bea6d5639c2853
+paper/analysis/out_corrected/presub_R1R2.csv,analysis scripts and their outputs,405,10510105cdccdbbf7d0439e5a687d304342f4f1b51bd88f5218b71e7c5882419
+paper/analysis/out_corrected/presub_R1R2_secondary.csv,analysis scripts and their outputs,1260,eb6e88030cd32c61040e4d29c530d1912dfa21c32623a6b504cbfde6c808bb7d
+paper/analysis/out_corrected/presub_R3_actions.csv,analysis scripts and their outputs,725,018c50f0fa5cc1bdabca09f008196e25e2418772fc46c45bb8df67c8fe322c81
+paper/analysis/out_corrected/presub_R3_fair.csv,analysis scripts and their outputs,130,53ad487dc948b50349b92586e1f87402950d5c3e2be7ee7498c15c418c82a7c2
+paper/analysis/out_corrected/presub_R3_speed.csv,analysis scripts and their outputs,283,74205e528518dd6150bdd0346f26217151803d7bc9dff604d47afc53f8e1d1cb
+paper/analysis/out_corrected/presub_R3_warm.csv,analysis scripts and their outputs,116,7b9079420f733ffb1d2c66d86f385e0f3da8d560f62c789d9e5bf63a7f2b7c01
+paper/analysis/out_corrected/presub_R4.csv,analysis scripts and their outputs,616,cdad9ec7bd5d07d03673db665ef345fa413555f47e7bec9845156bfbcdc5a58f
+paper/analysis/out_corrected/presub_R5.csv,analysis scripts and their outputs,351,d249832b9f45a71e8a7637e17769c86a77c962f033c0c7a6f568544ba37d0da8
+paper/analysis/out_corrected/presub_pending_values.csv,analysis scripts and their outputs,2287,c605f2f668217bdba97db76b8792959cc4184e490d4af163462f792e659fa177
+paper/analysis/out_corrected/presub_verdicts.txt,analysis scripts and their outputs,1253,78530eb1fc2f10733a42fb73c641a0f0ad978901d821ba476fb90c066ec61df8
+paper/analysis/presub_derived.py,analysis scripts and their outputs,4892,9e4f1ea2dcb3bc7b3b3793d10d8f12665b0dc6294bf4285fb29cc8ee1aca7909
+paper/analysis/presub_stats.py,analysis scripts and their outputs,25440,29db049160602f21b0406276ccbfb15241a28552f00e67bd43e54667decc7058
+paper/analysis/r1b_stats.py,analysis scripts and their outputs,10809,a23599218d963a15eec6565a3fcb87edd23d33baec2833b568d94c2d1653fe7e
+paper/analysis/r1c_stats.py,analysis scripts and their outputs,14574,fb33c8be96a109c099afe2caadac7cd94b0d24c7feb78367427751b327cdc63e
+paper/analysis/r1c_to_pending.py,analysis scripts and their outputs,3937,933c24f773e9562a6c5c3d581c6fe1675eb8ba6959bf7419d0c674e1ee841517
+paper/analysis/r6_stats.py,analysis scripts and their outputs,13469,f6257c7908533f46c81f81250bb06713770bc29c14ce2657ea17cde646337e7d
+paper/analysis/v17mat.py,analysis scripts and their outputs,875,280ff4ebbd93dbe0fa386c7828ff8f0794585d605931056c127cfecd8b48bf81
+paper/ledger/asset_inventory.md,case registry and multiplicity ledger,5711,749b1db0fe30ebe889154420f875cb5c7c2f67fb354913e418e5ddbb21b34a19
+paper/ledger/audit_2026-11-08.md,case registry and multiplicity ledger,4986,3b11b21f3bb2c98bb0f8ba12fa13c8aace78c84e0f64178d9804c6818e7e8943
+paper/ledger/claims_ledger.csv,case registry and multiplicity ledger,36397,eff93807ea22e99fb769bfcfff59991bd41ad2304b82d34884d7e5719ffa7d1a
+paper/ledger/conflicts.md,case registry and multiplicity ledger,19319,fab6aa3736382e92264813a454e71a56fd5e67d75be705e0a4bf000b7ada30ba
+paper/ledger/gaps.md,case registry and multiplicity ledger,8676,5a3f554a077dccf8e13e5e75e6e24b81a46c18a61ea5310889d5e1b182e5f2f6
+paper/ledger/history_table.csv,case registry and multiplicity ledger,4016,bd123714cd7627bcead1d759b389950d6af18adf7dfaf568c82a15a7abd9f4d1
+paper/ledger/multiplicity.md,case registry and multiplicity ledger,10971,53875f79e9000792344fdff854ea025585ce4d01adca7995e4ca5ccbff4143d2
+paper/ledger/registry_eligibility.csv,case registry and multiplicity ledger,462,7914f95f4695656ae4d2577d46978f70b5aa1e959f2657de2c9dfab4dc8328ba
+paper/ledger/robustness_cases.csv,case registry and multiplicity ledger,2283,8c3c348c6baaa9709c81f045566e32f9bd6ce74617bc386ef451965301cff3d7
+paper/proposals/A6_pf_timing_prereg.md,"pre-registrations, amendments and freeze files",3587,35ffa58f563c5e184b5429acafcdbbcb4fa92f78d1ee4970c2609af4dca1a8d8
+paper/proposals/AMENDMENTS.md,"pre-registrations, amendments and freeze files",41200,68efa5602f2df2da6f503d7815327c720944753a3b96d98d12f8fc71ff53e054
+paper/proposals/CC_INSTRUCTIONS_2026-11-24.md,"pre-registrations, amendments and freeze files",9307,081dd5d910593c77737ff147456dd5ee8f49b2129b326beddefc26585c449d8b
+paper/proposals/FREEZE.sha256,"pre-registrations, amendments and freeze files",2582,cfbdd147e3ab3f5b22cca57d0a4e68ddad702dd8d8969b90eed763bc719d9107
+paper/proposals/FREEZE_v1.sha256,"pre-registrations, amendments and freeze files",842,034550eb5deb11854787f3b34028dfac052146d6af867cb7bf074cee1f654810
+paper/proposals/FREEZE_v10.sha256,"pre-registrations, amendments and freeze files",1861,1f81bb4e15df838f761fd6e98e381c18fef0c9e91a1ec220066310325e85c362
+paper/proposals/FREEZE_v11.sha256,"pre-registrations, amendments and freeze files",2070,dfc141ed9e6673c40062627c50be1d01affca243931d85b0e98813940e4e87b2
+paper/proposals/FREEZE_v12.sha256,"pre-registrations, amendments and freeze files",2078,65874a3c810d26559d9cd6a89aa6294401d75dcfc0318c6c31de11093aa62b23
+paper/proposals/FREEZE_v13.sha256,"pre-registrations, amendments and freeze files",2266,2dcae4d2232b83534b1c981ea04eed5b490b21022339834485b2326789238162
+paper/proposals/FREEZE_v14.sha256,"pre-registrations, amendments and freeze files",2314,69ec4365766a02414f0e4a5bcf12691c491d5425745363f8b2272e124d4b501d
+paper/proposals/FREEZE_v15.sha256,"pre-registrations, amendments and freeze files",2536,70e24246e6fffcc590995168d43b85fb9fc8cee481687cccb10ae7f0b3d1704d
+paper/proposals/FREEZE_v2.sha256,"pre-registrations, amendments and freeze files",974,dd8edc7c3386d0636c4b3ae3ce83cdd43f32795b083ff49be6cdd213f21f1242
+paper/proposals/FREEZE_v3.sha256,"pre-registrations, amendments and freeze files",1051,5910c130b5eb5236d18f36eec6d02e8965e78bdde8c0cbf3bbdc66a7fba7eac8
+paper/proposals/FREEZE_v5.sha256,"pre-registrations, amendments and freeze files",1264,0057008c7bcff10bc957e2e7b177e9c7aa5cb012757041f288327bdf4e10b6ae
+paper/proposals/FREEZE_v7.sha256,"pre-registrations, amendments and freeze files",1289,5e2cd719a9296125f8a076a5bbdb6b577f40c0f16613d08de5a9b99caf97d428
+paper/proposals/FREEZE_v8.sha256,"pre-registrations, amendments and freeze files",1498,337fe9f34a5158390499da82a8883439e6581be3bb1321d06d1442a080b0097e
+paper/proposals/FREEZE_v9.sha256,"pre-registrations, amendments and freeze files",1687,27a8293b492f796c39977d726045cd3bfe048c9e5f6f6f16fc61a8ef39c64fc6
+paper/proposals/FT_fresh_trace_prereg.md,"pre-registrations, amendments and freeze files",6881,5ada6b8e6105199e8dec50edb9decc53d82fe451be3418a6832a5d0d26a6c570
+paper/proposals/FT_objects.sha256,"pre-registrations, amendments and freeze files",4004,059e18a18328210589c94bbd58798b7a24b3da43203c225a21d12434fa6b3df9
+paper/proposals/FT_seed_amendment.md,"pre-registrations, amendments and freeze files",2139,b47c300e6b81e49872ed53a113e084e42aeaf208491d3acd648e009af02ac623
+paper/proposals/G10_operating_grid_prereg.md,"pre-registrations, amendments and freeze files",10437,ceecd80b8224a21d1665b45136413ad02871d4ae5cc7f356a6af671a9419131e
+paper/proposals/G6_calibration_budget_prereg.md,"pre-registrations, amendments and freeze files",13608,c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd
+paper/proposals/HR1_headroom_prereg.md,"pre-registrations, amendments and freeze files",11566,ba7978b105408813f3f4dfb92d73f93757c64e43c30a5a40925ea018ee26eed9
+paper/proposals/NR1_nonoracle_residual_prereg.md,"pre-registrations, amendments and freeze files",5169,ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258
+paper/proposals/NR2_confirmatory_prereg.md,"pre-registrations, amendments and freeze files",11763,1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c
+paper/proposals/NR2_reframing_proposal.md,"pre-registrations, amendments and freeze files",4167,eba95725ef0cb9d31195abfae2e536d2f6cfaa7023b5189bded993789123b50a
+paper/proposals/NR_G10_operating_grid_prereg.md,"pre-registrations, amendments and freeze files",5742,bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08
+paper/proposals/R1_revision_runs_proposal.md,"pre-registrations, amendments and freeze files",3502,fc11a2d3618fecdca1a120b462073616307ac1f5ccb50bf5adbddb0ab5234e7a
+paper/proposals/R1b_ack_prereg.md,"pre-registrations, amendments and freeze files",9986,f86bb57f470bf1d257e20a46e78415f765b29233a4e78558bac405ac436c1879
+paper/proposals/R1c_ack_prereg.md,"pre-registrations, amendments and freeze files",13286,0336ff99bc9079df492f0cf4a351b0adb7959298468b58aaf3826e5c1a54e3c6
+paper/proposals/R6_fullaction_prereg.md,"pre-registrations, amendments and freeze files",13507,a8899c0f4582ed37f0b52471439903264dca97743f5c5b55f639fe976c559a6a
+paper/proposals/R_presub_prereg.md,"pre-registrations, amendments and freeze files",21385,3e6c079f15bc9226ccf0e4cdd336f1af64c55d7778676246218815f5e022ea3a
+paper/proposals/S_EOT_PF_prereg.md,"pre-registrations, amendments and freeze files",8394,c4211dc2720845a0cf2035933373e548dfe970fa217224ab279f47b4f8328fc0
+paper/proposals/W1_warmup_prereg.md,"pre-registrations, amendments and freeze files",5518,3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d
+paper/proposals/award_roadmap_2026-11-08.md,"pre-registrations, amendments and freeze files",29564,aba6f5ee58f35345a8520875d90d200eaadd669c71c9b100af168a697bba1fdd
+paper/proposals/checkpoint5_list.md,"pre-registrations, amendments and freeze files",6620,9debb4c685cf84a2af6afd787a6c84b3f95f061ccf8f0e58b80321b3b002909c
+paper/proposals/common_rules.md,"pre-registrations, amendments and freeze files",4053,f8382b866c5b51131d4185f4fe2920efabe46b6f7ed81963ec5759472fed664f
+paper/proposals/compute_basis.md,"pre-registrations, amendments and freeze files",1240,d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a
+paper/proposals/figs/nr2_verdicts.png,"pre-registrations, amendments and freeze files",226584,a17fa85fc650917e64c1210abefd000bcec769ee39ef7b526cd02bca4c93b723
+paper/proposals/figs/roadmap.png,"pre-registrations, amendments and freeze files",79265,59c77fcffdf4930336d5739cd3afdab1b5b1a0e097fcbdba4ced0067666c7b93
+paper/supplement/files/MANIFEST.sha256,supplementary files (S1-S6),8439,dd1280f9e4ee49f6c88ad63d90030c1597b7724aeb3c60ce5eb49bf55f565519
+paper/supplement/files/README.md,supplementary files (S1-S6),1784,499b302a0b1d7a5117fc72003a9b6429a094e2ae01acec4598da3ea0eb101c35
+paper/supplement/files/S1_registry/case_eligibility.csv,supplementary files (S1-S6),3664,c0f228ee1e85811897c6874ff4e33aa2c6b351f8983b56ded53e6985025c9c26
+paper/supplement/files/S1_registry/case_registry.csv,supplementary files (S1-S6),11576,92b645c8c8d1c932e398d0bdd266be01e2ad2e030bf7015d1798eb3d4fced107
+paper/supplement/files/S1_registry/registry_eligibility.csv,supplementary files (S1-S6),462,7914f95f4695656ae4d2577d46978f70b5aa1e959f2657de2c9dfab4dc8328ba
+paper/supplement/files/S1_registry/robustness_cases.csv,supplementary files (S1-S6),2283,8c3c348c6baaa9709c81f045566e32f9bd6ce74617bc386ef451965301cff3d7
+paper/supplement/files/S2_comparator_tables/A3c__table_a3c.csv,supplementary files (S1-S6),1605,9f85aac912948bf7b4d7fea846c9d9884351218115e3987972ac35080b8c58bd
+paper/supplement/files/S2_comparator_tables/A6__a6_pf_timing.csv,supplementary files (S1-S6),1916,a502eb62673fc39b84f8fae9d3531d2a4cf11db403261c0e4e0dd1b442faa0fe
+paper/supplement/files/S2_comparator_tables/FT_primary__ft_primary.csv,supplementary files (S1-S6),1150,a5a1525bfa266f3f21c6b0b173cef40006a40f9239dd98905f73d19fa7f08ae8
+paper/supplement/files/S2_comparator_tables/FT_primary_resolved__ft_primary.csv,supplementary files (S1-S6),1145,e16f7b7d9e4e297e638d059a0a4550eeb505375deb81c86e20014ca2b2c60203
+paper/supplement/files/S2_comparator_tables/FT_schemes__ft_schemes.csv,supplementary files (S1-S6),768,5243bb3efa7ef614465e9a0b1cb73905bc34f1d7630ee434357dbfd3398076cb
+paper/supplement/files/S2_comparator_tables/FT_secondary__ft_secondary.csv,supplementary files (S1-S6),1866,2994e10dcd3debc34eeb711164b7e050d5ea308d0c02439f9e40ff8cce806894
+paper/supplement/files/S2_comparator_tables/G10__table_cells.csv,supplementary files (S1-S6),1275,5b211025b6ba74f89c8370ca79ed4efca34a415e79ccd555e5f93ffa48ab6653
+paper/supplement/files/S2_comparator_tables/G6__table_cal500.csv,supplementary files (S1-S6),566,61c2482e2af67b5f65513e153c9321ff02fd56b7e8c80401f6b6b22229882e29
+paper/supplement/files/S2_comparator_tables/HR1__hr_values.csv,supplementary files (S1-S6),14003,45d2254faaf8a3b2e4de2ed21a5d9b61329be4fadd5d1051da0adb27eb2339f9
+paper/supplement/files/S2_comparator_tables/NR1__table_nr1.csv,supplementary files (S1-S6),588,1badda7e58cd175464eb98b5031e5b95b489cbeec926539ebded2d7c33a3885c
+paper/supplement/files/S2_comparator_tables/NR2__table_nr2.csv,supplementary files (S1-S6),532,6f383e94eea134b24f78db427268e9a33940f116f8439c26a805a819a1e078fd
+paper/supplement/files/S2_comparator_tables/NR_G10__table_cells_nr.csv,supplementary files (S1-S6),1157,ad2a1c85c34bd58ad5a25e3024e0ea75ae4623a3377bba6613ffa254a63c6096
+paper/supplement/files/S2_comparator_tables/NR_G10_descriptive__nr_g10_ctxj_descriptive.csv,supplementary files (S1-S6),455,3b5660d1f0bf1d5a86943131e33034cecc16959846708184cfe3709faec98a56
+paper/supplement/files/S2_comparator_tables/R1__presub_R1R2.csv,supplementary files (S1-S6),405,10510105cdccdbbf7d0439e5a687d304342f4f1b51bd88f5218b71e7c5882419
+paper/supplement/files/S2_comparator_tables/R1_secondary__presub_R1R2_secondary.csv,supplementary files (S1-S6),1260,eb6e88030cd32c61040e4d29c530d1912dfa21c32623a6b504cbfde6c808bb7d
+paper/supplement/files/S2_comparator_tables/R1b__r1b_R1.csv,supplementary files (S1-S6),268,9e3eb7ef6c7ac1c545a22b50f6948b24b6fbdc42d594c60ef4859623bfecedcb
+paper/supplement/files/S2_comparator_tables/R1c_fits__r1c_fits.csv,supplementary files (S1-S6),5390,f0e149604c86ee21ab1571b6555c60f6297cfac1173ab7512f887ba9fc695d66
+paper/supplement/files/S2_comparator_tables/R1c_rules__r1c_rules.csv,supplementary files (S1-S6),27154,fec19a853e1ed259491f07fe3e98fc598f8554ff82b2efb3d98b6f543aa150f3
+paper/supplement/files/S2_comparator_tables/R1c_summary__r1c_summary.csv,supplementary files (S1-S6),1370,5c9de8a70c0b2dc22fdc086fb12fbeaaf0705a2854e5d45800aa602edd8ceb8a
+paper/supplement/files/S2_comparator_tables/R4__presub_R4.csv,supplementary files (S1-S6),616,cdad9ec7bd5d07d03673db665ef345fa413555f47e7bec9845156bfbcdc5a58f
+paper/supplement/files/S2_comparator_tables/R5_G2_corrected__presub_R5.csv,supplementary files (S1-S6),351,d249832b9f45a71e8a7637e17769c86a77c962f033c0c7a6f568544ba37d0da8
+paper/supplement/files/S2_comparator_tables/R5_frozen__presub_R5.csv,supplementary files (S1-S6),359,1d2072df81381e28b1b31142be815095ff94a835930d402e021423e9e33da6b5
+paper/supplement/files/S2_comparator_tables/R6_fits__r6_fits.csv,supplementary files (S1-S6),549,b82ed222fc3017040e48529abe0eefacbf74049bd8343631dbefba47268ee89e
+paper/supplement/files/S2_comparator_tables/R6_secondary__r6_secondary.csv,supplementary files (S1-S6),826,6863b721c11a592d653b06183ad513e2f1f73946b9c17e2b537659b538727343
+paper/supplement/files/S2_comparator_tables/Side_metrics__presub_side_metrics.csv,supplementary files (S1-S6),501,f69556635f44f208c8fb581408d058a894ded58e4d5b62f33acb01ed18833f7a
+paper/supplement/files/S2_comparator_tables/W1__table_warmup.csv,supplementary files (S1-S6),773,218b313f84bd95d0ed608cd5ea6627590316a5fb6b4f27e6e7f9dae459db19a5
+paper/supplement/files/S2_comparator_tables/v16__table_core.csv,supplementary files (S1-S6),9609,363cae0ea8e9b2529083499af48809bfbccc1c3614d64758aa03c6a2bf19b33a
+paper/supplement/files/S2_comparator_tables/v17__table_core.csv,supplementary files (S1-S6),7752,75b9db9ff8b59ff7746b54c76f349d8d83e121e36c098634584867758687e60e
+paper/supplement/files/S3_preregistration/A6_pf_timing_prereg.md,supplementary files (S1-S6),3587,35ffa58f563c5e184b5429acafcdbbcb4fa92f78d1ee4970c2609af4dca1a8d8
+paper/supplement/files/S3_preregistration/AMENDMENTS.md,supplementary files (S1-S6),41200,68efa5602f2df2da6f503d7815327c720944753a3b96d98d12f8fc71ff53e054
+paper/supplement/files/S3_preregistration/FREEZE.sha256,supplementary files (S1-S6),2582,cfbdd147e3ab3f5b22cca57d0a4e68ddad702dd8d8969b90eed763bc719d9107
+paper/supplement/files/S3_preregistration/FREEZE_v1.sha256,supplementary files (S1-S6),842,034550eb5deb11854787f3b34028dfac052146d6af867cb7bf074cee1f654810
+paper/supplement/files/S3_preregistration/FREEZE_v2.sha256,supplementary files (S1-S6),974,dd8edc7c3386d0636c4b3ae3ce83cdd43f32795b083ff49be6cdd213f21f1242
+paper/supplement/files/S3_preregistration/FREEZE_v3.sha256,supplementary files (S1-S6),1051,5910c130b5eb5236d18f36eec6d02e8965e78bdde8c0cbf3bbdc66a7fba7eac8
+paper/supplement/files/S3_preregistration/FREEZE_v5.sha256,supplementary files (S1-S6),1264,0057008c7bcff10bc957e2e7b177e9c7aa5cb012757041f288327bdf4e10b6ae
+paper/supplement/files/S3_preregistration/FT_fresh_trace_prereg.md,supplementary files (S1-S6),6881,5ada6b8e6105199e8dec50edb9decc53d82fe451be3418a6832a5d0d26a6c570
+paper/supplement/files/S3_preregistration/FT_objects.sha256,supplementary files (S1-S6),4004,059e18a18328210589c94bbd58798b7a24b3da43203c225a21d12434fa6b3df9
+paper/supplement/files/S3_preregistration/FT_seed_amendment.md,supplementary files (S1-S6),2139,b47c300e6b81e49872ed53a113e084e42aeaf208491d3acd648e009af02ac623
+paper/supplement/files/S3_preregistration/G10_operating_grid_prereg.md,supplementary files (S1-S6),10437,ceecd80b8224a21d1665b45136413ad02871d4ae5cc7f356a6af671a9419131e
+paper/supplement/files/S3_preregistration/G6_calibration_budget_prereg.md,supplementary files (S1-S6),13608,c629332df0eb98086d201a61505758716bfde5dbfc3dd33175d1d24bad5b8bbd
+paper/supplement/files/S3_preregistration/HR1_headroom_prereg.md,supplementary files (S1-S6),11566,ba7978b105408813f3f4dfb92d73f93757c64e43c30a5a40925ea018ee26eed9
+paper/supplement/files/S3_preregistration/NR1_nonoracle_residual_prereg.md,supplementary files (S1-S6),5169,ed4e5e38faadf9ee7ecff10fa0c65367413aaa91526efec9c720d780716f0258
+paper/supplement/files/S3_preregistration/NR2_confirmatory_prereg.md,supplementary files (S1-S6),11763,1210d5b17aeae883796ad369f17e7ef1ffeed404d7c317c23d7b4d97612c3e0c
+paper/supplement/files/S3_preregistration/NR2_reframing_proposal.md,supplementary files (S1-S6),4167,eba95725ef0cb9d31195abfae2e536d2f6cfaa7023b5189bded993789123b50a
+paper/supplement/files/S3_preregistration/NR_G10_operating_grid_prereg.md,supplementary files (S1-S6),5742,bb37226469be55b434fb58600e9fce629bf6ef0d379186512116fe2e99222e08
+paper/supplement/files/S3_preregistration/R1b_ack_prereg.md,supplementary files (S1-S6),9986,f86bb57f470bf1d257e20a46e78415f765b29233a4e78558bac405ac436c1879
+paper/supplement/files/S3_preregistration/R1c_ack_prereg.md,supplementary files (S1-S6),13286,0336ff99bc9079df492f0cf4a351b0adb7959298468b58aaf3826e5c1a54e3c6
+paper/supplement/files/S3_preregistration/R6_fullaction_prereg.md,supplementary files (S1-S6),13507,a8899c0f4582ed37f0b52471439903264dca97743f5c5b55f639fe976c559a6a
+paper/supplement/files/S3_preregistration/R_presub_prereg.md,supplementary files (S1-S6),21385,3e6c079f15bc9226ccf0e4cdd336f1af64c55d7778676246218815f5e022ea3a
+paper/supplement/files/S3_preregistration/S_EOT_PF_prereg.md,supplementary files (S1-S6),8394,c4211dc2720845a0cf2035933373e548dfe970fa217224ab279f47b4f8328fc0
+paper/supplement/files/S3_preregistration/W1_warmup_prereg.md,supplementary files (S1-S6),5518,3a69b7d023c601f8c221ca03b4ec60b67d2953c2855c23878683ddf8330f1b5d
+paper/supplement/files/S3_preregistration/checkpoint5_list.md,supplementary files (S1-S6),6620,9debb4c685cf84a2af6afd787a6c84b3f95f061ccf8f0e58b80321b3b002909c
+paper/supplement/files/S3_preregistration/common_rules.md,supplementary files (S1-S6),4053,f8382b866c5b51131d4185f4fe2920efabe46b6f7ed81963ec5759472fed664f
+paper/supplement/files/S3_preregistration/compute_basis.md,supplementary files (S1-S6),1240,d72e7a0f64506fe278ed319bc0bbe74d564de0cf1a27c3543311acd226fade0a
+paper/supplement/files/S3_preregistration/freeze_timeline.csv,supplementary files (S1-S6),3989,52f929095148ab11640517613a15b96de84e2ec9eed4c30da1738ad5bf636fce
+paper/supplement/files/S3_preregistration/ft_stats.py,supplementary files (S1-S6),16293,598767193f5b0ee0e8a7159db8cabc2d995d4e1c36ef566363d532b786dd7130
+paper/supplement/files/S3_preregistration/hr_stats.py,supplementary files (S1-S6),13333,83f53ca0d67ec5267936e0f8fbc86b9be1c54a43eb08eb6a7dfec96847ad212b
+paper/supplement/files/S3_preregistration/nr2_stats.py,supplementary files (S1-S6),6438,c73b4157438f3f91397c6ba32159b494dd9e57dade0917052bca3f112656f71f
+paper/supplement/files/S3_preregistration/presub_stats.py,supplementary files (S1-S6),25440,29db049160602f21b0406276ccbfb15241a28552f00e67bd43e54667decc7058
+paper/supplement/files/S3_preregistration/r1b_stats.py,supplementary files (S1-S6),10809,a23599218d963a15eec6565a3fcb87edd23d33baec2833b568d94c2d1653fe7e
+paper/supplement/files/S3_preregistration/r1c_stats.py,supplementary files (S1-S6),14574,fb33c8be96a109c099afe2caadac7cd94b0d24c7feb78367427751b327cdc63e
+paper/supplement/files/S3_preregistration/r6_stats.py,supplementary files (S1-S6),13469,f6257c7908533f46c81f81250bb06713770bc29c14ce2657ea17cde646337e7d
+paper/supplement/files/S4_literature/screened_learning_LA_papers.csv,supplementary files (S1-S6),4167,33381d76fe57886f2b78ce23f9a3f215feab5fe8b507c2da12c0fee8d7faaeba
+paper/supplement/files/S5_audit/AUDIT_config_all_stages.md,supplementary files (S1-S6),18938,0912f11f252f9dd6c5a64a7573d43b4f88c6a7c7f5b8fec0e8e3b522b132cd5e
+paper/supplement/files/S5_audit/G2_D1_verification_note.md,supplementary files (S1-S6),4550,290cfa5912826009b9d17c0b544fbc920db508a8fc5eb4b66a757f12732d1be7
+paper/supplement/files/S6_reports/diag_rsched_retx.txt,supplementary files (S1-S6),200,1a608b49026dd8097f85894e354de78adc97a1c090a714fce3afa1764ea9eb9c
+paper/supplement/files/S6_reports/eot_summary.txt,supplementary files (S1-S6),1778,a0d4a4205439c2327cab900c110cdbeb4e846d1af264e542791a4dd274f6f576
+paper/supplement/files/S6_reports/exposure_table.txt,supplementary files (S1-S6),787,f759407d56c43560d89a1cd9ae68a9d47b4c49e46fd439951669476b73beb416
+paper/supplement/files/S6_reports/ft_exposure.txt,supplementary files (S1-S6),160,60b5fa49062a82cb4919077a0317adc0eeeae862ab96f04a8495118e00b8dfe0
+paper/supplement/files/S6_reports/ft_summary.txt,supplementary files (S1-S6),5665,57bb02298ab49e558e9ddccff5b1c183c4812f401ac796108113bec1edeca205
+paper/supplement/files/S6_reports/hr_report.txt,supplementary files (S1-S6),1296,725d6c7564bcfc1744671e027e83b63c34b5dcfd0ba5c3fa3332eff6eadbbdec
+paper/supplement/files/S6_reports/pf_diag_M2_M4.txt,supplementary files (S1-S6),1296,3304fffe025e413b537ac335c1b177f0a2caa80562254569845055d38849c073
+paper/supplement/files/S6_reports/pf_diag_M4_detail.txt,supplementary files (S1-S6),4938,c7a1e340d7467547163d9a8cd59f48093e8472de44f99ecf08281204fe9c3f06
+paper/supplement/files/S6_reports/ssym_summary.txt,supplementary files (S1-S6),7425,66bc80179dbff2d8e5594f5a2ee1170def2194e317331c7314cdc7de583e3232
+paper/supplement/files/S6_reports/tgbt_timing.txt,supplementary files (S1-S6),7504,58c657791d34722861dd7d1a8e96be77ea8eca135b0364a24d5ce3fdcd977fca

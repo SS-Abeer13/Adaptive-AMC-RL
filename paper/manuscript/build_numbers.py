@@ -177,11 +177,16 @@ add('NRegRows', str(len(rows)), 'M01', rel(REG), 'rows')
 add('NRegSupCases', str(sup_cases), 'H19', rel(REG), 'status superseded (cases)')
 add('NRegSupRows', str(sup_rows), 'H19', rel(REG), 'status superseded (rows)')
 add('NRegSinceTen', str(v10), 'M02', rel(REG), 'cases with version != v9')
+ELIG = P('paper', 'ledger', 'registry_eligibility.csv')   # evidence eligibility (review issue 3): exceptions to 'valid status = eligible'
+inelig = {x['case_id'] for x in csv.DictReader(open(ELIG, newline='')) if x['evidence_eligible'] == 'no'}
 wins = set()
 for r in rows:
     if r['win'] == '1' and r['status'] == 'valid' and not r.get('correction', '').startswith('pre-registered scheme'):
         wins.add(r['case_id'])
-add('NRegWinCases', str(len(wins)), 'M03', rel(REG), 'valid cases with win=1 excluding corrected X1 row')
+add('NRegWinCasesValid', str(len(wins)), 'M03', rel(REG), 'valid cases with win=1 excluding corrected X1 row (status only)')
+wins -= inelig
+add('NRegWinCases', str(len(wins)), 'M03', rel(REG) + '; ' + rel(ELIG), 'evidence-eligible cases with win=1 (valid status, corrected verdicts, eligibility ledger)')
+add('NRegIneligCases', str(len(inelig)), 'M03', rel(ELIG), 'valid-status cases ruled ineligible as evidence')
 add('NRegValidCases', str(len(ids) - sup_cases), 'M03', rel(REG), 'valid cases')
 p1 = float(core[('M1_dl_rtt8', 'Deep A2C v17', 'Context table')]['holm_p'])
 tests = len(rows) * 9

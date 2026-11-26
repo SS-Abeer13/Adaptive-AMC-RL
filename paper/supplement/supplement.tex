@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage[a4paper,margin=14mm]{geometry}
-\usepackage{longtable,booktabs,pdflscape,array,calc}
+\usepackage{longtable,booktabs,pdflscape,array,calc,fvextra}
 \usepackage[hidelinks]{hyperref}
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{2}
@@ -9,7 +9,7 @@
 \setmonofont{DejaVu Sans Mono}[Scale=0.85]
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \title{Supplementary material for ``Is Reinforcement Learning Necessary for Link Adaptation? A Pre-Registered Comparison with Calibrated Rules and Supervised Learning}
-\date{Generated from repository commit 6bd8350}
+\date{Generated from repository commit 2dd5e1a}
 \sloppy
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -17,7 +17,7 @@
 \tableofcontents
 \clearpage
 \section*{How to read this supplement}\addcontentsline{toc}{section}{How to read this supplement}
-All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 39 cases and 74 scheme evaluations of the pre-registered robustness checks (106 cases, 182 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b, their replication R1c and the full-action RL run R6); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Section I. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\texttt{Optimized/v17x/AUDIT\_config\_all\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\texttt{G2\_D1\_verification\_note.md}). Margins are relative differences in percent, paired per trace; ``beats follows rule R1 of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
+All files are also provided as CSV or Markdown in the accompanying archive, with SHA-256 hashes in \texttt{MANIFEST.sha256}. S1 is the case registry: 67 cases and 108 scheme evaluations of the main round (v9--v17), plus the ledger of the 40 cases and 74 scheme evaluations of the pre-registered robustness checks (107 cases, 182 scheme evaluations in total). S2 gives the per-case comparator tables that exist as result tables (v16, v17 and every robustness stage, including the one-step learner controls R1, R1b, their replication R1c and the full-action RL run R6); for v9--v15 the registry row carries the margin over the best rule, and the per-trace results are in the code and data release. S4 lists the screened learning-based link-adaptation papers with the codes behind the counts of Sections I and II. S3 lists every frozen pre-registration with its SHA-256 hash, the commit in which that hash entered \texttt{FREEZE.sha256}, the first runner start of the stage (runner heartbeat); all times are UTC+6, the time zone of the run PC and the commit that added its results; the full texts follow. S5 holds the configuration audit and the Deviation~D1 verification note. Deviation~D1: a symmetric configuration audit of all 13 stages (\texttt{Optimized/v17x/AUDIT\_config\_all\_stages.md}) found no other mismatch; a diagnostic cross-check that used 500 instead of 300 G2 traces explains an apparent discrepancy (\texttt{G2\_D1\_verification\_note.md}). S6 reproduces the diagnostic and sensitivity reports (end-of-trace accounting, PF-averaging definition, fresh-trace summary, symmetric seed check, decision time, headroom) verbatim. Evidence eligibility: a valid status alone does not make a case evidence. Of the 67 main-round cases, 58 are eligible as evidence; cases with a win: 9 with a valid status and corrected verdict, 8 eligible (S1, \texttt{case\_eligibility.csv}). Margins are relative differences in percent, paired per trace; ``beats'' follows the definition in Section V of the paper (Holm-adjusted Wilcoxon $p<0.05$ and 90\,\% CI lower bound above zero).
 \clearpage
 \begin{landscape}
 \section{S1. Case registry}
@@ -144,30 +144,113 @@ All files are also provided as CSV or Markdown in the accompanying archive, with
 \bottomrule
 \end{longtable}
 \normalsize
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}lllll@{}}
-\caption{Ledger of the pre-registered robustness checks: 39 cases, 74 scheme evaluations.}\\
+\tiny
+\setlength{\tabcolsep}{1.6pt}
+\begin{longtable}{@{}llllllll@{}}
+\caption{Evidence eligibility of the 67 main-round cases (58 eligible). A valid status is not enough: exceptions are listed in \texttt{registry\_eligibility.csv}. Cases with a win: 9 valid with corrected verdict, 8 eligible as evidence.}\\
 \toprule
-\textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{prereg} \\
+\textbf{case\_id} & \textbf{version} & \textbf{tag} & \textbf{role} & \textbf{status} & \textbf{any\_win} & \textbf{evidence\_eligible} & \textbf{eligibility\_note} \\
 \midrule
 \endfirsthead
 \toprule
-\textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{prereg} \\
+\textbf{case\_id} & \textbf{version} & \textbf{tag} & \textbf{role} & \textbf{status} & \textbf{any\_win} & \textbf{evidence\_eligible} & \textbf{eligibility\_note} \\
 \midrule
 \endhead
-W1 & Warm-up check (cold vs warm OLLA) & 1 & 2 & paper/proposals/W1\_warmup\_prereg.md \\
-G6 & Calibration budget and combined table & 1 & 2 & paper/proposals/G6\_calibration\_budget\_prereg.md \\
-NR1 & Non-oracle base design ablation & 1 & 3 & paper/proposals/NR1\_nonoracle\_residual\_prereg.md \\
-G10 & Operating-grid check with the M1 recipe (G2; G3) & 2 & 4 & paper/proposals/G10\_operating\_grid\_prereg.md \\
-A6 & PF-timing diagnostic & 1 & 1 & paper/proposals/A6\_pf\_timing\_prereg.md \\
-NR2 & Confirmatory non-oracle replication (Amendment 3) & 1 & 2 & paper/proposals/NR2\_confirmatory\_prereg.md \\
-NR-G10 & Operating-grid check with the non-oracle recipe (G2\_hi\_d10\_NR; G3\_lo\_d18\_NR; Amendment 5) & 2 & 4 & paper/proposals/NR\_G10\_operating\_grid\_prereg.md section 6 \\
-PS-R1R2 & Attribution controls: one-step GBT on true-SINR labels and designed rule, as written and calibrated; NR2 and M1 traces (Amendment 8) & 4 & 8 & paper/proposals/R\_presub\_prereg.md section 10 \\
-PS-R5 & More seeds: NR2 with 20 seeds; NR-G10 with 10 seeds per cell (Amendment 8; G2 with Deviation D1) & 3 & 3 & paper/proposals/R\_presub\_prereg.md section 10 \\
-R1b & One-step learner trained on observed ACK/NACK, NR2 and M1 traces (Amendment 9) & 2 & 4 & paper/proposals/R1b\_ack\_prereg.md section 9 \\
-R1c & Calibration-draw replication and per-cell test of the ACK-trained learner (Amendment 10a) & 19 & 38 & paper/proposals/R1c\_ack\_prereg.md section 7 \\
-R6 & Full-action residual RL (offsets -4..+2) vs the ACK-trained one-step learner, NR2 traces; optional true-SINR model on the R1b exploration logs (Amendment 11) & 2 & 3 & paper/proposals/R6\_fullaction\_prereg.md section 7 \\
+1 & v9 & gp\_O & primary & valid & no & yes &  \\
+2 & v9 & steady\_match & secondary & valid & no & yes &  \\
+3 & v9 & steady\_cold & secondary & valid & no & yes &  \\
+4 & v9 & rr\_O & robustness & valid & no & yes &  \\
+5 & v9 & eq\_O & robustness & valid & no & yes &  \\
+6 & v9 & burst6\_O & robustness & valid & no & yes &  \\
+7 & v9 & burst12\_O & robustness & valid & no & yes &  \\
+8 & v9 & h0\_O & robustness & valid & no & yes &  \\
+9 & v9 & h05\_O & robustness & valid & no & yes &  \\
+10 & v9 & gp\_A & ablation & valid & no & yes &  \\
+11 & v9 & gp\_B & ablation & valid & no & yes &  \\
+12 & v9 & pen\_O & ablation & valid & no & yes &  \\
+13 & v9 & pen\_A & ablation & valid & no & yes &  \\
+14 & v9 & pen\_B & ablation & valid & no & yes &  \\
+15 & v9 & orig\_O & ablation & valid & no & yes &  \\
+16 & v9 & orig\_A & ablation & valid & no & yes &  \\
+17 & v9 & orig\_B & ablation & valid & no & yes &  \\
+18 & v9 & orig\_O\_long1500 & ablation & valid & no & yes &  \\
+19 & v10 & E2\_stale & ablation & valid & no & yes &  \\
+20 & v10 & E3\_cellcue & ablation & valid & no & yes &  \\
+21 & v10 & E4\_deadline & ablation & valid & no & yes &  \\
+22 & v10 & E1\_train & ablation & valid & no & yes &  \\
+23 & v10 & E2\_stale\_nofeat & ablation & valid & no & yes &  \\
+24 & v10 & E3\_cellcue\_nofeat & ablation & valid & no & yes &  \\
+25 & v10 & E4\_deadline\_nofeat & ablation & valid & no & yes &  \\
+26 & v10 & E1\_train\_b & ablation & valid & no & yes &  \\
+27 & v10 & E2\_stale\_b & ablation & valid & no & yes &  \\
+28 & v10 & E3\_cellcue\_b & ablation & valid & no & yes &  \\
+29 & v10 & E2\_stale\_nofeat\_b & ablation & valid & no & yes &  \\
+30 & v10 & E3\_cellcue\_nofeat\_b & ablation & valid & no & yes &  \\
+31 & v10 & E5\_mixed & ablation & valid & no & yes &  \\
+32 & v10 & E4c\_deadline & primary & valid & yes & no & v10 exploratory case whose evaluation traces overlapped the run that motivated it; superseded as evidence by the v12 replication on fresh traces, which failed Claim B \\
+33 & v10 & E5\_mixed\_nofeat & ablation & valid & yes & yes & exploratory ablation; the win was never replicated \\
+34 & v11 & T1\_gp & primary & valid & no & yes &  \\
+35 & v11 & T2\_stale & ablation & valid & no & yes &  \\
+36 & v11 & T4\_deadline & ablation & valid & no & yes &  \\
+37 & v11 & T1\_gp\_ppo & primary & valid & no & yes &  \\
+38 & v11 & T2\_stale\_ppo & ablation & valid & no & yes &  \\
+39 & v11 & T4\_deadline\_ppo & ablation & valid & no & yes &  \\
+40 & v11 & R2\_stale & ablation & valid & no & yes &  \\
+41 & v11 & R3\_cellcue & ablation & valid & no & yes &  \\
+42 & v11 & R2\_stale\_opp & ablation & valid & no & yes &  \\
+43 & v11 & R3\_cellcue\_opp & ablation & valid & no & yes &  \\
+44 & v12 & R1\_pf & primary & valid & no & yes &  \\
+45 & v12 & R2\_edf & secondary & valid & no & yes &  \\
+46 & v13 & X1\_pf & primary & valid & yes & no & pre-registered scheme (ensemble) failed; the win=1 row is the per-seed mean, which was not the pre-registered scheme (corrected verdict) \\
+47 & v13 & X1\_edf & secondary & valid & no & yes &  \\
+48 & v13 & X2\_pf\_shaped & secondary & valid & yes & yes &  \\
+49 & v14 & Y0\_base & primary & valid & yes & yes &  \\
+50 & v14 & Y0\_noshape & secondary & valid & yes & yes &  \\
+51 & v14 & Y1\_lo\_tight & robustness & valid & yes & yes &  \\
+52 & v14 & Y2\_lo\_loose & robustness & valid & no & yes &  \\
+53 & v14 & Y3\_hi\_tight & robustness & valid & no & yes &  \\
+54 & v14 & Y4\_hi\_loose & robustness & valid & no & yes &  \\
+55 & v15 & Z1\_rtt8 & primary & superseded: PF averaging artefact (v17) & no & no & superseded: PF averaging artefact (v17) \\
+56 & v15 & Z2\_rtt4 & robustness & superseded: PF averaging artefact (v17) & no & no & superseded: PF averaging artefact (v17) \\
+57 & v15 & Z3\_rtt8\_loose & robustness & superseded: PF averaging artefact (v17) & no & no & superseded: PF averaging artefact (v17) \\
+58 & v16 & K1\_dl\_rtt8 & primary & superseded: PF averaging artefact (v17) & yes & no & superseded: PF averaging artefact (v17) \\
+59 & v16 & K3\_gp\_rtt8 & primary & superseded: PF averaging artefact (v17) & no & no & superseded: PF averaging artefact (v17) \\
+60 & v16 & K2\_dl\_rtt0 & robustness & valid & yes & yes &  \\
+61 & v16 & K4\_gp\_rtt0 & robustness & valid & no & yes &  \\
+62 & v16 & L1\_dl\_rtt8\_long & ablation & superseded: PF averaging artefact (v17) & yes & no & superseded: PF averaging artefact (v17) \\
+63 & v16 & L3\_gp\_rtt8\_long & ablation & superseded: PF averaging artefact (v17) & no & no & superseded: PF averaging artefact (v17) \\
+64 & v17 & M1\_dl\_rtt8 & primary & valid & yes & yes &  \\
+65 & v17 & M2\_dl\_rtt0 & robustness & valid & yes & yes &  \\
+66 & v17 & M3\_gp\_rtt8 & primary & valid & no & yes &  \\
+67 & v17 & M4\_gp\_rtt0 & robustness & valid & no & yes &  \\
+\bottomrule
+\end{longtable}
+\normalsize
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}llllll@{}}
+\caption{Ledger of the pre-registered robustness checks: 40 cases, 74 scheme evaluations, 25 tests registered directly.}\\
+\toprule
+\textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{tests} & \textbf{prereg} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{stage} & \textbf{description} & \textbf{cases} & \textbf{rows} & \textbf{tests} & \textbf{prereg} \\
+\midrule
+\endhead
+W1 & Warm-up check (cold vs warm OLLA) & 1 & 2 &  & paper/proposals/W1\_warmup\_prereg.md \\
+G6 & Calibration budget and combined table & 1 & 2 &  & paper/proposals/G6\_calibration\_budget\_prereg.md \\
+NR1 & Non-oracle base design ablation & 1 & 3 &  & paper/proposals/NR1\_nonoracle\_residual\_prereg.md \\
+G10 & Operating-grid check with the M1 recipe (G2; G3) & 2 & 4 &  & paper/proposals/G10\_operating\_grid\_prereg.md \\
+A6 & PF-timing diagnostic & 1 & 1 &  & paper/proposals/A6\_pf\_timing\_prereg.md \\
+NR2 & Confirmatory non-oracle replication (Amendment 3) & 1 & 2 &  & paper/proposals/NR2\_confirmatory\_prereg.md \\
+NR-G10 & Operating-grid check with the non-oracle recipe (G2\_hi\_d10\_NR; G3\_lo\_d18\_NR; Amendment 5) & 2 & 4 &  & paper/proposals/NR\_G10\_operating\_grid\_prereg.md section 6 \\
+PS-R1R2 & Attribution controls: one-step GBT on true-SINR labels and designed rule, as written and calibrated; NR2 and M1 traces (Amendment 8) & 4 & 8 &  & paper/proposals/R\_presub\_prereg.md section 10 \\
+PS-R5 & More seeds: NR2 with 20 seeds; NR-G10 with 10 seeds per cell (Amendment 8; G2 with Deviation D1) & 3 & 3 &  & paper/proposals/R\_presub\_prereg.md section 10 \\
+R1b & One-step learner trained on observed ACK/NACK, NR2 and M1 traces (Amendment 9) & 2 & 4 &  & paper/proposals/R1b\_ack\_prereg.md section 9 \\
+R1c & Calibration-draw replication and per-cell test of the ACK-trained learner (Amendment 10a) & 19 & 38 &  & paper/proposals/R1c\_ack\_prereg.md section 7 \\
+R6 & Full-action residual RL (offsets -4..+2) vs the ACK-trained one-step learner, NR2 traces; optional true-SINR model on the R1b exploration logs (Amendment 11) & 2 & 3 &  & paper/proposals/R6\_fullaction\_prereg.md section 7 \\
+FT & Fresh-trace confirmation of the frozen policies (FT-H1 to H3; Amendment 13, seeds per Amendment 14); adds one case and no scheme evaluation; tests: 9 primary (FT-H1 to H3) + 16 secondary & 1 & 0 & 25 & paper/proposals/FT\_fresh\_trace\_prereg.md section 8 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1204,6 +1287,339 @@ RL-full vs GBT-res-ACK fit 4 & -3.935 & -4.317 & -3.553 & 1.996e-43 & -4.825 & -
 \bottomrule
 \end{longtable}
 \normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}llllllll@{}}
+\caption{Learners and rules on the NR2 traces: on-time ratio, goodput, first-transmission BLER and fairness indices (Jain, edge5, edge10, bottom decile), from the exact evaluation path; includes the learners trained on simulator labels (GBT-res, GBT-full) Source: \texttt{paper/analysis/out/presub\_side\_metrics.csv}.}\\
+\toprule
+\textbf{scheme} & \textbf{ontime} & \textbf{goodput\_mbps} & \textbf{bler1} & \textbf{jain} & \textbf{edge5} & \textbf{edge10} & \textbf{bottom\_decile\_mean} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{scheme} & \textbf{ontime} & \textbf{goodput\_mbps} & \textbf{bler1} & \textbf{jain} & \textbf{edge5} & \textbf{edge10} & \textbf{bottom\_decile\_mean} \\
+\midrule
+\endhead
+NR2 & 0.620119 & 4.43628 & 0.18718 & 0.776825 & 0 & 0.075 & 0.0072681 \\
+ctxj500 & 0.600047 & 4.36666 & 0.173975 & 0.767267 & 0 & 0 & 0 \\
+GBT-res & 0.63729 & 4.53528 & 0.161697 & 0.779619 & 0 & 0 & 0 \\
+GBT-full & 0.656505 & 4.6287 & 0.18799 & 0.782727 & 0 & 0 & 0 \\
+GBT-res-ACK & 0.641963 & 4.55268 & 0.158955 & 0.783977 & 0 & 0.125 & 0.0133363 \\
+GBT-full-ACK & 0.670985 & 4.6474 & 0.183354 & 0.796755 & 0 & 0.125 & 0.0138632 \\
+Rule & 0.600831 &  &  &  &  &  &  \\
+Rule-cal & 0.600812 &  &  &  &  &  &  \\
+fixed500 & 0.59146 &  &  &  &  &  &  \\
+ctx500 & 0.594355 &  &  &  &  &  &  \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllll@{}}
+\caption{HR1: one-step headroom over each calibrated table, by estimator (descriptive) Source: \texttt{paper/analysis/out/hr\_values.csv}.}\\
+\toprule
+\textbf{case} & \textbf{run} & \textbf{table} & \textbf{action\_set} & \textbf{estimator} & \textbf{headroom\_pct} & \textbf{ci95\_lo} & \textbf{ci95\_hi} & \textbf{n\_decisions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{case} & \textbf{run} & \textbf{table} & \textbf{action\_set} & \textbf{estimator} & \textbf{headroom\_pct} & \textbf{ci95\_lo} & \textbf{ci95\_hi} & \textbf{n\_decisions} \\
+\midrule
+\endhead
+M1\_dl\_rtt8 & Fixed & Fixed & genie (true SINR) & genie & 21.126 & 20.581 & 21.687 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Fixed & full & gbt\_a (primary) & 9.563 & 9.210 & 9.920 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Fixed & full & gbt\_b & 9.112 & 8.756 & 9.469 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Fixed & residual & gbt\_a (primary) & 5.562 & 5.315 & 5.809 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Fixed & residual & gbt\_b & 5.264 & 5.024 & 5.508 & 58528 \\
+M1\_dl\_rtt8 & Fixed & FixedPU & genie (true SINR) & genie & 21.032 & 20.490 & 21.592 & 58528 \\
+M1\_dl\_rtt8 & Fixed & FixedPU & full & gbt\_a (primary) & 9.478 & 9.140 & 9.825 & 58528 \\
+M1\_dl\_rtt8 & Fixed & FixedPU & full & gbt\_b & 9.027 & 8.689 & 9.374 & 58528 \\
+M1\_dl\_rtt8 & Fixed & FixedPU & residual & gbt\_a (primary) & 5.480 & 5.262 & 5.698 & 58528 \\
+M1\_dl\_rtt8 & Fixed & FixedPU & residual & gbt\_b & 5.183 & 4.970 & 5.400 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Context table & genie (true SINR) & genie & 21.130 & 20.585 & 21.691 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Context table & full & gbt\_a (primary) & 9.566 & 9.214 & 9.923 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Context table & full & gbt\_b & 9.115 & 8.760 & 9.473 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Context table & residual & gbt\_a (primary) & 5.565 & 5.319 & 5.813 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Context table & residual & gbt\_b & 5.268 & 5.027 & 5.513 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Combined table & genie (true SINR) & genie & 20.940 & 20.397 & 21.504 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Combined table & full & gbt\_a (primary) & 9.395 & 9.064 & 9.734 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Combined table & full & gbt\_b & 8.944 & 8.611 & 9.285 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Combined table & residual & gbt\_a (primary) & 5.400 & 5.184 & 5.617 & 58528 \\
+M1\_dl\_rtt8 & Fixed & Combined table & residual & gbt\_b & 5.103 & 4.890 & 5.319 & 58528 \\
+M1\_dl\_rtt8 & Context table & Fixed & genie (true SINR) & genie & 21.136 & 20.593 & 21.696 & 58401 \\
+M1\_dl\_rtt8 & Context table & Fixed & full & gbt\_a (primary) & 9.608 & 9.264 & 9.960 & 58401 \\
+M1\_dl\_rtt8 & Context table & Fixed & full & gbt\_b & 9.022 & 8.679 & 9.366 & 58401 \\
+M1\_dl\_rtt8 & Context table & Fixed & residual & gbt\_a (primary) & 5.734 & 5.490 & 5.980 & 58401 \\
+M1\_dl\_rtt8 & Context table & Fixed & residual & gbt\_b & 5.370 & 5.128 & 5.610 & 58401 \\
+M1\_dl\_rtt8 & Context table & FixedPU & genie (true SINR) & genie & 21.050 & 20.503 & 21.610 & 58401 \\
+M1\_dl\_rtt8 & Context table & FixedPU & full & gbt\_a (primary) & 9.530 & 9.189 & 9.875 & 58401 \\
+M1\_dl\_rtt8 & Context table & FixedPU & full & gbt\_b & 8.945 & 8.608 & 9.282 & 58401 \\
+M1\_dl\_rtt8 & Context table & FixedPU & residual & gbt\_a (primary) & 5.659 & 5.425 & 5.892 & 58401 \\
+M1\_dl\_rtt8 & Context table & FixedPU & residual & gbt\_b & 5.295 & 5.063 & 5.529 & 58401 \\
+M1\_dl\_rtt8 & Context table & Context table & genie (true SINR) & genie & 21.150 & 20.607 & 21.710 & 58401 \\
+M1\_dl\_rtt8 & Context table & Context table & full & gbt\_a (primary) & 9.620 & 9.276 & 9.972 & 58401 \\
+M1\_dl\_rtt8 & Context table & Context table & full & gbt\_b & 9.034 & 8.693 & 9.377 & 58401 \\
+M1\_dl\_rtt8 & Context table & Context table & residual & gbt\_a (primary) & 5.746 & 5.502 & 5.991 & 58401 \\
+M1\_dl\_rtt8 & Context table & Context table & residual & gbt\_b & 5.382 & 5.139 & 5.621 & 58401 \\
+M1\_dl\_rtt8 & Context table & Combined table & genie (true SINR) & genie & 21.055 & 20.505 & 21.618 & 58401 \\
+M1\_dl\_rtt8 & Context table & Combined table & full & gbt\_a (primary) & 9.534 & 9.197 & 9.877 & 58401 \\
+M1\_dl\_rtt8 & Context table & Combined table & full & gbt\_b & 8.949 & 8.616 & 9.283 & 58401 \\
+M1\_dl\_rtt8 & Context table & Combined table & residual & gbt\_a (primary) & 5.663 & 5.432 & 5.897 & 58401 \\
+M1\_dl\_rtt8 & Context table & Combined table & residual & gbt\_b & 5.299 & 5.067 & 5.533 & 58401 \\
+M1\_dl\_rtt8 & Context-joint-500 & Fixed & genie (true SINR) & genie & 21.298 & 20.732 & 21.872 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Fixed & full & gbt\_a (primary) & 9.710 & 9.350 & 10.074 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Fixed & full & gbt\_b & 9.170 & 8.821 & 9.518 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Fixed & residual & gbt\_a (primary) & 5.578 & 5.335 & 5.821 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Fixed & residual & gbt\_b & 5.214 & 4.980 & 5.449 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & FixedPU & genie (true SINR) & genie & 21.110 & 20.549 & 21.680 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & FixedPU & full & gbt\_a (primary) & 9.540 & 9.184 & 9.897 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & FixedPU & full & gbt\_b & 9.001 & 8.658 & 9.342 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & FixedPU & residual & gbt\_a (primary) & 5.414 & 5.194 & 5.633 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & FixedPU & residual & gbt\_b & 5.051 & 4.839 & 5.263 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Context table & genie (true SINR) & genie & 21.305 & 20.739 & 21.883 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Context table & full & gbt\_a (primary) & 9.716 & 9.356 & 10.081 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Context table & full & gbt\_b & 9.176 & 8.828 & 9.525 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Context table & residual & gbt\_a (primary) & 5.584 & 5.340 & 5.828 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Context table & residual & gbt\_b & 5.220 & 4.986 & 5.455 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Combined table & genie (true SINR) & genie & 21.045 & 20.486 & 21.619 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Combined table & full & gbt\_a (primary) & 9.481 & 9.126 & 9.836 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Combined table & full & gbt\_b & 8.942 & 8.601 & 9.282 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Combined table & residual & gbt\_a (primary) & 5.357 & 5.131 & 5.580 & 58337 \\
+M1\_dl\_rtt8 & Context-joint-500 & Combined table & residual & gbt\_b & 4.994 & 4.778 & 5.209 & 58337 \\
+M1\_dl\_rtt8 & M1 & Fixed & genie (true SINR) & genie & 21.148 & 20.593 & 21.707 & 587016 \\
+M1\_dl\_rtt8 & M1 & Fixed & full & gbt\_a (primary) & 9.915 & 9.573 & 10.257 & 587016 \\
+M1\_dl\_rtt8 & M1 & Fixed & full & gbt\_b & 9.601 & 9.263 & 9.939 & 587016 \\
+M1\_dl\_rtt8 & M1 & Fixed & residual & gbt\_a (primary) & 5.807 & 5.574 & 6.037 & 587016 \\
+M1\_dl\_rtt8 & M1 & Fixed & residual & gbt\_b & 5.588 & 5.362 & 5.814 & 587016 \\
+M1\_dl\_rtt8 & M1 & FixedPU & genie (true SINR) & genie & 20.975 & 20.422 & 21.530 & 587016 \\
+M1\_dl\_rtt8 & M1 & FixedPU & full & gbt\_a (primary) & 9.759 & 9.426 & 10.093 & 587016 \\
+M1\_dl\_rtt8 & M1 & FixedPU & full & gbt\_b & 9.445 & 9.115 & 9.779 & 587016 \\
+M1\_dl\_rtt8 & M1 & FixedPU & residual & gbt\_a (primary) & 5.657 & 5.451 & 5.864 & 587016 \\
+M1\_dl\_rtt8 & M1 & FixedPU & residual & gbt\_b & 5.437 & 5.233 & 5.643 & 587016 \\
+M1\_dl\_rtt8 & M1 & Context table & genie (true SINR) & genie & 21.154 & 20.599 & 21.714 & 587016 \\
+M1\_dl\_rtt8 & M1 & Context table & full & gbt\_a (primary) & 9.921 & 9.578 & 10.263 & 587016 \\
+M1\_dl\_rtt8 & M1 & Context table & full & gbt\_b & 9.607 & 9.269 & 9.945 & 587016 \\
+M1\_dl\_rtt8 & M1 & Context table & residual & gbt\_a (primary) & 5.813 & 5.579 & 6.043 & 587016 \\
+M1\_dl\_rtt8 & M1 & Context table & residual & gbt\_b & 5.593 & 5.366 & 5.820 & 587016 \\
+M1\_dl\_rtt8 & M1 & Combined table & genie (true SINR) & genie & 20.900 & 20.349 & 21.453 & 587016 \\
+M1\_dl\_rtt8 & M1 & Combined table & full & gbt\_a (primary) & 9.691 & 9.359 & 10.021 & 587016 \\
+M1\_dl\_rtt8 & M1 & Combined table & full & gbt\_b & 9.377 & 9.049 & 9.707 & 587016 \\
+M1\_dl\_rtt8 & M1 & Combined table & residual & gbt\_a (primary) & 5.591 & 5.385 & 5.797 & 587016 \\
+M1\_dl\_rtt8 & M1 & Combined table & residual & gbt\_b & 5.372 & 5.169 & 5.575 & 587016 \\
+M1\_dl\_rtt8 & NR2 & Fixed & genie (true SINR) & genie & 21.331 & 20.775 & 21.903 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Fixed & full & gbt\_a (primary) & 9.940 & 9.603 & 10.285 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Fixed & full & gbt\_b & 9.632 & 9.294 & 9.975 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Fixed & residual & gbt\_a (primary) & 5.933 & 5.709 & 6.162 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Fixed & residual & gbt\_b & 5.650 & 5.428 & 5.875 & 566932 \\
+M1\_dl\_rtt8 & NR2 & FixedPU & genie (true SINR) & genie & 21.246 & 20.688 & 21.815 & 566932 \\
+M1\_dl\_rtt8 & NR2 & FixedPU & full & gbt\_a (primary) & 9.863 & 9.536 & 10.197 & 566932 \\
+M1\_dl\_rtt8 & NR2 & FixedPU & full & gbt\_b & 9.555 & 9.231 & 9.888 & 566932 \\
+M1\_dl\_rtt8 & NR2 & FixedPU & residual & gbt\_a (primary) & 5.859 & 5.642 & 6.077 & 566932 \\
+M1\_dl\_rtt8 & NR2 & FixedPU & residual & gbt\_b & 5.576 & 5.357 & 5.794 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Context table & genie (true SINR) & genie & 21.333 & 20.777 & 21.905 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Context table & full & gbt\_a (primary) & 9.941 & 9.604 & 10.287 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Context table & full & gbt\_b & 9.634 & 9.296 & 9.976 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Context table & residual & gbt\_a (primary) & 5.935 & 5.710 & 6.164 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Context table & residual & gbt\_b & 5.651 & 5.429 & 5.877 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Combined table & genie (true SINR) & genie & 21.220 & 20.663 & 21.791 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Combined table & full & gbt\_a (primary) & 9.839 & 9.515 & 10.173 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Combined table & full & gbt\_b & 9.532 & 9.207 & 9.866 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Combined table & residual & gbt\_a (primary) & 5.837 & 5.620 & 6.053 & 566932 \\
+M1\_dl\_rtt8 & NR2 & Combined table & residual & gbt\_b & 5.554 & 5.336 & 5.770 & 566932 \\
+M3\_gp\_rtt8 & Fixed & Fixed & genie (true SINR) & genie & 38.303 & 37.147 & 39.482 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Fixed & full & gbt\_a (primary) & 2.220 & 1.705 & 2.748 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Fixed & full & gbt\_b & 1.185 & 0.604 & 1.771 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Fixed & residual & gbt\_a (primary) & 1.760 & 1.302 & 2.225 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Fixed & residual & gbt\_b & 1.064 & 0.548 & 1.574 & 38455 \\
+M3\_gp\_rtt8 & Fixed & FixedPU & genie (true SINR) & genie & 36.908 & 35.889 & 37.958 & 38455 \\
+M3\_gp\_rtt8 & Fixed & FixedPU & full & gbt\_a (primary) & 1.189 & 0.636 & 1.744 & 38455 \\
+M3\_gp\_rtt8 & Fixed & FixedPU & full & gbt\_b & 0.164 & -0.435 & 0.762 & 38455 \\
+M3\_gp\_rtt8 & Fixed & FixedPU & residual & gbt\_a (primary) & 0.733 & 0.220 & 1.245 & 38455 \\
+M3\_gp\_rtt8 & Fixed & FixedPU & residual & gbt\_b & 0.045 & -0.524 & 0.595 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Context table & genie (true SINR) & genie & 38.303 & 37.147 & 39.482 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Context table & full & gbt\_a (primary) & 2.220 & 1.705 & 2.748 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Context table & full & gbt\_b & 1.185 & 0.604 & 1.771 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Context table & residual & gbt\_a (primary) & 1.760 & 1.302 & 2.225 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Context table & residual & gbt\_b & 1.064 & 0.548 & 1.574 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Combined table & genie (true SINR) & genie & 36.717 & 35.743 & 37.724 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Combined table & full & gbt\_a (primary) & 1.048 & 0.479 & 1.622 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Combined table & full & gbt\_b & 0.024 & -0.594 & 0.636 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Combined table & residual & gbt\_a (primary) & 0.593 & 0.065 & 1.121 & 38455 \\
+M3\_gp\_rtt8 & Fixed & Combined table & residual & gbt\_b & -0.095 & -0.680 & 0.476 & 38455 \\
+M3\_gp\_rtt8 & Context table & Fixed & genie (true SINR) & genie & 38.303 & 37.166 & 39.490 & 38455 \\
+M3\_gp\_rtt8 & Context table & Fixed & full & gbt\_a (primary) & 2.220 & 1.698 & 2.747 & 38455 \\
+M3\_gp\_rtt8 & Context table & Fixed & full & gbt\_b & 1.185 & 0.605 & 1.769 & 38455 \\
+M3\_gp\_rtt8 & Context table & Fixed & residual & gbt\_a (primary) & 2.329 & 1.838 & 2.825 & 38455 \\
+M3\_gp\_rtt8 & Context table & Fixed & residual & gbt\_b & 1.457 & 0.927 & 1.990 & 38455 \\
+M3\_gp\_rtt8 & Context table & FixedPU & genie (true SINR) & genie & 36.908 & 35.878 & 37.958 & 38455 \\
+M3\_gp\_rtt8 & Context table & FixedPU & full & gbt\_a (primary) & 1.189 & 0.645 & 1.733 & 38455 \\
+M3\_gp\_rtt8 & Context table & FixedPU & full & gbt\_b & 0.164 & -0.429 & 0.753 & 38455 \\
+M3\_gp\_rtt8 & Context table & FixedPU & residual & gbt\_a (primary) & 1.296 & 0.778 & 1.822 & 38455 \\
+M3\_gp\_rtt8 & Context table & FixedPU & residual & gbt\_b & 0.434 & -0.117 & 0.994 & 38455 \\
+M3\_gp\_rtt8 & Context table & Context table & genie (true SINR) & genie & 38.303 & 37.166 & 39.490 & 38455 \\
+M3\_gp\_rtt8 & Context table & Context table & full & gbt\_a (primary) & 2.220 & 1.698 & 2.747 & 38455 \\
+M3\_gp\_rtt8 & Context table & Context table & full & gbt\_b & 1.185 & 0.605 & 1.769 & 38455 \\
+M3\_gp\_rtt8 & Context table & Context table & residual & gbt\_a (primary) & 2.329 & 1.838 & 2.825 & 38455 \\
+M3\_gp\_rtt8 & Context table & Context table & residual & gbt\_b & 1.457 & 0.927 & 1.990 & 38455 \\
+M3\_gp\_rtt8 & Context table & Combined table & genie (true SINR) & genie & 36.717 & 35.723 & 37.725 & 38455 \\
+M3\_gp\_rtt8 & Context table & Combined table & full & gbt\_a (primary) & 1.048 & 0.484 & 1.610 & 38455 \\
+M3\_gp\_rtt8 & Context table & Combined table & full & gbt\_b & 0.024 & -0.585 & 0.629 & 38455 \\
+M3\_gp\_rtt8 & Context table & Combined table & residual & gbt\_a (primary) & 1.155 & 0.617 & 1.702 & 38455 \\
+M3\_gp\_rtt8 & Context table & Combined table & residual & gbt\_b & 0.294 & -0.284 & 0.874 & 38455 \\
+M3\_gp\_rtt8 & Context-joint-500 & Fixed & genie (true SINR) & genie & 38.849 & 38.080 & 39.656 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Fixed & full & gbt\_a (primary) & 2.963 & 2.323 & 3.621 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Fixed & full & gbt\_b & 1.696 & 1.048 & 2.352 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Fixed & residual & gbt\_a (primary) & -2.760 & -3.256 & -2.239 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Fixed & residual & gbt\_b & -2.990 & -3.484 & -2.468 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & FixedPU & genie (true SINR) & genie & 37.933 & 37.121 & 38.768 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & FixedPU & full & gbt\_a (primary) & 2.283 & 1.608 & 2.979 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & FixedPU & full & gbt\_b & 1.025 & 0.343 & 1.726 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & FixedPU & residual & gbt\_a (primary) & -3.402 & -3.874 & -2.913 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & FixedPU & residual & gbt\_b & -3.630 & -4.099 & -3.145 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Context table & genie (true SINR) & genie & 38.849 & 38.080 & 39.656 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Context table & full & gbt\_a (primary) & 2.963 & 2.323 & 3.621 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Context table & full & gbt\_b & 1.696 & 1.048 & 2.352 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Context table & residual & gbt\_a (primary) & -2.760 & -3.256 & -2.239 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Context table & residual & gbt\_b & -2.990 & -3.484 & -2.468 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Combined table & genie (true SINR) & genie & 37.369 & 36.533 & 38.242 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Combined table & full & gbt\_a (primary) & 1.865 & 1.264 & 2.484 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Combined table & full & gbt\_b & 0.612 & 0.000 & 1.242 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Combined table & residual & gbt\_a (primary) & -3.797 & -4.321 & -3.260 & 44484 \\
+M3\_gp\_rtt8 & Context-joint-500 & Combined table & residual & gbt\_b & -4.025 & -4.544 & -3.492 & 44484 \\
+M3\_gp\_rtt8 & A2C\_case & Fixed & genie (true SINR) & genie & 38.928 & 37.710 & 40.166 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Fixed & full & gbt\_a (primary) & 2.603 & 2.025 & 3.187 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Fixed & full & gbt\_b & 1.600 & 1.005 & 2.190 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Fixed & residual & gbt\_a (primary) & 2.382 & 1.883 & 2.887 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Fixed & residual & gbt\_b & 1.800 & 1.298 & 2.305 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & FixedPU & genie (true SINR) & genie & 37.357 & 36.276 & 38.444 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & FixedPU & full & gbt\_a (primary) & 1.443 & 0.851 & 2.042 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & FixedPU & full & gbt\_b & 0.451 & -0.164 & 1.056 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & FixedPU & residual & gbt\_a (primary) & 1.224 & 0.681 & 1.776 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & FixedPU & residual & gbt\_b & 0.649 & 0.109 & 1.190 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Context table & genie (true SINR) & genie & 38.928 & 37.710 & 40.166 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Context table & full & gbt\_a (primary) & 2.603 & 2.025 & 3.187 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Context table & full & gbt\_b & 1.600 & 1.005 & 2.190 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Context table & residual & gbt\_a (primary) & 2.382 & 1.883 & 2.887 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Context table & residual & gbt\_b & 1.800 & 1.298 & 2.305 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Combined table & genie (true SINR) & genie & 37.005 & 35.962 & 38.077 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Combined table & full & gbt\_a (primary) & 1.183 & 0.589 & 1.770 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Combined table & full & gbt\_b & 0.194 & -0.419 & 0.801 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Combined table & residual & gbt\_a (primary) & 0.965 & 0.431 & 1.492 & 379380 \\
+M3\_gp\_rtt8 & A2C\_case & Combined table & residual & gbt\_b & 0.391 & -0.149 & 0.927 & 379380 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllllll@{}}
+\caption{FT: fresh-trace confirmation, primary families FT-H1 to H3 (as-run accounting), per draw; evaluated once on 500 fresh traces after all policies were frozen Source: \texttt{Optimized/v17x/Dataset/ft/ft\_primary.csv}.}\\
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endhead
+FT-H1 & NR2 vs GBT-res-ACK & 1 & 0.6168 & 0.6387 & -3.428 & -3.774 & -3.081 & 1.569e-43 & 3.138e-43 & -4.46 & -2.487 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 2 & 0.6168 & 0.6469 & -4.665 & -5.005 & -4.326 & 3.484e-61 & 1.393e-60 & -5.676 & -3.759 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 3 & 0.6168 & 0.6364 & -3.093 & -3.439 & -2.747 & 1.088e-37 & 1.088e-37 & -4.131 & -2.159 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 4 & 0.6168 & 0.6436 & -4.164 & -4.506 & -3.821 & 6.584e-55 & 1.975e-54 & -5.19 & -3.243 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 1 & 0.6198 & 0.6673 & -7.127 & -7.58 & -6.673 & 6.145e-68 & 6.145e-68 & -8.012 & -6.314 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 2 & 0.6198 & 0.6832 & -9.289 & -9.749 & -8.829 & 1.044e-79 & 4.177e-79 & -10.16 & -8.482 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 3 & 0.6198 & 0.6719 & -7.754 & -8.213 & -7.295 & 3.072e-71 & 6.145e-71 & -8.634 & -6.936 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 4 & 0.6198 & 0.6749 & -8.164 & -8.633 & -7.696 & 1.633e-73 & 4.9e-73 & -9.048 & -7.345 & 0 & 10 & SUP-BEATS \\
+FT-H3 & NR2 vs Context-joint-500 & 0 & 0.6168 & 0.6015 & 2.531 & 2.116 & 2.946 & 1.021e-20 & 1.021e-20 & 1.394 & 3.575 & 9 & 10 & CONFIRM \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllllll@{}}
+\caption{FT primary families under the resolved end-of-trace accounting (secondary) Source: \texttt{Optimized/v17x/Dataset/ft/out\_resolved/ft\_primary.csv}.}\\
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endhead
+FT-H1 & NR2 vs GBT-res-ACK & 1 & 0.6022 & 0.6242 & -3.527 & -3.894 & -3.161 & 5.486e-42 & 1.097e-41 & -4.599 & -2.545 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 2 & 0.6022 & 0.6329 & -4.854 & -5.209 & -4.499 & 8.138e-61 & 3.255e-60 & -5.906 & -3.907 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 3 & 0.6022 & 0.6219 & -3.182 & -3.548 & -2.817 & 2.668e-36 & 2.668e-36 & -4.258 & -2.21 & 0 & 10 & SUP-BEATS \\
+FT-H1 & NR2 vs GBT-res-ACK & 4 & 0.6022 & 0.6294 & -4.33 & -4.69 & -3.971 & 1.199e-54 & 3.598e-54 & -5.394 & -3.373 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 1 & 0.6058 & 0.6537 & -7.327 & -7.807 & -6.846 & 1.531e-66 & 1.531e-66 & -8.273 & -6.458 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 2 & 0.6058 & 0.6702 & -9.605 & -10.09 & -9.12 & 3.194e-79 & 1.278e-78 & -10.53 & -8.749 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 3 & 0.6058 & 0.6584 & -7.985 & -8.47 & -7.5 & 4.184e-70 & 8.368e-70 & -8.928 & -7.115 & 0 & 10 & SUP-BEATS \\
+FT-H2 & RL-full vs GBT-full-ACK & 4 & 0.6058 & 0.6615 & -8.424 & -8.92 & -7.928 & 1.305e-72 & 3.915e-72 & -9.367 & -7.556 & 0 & 10 & SUP-BEATS \\
+FT-H3 & NR2 vs Context-joint-500 & 0 & 0.6022 & 0.5863 & 2.712 & 2.271 & 3.153 & 4.826e-21 & 4.826e-21 & 1.52 & 3.81 & 9 & 10 & CONFIRM \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllllllllllllll@{}}
+\caption{FT secondary families, per draw Source: \texttt{Optimized/v17x/Dataset/ft/ft\_secondary.csv}.}\\
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{family} & \textbf{comparison} & \textbf{fit} & \textbf{rl\_ontime} & \textbf{cmp\_ontime} & \textbf{margin\_pct} & \textbf{ci90\_lo} & \textbf{ci90\_hi} & \textbf{p} & \textbf{holm\_p} & \textbf{hier95\_lo} & \textbf{hier95\_hi} & \textbf{seeds\_ahead} & \textbf{n\_seeds} & \textbf{verdict} \\
+\midrule
+\endhead
+FT-S1 & NR2 vs GBT-full-ACK & 1 & 0.6168 & 0.6673 & -7.579 & -8.09 & -7.068 & 1.202e-65 & 6.009e-65 & -8.626 & -6.594 & 0 & 10 & SUP-BEATS \\
+FT-S1 & NR2 vs GBT-full-ACK & 2 & 0.6168 & 0.6832 & -9.731 & -10.23 & -9.233 & 2.753e-79 & 2.202e-78 & -10.76 & -8.776 & 0 & 10 & SUP-BEATS \\
+FT-S1 & NR2 vs GBT-full-ACK & 3 & 0.6168 & 0.6719 & -8.203 & -8.712 & -7.693 & 1.56e-69 & 9.361e-69 & -9.267 & -7.23 & 0 & 10 & SUP-BEATS \\
+FT-S1 & NR2 vs GBT-full-ACK & 4 & 0.6168 & 0.6749 & -8.611 & -9.121 & -8.101 & 5.463e-72 & 3.824e-71 & -9.66 & -7.646 & 0 & 10 & SUP-BEATS \\
+FT-S1 & RL-full vs GBT-res-ACK & 1 & 0.6198 & 0.6387 & -2.956 & -3.316 & -2.596 & 6.124e-33 & 1.225e-32 & -3.847 & -2.164 & 0 & 10 & SUP-BEATS \\
+FT-S1 & RL-full vs GBT-res-ACK & 2 & 0.6198 & 0.6469 & -4.199 & -4.569 & -3.83 & 4.334e-50 & 1.734e-49 & -5.094 & -3.403 & 0 & 10 & SUP-BEATS \\
+FT-S1 & RL-full vs GBT-res-ACK & 3 & 0.6198 & 0.6364 & -2.619 & -2.99 & -2.249 & 7.381e-27 & 7.381e-27 & -3.527 & -1.824 & 0 & 10 & SUP-BEATS \\
+FT-S1 & RL-full vs GBT-res-ACK & 4 & 0.6198 & 0.6436 & -3.695 & -4.059 & -3.331 & 6.976e-44 & 2.093e-43 & -4.585 & -2.905 & 0 & 10 & SUP-BEATS \\
+FT-S2 & NR2 vs Baseline & 0 & 0.6168 & 0.5192 & 18.78 & 17.92 & 19.64 & 4.913e-81 & 3.93e-80 & 17.15 & 20.35 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs OLLA & 0 & 0.6168 & 0.5397 & 14.28 & 13.57 & 14.99 & 6.112e-79 & 4.278e-78 & 12.84 & 15.64 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs OLLA-tuned-500 & 0 & 0.6168 & 0.5573 & 10.67 & 10.07 & 11.27 & 6.114e-73 & 3.057e-72 & 9.359 & 11.9 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs Multi-OLLA & 0 & 0.6168 & 0.5406 & 14.09 & 13.38 & 14.8 & 1.535e-78 & 9.21e-78 & 12.64 & 15.45 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs Fixed-500 & 0 & 0.6168 & 0.5898 & 4.575 & 4.166 & 4.985 & 2.792e-50 & 1.117e-49 & 3.416 & 5.655 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs Context-500 & 0 & 0.6168 & 0.5919 & 4.204 & 3.808 & 4.599 & 4.524e-47 & 1.357e-46 & 3.044 & 5.257 & 10 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs Rule & 0 & 0.6168 & 0.6011 & 2.598 & 2.228 & 2.967 & 5.188e-25 & 1.038e-24 & 1.49 & 3.617 & 9 & 10 & RL-BEATS \\
+FT-S2 & NR2 vs Rule-cal & 0 & 0.6168 & 0.6015 & 2.537 & 2.165 & 2.909 & 1.138e-23 & 1.138e-23 & 1.428 & 3.56 & 9 & 10 & RL-BEATS \\
+\bottomrule
+\end{longtable}
+\normalsize
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}lllll@{}}
+\caption{FT: on-time ratio of every frozen scheme on the fresh traces, next to its value on the NR2 traces Source: \texttt{Optimized/v17x/Dataset/ft/ft\_schemes.csv}.}\\
+\toprule
+\textbf{scheme} & \textbf{n\_seeds} & \textbf{n\_traces} & \textbf{ft\_ontime} & \textbf{nr2\_ontime} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{scheme} & \textbf{n\_seeds} & \textbf{n\_traces} & \textbf{ft\_ontime} & \textbf{nr2\_ontime} \\
+\midrule
+\endhead
+GBT-full-ACK-M1fit1 & 1 & 500 & 0.667335 & 0.670985 \\
+GBT-full-ACK-M1fit2 & 1 & 500 & 0.683244 & 0.687812 \\
+GBT-full-ACK-M1fit3 & 1 & 500 & 0.671872 & 0.672883 \\
+GBT-full-ACK-M1fit4 & 1 & 500 & 0.674874 & 0.677930 \\
+GBT-res-ACK-M1fit1 & 1 & 500 & 0.638651 & 0.641963 \\
+GBT-res-ACK-M1fit2 & 1 & 500 & 0.646941 & 0.650141 \\
+GBT-res-ACK-M1fit3 & 1 & 500 & 0.636444 & 0.639933 \\
+GBT-res-ACK-M1fit4 & 1 & 500 & 0.643555 & 0.647659 \\
+NR2 & 10 & 500 & 0.616759 & 0.616930 \\
+RL-full & 10 & 500 & 0.619775 & 0.622175 \\
+Rule & 1 & 500 & 0.601144 & 0.600831 \\
+Rule-cal & 1 & 500 & 0.601501 & 0.600812 \\
+baseline & 1 & 500 & 0.519241 & 0.524680 \\
+ctx500 & 1 & 500 & 0.591880 & 0.594355 \\
+ctxj500 & 1 & 500 & 0.601534 & 0.600047 \\
+fixed500 & 1 & 500 & 0.589775 & 0.591460 \\
+multi\_olla & 1 & 500 & 0.540580 & 0.540603 \\
+olla & 1 & 500 & 0.539691 & 0.540737 \\
+olla\_tuned500 & 1 & 500 & 0.557303 & 0.560990 \\
+\bottomrule
+\end{longtable}
+\normalsize
 \section{S3. Pre-registrations, hashes and freeze timeline}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
@@ -1228,7 +1644,7 @@ compute\_basis.md &  & yes & ebce975 & 2026-11-04 21:44 &  &  &  \\
 NR2\_confirmatory\_prereg.md & NR2 & yes & a12d322 & 2026-11-08 09:09 & 2026-11-10 03:52:44 & fd6d7fb & 2026-11-10 15:35 \\
 nr2\_stats.py &  & yes & a12d322 & 2026-11-08 09:09 &  &  &  \\
 NR\_G10\_operating\_grid\_prereg.md & NR-G10 & yes & d7fd804 & 2026-11-10 15:37 & 2026-11-10 15:53:31 & 97fc571 & 2026-11-11 06:18 \\
-AMENDMENTS.md &  & yes & 8a3f5b0 & 2026-11-17 17:31 &  &  &  \\
+AMENDMENTS.md &  & yes & effea24 & 2026-11-25 11:52 &  &  &  \\
 HR1\_headroom\_prereg.md &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
 hr\_stats.py &  & yes & 25b7279 & 2026-11-11 11:44 &  &  &  \\
 R\_presub\_prereg.md & R1-R5 & yes & f631efe & 2026-11-13 15:39 & 2026-11-13 16:57:53 & 618eb47 & 2026-11-14 10:57 \\
@@ -1239,6 +1655,11 @@ R1c\_ack\_prereg.md & R1c & yes & 27b6c37 & 2026-11-15 16:14 & 2026-11-15 21:46:
 r1c\_stats.py &  & yes & 27b6c37 & 2026-11-15 16:14 &  &  &  \\
 R6\_fullaction\_prereg.md & R6 & yes & 8a3f5b0 & 2026-11-17 17:31 & 2026-11-18 09:24:30 & 5fc0f11 & 2026-11-18 15:39 \\
 r6\_stats.py &  & yes & 8a3f5b0 & 2026-11-17 17:31 &  &  &  \\
+S\_EOT\_PF\_prereg.md & S-EOT, D-PF & yes & 12a672c & 2026-11-19 13:04 & 2026-11-19 15:26:20 & 097b6a4 & 2026-11-25 09:40 \\
+FT\_fresh\_trace\_prereg.md & FT, S-SYM, T-GBT & yes & 4ec1d23 & 2026-11-25 01:19 & 2026-11-25 11:58:24 & 355f92b & 2026-11-26 03:36 \\
+FT\_objects.sha256 &  & yes & 4ec1d23 & 2026-11-25 01:19 &  &  &  \\
+ft\_stats.py &  & yes & 4ec1d23 & 2026-11-25 01:19 &  &  &  \\
+FT\_seed\_amendment.md & FT seeds & yes & effea24 & 2026-11-25 11:52 & 2026-11-25 11:58:24 & 355f92b & 2026-11-26 03:36 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1282,6 +1703,38 @@ huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):
 \bottomrule
 \end{longtable}
 \normalsize
+\section{S6. Diagnostic and sensitivity reports}
+\subsection*{S-EOT: end-of-trace accounting sensitivity}\addcontentsline{toc}{subsection}{S-EOT: end-of-trace accounting sensitivity}
+\noindent Source: \texttt{Optimized/v17x/Dataset/eot/eot\_summary.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/eot_summary.txt}
+\subsection*{S-EOT: share of packets affected}\addcontentsline{toc}{subsection}{S-EOT: share of packets affected}
+\noindent Source: \texttt{Optimized/v17x/Dataset/eot/exposure\_table.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/exposure_table.txt}
+\subsection*{D-PF: PF-averaging definition, M2 and M4}\addcontentsline{toc}{subsection}{D-PF: PF-averaging definition, M2 and M4}
+\noindent Source: \texttt{Optimized/v17x/Dataset/eot/pf\_diag\_M2\_M4.txt}\par
+\noindent\textbf{Note: the suggested paper wording at the end of this report (``their verdicts are unchanged'') is superseded. Under ACK-time PF averaging the RTT-0 goodput policy (M4) beats Fixed but loses to OLLA (per-comparator detail below), so the paper uses pre-registered row (b) and restricts the full-buffer claim to RTT 8.}\par\smallskip
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/pf_diag_M2_M4.txt}
+\subsection*{D-PF: per-comparator detail}\addcontentsline{toc}{subsection}{D-PF: per-comparator detail}
+\noindent Source: \texttt{Optimized/v17x/Dataset/eot/pf\_diag\_M4\_detail.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/pf_diag_M4_detail.txt}
+\subsection*{D-RS: retransmission scheduled-rate diagnostic}\addcontentsline{toc}{subsection}{D-RS: retransmission scheduled-rate diagnostic}
+\noindent Source: \texttt{Optimized/v17x/Dataset/eot/diag\_rsched\_retx.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/diag_rsched_retx.txt}
+\subsection*{FT: summary}\addcontentsline{toc}{subsection}{FT: summary}
+\noindent Source: \texttt{Optimized/v17x/Dataset/ft/ft\_summary.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/ft_summary.txt}
+\subsection*{FT: end-of-trace exposure}\addcontentsline{toc}{subsection}{FT: end-of-trace exposure}
+\noindent Source: \texttt{Optimized/v17x/Dataset/ft/ft\_exposure.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/ft_exposure.txt}
+\subsection*{S-SYM: symmetric seed-level check of frozen verdicts}\addcontentsline{toc}{subsection}{S-SYM: symmetric seed-level check of frozen verdicts}
+\noindent Source: \texttt{Optimized/v17x/Dataset/ft/ssym\_summary.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/ssym_summary.txt}
+\subsection*{T-GBT: decision time of the supervised learner}\addcontentsline{toc}{subsection}{T-GBT: decision time of the supervised learner}
+\noindent Source: \texttt{Optimized/v17x/Dataset/ft/tgbt\_timing.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/tgbt_timing.txt}
+\subsection*{HR1: headroom report}\addcontentsline{toc}{subsection}{HR1: headroom report}
+\noindent Source: \texttt{paper/analysis/out/hr\_report.txt}\par
+\VerbatimInput[fontsize=\tiny,breaklines=true,breakanywhere=true]{files/S6_reports/hr_report.txt}
 \end{landscape}
 \clearpage
 \subsection*{G6\_calibration\_budget\_prereg.md}\addcontentsline{toc}{subsection}{G6\_calibration\_budget\_prereg.md}
@@ -1325,7 +1778,7 @@ huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):
 \input{md_NR_G10_operating_grid_prereg_md.tex}
 \clearpage
 \subsection*{AMENDMENTS.md}\addcontentsline{toc}{subsection}{AMENDMENTS.md}
-\noindent SHA-256: \texttt{\footnotesize f4c628766d398cc6f653ecbfe62a43a63b0311a57531e0d1d17675215ac29e45}\par\medskip
+\noindent SHA-256: \texttt{\footnotesize 68efa5602f2df2da6f503d7815327c720944753a3b96d98d12f8fc71ff53e054}\par\medskip
 \input{md_AMENDMENTS_md.tex}
 \clearpage
 \subsection*{HR1\_headroom\_prereg.md}\addcontentsline{toc}{subsection}{HR1\_headroom\_prereg.md}
@@ -1347,4 +1800,16 @@ huang2022deluxe & 2022 & IEEE Journal on Selected Areas in Communications 40(1):
 \subsection*{R6\_fullaction\_prereg.md}\addcontentsline{toc}{subsection}{R6\_fullaction\_prereg.md}
 \noindent SHA-256: \texttt{\footnotesize a8899c0f4582ed37f0b52471439903264dca97743f5c5b55f639fe976c559a6a}\par\medskip
 \input{md_R6_fullaction_prereg_md.tex}
+\clearpage
+\subsection*{S\_EOT\_PF\_prereg.md}\addcontentsline{toc}{subsection}{S\_EOT\_PF\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize c4211dc2720845a0cf2035933373e548dfe970fa217224ab279f47b4f8328fc0}\par\medskip
+\input{md_S_EOT_PF_prereg_md.tex}
+\clearpage
+\subsection*{FT\_fresh\_trace\_prereg.md}\addcontentsline{toc}{subsection}{FT\_fresh\_trace\_prereg.md}
+\noindent SHA-256: \texttt{\footnotesize 5ada6b8e6105199e8dec50edb9decc53d82fe451be3418a6832a5d0d26a6c570}\par\medskip
+\input{md_FT_fresh_trace_prereg_md.tex}
+\clearpage
+\subsection*{FT\_seed\_amendment.md}\addcontentsline{toc}{subsection}{FT\_seed\_amendment.md}
+\noindent SHA-256: \texttt{\footnotesize b47c300e6b81e49872ed53a113e084e42aeaf208491d3acd648e009af02ac623}\par\medskip
+\input{md_FT_seed_amendment_md.tex}
 \end{document}

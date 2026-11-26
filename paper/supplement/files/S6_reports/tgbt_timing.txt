@@ -1,0 +1,84 @@
+========================================================================================
+T-GBT DECISION TIMING BENCHMARK (Amendment 13, Section 7 -- A3c Protocol)
+========================================================================================
+Power Scheme     : Power Scheme GUID: 46f7a0ee-261d-4cfa-b807-5e2afc7efde6  (High performance)
+Process Priority : HIGH_PRIORITY_CLASS (128)
+CPU Model        : Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+Threading        : Single-Threaded (OMP=1, MKL=1, OPENBLAS=1)
+Sample Count     : 5,000 TTIs per condition (100 warm-up excluded)
+Noise Floor      : median = 0.100 us | p99.9 = 0.300 us
+Model            : r1b_model.joblib (HistGradientBoostingClassifier, 300 trees, max_leaf=31)
+
+--- N = 10 Users (Main Scenario) ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |     4971.10 |        12422.96 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |     6101.60 |        12093.58 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      180.30 |          632.10 | 99.9% / 99.6% / 93.4% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      186.00 |          679.00 | 99.9% / 99.3% / 92.0% / 0.0% (stored A3c)
+
+--- N = 50 Users  ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |     9032.40 |        15759.43 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |    15491.60 |        22576.87 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      255.20 |          972.60 | 99.9% / 96.5% / 45.6% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      237.70 |          927.10 | 99.9% / 96.3% / 64.8% / 0.0% (stored A3c)
+
+--- N = 100 Users  ---
+Scheme                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+--------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (fit 1)      |    14057.85 |        22051.30 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (fit 1)     |    27191.30 |        51019.33 |        0.00% |          0.00% |          0.00% |           0.00%
+NR2 A2C (A3c NumPy)      |      297.80 |         1061.61 | 99.9% / 95.2% / 0.1% / 0.0% (stored A3c)
+NR2 A2C (A3c ONNX)       |      284.80 |         1204.20 | 99.8% / 95.0% / 0.5% / 0.0% (stored A3c)
+
+
+========================================================================================
+T-GBT-b (descriptive, added after T-GBT)
+========================================================================================
+Process Priority : HIGH_PRIORITY_CLASS (128) | Threading: Single-Threaded (all libs=1)
+Sample Count     : 10,000 TTIs per condition (500 warm-up excluded)
+Noise Floor      : median = 0.100 us | p99.9 = 0.400 us
+Per-TTI Work     : All N users simultaneously: 1-frame 19-feature build, candidate
+                   MCS expansion (K=3 for res -> 3N rows; K=7 for full -> 7N rows),
+                   300-tree probability scoring, tbs*p_hat utility, and argmax.
+
+Equivalence Check on 10,000 calibration feature rows x all candidate MCS values:
+  GBT-res-ACK (30k rows)    | ONNX Runtime       | max |dp| = 4.311e-07 | MCS match = 100.00%
+  GBT-res-ACK (30k rows)    | Vectorized NumPy   | max |dp| = 7.772e-16 | MCS match = 100.00%
+  GBT-res-ACK (30k rows)    | Treelite GTIL      | max |dp| = 1.693e-15 | MCS match = 100.00%
+  GBT-full-ACK (70k rows)   | ONNX Runtime       | max |dp| = 6.251e-07 | MCS match = 100.00%
+  GBT-full-ACK (70k rows)   | Vectorized NumPy   | max |dp| = 7.772e-16 | MCS match = 100.00%
+  GBT-full-ACK (70k rows)   | Treelite GTIL      | max |dp| = 1.693e-15 | MCS match = 100.00%
+
+--- N = 10 Users (Main Scenario) ---
+Scheme & Runtime                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+------------------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (ONNX Runtime)         |      611.10 |         1786.65 |       98.76% |          0.59% |          0.00% |           0.00%
+GBT-res-ACK (Treelite GTIL)        |     3401.30 |         9337.30 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-res-ACK (Vec NumPy)            |     8014.45 |        13707.37 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (ONNX Runtime)        |      996.60 |         2346.51 |       51.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Treelite GTIL)       |     7383.15 |        18049.73 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Vec NumPy)           |    18333.75 |        34064.45 |        0.00% |          0.00% |          0.00% |           0.00%
+
+--- N = 50 Users  ---
+Scheme & Runtime                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+------------------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (ONNX Runtime)         |     1973.20 |         4004.10 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-res-ACK (Treelite GTIL)        |    15123.85 |        27643.21 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-res-ACK (Vec NumPy)            |    41865.40 |        62248.97 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (ONNX Runtime)        |     3973.20 |         8425.02 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Treelite GTIL)       |    34411.95 |        57458.90 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Vec NumPy)           |   103560.35 |       139099.19 |        0.00% |          0.00% |          0.00% |           0.00%
+
+--- N = 100 Users  ---
+Scheme & Runtime                   | Median (us) | Corr p99.9 (us) | 15kHz(<=1ms) | 30kHz(<=500us) | 60kHz(<=250us) | 120kHz(<=125us)
+------------------------------------------------------------------------------------------------------------------------------
+GBT-res-ACK (ONNX Runtime)         |     3690.80 |         7607.41 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-res-ACK (Treelite GTIL)        |    29548.35 |        51126.95 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-res-ACK (Vec NumPy)            |    88684.35 |       146970.57 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (ONNX Runtime)        |     7866.90 |        15958.47 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Treelite GTIL)       |    68306.05 |       107204.00 |        0.00% |          0.00% |          0.00% |           0.00%
+GBT-full-ACK (Vec NumPy)           |   231325.95 |       350373.40 |        0.00% |          0.00% |          0.00% |           0.00%
+
