@@ -1,13 +1,19 @@
 \section{Discussion}\label{sec:discussion}
-A gain over OLLA was never evidence for RL: at the tested points, accurate one-step estimation bought more than sequential credit assignment. This section explains why, what it means in practice, and where the result stops.
+A gain over OLLA alone is weak evidence for RL: at the tested points, accurate one-step estimation bought more than sequential credit assignment. This section explains why, what it means in practice, and where the result stops.
 
 \subsection{Why does a myopic learner win?}\label{sec:myopic}
-When only one retransmission fits, link adaptation is close to a one-shot trade-off, and supervised learning estimates that trade-off directly. Each decision weighs the success probability against the size of the transport block (Section~\ref{sec:system}). The supervised learner fits this from labelled outcomes. The RL policy must discover it through a noisy return that arrives several TTIs later.
+The supervised learner ignores the future, which is exactly what RL is designed to handle, so its win needs an explanation. Three explanations compete. Our data bear on the first only; the other two need new experiments.
 
-The horizon is not the whole story, however. In the cell with a longer deadline (\NGthreeDeadline{} TTIs), two retransmissions fit, and the supervised learner still wins (\Ronec{mean_gthree_res} on time against \Ronec{rl_gthree}). That cell also has a lower load and runs close to the delivery ceiling, so it does not isolate the horizon. Two experiments would decide: training RL and the supervised learner on the same exploration logs, and testing at a fixed load with deadlines that allow several retransmissions.
+\emph{The horizon.} When only one retransmission fits, link adaptation is close to a one-shot trade-off between the success probability and the size of the transport block (Section~\ref{sec:system}). The supervised learner fits this trade-off from labelled outcomes; the RL policy must discover it through a noisy return that arrives several TTIs later. The horizon cannot be the whole story, however. At the operating point with a longer deadline (\NGthreeDeadline{} TTIs), two retransmissions fit, and the supervised learner still wins (\Ronec{mean_gthree_res} on time against \Ronec{rl_gthree}). That point also has a lower load and runs close to the delivery ceiling, so it weakens this explanation without ruling it out.
+
+\emph{The training data.} The supervised learner was trained on exploration logs that cover non-default offsets. The RL policy saw only the outcomes of its own actions, which become less exploratory as training proceeds. Training an RL or fitted-Q learner on the same logs would test this explanation.
+
+\emph{The built-in payload model.} The supervised learner multiplies its success probability by the payload each candidate would deliver; only the success probability is learned. The RL policy must learn the effect of the transport-block size from rewards. A supervised learner that predicts on-time delivery directly, without this term, would test this explanation.
+
+Until these experiments are run, our result says that this one-step design beat this RL design \emph{at the tested points}, not that sequential learning is useless.
 
 \subsection{What this means in practice}\label{sec:calfirst}
-\emph{Calibrate first.} The largest effect in this study came from the comparator, not from the learner. Strong rules are not free: the search for the combined table took \NGsixSearchHours~h of simulation, against \NMoneHours~h to train and evaluate ten RL policies. Studies should give rules a comparable tuning budget and report it, as they do for learners~\cite{ferraridacrema2019progress}.
+\emph{Calibrate first.} The largest effect in this study came from the comparator, not from the learner. Strong rules are not free: the search for the combined table took \NGsixSearchHours~h of simulation, against \NMoneHours~h to train and evaluate ten RL policies. Here the rules received more tuning than RL, which kept one hyper-parameter set. This favours the rules on rung~\lit{2}, but not on rung~\lit{3}, where the supervised learner was not tuned at all. Studies should report the tuning budget of rules as they do for learners~\cite{ferraridacrema2019progress}.
 
 \emph{Try a one-step learner before deep RL, but budget for its costs.} A supervised success model needs no reward design, and here it beat RL. It has two costs. Exploration: logging the outcomes of non-default offsets costs throughput while it runs, and we did not measure that cost in a live network. Decision time, discussed next.
 
@@ -15,12 +21,12 @@ The horizon is not the whole story, however. In the cell with a longer deadline 
 
 \subsection{Limitations}\label{sec:limits}
 \begin{enumerate}
-\item \emph{One simulator.} All results come from one single-cell simulator with an SINR-to-BLER abstraction, without over-the-air validation; another channel model or traffic mix could change the ranking.
 \item \emph{Order of the tests.} The supervised learner was designed after the RL confirmation. The fresh-trace evaluation confirms its ranking, but cannot undo that order.
 \item \emph{Unmatched learners.} The supervised learner had exploration logs that RL never saw. RL kept its prior towards the base rule and one hyper-parameter set. The intervals hold each supervised fit fixed.
-\item \emph{Tested conditions.} The supervised learner was not tested at RTT~\lit{0}, on full-buffer traffic, with noisy ACK/NACK, or with several retransmissions at the same load.
-\item \emph{Oracle information.} The combined table and the original RL policy use the true speed class; the recommended RL policy and the supervised learner do not.
 \item \emph{Scheduler definition at RTT~\lit{0}.} At RTT~\lit{0} the RL policies were trained with the PF average updated on ACK but evaluated with the average updated at scheduling time. Under the training definition, the deadline-traffic margin over the Context table is no longer significant (\NDpfMtwoAckCtxMar\,\%, Holm $p={}$\,\NDpfMtwoAckCtxHolm). On full-buffer traffic, RL then beats the calibrated offset (\NDpfMfourAckFixedMar\,\% instead of \NDpfMfourSchedFixedMar\,\%) but loses to OLLA (\NDpfMfourAckOllaMar\,\%). The RTT~\lit{0} results therefore depend on this definition; retraining with one definition is left for future work. At RTT~\NCfgRtt, a related training-side mismatch affected \NDrsShare\,\% of TTIs.
+\item \emph{One simulator.} All results come from one single-cell simulator with an SINR-to-BLER abstraction, without over-the-air validation; another channel model or traffic mix could change the ranking.
+\item \emph{Tested conditions.} The supervised learner was not tested at RTT~\lit{0}, on full-buffer traffic, with noisy ACK/NACK, or with several retransmissions at the same load.
+\item \emph{Oracle information.} The combined table and the original RL policy use the true speed class; the RL policy and the supervised learner do not.
 \item \emph{Ten seeds.} Hierarchical bootstrap intervals over ten seeds can under-cover and should be read as indicative.
-\item \emph{An evaluation fault.} In the higher-load cell, five added RL seeds were first evaluated with the wrong packet size. Both values are in the supplement; the corrected ones are used here.
+\item \emph{An evaluation fault.} At the higher-load operating point, five added RL seeds were first evaluated with the wrong packet size. Both values are in the supplement; the corrected ones are used here.
 \end{enumerate}

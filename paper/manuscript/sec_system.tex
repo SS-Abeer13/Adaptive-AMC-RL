@@ -1,14 +1,14 @@
 \section{System Model and Problem}\label{sec:system}
-With an RTT of \NCfgRtt{} TTIs and a deadline of \NCfgDeadline{} TTIs, a packet gets at most one retransmission. The first MCS choice therefore decides most outcomes. This section describes the simulated cell and the decision every controller makes.
+This section defines the simulated cell, its HARQ timing and the decision every controller makes. One property of the timing shapes everything that follows.
 
 \subsection{Simulated cell}
 One single-cell simulator produces every result, so its limits bound every claim. A macro cell serves $N=\NCfgUsers$ users on a \SI{20}{MHz} carrier with a \SI{1}{ms} TTI. The channel combines shadowing, fast fading for user speeds of \NCfgSpeedMin--\NCfgSpeedMax~m/s, and interference bursts. Users report a 15-level CQI with a delay of 2--8 TTIs and report noise, and block errors follow an SINR-to-BLER abstraction. A proportional-fair (PF) scheduler serves one user per TTI and updates its average at scheduling time (Appendix~\ref{app:pitfalls} explains why this matters). Table~\ref{tab:params} lists all parameters.
 
 \subsection{HARQ timing and traffic}
-The HARQ timing leaves room for only one retransmission before the deadline. In the main scenario the ACK/NACK returns after an RTT of \NCfgRtt{} TTIs, and each user has 8 HARQ processes. Packets of \SI{\NCfgPkt}{bit} arrive every \NCfgPeriod{} TTIs with a budget of \NCfgDeadline{} TTIs. Retransmissions reuse the stored MCS, so link adaptation acts on new transmissions only. We also test instantaneous feedback (RTT~0) and full-buffer traffic, where every user always has data.
+The HARQ timing leaves room for only one retransmission before the deadline, so the first MCS choice decides most outcomes. In the main scenario the ACK/NACK returns after an RTT of \NCfgRtt{} TTIs, and each user has 8 HARQ processes. Packets of \SI{\NCfgPkt}{bit} arrive every \NCfgPeriod{} TTIs with a budget of \NCfgDeadline{} TTIs. Retransmissions reuse the stored MCS, so link adaptation acts on new transmissions only. We also test instantaneous feedback (RTT~0) and full-buffer traffic, where every user always has data.
 
 \subsection{The decision problem}
-Every controller does the same thing: it adds an integer offset $a$ to the OLLA-corrected CQI $q_\mathrm{ref}$, and the result selects the MCS (Fig.~\ref{fig:system}). The controllers differ only in how they choose $a$. For deadline traffic the objective is the \emph{on-time delivery ratio}, the fraction of packets fully delivered before their deadline; for full-buffer traffic it is goodput. A higher offset sends a larger transport block but risks a NACK. A NACK costs one RTT, which a packet near its deadline may not have. Section~\ref{sec:controllers} describes how each controller makes this choice.
+Every controller does the same thing: it adds an integer offset $a$ to the OLLA-corrected CQI $q_\mathrm{ref}$, and the result selects the MCS (Fig.~\ref{fig:system}). The controllers differ only in how they choose $a$. For deadline traffic the objective is the \emph{on-time ratio}, the fraction of packets fully delivered before their deadline; for full-buffer traffic it is goodput. A higher offset sends a larger transport block but risks a NACK. A NACK costs one RTT, which a packet near its deadline may not have. Section~\ref{sec:controllers} describes how each controller makes this choice.
 
 \begin{table}[t]
 \caption{Simulation parameters}\label{tab:params}
